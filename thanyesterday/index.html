@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Than Yesterday — Weather, compared to yesterday</title>
+<meta name="description" content="Instead of '70°F', one line: '3° warmer than yesterday.' The weather app that tells you what to wear by comparing to the day you remember.">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="ko" href="ko.html">
+<link rel="alternate" hreflang="ja" href="ja.html">
+<link rel="alternate" hreflang="zh-Hans" href="zh-hans.html">
+<link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
+<link rel="alternate" hreflang="x-default" href="index.html">
+<meta property="og:title" content="Than Yesterday — Weather, compared to yesterday">
+<meta property="og:description" content="Not numbers. One line compared to yesterday — so you instantly know what to wear.">
+<meta property="og:image" content="icon.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="wordmark" href="index.html"><img src="icon.png" alt="Than Yesterday icon">Than Yesterday</a>
+    <nav class="nav-right">
+      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
+        <option value="index.html" selected>EN</option>
+        <option value="ko.html">한국어</option>
+        <option value="ja.html">日本語</option>
+        <option value="zh-hans.html">简体中文</option>
+        <option value="zh-hant.html">繁體中文</option>
+      </select>
+      <a class="nav-cta" href="https://apps.apple.com/app/id6761168631" target="_blank" rel="noopener">App Store</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ──────────────── HERO ──────────────── -->
+<main>
+<div class="hero">
+  <div class="hero-copy">
+    <p class="kicker">Weather, than yesterday</p>
+    <h1 class="hero-msg">
+      <span class="cycle" data-cycle='["3° warmer than yesterday","Yesterday&#39;s outfit works today","Calmer winds than yesterday"]'>3° warmer than yesterday</span>
+    </h1>
+    <p class="hero-sub">
+      Nobody really knows what 70°F feels like.<br>
+      But your body remembers <strong>yesterday</strong>.<br>
+      One line compared to yesterday — and you instantly know what to wear.
+    </p>
+    <div class="hero-cta-row">
+      <a class="appstore-btn" href="https://apps.apple.com/app/id6761168631" target="_blank" rel="noopener">
+        <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download on the App Store
+      </a>
+      <span class="rating"><span class="stars">★★★★★</span>5.0 · App Store</span>
+    </div>
+    <p class="hero-foot">Free download · iPhone & iPad · Widgets included</p>
+  </div>
+
+  <!-- Phone mock: the actual app poster -->
+  <div class="phone-col">
+    <div class="phone" aria-hidden="true">
+      <div class="notch"></div>
+      <div class="p-top"><span>SEOUL · <span data-clock>09:41</span></span><span>≡</span></div>
+      <div class="p-shape">
+        <div class="sun"><i></i><i></i><i></i><i></i></div>
+        <div class="moon"></div>
+      </div>
+      <div class="p-bottom">
+        <p class="p-msg">3° warmer<br>than yesterday</p>
+        <p class="p-temp">75<span class="unit">°F</span></p>
+        <p class="p-meta">Clear · Feels 75° &nbsp;&nbsp; H 79° / L 64°</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────── CORE IDEA ──────────────── -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">Why compare to yesterday</p>
+    <h2 class="sec-title">You forget numbers.<br>You remember yesterday.</h2>
+    <div class="idea-cards">
+      <div class="idea-card">
+        <p class="tag">Other weather apps</p>
+        <p class="big">70°F</p>
+        <p class="note">…so, what do I wear? You open the window to check.</p>
+      </div>
+      <div class="idea-card today">
+        <p class="tag">Than Yesterday</p>
+        <p class="big">3° below yesterday</p>
+        <p class="note">Ah — yesterday's outfit plus a layer. Done.</p>
+      </div>
+    </div>
+    <p class="idea-vs">The same question every morning,</p>
+    <p class="idea-punch">"What do I wear today?" — answered in 3 seconds.</p>
+  </div>
+</section>
+
+<!-- ──────────────── FEATURES ──────────────── -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">Features</p>
+    <h2 class="sec-title">Just what mornings need, on one screen.</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="f-visual"><div class="v-sun"><i></i><i></i><i></i></div></div>
+        <h3>One line vs. yesterday</h3>
+        <p>Temperature, wind, and humidity compared to yesterday — in words your body understands.</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual"><span class="v-glyph">👕</span></div>
+        <h3>Outfit suggestions</h3>
+        <p>"Yesterday's outfit plus a light jacket." Comparison-based, so it's actually useful — with a runs-cold/runs-hot adjustment.</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual">
+          <div class="v-rain"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <h3>Rain & snow, before you leave</h3>
+        <p>Know when you'll need an umbrella — plus an hourly precipitation widget.</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual"><div class="v-timestrip"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <h3>A screen that follows the sky</h3>
+        <p>Dawn, morning, day, sunset, night. The app takes on the light of the hour you open it.</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual"><span class="v-bell">🔔</span></div>
+        <h3>Morning & evening briefings</h3>
+        <p>Your comparison line, delivered before you head out. Configurable by weekday.</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual"><div class="v-dots"><i></i><i class="on"></i><i></i><i></i></div></div>
+        <h3>Air quality, precisely</h3>
+        <p>Fine-dust levels shown as grades or numbers — with station-level data in Korea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────── WIDGETS ──────────────── -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">Widgets</p>
+    <h2 class="sec-title">Check the weather without opening anything.</h2>
+    <p class="sec-sub">Home Screen and Lock Screen widgets show the difference from yesterday at a glance.</p>
+    <div class="widgets">
+      <div class="widget small">
+        <p class="w-label">Than yesterday</p>
+        <p class="w-big">+3°</p>
+        <p class="w-note">Warmer · Clear</p>
+      </div>
+      <div class="widget circular">
+        <p class="w-big">+3°</p>
+        <p class="w-label">vs YDA</p>
+      </div>
+      <div class="widget medium">
+        <p class="w-label">Hourly</p>
+        <div class="w-bars">
+          <i style="height:38%"></i><i style="height:46%"></i><i style="height:58%"></i>
+          <i style="height:72%"></i><i style="height:88%"></i><i style="height:100%"></i>
+          <i style="height:84%"></i><i style="height:66%"></i><i style="height:52%"></i>
+        </div>
+        <p class="w-note">Now 75° · High 79° at 3 PM</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────── CTA ──────────────── -->
+<section class="cta">
+  <div class="wrap">
+    <div class="sun"><i></i><i></i><i></i><i></i></div>
+    <div class="moon"></div>
+    <h2 class="cta-title">Starting tomorrow morning,<br>compare to yesterday.</h2>
+    <p class="cta-sub">Free to start · Widgets included · iPhone & iPad</p>
+    <a class="appstore-btn" href="https://apps.apple.com/app/id6761168631" target="_blank" rel="noopener">
+      <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+      Download on the App Store
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <span>© kkiruk studio</span>
+    <nav class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
+      <a href="ko.html">한국어</a>
+      <a href="ja.html">日本語</a>
+      <a href="zh-hans.html">简体中文</a>
+      <a href="zh-hant.html">繁體中文</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

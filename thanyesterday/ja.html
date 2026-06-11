@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>昨日より — 寒い?暑い?昨日と比べる天気</title>
+<meta name="description" content="「21°C」ではなく「昨日より3°あたたかい」。昨日と比べるから、今日の服がすぐ決まる天気アプリ。">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="ko" href="ko.html">
+<link rel="alternate" hreflang="ja" href="ja.html">
+<link rel="alternate" hreflang="zh-Hans" href="zh-hans.html">
+<link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
+<link rel="alternate" hreflang="x-default" href="index.html">
+<meta property="og:title" content="昨日より — 寒い?暑い?昨日と比べる天気">
+<meta property="og:description" content="数字ではなく、昨日と比べた一言。今日の服がすぐ決まります。">
+<meta property="og:image" content="icon.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="wordmark" href="ja.html"><img src="icon.png" alt="昨日より アイコン">昨日より</a>
+    <nav class="nav-right">
+      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
+        <option value="index.html">EN</option>
+        <option value="ko.html">한국어</option>
+        <option value="ja.html" selected>日本語</option>
+        <option value="zh-hans.html">简体中文</option>
+        <option value="zh-hant.html">繁體中文</option>
+      </select>
+      <a class="nav-cta" href="https://apps.apple.com/jp/app/id6761168631" target="_blank" rel="noopener">App Store</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ──────────────── HERO ──────────────── -->
+<main>
+<div class="hero">
+  <div class="hero-copy">
+    <p class="kicker">Weather, than yesterday</p>
+    <h1 class="hero-msg">
+      <span class="cycle" data-cycle='["昨日より3°あたたかい","昨日と同じ服で大丈夫","昨日より風がおだやか"]'>昨日より3°あたたかい</span>
+    </h1>
+    <p class="hero-sub">
+      気温21°Cがどんな感じか、誰にもわかりません。<br>
+      でも<strong>昨日より暖かいか寒いか</strong>は、体が覚えています。<br>
+      昨日と比べた一言で、今日の服がすぐ決まります。
+    </p>
+    <div class="hero-cta-row">
+      <a class="appstore-btn" href="https://apps.apple.com/jp/app/id6761168631" target="_blank" rel="noopener">
+        <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        App Storeでダウンロード
+      </a>
+      <span class="rating"><span class="stars">★★★★★</span>5.0 · App Store</span>
+    </div>
+    <p class="hero-foot">無料ダウンロード · iPhone & iPad · ウィジェット対応</p>
+  </div>
+
+  <!-- 実際のアプリ画面のモック -->
+  <div class="phone-col">
+    <div class="phone" aria-hidden="true">
+      <div class="notch"></div>
+      <div class="p-top"><span>東京 · <span data-clock>09:41</span></span><span>≡</span></div>
+      <div class="p-shape">
+        <div class="sun"><i></i><i></i><i></i><i></i></div>
+        <div class="moon"></div>
+      </div>
+      <div class="p-bottom">
+        <p class="p-msg">昨日より3°<br>あたたかい</p>
+        <p class="p-temp">24<span class="unit">°C</span></p>
+        <p class="p-meta">晴れ · 体感 24° &nbsp;&nbsp; H 26° / L 18°</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────── コアアイデア ──────────────── -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">なぜ昨日と比べるのか</p>
+    <h2 class="sec-title">数字は覚えられなくても、<br>昨日の感覚は覚えている。</h2>
+    <div class="idea-cards">
+      <div class="idea-card">
+        <p class="tag">ほかの天気アプリ</p>
+        <p class="big">21°C</p>
+        <p class="note">…で、何を着る?窓を開けて確かめる。</p>
+      </div>
+      <div class="idea-card today">
+        <p class="tag">昨日より</p>
+        <p class="big">昨日より3° ↓</p>
+        <p class="note">あ、昨日の服にもう一枚。それだけ。</p>
+      </div>
+    </div>
+    <p class="idea-vs">毎朝おなじ悩み、</p>
+    <p class="idea-punch">「今日、何着よう?」が3秒で終わります。</p>
+  </div>
+</section>
+
+<!-- ──────────────── 機能 ──────────────── -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">機能</p>
+    <h2 class="sec-title">朝に必要なものだけ、ひとつの画面に。</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="f-visual"><div class="v-sun"><i></i><i></i><i></i></div></div>
+        <h3>昨日と比べた一言</h3>
+        <p>気温・風・湿度を昨日と比べて、体でわかる言葉でお知らせ。</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual"><span class="v-glyph">👕</span></div>
+        <h3>服装の提案</h3>
+        <p>「昨日の服に薄手の上着を」— 比較ベースだから実用的。寒がり・暑がり補正も。</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual">
+          <div class="v-rain"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <h3>雨・雪は出かける前に</h3>
+        <p>傘がいる日は事前にお知らせ。時間別の降水ウィジェットも。</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual"><div class="v-timestrip"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <h3>時間で染まる画面</h3>
+        <p>夜明け・朝・昼・夕焼け・夜。開くたび、その時間の光に変わります。</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual"><span class="v-bell">🔔</span></div>
+        <h3>朝・夜のブリーフィング通知</h3>
+        <p>出かける時間に合わせて今日の比較メッセージをお届け。曜日ごとに設定できます。</p>
+      </div>
+      <div class="feature">
+        <div class="f-visual"><div class="v-dots"><i></i><i class="on"></i><i></i><i></i></div></div>
+        <h3>大気質も正確に</h3>
+        <p>PM2.5を等級または数値で表示します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────── ウィジェット ──────────────── -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">ウィジェット</p>
+    <h2 class="sec-title">ロック画面で、天気チェックは終わり。</h2>
+    <p class="sec-sub">ホーム画面・ロック画面ウィジェットで、アプリを開かなくても昨日との差がわかります。</p>
+    <div class="widgets">
+      <div class="widget small">
+        <p class="w-label">昨日より</p>
+        <p class="w-big">+3°</p>
+        <p class="w-note">あたたかい · 晴れ</p>
+      </div>
+      <div class="widget circular">
+        <p class="w-big">+3°</p>
+        <p class="w-label">昨日比</p>
+      </div>
+      <div class="widget medium">
+        <p class="w-label">時間別気温</p>
+        <div class="w-bars">
+          <i style="height:38%"></i><i style="height:46%"></i><i style="height:58%"></i>
+          <i style="height:72%"></i><i style="height:88%"></i><i style="height:100%"></i>
+          <i style="height:84%"></i><i style="height:66%"></i><i style="height:52%"></i>
+        </div>
+        <p class="w-note">いま24° · 15時に最高26°</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────── CTA ──────────────── -->
+<section class="cta">
+  <div class="wrap">
+    <div class="sun"><i></i><i></i><i></i><i></i></div>
+    <div class="moon"></div>
+    <h2 class="cta-title">明日の朝から、<br>昨日と比べてみませんか。</h2>
+    <p class="cta-sub">無料で始める · ウィジェット対応 · iPhone & iPad</p>
+    <a class="appstore-btn" href="https://apps.apple.com/jp/app/id6761168631" target="_blank" rel="noopener">
+      <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+      App Storeでダウンロード
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <span>© kkiruk studio</span>
+    <nav class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">お問い合わせ</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">プライバシーポリシー</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">利用規約</a>
+      <a href="index.html">EN</a>
+      <a href="ko.html">한국어</a>
+      <a href="zh-hans.html">简体中文</a>
+      <a href="zh-hant.html">繁體中文</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

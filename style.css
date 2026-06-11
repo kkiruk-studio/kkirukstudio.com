@@ -1,0 +1,129 @@
+/* ============================================================
+   kkiruk studio — 홈 + 앱 페이지 공용
+   시간대별 배경: 어제보다 앱의 디자인 시스템과 동일
+   ============================================================ */
+
+:root {
+  --bg: #F7F6F2;
+  --ink: #1A1A1A;
+  --ink2: #8A8A8A;
+  --accent: #F5C842;
+  --maxw: 960px;
+}
+html.t-midnight { --bg:#0D0E16; --ink:#EAE6DC; --ink2:#606470; --accent:#6B7FA3; }
+html.t-dawn     { --bg:#18234A; --ink:#E8EAF2; --ink2:#8A93B8; --accent:#6B7FA3; }
+html.t-morning  { --bg:#EBF0F7; --ink:#1A1A1A; --ink2:#8A8A8A; --accent:#F5C842; }
+html.t-day      { --bg:#F7F6F2; --ink:#1A1A1A; --ink2:#8A8A8A; --accent:#F5C842; }
+html.t-sunset   { --bg:#EDDDCA; --ink:#2A1F14; --ink2:#8A7A66; --accent:#F4A261; }
+html.t-evening  { --bg:#181428; --ink:#E8E2F0; --ink2:#6B6480; --accent:#6B7FA3; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard Variable", Pretendard,
+               "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  transition: background .6s ease, color .6s ease;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+/* ── Header ── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: background .6s ease;
+}
+header .bar {
+  max-width: var(--maxw); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px;
+}
+.wordmark { font-weight: 650; font-size: 15px; letter-spacing: -.01em; }
+.nav-right { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--ink2); }
+.nav-right a:hover { color: var(--ink); }
+
+/* ── 홈 히어로 ── */
+.home-hero { padding: 150px 0 70px; }
+.home-hero .kicker {
+  font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: lowercase;
+  color: var(--ink2); margin-bottom: 18px;
+}
+.home-hero h1 {
+  font-size: clamp(30px, 4.6vw, 48px);
+  font-weight: 650; letter-spacing: -.02em; line-height: 1.22;
+}
+.home-hero p { margin-top: 16px; color: var(--ink2); font-size: 16px; }
+
+/* ── 섹션 ── */
+section { padding: 40px 0 70px; }
+.sec-label {
+  font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink2); margin-bottom: 22px;
+}
+
+/* ── 앱 그리드 ── */
+.apps { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.app-card {
+  display: flex; gap: 18px; align-items: flex-start;
+  border-radius: 22px; padding: 24px;
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+  transition: transform .15s ease, background .2s ease;
+}
+.app-card:hover { transform: translateY(-2px); background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.app-card img { width: 64px; height: 64px; border-radius: 15px; flex-shrink: 0; }
+.app-card h3 { font-size: 16.5px; font-weight: 650; letter-spacing: -.01em; }
+.app-card .en { font-size: 11.5px; color: var(--ink2); font-weight: 500; margin-top: 1px; }
+.app-card p { font-size: 13.5px; color: var(--ink2); margin-top: 7px; }
+.app-card .links { margin-top: 10px; display: flex; gap: 14px; font-size: 12.5px; font-weight: 600; }
+.app-card .links a { color: var(--ink); border-bottom: 1px solid color-mix(in srgb, var(--ink) 30%, transparent); padding-bottom: 1px; }
+.app-card .links a:hover { border-color: var(--ink); }
+
+/* ── 앱 상세(미니) 페이지 ── */
+.app-hero { padding: 150px 0 40px; text-align: center; }
+.app-hero img { width: 110px; height: 110px; border-radius: 26px; box-shadow: 0 16px 44px -14px color-mix(in srgb, var(--ink) 30%, transparent); }
+.app-hero h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 650; letter-spacing: -.02em; margin-top: 24px; }
+.app-hero .tagline { color: var(--ink2); font-size: 17px; margin-top: 10px; }
+.app-hero .tagline-en { color: var(--ink2); font-size: 13px; margin-top: 4px; opacity: .8; }
+.appstore-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--ink); color: var(--bg);
+  padding: 14px 24px; border-radius: 14px;
+  font-size: 16px; font-weight: 600; margin-top: 28px;
+  transition: transform .15s ease, opacity .2s;
+}
+.appstore-btn:hover { transform: translateY(-1px); opacity: .9; }
+.appstore-btn svg { width: 18px; height: 22px; fill: currentColor; }
+
+.bullets { max-width: 520px; margin: 30px auto 0; text-align: left; display: flex; flex-direction: column; gap: 12px; }
+.bullet {
+  border-radius: 16px; padding: 16px 20px;
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+  font-size: 14.5px;
+}
+.bullet b { font-weight: 650; }
+.bullet span { color: var(--ink2); }
+
+.support-note { text-align: center; margin-top: 36px; font-size: 13.5px; color: var(--ink2); }
+.support-note a { color: var(--ink); border-bottom: 1px solid color-mix(in srgb, var(--ink) 30%, transparent); }
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+  padding: 36px 0 60px; font-size: 13px; color: var(--ink2); margin-top: 50px;
+}
+footer .cols { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+footer a:hover { color: var(--ink); }
+footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+@media (max-width: 700px) {
+  .apps { grid-template-columns: 1fr; }
+  .home-hero { padding-top: 120px; }
+}
