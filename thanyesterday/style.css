@@ -71,7 +71,7 @@ header .bar {
 
 /* ── Hero ─────────────────────────────── */
 .hero {
-  min-height: 100svh;
+  min-height: 88svh;
   display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 40px;
   max-width: var(--maxw); margin: 0 auto; padding: 110px 24px 60px;
 }
@@ -165,7 +165,7 @@ html.is-night .sun  { display: none; }
 html.is-night .moon { display: block; }
 
 /* ── Sections ─────────────────────────── */
-section { padding: 90px 0; }
+section { padding: 52px 0; }
 .sec-label {
   font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
   color: var(--ink2); margin-bottom: 14px;
@@ -257,7 +257,7 @@ section { padding: 90px 0; }
 .w-bars i { flex: 1; border-radius: 4px 4px 2px 2px; background: color-mix(in srgb, var(--accent) 75%, transparent); }
 
 /* ── CTA ─────────────────────────────── */
-.cta { text-align: center; }
+.cta { text-align: center; padding: 64px 0 90px; }
 .cta .sun, .cta .moon { margin: 0 auto 30px; }
 .cta .sun { width: 120px; height: 120px; }
 .cta .moon { width: 100px; height: 100px; }
@@ -281,7 +281,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
   .hero-cta-row { justify-content: center; }
   .features { grid-template-columns: 1fr 1fr; }
   .idea-cards { grid-template-columns: 1fr; }
-  section { padding: 64px 0; }
+  section { padding: 40px 0; }
 }
 @media (max-width: 540px) {
   .features { grid-template-columns: 1fr; }
