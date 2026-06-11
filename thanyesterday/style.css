@@ -437,3 +437,13 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .mock-lock-row .wg2-lock { background: transparent; box-shadow: none; width: 545px; }
 /* 위젯 한 줄 정렬 — 스몰+미디엄 등높이 */
 .widgets { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-top: 44px; }
+
+/* 차트 1위 배지 */
+.rank-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12.5px; font-weight: 650; color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 99px; padding: 6px 13px;
+}
+.rank-badge::before { content: "№1"; font-weight: 800; color: color-mix(in srgb, var(--ink) 80%, var(--accent)); }
