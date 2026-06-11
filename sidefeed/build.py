@@ -40,11 +40,11 @@ LOCALES = {
         "how_h2": "Here's how you use it — <em>three simple steps</em>.",
         "steps": [
             ["COUNTRY", "Pick a country to look at", "Tap the flag button and choose one of 12 countries — the US, Japan, Korea and more. You instantly see the videos people in that country are watching the most right now."],
-            ["SIGNALS", "Spot the videos that are climbing", "Every video carries a mark: ▲ means its rank went up in the last 6 hours, ▼ means it went down, NEW means it just entered the chart. Top Movers and the Radar tab gather the fastest climbers for you."],
+            ["SIGNALS", "Spot the videos that are climbing", "Every video carries a ▲ (rising), ▼ (falling) or NEW (just entered) mark. Top Movers and the Radar tab gather the fastest climbers for you."],
             ["RESEARCH", "Save the ones worth remembering", "Tap a video and Sidefeed first shows how its rank has changed and how fast its views are growing. Save the useful ones to Watch Later — they sync through your own iCloud to both iPhone and iPad."],
         ],
         "rank_kicker": "RANK MOVEMENT", "rank_num": "EVERY 6 HOURS",
-        "rank_h2": "What matters is <em>how fast a video is climbing</em>.",
+        "rank_h2": "\"Rising right now\" is something <em>YouTube itself never shows you</em>.",
         "rank_lede": "Anyone can see what's #1 today. The real signal is the video that was #18 six hours ago and is #3 now — that one is blowing up as you watch. Sidefeed saves the chart through the day and marks every video with exactly how its rank changed.",
         "rank_rows": [
             ["6h ago #18", "now #3", '🇺🇸 GAMING · <span class="d-up">▲15</span>'],
@@ -116,11 +116,11 @@ LOCALES = {
         "how_h2": "사용법은 <em>세 단계</em>가 전부입니다.",
         "steps": [
             ["국가", "어느 나라를 볼지 고르세요", "국기 버튼을 누르면 미국·일본·한국 같은 12개 나라 중 하나를 고를 수 있어요. 그 나라 사람들이 지금 가장 많이 보는 유튜브 영상이 바로 뜹니다."],
-            ["시그널", "올라오는 영상을 찾아내세요", "모든 영상 옆에 표시가 붙어요. ▲는 6시간 전보다 순위가 올랐다는 뜻, ▼는 내렸다는 뜻, NEW는 차트에 막 들어왔다는 뜻입니다. 빠르게 치고 올라오는 영상은 Top Movers와 레이더 탭이 따로 모아서 보여줍니다."],
+            ["시그널", "올라오는 영상을 찾아내세요", "모든 영상 옆에 ▲(상승)·▼(하락)·NEW(새 진입) 표시가 붙어요. 빠르게 치고 올라오는 영상은 Top Movers와 레이더 탭이 따로 모아서 보여줍니다."],
             ["리서치", "쓸 만한 영상은 저장해 두세요", "영상을 누르면 순위가 어떻게 변해왔는지, 조회수가 얼마나 빨리 늘고 있는지를 먼저 보여줘요. 참고할 영상은 '나중에 보기'에 저장하면 iCloud를 통해 아이폰·아이패드 어디서든 다시 볼 수 있습니다."],
         ],
         "rank_kicker": "순위 변동", "rank_num": "6시간마다",
-        "rank_h2": "중요한 건 <em>얼마나 빨리 오르고 있는가</em>입니다.",
+        "rank_h2": "'지금 막 뜨는 중'은 <em>유튜브 어디에도 안 나옵니다</em>.",
         "rank_lede": "오늘 1위가 무엇인지는 누구나 볼 수 있어요. 진짜 신호는 '6시간 전에 18위였는데 지금 3위'인 영상입니다. 바로 지금 뜨고 있다는 뜻이니까요. Sidefeed는 하루 종일 차트를 저장해 두고, 모든 영상의 순위가 정확히 어떻게 변했는지 표시해 줍니다.",
         "rank_rows": [
             ["6시간 전 #18", "지금 #3", '🇺🇸 게임 · <span class="d-up">▲15</span>'],
@@ -192,11 +192,11 @@ LOCALES = {
         "how_h2": "使い方は<em>3ステップ</em>だけ。",
         "steps": [
             ["国", "どの国を見るか選ぶ", "国旗ボタンを押すと、アメリカ・日本・韓国など12ヶ国から選べます。その国の人たちがいま一番見ているYouTube動画がすぐに表示されます。"],
-            ["シグナル", "伸びている動画を見つける", "すべての動画にマークが付きます。▲は6時間前より順位が上がった、▼は下がった、NEWはチャートに入ったばかり、という意味です。勢いよく上がってくる動画はTop Moversとレーダータブがまとめて見せてくれます。"],
+            ["シグナル", "伸びている動画を見つける", "すべての動画に▲（上昇）・▼（下降）・NEW（初登場）のマークが付きます。勢いよく上がってくる動画はTop Moversとレーダータブがまとめて見せてくれます。"],
             ["リサーチ", "気になる動画は保存しておく", "動画をタップすると、順位がどう変わってきたか、再生数がどれだけ速く伸びているかを先に見せてくれます。参考になる動画は「後で見る」に保存すれば、iCloud経由でiPhoneでもiPadでも見られます。"],
         ],
         "rank_kicker": "順位変動", "rank_num": "6時間ごと",
-        "rank_h2": "大事なのは<em>どれだけ速く上がっているか</em>。",
+        "rank_h2": "「いままさに伸びている」は、<em>YouTube本体では見られません</em>。",
         "rank_lede": "今日の1位は誰でも見られます。本当のシグナルは「6時間前は18位だったのに、いま3位」という動画。まさにいま伸びている、という意味だからです。Sidefeedは一日中チャートを保存しておき、すべての動画の順位がどう変わったかを正確に表示します。",
         "rank_rows": [
             ["6時間前 #18", "いま #3", '🇺🇸 ゲーム · <span class="d-up">▲15</span>'],
