@@ -191,39 +191,9 @@ def render_page(app, lang, s, langs):
 
     rating = f'<span class="rating"><span class="stars">★★★★★</span>{app["rating"]}</span>' if app.get("rating") else ""
 
-    footer_langs = " ".join(
-        f'<a href="{page_file(l)}">{LANG_NAMES[l]}</a>' for l in langs if l != lang
-    )
+    return f"""{render_head(app, lang, langs, s)}
 
-    return f"""<!DOCTYPE html>
-<html lang="{htmllang}">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{s['title']}</title>
-<meta name="description" content="{s['meta_desc']}">
-<link rel="icon" type="image/png" href="../icons/{slug}.png">
-<link rel="apple-touch-icon" href="../icons/{slug}.png">
-{hreflangs}
-<meta property="og:title" content="{s['title']}">
-<meta property="og:description" content="{s['meta_desc']}">
-<meta property="og:image" content="../icons/{slug}.png">
-<meta property="og:type" content="website">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-  <div class="bar">
-    <a class="wordmark" href="{page_file(lang)}"><img src="../icons/{slug}.png" alt="{s['name']}">{s['name']}</a>
-    <nav class="nav-right">
-      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
-{options}
-      </select>
-      <a class="nav-cta" href="{store}" target="_blank" rel="noopener">App Store</a>
-    </nav>
-  </div>
-</header>
+{render_header(app, lang, langs, s)}
 
 <main>
 <div class="hero">
@@ -261,18 +231,7 @@ def render_page(app, lang, s, langs):
 </section>
 </main>
 
-<footer>
-  <div class="wrap cols">
-    <span>© kkiruk studio</span>
-    <nav class="links">
-      <a href="/">kkiruk studio</a>
-      <a href="mailto:kkirukstudio.help@gmail.com">{s['f_contact']}</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">{s['f_privacy']}</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">{s['f_terms']}</a>
-      {footer_langs}
-    </nav>
-  </div>
-</footer>
+{render_footer(app, lang, langs, s)}
 
 </body>
 </html>
