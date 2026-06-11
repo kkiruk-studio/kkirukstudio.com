@@ -27,6 +27,42 @@
   tick();
   setInterval(tick, 30000);
 
+  // 홈: 스크롤 리빌 + 스탯 카운트업 (요소 있을 때만 동작)
+  root.classList.add("js");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function countUp(el) {
+    var target = parseInt(el.getAttribute("data-count"), 10);
+    if (!target || reduce) { el.textContent = target.toLocaleString("en-US"); return; }
+    var t0 = null, dur = 1300;
+    function step(t) {
+      if (!t0) t0 = t;
+      var p = Math.min((t - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString("en-US");
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var reveals = document.querySelectorAll(".reveal");
+  var counts = document.querySelectorAll("[data-count]");
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        if (e.target.classList.contains("reveal")) e.target.classList.add("on");
+        if (e.target.hasAttribute("data-count")) countUp(e.target);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(function (el) { io.observe(el); });
+    counts.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("on"); });
+    counts.forEach(countUp);
+  }
+
   // 히어로 메시지 순환 (페이지의 data-messages JSON 사용)
   var msgEl = document.querySelector("[data-cycle]");
   if (msgEl) {
