@@ -62,6 +62,20 @@ LOCALES = {
             ["✨", "Discover", "Popular videos sorted into 14 categories — music, gaming, comedy and more. No personalization, just what's actually popular."],
             ["🌍", "12 Countries", "Switch countries with one tap on the flag and compare. What's #1 in Tokyo right now?"],
         ],
+        "who_kicker": "WHO IT'S FOR", "who_num": "CREATORS · PLANNERS · MARKETERS",
+        "who_h2": "For people whose <em>job</em> is knowing what's trending.",
+        "who_lede": "In July 2025, YouTube removed the Trending page from its own app. Inside YouTube, it's now even harder to see past your personal recommendations. But if you make a living from video, \"what's rising right now\" is still a number you need every single day. Sidefeed is where that number lives now.",
+        "personas": [
+            ["YOUTUBE CREATORS", "If running out of ideas scares you",
+             "“Everyone says 'ride the trend' when your channel stalls. Okay — where exactly do I see the trend?”",
+             "Your recommendations only show videos like the ones you already make. Skim Trending and Radar for one minute each morning, and you'll catch topics while the ▲ marks are still fresh — before everyone else starts copying them."],
+            ["CONTENT PLANNERS · PRODUCERS", "If the pitch meeting comes every week",
+             "“What do I bring on Monday? Every. Single. Week.”",
+             "Flip through 12 country charts. If a format is climbing with ▲ in the US but hasn't reached your market's chart yet, that's your next pitch. Five minutes before the meeting is enough."],
+            ["MARKETERS · MCNs", "If campaign timing is money",
+             "“I want one screen that shows what's working in this category right now.”",
+             "Check the top videos in any of 14 categories on Discover, and spot channels just taking off on Radar. The best time to propose a collab is before they hit the chart."],
+        ],
         "shots_kicker": "SCREENS", "shots_num": "IOS 17+",
         "shots_h2": "Here's what it <em>actually looks like</em>.",
         "shots_caps": ["RADAR · BREAKOUT RANKING", "12-COUNTRY SWITCHER", "DISCOVER · 14 CATEGORIES"],
@@ -124,6 +138,20 @@ LOCALES = {
             ["✨", "발견", "음악·게임·코미디처럼 14개 분야별로 인기 영상을 모아 보여줘요. 내 취향과 상관없이, 지금 실제로 인기 있는 영상 그대로요."],
             ["🌍", "12개국", "국기 버튼 한 번으로 나라를 바꿔가며 비교할 수 있어요. 지금 도쿄의 1위는 무슨 영상일까요?"],
         ],
+        "who_kicker": "누가 쓰나", "who_num": "크리에이터 · 기획자 · 마케터",
+        "who_h2": "트렌드 보는 게 <em>일</em>인 사람들에게.",
+        "who_lede": "유튜브는 2025년 7월, 앱에서 '인기 급상승' 페이지를 없앴습니다. 이제 유튜브 안에서는 내 추천 피드 바깥을 보기가 더 어려워졌죠. 하지만 영상으로 먹고사는 사람에게 '지금 무엇이 뜨는가'는 여전히 매일 확인해야 하는 숫자입니다. 그 숫자가 이제 Sidefeed에 있습니다.",
+        "personas": [
+            ["유튜브 크리에이터", "소재 고갈이 무섭다면",
+             "“채널이 멈추면 다들 '트렌드를 타라'고 해요. 그래서 그 트렌드, 어디서 보나요?”",
+             "추천 피드는 내가 이미 만든 것과 비슷한 영상만 보여줍니다. 아침마다 1분씩 트렌딩과 레이더를 훑으세요. ▲ 표시가 막 붙기 시작한 소재를, 남들이 따라 만들기 전에 잡을 수 있습니다."],
+            ["콘텐츠 기획자 · PD", "기획 회의가 매주 돌아온다면",
+             "“월요일에 뭘 가져가지? 매주, 매번요.”",
+             "12개 나라 차트를 넘겨 보세요. 미국에서 ▲를 달고 올라오는 포맷이 아직 한국 차트에 없다면, 그게 다음 기획안입니다. 회의 전 5분이면 충분해요."],
+            ["마케터 · MCN", "캠페인 타이밍이 곧 돈이라면",
+             "“이 분야에서 요즘 뭐가 먹히는지, 한 화면으로 보고 싶어요.”",
+             "발견 탭에서 14개 분야별 인기 영상을 확인하고, 레이더에서 막 올라오기 시작한 채널을 먼저 찾으세요. 협업 제안은 차트에 오르기 전이 가장 쌉니다."],
+        ],
         "shots_kicker": "화면", "shots_num": "IOS 17+",
         "shots_h2": "실제 화면은 <em>이렇게 생겼어요</em>.",
         "shots_caps": ["레이더 · 급상승 랭킹", "12개국 전환", "발견 · 14 카테고리"],
@@ -185,6 +213,20 @@ LOCALES = {
             ["📡", "レーダー", "Sidefeedが独自に計算したランキング。まだ公式チャートに入っていないけれど、勢いよく伸びている動画を先に捉えます。"],
             ["✨", "発見", "音楽・ゲーム・お笑いなど14ジャンルごとに人気動画をまとめて表示。あなたの好みとは関係なく、いま本当に人気のある動画そのままです。"],
             ["🌍", "12ヶ国", "国旗ボタンひとつで国を切り替えて比較できます。いまソウルの1位はどんな動画でしょう？"],
+        ],
+        "who_kicker": "誰のため", "who_num": "クリエイター · 企画 · マーケター",
+        "who_h2": "トレンドを見るのが<em>仕事</em>の人へ。",
+        "who_lede": "YouTubeは2025年7月、アプリから「急上昇」ページをなくしました。YouTubeの中では、自分へのおすすめの外側を見るのがますます難しくなっています。それでも、動画で食べている人にとって「いま何が伸びているか」は毎日確認すべき数字のまま。その数字の置き場所が、いまはSidefeedです。",
+        "personas": [
+            ["YouTubeクリエイター", "ネタ切れが怖いなら",
+             "「チャンネルが止まると、みんな『トレンドに乗れ』と言う。じゃあそのトレンド、どこで見るの？」",
+             "おすすめは、自分がすでに作ったものと似た動画ばかり見せてきます。毎朝1分、トレンドとレーダーを眺めてください。▲マークが付き始めたばかりのネタを、みんなが真似する前に掴めます。"],
+            ["コンテンツ企画 · PD", "企画会議が毎週あるなら",
+             "「月曜に何を持っていこう。毎週、毎回。」",
+             "12ヶ国のチャートをめくってみてください。アメリカで▲を付けて伸びているフォーマットが、まだ日本のチャートになければ、それが次の企画書です。会議前の5分で足ります。"],
+            ["マーケター · MCN", "キャンペーンのタイミングがお金なら",
+             "「このジャンルでいま何がウケているか、一画面で見たい。」",
+             "「発見」で14ジャンル別の人気動画を確認し、「レーダー」で伸び始めたばかりのチャンネルを先に見つけてください。コラボの提案は、チャートに載る前が一番安い。"],
         ],
         "shots_kicker": "画面", "shots_num": "IOS 17+",
         "shots_h2": "実際の画面は<em>こんな感じです</em>。",
@@ -302,6 +344,11 @@ def render(key):
         f'<div class="view-card v{i+1}"><span class="ico">{ico}</span><h3>{h}</h3><p>{p}</p></div>'
         for i, (ico, h, p) in enumerate(loc["views"])
     )
+    personas = "".join(
+        f'<div class="persona"><span class="ptag">{tag}</span><h3>{h}</h3>'
+        f'<p class="quote">{q}</p><p class="how">{body}</p></div>'
+        for tag, h, q, body in loc["personas"]
+    )
     shot_files = ["radar", "country", "discover"]
     shots = "".join(
         f'<figure><div class="phone"><img src="{rel}assets/shot-{loc["shots"]}-{f}.png" alt="{cap}" loading="lazy"><div class="island"></div></div><figcaption>{cap}</figcaption></figure>'
@@ -398,6 +445,15 @@ def render(key):
     <h2>{loc['views_h2']}</h2>
     <p class="lede">{loc['views_lede']}</p>
     <div class="views">{views}</div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="mod"><span class="dot"></span>{loc['who_kicker']}<span class="num">{loc['who_num']}</span></div>
+    <h2>{loc['who_h2']}</h2>
+    <p class="lede">{loc['who_lede']}</p>
+    <div class="personas">{personas}</div>
   </div>
 </section>
 
