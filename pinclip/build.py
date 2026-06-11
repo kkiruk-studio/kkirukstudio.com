@@ -120,6 +120,12 @@ LOCALES = {
         "maps_kicker": "플랫폼",
         "maps_h2": "유튜브, 틱톡, 인스타그램 — <em>전부 한곳에</em> 모여요.",
         "maps_lede": "어느 앱에서 보던 영상이든 똑같은 방법으로 저장할 수 있어요. 유튜브와 틱톡 영상은 제목과 미리보기 사진까지 알아서 채워지고, 저장한 영상은 전부 한 저장함에서 검색돼요.",
+        "share_kicker": "폴더 공유",
+        "share_h2": "모아 둔 폴더, <em>링크 하나로</em> 친구에게 보낼 수 있어요.",
+        "share_lede": "열심히 모은 '서울 카페' 폴더, 나만 보기 아깝잖아요. 폴더를 링크로 만들어 보내면, 친구는 앱이 없어도 브라우저에서 바로 볼 수 있어요. 친구도 Pinclip을 쓰고 있다면, 그 폴더를 통째로 자기 저장함에 가져갈 수도 있고요.",
+        "share_folder": "서울 카페", "share_count": "영상 2개",
+        "share_friend": "받은 친구는:",
+        "share_view": "브라우저에서 바로 보기", "share_import": "자기 Pinclip으로 가져가기",
         "providers": [
             ["yt", "유튜브 쇼츠", [["✓", "제목 자동"], ["✓", "썸네일 자동"]]],
             ["tt", "틱톡", [["✓", "제목 자동"], ["✓", "썸네일 자동"]]],
@@ -135,7 +141,7 @@ LOCALES = {
             ["📤", "앱 전환 없이 저장", "유튜브·인스타·틱톡을 끄지 않아도 돼요. 공유 버튼 → Pinclip, 두 번만 누르면 다시 영상으로 돌아가요."],
             ["📲", "홈 화면 위젯", "자주 보는 폴더나 영상을 휴대폰 홈 화면에 붙여 둘 수 있어요. 잠금 풀고 한 번만 누르면 바로 영상이에요."],
             ["☁️", "iCloud 동기화", "Pro를 쓰면 iPhone에서 저장한 영상이 iPad에도 똑같이 나타나요. 내 iCloud로 동기화되니까 안심이에요."],
-            ["🔗", "폴더를 친구에게 공유", "내 폴더를 링크 하나로 보낼 수 있어요. 친구는 브라우저에서 구경하고, 마음에 들면 자기 Pinclip으로 가져갈 수도 있어요."],
+            ["▶️", "원본 바로 열기", "저장한 영상을 누르면 유튜브·인스타·틱톡의 원본으로 바로 이동해요. 다시 보는 건 탭 한 번이면 돼요."],
             ["🗂️", "스마트 폴더", "유튜브에서 온 영상, 틱톡에서 온 영상을 Pinclip이 알아서 나눠 줘요. 따로 정리하지 않아도 플랫폼별로 모여요."],
             ["#️⃣", "태그와 메모", "영상에 #요리 같은 태그를 붙이고, 저장한 이유를 메모로 남겨 보세요. 나중에 태그만 눌러도 관련 영상이 전부 나와요."],
         ],
@@ -179,6 +185,12 @@ LOCALES = {
         "maps_kicker": "プラットフォーム",
         "maps_h2": "YouTube も TikTok も Instagram も、<em>ぜんぶ一か所に</em>。",
         "maps_lede": "どのアプリで見ていた動画でも、同じやり方で保存できます。YouTube と TikTok はタイトルとプレビュー画像まで自動で入って、保存した動画はぜんぶ同じ保存箱から検索できます。",
+        "share_kicker": "フォルダを共有",
+        "share_h2": "集めたフォルダは、<em>リンクひとつで</em>友だちに送れます。",
+        "share_lede": "がんばって集めた「京都カフェ」フォルダ、自分だけで見るのはもったいないですよね。フォルダをリンクにして送れば、友だちはアプリがなくてもブラウザでそのまま見られます。友だちも Pinclip を使っていれば、フォルダごと自分の保存箱に取り込むこともできます。",
+        "share_folder": "京都カフェ", "share_count": "動画2本",
+        "share_friend": "受け取った友だちは:",
+        "share_view": "ブラウザでそのまま見る", "share_import": "自分の Pinclip に取り込む",
         "providers": [
             ["yt", "YouTube ショート", [["✓", "タイトル自動"], ["✓", "サムネイル自動"]]],
             ["tt", "TikTok", [["✓", "タイトル自動"], ["✓", "サムネイル自動"]]],
@@ -194,7 +206,7 @@ LOCALES = {
             ["📤", "アプリを切り替えずに保存", "YouTube・Instagram・TikTok を閉じなくても保存できます。共有ボタン → Pinclip、2タップで視聴に戻れます。"],
             ["📲", "ホーム画面ウィジェット", "よく見るフォルダや動画をスマホのホーム画面に置いておけます。ロックを解除してワンタップで動画へ。"],
             ["☁️", "iCloud 同期", "Pro なら iPhone で保存した動画が iPad にも同じように表示されます。自分の iCloud 経由だから安心です。"],
-            ["🔗", "フォルダを友だちに共有", "フォルダまるごとをリンクひとつで送れます。友だちはブラウザで眺められて、気に入れば自分の Pinclip に取り込めます。"],
+            ["▶️", "元の動画へすぐ戻る", "保存した動画をタップすると、YouTube・Instagram・TikTok の元の動画がすぐ開きます。もう一度見るのはワンタップです。"],
             ["🗂️", "スマートフォルダ", "YouTube から来た動画、TikTok から来た動画を Pinclip が自動で仕分けます。何もしなくてもプラットフォーム別にまとまります。"],
             ["#️⃣", "タグとメモ", "#料理 のようなタグや、保存した理由のメモを付けられます。あとでタグを押せば、関連する動画がぜんぶ出てきます。"],
         ],
@@ -238,6 +250,12 @@ LOCALES = {
         "maps_kicker": "平台",
         "maps_h2": "YouTube、TikTok、Instagram——<em>全都收在一个地方</em>。",
         "maps_lede": "不管视频来自哪个应用，保存方法都一样。YouTube 和 TikTok 的视频连标题和预览图都自动填好，所有收藏都能在同一个收藏箱里搜索。",
+        "share_kicker": "分享文件夹",
+        "share_h2": "整理好的文件夹，<em>一条链接</em>就能分享。",
+        "share_lede": "辛苦整理的“巴黎咖啡馆”文件夹，只有自己看太可惜了。把文件夹变成链接发出去，朋友不用装应用，在浏览器里就能直接看。如果朋友也在用 Pinclip，还能把整个文件夹导入自己的收藏箱。",
+        "share_folder": "巴黎咖啡馆", "share_count": "2 个视频",
+        "share_friend": "收到的朋友可以:",
+        "share_view": "在浏览器里直接看", "share_import": "导入自己的 Pinclip",
         "providers": [
             ["yt", "YouTube Shorts", [["✓", "自动标题"], ["✓", "自动封面"]]],
             ["tt", "TikTok", [["✓", "自动标题"], ["✓", "自动封面"]]],
@@ -253,7 +271,7 @@ LOCALES = {
             ["📤", "不用切换应用就能保存", "不用关掉 YouTube、Instagram 或 TikTok。分享按钮 → Pinclip，点两下就回去继续看。"],
             ["📲", "主屏幕小组件", "把常看的文件夹或视频放到手机主屏幕上。解锁后点一下，视频就开始播了。"],
             ["☁️", "iCloud 同步", "用 Pro 的话，iPhone 上存的视频也会出现在 iPad 上。通过你自己的 iCloud 同步，更放心。"],
-            ["🔗", "把文件夹分享给朋友", "整个文件夹变成一条链接发出去。朋友在浏览器里就能看，喜欢的话还能导入自己的 Pinclip。"],
+            ["▶️", "一键回到原视频", "点一下保存的视频，就会直接打开 YouTube、Instagram 或 TikTok 上的原视频。再看一遍只要一下。"],
             ["🗂️", "智能文件夹", "来自 YouTube 的、来自 TikTok 的，Pinclip 自动帮你分好类。什么都不用做，就按平台整理好了。"],
             ["#️⃣", "标签和备注", "给视频加上 #做饭 这样的标签，写一句为什么收藏。以后点一下标签，相关视频全都出来。"],
         ],
@@ -297,6 +315,12 @@ LOCALES = {
         "maps_kicker": "平台",
         "maps_h2": "YouTube、TikTok、Instagram——<em>全都收在同一個地方</em>。",
         "maps_lede": "不管影片來自哪個 App，儲存方法都一樣。YouTube 和 TikTok 的影片連標題和預覽圖都自動填好，所有收藏都能在同一個收藏箱裡搜尋。",
+        "share_kicker": "分享資料夾",
+        "share_h2": "整理好的資料夾，<em>一條連結</em>就能分享。",
+        "share_lede": "辛苦整理的「羅馬咖啡廳」資料夾，只有自己看太可惜了。把資料夾變成連結送出去，朋友不用裝 App，在瀏覽器裡就能直接看。如果朋友也在用 Pinclip，還能把整個資料夾匯入自己的收藏箱。",
+        "share_folder": "羅馬咖啡廳", "share_count": "2 支影片",
+        "share_friend": "收到的朋友可以:",
+        "share_view": "在瀏覽器裡直接看", "share_import": "匯入自己的 Pinclip",
         "providers": [
             ["yt", "YouTube Shorts", [["✓", "自動標題"], ["✓", "自動封面"]]],
             ["tt", "TikTok", [["✓", "自動標題"], ["✓", "自動封面"]]],
@@ -312,7 +336,7 @@ LOCALES = {
             ["📤", "不用切換 App 就能儲存", "不用關掉 YouTube、Instagram 或 TikTok。分享按鈕 → Pinclip，點兩下就回去繼續看。"],
             ["📲", "主畫面小工具", "把常看的資料夾或影片放到手機主畫面上。解鎖後點一下，影片就開始播了。"],
             ["☁️", "iCloud 同步", "用 Pro 的話，iPhone 上存的影片也會出現在 iPad 上。透過你自己的 iCloud 同步，更安心。"],
-            ["🔗", "把資料夾分享給朋友", "整個資料夾變成一條連結送出去。朋友在瀏覽器裡就能看，喜歡的話還能匯入自己的 Pinclip。"],
+            ["▶️", "一鍵回到原影片", "點一下儲存的影片，就會直接打開 YouTube、Instagram 或 TikTok 上的原影片。再看一遍只要一下。"],
             ["🗂️", "智慧資料夾", "來自 YouTube 的、來自 TikTok 的，Pinclip 自動幫你分好類。什麼都不用做，就依平台整理好了。"],
             ["#️⃣", "標籤與備註", "給影片加上 #做菜 這樣的標籤，寫一句為什麼收藏。之後點一下標籤，相關影片全都出來。"],
         ],
@@ -387,6 +411,17 @@ def render(key):
         for f, cap in zip(shot_files, loc["shots_caps"])
     )
     feats = "".join(f'<div class="feat"><span class="ico">{ico}</span><h3>{h}</h3><p>{p}</p></div>' for ico, h, p in loc["feats"])
+    share_flow = (
+        f'<div class="share-flow" aria-hidden="true">'
+        f'<div class="scard sfolder"><span class="ic">📁</span><span><strong>{loc["share_folder"]}</strong><small>{loc["share_count"]}</small></span></div>'
+        f'<span class="sarr">→</span>'
+        f'<div class="scard slink">🔗 pinclip.link/f/3kx9q2</div>'
+        f'<span class="sarr">→</span>'
+        f'<div class="scard sfriend"><strong>{loc["share_friend"]}</strong>'
+        f'<span>🌐 {loc["share_view"]}</span>'
+        f'<span>📲 {loc["share_import"]}</span></div>'
+        f'</div>'
+    )
     cards_json = json.dumps(loc["demo_cards"], ensure_ascii=False)
 
     html = f"""<!doctype html>
@@ -461,6 +496,15 @@ def render(key):
     <h2>{loc['maps_h2']}</h2>
     <p class="lede">{loc['maps_lede']}</p>
     <div class="providers">{provs}</div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="badge-pill">{loc['share_kicker']}</span>
+    <h2>{loc['share_h2']}</h2>
+    <p class="lede">{loc['share_lede']}</p>
+    {share_flow}
   </div>
 </section>
 
