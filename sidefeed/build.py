@@ -52,6 +52,7 @@ LOCALES = {
             ["6h ago —", "now #5", '🇯🇵 ENTERTAINMENT · <span class="d-new">NEW</span>'],
             ["6h ago #4", "now #11", '🇬🇧 SPORTS · <span class="d-down">▼7</span>'],
         ],
+        "rank_nums": [[18, 3], [9, 2], [None, 5], [4, 11]],
         "views_kicker": "THE TOOLKIT", "views_num": "4 VIEWS",
         "views_h2": "Four views, <em>one research flow</em>.",
         "views_lede": "Official charts, Sidefeed's own ranking, category discovery and market switching — all built on public data, so everyone sees the same screen.",
@@ -113,6 +114,7 @@ LOCALES = {
             ["6시간 전 —", "지금 #5", '🇯🇵 엔터 · <span class="d-new">NEW</span>'],
             ["6시간 전 #4", "지금 #11", '🇬🇧 스포츠 · <span class="d-down">▼7</span>'],
         ],
+        "rank_nums": [[18, 3], [9, 2], [None, 5], [4, 11]],
         "views_kicker": "구성", "views_num": "4개의 뷰",
         "views_h2": "네 개의 뷰, <em>하나의 리서치 플로우</em>.",
         "views_lede": "공식 차트, 자체 랭킹, 카테고리 발견, 시장 전환 — 전부 공개 데이터 기반이라 누가 봐도 같은 화면입니다.",
@@ -174,6 +176,7 @@ LOCALES = {
             ["6時間前 —", "いま #5", '🇰🇷 音楽 · <span class="d-new">NEW</span>'],
             ["6時間前 #4", "いま #11", '🇬🇧 スポーツ · <span class="d-down">▼7</span>'],
         ],
+        "rank_nums": [[18, 3], [24, 6], [None, 5], [4, 11]],
         "views_kicker": "構成", "views_num": "4つのビュー",
         "views_h2": "4つのビュー、<em>ひとつのリサーチフロー</em>。",
         "views_lede": "公式チャート、独自ランキング、カテゴリ発見、市場切り替え — すべて公開データなので、誰が見ても同じ画面です。",
@@ -223,35 +226,94 @@ def badge(loc, el_id):
             f'<span class="txt"><small>{loc["badge_small"]}</small><strong>App Store</strong></span></a>')
 
 
+SPARK_SVG = """<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+<defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#f97316"/><stop offset="1" stop-color="#7c3aed"/>
+</linearGradient></defs>
+<polyline points="0,34 18,30 36,31 54,22 72,18 100,6" fill="none" stroke="url(#sg)" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="100" cy="6" r="3.2" fill="#c4b5fd"/>
+</svg>"""
+
+
+def mover_label(item):
+    """'#18→#3 ▲15'-style compact label for the live board."""
+    _, _, frm, to, delta, kind = item
+    return f'{to} {delta.split(" ·")[0]}', kind
+
+
+def board_rows(items):
+    out = []
+    for item in items[:3]:
+        flag, cat = item[0], item[1]
+        mv, kind = mover_label(item)
+        out.append(f'<div class="brow"><span class="bflag">{flag}</span>'
+                   f'<span class="bcat">{cat}</span><span class="bmv {kind}">{mv}</span></div>')
+    return "".join(out)
+
+
+def ticker_track(loc):
+    parts = []
+    countries = list(loc["marquee"])
+    for i, item in enumerate(loc["demo_items"]):
+        flag, cat, frm, to, delta, kind = item
+        parts.append(f'<span class="t-cty">{countries[i]}</span>')
+        parts.append(f'<span class="t-item">{flag} <b>{cat}</b> {frm}→{to} <i class="{kind}">{delta}</i></span>')
+    for name in countries[len(loc["demo_items"]):]:
+        parts.append(f'<span class="t-cty">{name}</span>')
+    return "".join(parts * 2)
+
+
+def rank_track(was, now):
+    """Slope-track HTML for a 1–25 rank scale. was=None means NEW entry."""
+    pct = lambda r: (r - 1) / 24 * 100
+    b = pct(now)
+    if was is None:
+        kind, a = "new", 100.0
+    elif now < was:
+        kind, a = "up", pct(was)
+    else:
+        kind, a = "down", pct(was)
+    left, width = min(a, b), abs(a - b)
+    style = f"--a:{left:.1f}%;--b:{b:.1f}%;--w:{width:.1f}%"
+    pt_a = '' if was is None else f'<span class="pt a" style="left:{a:.1f}%"></span>'
+    track = (f'<div class="track" style="{style}"><span class="rail"></span>'
+             f'<span class="seg"></span>{pt_a}<span class="pt b" style="left:{b:.1f}%"></span></div>')
+    return kind, track
+
+
 def render(key):
     loc = LOCALES[key]
     rel = "../" if loc["dir"] else ""
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
-    chips = "".join(
-        f'<div class="chip c{i+1}"><span class="g {cls}">{g}</span>{label}</div>'
-        for i, (cls, g, label) in enumerate(loc["chips"])
+    stats = "".join(
+        f'<span class="stat"><b class="{cls}">{g}</b>{label}</span>'
+        for cls, g, label in loc["chips"]
     )
-    marquee = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
     steps = "".join(
-        f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
+        f'<div class="step"><div class="top"><span class="n">0{i+1}</span><span class="tag">{tag}</span></div><h3>{h}</h3><p>{p}</p></div>'
         for i, (tag, h, p) in enumerate(loc["steps"])
     )
-    rank_rows = "".join(
-        f'<div class="rank-row"><span class="was">{a}</span><span class="arrow">→</span><span class="to">{b}</span><span class="cat">{c}</span></div>'
-        for a, b, c in loc["rank_rows"]
-    )
+    rank_rows = ""
+    for (a, b, c), (was, now) in zip(loc["rank_rows"], loc["rank_nums"]):
+        kind, track = rank_track(was, now)
+        rank_rows += (f'<div class="rrow {kind}"><span class="was">{a}</span>{track}'
+                      f'<span class="now">{b}</span><span class="cat">{c}</span></div>')
     views = "".join(
-        f'<div class="view-card"><span class="ico">{ico}</span><h3>{h}</h3><p>{p}</p></div>'
-        for ico, h, p in loc["views"]
+        f'<div class="view-card v{i+1}"><span class="ico">{ico}</span><h3>{h}</h3><p>{p}</p></div>'
+        for i, (ico, h, p) in enumerate(loc["views"])
     )
     shot_files = ["radar", "country", "discover"]
     shots = "".join(
         f'<figure><div class="phone"><img src="{rel}assets/shot-{loc["shots"]}-{f}.png" alt="{cap}" loading="lazy"><div class="island"></div></div><figcaption>{cap}</figcaption></figure>'
         for f, cap in zip(shot_files, loc["shots_caps"])
     )
-    feats = "".join(f'<div class="feat"><h3>{h}</h3><p>{p}</p></div>' for h, p in loc["feats"])
+    feats = "".join(
+        f'<div class="feat"><span class="idx">0{i+1}</span><h3>{h}</h3><p>{p}</p></div>'
+        for i, (h, p) in enumerate(loc["feats"])
+    )
     demo_json = json.dumps(loc["demo_items"], ensure_ascii=False)
-    d0 = loc["demo_items"][0]
+    spark = loc["demo_items"][1]
+    spark_val = f'{spark[2]} → <span class="to">{spark[3]}</span><span class="d">{spark[4].split(" ·")[0]}</span>'
 
     html = f"""<!doctype html>
 <html lang="{loc['lang']}">
@@ -276,24 +338,21 @@ def render(key):
 <nav>
   <div class="wrap">
     <a class="wordmark" href="{rel if rel else './'}"><img src="{rel}assets/icon-180.png" alt=""><span>SIDEFEED</span></a>
-    <div class="lang">{lang_nav(loc['dir'], rel)}</div>
+    <div class="nav-right">
+      <div class="lang">{lang_nav(loc['dir'], rel)}</div>
+      <a class="nav-get" href="{APP_STORE_URL}">App Store</a>
+    </div>
   </div>
 </nav>
 
+<div class="ticker" aria-hidden="true"><div class="track">{ticker_track(loc)}</div></div>
+
 <header class="hero">
-  <div class="ghost">S·F</div>
   <div class="wrap">
     <div>
-      <div class="kicker"><span>SIDEFEED</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
+      <div class="prod-pill"><span class="yt">▶</span>YouTube · {loc['kicker_num']}</div>
       <h1>{loc['h1']}</h1>
-      <div class="demo" id="demo">
-        <span class="flag" id="demoFlag">{d0[0]}</span>
-        <span class="cat" id="demoCat">{d0[1]}</span>
-        <span class="from" id="demoFrom">{d0[2]}</span>
-        <span class="arrow">→</span>
-        <span class="to" id="demoTo">{d0[3]}</span>
-        <span class="delta {('new' if d0[5] == 'new' else '')}" id="demoDelta">{d0[4]}</span>
-      </div>
+      <div class="stats">{stats}</div>
       <p class="sub">{loc['sub']}</p>
       <div class="cta">
         {badge(loc, 'storeLink')}
@@ -301,17 +360,23 @@ def render(key):
       </div>
     </div>
     <div class="phone-col">
-      {chips}
       <div class="phone"><img src="{rel}assets/shot-{loc['shots']}-trending.png" alt="{loc['hero_alt']}"><div class="island"></div></div>
+      <div class="panel panel-board">
+        <div class="ph"><span>TOP MOVERS</span><span class="live-dot"></span></div>
+        <div id="board">{board_rows(loc['demo_items'])}</div>
+      </div>
+      <div class="panel panel-spark">
+        <div class="ph"><span>RANK · 6H</span><span>{spark[1]}</span></div>
+        {SPARK_SVG}
+        <div class="spark-val">{spark_val}</div>
+      </div>
     </div>
   </div>
 </header>
 
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
-
 <section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['how_kicker']}</span><span class="rule"></span><span class="num">01–03</span></div>
+    <div class="mod"><span class="dot"></span>{loc['how_kicker']}<span class="num">01–03</span></div>
     <h2>{loc['how_h2']}</h2>
     <div class="steps">{steps}</div>
   </div>
@@ -319,16 +384,17 @@ def render(key):
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="kicker"><span>{loc['rank_kicker']}</span><span class="rule"></span><span class="num">{loc['rank_num']}</span></div>
+    <div class="mod"><span class="dot"></span>{loc['rank_kicker']}<span class="num">{loc['rank_num']}</span></div>
     <h2>{loc['rank_h2']}</h2>
     <p class="lede">{loc['rank_lede']}</p>
-    <div class="rank-table">{rank_rows}</div>
+    <div class="rank-board">{rank_rows}</div>
+    <div class="rank-scale"><span>#1</span><span>#13</span><span>#25</span></div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="kicker"><span>{loc['views_kicker']}</span><span class="rule"></span><span class="num">{loc['views_num']}</span></div>
+    <div class="mod"><span class="dot"></span>{loc['views_kicker']}<span class="num">{loc['views_num']}</span></div>
     <h2>{loc['views_h2']}</h2>
     <p class="lede">{loc['views_lede']}</p>
     <div class="views">{views}</div>
@@ -337,7 +403,7 @@ def render(key):
 
 <section class="shots">
   <div class="wrap">
-    <div class="kicker"><span>{loc['shots_kicker']}</span><span class="rule"></span><span class="num">{loc['shots_num']}</span></div>
+    <div class="mod"><span class="dot"></span>{loc['shots_kicker']}<span class="num">{loc['shots_num']}</span></div>
     <h2>{loc['shots_h2']}</h2>
     <div class="row">{shots}</div>
   </div>
@@ -345,17 +411,19 @@ def render(key):
 
 <section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['feat_kicker']}</span><span class="rule"></span><span class="num">{loc['feat_num']}</span></div>
+    <div class="mod"><span class="dot"></span>{loc['feat_kicker']}<span class="num">{loc['feat_num']}</span></div>
     <h2>{loc['feat_h2']}</h2>
     <div class="grid6">{feats}</div>
   </div>
 </section>
 
-<section class="final">
+<section style="padding-top:0">
   <div class="wrap">
-    <h2>{loc['final_h2']}</h2>
-    <p class="lede">{loc['final_lede']}</p>
-    <div class="cta">{badge(loc, 'storeLink2')}</div>
+    <div class="final-panel">
+      <h2>{loc['final_h2']}</h2>
+      <p class="lede">{loc['final_lede']}</p>
+      <div class="cta">{badge(loc, 'storeLink2')}</div>
+    </div>
   </div>
 </section>
 
@@ -374,29 +442,40 @@ def render(key):
 
 <script>
   const items = {demo_json};
-  const el = {{
-    demo: document.getElementById("demo"),
-    flag: document.getElementById("demoFlag"),
-    cat: document.getElementById("demoCat"),
-    from: document.getElementById("demoFrom"),
-    to: document.getElementById("demoTo"),
-    delta: document.getElementById("demoDelta"),
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Live "Top Movers" board — a new entry slides in every few seconds.
+  const board = document.getElementById("board");
+  const rowHTML = (item, enter) => {{
+    const [flag, cat, , to, delta, kind] = item;
+    const mv = to + " " + delta.split(" ·")[0];
+    return '<div class="brow' + (enter ? ' enter' : '') + '"><span class="bflag">' + flag +
+      '</span><span class="bcat">' + cat + '</span><span class="bmv ' + kind + '">' + mv + '</span></div>';
   }};
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {{
-    let i = 0;
+  if (!reduced && board) {{
+    let head = 0;
     setInterval(() => {{
-      i = (i + 1) % items.length;
-      const [flag, cat, from, to, delta, kind] = items[i];
-      el.flag.textContent = flag;
-      el.cat.textContent = cat;
-      el.from.textContent = from;
-      el.to.textContent = to;
-      el.delta.textContent = delta;
-      el.delta.classList.toggle("new", kind === "new");
-      el.demo.classList.remove("tick");
-      void el.demo.offsetWidth;
-      el.demo.classList.add("tick");
-    }}, 2800);
+      head = (head + 1) % items.length;
+      const visible = [0, 1, 2].map(o => items[(head + o) % items.length]);
+      board.innerHTML = visible.map((it, idx) => rowHTML(it, idx === 0)).join("");
+    }}, 3000);
+  }}
+
+  // Rank slope board — animate segments when scrolled into view.
+  const rows = document.querySelectorAll(".rrow");
+  if (reduced || !("IntersectionObserver" in window)) {{
+    rows.forEach(r => r.classList.add("in"));
+  }} else {{
+    const io = new IntersectionObserver(entries => {{
+      entries.forEach((e, i) => {{
+        if (e.isIntersecting) {{ e.target.classList.add("in"); io.unobserve(e.target); }}
+      }});
+    }}, {{ threshold: 0.4 }});
+    rows.forEach((r, i) => {{
+      const seg = r.querySelector(".seg");
+      if (seg) seg.style.transitionDelay = (i * 110) + "ms";
+      io.observe(r);
+    }});
   }}
 </script>
 </body>
