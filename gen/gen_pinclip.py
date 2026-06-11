@@ -6,34 +6,25 @@ APP = {
     "trackId": "6761982511",
     "rating": None,
     "theme": {"bg": "#FBF6F2", "ink": "#27201B", "ink2": "#9A8C80", "accent": "#E8584A"},
-    "hero_html": """    <div class="stack">
-      <div class="vcard c1"><div class="thumb t1"></div><div class="line"></div><div class="line s"></div></div>
-      <div class="vcard c2"><div class="thumb t2"></div><div class="line"></div><div class="line s"></div></div>
-      <div class="vcard c3"><div class="thumb t3"></div><div class="line"></div><div class="line s"></div>
-        <div class="pin"><i></i></div>
-      </div>
+    "hero_html": """    <div class="fanx">
+      <img class="shot s1" src="../shots/pinclip/{lang}-2.jpg" alt="">
+      <img class="shot s2" src="../shots/pinclip/{lang}-1.jpg" alt="">
+      <div class="pin"><i></i></div>
     </div>""",
     "extra_css": """
-.stack { position:relative; width:320px; height:400px; }
-.vcard { position:absolute; width:250px; border-radius:20px; background:#FFFFFF;
-  border:1px solid rgba(39,32,27,.08); box-shadow:0 18px 44px -16px rgba(39,32,27,.22); padding:14px; }
-.vcard .thumb { height:96px; border-radius:13px; }
-.t1 { background:linear-gradient(135deg,#FFD9A8,#F4A261); }
-.t2 { background:linear-gradient(135deg,#BFD8F2,#7EA8D4); }
-.t3 { background:linear-gradient(135deg,#F4B8C4,#E8584A); }
-.vcard .line { height:9px; border-radius:5px; background:rgba(39,32,27,.13); margin-top:11px; width:78%; }
-.vcard .line.s { width:46%; opacity:.6; }
-.c1 { left:0; top:18px; transform:rotate(-7deg); }
-.c2 { left:62px; top:88px; transform:rotate(4deg); }
-.c3 { left:26px; top:182px; transform:rotate(-2deg); z-index:2; animation:cardfloat 4.5s ease-in-out infinite; }
-.pin { position:absolute; top:-16px; right:24px; width:30px; height:30px; border-radius:50%;
-  background:var(--accent); box-shadow:0 6px 14px -4px rgba(232,88,74,.6);
+.fanx { position:relative; width:360px; height:480px; }
+.fanx .s1 { position:absolute; width:215px; left:0; top:34px; transform:rotate(-7deg); }
+.fanx .s2 { position:absolute; width:225px; left:128px; top:0; transform:rotate(4deg); z-index:2;
+  animation:cardfloat 4.5s ease-in-out infinite; }
+.pin { position:absolute; z-index:3; left:104px; bottom:54px; width:46px; height:46px; border-radius:50%;
+  background:var(--accent); box-shadow:0 10px 24px -6px rgba(232,88,74,.65);
   display:flex; align-items:center; justify-content:center; animation:pindrop 3.2s ease-in-out infinite; }
-.pin i { width:9px; height:9px; border-radius:50%; background:#FFF; }
-.pin::after { content:""; position:absolute; bottom:-9px; left:50%; transform:translateX(-50%);
-  border:6px solid transparent; border-top:9px solid var(--accent); }
-@keyframes pindrop { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
-@keyframes cardfloat { 0%,100% { transform:rotate(-2deg) translateY(0); } 50% { transform:rotate(-2deg) translateY(-6px); } }
+.pin i { width:14px; height:14px; border-radius:50%; background:#FFF; }
+.pin::after { content:""; position:absolute; bottom:-12px; left:50%; transform:translateX(-50%);
+  border:8px solid transparent; border-top:13px solid var(--accent); }
+@keyframes pindrop { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+@keyframes cardfloat { 0%,100% { transform:rotate(4deg) translateY(0); } 50% { transform:rotate(4deg) translateY(-7px); } }
+@media (max-width:520px) { .fanx { transform:scale(.84); margin:-34px 0; } }
 """,
 }
 

@@ -3,9 +3,10 @@ from common import build_app
 
 HERO = """    <div class="popwrap">
       <div class="fan">
-        <img src="../shots/cats-pop-1.png" alt="">
-        <img src="../shots/cats-pop-2.png" alt="">
+        <img src="../shots/cats-pop/{lang}-1.jpg" alt="">
+        <img src="../shots/cats-pop/{lang}-2.jpg" alt="">
         <div class="score">★ 4.8<span>3,900+</span></div>
+        <div class="featpill">App Store<span>Featured Story</span></div>
       </div>
       <div class="merge"><i></i><i></i><i></i><i></i><b>!</b></div>
     </div>"""
@@ -22,6 +23,10 @@ CSS = """
   font-size:22px; font-weight:800; color:#FF7A59; box-shadow:0 16px 36px -12px rgba(63,42,30,.3);
   animation:bob 4s ease-in-out infinite; }
 .score span { display:block; font-size:11px; font-weight:600; color:#A88D7A; margin-top:1px; }
+.featpill { position:absolute; left:-8px; top:18px; z-index:3; background:#3F2A1E; color:#FFF1E4;
+  border-radius:14px; padding:9px 14px; font-size:12px; font-weight:800;
+  box-shadow:0 14px 32px -10px rgba(63,42,30,.5); animation:bob 4s ease-in-out infinite; animation-delay:1s; }
+.featpill span { display:block; font-size:10px; font-weight:600; opacity:.75; margin-top:1px; }
 .merge { display:flex; align-items:flex-end; gap:10px; }
 .merge i { border-radius:50%; background:linear-gradient(145deg,#FFC93C,#FF7A59);
   animation:pop 2.6s ease-in-out infinite; }

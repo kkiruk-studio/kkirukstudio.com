@@ -7,26 +7,35 @@ APP = {
     "rating": None,
     "theme": {"bg": "#FFD23F", "ink": "#211B0E", "ink2": "#7A6A3A", "accent": "#E84545",
               "card": "rgba(255,253,246,.55)", "border": "rgba(33,27,14,.14)"},
-    "hero_html": """    <div class="cam">
-      <span class="shutter"></span>
-      <div class="lens"><i></i><b></b></div>
-      <span class="dotled"></span>
+    "hero_html": """    <div class="hchero">
+      <img class="shot" src="../shots/honestcamera/{lang}-1.jpg" alt="">
+      <div class="cam">
+        <span class="shutter"></span>
+        <div class="lens"><i></i><b></b></div>
+        <span class="dotled"></span>
+      </div>
     </div>""",
     "extra_css": """
-.cam { width:310px; height:215px; background:#FFFDF6; border-radius:36px; border:3.5px solid var(--ink);
-  position:relative; box-shadow:10px 12px 0 rgba(33,27,14,.18); }
-.lens { width:96px; height:96px; border-radius:50%; background:var(--ink);
+.hchero { position:relative; width:380px; height:520px; }
+.hchero > .shot { position:absolute; width:250px; right:10px; top:0;
+  box-shadow:10px 12px 0 rgba(33,27,14,.16); border:3px solid var(--ink); border-radius:30px; }
+.cam { position:absolute; left:0; bottom:44px; width:196px; height:136px; background:#FFFDF6;
+  border-radius:26px; border:3.5px solid var(--ink);
+  box-shadow:8px 10px 0 rgba(33,27,14,.18); animation:camfloat 4.5s ease-in-out infinite; }
+.lens { width:62px; height:62px; border-radius:50%; background:var(--ink);
   position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
   display:flex; align-items:center; justify-content:center; }
-.lens i { width:56px; height:56px; border-radius:50%; background:#3A4754; display:block; }
-.lens b { position:absolute; width:16px; height:16px; border-radius:50%; background:rgba(255,255,255,.7);
-  top:18px; right:20px; }
-.shutter { position:absolute; top:-26px; right:38px; width:66px; height:42px; border-radius:18px 18px 4px 4px;
+.lens i { width:36px; height:36px; border-radius:50%; background:#3A4754; display:block; }
+.lens b { position:absolute; width:11px; height:11px; border-radius:50%; background:rgba(255,255,255,.7);
+  top:11px; right:12px; }
+.shutter { position:absolute; top:-22px; right:26px; width:50px; height:34px; border-radius:14px 14px 4px 4px;
   background:var(--bg); border:3.5px solid var(--ink); animation:press 2.4s ease-in-out infinite; }
-.dotled { position:absolute; top:22px; left:26px; width:12px; height:12px; border-radius:50%;
+.dotled { position:absolute; top:14px; left:18px; width:10px; height:10px; border-radius:50%;
   background:var(--accent); animation:led 2.4s ease-in-out infinite; }
-@keyframes press { 0%,100% { transform:translateY(0); } 8%,14% { transform:translateY(7px); } 22% { transform:translateY(0); } }
+@keyframes press { 0%,100% { transform:translateY(0); } 8%,14% { transform:translateY(6px); } 22% { transform:translateY(0); } }
 @keyframes led { 0%,100% { opacity:.35; } 10%,16% { opacity:1; } }
+@keyframes camfloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+@media (max-width:520px) { .hchero { transform:scale(.82); margin:-44px 0; } }
 """,
 }
 

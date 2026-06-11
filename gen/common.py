@@ -61,6 +61,8 @@ header .bar {{ max-width:var(--maxw); margin:0 auto; display:flex; align-items:c
 .rating .stars {{ color:var(--accent); letter-spacing:1px; margin-right:6px; }}
 .hero-foot {{ margin-top:16px; font-size:12.5px; color:var(--ink2); opacity:.85; }}
 .hero-visual {{ display:flex; justify-content:center; align-items:center; }}
+.shot {{ display:block; border-radius:26px; border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+  box-shadow:0 30px 70px -22px color-mix(in srgb, var(--ink) 45%, transparent); }}
 section {{ padding:80px 0; }}
 .sec-label {{ font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--ink2); margin-bottom:14px; }}
 .sec-title {{ font-size:clamp(25px,3.4vw,38px); font-weight:700; letter-spacing:-.02em; line-height:1.25; max-width:22em; }}
@@ -175,7 +177,7 @@ def render_page(app, lang, s, langs):
     <p class="hero-foot">{s['foot']}</p>
   </div>
   <div class="hero-visual" aria-hidden="true">
-{app['hero_html']}
+{app['hero_html'].replace('{lang}', lang)}
   </div>
 </div>
 

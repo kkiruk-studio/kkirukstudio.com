@@ -7,32 +7,35 @@ APP = {
     "rating": None,
     "theme": {"bg": "#0C0D13", "ink": "#F2F2F7", "ink2": "#8A8C9C", "accent": "#FF5C6A",
               "card": "rgba(255,255,255,.045)", "border": "rgba(255,255,255,.09)"},
-    "hero_html": """    <div class="board">
-      <div class="row"><span class="rank">1</span><i class="tbar" style="width:88%"></i><span class="badge up">▲3</span></div>
-      <div class="row"><span class="rank">2</span><i class="tbar" style="width:72%"></i><span class="badge nw">NEW</span></div>
-      <div class="row"><span class="rank">3</span><i class="tbar" style="width:64%"></i><span class="badge dn">▼1</span></div>
-      <div class="row"><span class="rank">4</span><i class="tbar" style="width:55%"></i><span class="badge up">▲7</span></div>
-      <div class="row"><span class="rank">5</span><i class="tbar" style="width:46%"></i><span class="badge up">▲2</span></div>
-      <div class="chips">
-        <i>KR</i><i>US</i><i>JP</i><i>UK</i><i>DE</i><i>FR</i><i>AU</i><i>CA</i><i>CH</i><i>NL</i><i>SE</i><i>SG</i>
+    "hero_html": """    <div class="sfhero">
+      <img class="shot" src="../shots/sidefeed/{lang}-1.jpg" alt="">
+      <div class="board">
+        <div class="row"><span class="rank">1</span><i class="tbar" style="width:84%"></i><span class="badge up">▲3</span></div>
+        <div class="row"><span class="rank">2</span><i class="tbar" style="width:66%"></i><span class="badge nw">NEW</span></div>
+        <div class="row"><span class="rank">3</span><i class="tbar" style="width:52%"></i><span class="badge up">▲7</span></div>
+        <div class="chips"><i>KR</i><i>US</i><i>JP</i><i>UK</i><i>DE</i><i>FR</i><i>+6</i></div>
       </div>
     </div>""",
     "extra_css": """
-.board { width:330px; background:#14151E; border:1px solid rgba(255,255,255,.09);
-  border-radius:24px; padding:22px 20px 18px; box-shadow:0 30px 70px -24px rgba(0,0,0,.8); }
-.row { display:flex; align-items:center; gap:12px; padding:11px 2px; }
+.sfhero { position:relative; width:380px; height:520px; }
+.sfhero > .shot { position:absolute; width:250px; left:0; top:0; }
+.board { position:absolute; right:0; bottom:42px; width:230px; background:#14151E;
+  border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:14px 16px 12px;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.85); animation:boardfloat 4.5s ease-in-out infinite; }
+.row { display:flex; align-items:center; gap:10px; padding:9px 2px; }
 .row + .row { border-top:1px solid rgba(255,255,255,.05); }
-.rank { font-weight:800; font-size:14px; width:18px; color:#5A5C6C; font-variant-numeric:tabular-nums; }
-.tbar { height:11px; border-radius:6px; background:linear-gradient(90deg,#FF4D5E,#FF8A4D,#FFB14D);
+.rank { font-weight:800; font-size:13px; width:16px; color:#5A5C6C; font-variant-numeric:tabular-nums; }
+.tbar { height:9px; border-radius:5px; background:linear-gradient(90deg,#FF4D5E,#FF8A4D,#FFB14D);
   animation:barpulse 3.2s ease-in-out infinite; transform-origin:left center; }
 .row:nth-child(2) .tbar { animation-delay:.4s; } .row:nth-child(3) .tbar { animation-delay:.8s; }
-.row:nth-child(4) .tbar { animation-delay:1.2s; } .row:nth-child(5) .tbar { animation-delay:1.6s; }
-.badge { font-size:11px; font-weight:800; margin-left:auto; }
-.badge.up { color:#3DDC97; } .badge.dn { color:#FF6A6A; } .badge.nw { color:#FFB14D; }
-.chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; }
-.chips i { font-style:normal; font-size:9.5px; font-weight:700; letter-spacing:.04em; color:#8A8C9C;
-  border:1px solid rgba(255,255,255,.12); border-radius:99px; padding:3px 8px; }
-@keyframes barpulse { 0%,100% { transform:scaleX(1); opacity:1; } 50% { transform:scaleX(.96); opacity:.85; } }
+.badge { font-size:10.5px; font-weight:800; margin-left:auto; }
+.badge.up { color:#3DDC97; } .badge.nw { color:#FFB14D; }
+.chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:12px; }
+.chips i { font-style:normal; font-size:9px; font-weight:700; letter-spacing:.04em; color:#8A8C9C;
+  border:1px solid rgba(255,255,255,.12); border-radius:99px; padding:2.5px 7px; }
+@keyframes barpulse { 0%,100% { transform:scaleX(1); opacity:1; } 50% { transform:scaleX(.95); opacity:.85; } }
+@keyframes boardfloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+@media (max-width:520px) { .sfhero { transform:scale(.8); margin:-50px 0; } }
 """,
 }
 

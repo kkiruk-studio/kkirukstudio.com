@@ -6,43 +6,33 @@ APP = {
     "trackId": "6764329223",
     "rating": None,
     "theme": {"bg": "#F8F3E9", "ink": "#2B231A", "ink2": "#9C8C77", "accent": "#E07A33"},
-    "hero_html": """    <div class="tm">
+    "hero_html": """    <div class="tmhero">
+      <img class="shot" src="../shots/talkmemo/{lang}-1.jpg" alt="">
       <div class="watch">
         <span class="rec"></span>
         <div class="wave"><i></i><i></i><i></i><i></i><i></i></div>
         <span class="crown"></span>
       </div>
-      <span class="flow">→</span>
-      <div class="note">
-        <div class="nl" style="width:84%"></div>
-        <div class="nl" style="width:68%"></div>
-        <div class="nl" style="width:76%"></div>
-        <div class="nl s" style="width:42%"></div>
-      </div>
     </div>""",
     "extra_css": """
-.tm { display:flex; align-items:center; gap:20px; }
-.watch { width:148px; height:182px; border-radius:42px; background:#221C15; border:6px solid #3C3327;
-  position:relative; display:flex; align-items:center; justify-content:center;
-  box-shadow:0 24px 56px -18px rgba(43,35,26,.45); }
-.watch .crown { position:absolute; right:-12px; top:46px; width:7px; height:26px; border-radius:4px; background:#3C3327; }
-.rec { position:absolute; top:20px; width:13px; height:13px; border-radius:50%; background:#E0452F;
+.tmhero { position:relative; width:370px; height:520px; }
+.tmhero > .shot { position:absolute; width:250px; right:0; top:0; }
+.watch { position:absolute; left:0; bottom:48px; width:132px; height:162px; border-radius:40px;
+  background:#221C15; border:6px solid #3C3327;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 26px 60px -18px rgba(43,35,26,.5); animation:watchfloat 4.5s ease-in-out infinite; }
+.watch .crown { position:absolute; right:-12px; top:42px; width:7px; height:24px; border-radius:4px; background:#3C3327; }
+.rec { position:absolute; top:18px; width:12px; height:12px; border-radius:50%; background:#E0452F;
   animation:blink 1.6s ease-in-out infinite; }
-.wave { display:flex; align-items:center; gap:5px; height:54px; }
+.wave { display:flex; align-items:center; gap:5px; height:50px; }
 .wave i { width:6px; border-radius:4px; background:var(--accent); animation:wv 1.05s ease-in-out infinite; }
-.wave i:nth-child(1) { height:18px; } .wave i:nth-child(2) { height:38px; animation-delay:.12s; }
-.wave i:nth-child(3) { height:52px; animation-delay:.24s; } .wave i:nth-child(4) { height:34px; animation-delay:.36s; }
-.wave i:nth-child(5) { height:20px; animation-delay:.48s; }
-.flow { font-size:24px; color:var(--ink2); }
-.note { width:200px; background:#FFFDF8; border:1px solid rgba(43,35,26,.1); border-radius:22px; padding:22px 20px;
-  box-shadow:0 22px 50px -20px rgba(43,35,26,.3); }
-.nl { height:10px; border-radius:5px; background:rgba(43,35,26,.16); margin:11px 0; animation:appear 4.2s ease infinite; }
-.nl:nth-child(2) { animation-delay:.35s; } .nl:nth-child(3) { animation-delay:.7s; } .nl:nth-child(4) { animation-delay:1.05s; }
-.nl.s { opacity:.6; }
+.wave i:nth-child(1) { height:16px; } .wave i:nth-child(2) { height:34px; animation-delay:.12s; }
+.wave i:nth-child(3) { height:48px; animation-delay:.24s; } .wave i:nth-child(4) { height:30px; animation-delay:.36s; }
+.wave i:nth-child(5) { height:18px; animation-delay:.48s; }
 @keyframes wv { 0%,100% { transform:scaleY(.55); } 50% { transform:scaleY(1); } }
 @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:.35; } }
-@keyframes appear { 0% { opacity:0; transform:translateX(-5px); } 18%,100% { opacity:1; transform:translateX(0); } }
-@media (max-width:520px) { .tm { flex-direction:column; } .flow { transform:rotate(90deg); } }
+@keyframes watchfloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+@media (max-width:520px) { .tmhero { transform:scale(.84); margin:-36px 0; } }
 """,
 }
 
