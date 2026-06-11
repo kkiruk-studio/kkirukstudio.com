@@ -338,3 +338,11 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .wg-circ .c2 { font-size: 19px; font-weight: 700; line-height: 1.15; }
 .wg-circ .c3 { font-size: 9px; opacity: .7; font-family: ui-monospace, monospace; }
 @media (max-width: 540px) { .wg-home.medium { width: 100%; max-width: 352px; } }
+
+/* ── 실기기 위젯 캡처 ── */
+.wg-img { display: block; border-radius: 22px; flex-shrink: 0;
+  box-shadow: 0 16px 36px -14px color-mix(in srgb, var(--ink) 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); }
+.wg-img.small  { width: 168px; }
+.wg-img.medium { width: 352px; }
+.wg-img.lock   { width: 100%; max-width: 545px; border-radius: 16px; }
