@@ -28,7 +28,8 @@ LOCALES = {
         "h1": "One yellow button.<br>That's the <em>whole app</em>.",
         "pill": ["Tap", "Click!", "Saved ✓"],
         "sub": "Honest Camera is a real camera for small hands. Your child taps the big yellow button — click! — and the photo lands safely in your Photos library. There are no other buttons. Nothing to switch, nothing to buy, nowhere to get lost.",
-        "badge_small": "Download on the", "note": "PAID ONCE · NO ADS · NO SUBSCRIPTION",
+        "try": "Try it!",
+        "badge_small": "Download on the", "note": "Paid once · No ads · No subscription",
         "badge_aria": "Download on the App Store",
         "chips": [["3+", "Ages 3 and up"], ["1", "One button"], ["✓", "Saved to Photos"], ["0", "No ads"]],
         "hero_alt": "Honest Camera screen: a photo preview and one big yellow shutter button",
@@ -77,6 +78,7 @@ LOCALES = {
         "h1": "노란 버튼 하나.<br>그게 <em>앱의 전부</em>예요.",
         "pill": ["꾹", "찰칵!", "저장 ✓"],
         "sub": "Honest Camera는 작은 손을 위한 진짜 카메라예요. 아이가 노란 버튼을 꾹 — 찰칵! — 사진은 부모님 사진 앱에 안전하게 들어가요. 다른 버튼은 없어요. 바꿀 것도, 살 것도, 헤맬 곳도 없어요.",
+        "try": "눌러보세요!",
         "badge_small": "다운로드는", "note": "일회 구매 · 광고 없음 · 구독 없음",
         "badge_aria": "App Store에서 다운로드",
         "chips": [["3+", "3세부터"], ["1", "버튼 한 개"], ["✓", "자동 저장"], ["0", "광고 없음"]],
@@ -126,6 +128,7 @@ LOCALES = {
         "h1": "黄色いボタン、ひとつ。<br>それが<em>アプリのぜんぶ</em>。",
         "pill": ["ポン", "カシャ！", "保存 ✓"],
         "sub": "Honest Camera は小さな手のための本物のカメラ。お子さんが黄色いボタンをポンと押すと — カシャ！ — 写真はおうちの写真ライブラリへ安全に保存されます。ほかのボタンはありません。切り替えるものも、買うものも、迷子になる場所もありません。",
+        "try": "押してみて！",
         "badge_small": "ダウンロードは", "note": "買い切り · 広告なし · サブスクなし",
         "badge_aria": "App Store でダウンロード",
         "chips": [["3+", "3さいから"], ["1", "ボタンひとつ"], ["✓", "自動保存"], ["0", "広告なし"]],
@@ -175,6 +178,7 @@ LOCALES = {
         "h1": "一顆黃色按鈕。<br>就是<em>整個 App</em>。",
         "pill": ["按", "喀嚓！", "已儲存 ✓"],
         "sub": "Honest Camera 是為小小手設計的真相機。孩子按下黃色按鈕 — 喀嚓！— 照片就安全地存進家裡的照片圖庫。沒有其他按鈕。沒有東西可以切換、可以買、可以迷路。",
+        "try": "按按看！",
         "badge_small": "下載於", "note": "買斷制 · 無廣告 · 無訂閱",
         "badge_aria": "在 App Store 下載",
         "chips": [["3+", "3 歲以上"], ["1", "只有一顆按鈕"], ["✓", "自動儲存"], ["0", "無廣告"]],
@@ -259,13 +263,13 @@ def render(key):
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
     canonical = BASE_URL if loc["file"] == "index.html" else BASE_URL + loc["file"]
 
-    pill = f'<span class="d d1 on">{loc["pill"][0]}</span><span class="sep">→</span><span class="d d2">{loc["pill"][1]}</span><span class="sep">→</span><span class="d d3">{loc["pill"][2]}</span>'
+    pill = f'<span class="mb m1 on">{loc["pill"][0]}</span><span class="arr">→</span><span class="mb m2">{loc["pill"][1]}</span><span class="arr">→</span><span class="mb m3">{loc["pill"][2]}</span>'
     chips = "".join(
         f'<div class="chip c{i+1}"{" id=\"savedChip\"" if i == 2 else ""}><span class="g">{g}</span>{label}</div>'
         for i, (g, label) in enumerate(loc["chips"])
     )
     steps = "".join(
-        f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
+        f'<div class="step"><span class="n">{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
         for i, (tag, h, p) in enumerate(loc["steps"])
     )
     cut = "".join(
@@ -301,18 +305,21 @@ def render(key):
 
 <nav>
   <div class="wrap">
-    <a class="wordmark" href="./"><img src="assets/icon-180.png" alt=""><span>HONEST·CAMERA</span></a>
+    <a class="wordmark" href="./"><img src="assets/icon-180.png" alt=""><span>Honest Camera</span></a>
     <div class="lang">{lang_nav(loc['file'])}</div>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="ghost">1</div>
+  <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div>
   <div class="wrap">
     <div>
-      <div class="kicker"><span>HONEST · CAMERA</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
+      <div class="kicker"><span class="kpill">HONEST · CAMERA</span><span class="kpill k2">{loc['kicker_num']}</span></div>
       <h1>{loc['h1']}</h1>
-      <div class="demo" aria-hidden="true">{pill}</div>
+      <div class="demo">
+        <div class="trywrap"><button class="bigshut" id="bigShut" aria-label="{loc['try']}"></button><span class="cap">{loc['try']}</span></div>
+        <div class="seq" aria-hidden="true">{pill}</div>
+      </div>
       <p class="sub">{loc['sub']}</p>
       <div class="cta">
         {badge(loc, 'storeLink')}
@@ -328,7 +335,7 @@ def render(key):
 
 <section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['how_kicker']}</span><span class="rule"></span><span class="num">{loc['how_num']}</span></div>
+    <div class="kicker"><span class="kpill">{loc['how_kicker']}</span><span class="kpill k2">{loc['how_num']}</span></div>
     <h2>{loc['how_h2']}</h2>
     <div class="steps">{steps}</div>
   </div>
@@ -336,7 +343,7 @@ def render(key):
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="kicker"><span>{loc['cut_kicker']}</span><span class="rule"></span><span class="num">{loc['cut_num']}</span></div>
+    <div class="kicker"><span class="kpill">{loc['cut_kicker']}</span><span class="kpill k2">{loc['cut_num']}</span></div>
     <h2>{loc['cut_h2']}</h2>
     <p class="lede">{loc['cut_lede']}</p>
     <div class="cut-table">{cut}</div>
@@ -345,7 +352,7 @@ def render(key):
 
 <section class="shots">
   <div class="wrap">
-    <div class="kicker"><span>{loc['shots_kicker']}</span><span class="rule"></span><span class="num">{loc['shots_num']}</span></div>
+    <div class="kicker"><span class="kpill">{loc['shots_kicker']}</span><span class="kpill k2">{loc['shots_num']}</span></div>
     <h2>{loc['shots_h2']}</h2>
     <div class="row">{shots}</div>
   </div>
@@ -353,7 +360,7 @@ def render(key):
 
 <section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['feat_kicker']}</span><span class="rule"></span><span class="num">{loc['feat_num']}</span></div>
+    <div class="kicker"><span class="kpill">{loc['feat_kicker']}</span><span class="kpill k2">{loc['feat_num']}</span></div>
     <h2>{loc['feat_h2']}</h2>
     <div class="grid6">{feats}</div>
   </div>
@@ -387,36 +394,44 @@ def render(key):
   const xb = document.getElementById("demoXb");
   const flash = document.getElementById("demoFlash");
   const saved = document.getElementById("savedChip");
-  const dots = [document.querySelector(".demo .d1"), document.querySelector(".demo .d2"), document.querySelector(".demo .d3")];
+  const big = document.getElementById("bigShut");
+  const blocks = [document.querySelector(".seq .m1"), document.querySelector(".seq .m2"), document.querySelector(".seq .m3")];
   PHOTOS.forEach(p => {{ const i = new Image(); i.src = "assets/" + p; }});
 
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+  const setOn = (k) => blocks.forEach((b, j) => b && b.classList.toggle("on", j === k));
+  let busy = false, idx = 0;
+
+  async function doCapture(fromUser) {{
+    if (busy || !scr) return;
+    busy = true;
+    shut.classList.add("press");
+    if (!fromUser) big.classList.add("press");
+    setOn(1);
+    await sleep(150);
+    shut.classList.remove("press");
+    big.classList.remove("press");
+    flash.classList.add("on");
+    await sleep(110);
+    scr.classList.add("is-preview");
+    flash.classList.remove("on");
+    setOn(2);
+    saved.classList.add("pop");
+    await sleep(2000);
+    saved.classList.remove("pop");
+    xb.classList.add("press");
+    await sleep(160);
+    xb.classList.remove("press");
+    idx++;
+    scr.classList.remove("is-preview");
+    img.src = "assets/" + PHOTOS[idx % PHOTOS.length];
+    setOn(0);
+    busy = false;
+  }}
+
+  if (big) big.addEventListener("click", () => doCapture(true));
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && scr) {{
-    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-    const setOn = (k) => dots.forEach((d, j) => d && d.classList.toggle("on", j === k));
-    let i = 0;
-    (async function loop() {{
-      for (;;) {{
-        scr.classList.remove("is-preview");
-        img.src = "assets/" + PHOTOS[i % PHOTOS.length];
-        setOn(0);
-        await sleep(1500);
-        shut.classList.add("press"); setOn(1);
-        await sleep(150);
-        shut.classList.remove("press");
-        flash.classList.add("on");
-        await sleep(110);
-        scr.classList.add("is-preview");
-        flash.classList.remove("on");
-        setOn(2);
-        saved.classList.add("pop");
-        await sleep(2100);
-        saved.classList.remove("pop");
-        xb.classList.add("press");
-        await sleep(160);
-        xb.classList.remove("press");
-        i++;
-      }}
-    }})();
+    (async () => {{ for (;;) {{ await sleep(2700); if (!busy) await doCapture(false); }} }})();
   }}
 </script>
 </body>
