@@ -219,9 +219,8 @@ TMPL='''<!DOCTYPE html>
 
 <main>
 <div class="hero">
-  <div class="ghost">2048</div>
   <div class="hero-copy">
-    <div class="kicker-row"><span>{kicker}</span><span class="rule"></span><span class="knum">{knum}</span></div>
+    <p class="kicker">{kicker}</p>
     <h1 class="hero-msg">{hmsg}</h1>
     <p class="hero-sub">{hsub}</p>
     <div class="hero-cta-row">
@@ -239,16 +238,6 @@ TMPL='''<!DOCTYPE html>
     <p class="board-caption"><span id="paintName">The Starry Night</span><br><em id="paintArtist">Vincent van Gogh</em></p>
   </div>
 </div>
-
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
-
-<section>
-  <div class="wrap">
-    <div class="kicker-row center"><span>{how_k}</span><span class="rule"></span><span class="knum">01–03</span></div>
-    <h2 class="sec-title">{how_t}</h2>
-    <div class="steps">{steps}</div>
-  </div>
-</section>
 
 <section>
   <div class="wrap">
