@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palette 2048 — 每天用名画的颜色玩的拼图</title>
+<meta name="description" content="每天，棋盘都被一幅真实名画的调色板点亮。不用数字，用颜色合并拼出画作。周六是只凭颜色猜画的谜题日。">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="ko" href="ko.html">
+<link rel="alternate" hreflang="ja" href="ja.html">
+<link rel="alternate" hreflang="zh-Hans" href="zh-hans.html">
+<link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
+<link rel="alternate" hreflang="x-default" href="index.html">
+<meta property="og:title" content="Palette 2048 — 用名画的颜色游玩">
+<meta property="og:description" content="每天一幅新名画。合并颜色拼出画作，周六只凭颜色猜出作品。">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta property="og:image" content="icon.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="wordmark" href="zh-hans.html"><img class="brand-icon" src="icon.png" alt="">Palette 2048</a>
+    <nav class="nav-right">
+      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
+        <option value="index.html">EN</option>
+        <option value="ko.html">한국어</option>
+        <option value="ja.html">日本語</option>
+        <option value="zh-hans.html" selected>简体中文</option>
+        <option value="zh-hant.html">繁體中文</option>
+      </select>
+      <a class="nav-cta" href="https://apps.apple.com/app/idYOURAPPID" target="_blank" rel="noopener">App Store</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="hero-copy">
+    <p class="kicker">口袋里的美术馆</p>
+    <h1 class="hero-msg">每天一幅<br>全新名画。</h1>
+    <p class="hero-sub">每天棋盘都被一幅真实名画的调色板点亮。<br>没有数字，用<strong>颜色</strong>合并拼出完整的画作。</p>
+    <div class="hero-cta-row">
+      <a class="appstore-btn" href="https://apps.apple.com/app/idYOURAPPID" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>在 App Store 下载</a>
+      <span class="rating"><span class="stars">★★★★★</span>每天 · 免费畅玩</span>
+    </div>
+    <p class="hero-foot">122 幅名画 · iPhone 和 iPad · 无广告 · 离线</p>
+  </div>
+  <div class="board-col">
+    <div class="frame">
+      <div class="board" id="board" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <p class="board-caption"><span id="paintName">The Starry Night</span><br><em id="paintArtist">Vincent van Gogh</em></p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label">有何不同</p>
+    <h2 class="sec-title">没有数字。<br>你的眼睛就是游戏。</h2>
+    <div class="idea-cards">
+      <div class="idea-card">
+        <p class="tag">普通的 2048</p>
+        <div class="mini-grid nums"><i>2</i><i>4</i><i>8</i><i>16</i></div>
+        <p class="note">只追数字。每天都是同样的灰色方块。</p>
+      </div>
+      <div class="idea-card today">
+        <p class="tag">Palette 2048</p>
+        <div class="mini-grid swatches"><i></i><i></i><i></i><i></i></div>
+        <p class="note">追逐一幅画。每天都有新的色彩。</p>
+      </div>
+    </div>
+    <p class="idea-punch">把两个相同的颜色合并，它便绽放成下一种。</p>
+  </div>
+</section>
+
+<section class="mystery">
+  <div class="wrap">
+    <p class="sec-label">每周六</p>
+    <h2 class="sec-title">谜题日。</h2>
+    <p class="sec-sub">周六隐藏作品名称。先玩颜色，再仅凭调色板认出名画。你对艺术的眼力有多准？</p>
+    <div class="mystery-card">
+      <div class="q">? ? ?</div>
+      <div class="choices">
+        <span>The Starry Night</span>
+        <span class="pick">The Great Wave</span>
+        <span>Water Lilies</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label">内容</p>
+    <h2 class="sec-title">用真实艺术打造的，宁静的每日仪式。</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="f-swatch s1"></div>
+        <h3>每天一幅名画</h3>
+        <p>精选名画 122 幅 — 梵高、莫奈、北斋、金弘道等。明天又是另一幅。</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s2"></div>
+        <h3>颜色，而非数字</h3>
+        <p>方块是纯粹的颜色。合并后融入调色板的下一种色。一场安静的色觉测试。</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s3"></div>
+        <h3>周六谜题</h3>
+        <p>仅凭颜色认出隐藏的作品，为爱艺术的你准备的每周活动。</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s4"></div>
+        <h3>归档</h3>
+        <p>错过了某天？在色彩日历里重玩你玩过的所有画作。</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s5"></div>
+        <h3>连胜 &amp; 统计</h3>
+        <p>保持每日连胜，记录每幅画的最佳成绩，壮大你的收藏。</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s6"></div>
+        <h3>极简设计</h3>
+        <p>无广告。无需登录。完全离线。每天一幅，随你的节奏。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="cta-title">今天的画<br>已经挂在墙上。</h2>
+    <p class="cta-sub">免费畅玩 · 122 幅名画 · iPhone 和 iPad</p>
+    <a class="appstore-btn" href="https://apps.apple.com/app/idYOURAPPID" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>在 App Store 下载</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <span>© kkiruk studio</span>
+    <nav class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">联系</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">隐私</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">条款</a>
+      <a href="index.html">English</a>
+      <a href="ko.html">한국어</a>
+      <a href="ja.html">日本語</a>
+      <a href="zh-hant.html">繁體中文</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
