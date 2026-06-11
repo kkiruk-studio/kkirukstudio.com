@@ -436,7 +436,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 /* 폰 컨텍스트 안에서는 잠금 위젯이 배경화면 위 vibrancy 텍스트 (실물과 동일) */
 .mock-lock-row .wg2-lock { background: transparent; box-shadow: none; width: 545px; }
 /* 위젯 한 줄 정렬 — 스몰+미디엄 등높이 */
-.widgets { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-top: 44px; }
+.widgets { display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 44px; }
 
 /* 차트 1위 배지 */
 .rank-badge {
