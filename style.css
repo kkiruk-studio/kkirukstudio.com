@@ -68,7 +68,8 @@ header .bar {
   border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
 }
 .stat b { display: block; font-size: 27px; font-weight: 750; letter-spacing: -.02em; line-height: 1.15; }
-.stat span { font-size: 12.5px; color: var(--ink2); }
+.stat b span { font-size: inherit; color: inherit; }
+.stat > span { font-size: 12.5px; color: var(--ink2); }
 
 /* ── 대표작 카드 ── */
 .fcard {
