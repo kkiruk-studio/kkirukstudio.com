@@ -227,6 +227,9 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 /* ── 섹션 인트로 한 줄 ── */
 .sec-intro { margin: -12px 0 22px; font-size: 14.5px; color: var(--ink2); }
 
+/* ── 설명 속 자랑 포인트 강조 ── */
+.hero-sub2 b, .sec-intro b, .app-card p b { color: var(--ink); font-weight: 650; }
+
 /* ── 이모지 타일 (아이콘 없는 카드용) ── */
 .etile {
   width: 64px; height: 64px; border-radius: 15px; flex-shrink: 0;
