@@ -154,16 +154,7 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 @keyframes chippop { 0% { transform: rotate(4deg) scale(1); } 40% { transform: rotate(4deg) scale(1.18); } 100% { transform: rotate(4deg) scale(1); } }
 .chip.pop { animation: chippop .5s ease; }
 
-/* ---------- marquee ---------- */
-.marquee { overflow: hidden; background: #0b0b0b; }
-.marquee .track {
-  display: flex; gap: 48px; padding: 14px 0; width: max-content;
-  font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .3em; color: var(--yellow);
-  animation: scroll 30s linear infinite;
-}
-@keyframes scroll { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
-  .marquee .track { animation: none; }
   .chip.pop { animation: none; }
 }
 

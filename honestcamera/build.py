@@ -32,7 +32,6 @@ LOCALES = {
         "badge_aria": "Download on the App Store",
         "chips": [["3+", "Ages 3 and up"], ["1", "One button"], ["✓", "Saved to Photos"], ["0", "No ads"]],
         "hero_alt": "Honest Camera screen: a photo preview and one big yellow shutter button",
-        "marquee": ["NO ADS", "NO IN-APP PURCHASES", "NO MODES", "NO SETTINGS", "NO GALLERY", "NO FILTERS", "NO TRACKING", "ONE BUTTON"],
         "how_kicker": "HOW IT WORKS", "how_num": "01–03",
         "how_h2": "So simple, a three-year-old <em>already knows how</em>.",
         "steps": [
@@ -82,7 +81,6 @@ LOCALES = {
         "badge_aria": "App Store에서 다운로드",
         "chips": [["3+", "3세부터"], ["1", "버튼 한 개"], ["✓", "자동 저장"], ["0", "광고 없음"]],
         "hero_alt": "Honest Camera 화면 — 사진 미리보기와 큰 노란 셔터 버튼 하나",
-        "marquee": ["광고 없음", "인앱결제 없음", "모드 전환 없음", "설정 없음", "갤러리 없음", "필터 없음", "추적 없음", "버튼 한 개"],
         "how_kicker": "사용 방법", "how_num": "01–03",
         "how_h2": "세 살이면 <em>벌써 다 아는</em> 사용법.",
         "steps": [
@@ -132,7 +130,6 @@ LOCALES = {
         "badge_aria": "App Store でダウンロード",
         "chips": [["3+", "3さいから"], ["1", "ボタンひとつ"], ["✓", "自動保存"], ["0", "広告なし"]],
         "hero_alt": "Honest Camera の画面 — 写真プレビューと大きな黄色いシャッターボタン",
-        "marquee": ["広告なし", "課金なし", "モード切替なし", "設定なし", "ギャラリーなし", "フィルターなし", "トラッキングなし", "ボタンひとつ"],
         "how_kicker": "使いかた", "how_num": "01–03",
         "how_h2": "3歳なら<em>もう知ってる</em>使いかた。",
         "steps": [
@@ -182,7 +179,6 @@ LOCALES = {
         "badge_aria": "在 App Store 下載",
         "chips": [["3+", "3 歲以上"], ["1", "只有一顆按鈕"], ["✓", "自動儲存"], ["0", "無廣告"]],
         "hero_alt": "Honest Camera 畫面 — 照片預覽與一顆大大的黃色快門按鈕",
-        "marquee": ["無廣告", "無內購", "無模式切換", "無設定", "無相簿", "無濾鏡", "無追蹤", "一顆按鈕"],
         "how_kicker": "使用方式", "how_num": "01–03",
         "how_h2": "三歲的孩子<em>本來就會</em>的用法。",
         "steps": [
@@ -268,7 +264,6 @@ def render(key):
         f'<div class="chip c{i+1}"{" id=\"savedChip\"" if i == 2 else ""}><span class="g">{g}</span>{label}</div>'
         for i, (g, label) in enumerate(loc["chips"])
     )
-    marquee = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
     steps = "".join(
         f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
         for i, (tag, h, p) in enumerate(loc["steps"])
@@ -330,8 +325,6 @@ def render(key):
     </div>
   </div>
 </header>
-
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
 
 <section>
   <div class="wrap">
