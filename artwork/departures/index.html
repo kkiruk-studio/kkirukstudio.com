@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Departures — a split-flap canvas · kkiruk artwork</title>
+<meta name="description" content="Departures: 2,560 split-flap modules, 40 shared color cards, one masterpiece at a time. An homage to airport departure boards — every painting is a destination.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Departures — a split-flap canvas">
+<meta property="og:description" content="2,560 split-flap modules flip through 40 color cards. Now departing: The Starry Night, The Scream, Mondrian and more.">
+<meta property="og:url" content="https://www.kkirukstudio.com/artwork/departures/">
+<meta property="og:image" content="https://www.kkirukstudio.com/artwork/departures/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121215'/%3E%3Crect x='12' y='10' width='40' height='21' rx='4' fill='%23f4c542'/%3E%3Crect x='12' y='33' width='40' height='21' rx='4' fill='%23c98a1b'/%3E%3Crect x='10' y='30' width='44' height='4' fill='%23121215'/%3E%3C/svg%3E">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: #08080a;
+    color: #d8d2c4;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px; overflow: hidden; position: relative;
+  }
+  /* 벽 스포트라이트 */
+  body::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 75% 60% at 50% 38%, rgba(255,244,214,.07), transparent 65%),
+      radial-gradient(ellipse 120% 100% at 50% 110%, rgba(0,0,0,.6), transparent 60%);
+  }
+  #bezel {
+    position: relative;
+    background:
+      linear-gradient(175deg, #2a2a2e 0%, #1b1b1f 18%, #141417 55%, #1d1d21 100%);
+    border: 1px solid #36363c;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow:
+      0 40px 90px rgba(0,0,0,.8),
+      0 4px 14px rgba(0,0,0,.6),
+      inset 0 1px 0 rgba(255,255,255,.08),
+      inset 0 -2px 6px rgba(0,0,0,.5);
+  }
+  /* 베젤 나사 */
+  .screw {
+    position: absolute; width: 9px; height: 9px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #5a5a60, #232326 65%, #0c0c0e);
+    box-shadow: inset 0 -1px 1px rgba(0,0,0,.8), 0 1px 1px rgba(255,255,255,.06);
+  }
+  .screw::after {
+    content: ""; position: absolute; left: 1.5px; right: 1.5px; top: 3.6px; height: 1.4px;
+    background: rgba(0,0,0,.75); transform: rotate(24deg); border-radius: 1px;
+  }
+  .screw.tl { top: 7px; left: 7px; } .screw.tr { top: 7px; right: 7px; transform: rotate(70deg); }
+  .screw.bl { bottom: 7px; left: 7px; transform: rotate(-40deg); } .screw.br { bottom: 7px; right: 7px; transform: rotate(15deg); }
+  #boardWrap {
+    border-radius: 5px; overflow: hidden;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,.9), inset 0 0 2px #000;
+    background: #050506;
+    padding: 6px;
+  }
+  canvas { display: block; background: #060607; }
+  #placard {
+    display: flex; align-items: baseline; gap: 12px;
+    letter-spacing: .14em; text-transform: uppercase;
+    font-size: 13px; color: #cfc6ae;
+    min-height: 18px;
+    text-shadow: 0 0 14px rgba(255,236,180,.25);
+  }
+  #placard .artist { color: #756f60; font-size: 11px; }
+  #placard .depart {
+    color: #8a7335; font-size: 10px; letter-spacing: .3em;
+    border: 1px solid #3a3322; border-radius: 3px;
+    padding: 3px 8px 2px; align-self: center;
+    text-shadow: none;
+  }
+  #controls { display: flex; align-items: center; gap: 10px; }
+  button {
+    background: #1a1a1f; color: #c8c2b4; border: 1px solid #32323a;
+    border-radius: 6px; padding: 7px 14px; font-size: 12px; letter-spacing: .08em;
+    cursor: pointer;
+  }
+  button:hover { background: #24242b; }
+  button.off { opacity: .45; }
+  #paletteStrip { display: flex; gap: 2px; margin-top: 2px; }
+  #paletteStrip i { width: 11px; height: 16px; border-radius: 2px; display: block;
+    box-shadow: inset 0 2px 2px rgba(255,255,255,.18), inset 0 -2px 3px rgba(0,0,0,.4); }
+  #hint { font-size: 11px; color: #57534a; letter-spacing: .06em; }
+</style>
+</head>
+<body>
+  <div id="placard"><span class="depart">NOW DEPARTING</span><span class="title">LOADING…</span><span class="artist"></span></div>
+  <div id="bezel">
+    <span class="screw tl"></span><span class="screw tr"></span>
+    <span class="screw bl"></span><span class="screw br"></span>
+    <div id="boardWrap"><canvas id="board"></canvas></div>
+  </div>
+  <div id="controls">
+    <button id="nextBtn">다음 그림 ⏭</button>
+    <button id="autoBtn">자동 순환: ON</button>
+  </div>
+  <div id="paletteStrip"></div>
+  <div id="hint">2,560 flaps · 40 shared color cards · one-way rotation · <a href="https://www.kkirukstudio.com" style="color:#7a7466">kkiruk studio</a></div>
+
+<script>
+"use strict";
+
+// ───────────────────────── 설정 ─────────────────────────
+const COLS = 64, ROWS = 40;        // 플랍 그리드 (픽셀 수)
+const K = 40;                      // 플랍당 색상 카드 수 (공용 팔레트)
+const STEP_MS = 72;                // 카드 1장 넘어가는 시간
+const AUTO_INTERVAL = 14000;       // 자동 순환 간격
+const N = COLS * ROWS;
+
+const PAINTINGS = [
+  { title: "The Starry Night", artist: "Vincent van Gogh, 1889",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/960px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" },
+  { title: "Sunflowers", artist: "Vincent van Gogh, 1888",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Vincent_Willem_van_Gogh_127.jpg/960px-Vincent_Willem_van_Gogh_127.jpg" },
+  { title: "The Great Wave off Kanagawa", artist: "Hokusai, c.1831",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/960px-Great_Wave_off_Kanagawa2.jpg" },
+  { title: "Girl with a Pearl Earring", artist: "Johannes Vermeer, c.1665",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Meisje_met_de_parel.jpg/960px-Meisje_met_de_parel.jpg" },
+  { title: "The Scream", artist: "Edvard Munch, 1893",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Scream.jpg/960px-The_Scream.jpg" },
+  { title: "The Kiss", artist: "Gustav Klimt, 1908",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg/960px-The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg" },
+  { title: "Composition II in Red, Blue, and Yellow", artist: "Piet Mondrian, 1930",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg/960px-Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg" },
+  { title: "Impression, Sunrise", artist: "Claude Monet, 1872",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/960px-Monet_-_Impression%2C_Sunrise.jpg" },
+  { title: "A Sunday on La Grande Jatte", artist: "Georges Seurat, 1884",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.png/960px-A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.png" },
+  { title: "Café Terrace at Night", artist: "Vincent van Gogh, 1888",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Vincent_Willem_van_Gogh_-_Cafe_Terrace_at_Night_%28Yorck%29.jpg/960px-Vincent_Willem_van_Gogh_-_Cafe_Terrace_at_Night_%28Yorck%29.jpg" },
+];
+
+// ─────────────────────── 색 변환 (Lab) ───────────────────────
+function srgbToLab(r, g, b) {
+  const f = v => { v /= 255; return v > .04045 ? Math.pow((v + .055) / 1.055, 2.4) : v / 12.92; };
+  const R = f(r), G = f(g), B = f(b);
+  let X = R * .4124 + G * .3576 + B * .1805;
+  let Y = R * .2126 + G * .7152 + B * .0722;
+  let Z = R * .0193 + G * .1192 + B * .9505;
+  X /= .95047; Z /= 1.08883;
+  const g2 = t => t > .008856 ? Math.cbrt(t) : 7.787 * t + 16 / 116;
+  const fx = g2(X), fy = g2(Y), fz = g2(Z);
+  return [116 * fy - 16, 500 * (fx - fy), 200 * (fy - fz)];
+}
+const labDist = (a, b) => {
+  const dl = a[0] - b[0], da = a[1] - b[1], db = a[2] - b[2];
+  return dl * dl + da * da + db * db;
+};
+
+// 결정적 PRNG (팔레트 재현성)
+function mulberry32(seed) {
+  return function () {
+    seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+// ─────────────────── 이미지 → 그리드 샘플링 ───────────────────
+function loadImage(url) {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => res(img);
+    img.onerror = () => rej(new Error("load fail: " + url));
+    img.src = url;
+  });
+}
+
+// cover-crop 으로 COLS×ROWS 다운샘플 → [r,g,b] × N
+function sampleGrid(img) {
+  const c = document.createElement("canvas");
+  c.width = COLS; c.height = ROWS;
+  const cx = c.getContext("2d", { willReadFrequently: true });
+  const scale = Math.max(COLS / img.width, ROWS / img.height);
+  const w = img.width * scale, h = img.height * scale;
+  cx.drawImage(img, (COLS - w) / 2, (ROWS - h) / 2, w, h);
+  return cx.getImageData(0, 0, COLS, ROWS).data;
+}
+
+// ─────────────────── 공용 팔레트 (k-means in Lab) ───────────────────
+function buildPalette(allGrids) {
+  const rand = mulberry32(20260611);
+  const samples = [];
+  for (const g of allGrids)
+    for (let i = 0; i < N; i++)
+      samples.push(srgbToLab(g[i * 4], g[i * 4 + 1], g[i * 4 + 2]));
+
+  // k-means++ 초기화
+  const centers = [samples[(rand() * samples.length) | 0].slice()];
+  while (centers.length < K) {
+    let total = 0;
+    const d2 = samples.map(s => {
+      let m = Infinity;
+      for (const c of centers) m = Math.min(m, labDist(s, c));
+      total += m; return m;
+    });
+    let r = rand() * total, idx = 0;
+    while (r > d2[idx] && idx < samples.length - 1) r -= d2[idx++];
+    centers.push(samples[idx].slice());
+  }
+  // 반복
+  const assign = new Int32Array(samples.length);
+  for (let iter = 0; iter < 16; iter++) {
+    for (let i = 0; i < samples.length; i++) {
+      let best = 0, bd = Infinity;
+      for (let k = 0; k < K; k++) {
+        const d = labDist(samples[i], centers[k]);
+        if (d < bd) { bd = d; best = k; }
+      }
+      assign[i] = best;
+    }
+    const sum = Array.from({ length: K }, () => [0, 0, 0, 0]);
+    for (let i = 0; i < samples.length; i++) {
+      const s = sum[assign[i]];
+      s[0] += samples[i][0]; s[1] += samples[i][1]; s[2] += samples[i][2]; s[3]++;
+    }
+    for (let k = 0; k < K; k++)
+      if (sum[k][3] > 0)
+        centers[k] = [sum[k][0] / sum[k][3], sum[k][1] / sum[k][3], sum[k][2] / sum[k][3]];
+  }
+
+  // 카드 링 정렬: 무채색(저채도)은 밝기순 먼저, 유채색은 색상환(hue)→밝기순
+  const withMeta = centers.map(c => {
+    const chroma = Math.hypot(c[1], c[2]);
+    const hue = (Math.atan2(c[2], c[1]) * 180 / Math.PI + 360) % 360;
+    return { lab: c, chroma, hue };
+  });
+  const neutrals = withMeta.filter(c => c.chroma < 12).sort((a, b) => a.lab[0] - b.lab[0]);
+  const chromatic = withMeta.filter(c => c.chroma >= 12)
+    .sort((a, b) => (Math.floor(a.hue / 30) - Math.floor(b.hue / 30)) || (a.lab[0] - b.lab[0]));
+  return [...neutrals, ...chromatic].map(c => c.lab);
+}
+
+function labToRgb(lab) {
+  const [L, a, b] = lab;
+  const fy = (L + 16) / 116, fx = fy + a / 500, fz = fy - b / 200;
+  const gi = t => { const t3 = t * t * t; return t3 > .008856 ? t3 : (t - 16 / 116) / 7.787; };
+  let X = gi(fx) * .95047, Y = gi(fy), Z = gi(fz) * 1.08883;
+  let R = X * 3.2406 + Y * -1.5372 + Z * -.4986;
+  let G = X * -.9689 + Y * 1.8758 + Z * .0415;
+  let B = X * .0557 + Y * -.204 + Z * 1.057;
+  const f = v => {
+    v = v > .0031308 ? 1.055 * Math.pow(v, 1 / 2.4) - .055 : 12.92 * v;
+    return Math.max(0, Math.min(255, Math.round(v * 255)));
+  };
+  return [f(R), f(G), f(B)];
+}
+
+// 그리드를 팔레트 인덱스로 양자화
+function quantize(grid, paletteLab) {
+  const out = new Uint8Array(N);
+  for (let i = 0; i < N; i++) {
+    const lab = srgbToLab(grid[i * 4], grid[i * 4 + 1], grid[i * 4 + 2]);
+    let best = 0, bd = Infinity;
+    for (let k = 0; k < K; k++) {
+      const d = labDist(lab, paletteLab[k]);
+      if (d < bd) { bd = d; best = k; }
+    }
+    out[i] = best;
+  }
+  return out;
+}
+
+// ─────────────────────── 플랩 보드 상태 ───────────────────────
+const pos = new Uint8Array(N);          // 현재 카드
+const target = new Uint8Array(N);       // 목표 카드
+const flipStart = new Float64Array(N).fill(-1);
+const delayUntil = new Float64Array(N);
+const settleUntil = new Float64Array(N);   // 착지 글린트
+const twitchStart = new Float64Array(N).fill(-1); // idle 들썩임
+const stepJitter = new Float32Array(N); // 플랍별 속도 편차
+const variantOf = new Uint8Array(N);    // 카드 인쇄 편차 (스프라이트 변형)
+const yNudge = new Float32Array(N);     // 정렬 어긋남 (px)
+
+let paletteRgb = [];
+
+// ─────────────── 카드 스프라이트 (아날로그 질감 사전 렌더) ───────────────
+// sprites[variant][cardIdx] = offscreen canvas
+const VARIANTS = 3;
+const VARIANT_MULT = [0.94, 1.0, 1.06];
+let sprites = [];
+
+function makeCard(rgb, w, h, mult) {
+  const c = document.createElement("canvas");
+  c.width = Math.max(2, Math.round(w * dpr));
+  c.height = Math.max(2, Math.round(h * dpr));
+  const x = c.getContext("2d");
+  x.scale(c.width / w, c.height / h);
+  const [r, g, b] = rgb;
+  const cl = v => Math.max(0, Math.min(255, Math.round(v)));
+  const tint = m => `rgb(${cl(r * m)},${cl(g * m)},${cl(b * m)})`;
+  const rr = Math.min(2.5, w * 0.16);
+
+  // 카드 곡면: 위 밝고 → 슬롯 직전 어둡고 → 아래 카드 다시 밝았다 어두워짐
+  const grad = x.createLinearGradient(0, 0, 0, h);
+  grad.addColorStop(0.00, tint(1.22 * mult));
+  grad.addColorStop(0.10, tint(1.10 * mult));
+  grad.addColorStop(0.44, tint(0.98 * mult));
+  grad.addColorStop(0.50, tint(0.62 * mult));   // 분할 슬롯 그림자
+  grad.addColorStop(0.56, tint(1.02 * mult));
+  grad.addColorStop(0.90, tint(0.86 * mult));
+  grad.addColorStop(1.00, tint(0.70 * mult));
+  x.beginPath();
+  x.moveTo(rr, 0); x.lineTo(w - rr, 0); x.quadraticCurveTo(w, 0, w, rr);
+  x.lineTo(w, h - rr); x.quadraticCurveTo(w, h, w - rr, h);
+  x.lineTo(rr, h); x.quadraticCurveTo(0, h, 0, h - rr);
+  x.lineTo(0, rr); x.quadraticCurveTo(0, 0, rr, 0);
+  x.closePath();
+  x.fillStyle = grad; x.fill();
+
+  // 상단 스펙큘러 시트(플라스틱 광)
+  x.fillStyle = "rgba(255,255,255,.12)";
+  x.fillRect(rr, 0.5, w - rr * 2, Math.max(1, h * 0.08));
+  // 분할 슬롯
+  x.fillStyle = "rgba(0,0,0,.6)";
+  x.fillRect(0, h / 2 - 0.7, w, 1.4);
+  // 좌우 힌지 핀
+  x.fillStyle = "rgba(0,0,0,.55)";
+  x.fillRect(0, h / 2 - 2.2, 1.6, 4.4);
+  x.fillRect(w - 1.6, h / 2 - 2.2, 1.6, 4.4);
+  // 테두리 미세 음영
+  x.strokeStyle = "rgba(0,0,0,.4)";
+  x.lineWidth = 1;
+  x.stroke();
+  return c;
+}
+
+function makeSprites() {
+  if (!paletteRgb.length) return;
+  const w = cellW - gap, h = cellH - gap;
+  sprites = VARIANT_MULT.map(m => paletteRgb.map(rgb => makeCard(rgb, w, h, m)));
+}
+
+// ─────────────── 보드 오버레이 (비네트 + 그레인) ───────────────
+let vignette = null, grain = null;
+
+function makeOverlays() {
+  const W = COLS * cellW, H = ROWS * cellH;
+  vignette = document.createElement("canvas");
+  vignette.width = W; vignette.height = H;
+  const vx = vignette.getContext("2d");
+  const rg = vx.createRadialGradient(W / 2, H * 0.42, Math.min(W, H) * 0.25, W / 2, H / 2, Math.max(W, H) * 0.72);
+  rg.addColorStop(0, "rgba(255,248,225,.05)");
+  rg.addColorStop(0.55, "rgba(0,0,0,0)");
+  rg.addColorStop(1, "rgba(0,0,0,.42)");
+  vx.fillStyle = rg; vx.fillRect(0, 0, W, H);
+
+  grain = document.createElement("canvas");
+  grain.width = W; grain.height = H;
+  const gx = grain.getContext("2d");
+  const id = gx.createImageData(W, H);
+  for (let i = 0; i < id.data.length; i += 4) {
+    const v = 128 + (Math.random() - 0.5) * 255;
+    id.data[i] = id.data[i + 1] = id.data[i + 2] = v;
+    id.data[i + 3] = 10; // 알파 → 미세 그레인
+  }
+  gx.putImageData(id, 0, 0);
+}
+
+// ─────────────────────── 렌더링 ───────────────────────
+const canvas = document.getElementById("board");
+const ctx = canvas.getContext("2d");
+let cellW = 14, cellH = 14, gap = 2, dpr = 1;
+
+function layout() {
+  dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const availW = window.innerWidth * 0.92 - 56;
+  const availH = window.innerHeight * 0.70 - 56;
+  const cs = Math.max(6, Math.floor(Math.min(availW / COLS, availH / ROWS)));
+  cellW = cellH = cs;
+  gap = cs >= 10 ? 2 : 1;
+  canvas.style.width = COLS * cs + "px";
+  canvas.style.height = ROWS * cs + "px";
+  canvas.width = COLS * cs * dpr;
+  canvas.height = ROWS * cs * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  makeSprites();
+  makeOverlays();
+}
+window.addEventListener("resize", layout);
+
+// 중력 이징: 윗날개는 가속 낙하, 아랫날개는 감속 착지
+const easeFall = t => t * t;
+const easeLand = t => 1 - (1 - t) * (1 - t);
+
+let lastFrame = 0;
+
+function drawFrame(now) {
+  const dt = Math.min(100, now - lastFrame);
+  lastFrame = now;
+
+  // idle 트윅: 가끔 아무 플랍이나 혼자 들썩 (이미지 불변)
+  if (Math.random() < dt * 0.0006) {
+    const i = (Math.random() * N) | 0;
+    if (flipStart[i] < 0 && twitchStart[i] < 0 && pos[i] === target[i]) twitchStart[i] = now;
+  }
+
+  ctx.fillStyle = "#060607";
+  ctx.fillRect(0, 0, COLS * cellW, ROWS * cellH);
+
+  for (let i = 0; i < N; i++) {
+    // 상태 갱신
+    if (flipStart[i] >= 0) {
+      const dur = STEP_MS * stepJitter[i];
+      if (now - flipStart[i] >= dur) {
+        pos[i] = (pos[i] + 1) % K;
+        if (pos[i] !== target[i]) flipStart[i] = now;
+        else { flipStart[i] = -1; settleUntil[i] = now + 90; }
+      }
+    } else if (pos[i] !== target[i] && now >= delayUntil[i]) {
+      flipStart[i] = now;
+    }
+
+    const x = (i % COLS) * cellW;
+    const y = ((i / COLS) | 0) * cellH + yNudge[i];
+    const w = cellW - gap, h = cellH - gap, half = h / 2;
+    const cur = pos[i];
+    const sCur = sprites[variantOf[i]][cur];
+    const halfPx = sCur.height / 2;
+
+    if (flipStart[i] < 0) {
+      ctx.drawImage(sCur, x, y, w, h);
+
+      // 착지 글린트: 찰싹 닿은 직후 짧은 반사광
+      if (now < settleUntil[i]) {
+        ctx.fillStyle = `rgba(255,255,255,${0.13 * (settleUntil[i] - now) / 90})`;
+        ctx.fillRect(x, y + half, w, half);
+      }
+      // 트윅: 윗날개가 살짝 떴다가 내려앉음
+      if (twitchStart[i] >= 0) {
+        const tt = (now - twitchStart[i]) / 140;
+        if (tt >= 1) twitchStart[i] = -1;
+        else {
+          const lift = Math.sin(tt * Math.PI) * Math.max(1.5, half * 0.18);
+          ctx.fillStyle = "rgba(0,0,0,.5)";
+          ctx.fillRect(x, y, w, lift);
+          ctx.drawImage(sCur, 0, 0, sCur.width, halfPx, x, y + lift, w, half - lift);
+        }
+      }
+    } else {
+      const f = Math.min(1, (now - flipStart[i]) / (STEP_MS * stepJitter[i]));
+      const nxt = (cur + 1) % K;
+      const sNxt = sprites[variantOf[i]][nxt];
+      // 뒤판: 위 = 다음 카드 윗면, 아래 = 현재 카드 아랫면
+      ctx.drawImage(sNxt, 0, 0, sNxt.width, halfPx, x, y, w, half);
+      ctx.drawImage(sCur, 0, halfPx, sCur.width, halfPx, x, y + half, w, half);
+
+      if (f < 0.5) {
+        // 윗날개(현재 색)가 가속 낙하 — 점점 어두워짐
+        const e = easeFall(f / 0.5);
+        const hh = half * (1 - e);
+        if (hh > 0.4) {
+          ctx.drawImage(sCur, 0, 0, sCur.width, halfPx, x, y + half - hh, w, hh);
+          ctx.fillStyle = `rgba(0,0,0,${0.5 * e})`;
+          ctx.fillRect(x, y + half - hh, w, hh);
+        }
+      } else {
+        // 아랫날개(다음 색)가 감속 착지 — 그늘에서 빠져나옴
+        const t = (f - 0.5) / 0.5;
+        const hh = half * easeLand(t);
+        if (hh > 0.4) {
+          ctx.drawImage(sNxt, 0, halfPx, sNxt.width, halfPx, x, y + half, w, hh);
+          ctx.fillStyle = `rgba(0,0,0,${0.5 * (1 - t)})`;
+          ctx.fillRect(x, y + half, w, hh);
+        }
+      }
+    }
+  }
+
+  // 조명 + 그레인
+  if (vignette) ctx.drawImage(vignette, 0, 0);
+  if (grain) ctx.drawImage(grain, 0, 0);
+
+  requestAnimationFrame(drawFrame);
+}
+
+// ─────────────────────── 전환 연출 ───────────────────────
+let quantized = [];   // 그림별 팔레트 인덱스 그리드
+let titles = [];
+let current = -1;
+let autoOn = true, autoTimer = null;
+
+// 디버그/검증용: ?instant=1 → 전환 생략, ?p=N → 시작 그림
+const urlParams = new URLSearchParams(location.search);
+const INSTANT = urlParams.has("instant");
+const START_AT = parseInt(urlParams.get("p") || "0", 10) || 0;
+
+function showPainting(idx) {
+  current = idx;
+  const pl = document.getElementById("placard");
+  pl.querySelector(".title").textContent = titles[idx].title;
+  pl.querySelector(".artist").textContent = titles[idx].artist;
+  if (INSTANT) {
+    pos.set(quantized[idx]);
+    target.set(quantized[idx]);
+    flipStart.fill(-1);
+    return;
+  }
+  const t = performance.now();
+  for (let i = 0; i < N; i++) {
+    target[i] = quantized[idx][i];
+    const x = i % COLS, y = (i / COLS) | 0;
+    // 좌상→우하 대각선 물결 + 랜덤 — "타다다다" 캐스케이드
+    delayUntil[i] = t + x * 16 + y * 10 + Math.random() * 450;
+  }
+}
+function nextPainting() { showPainting((current + 1) % quantized.length); resetAuto(); }
+function resetAuto() {
+  clearInterval(autoTimer);
+  if (autoOn) autoTimer = setInterval(() => showPainting((current + 1) % quantized.length), AUTO_INTERVAL);
+}
+
+// ─────────────────────── UI ───────────────────────
+document.getElementById("nextBtn").addEventListener("click", nextPainting);
+document.getElementById("autoBtn").addEventListener("click", e => {
+  autoOn = !autoOn;
+  e.target.textContent = "자동 순환: " + (autoOn ? "ON" : "OFF");
+  e.target.classList.toggle("off", !autoOn);
+  resetAuto();
+});
+// ─────────────────────── 부팅 ───────────────────────
+(async function boot() {
+  layout();
+  const results = await Promise.allSettled(PAINTINGS.map(p => loadImage(p.url)));
+  const grids = [];
+  results.forEach((r, i) => {
+    if (r.status === "fulfilled") {
+      grids.push(sampleGrid(r.value));
+      titles.push(PAINTINGS[i]);
+    } else console.warn(r.reason);
+  });
+
+  if (grids.length === 0) {
+    // 오프라인 폴백: 절차적 테스트 패턴 2종
+    const g1 = new Uint8ClampedArray(N * 4), g2 = new Uint8ClampedArray(N * 4);
+    for (let i = 0; i < N; i++) {
+      const x = i % COLS, y = (i / COLS) | 0;
+      const hue = x / COLS * 360;
+      const [r, g, b] = hslToRgbQuick(hue, .7, .3 + .4 * y / ROWS);
+      g1.set([r, g, b, 255], i * 4);
+      const v = ((x / 8 | 0) + (y / 8 | 0)) % 2 ? 230 : 30;
+      g2.set([v, v, v, 255], i * 4);
+    }
+    grids.push(g1, g2);
+    titles.push({ title: "Test Pattern A", artist: "offline" }, { title: "Test Pattern B", artist: "offline" });
+  }
+
+  const paletteLab = buildPalette(grids);
+  paletteRgb = paletteLab.map(labToRgb);
+  makeSprites();
+  quantized = grids.map(g => quantize(g, paletteLab));
+
+  // 팔레트 스트립 표시
+  const strip = document.getElementById("paletteStrip");
+  paletteRgb.forEach(([r, g, b]) => {
+    const sw = document.createElement("i");
+    sw.style.background = `rgb(${r},${g},${b})`;
+    strip.appendChild(sw);
+  });
+
+  // 모든 플랍 카드 0(최암부)에서 시작 → 첫 그림으로 플립 인
+  for (let i = 0; i < N; i++) {
+    pos[i] = 0; target[i] = 0;
+    stepJitter[i] = 0.82 + Math.random() * 0.4;
+    variantOf[i] = (Math.random() * VARIANTS) | 0;
+    yNudge[i] = (Math.random() - 0.5) * 0.9;
+  }
+  requestAnimationFrame(drawFrame);
+  showPainting(Math.min(START_AT, quantized.length - 1));
+  resetAuto();
+})();
+
+function hslToRgbQuick(h, s, l) {
+  const a = s * Math.min(l, 1 - l);
+  const f = n => {
+    const k = (n + h / 30) % 12;
+    return Math.round(255 * (l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1))));
+  };
+  return [f(0), f(8), f(4)];
+}
+</script>
+</body>
+</html>
