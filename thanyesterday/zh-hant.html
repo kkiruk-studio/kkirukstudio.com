@@ -63,17 +63,7 @@
   <!-- 應用畫面模擬 -->
   <div class="phone-col">
     <div class="phone" aria-hidden="true">
-      <div class="notch"></div>
-      <div class="p-top"><span>台北 · <span data-clock>09:41</span></span><span>≡</span></div>
-      <div class="p-shape">
-        <div class="sun"><i></i><i></i><i></i><i></i></div>
-        <div class="moon"></div>
-      </div>
-      <div class="p-bottom">
-        <p class="p-msg">比昨天<br>暖3°</p>
-        <p class="p-temp">24<span class="unit">°C</span></p>
-        <p class="p-meta">晴 · 體感 24° &nbsp;&nbsp; H 26° / L 18°</p>
-      </div>
+      <img class="p-shot" src="../shots/thanyesterday/zh-hant-1.jpg" alt="">
     </div>
   </div>
 </div>
@@ -149,24 +139,27 @@
     <h2 class="sec-title">在鎖定畫面，就能看完天氣。</h2>
     <p class="sec-sub">主畫面與鎖定畫面小工具，不用打開 App 就能看到和昨天的差別。</p>
     <div class="widgets">
-      <div class="widget small">
-        <p class="w-label">比昨天</p>
-        <p class="w-big">+3°</p>
-        <p class="w-note">更暖 · 晴</p>
-      </div>
-      <div class="widget circular">
-        <p class="w-big">+3°</p>
-        <p class="w-label">比昨天</p>
-      </div>
-      <div class="widget medium">
-        <p class="w-label">逐小時氣溫</p>
-        <div class="w-bars">
-          <i style="height:38%"></i><i style="height:46%"></i><i style="height:58%"></i>
-          <i style="height:72%"></i><i style="height:88%"></i><i style="height:100%"></i>
-          <i style="height:84%"></i><i style="height:66%"></i><i style="height:52%"></i>
+      <div class="wg-home small">
+        <span class="wg-loc">台北</span>
+        <span class="wg-refresh">↻</span>
+        <div class="wg-cmp"><span class="l1">比昨天</span><span class="l2">+3°C</span></div>
+        <div class="wg-now">
+          <div><span class="nowlbl">現在</span><span class="t">22<small>°C</small></span></div>
+          <p class="cond">☀︎ 晴</p>
+          <p class="hl">H 25°C&nbsp; L 16°C</p>
         </div>
-        <p class="w-note">現在24° · 下午3點最高26°</p>
       </div>
+      <div class="wg-home medium">
+        <span class="wg-loc">台北</span>
+        <span class="wg-refresh">↻</span>
+        <div class="wg-cmp"><span class="l1">比昨天</span><span class="l2">+3°C</span></div>
+        <div class="wg-now">
+          <div><span class="nowlbl">現在</span><span class="t">22<small>°C</small></span></div>
+          <p class="cond">☀︎ 晴</p>
+          <p class="hl">H 25°C&nbsp; L 16°C</p>
+        </div>
+      </div>
+      <div class="wg-circ"><span class="c1">☀︎ +3°</span><span class="c2">22°</span><span class="c3">25°&nbsp;16°</span></div>
     </div>
   </div>
 </section>

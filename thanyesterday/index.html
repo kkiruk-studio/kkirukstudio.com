@@ -63,17 +63,7 @@
   <!-- Phone mock: the actual app poster -->
   <div class="phone-col">
     <div class="phone" aria-hidden="true">
-      <div class="notch"></div>
-      <div class="p-top"><span>SEOUL · <span data-clock>09:41</span></span><span>≡</span></div>
-      <div class="p-shape">
-        <div class="sun"><i></i><i></i><i></i><i></i></div>
-        <div class="moon"></div>
-      </div>
-      <div class="p-bottom">
-        <p class="p-msg">3° warmer<br>than yesterday</p>
-        <p class="p-temp">75<span class="unit">°F</span></p>
-        <p class="p-meta">Clear · Feels 75° &nbsp;&nbsp; H 79° / L 64°</p>
-      </div>
+      <img class="p-shot" src="../shots/thanyesterday/en-1.jpg" alt="">
     </div>
   </div>
 </div>
@@ -149,24 +139,27 @@
     <h2 class="sec-title">Check the weather without opening anything.</h2>
     <p class="sec-sub">Home Screen and Lock Screen widgets show the difference from yesterday at a glance.</p>
     <div class="widgets">
-      <div class="widget small">
-        <p class="w-label">Than yesterday</p>
-        <p class="w-big">+3°</p>
-        <p class="w-note">Warmer · Clear</p>
-      </div>
-      <div class="widget circular">
-        <p class="w-big">+3°</p>
-        <p class="w-label">vs YDA</p>
-      </div>
-      <div class="widget medium">
-        <p class="w-label">Hourly</p>
-        <div class="w-bars">
-          <i style="height:38%"></i><i style="height:46%"></i><i style="height:58%"></i>
-          <i style="height:72%"></i><i style="height:88%"></i><i style="height:100%"></i>
-          <i style="height:84%"></i><i style="height:66%"></i><i style="height:52%"></i>
+      <div class="wg-home small">
+        <span class="wg-loc">Seoul</span>
+        <span class="wg-refresh">↻</span>
+        <div class="wg-cmp"><span class="l1">Than yesterday</span><span class="l2">+3°C</span></div>
+        <div class="wg-now">
+          <div><span class="nowlbl">Now</span><span class="t">22<small>°C</small></span></div>
+          <p class="cond">☀︎ Clear</p>
+          <p class="hl">H 25°C&nbsp; L 16°C</p>
         </div>
-        <p class="w-note">Now 75° · High 79° at 3 PM</p>
       </div>
+      <div class="wg-home medium">
+        <span class="wg-loc">Seoul</span>
+        <span class="wg-refresh">↻</span>
+        <div class="wg-cmp"><span class="l1">Than yesterday</span><span class="l2">+3°C</span></div>
+        <div class="wg-now">
+          <div><span class="nowlbl">Now</span><span class="t">22<small>°C</small></span></div>
+          <p class="cond">☀︎ Clear</p>
+          <p class="hl">H 25°C&nbsp; L 16°C</p>
+        </div>
+      </div>
+      <div class="wg-circ"><span class="c1">☀︎ +3°</span><span class="c2">22°</span><span class="c3">25°&nbsp;16°</span></div>
     </div>
   </div>
 </section>
