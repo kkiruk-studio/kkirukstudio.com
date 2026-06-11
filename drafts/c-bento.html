@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시안 C · 벤토 그리드 — kkiruk studio</title>
+<meta name="robots" content="noindex">
+<style>
+:root { --bg:#F4F4F6; --ink:#1C1C1E; --ink2:#7C7C82; --card:#FFFFFF; --accent:#FFC83D; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo",sans-serif;
+  background:var(--bg); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+.wrap { max-width:1060px; margin:0 auto; padding:0 24px; }
+header { position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(244,244,246,.8); backdrop-filter:blur(14px); }
+.bar { max-width:1060px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:15px 24px; }
+.wordmark { font-weight:700; font-size:15px; }
+nav { display:flex; gap:18px; font-size:13px; color:var(--ink2); font-weight:600; }
+nav a:hover { color:var(--ink); }
+
+.hero { padding:130px 0 36px; text-align:center; }
+.kicker { font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ink2); }
+h1 { font-size:clamp(30px,4.8vw,50px); font-weight:800; letter-spacing:-.025em; line-height:1.2; margin-top:14px; }
+.sub { margin-top:14px; color:var(--ink2); font-size:16px; }
+.sub b { color:var(--ink); font-weight:700; }
+
+.bento { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:112px; gap:14px; padding:34px 0 10px; }
+.tile { background:var(--card); border-radius:24px; padding:22px; position:relative; overflow:hidden;
+  box-shadow:0 1px 2px rgba(0,0,0,.04); transition:transform .15s ease, box-shadow .2s ease; display:block; }
+.tile:hover { transform:translateY(-3px); box-shadow:0 18px 40px -18px rgba(0,0,0,.22); }
+.t-label { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink2); }
+.t-big { font-size:30px; font-weight:800; letter-spacing:-.02em; margin-top:4px; }
+.t-sub { font-size:12.5px; color:var(--ink2); margin-top:2px; }
+.tile h3 { font-size:17px; font-weight:750; }
+.tile p { font-size:13px; color:var(--ink2); margin-top:5px; }
+.tile p b { color:var(--ink); font-weight:650; }
+.ticon { width:46px; height:46px; border-radius:11px; margin-bottom:10px; }
+
+.s-22 { grid-column:span 2; grid-row:span 3; }
+.s-21 { grid-column:span 2; grid-row:span 1; }
+.s-12 { grid-column:span 1; grid-row:span 2; }
+.s-11 { grid-column:span 1; grid-row:span 1; }
+.s-13 { grid-column:span 1; grid-row:span 3; }
+.s-23 { grid-column:span 2; grid-row:span 2; }
+
+.t-shot { padding:0; }
+.t-shot img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+.t-shot .cap { position:absolute; left:0; right:0; bottom:0; padding:40px 20px 16px;
+  background:linear-gradient(transparent, rgba(0,0,0,.6)); color:#fff; }
+.t-shot .cap h3 { color:#fff; }
+.t-shot .cap p { color:rgba(255,255,255,.85); margin-top:1px; font-size:12px; }
+
+.t-weather { background:linear-gradient(160deg,#FFF7E0,#FFE9B8); }
+.t-weather .sun { position:absolute; top:18px; right:18px; width:54px; height:54px; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #FFD43A, #F5A623); box-shadow:0 0 0 12px rgba(245,200,66,.25); }
+.t-weather .temp { font-size:38px; font-weight:200; margin-top:2px; }
+
+.t-palette { display:flex; flex-direction:column; justify-content:space-between; }
+.t-palette .chips { display:flex; gap:6px; margin-top:10px; }
+.t-palette .chips i { flex:1; height:34px; border-radius:9px; }
+
+.t-dark { background:#17171B; color:#fff; }
+.t-dark h3 { color:#fff; } .t-dark p { color:rgba(255,255,255,.7); }
+.t-dark .flaps { display:flex; gap:4px; margin-bottom:12px; }
+.t-dark .flaps i { width:18px; height:26px; border-radius:4px; background:#26262C; border-top:1px solid #3A3A42; }
+.t-dark .flaps i:nth-child(2){background:#2E4A8F;} .t-dark .flaps i:nth-child(4){background:#C9A227;}
+
+.t-cat { display:flex; align-items:center; justify-content:center; background:#FFFEFA; }
+.t-cat img { width:78%; max-width:200px; }
+
+.t-stat { display:flex; flex-direction:column; justify-content:center; }
+.t-cta { background:var(--accent); display:flex; flex-direction:column; justify-content:center; }
+.t-cta h3 { font-size:19px; }
+.t-cta p { color:rgba(28,28,30,.7); }
+.t-cta .b { margin-top:12px; background:var(--ink); color:#fff; border-radius:999px;
+  padding:9px 16px; font-size:13px; font-weight:700; display:inline-block; width:fit-content; }
+
+.t-applist { display:flex; flex-direction:column; gap:0; padding:14px 22px; }
+.t-applist .r { display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px solid #F0F0F2; }
+.t-applist .r:last-child { border-bottom:none; }
+.t-applist .r img { width:34px; height:34px; border-radius:8px; }
+.t-applist .r b { font-size:13.5px; font-weight:700; display:block; }
+.t-applist .r span { font-size:11.5px; color:var(--ink2); }
+.t-applist .r .go { margin-left:auto; color:var(--ink2); font-size:13px; }
+
+.t-badges { display:flex; flex-direction:column; justify-content:center; gap:7px; }
+.t-badges div { font-size:12.5px; font-weight:650; }
+.t-badges div::before { content:"◆"; color:var(--accent); margin-right:7px; font-size:9px; vertical-align:1px; }
+
+footer { padding:40px 0 60px; font-size:13px; color:var(--ink2); }
+footer .cols { display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+footer nav { gap:18px; }
+
+.switch { position:fixed; bottom:18px; right:18px; z-index:99; display:flex; gap:6px;
+  background:#fff; border:1px solid #E4E4E8; border-radius:999px; padding:6px 10px;
+  font-size:12px; font-weight:700; box-shadow:0 10px 26px -10px rgba(0,0,0,.3); }
+.switch a { padding:2px 7px; border-radius:999px; color:var(--ink2); }
+.switch a.on { background:var(--ink); color:#fff; }
+@media (max-width:880px){ .bento { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){ .bento { grid-template-columns:1fr; grid-auto-rows:auto; }
+  .tile, .s-22,.s-21,.s-12,.s-11,.s-13,.s-23 { grid-column:span 1; grid-row:auto; min-height:120px; } }
+</style>
+</head>
+<body>
+
+<div class="switch"><a href="a-craft.html">A</a><a href="b-editorial.html">B</a><a class="on" href="c-bento.html">C</a><a href="d-dark.html">D</a></div>
+
+<header><div class="bar">
+  <a class="wordmark" href="#">😻 kkiruk studio</a>
+  <nav><a href="#">게임</a><a href="#">앱</a><a href="#">스티커</a><a href="#">문의</a></nav>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <p class="kicker">kkiruk studio · seoul · since 2016</p>
+    <h1>매일 쓰게 되는 작은 앱들.</h1>
+    <p class="sub">서울의 1인 인디 스튜디오 — <b>1,000만 명이 다운로드한</b> 앱과 게임을 혼자 만들고, 직접 운영합니다.</p>
+  </div>
+
+  <div class="bento">
+
+    <a class="tile t-shot s-22" href="#">
+      <img src="../shots/cats-cute/ko-1.jpg" alt="">
+      <div class="cap"><h3>고양이는 정말 귀여워</h3><p>1,000만+ 다운로드 · ★4.9 · App Store Featured</p></div>
+    </a>
+
+    <div class="tile t-stat s-11">
+      <p class="t-label">누적 다운로드</p>
+      <p class="t-big">1,000만+</p>
+    </div>
+
+    <div class="tile t-stat s-11">
+      <p class="t-label">평점 · 리뷰</p>
+      <p class="t-big">★4.9</p>
+      <p class="t-sub">전 세계 리뷰 18만+</p>
+    </div>
+
+    <a class="tile t-weather s-12" href="#">
+      <div class="sun"></div>
+      <p class="t-label" style="color:#8A7A50">어제보다 · Weather</p>
+      <h3 style="margin-top:44px">어제보다 3°<br>포근해요</h3>
+      <p class="temp">24°</p>
+    </a>
+
+    <a class="tile s-12" href="#">
+      <img class="ticon" src="../icons/cats-pop.png" alt="">
+      <h3>고양이는 정말 팡팡</h3>
+      <p>수박게임 스타일 머지 퍼즐 — <b>App Store 스토리 피처링</b>, ★4.9</p>
+    </a>
+
+    <div class="tile t-badges s-11">
+      <div>App Store Featured</div>
+      <div>GP Editors' Choice</div>
+      <div>MobileSyrup 10/10</div>
+    </div>
+
+    <a class="tile t-cat s-11" href="#">
+      <img src="../icons/sticker-purrsday.png" alt="꼬미와 함께 애옹애옹">
+    </a>
+
+    <a class="tile t-palette s-11" href="#">
+      <div><p class="t-label">곧 출시</p><h3>팔레트 2048</h3></div>
+      <div class="chips"><i style="background:#1D3557"></i><i style="background:#457B9D"></i><i style="background:#F1FAEE"></i><i style="background:#E63946"></i></div>
+    </a>
+
+    <div class="tile t-applist s-23">
+      <a class="r" href="#"><img src="../icons/pinclip.png" alt=""><div><b>PinClip</b><span>스쳐간 릴스·쇼츠, 공유 한 번으로 저장</span></div><span class="go">→</span></a>
+      <a class="r" href="#"><img src="../icons/sidefeed.png" alt=""><div><b>Sidefeed</b><span>12개국 유튜브 트렌드 리서치</span></div><span class="go">→</span></a>
+      <a class="r" href="#"><img src="../icons/talkmemo.png" alt=""><div><b>Talk Memo</b><span>워치 한 탭 녹음 → iPhone 텍스트</span></div><span class="go">→</span></a>
+      <a class="r" href="#"><img src="../icons/honestcamera.png" alt=""><div><b>Honest Camera</b><span>셔터 하나뿐인 아이의 첫 카메라</span></div><span class="go">→</span></a>
+    </div>
+
+    <a class="tile s-11" href="#">
+      <img class="ticon" src="../icons/locallink.png" alt="">
+      <h3>Local Link</h3>
+      <p>여행지 현지 지도 검색 · 곧 출시</p>
+    </a>
+
+    <a class="tile s-11" href="#">
+      <img class="ticon" src="../icons/switchboard.png" alt="">
+      <h3>SwitchBoard</h3>
+      <p>Claude Code 모니터 · macOS</p>
+    </a>
+
+    <a class="tile t-dark s-21" href="#">
+      <div class="flaps"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <h3>Departures — A split-flap canvas</h3>
+      <p>플랍 2,560개가 그리는 명화 · 이번 출발편은 별이 빛나는 밤</p>
+    </a>
+
+    <a class="tile s-11" href="#">
+      <img class="ticon simg" style="background:#fff;border:1px solid #EEE" src="../icons/sticker-finger.png" alt="">
+      <h3>LINE 스티커</h3>
+      <p>손꾸락씨의 직장생활 · 꼬미와 함께 애옹애옹 — 5개 언어</p>
+    </a>
+
+    <a class="tile s-11" href="#">
+      <img class="ticon" style="background:#fff;border:1px solid #EEE" src="../icons/goods-mug.png" alt="">
+      <h3>굿즈 샵</h3>
+      <p>고양이는 정말 귀여워 공식 굿즈</p>
+    </a>
+
+    <a class="tile t-cta s-21" href="mailto:kkirukstudio.help@gmail.com">
+      <h3>안녕하세요, 끼룩입니다 👋</h3>
+      <p>소감·아이디어·협업 제안, 무엇이든 환영해요.</p>
+      <span class="b">✉️ 메일 보내기</span>
+    </a>
+
+  </div>
+</div>
+
+<footer><div class="wrap cols">
+  <span>© 2026 kkiruk studio</span>
+  <nav><a href="#">문의</a><a href="#">개인정보 처리방침</a><a href="#">이용약관</a><a href="#">Instagram</a><a href="#">굿즈 샵</a></nav>
+</div></footer>
+
+</body>
+</html>

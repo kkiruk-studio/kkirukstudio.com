@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시안 B · 에디토리얼 포트폴리오 — kkiruk studio</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#FFFFFF; --ink:#111111; --ink2:#777777; --line:#E8E6E2; --accent:#E8590C; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo",sans-serif;
+  background:var(--bg); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+.wrap { max-width:1020px; margin:0 auto; padding:0 28px; }
+header { position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(255,255,255,.85); backdrop-filter:blur(12px); }
+.bar { max-width:1020px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:18px 28px; }
+.wordmark { font-weight:700; font-size:15px; letter-spacing:-.01em; }
+nav { display:flex; gap:22px; font-size:13px; color:var(--ink2); }
+nav a:hover { color:var(--ink); }
+
+.hero { padding:170px 0 50px; }
+.kicker { font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink2); margin-bottom:26px; }
+h1 { font-family:"Noto Serif KR",serif; font-weight:700; letter-spacing:-.01em;
+  font-size:clamp(40px,6.4vw,72px); line-height:1.18; }
+h1 .num { color:var(--accent); }
+.sub { margin-top:26px; font-size:17px; color:var(--ink2); max-width:36em; }
+.sub b { color:var(--ink); font-weight:650; }
+
+.awards { display:flex; gap:0; margin-top:46px; border-top:1px solid var(--ink); }
+.awards div { flex:1; padding:16px 18px 0 0; border-top:3px solid transparent; margin-top:-2px; }
+.awards b { display:block; font-size:14px; font-weight:700; }
+.awards span { font-size:12px; color:var(--ink2); }
+
+.shotstrip { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; padding:50px 0 10px; }
+.shotstrip img { width:100%; border-radius:14px; border:1px solid var(--line); display:block; }
+
+section { padding:60px 0 30px; }
+.sec-head { display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid var(--ink); padding-bottom:14px; }
+.sec-head h2 { font-family:"Noto Serif KR",serif; font-size:26px; font-weight:700; }
+.sec-head span { font-size:12.5px; color:var(--ink2); }
+.rows { }
+.row { display:grid; grid-template-columns:44px 56px 1fr auto 24px; gap:18px; align-items:center;
+  padding:20px 0; border-bottom:1px solid var(--line); transition:background .15s; }
+.row:hover { background:#FAFAF8; }
+.row .no { font-size:12px; color:var(--ink2); font-variant-numeric:tabular-nums; }
+.row img { width:48px; height:48px; border-radius:11px; }
+.row img.simg { background:#fff; border:1px solid var(--line); }
+.row h3 { font-size:16.5px; font-weight:700; display:inline; }
+.row .en { font-size:12px; color:var(--ink2); margin-left:8px; }
+.row p { font-size:13.5px; color:var(--ink2); margin-top:3px; }
+.row p b { color:var(--ink); font-weight:650; }
+.row .meta { font-size:12.5px; color:var(--ink2); text-align:right; white-space:nowrap; }
+.row .meta b { display:block; color:var(--ink); font-weight:650; }
+.row .arr { color:var(--ink2); }
+.row:hover .arr { color:var(--ink); }
+
+.cta { text-align:center; padding:90px 28px 80px; }
+.cta h2 { font-family:"Noto Serif KR",serif; font-size:clamp(26px,3.6vw,38px); font-weight:700; }
+.cta p { margin:16px auto 0; color:var(--ink2); font-size:15.5px; max-width:34em; }
+.cta .row2 { display:flex; justify-content:center; gap:14px; margin-top:30px; flex-wrap:wrap; }
+.btn { background:var(--ink); color:#fff; padding:14px 28px; border-radius:999px; font-size:15px; font-weight:600; }
+.btn.ghost { background:transparent; color:var(--ink); border:1px solid #CCC; }
+footer { border-top:1px solid var(--line); padding:32px 0 60px; font-size:13px; color:var(--ink2); }
+footer .cols { display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+footer nav { gap:18px; }
+
+.switch { position:fixed; bottom:18px; right:18px; z-index:99; display:flex; gap:6px;
+  background:#fff; border:1px solid var(--line); border-radius:999px; padding:6px 10px;
+  font-size:12px; font-weight:700; box-shadow:0 10px 26px -10px rgba(0,0,0,.3); }
+.switch a { padding:2px 7px; border-radius:999px; color:var(--ink2); }
+.switch a.on { background:var(--ink); color:#fff; }
+@media (max-width:760px){
+  .awards { flex-direction:column; } .awards div { padding:12px 0 4px; }
+  .shotstrip { grid-template-columns:1fr 1fr 1fr; gap:8px; }
+  .row { grid-template-columns:40px 1fr 20px; }
+  .row .no, .row .meta { display:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="switch"><a href="a-craft.html">A</a><a class="on" href="b-editorial.html">B</a><a href="c-bento.html">C</a><a href="d-dark.html">D</a></div>
+
+<header><div class="bar">
+  <a class="wordmark" href="#">kkiruk studio</a>
+  <nav><a href="#games">Games</a><a href="#apps">Apps</a><a href="#extras">Stickers</a><a href="#">Contact</a></nav>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <p class="kicker">kkiruk studio — independent · seoul · since 2016</p>
+    <h1>혼자 만든 앱이<br><span class="num">1,000만 번</span> 다운로드되기까지.</h1>
+    <p class="sub">kkiruk studio는 서울의 1인 인디 스튜디오입니다. 고양이 게임부터 매일 아침 여는 날씨 앱, 아이의 첫 카메라까지 — <b>기획·디자인·개발·운영을 한 사람이</b> 합니다.</p>
+
+    <div class="awards">
+      <div><b>Featured</b><span>App Store</span></div>
+      <div><b>Editors' Choice</b><span>Google Play</span></div>
+      <div><b>스토리 소개</b><span>App Store Today</span></div>
+      <div><b>Game of the Week 10/10</b><span>MobileSyrup</span></div>
+    </div>
+  </div>
+
+  <div class="shotstrip">
+    <img src="../shots/cats-cute/ko-1.jpg" alt="고양이는 정말 귀여워">
+    <img src="../shots/thanyesterday/ko-1.jpg" alt="어제보다">
+    <img src="../shots/cats-pop/ko-1.jpg" alt="고양이는 정말 팡팡">
+  </div>
+
+  <section id="games">
+    <div class="sec-head"><h2>게임</h2><span>2016 — 현재</span></div>
+    <div class="rows">
+      <a class="row" href="#"><span class="no">01</span><img src="../icons/cats-cute.png" alt="">
+        <div><h3>고양이는 정말 귀여워</h3><span class="en">Cats are Cute</span>
+        <p>고양이 수집 힐링 마을 — <b>1,000만+ 다운로드, 리뷰 18만+ ★4.9</b></p></div>
+        <div class="meta"><b>2018</b>iOS · Android</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">02</span><img src="../icons/cats-pop.png" alt="">
+        <div><h3>고양이는 정말 팡팡</h3><span class="en">Pop Time!</span>
+        <p>수박게임 스타일 고양이 머지 퍼즐 — <b>App Store 스토리 피처링, ★4.9</b></p></div>
+        <div class="meta"><b>2023</b>iOS · Android</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">03</span><img src="../icons/palette2048.png" alt="">
+        <div><h3>팔레트 2048</h3><span class="en">Palette 2048</span>
+        <p>매일 명화의 색으로 즐기는 숫자 없는 2048 — 곧 출시</p></div>
+        <div class="meta"><b>2026</b>iOS</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">04</span><img src="../icons/artwork.png" alt="">
+        <div><h3>James Spring · Summer</h3><span class="en">초창기 시리즈</span>
+        <p>숨바꼭질 러너와 물 위를 달리는 아케이드 — 모든 것의 시작</p></div>
+        <div class="meta"><b>2016</b>iOS</div><span class="arr">→</span></a>
+    </div>
+  </section>
+
+  <section id="apps">
+    <div class="sec-head"><h2>앱</h2><span>매일의 작은 결정을 위한 도구</span></div>
+    <div class="rows">
+      <a class="row" href="#"><span class="no">01</span><img src="../icons/thanyesterday.png" alt="">
+        <div><h3>어제보다</h3><span class="en">Than Yesterday</span>
+        <p>"어제보다 3° 포근해요" — <b>오늘 입을 옷이 3초 만에</b></p></div>
+        <div class="meta"><b>2025</b>iOS · 5개 언어</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">02</span><img src="../icons/pinclip.png" alt="">
+        <div><h3>PinClip</h3><span class="en">Bookmark Reels &amp; Shorts</span>
+        <p>스쳐 지나간 영상, 공유 한 번으로 저장하고 3초 만에 다시 찾기</p></div>
+        <div class="meta"><b>2025</b>iOS</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">03</span><img src="../icons/sidefeed.png" alt="">
+        <div><h3>Sidefeed</h3><span class="en">Trend research</span>
+        <p><b>12개국 유튜브 트렌딩</b> + Radar Score — 크리에이터를 위한 리서치</p></div>
+        <div class="meta"><b>2025</b>iOS</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">04</span><img src="../icons/talkmemo.png" alt="">
+        <div><h3>Talk Memo</h3><span class="en">Voice on Watch</span>
+        <p>워치 한 탭 녹음, iPhone에 텍스트로 — <b>한 번 결제 평생 사용</b></p></div>
+        <div class="meta"><b>2025</b>watchOS · iOS</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">05</span><img src="../icons/honestcamera.png" alt="">
+        <div><h3>Honest Camera</h3><span class="en">My First Camera</span>
+        <p>셔터 하나뿐인 아이의 첫 카메라 — <b>모드 전환도 광고도 없음</b></p></div>
+        <div class="meta"><b>2026</b>iOS</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">06</span><img src="../icons/locallink.png" alt="">
+        <div><h3>Local Link</h3><span class="en">Travel Map Search</span>
+        <p>아는 이름으로 검색하면 현지 지도 앱으로 — 곧 출시</p></div>
+        <div class="meta"><b>2026</b>iOS</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">07</span><img src="../icons/switchboard.png" alt="">
+        <div><h3>SwitchBoard</h3><span class="en">Claude Code monitor</span>
+        <p>메뉴바에서 모든 Claude Code 세션을 한눈에</p></div>
+        <div class="meta"><b>2026</b>macOS · GitHub</div><span class="arr">→</span></a>
+    </div>
+  </section>
+
+  <section id="extras">
+    <div class="sec-head"><h2>스티커 &amp; 굿즈 &amp; 아트웍</h2><span>앱 바깥의 끼룩</span></div>
+    <div class="rows">
+      <a class="row" href="#"><span class="no">01</span><img class="simg" src="../icons/sticker-finger.png" alt="">
+        <div><h3>손꾸락씨의 직장생활</h3><span class="en">Mr. Finger Goes to Work</span>
+        <p>오피스 라이프 LINE 스티커 — <b>5개 언어 발매</b></p></div>
+        <div class="meta"><b>LINE</b>STORE</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">02</span><img class="simg" src="../icons/sticker-purrsday.png" alt="">
+        <div><h3>꼬미와 함께 애옹애옹</h3><span class="en">Happy Purrsday!</span>
+        <p>움직이는 고양이 LINE 스티커</p></div>
+        <div class="meta"><b>LINE</b>STORE</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">03</span><img class="simg" src="../icons/goods-mug.png" alt="">
+        <div><h3>굿즈 샵</h3><span class="en">Official goods</span>
+        <p>고양이는 정말 귀여워 공식 캐릭터 굿즈</p></div>
+        <div class="meta"><b>Marpple</b>Shop</div><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="no">04</span><img src="../icons/artwork.png" alt="">
+        <div><h3>Departures</h3><span class="en">A split-flap canvas</span>
+        <p>플랍 2,560개가 그리는 명화 — 이번 출발편은 별이 빛나는 밤</p></div>
+        <div class="meta"><b>Web</b>Artwork</div><span class="arr">→</span></a>
+    </div>
+  </section>
+</div>
+
+<section class="cta">
+  <h2>함께 하고 싶은 일이 있나요?</h2>
+  <p>써 본 소감, 새 앱 아이디어, 협업 제안 — 무엇이든 편하게 보내주세요.</p>
+  <div class="row2"><a class="btn" href="#">일반 문의</a><a class="btn ghost" href="#">비즈니스 제안</a></div>
+</section>
+
+<footer><div class="wrap cols">
+  <span>© 2026 kkiruk studio</span>
+  <nav><a href="#">문의</a><a href="#">개인정보 처리방침</a><a href="#">이용약관</a><a href="#">Instagram</a><a href="#">굿즈 샵</a></nav>
+</div></footer>
+
+</body>
+</html>
