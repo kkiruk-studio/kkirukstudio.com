@@ -94,20 +94,81 @@ footer .links {{ display:flex; gap:16px; flex-wrap:wrap; }}
 """
 
 
-def render_page(app, lang, s, langs):
-    slug = app["slug"]
-    tid = app["trackId"]
-    store = f"https://apps.apple.com/{STORE_CC.get(lang, '')}app/id{tid}"
-    htmllang = HTML_LANG.get(lang, lang)
+def store_url(app, lang):
+    return f"https://apps.apple.com/{STORE_CC.get(lang, '')}app/id{app['trackId']}"
 
+# ── 공유 빌딩블록 (단순·리치 랜딩 모두 사용) ──────────────────
+def render_head(app, lang, langs, s, icon=None, og_image=None, extra_head=""):
+    """공통 <head> + <body> 시작. 리치 랜딩은 extra_head 로 추가 메타/프리로드 주입."""
+    slug = app["slug"]
+    htmllang = HTML_LANG.get(lang, lang)
+    icon = icon or f"../icons/{slug}.png"
+    og_image = og_image or icon
     hreflangs = "\n".join(
         f'<link rel="alternate" hreflang="{HREFLANG.get(l, l)}" href="{page_file(l)}">' for l in langs
     ) + '\n<link rel="alternate" hreflang="x-default" href="index.html">'
+    return f"""<!DOCTYPE html>
+<html lang="{htmllang}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{s['title']}</title>
+<meta name="description" content="{s['meta_desc']}">
+<link rel="icon" type="image/png" href="{icon}">
+<link rel="apple-touch-icon" href="{icon}">
+{hreflangs}
+<meta property="og:title" content="{s['title']}">
+<meta property="og:description" content="{s['meta_desc']}">
+<meta property="og:image" content="{og_image}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">{extra_head}
+</head>
+<body>"""
 
+
+def render_header(app, lang, langs, s, icon=None):
+    """공통 고정 헤더 (워드마크 + 언어 셀렉터 + App Store CTA)."""
+    slug = app["slug"]
+    icon = icon or f"../icons/{slug}.png"
+    store = store_url(app, lang)
     options = "\n".join(
         f'        <option value="{page_file(l)}"{" selected" if l == lang else ""}>{LANG_NAMES[l]}</option>'
         for l in langs
     )
+    return f"""<header>
+  <div class="bar">
+    <a class="wordmark" href="{page_file(lang)}"><img src="{icon}" alt="{s['name']}">{s['name']}</a>
+    <nav class="nav-right">
+      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
+{options}
+      </select>
+      <a class="nav-cta" href="{store}" target="_blank" rel="noopener">App Store</a>
+    </nav>
+  </div>
+</header>"""
+
+
+def render_footer(app, lang, langs, s):
+    """공통 푸터 (© + 홈·문의·개인정보·약관 + 언어 링크)."""
+    footer_langs = " ".join(
+        f'<a href="{page_file(l)}">{LANG_NAMES[l]}</a>' for l in langs if l != lang
+    )
+    return f"""<footer>
+  <div class="wrap cols">
+    <span>© kkiruk studio</span>
+    <nav class="links">
+      <a href="/">kkiruk studio</a>
+      <a href="mailto:kkirukstudio.help@gmail.com">{s['f_contact']}</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">{s['f_privacy']}</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">{s['f_terms']}</a>
+      {footer_langs}
+    </nav>
+  </div>
+</footer>"""
+
+
+def render_page(app, lang, s, langs):
+    store = store_url(app, lang)
 
     feats = "\n".join(
         f'      <div class="feature"><div class="dot"></div><h3>{t}</h3><p>{d}</p></div>'
