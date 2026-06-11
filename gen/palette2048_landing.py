@@ -167,7 +167,7 @@ TMPL='''<!DOCTYPE html>
 
 <header>
   <div class="bar">
-    <a class="wordmark" href="{selfurl}"><img class="brand-icon" src="icon.png" alt="">{brand}</a>
+    <a class="wordmark" href="{selfurl}"><img class="brand-icon" src="icon.png" alt="" width="26" height="26">{brand}</a>
     <nav class="nav-right">
       <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
 {langselect}
