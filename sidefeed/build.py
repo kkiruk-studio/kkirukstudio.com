@@ -423,6 +423,15 @@ def render(key):
 
 <section>
   <div class="wrap">
+    <div class="mod"><span class="dot"></span>{loc['who_kicker']}<span class="num">{loc['who_num']}</span></div>
+    <h2>{loc['who_h2']}</h2>
+    <p class="lede">{loc['who_lede']}</p>
+    <div class="personas">{personas}</div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
     <div class="mod"><span class="dot"></span>{loc['how_kicker']}<span class="num">01–03</span></div>
     <h2>{loc['how_h2']}</h2>
     <div class="steps">{steps}</div>
@@ -445,15 +454,6 @@ def render(key):
     <h2>{loc['views_h2']}</h2>
     <p class="lede">{loc['views_lede']}</p>
     <div class="views">{views}</div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="mod"><span class="dot"></span>{loc['who_kicker']}<span class="num">{loc['who_num']}</span></div>
-    <h2>{loc['who_h2']}</h2>
-    <p class="lede">{loc['who_lede']}</p>
-    <div class="personas">{personas}</div>
   </div>
 </section>
 

@@ -420,3 +420,11 @@ html.js .reveal.on { opacity: 1; transform: none; }
   .home .badge { white-space: nowrap; }
   .home .hicon, .home .hicon:nth-child(n) { width: 46px; height: 46px; }
 }
+
+/* 홈 언어 선택 */
+.home .lang-sel {
+  font: inherit; font-size: 12px; font-weight: 600;
+  color: var(--ink); background: transparent;
+  border: 1.5px solid color-mix(in srgb, var(--ink) 35%, transparent);
+  border-radius: 9px; padding: 3px 6px; cursor: pointer;
+}
