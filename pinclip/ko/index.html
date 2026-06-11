@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinclip — 쇼츠·릴스 저장, 3초 만에 다시 찾기</title>
+<meta name="description" content="공유 시트에서 한 번 탭하면 제목·썸네일까지 자동 저장. 폴더·태그·위젯·iCloud 동기화로 숏폼 영상을 깔끔하게 정리하세요.">
+<meta property="og:title" content="Pinclip — 숏폼 영상 북마크">
+<meta property="og:description" content="저장은 한 탭, 다시 찾기는 3초.">
+<meta property="og:image" content="https://www.kkirukstudio.com/pinclip/assets/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kkirukstudio.com/pinclip/ko/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/pinclip/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/pinclip/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/pinclip/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/pinclip/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/pinclip/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/pinclip/zh-hant/">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo", "Pretendard","Segoe UI",sans-serif}</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>PINCLIP</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/" class="cur">한국어</a><a href="../ja/">日本語</a><a href="../zh-hans/">简体</a><a href="../zh-hant/">繁體</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost">P.</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>PINCLIP</span><span class="rule"></span><span class="num">숏폼 영상 북마크</span></div>
+      <h1>저장은 한 탭,<br>다시 찾기는 <em>3초</em>.</h1>
+      <div class="demo">
+        <span class="src" id="demoSrc">youtube.com/shorts/xK4q2…</span>
+        <span class="arrow">→</span>
+        <span class="dst" id="demoDst">📌 5분 완성 파스타 레시피</span>
+      </div>
+      <p class="sub">분명히 저장했는데 못 찾는 그 레시피 쇼츠. Pinclip은 쇼츠·릴스·틱톡 링크를 제목·썸네일과 함께 한곳에 모으고, 다시 열어보게 되는 폴더로 정리해 줍니다.</p>
+      <div class="cta">
+        <a class="store-badge" href="https://apps.apple.com/app/id6761982511" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a>
+        <span class="note">무료 다운로드 · iPHONE &amp; iPAD</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="g">▶</span>유튜브 쇼츠</div><div class="chip c2"><span class="g">✦</span>인스타 릴스</div><div class="chip c3"><span class="g">♪</span>틱톡</div><div class="chip c4"><span class="g">#</span>태그·메모</div>
+      <div class="phone"><img src="../assets/shot-ko-home.png" alt="Pinclip 홈 화면 — 최근 저장한 영상과 레시피·홈트 루틴·서울 카페 폴더"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>쇼츠</span><span>릴스</span><span>틱톡</span><span>폴더</span><span>태그</span><span>메모</span><span>위젯</span><span>iCLOUD 동기화</span><span>쇼츠</span><span>릴스</span><span>틱톡</span><span>폴더</span><span>태그</span><span>메모</span><span>위젯</span><span>iCLOUD 동기화</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>사용 방법</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>"나중에 봐야지"가 <em>진짜 나중에 보게</em> 되기까지.</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">공유</span><h3>공유 시트에서 Pinclip 탭</h3><p>보다가 저장하고 싶은 영상이 생기면 공유 버튼 → Pinclip. 앱 전환 없이 끝.</p></div><div class="step"><span class="n">02</span><span class="tag">자동</span><h3>제목·썸네일 자동 입력</h3><p>링크만 던지면 제목과 썸네일을 알아서 채웁니다. 링크 무더기가 아니라 한눈에 보이는 라이브러리로.</p></div><div class="step"><span class="n">03</span><span class="tag">정리</span><h3>폴더·태그·메모</h3><p>폴더에 넣고 #태그와 저장한 이유를 메모로. 미래의 내가 고마워합니다.</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>다시 찾기</span><span class="rule"></span><span class="num">3초</span></div>
+    <h2>흐릿한 기억이 <em>정확한 위치</em>가 됩니다.</h2>
+    <p class="lede">열어보지 않는 저장은 마음의 짐일 뿐. Pinclip은 "지난주에 본 그 운동 영상"을 바로 점프할 수 있는 폴더와 태그로 바꿔줍니다.</p>
+    <div class="convert-table"><div class="convert-row"><span>화요일에 본 그 파스타 쇼츠</span><span class="arrow">→</span><span class="to">📁 레시피 · #파스타</span><span class="cat">유튜브 · 쇼츠</span></div><div class="convert-row"><span>좋아요 누른 코디 릴스</span><span class="arrow">→</span><span class="to">📁 패션 · #코디</span><span class="cat">인스타그램 · 릴스</span></div><div class="convert-row"><span>그 플랭크 챌린지</span><span class="arrow">→</span><span class="to">📁 홈트 루틴 · #코어</span><span class="cat">틱톡</span></div><div class="convert-row"><span>주말에 갈 카페</span><span class="arrow">→</span><span class="to">📁 서울 카페 · #성수동</span><span class="cat">유튜브</span></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>플랫폼</span><span class="rule"></span><span class="num">라이브러리 하나</span></div>
+    <h2>어느 플랫폼이든, <em>라이브러리는 하나</em>.</h2>
+    <p class="lede">링크가 있는 앱이면 어디서든 공유로 저장. 유튜브·틱톡은 제목·썸네일까지 자동으로 채워지고, 전부 한곳에서 검색됩니다.</p>
+    <div class="providers"><div class="prov"><span class="flag">▶</span><h3>유튜브 쇼츠</h3><ul><li><span class="g">✓</span>제목 자동</li><li><span class="g">✓</span>썸네일 자동</li></ul></div><div class="prov"><span class="flag">♪</span><h3>틱톡</h3><ul><li><span class="g">✓</span>제목 자동</li><li><span class="g">✓</span>썸네일 자동</li></ul></div><div class="prov"><span class="flag">✦</span><h3>인스타 릴스</h3><ul><li><span class="g">✓</span>한 탭 저장</li><li><span class="g">✓</span>스마트 폴더</li></ul></div><div class="prov"><span class="flag">∞</span><h3>그 외 영상 링크</h3><ul><li><span class="g">✓</span>같은 라이브러리</li><li><span class="g">✓</span>태그 검색</li></ul></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>화면</span><span class="rule"></span><span class="num">iPHONE &amp; iPAD</span></div>
+    <h2>쌓아두기가 아니라 <em>다시 찾기</em>를 위한 화면.</h2>
+    <div class="row"><figure><div class="phone"><img src="../assets/shot-ko-folder.png" alt="폴더로 깔끔하게" loading="lazy"><div class="island"></div></div><figcaption>폴더로 깔끔하게</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ko-detail.png" alt="태그 · 메모 · 원본 열기" loading="lazy"><div class="island"></div></div><figcaption>태그 · 메모 · 원본 열기</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ko-feed.png" alt="전체 피드 검색" loading="lazy"><div class="island"></div></div><figcaption>전체 피드 검색</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>디테일</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>작은 앱, <em>분명한</em> 디테일.</h2>
+    <div class="grid6"><div class="feat"><h3>공유 시트 저장</h3><p>유튜브·인스타·틱톡을 벗어나지 않고 저장. 두 번 탭하고 다시 스크롤.</p></div><div class="feat"><h3>홈 화면 위젯</h3><p>폴더와 즐겨 보는 핀을 홈 화면에. 잠금 해제에서 영상까지 한 탭.</p></div><div class="feat"><h3>iCloud 동기화</h3><p>Pro는 내 iCloud로 iPad까지 동기화 — 우리 서버가 아니라요.</p></div><div class="feat"><h3>폴더 공유 링크</h3><p>폴더를 링크 하나로 공유. 받은 사람은 브라우저로 보고, 자기 Pinclip으로 가져갈 수도 있어요.</p></div><div class="feat"><h3>스마트 폴더</h3><p>쇼츠·릴스·틱톡이 플랫폼별로 알아서 분류됩니다.</p></div><div class="feat"><h3>태그와 메모</h3><p>#태그와 저장한 이유 메모. 태그 한 번 탭이면 관련 영상이 모두.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>스크롤에 영상 그만 잃어버리세요.</h2>
+    <p class="lede">iPhone · iPad 무료.</p>
+    <div class="cta"><a class="store-badge" href="https://apps.apple.com/app/id6761982511" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><a href="/"><strong>kkiruk studio</strong></a></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보 처리방침</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+  const pairs = [["youtube.com/shorts/xK4q2…", "📌 5분 완성 파스타 레시피"], ["instagram.com/reel/Cq8w1…", "📌 가을 데일리룩 코디"], ["tiktok.com/@fit/video/7284…", "📌 5분 플랭크 챌린지"], ["youtube.com/shorts/m3Vt8…", "📌 성수동 카페 추천 BEST 7"]];
+  const srcEl = document.getElementById("demoSrc");
+  const dstEl = document.getElementById("demoDst");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        const [src, dst] = pairs[i % pairs.length];
+        dstEl.textContent = "";
+        srcEl.textContent = "";
+        for (const ch of src) { srcEl.textContent += ch; await sleep(55); }
+        await sleep(350);
+        dstEl.textContent = dst;
+        await sleep(2400);
+        i++;
+      }
+    })();
+  }
+</script>
+</body>
+</html>

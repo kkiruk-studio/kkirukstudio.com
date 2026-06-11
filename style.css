@@ -235,6 +235,11 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
   border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent);
 }
 
+.app-card img.simg {
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+}
+
 /* ── 미니 카드 (클래식 게임) ── */
 .minis { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
 .mini {

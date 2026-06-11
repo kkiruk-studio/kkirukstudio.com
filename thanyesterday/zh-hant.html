@@ -17,7 +17,7 @@
 <meta property="og:description" content="不是數字，而是和昨天比的一句話。今天穿什麼立刻決定。">
 <meta property="og:image" content="icon.png">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -138,35 +138,51 @@
     <p class="sec-label">小工具</p>
     <h2 class="sec-title">在鎖定畫面，就能看完天氣。</h2>
     <p class="sec-sub">主畫面與鎖定畫面小工具，不用打開 App 就能看到和昨天的差別。</p>
-    <div class="widgets">
-      <div class="wg2-small">
-        <span class="wg2-loc">台北</span><span class="wg2-ref">↻</span>
-        <div class="wg2-msg"><span class="m">今天最高溫</span><span class="m">比昨天</span><span class="d">↑6°C</span></div>
-        <div class="wg2-now"><div><span class="nl">現在</span><span class="t">23<small>°C</small></span></div>
-          <p class="c">☁ 多雲</p><p class="hl">H 25°C L 15°C</p></div>
+    <div class="wgphones">
+      <div class="wgcol">
+        <div class="wgphone">
+          <div class="mockwall home"></div>
+        <div class="mock-home-stack"><div class="zw">
+          <div class="wg2-small">
+            <span class="wg2-loc">台北</span><span class="wg2-ref">↻</span>
+            <div class="wg2-msg"><span class="m">今天最高溫</span><span class="m">比昨天</span><span class="d">↑6°C</span></div>
+            <div class="wg2-now"><div><span class="nl">現在</span><span class="t">23<small>°C</small></span></div>
+              <p class="c">☁ 多雲</p><p class="hl">H 25°C L 15°C</p></div>
+          </div>
+          <div class="wg2-med">
+          <div class="wg2-half">
+            <span class="wg2-loc">台北</span>
+            <div class="wg2-msg"><span class="m">今天最高溫</span><span class="m">比昨天</span><span class="d">↑6°C</span></div>
+            <div class="wg2-now"><div><span class="nl">現在</span><span class="t">23<small>°C</small></span></div>
+              <p class="c">☁ 多雲</p><p class="hl">H 25°C L 15°C</p></div>
+          </div>
+          <div class="wg2-half dark">
+            <span class="wg2-loc">紐約</span><span class="wg2-ref">↻</span>
+            <div class="wg2-msg"><span class="m">今天最高溫</span><span class="m">比昨天</span><span class="d">↑11°C</span></div>
+            <div class="wg2-now"><div><span class="nl">現在</span><span class="t">22<small>°C</small></span></div>
+              <p class="c">☁ 多雲</p><p class="hl">H 33°C L 22°C</p></div>
+          </div>
+          </div>
+        </div></div>
+          <div class="mockdock"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <p class="wgcap">主畫面小工具</p>
       </div>
-      <div class="wg2-med">
-        <div class="wg2-half">
-          <span class="wg2-loc">台北</span>
-          <div class="wg2-msg"><span class="m">今天最高溫</span><span class="m">比昨天</span><span class="d">↑6°C</span></div>
-          <div class="wg2-now"><div><span class="nl">現在</span><span class="t">23<small>°C</small></span></div>
-            <p class="c">☁ 多雲</p><p class="hl">H 25°C L 15°C</p></div>
+      <div class="wgcol">
+        <div class="wgphone">
+          <div class="mockwall lock"></div>
+          <p class="mocklock-date">6月11日 週四</p>
+          <p class="mocklock-time">4:39</p>
+          <div class="mock-lock-row"><div class="zw"><div class="wg2-lock">
+            <div class="lc1"><p class="loc">台北</p>
+              <p class="big">☁ 23°C<small>最高→0°</small></p>
+              <p class="sub">H 25°C L 15°C · 〜 55%</p></div>
+            <div class="lc2">☁ 23°<svg width="74" height="22" viewBox="0 0 74 22" fill="none"><path d="M2 3 L14 7 L24 6 L34 11 L44 13 L56 16 L72 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/></svg>↑23° ↓16°</div>
+            <div class="lc3"><p class="pm">PM 2.5·10</p><p class="v">15·16</p><p class="g">普通</p></div>
+          </div></div></div>
+          <div class="mocklock-btns"><i></i><i></i></div>
         </div>
-        <div class="wg2-half dark">
-          <span class="wg2-loc">紐約</span><span class="wg2-ref">↻</span>
-          <div class="wg2-msg"><span class="m">今天最高溫</span><span class="m">比昨天</span><span class="d">↑11°C</span></div>
-          <div class="wg2-now"><div><span class="nl">現在</span><span class="t">22<small>°C</small></span></div>
-            <p class="c">☁ 多雲</p><p class="hl">H 33°C L 22°C</p></div>
-        </div>
-      </div>
-      <div class="wg2-lock">
-        <div class="lc1">
-          <p class="loc">台北</p>
-          <p class="big">☁ 23°C<small>最高→0°</small></p>
-          <p class="sub">H 25°C L 15°C · 〜 55%</p>
-        </div>
-        <div class="lc2">☁ 23°<svg width="74" height="22" viewBox="0 0 74 22" fill="none"><path d="M2 3 L14 7 L24 6 L34 11 L44 13 L56 16 L72 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/></svg>↑23° ↓16°</div>
-        <div class="lc3"><p class="pm">PM 2.5·10</p><p class="v">15·16</p><p class="g">普通</p></div>
+        <p class="wgcap">鎖定畫面小工具</p>
       </div>
     </div>
   </div>

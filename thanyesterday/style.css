@@ -398,3 +398,40 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .wg2-lock .lc3 .v { font-size: 20px; font-weight: 700; margin: 1px 0; }
 .wg2-lock .lc3 .g { font-size: 11px; opacity: .9; }
 @media (max-width: 540px) { .wg2-med { width: 100%; max-width: 352px; } }
+
+/* ── 위젯 쇼케이스: 폰 컨텍스트 (홈/잠금 두 대) ── */
+.wgphones { display: flex; gap: 36px; flex-wrap: wrap; margin-top: 44px; }
+.wgcol { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.wgphone {
+  width: min(272px, 80vw); aspect-ratio: 9 / 19.2;
+  border-radius: 40px; overflow: hidden; position: relative;
+  border: 1.5px solid color-mix(in srgb, var(--ink) 16%, transparent);
+  box-shadow: 0 30px 72px -22px color-mix(in srgb, var(--ink) 32%, transparent);
+}
+.wgphone > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.wgcap { font-size: 13px; color: var(--ink2); }
+/* 재현용 배경화면 */
+.mockwall { position: absolute; inset: 0; }
+.mockwall.home { background: linear-gradient(165deg, #F6D5C5 0%, #E9A9B6 38%, #8FAFD4 75%, #2E4E78 100%); }
+.mockwall.lock { background: linear-gradient(172deg, #A9CCEE 0%, #6F9FDE 45%, #27416E 100%); }
+/* 재현 홈: 위젯 스택 + 독 */
+.mock-home-stack { position: absolute; top: 64px; left: 0; right: 0;
+  display: flex; justify-content: center; }
+.mock-home-stack .zw { zoom: .62; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.mockdock { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 11px; background: rgba(255,255,255,.22); padding: 8px 10px; border-radius: 22px;
+  backdrop-filter: blur(4px); }
+.mockdock i { width: 32px; height: 32px; border-radius: 9px; background: rgba(255,255,255,.6); }
+/* 재현 잠금: 시계 + 위젯 행 */
+.mocklock-date { position: absolute; top: 34px; left: 0; right: 0; text-align: center;
+  color: #FFF; font-size: 13px; font-weight: 600; opacity: .95; }
+.mocklock-time { position: absolute; top: 50px; left: 0; right: 0; text-align: center;
+  color: #FFF; font-size: 64px; font-weight: 300; letter-spacing: -.01em; }
+.mock-lock-row { position: absolute; top: 160px; left: 0; right: 0;
+  display: flex; justify-content: center; }
+.mock-lock-row .zw { zoom: .43; }
+.mocklock-btns { position: absolute; bottom: 16px; left: 0; right: 0;
+  display: flex; justify-content: space-between; padding: 0 22px; }
+.mocklock-btns i { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,.2); }
+/* 폰 컨텍스트 안에서는 잠금 위젯이 배경화면 위 vibrancy 텍스트 (실물과 동일) */
+.mock-lock-row .wg2-lock { background: transparent; box-shadow: none; width: 545px; }
