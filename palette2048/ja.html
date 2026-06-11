@@ -11,6 +11,7 @@
 <link rel="alternate" hreflang="zh-Hans" href="zh-hans.html">
 <link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
 <link rel="alternate" hreflang="x-default" href="index.html">
+<link rel="canonical" href="ja.html">
 <meta property="og:title" content="Palette 2048 — 名画の色で遊ぶ">
 <meta property="og:description" content="毎日新しい名画。色を合わせて絵を完成、土曜日は色だけで作品を当ててみましょう。">
 <link rel="icon" type="image/png" href="icon.png">
@@ -39,8 +40,9 @@
 
 <main>
 <div class="hero">
+  <div class="ghost">2048</div>
   <div class="hero-copy">
-    <p class="kicker">ポケットの中の美術館</p>
+    <div class="kicker-row"><span>ポケットの中の美術館</span><span class="rule"></span><span class="knum">DAILY</span></div>
     <h1 class="hero-msg">毎日、新しい名画を<br>一枚ずつ。</h1>
     <p class="hero-sub">毎日ボードが実際の名画のパレットで彩られます。<br>数字はありません。<strong>色</strong>でタイルを合わせて絵を完成させましょう。</p>
     <div class="hero-cta-row">
@@ -52,14 +54,22 @@
   <div class="board-col">
     <div class="frame">
       <div class="board" id="board" aria-hidden="true">
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
     </div>
     <p class="board-caption"><span id="paintName">The Starry Night</span><br><em id="paintArtist">Vincent van Gogh</em></p>
   </div>
 </div>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>VAN GOGH</span><span>MONET</span><span>HOKUSAI</span><span>KLIMT</span><span>VERMEER</span><span>WARHOL</span><span>DA VINCI</span><span>MUNCH</span><span>KIM HONG-DO</span><span>RENOIR</span><span>VAN GOGH</span><span>MONET</span><span>HOKUSAI</span><span>KLIMT</span><span>VERMEER</span><span>WARHOL</span><span>DA VINCI</span><span>MUNCH</span><span>KIM HONG-DO</span><span>RENOIR</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker-row center"><span>使い方</span><span class="rule"></span><span class="knum">01–03</span></div>
+    <h2 class="sec-title">空のボードから完成した絵まで —<br>数回のスワイプで。</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">今日</span><h3>今日の名画を開く</h3><p>新しい名画のパレットが待っています — 設定もレベルもなし。</p></div><div class="step"><span class="n">02</span><span class="tag">プレイ</span><h3>色で合わせる</h3><p>同じ色のタイルを滑らせて合わせると、次の色へ。</p></div><div class="step"><span class="n">03</span><span class="tag">土曜日</span><h3>ミステリーを当てる</h3><p>土曜日は作品名が隠れます — 色だけで作品を当てて。</p></div></div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -72,7 +82,7 @@
         <p class="note">数字を追うだけ。毎日同じグレーのタイル。</p>
       </div>
       <div class="idea-card today">
-        <p class="tag">Palette 2048</p>
+        <p class="tag">PALETTE 2048</p>
         <div class="mini-grid swatches"><i></i><i></i><i></i><i></i></div>
         <p class="note">名画を追う遊び。毎日新しいパレットを。</p>
       </div>
@@ -88,51 +98,24 @@
     <p class="sec-sub">土曜日は作品名が隠れます。色をプレイし、パレットだけで名画を当ててください。あなたの審美眼はどれくらいでしょう。</p>
     <div class="mystery-card">
       <div class="q">? ? ?</div>
-      <div class="choices">
-        <span>The Starry Night</span>
-        <span class="pick">The Great Wave</span>
-        <span>Water Lilies</span>
-      </div>
+      <div class="choices"><span>The Starry Night</span><span class="pick">The Great Wave</span><span>Water Lilies</span></div>
     </div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <p class="sec-label">スクリーン</p>
+    <h2 class="sec-title">同じゲーム、毎日違う絵。</h2>
+    <div class="shot-row"><figure><div class="shot-phone"><div class="island"></div><img src="assets/shot3.png" alt="3×3 · 毎日" loading="lazy"></div><figcaption>3×3 · 毎日</figcaption></figure><figure><div class="shot-phone"><div class="island"></div><img src="assets/shot1.png" alt="4×4 · 深いパレット" loading="lazy"></div><figcaption>4×4 · 深いパレット</figcaption></figure><figure><div class="shot-phone"><div class="island"></div><img src="assets/shot2.png" alt="5×5 · 絵の全体" loading="lazy"></div><figcaption>5×5 · 絵の全体</figcaption></figure></div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="sec-label">中身</p>
+    <p class="sec-label">ディテール</p>
     <h2 class="sec-title">本物のアートでつくる、静かな毎日の習慣。</h2>
-    <div class="features">
-      <div class="feature">
-        <div class="f-swatch s1"></div>
-        <h3>毎日一枚の名画</h3>
-        <p>厳選した名画122点 — ゴッホ、モネ、北斎、金弘道など。明日はまた別の絵。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s2"></div>
-        <h3>数字ではなく色</h3>
-        <p>タイルは純粋な色。合わせるとパレットの次の色へ。静かな色覚テスト。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s3"></div>
-        <h3>土曜ミステリー</h3>
-        <p>色だけで隠れた作品を当てる、アート好きのための週イベント。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s4"></div>
-        <h3>アーカイブ</h3>
-        <p>見逃した日も、遊んだ全作品をカラーカレンダーから再プレイ。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s5"></div>
-        <h3>ストリーク &amp; 統計</h3>
-        <p>毎日の連続記録を伸ばし、作品ごとのベストとコレクションを育てよう。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s6"></div>
-        <h3>静かなデザイン</h3>
-        <p>広告なし。ログインなし。完全オフライン。一日一枚、自分のペースで。</p>
-      </div>
-    </div>
+    <div class="features"><div class="feature"><div class="f-swatch s1"></div><h3>毎日一枚の名画</h3><p>厳選した名画122点 — ゴッホ、モネ、北斎、金弘道など。</p></div><div class="feature"><div class="f-swatch s2"></div><h3>数字ではなく色</h3><p>タイルは純粋な色、合わせるとパレットの次の色へ。静かな色覚テスト。</p></div><div class="feature"><div class="f-swatch s3"></div><h3>土曜ミステリー</h3><p>色だけで隠れた作品を当てる — アート好きのための週イベント。</p></div><div class="feature"><div class="f-swatch s4"></div><h3>アーカイブ</h3><p>見逃した日も、遊んだ全作品をカラーカレンダーから再プレイ。</p></div><div class="feature"><div class="f-swatch s5"></div><h3>ストリーク &amp; 統計</h3><p>毎日の連続記録を伸ばし、作品ごとのベストとコレクションを育てよう。</p></div><div class="feature"><div class="f-swatch s6"></div><h3>静かなデザイン</h3><p>広告なし。ログインなし。完全オフライン。一日一枚、自分のペースで。</p></div></div>
   </div>
 </section>
 

@@ -11,6 +11,7 @@
 <link rel="alternate" hreflang="zh-Hans" href="zh-hans.html">
 <link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
 <link rel="alternate" hreflang="x-default" href="index.html">
+<link rel="canonical" href="ko.html">
 <meta property="og:title" content="팔레트 2048 — 매일 명화의 색으로">
 <meta property="og:description" content="매일 새로운 명화. 색으로 합쳐 그림을 완성하고, 토요일엔 색만 보고 작품을 맞혀보세요.">
 <link rel="icon" type="image/png" href="icon.png">
@@ -39,8 +40,9 @@
 
 <main>
 <div class="hero">
+  <div class="ghost">2048</div>
   <div class="hero-copy">
-    <p class="kicker">포켓 속 미술관</p>
+    <div class="kicker-row"><span>포켓 속 미술관</span><span class="rule"></span><span class="knum">DAILY</span></div>
     <h1 class="hero-msg">매일 새로운 명화,<br>한 점씩.</h1>
     <p class="hero-sub">매일 보드가 실제 명화의 팔레트로 칠해집니다.<br>숫자 없이 <strong>색</strong>으로 타일을 합쳐 그림을 완성하세요.</p>
     <div class="hero-cta-row">
@@ -52,14 +54,22 @@
   <div class="board-col">
     <div class="frame">
       <div class="board" id="board" aria-hidden="true">
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
     </div>
     <p class="board-caption"><span id="paintName">The Starry Night</span><br><em id="paintArtist">Vincent van Gogh</em></p>
   </div>
 </div>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>VAN GOGH</span><span>MONET</span><span>HOKUSAI</span><span>KLIMT</span><span>VERMEER</span><span>WARHOL</span><span>DA VINCI</span><span>MUNCH</span><span>KIM HONG-DO</span><span>RENOIR</span><span>VAN GOGH</span><span>MONET</span><span>HOKUSAI</span><span>KLIMT</span><span>VERMEER</span><span>WARHOL</span><span>DA VINCI</span><span>MUNCH</span><span>KIM HONG-DO</span><span>RENOIR</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker-row center"><span>사용 방법</span><span class="rule"></span><span class="knum">01–03</span></div>
+    <h2 class="sec-title">빈 보드에서 완성된 그림까지 —<br>몇 번의 스와이프로.</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">오늘</span><h3>오늘의 그림 열기</h3><p>새 명화의 팔레트가 기다려요 — 설정도 레벨도 없이.</p></div><div class="step"><span class="n">02</span><span class="tag">플레이</span><h3>색으로 합치기</h3><p>같은 색 타일을 밀어 합치면 다음 색으로 피어나요.</p></div><div class="step"><span class="n">03</span><span class="tag">토요일</span><h3>미스터리 맞히기</h3><p>토요일엔 제목이 숨겨져요 — 색만 보고 작품을 맞혀보세요.</p></div></div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -88,51 +98,24 @@
     <p class="sec-sub">토요일엔 작품명이 가려집니다. 색을 플레이한 뒤, 팔레트만 보고 명화를 맞혀보세요. 당신의 안목은 얼마나 정확할까요?</p>
     <div class="mystery-card">
       <div class="q">? ? ?</div>
-      <div class="choices">
-        <span>The Starry Night</span>
-        <span class="pick">The Great Wave</span>
-        <span>Water Lilies</span>
-      </div>
+      <div class="choices"><span>The Starry Night</span><span class="pick">The Great Wave</span><span>Water Lilies</span></div>
     </div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <p class="sec-label">스크린</p>
+    <h2 class="sec-title">같은 게임, 매일 다른 그림.</h2>
+    <div class="shot-row"><figure><div class="shot-phone"><div class="island"></div><img src="assets/shot3.png" alt="3×3 · 매일" loading="lazy"></div><figcaption>3×3 · 매일</figcaption></figure><figure><div class="shot-phone"><div class="island"></div><img src="assets/shot1.png" alt="4×4 · 깊어진 팔레트" loading="lazy"></div><figcaption>4×4 · 깊어진 팔레트</figcaption></figure><figure><div class="shot-phone"><div class="island"></div><img src="assets/shot2.png" alt="5×5 · 그림 전체" loading="lazy"></div><figcaption>5×5 · 그림 전체</figcaption></figure></div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="sec-label">둘러보기</p>
+    <p class="sec-label">디테일</p>
     <h2 class="sec-title">진짜 명화로 만든, 조용한 하루 의식.</h2>
-    <div class="features">
-      <div class="feature">
-        <div class="f-swatch s1"></div>
-        <h3>매일 한 점의 명화</h3>
-        <p>엄선한 명화 122점 — 반 고흐, 모네, 호쿠사이, 김홍도 등. 내일은 또 다른 그림이 기다려요.</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s2"></div>
-        <h3>숫자가 아닌 색</h3>
-        <p>타일은 순수한 색. 합치면 팔레트의 다음 색으로 섞입니다. 조용한 색각 테스트예요.</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s3"></div>
-        <h3>토요일 미스터리</h3>
-        <p>색만 보고 가려진 작품을 맞혀보세요. 미술 애호가를 위한 주간 이벤트.</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s4"></div>
-        <h3>아카이브</h3>
-        <p>놓친 날이 있나요? 플레이한 모든 그림을 색 캘린더에서 다시 플레이.</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s5"></div>
-        <h3>스트릭 &amp; 통계</h3>
-        <p>매일 연속 기록을 쌓고, 그림별 최고 기록과 컬렉션을 키워보세요.</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s6"></div>
-        <h3>비우는 디자인</h3>
-        <p>광고 없음. 로그인 없음. 완전 오프라인. 하루 한 점, 내 속도로.</p>
-      </div>
-    </div>
+    <div class="features"><div class="feature"><div class="f-swatch s1"></div><h3>매일 한 점의 명화</h3><p>엄선한 명화 122점 — 반 고흐, 모네, 호쿠사이, 김홍도 등.</p></div><div class="feature"><div class="f-swatch s2"></div><h3>숫자가 아닌 색</h3><p>타일은 순수한 색, 합치면 팔레트의 다음 색으로. 조용한 색각 테스트예요.</p></div><div class="feature"><div class="f-swatch s3"></div><h3>토요일 미스터리</h3><p>색만 보고 가려진 작품을 맞혀보세요 — 미술 애호가를 위한 주간 이벤트.</p></div><div class="feature"><div class="f-swatch s4"></div><h3>아카이브</h3><p>놓친 날이 있나요? 플레이한 모든 그림을 색 캘린더에서 다시 플레이.</p></div><div class="feature"><div class="f-swatch s5"></div><h3>스트릭 &amp; 통계</h3><p>매일 연속 기록을 쌓고, 그림별 최고 기록과 컬렉션을 키워보세요.</p></div><div class="feature"><div class="f-swatch s6"></div><h3>비우는 디자인</h3><p>광고 없음. 로그인 없음. 완전 오프라인. 하루 한 점, 내 속도로.</p></div></div>
   </div>
 </section>
 

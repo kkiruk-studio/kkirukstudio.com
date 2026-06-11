@@ -11,6 +11,7 @@
 <link rel="alternate" hreflang="zh-Hans" href="zh-hans.html">
 <link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
 <link rel="alternate" hreflang="x-default" href="index.html">
+<link rel="canonical" href="zh-hant.html">
 <meta property="og:title" content="Palette 2048 — 用名畫的顏色遊玩">
 <meta property="og:description" content="每天一幅新名畫。合併顏色拼出畫作，週六只憑顏色猜出作品。">
 <link rel="icon" type="image/png" href="icon.png">
@@ -39,8 +40,9 @@
 
 <main>
 <div class="hero">
+  <div class="ghost">2048</div>
   <div class="hero-copy">
-    <p class="kicker">口袋裡的美術館</p>
+    <div class="kicker-row"><span>口袋裡的美術館</span><span class="rule"></span><span class="knum">DAILY</span></div>
     <h1 class="hero-msg">每天一幅<br>全新名畫。</h1>
     <p class="hero-sub">每天棋盤都被一幅真實名畫的調色盤點亮。<br>沒有數字，用<strong>顏色</strong>合併拼出完整的畫作。</p>
     <div class="hero-cta-row">
@@ -52,14 +54,22 @@
   <div class="board-col">
     <div class="frame">
       <div class="board" id="board" aria-hidden="true">
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
     </div>
     <p class="board-caption"><span id="paintName">The Starry Night</span><br><em id="paintArtist">Vincent van Gogh</em></p>
   </div>
 </div>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>VAN GOGH</span><span>MONET</span><span>HOKUSAI</span><span>KLIMT</span><span>VERMEER</span><span>WARHOL</span><span>DA VINCI</span><span>MUNCH</span><span>KIM HONG-DO</span><span>RENOIR</span><span>VAN GOGH</span><span>MONET</span><span>HOKUSAI</span><span>KLIMT</span><span>VERMEER</span><span>WARHOL</span><span>DA VINCI</span><span>MUNCH</span><span>KIM HONG-DO</span><span>RENOIR</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker-row center"><span>玩法</span><span class="rule"></span><span class="knum">01–03</span></div>
+    <h2 class="sec-title">從空棋盤到完成的畫作 —<br>只需幾次滑動。</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">今天</span><h3>打開今天的名畫</h3><p>一幅新名畫的調色盤在等你 — 無需設定，沒有關卡。</p></div><div class="step"><span class="n">02</span><span class="tag">遊玩</span><h3>用顏色合併</h3><p>滑動合併相同顏色的方塊，它便綻放成下一種色。</p></div><div class="step"><span class="n">03</span><span class="tag">週六</span><h3>猜出謎題</h3><p>週六隱藏標題 — 只憑顏色認出作品。</p></div></div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -72,7 +82,7 @@
         <p class="note">只追數字。每天都是同樣的灰色方塊。</p>
       </div>
       <div class="idea-card today">
-        <p class="tag">Palette 2048</p>
+        <p class="tag">PALETTE 2048</p>
         <div class="mini-grid swatches"><i></i><i></i><i></i><i></i></div>
         <p class="note">追逐一幅畫。每天都有新的色彩。</p>
       </div>
@@ -88,51 +98,24 @@
     <p class="sec-sub">週六隱藏作品名稱。先玩顏色，再僅憑調色盤認出名畫。你對藝術的眼力有多準？</p>
     <div class="mystery-card">
       <div class="q">? ? ?</div>
-      <div class="choices">
-        <span>The Starry Night</span>
-        <span class="pick">The Great Wave</span>
-        <span>Water Lilies</span>
-      </div>
+      <div class="choices"><span>The Starry Night</span><span class="pick">The Great Wave</span><span>Water Lilies</span></div>
     </div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <p class="sec-label">截圖</p>
+    <h2 class="sec-title">同樣的遊戲，每天不同的畫。</h2>
+    <div class="shot-row"><figure><div class="shot-phone"><div class="island"></div><img src="assets/shot3.png" alt="3×3 · 日常" loading="lazy"></div><figcaption>3×3 · 日常</figcaption></figure><figure><div class="shot-phone"><div class="island"></div><img src="assets/shot1.png" alt="4×4 · 更深的調色盤" loading="lazy"></div><figcaption>4×4 · 更深的調色盤</figcaption></figure><figure><div class="shot-phone"><div class="island"></div><img src="assets/shot2.png" alt="5×5 · 完整畫作" loading="lazy"></div><figcaption>5×5 · 完整畫作</figcaption></figure></div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="sec-label">內容</p>
+    <p class="sec-label">細節</p>
     <h2 class="sec-title">用真實藝術打造的，寧靜的每日儀式。</h2>
-    <div class="features">
-      <div class="feature">
-        <div class="f-swatch s1"></div>
-        <h3>每天一幅名畫</h3>
-        <p>精選名畫 122 幅 — 梵谷、莫內、北齋、金弘道等。明天又是另一幅。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s2"></div>
-        <h3>顏色，而非數字</h3>
-        <p>方塊是純粹的顏色。合併後融入調色盤的下一種色。一場安靜的色覺測試。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s3"></div>
-        <h3>週六謎題</h3>
-        <p>僅憑顏色認出隱藏的作品，為愛藝術的你準備的每週活動。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s4"></div>
-        <h3>典藏</h3>
-        <p>錯過了某天？在色彩日曆裡重玩你玩過的所有畫作。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s5"></div>
-        <h3>連勝 &amp; 統計</h3>
-        <p>保持每日連勝，記錄每幅畫的最佳成績，壯大你的收藏。</p>
-      </div>
-      <div class="feature">
-        <div class="f-swatch s6"></div>
-        <h3>極簡設計</h3>
-        <p>無廣告。無須登入。完全離線。每天一幅，隨你的節奏。</p>
-      </div>
-    </div>
+    <div class="features"><div class="feature"><div class="f-swatch s1"></div><h3>每天一幅名畫</h3><p>精選名畫 122 幅 — 梵谷、莫內、北齋、金弘道等。</p></div><div class="feature"><div class="f-swatch s2"></div><h3>顏色，而非數字</h3><p>方塊是純粹的顏色，合併後融入調色盤的下一種色。一場安靜的色覺測試。</p></div><div class="feature"><div class="f-swatch s3"></div><h3>週六謎題</h3><p>僅憑顏色認出隱藏的作品 — 為愛藝術的你準備的每週活動。</p></div><div class="feature"><div class="f-swatch s4"></div><h3>典藏</h3><p>錯過了某天？在色彩日曆裡重玩你玩過的所有畫作。</p></div><div class="feature"><div class="f-swatch s5"></div><h3>連勝 &amp; 統計</h3><p>保持每日連勝，記錄每幅畫的最佳成績，壯大你的收藏。</p></div><div class="feature"><div class="f-swatch s6"></div><h3>極簡設計</h3><p>無廣告。無須登入。完全離線。每天一幅，隨你的節奏。</p></div></div>
   </div>
 </section>
 
