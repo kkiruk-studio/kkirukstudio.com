@@ -1,64 +1,109 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Honest Camera — 셔터 하나뿐인, 아이의 첫 카메라.</title>
-<meta name="description" content="토들러 안전 카메라 Honest Camera. 셔터 하나뿐인, 아이의 첫 카메라.">
+<title>Honest Camera — One shutter. A toddler's first camera.</title>
+<meta name="description" content="The simplest camera a 3-year-old can use alone. One big yellow button, auto-save, no modes, no IAP, no ads.">
 <link rel="icon" type="image/png" href="../icons/honestcamera.png">
-<meta property="og:title" content="Honest Camera — 셔터 하나뿐인, 아이의 첫 카메라.">
-<meta property="og:description" content="A toddler-safe first camera.">
+<link rel="apple-touch-icon" href="../icons/honestcamera.png">
+<link rel="alternate" hreflang="ko" href="ko.html">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="ja" href="ja.html">
+<link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
+<link rel="alternate" hreflang="x-default" href="index.html">
+<meta property="og:title" content="Honest Camera — One shutter. A toddler's first camera.">
+<meta property="og:description" content="The simplest camera a 3-year-old can use alone. One big yellow button, auto-save, no modes, no IAP, no ads.">
 <meta property="og:image" content="../icons/honestcamera.png">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <div class="bar">
-    <a class="wordmark" href="/">kkiruk studio</a>
+    <a class="wordmark" href="index.html"><img src="../icons/honestcamera.png" alt="Honest Camera">Honest Camera</a>
     <nav class="nav-right">
-      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
+        <option value="ko.html">한국어</option>
+        <option value="index.html" selected>EN</option>
+        <option value="ja.html">日本語</option>
+        <option value="zh-hant.html">繁體中文</option>
+      </select>
+      <a class="nav-cta" href="https://apps.apple.com/app/id6766827649" target="_blank" rel="noopener">App Store</a>
     </nav>
   </div>
 </header>
 
 <main>
-<div class="app-hero wrap">
-  <img src="../icons/honestcamera.png" alt="Honest Camera 아이콘">
-  <h1>Honest Camera</h1>
-  <p class="tagline">셔터 하나뿐인, 아이의 첫 카메라.</p>
-  <p class="tagline-en">A toddler-safe first camera.</p>
-  <a class="appstore-btn" href="https://apps.apple.com/app/id6766827649" target="_blank" rel="noopener">
-    <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-    App Store에서 받기
-  </a>
-
-  <div class="bullets">
-    <div class="bullet"><b>버튼은 셔터 하나</b><br><span>모드 전환도, 헷갈릴 것도 없어요.</span></div>
-    <div class="bullet"><b>자동 저장</b><br><span>찍은 사진은 바로 앨범으로.</span></div>
-    <div class="bullet"><b>망칠 수 없는 설계</b><br><span>아이 손에 쥐여줘도 안심.</span></div>
+<div class="hero">
+  <div class="hero-copy">
+    <p class="kicker">My First Camera</p>
+    <h1>One button.<br><em>That's everything.</em></h1>
+    <p class="hero-sub">The simplest camera a three-year-old can handle alone. Press, it snaps; snap, it saves. There's no screen to accidentally wander into.</p>
+    <div class="hero-cta-row">
+      <a class="appstore-btn" href="https://apps.apple.com/app/id6766827649" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
+      
+    </div>
+    <p class="hero-foot">iPhone & iPad · Ages 3+</p>
   </div>
-
-  <p class="support-note">
-    궁금한 점이나 불편한 점이 있나요?<br>
-    <a href="mailto:kkirukstudio.help@gmail.com">kkirukstudio.help@gmail.com</a> 으로 보내주시면 빠르게 답변드릴게요.
-  </p>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="cam">
+      <span class="shutter"></span>
+      <div class="lens"><i></i><b></b></div>
+      <span class="dotled"></span>
+    </div>
+  </div>
 </div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label">Features</p>
+    <h2 class="sec-title">Built for little hands.</h2>
+    <div class="features">
+      <div class="feature"><div class="dot"></div><h3>One big yellow shutter</h3><p>Sized for small fingers and imprecise taps. Press — click — done.</p></div>
+      <div class="feature"><div class="dot"></div><h3>Preview = result</h3><p>No filters, no AI touch-ups. What your kid sees is what gets saved.</p></div>
+      <div class="feature"><div class="dot"></div><h3>Straight to Photos</h3><p>Every shot auto-saves instantly. Browse them together on your phone.</p></div>
+      <div class="feature"><div class="dot"></div><h3>Guided Access walkthrough</h3><p>Step-by-step onboarding shows you how to lock the app so kids can't wander off.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label">An honest camera</p>
+    <h2 class="sec-title">What's missing is the feature.</h2>
+    <div class="x-list">
+      <div class="x-item">In-app gallery browsing</div>
+      <div class="x-item">Filters · stickers · AI effects</div>
+      <div class="x-item">Video recording</div>
+      <div class="x-item">In-app purchases · ads</div>
+      <div class="x-item">Accounts · cloud</div>
+      <div class="x-item">Analytics that track your kid</div>
+    </div>
+  </div>
+</section>
+<section class="cta">
+  <div class="wrap">
+    <h2 class="cta-title">The world through their eyes —<br>let them shoot it as-is.</h2>
+    <p class="cta-sub">iPhone & iPad · Everything complicated, removed</p>
+    <a class="appstore-btn" href="https://apps.apple.com/app/id6766827649" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
+  </div>
+</section>
 </main>
 
 <footer>
   <div class="wrap cols">
     <span>© kkiruk studio</span>
     <nav class="links">
-      <a href="/">홈</a>
-      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">개인정보 처리방침</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">이용약관</a>
+      <a href="/">kkiruk studio</a>
+      <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
+      <a href="ko.html">한국어</a> <a href="ja.html">日本語</a> <a href="zh-hant.html">繁體中文</a>
     </nav>
   </div>
 </footer>
 
-<script src="../app.js"></script>
 </body>
 </html>

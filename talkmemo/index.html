@@ -1,64 +1,102 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Talk Memo — 손목에서 한 탭, 아이디어가 텍스트로.</title>
-<meta name="description" content="Apple Watch 아이디어 캡처 앱 Talk Memo. 손목에서 한 탭, 아이디어가 텍스트로.">
+<title>Talk Memo — Voice on Watch, text on iPhone</title>
+<meta name="description" content="Tap your Apple Watch, speak your idea — it arrives on iPhone as text. One-time purchase, no subscription, no ads. Export to Notion, Bear, Obsidian.">
 <link rel="icon" type="image/png" href="../icons/talkmemo.png">
-<meta property="og:title" content="Talk Memo — 손목에서 한 탭, 아이디어가 텍스트로.">
-<meta property="og:description" content="One tap on your wrist. Ideas become text.">
+<link rel="apple-touch-icon" href="../icons/talkmemo.png">
+<link rel="alternate" hreflang="ko" href="ko.html">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="ja" href="ja.html">
+<link rel="alternate" hreflang="x-default" href="index.html">
+<meta property="og:title" content="Talk Memo — Voice on Watch, text on iPhone">
+<meta property="og:description" content="Tap your Apple Watch, speak your idea — it arrives on iPhone as text. One-time purchase, no subscription, no ads. Export to Notion, Bear, Obsidian.">
 <meta property="og:image" content="../icons/talkmemo.png">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <div class="bar">
-    <a class="wordmark" href="/">kkiruk studio</a>
+    <a class="wordmark" href="index.html"><img src="../icons/talkmemo.png" alt="Talk Memo">Talk Memo</a>
     <nav class="nav-right">
-      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
+        <option value="ko.html">한국어</option>
+        <option value="index.html" selected>EN</option>
+        <option value="ja.html">日本語</option>
+      </select>
+      <a class="nav-cta" href="https://apps.apple.com/app/id6764329223" target="_blank" rel="noopener">App Store</a>
     </nav>
   </div>
 </header>
 
 <main>
-<div class="app-hero wrap">
-  <img src="../icons/talkmemo.png" alt="Talk Memo 아이콘">
-  <h1>Talk Memo</h1>
-  <p class="tagline">손목에서 한 탭, 아이디어가 텍스트로.</p>
-  <p class="tagline-en">One tap on your wrist. Ideas become text.</p>
-  <a class="appstore-btn" href="https://apps.apple.com/app/id6764329223" target="_blank" rel="noopener">
-    <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-    App Store에서 받기
-  </a>
-
-  <div class="bullets">
-    <div class="bullet"><b>워치 한 탭</b><br><span>떠오른 순간 Apple Watch에서 바로 말하기.</span></div>
-    <div class="bullet"><b>자동 텍스트</b><br><span>iPhone에서 자동으로 받아 적어둡니다.</span></div>
-    <div class="bullet"><b>어디로든 내보내기</b><br><span>Notion · Bear · Obsidian으로 바로 보내기.</span></div>
+<div class="hero">
+  <div class="hero-copy">
+    <p class="kicker">Voice on Watch, text on iPhone</p>
+    <h1>One tap on your wrist.<br><em>Ideas become text.</em></h1>
+    <p class="hero-sub">Mid-run, mid-drive, mid-dishes — good ideas vanish while you dig out your phone. Tap your watch and speak. It's waiting on your iPhone as text.</p>
+    <div class="hero-cta-row">
+      <a class="appstore-btn" href="https://apps.apple.com/app/id6764329223" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
+      
+    </div>
+    <p class="hero-foot">One-time purchase · No subscription · No ads · No tracking</p>
   </div>
-
-  <p class="support-note">
-    궁금한 점이나 불편한 점이 있나요?<br>
-    <a href="mailto:kkirukstudio.help@gmail.com">kkirukstudio.help@gmail.com</a> 으로 보내주시면 빠르게 답변드릴게요.
-  </p>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="tm">
+      <div class="watch">
+        <span class="rec"></span>
+        <div class="wave"><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="crown"></span>
+      </div>
+      <span class="flow">→</span>
+      <div class="note">
+        <div class="nl" style="width:84%"></div>
+        <div class="nl" style="width:68%"></div>
+        <div class="nl" style="width:76%"></div>
+        <div class="nl s" style="width:42%"></div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label">Features</p>
+    <h2 class="sec-title">Capture without breaking flow.</h2>
+    <div class="features">
+      <div class="feature"><div class="dot"></div><h3>One tap on the watch</h3><p>Tap to record, tap to stop. Your phone stays in your pocket.</p></div>
+      <div class="feature"><div class="dot"></div><h3>Automatic transcription</h3><p>Recordings sync to iPhone and become text on-device. Nothing leaves your phone.</p></div>
+      <div class="feature"><div class="dot"></div><h3>Send it anywhere</h3><p>Clean export to Notion, Bear, Obsidian — whatever notes app you live in.</p></div>
+      <div class="feature"><div class="dot"></div><h3>Four ways to start</h3><p>Ultra Action Button, watch-face complication, the Dock, or Siri & Shortcuts.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="cta-title">Don't lose<br>your next good idea.</h2>
+    <p class="cta-sub">Pay once · Yours forever · Apple Watch + iPhone</p>
+    <a class="appstore-btn" href="https://apps.apple.com/app/id6764329223" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
+  </div>
+</section>
 </main>
 
 <footer>
   <div class="wrap cols">
     <span>© kkiruk studio</span>
     <nav class="links">
-      <a href="/">홈</a>
-      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">개인정보 처리방침</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">이용약관</a>
+      <a href="/">kkiruk studio</a>
+      <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
+      <a href="ko.html">한국어</a> <a href="ja.html">日本語</a>
     </nav>
   </div>
 </footer>
 
-<script src="../app.js"></script>
 </body>
 </html>
