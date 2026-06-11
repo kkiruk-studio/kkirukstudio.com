@@ -127,3 +127,5 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--ink3);font-si
   .features{grid-template-columns:1fr}
   .sec-title{font-size:30px}
 }
+.home-link{color:var(--ink2)}
+.home-link:hover{color:var(--ink)}

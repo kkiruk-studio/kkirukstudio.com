@@ -258,7 +258,7 @@ TMPL='''<!DOCTYPE html>
 
 <footer>
   <div class="wrap cols">
-    <span>© kkiruk studio</span>
+    <a class="home-link" href="https://www.kkirukstudio.com/">© kkiruk studio</a>
     <nav class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">{fcontact}</a>
       <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">{fprivacy}</a>
