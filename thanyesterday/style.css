@@ -345,7 +345,8 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
   border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); }
 .wg-img.small  { width: 168px; }
 .wg-img.medium { width: 352px; }
-.wg-img.lock   { width: 100%; max-width: 545px; border-radius: 16px; }
+.wg-img.lock   { width: 100%; max-width: 545px; border-radius: 16px;
+  filter: grayscale(1) brightness(.6) contrast(1.12); }
 
 /* ── 실기기 사진 기준 위젯 재현 (비한국어 페이지용) ── */
 .wg2-small, .wg2-half {
@@ -383,9 +384,9 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .wg2-now .hl { font-size: 10px; opacity: .5; font-family: ui-monospace, monospace; margin-top: 1px; }
 /* 잠금화면 행 — 파란 배경 위 화이트 비브런시 */
 .wg2-lock { width: 100%; max-width: 545px; height: 104px; border-radius: 16px; flex-shrink: 0;
-  background: linear-gradient(115deg, #79B6F2 0%, #5D9BE8 55%, #4A86DE 100%);
+  background: linear-gradient(115deg, #43464F 0%, #34373E 55%, #282A30 100%);
   color: #FFF; display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 18px; box-shadow: 0 16px 36px -14px rgba(40,80,140,.45); }
+  padding: 12px 18px; box-shadow: 0 16px 36px -14px rgba(20,22,28,.5); }
 .wg2-lock .lc1 .loc { font-size: 12px; opacity: .9; }
 .wg2-lock .lc1 .big { font-size: 19px; font-weight: 700; margin-top: 1px; }
 .wg2-lock .lc1 .big small { font-size: 12px; font-weight: 500; opacity: .9; margin-left: 4px; }
