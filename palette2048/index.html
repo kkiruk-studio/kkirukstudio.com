@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palette 2048 — Play a famous painting's colors, every day</title>
+<meta name="description" content="A daily color puzzle: the board is painted with a real masterpiece's palette. Merge by color — no numbers. And every Saturday, guess the painting from its colors alone.">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="ko" href="ko.html">
+<link rel="alternate" hreflang="x-default" href="index.html">
+<meta property="og:title" content="Palette 2048 — Play a famous painting's colors">
+<meta property="og:description" content="A new masterpiece every day. Merge by color, complete the painting. Saturdays: guess the artwork from its colors.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="wordmark" href="index.html"><span class="dot"></span>Palette 2048</a>
+    <nav class="nav-right">
+      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
+        <option value="index.html" selected>EN</option>
+        <option value="ko.html">한국어</option>
+      </select>
+      <a class="nav-cta" href="https://apps.apple.com/app/idYOURAPPID" target="_blank" rel="noopener">App Store</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ──────────────── HERO ──────────────── -->
+<div class="hero">
+  <div class="hero-copy">
+    <p class="kicker">A museum in your pocket</p>
+    <h1 class="hero-msg">A new masterpiece,<br>every single day.</h1>
+    <p class="hero-sub">
+      Each day the board is painted with the palette of a real masterpiece.<br>
+      Merge tiles <strong>by color</strong> — there are no numbers. Just the painting.
+    </p>
+    <div class="hero-cta-row">
+      <a class="appstore-btn" href="https://apps.apple.com/app/idYOURAPPID" target="_blank" rel="noopener">
+        <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download on the App Store
+      </a>
+      <span class="rating"><span class="stars">★★★★★</span>Daily · Free to play</span>
+    </div>
+    <p class="hero-foot">122 masterpieces · iPhone &amp; iPad · No ads · Offline</p>
+  </div>
+
+  <!-- The live "today's painting" board (CSS + JS palette cycle) -->
+  <div class="board-col">
+    <div class="frame">
+      <div class="board" id="board" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <p class="board-caption"><span id="paintName">The Starry Night</span><br><em id="paintArtist">Vincent van Gogh</em></p>
+  </div>
+</div>
+
+<!-- ──────────────── WHY DIFFERENT ──────────────── -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">Why it's different</p>
+    <h2 class="sec-title">No numbers.<br>Your eye is the game.</h2>
+    <div class="idea-cards">
+      <div class="idea-card">
+        <p class="tag">Ordinary 2048</p>
+        <div class="mini-grid nums"><i>2</i><i>4</i><i>8</i><i>16</i></div>
+        <p class="note">Chasing a number. Same gray tiles, every day.</p>
+      </div>
+      <div class="idea-card today">
+        <p class="tag">Palette 2048</p>
+        <div class="mini-grid swatches"><i></i><i></i><i></i><i></i></div>
+        <p class="note">Chasing a painting. A new palette to feel, every day.</p>
+      </div>
+    </div>
+    <p class="idea-punch">Merge two of the same color, and it blooms into the next.</p>
+  </div>
+</section>
+
+<!-- ──────────────── SATURDAY MYSTERY ──────────────── -->
+<section class="mystery">
+  <div class="wrap">
+    <p class="sec-label">Every Saturday</p>
+    <h2 class="sec-title">The Mystery Day.</h2>
+    <p class="sec-sub">
+      On Saturdays the title is hidden. Play the colors — then name the masterpiece
+      from its palette alone. How well do you really know your art?
+    </p>
+    <div class="mystery-card">
+      <div class="q">? ? ?</div>
+      <div class="choices">
+        <span>The Starry Night</span>
+        <span class="pick">The Great Wave</span>
+        <span>Water Lilies</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────── FEATURES ──────────────── -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">Inside</p>
+    <h2 class="sec-title">A calm daily ritual, built from real art.</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="f-swatch s1"></div>
+        <h3>One masterpiece a day</h3>
+        <p>122 curated paintings — Van Gogh, Monet, Hokusai, Kim Hong-do, and more. Come back tomorrow for the next.</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s2"></div>
+        <h3>Colors, not numbers</h3>
+        <p>Tiles are pure color. Merging blends toward the next shade in the painting's palette. A quiet test of your eye.</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s3"></div>
+        <h3>Saturday Mystery</h3>
+        <p>Guess the hidden artwork from its colors alone. A weekly event for the art lover in you.</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s4"></div>
+        <h3>The archive</h3>
+        <p>Missed a day? Replay past paintings from a color calendar of everything you've played.</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s5"></div>
+        <h3>Streaks &amp; stats</h3>
+        <p>Keep a daily streak, track your best run on every painting, and grow your collection.</p>
+      </div>
+      <div class="feature">
+        <div class="f-swatch s6"></div>
+        <h3>Quiet by design</h3>
+        <p>No ads. No login. Plays fully offline. Just one painting, at your own pace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────── CTA ──────────────── -->
+<section class="cta">
+  <div class="wrap">
+    <h2 class="cta-title">Today's painting is<br>already on the wall.</h2>
+    <p class="cta-sub">Free to play · 122 masterpieces · iPhone &amp; iPad</p>
+    <a class="appstore-btn" href="https://apps.apple.com/app/idYOURAPPID" target="_blank" rel="noopener">
+      <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+      Download on the App Store
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <span>© kkiruk studio</span>
+    <nav class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
+      <a href="ko.html">한국어</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
