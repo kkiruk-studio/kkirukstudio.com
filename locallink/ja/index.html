@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ロコリンク — 海外の場所を現地の地図ですぐ開く</title>
+<meta name="description" content="知っている名前で検索すると、ロコリンクが現地の文字の検索語に変換し、その国で本当に使われている地図アプリ（Naver・Kakao・高徳・Google・Apple）で開きます。">
+<meta property="og:title" content="ロコリンク — 旅行地図検索">
+<meta property="og:description" content="知っている名前のまま、現地で本当に使える地図へ。">
+<meta property="og:image" content="https://www.kkirukstudio.com/locallink/assets/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/locallink/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/locallink/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/locallink/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/locallink/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/locallink/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/locallink/zh-hant/">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic","Segoe UI",sans-serif}</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>LOCAL·LINK</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/">한국어</a><a href="../ja/" class="cur">日本語</a><a href="../zh-hans/">简体</a><a href="../zh-hant/">繁體</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost">L·L</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>LOCAL · LINK</span><span class="rule"></span><span class="num">旅行地図検索</span></div>
+      <h1>知っている名前のまま、<br>現地で<em>本当に使える</em>地図へ</h1>
+      <div class="demo">
+        <span class="src" id="demoSrc">Myeongdong</span>
+        <span class="arrow">→</span>
+        <span class="dst" id="demoDst">명동</span>
+      </div>
+      <p class="sub">韓国では Google マップが弱く、中国では使えません。ロコリンクが英語名やローマ字を現地の文字の検索語に変換し、その国で実際に使われている地図アプリへつなぎます。</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="#" aria-label="App Store でダウンロード"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>ダウンロードは</small><strong>App Store</strong></span></a>
+        <span class="note">無料 · iPhone &amp; iPad · 登録不要</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="g">N</span>Naver Map</div><div class="chip c2"><span class="g">K</span>KakaoMap</div><div class="chip c3"><span class="g">G</span>Google マップ</div><div class="chip c4"><span class="g">A</span>Apple マップ</div>
+      <div class="phone"><img src="../assets/shot-ja-05-launch.png" alt="ロコリンクの地図選択画面 — 명동を Naver Map や KakaoMap で開くボタン"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>韓国</span><span>中国</span><span>台湾</span><span>タイ</span><span>ベトナム</span><span>香港</span><span>マカオ</span><span>日本</span><span>韓国</span><span>中国</span><span>台湾</span><span>タイ</span><span>ベトナム</span><span>香港</span><span>マカオ</span><span>日本</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>使い方</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>「どう綴るの？」から<em>地図のピンまで3タップ</em>。</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">目的地</span><h3>行き先を選ぶ</h3><p>国と都市を選ぶと、その地域の表記に合った検索を用意します。</p></div><div class="step"><span class="n">02</span><span class="tag">検索</span><h3>知っている名前で入力</h3><p>英語名でもローマ字でも — 現地の地図が実際に認識する現地文字の候補を生成します。</p></div><div class="step"><span class="n">03</span><span class="tag">地図</span><h3>合う地図アプリで開く</h3><p>変換した検索語を Naver・Kakao・高徳・Google・Apple マップへワンタップで送信。アプリがなければウェブで開きます。</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>変換</span><span class="rule"></span><span class="num">現地の文字</span></div>
+    <h2>やっと<em>見つかる</em>名前。</h2>
+    <p class="lede">現地の地図サービスは現地の文字で場所を探します。Naver に「Myeongdong Kyoja」と打っても出ませんが、명동교자なら一発です。</p>
+    <div class="convert-table"><div class="convert-row"><span>Myeongdong</span><span class="arrow">→</span><span class="to">명동</span><span class="cat">韓国 · ハングル</span></div><div class="convert-row"><span>Gyeongbokgung</span><span class="arrow">→</span><span class="to">경복궁</span><span class="cat">韓国 · ハングル</span></div><div class="convert-row"><span>Wukang Road</span><span class="arrow">→</span><span class="to">武康路</span><span class="cat">中国 · 漢字</span></div><div class="convert-row"><span>Din Tai Fung</span><span class="arrow">→</span><span class="to">鼎泰豐</span><span class="cat">台湾 · 漢字</span></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>地図アプリ</span><span class="rule"></span><span class="num">国ごとに</span></div>
+    <h2>国ごとに<em>使える地図が違う</em>から。</h2>
+    <p class="lede">目的地ごとに、実際に使える地図アプリを優先順で表示。アプリが入っていなければ自動でウェブ地図が開きます。</p>
+    <div class="providers"><div class="prov"><span class="flag">🇰🇷</span><h3>韓国</h3><ul><li><span class="g">N</span>Naver Map</li><li><span class="g">K</span>KakaoMap</li></ul></div><div class="prov"><span class="flag">🇨🇳</span><h3>中国</h3><ul><li><span class="g">高</span>高徳地図 (Amap)</li></ul></div><div class="prov"><span class="flag">🇹🇼</span><h3>台湾 · 東南アジア</h3><ul><li><span class="g">G</span>Google マップ</li></ul></div><div class="prov"><span class="flag">🌍</span><h3>どこでも</h3><ul><li><span class="g">A</span>Apple マップ</li></ul></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>画面</span><span class="rule"></span><span class="num">IOS 26</span></div>
+    <h2>飾りより、<em>旅先で使う道具</em>。</h2>
+    <div class="row"><figure><div class="phone"><img src="../assets/shot-ja-03-candidates.png" alt="現地文字の候補" loading="lazy"><div class="island"></div></div><figcaption>現地文字の候補</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ja-05-launch.png" alt="ワンタップで地図起動" loading="lazy"><div class="island"></div></div><figcaption>ワンタップで地図起動</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ja-04-saved.png" alt="保存 · iCloud 同期" loading="lazy"><div class="island"></div></div><figcaption>保存 · iCloud 同期</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>こだわり</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>小さなアプリ、<em>明確な選択</em>。</h2>
+    <div class="grid6"><div class="feat"><h3>オフラインで動く</h3><p>変換データはアプリに内蔵。電波がなくても変換できます。</p></div><div class="feat"><h3>登録・トラッキングなし</h3><p>アカウント不要。分析データが端末の外に出ることはありません。</p></div><div class="feat"><h3>iCloud 同期</h3><p>保存した場所はあなたの iCloud で iPad にも同期。当社サーバーは使いません。</p></div><div class="feat"><h3>国別おすすめ検索</h3><p>ソウルのコスメ、上海のカフェ — 目的地ごとの定番をキュレーション。</p></div><div class="feat"><h3>5言語対応</h3><p>日本語 · English · 한국어 · 简体中文 · 繁體中文、UI も変換も。</p></div><div class="feat"><h3>コピー・拡大表示</h3><p>現地の文字を全画面でタクシー運転手に見せたり、どこへでもコピー。</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>綴りの悩みは、もう終わり。</h2>
+    <p class="lede">iPhone · iPad 無料。</p>
+    <div class="cta"><a class="store-badge" id="storeLink2" href="#" aria-label="App Store でダウンロード"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>ダウンロードは</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">お問い合わせ</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">プライバシーポリシー</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">利用規約</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+  // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
+  const APP_STORE_URL = "";
+  if (APP_STORE_URL) {
+    document.getElementById("storeLink").href = APP_STORE_URL;
+    document.getElementById("storeLink2").href = APP_STORE_URL;
+  }
+
+  const pairs = [["Myeongdong", "명동"], ["Hongdae", "홍대"], ["Wukang Road", "武康路"], ["Din Tai Fung", "鼎泰豐"]];
+  const srcEl = document.getElementById("demoSrc");
+  const dstEl = document.getElementById("demoDst");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        const [src, dst] = pairs[i % pairs.length];
+        dstEl.textContent = "";
+        srcEl.textContent = "";
+        for (const ch of src) { srcEl.textContent += ch; await sleep(70); }
+        await sleep(350);
+        dstEl.textContent = dst;
+        await sleep(2200);
+        i++;
+      }
+    })();
+  }
+</script>
+</body>
+</html>

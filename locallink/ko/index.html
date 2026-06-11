@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>로컬링크 — 해외 장소, 현지 지도앱에서 바로 열기</title>
+<meta name="description" content="아는 이름 그대로 검색하면 로컬링크가 현지 문자 검색어로 바꿔서, 그 나라에서 진짜 쓰는 지도앱(가오더·구글·네이버·카카오·애플)으로 바로 열어줍니다.">
+<meta property="og:title" content="로컬링크 — 여행 지도 검색">
+<meta property="og:description" content="아는 이름 그대로 검색하고, 현지에서 진짜 통하는 지도로 여세요.">
+<meta property="og:image" content="https://www.kkirukstudio.com/locallink/assets/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/locallink/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/locallink/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/locallink/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/locallink/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/locallink/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/locallink/zh-hant/">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo", "Pretendard","Segoe UI",sans-serif}</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>LOCAL·LINK</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/" class="cur">한국어</a><a href="../ja/">日本語</a><a href="../zh-hans/">简体</a><a href="../zh-hant/">繁體</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost">L·L</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>LOCAL · LINK</span><span class="rule"></span><span class="num">여행 지도 검색</span></div>
+      <h1>아는 이름 그대로,<br>현지에서 <em>진짜 통하는</em> 지도로</h1>
+      <div class="demo">
+        <span class="src" id="demoSrc">Wukang Road</span>
+        <span class="arrow">→</span>
+        <span class="dst" id="demoDst">武康路</span>
+      </div>
+      <p class="sub">중국에선 구글지도가 안 되고, 일본·대만에선 한국어 검색이 안 먹히죠. 로컬링크가 발음·로마자·한국어 표기를 현지 문자 검색어로 바꿔서, 그 나라에서 실제로 쓰는 지도앱으로 바로 열어줍니다.</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="#" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a>
+        <span class="note">무료 · iPhone &amp; iPad · 가입 없음</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="g">高</span>가오더 지도</div><div class="chip c2"><span class="g">G</span>구글 지도</div><div class="chip c3"><span class="g">N</span>네이버 지도</div><div class="chip c4"><span class="g">A</span>애플 지도</div>
+      <div class="phone"><img src="../assets/shot-ko-05-launch.png" alt="로컬링크 지도 선택 화면 — 武康路를 가오더·애플 지도로 여는 버튼"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>중국</span><span>일본</span><span>대만</span><span>태국</span><span>베트남</span><span>홍콩</span><span>마카오</span><span>한국</span><span>중국</span><span>일본</span><span>대만</span><span>태국</span><span>베트남</span><span>홍콩</span><span>마카오</span><span>한국</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>사용 방법</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>"이거 어떻게 검색하지?"에서 <em>지도 핀까지 세 번의 탭</em>.</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">목적지</span><h3>여행 국가 선택</h3><p>나라와 도시를 고르면, 그 지역 표기에 맞는 검색을 준비합니다.</p></div><div class="step"><span class="n">02</span><span class="tag">검색</span><h3>아는 이름으로 입력</h3><p>한국어 표기든 영문이든 발음대로든 — 현지 지도가 실제로 인식하는 현지 문자 후보를 만들어줍니다.</p></div><div class="step"><span class="n">03</span><span class="tag">지도</span><h3>맞는 지도앱으로 열기</h3><p>변환된 검색어를 가오더·구글·네이버·카카오·애플 지도로 한 탭에 전달. 앱이 없으면 웹으로 열립니다.</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>변환</span><span class="rule"></span><span class="num">현지 문자</span></div>
+    <h2>드디어 <em>검색이 되는</em> 이름.</h2>
+    <p class="lede">현지 지도는 현지 문자로 장소를 찾습니다. 가오더에 "Wukang Road"를 쳐봐야 안 나오지만, 武康路는 바로 나옵니다.</p>
+    <div class="convert-table"><div class="convert-row"><span>Wukang Road</span><span class="arrow">→</span><span class="to">武康路</span><span class="cat">중국 · 한자</span></div><div class="convert-row"><span>이치란 시부야</span><span class="arrow">→</span><span class="to">一蘭 渋谷</span><span class="cat">일본 · 간지</span></div><div class="convert-row"><span>딘타이펑 타이베이</span><span class="arrow">→</span><span class="to">鼎泰豐 台北</span><span class="cat">대만 · 한자</span></div><div class="convert-row"><span>와이탄</span><span class="arrow">→</span><span class="to">外滩</span><span class="cat">중국 · 한자</span></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>지도앱</span><span class="rule"></span><span class="num">나라별 분기</span></div>
+    <h2>나라마다 <em>되는 지도가 다르니까</em>.</h2>
+    <p class="lede">목적지마다 실제로 동작하는 지도앱을 우선순위대로 보여줍니다. 앱이 설치돼 있지 않으면 자동으로 웹 지도로 열립니다.</p>
+    <div class="providers"><div class="prov"><span class="flag">🇨🇳</span><h3>중국</h3><ul><li><span class="g">高</span>가오더 (Amap)</li></ul></div><div class="prov"><span class="flag">🇯🇵</span><h3>일본 · 대만 · 동남아</h3><ul><li><span class="g">G</span>구글 지도</li></ul></div><div class="prov"><span class="flag">🇰🇷</span><h3>한국</h3><ul><li><span class="g">N</span>네이버 지도</li><li><span class="g">K</span>카카오맵</li></ul></div><div class="prov"><span class="flag">🌍</span><h3>어디서나</h3><ul><li><span class="g">A</span>애플 지도</li></ul></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>화면</span><span class="rule"></span><span class="num">IOS 26</span></div>
+    <h2>꾸미기보다 <em>현장에서 쓰는 도구</em>로.</h2>
+    <div class="row"><figure><div class="phone"><img src="../assets/shot-ko-03-candidates.png" alt="현지 문자 후보" loading="lazy"><div class="island"></div></div><figcaption>현지 문자 후보</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ko-05-launch.png" alt="한 탭 지도 열기" loading="lazy"><div class="island"></div></div><figcaption>한 탭 지도 열기</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ko-04-saved.png" alt="저장 · iCloud 동기화" loading="lazy"><div class="island"></div></div><figcaption>저장 · iCloud 동기화</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>디테일</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>작은 앱, <em>분명한 선택</em>.</h2>
+    <div class="grid6"><div class="feat"><h3>오프라인 동작</h3><p>변환 데이터가 앱 안에 들어 있어요. 로밍이 안 터져도 변환은 됩니다.</p></div><div class="feat"><h3>가입·추적 없음</h3><p>계정도, 기기 밖으로 나가는 분석 데이터도 없습니다.</p></div><div class="feat"><h3>iCloud 동기화</h3><p>저장한 장소는 내 iCloud로 iPad까지 따라옵니다. 우리 서버가 아니라요.</p></div><div class="feat"><h3>나라별 추천 검색</h3><p>상하이 커피 체인, 도쿄 라멘 — 목적지별 자주 찾는 장소를 큐레이션.</p></div><div class="feat"><h3>5개 언어</h3><p>한국어 · English · 日本語 · 简体中文 · 繁體中文, UI와 변환 모두.</p></div><div class="feat"><h3>복사 · 크게 보기</h3><p>택시 기사님께 현지 문자를 전체 화면으로 보여주거나 어디든 붙여넣기.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>철자 고민은 이제 그만.</h2>
+    <p class="lede">iPhone · iPad 무료.</p>
+    <div class="cta"><a class="store-badge" id="storeLink2" href="#" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보 처리방침</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+  // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
+  const APP_STORE_URL = "";
+  if (APP_STORE_URL) {
+    document.getElementById("storeLink").href = APP_STORE_URL;
+    document.getElementById("storeLink2").href = APP_STORE_URL;
+  }
+
+  const pairs = [["Wukang Road", "武康路"], ["이치란 시부야", "一蘭 渋谷"], ["딘타이펑 타이베이", "鼎泰豐 台北"], ["와이탄", "外滩"]];
+  const srcEl = document.getElementById("demoSrc");
+  const dstEl = document.getElementById("demoDst");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        const [src, dst] = pairs[i % pairs.length];
+        dstEl.textContent = "";
+        srcEl.textContent = "";
+        for (const ch of src) { srcEl.textContent += ch; await sleep(70); }
+        await sleep(350);
+        dstEl.textContent = dst;
+        await sleep(2200);
+        i++;
+      }
+    })();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local Link — Open overseas places in local maps</title>
+<meta name="description" content="Type the place name you know. Local Link converts it into local-script search text and opens it in the map app that actually works there — Naver Map, KakaoMap, Amap, Google or Apple Maps.">
+<meta property="og:title" content="Local Link — Travel Map Search">
+<meta property="og:description" content="Type the name you know. Open it in the map that actually works there.">
+<meta property="og:image" content="https://www.kkirukstudio.com/locallink/assets/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/locallink/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/locallink/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/locallink/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/locallink/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/locallink/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/locallink/zh-hant/">
+<link rel="icon" type="image/png" href="assets/icon-180.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="./"><img src="assets/icon-180.png" alt=""><span>LOCAL·LINK</span></a>
+    <div class="lang"><a href="./" class="cur">EN</a><a href="ko/">한국어</a><a href="ja/">日本語</a><a href="zh-hans/">简体</a><a href="zh-hant/">繁體</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost">L·L</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>LOCAL · LINK</span><span class="rule"></span><span class="num">TRAVEL MAP SEARCH</span></div>
+      <h1>Type the name you know.<br>Open it in the map that <em>actually works</em> there.</h1>
+      <div class="demo">
+        <span class="src" id="demoSrc">Myeongdong</span>
+        <span class="arrow">→</span>
+        <span class="dst" id="demoDst">명동</span>
+      </div>
+      <p class="sub">Google Maps barely works in Korea and not at all in China. Local Link converts the place names you know into local-script search text, then opens them in the map app locals actually use.</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="#" aria-label="Download on the App Store"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a>
+        <span class="note">FREE · IPHONE &amp; IPAD · NO ACCOUNT</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="g">N</span>Naver Map</div><div class="chip c2"><span class="g">K</span>KakaoMap</div><div class="chip c3"><span class="g">高</span>Amap</div><div class="chip c4"><span class="g">G</span>Google Maps</div>
+      <div class="phone"><img src="assets/shot-en-05-launch.png" alt="Local Link map selection screen showing Naver Map, KakaoMap, Apple Maps and Google Maps options for 명동"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>KOREA</span><span>CHINA</span><span>JAPAN</span><span>TAIWAN</span><span>THAILAND</span><span>VIETNAM</span><span>HONG KONG</span><span>MACAU</span><span>KOREA</span><span>CHINA</span><span>JAPAN</span><span>TAIWAN</span><span>THAILAND</span><span>VIETNAM</span><span>HONG KONG</span><span>MACAU</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>HOW IT WORKS</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>Three taps from <em>“how do I even spell that?”</em> to a pin on the map.</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">DESTINATION</span><h3>Pick where you're going</h3><p>Choose the country and city. Local Link prepares searches that match how places are written there.</p></div><div class="step"><span class="n">02</span><span class="tag">SEARCH</span><h3>Type the name you know</h3><p>English, romanized, or local spelling — the app generates the local-script candidates that map services actually match.</p></div><div class="step"><span class="n">03</span><span class="tag">MAP</span><h3>Open in the right map</h3><p>One tap hands the converted search to Naver, Kakao, Amap, Google or Apple Maps. No app installed? It opens on the web.</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>CONVERSION</span><span class="rule"></span><span class="num">LOCAL SCRIPT</span></div>
+    <h2>Names that finally <em>match</em>.</h2>
+    <p class="lede">Local map services index places in their own script. Searching “Myeongdong Kyoja” in English gets you nothing on Naver — 명동교자 gets you lunch.</p>
+    <div class="convert-table"><div class="convert-row"><span>Myeongdong</span><span class="arrow">→</span><span class="to">명동</span><span class="cat">KOREA · HANGUL</span></div><div class="convert-row"><span>Wukang Road</span><span class="arrow">→</span><span class="to">武康路</span><span class="cat">CHINA · HANZI</span></div><div class="convert-row"><span>Ichiran Shibuya</span><span class="arrow">→</span><span class="to">一蘭 渋谷</span><span class="cat">JAPAN · KANJI</span></div><div class="convert-row"><span>Din Tai Fung</span><span class="arrow">→</span><span class="to">鼎泰豐</span><span class="cat">TAIWAN · HANZI</span></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>MAP APPS</span><span class="rule"></span><span class="num">PER COUNTRY</span></div>
+    <h2>The right map, <em>per country</em>.</h2>
+    <p class="lede">Each destination gets the map apps that actually work there, in the right priority — with automatic web fallback when an app isn't installed.</p>
+    <div class="providers"><div class="prov"><span class="flag">🇰🇷</span><h3>Korea</h3><ul><li><span class="g">N</span>Naver Map</li><li><span class="g">K</span>KakaoMap</li></ul></div><div class="prov"><span class="flag">🇨🇳</span><h3>China</h3><ul><li><span class="g">高</span>Amap (Gaode)</li></ul></div><div class="prov"><span class="flag">🇯🇵</span><h3>Japan · Taiwan · SEA</h3><ul><li><span class="g">G</span>Google Maps</li></ul></div><div class="prov"><span class="flag">🌍</span><h3>Everywhere</h3><ul><li><span class="g">A</span>Apple Maps</li></ul></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>SCREENS</span><span class="rule"></span><span class="num">IOS 26</span></div>
+    <h2>Built like a field tool, <em>not a brochure</em>.</h2>
+    <div class="row"><figure><div class="phone"><img src="assets/shot-en-03-candidates.png" alt="LOCAL-SCRIPT CANDIDATES" loading="lazy"><div class="island"></div></div><figcaption>LOCAL-SCRIPT CANDIDATES</figcaption></figure><figure><div class="phone"><img src="assets/shot-en-05-launch.png" alt="ONE-TAP MAP LAUNCH" loading="lazy"><div class="island"></div></div><figcaption>ONE-TAP MAP LAUNCH</figcaption></figure><figure><div class="phone"><img src="assets/shot-en-04-saved.png" alt="SAVED · ICLOUD SYNC" loading="lazy"><div class="island"></div></div><figcaption>SAVED · ICLOUD SYNC</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>DETAILS</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>Small app. <em>Deliberate</em> choices.</h2>
+    <div class="grid6"><div class="feat"><h3>Works offline</h3><p>The conversion data ships inside the app. Airport basement? Still converts.</p></div><div class="feat"><h3>No account, no tracking</h3><p>Nothing to sign up for. No analytics leave your device.</p></div><div class="feat"><h3>iCloud sync</h3><p>Saved places follow you to your iPad — through your own iCloud, not our servers.</p></div><div class="feat"><h3>Country shortcuts</h3><p>Curated searches per destination: coffee chains in Shanghai, beauty stores in Seoul.</p></div><div class="feat"><h3>5 languages</h3><p>English, 한국어, 日本語, 简体中文, 繁體中文 — UI and conversion both.</p></div><div class="feat"><h3>Copy &amp; large text</h3><p>Show the local script full-screen to a taxi driver, or copy it anywhere.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Stop guessing spellings.</h2>
+    <p class="lede">Free on iPhone and iPad.</p>
+    <div class="cta"><a class="store-badge" id="storeLink2" href="#" aria-label="Download on the App Store"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">Terms</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+  // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
+  const APP_STORE_URL = "";
+  if (APP_STORE_URL) {
+    document.getElementById("storeLink").href = APP_STORE_URL;
+    document.getElementById("storeLink2").href = APP_STORE_URL;
+  }
+
+  const pairs = [["Myeongdong", "명동"], ["Wukang Road", "武康路"], ["Ichiran Shibuya", "一蘭 渋谷"], ["Din Tai Fung", "鼎泰豐"]];
+  const srcEl = document.getElementById("demoSrc");
+  const dstEl = document.getElementById("demoDst");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        const [src, dst] = pairs[i % pairs.length];
+        dstEl.textContent = "";
+        srcEl.textContent = "";
+        for (const ch of src) { srcEl.textContent += ch; await sleep(70); }
+        await sleep(350);
+        dstEl.textContent = dst;
+        await sleep(2200);
+        i++;
+      }
+    })();
+  }
+</script>
+</body>
+</html>
