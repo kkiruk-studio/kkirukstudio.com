@@ -1,97 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sidefeed — Trend research for creators, across 12 countries</title>
-<meta name="description" content="YouTube trending across 12 countries plus Radar Score analysis on one screen. Surface breakouts buried under big channels.">
-<link rel="icon" type="image/png" href="../icons/sidefeed.png">
-<link rel="apple-touch-icon" href="../icons/sidefeed.png">
-<link rel="alternate" hreflang="ko" href="ko.html">
-<link rel="alternate" hreflang="en" href="index.html">
-<link rel="alternate" hreflang="ja" href="ja.html">
-<link rel="alternate" hreflang="x-default" href="index.html">
-<meta property="og:title" content="Sidefeed — Trend research for creators, across 12 countries">
-<meta property="og:description" content="YouTube trending across 12 countries plus Radar Score analysis on one screen. Surface breakouts buried under big channels.">
-<meta property="og:image" content="../icons/sidefeed.png">
+<title>Sidefeed — Trend research for YouTube creators</title>
+<meta name="description" content="Official YouTube trending from 12 countries, 14 categories, and 6-hour rank movement. See what's rising while it's rising — no Google login, no personalization.">
+<meta property="og:title" content="Sidefeed — Trend Research for Creators">
+<meta property="og:description" content="12 countries, 14 categories, 6-hour rank movement. Find the next video before the algorithm does.">
+<meta property="og:image" content="https://www.kkirukstudio.com/sidefeed/assets/icon-512.png">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://www.kkirukstudio.com/sidefeed/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/sidefeed/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/sidefeed/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/sidefeed/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/sidefeed/ja/">
+<link rel="icon" type="image/png" href="assets/icon-180.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="assets/style.css">
+
 </head>
 <body>
 
-<header>
-  <div class="bar">
-    <a class="wordmark" href="index.html"><img src="../icons/sidefeed.png" alt="Sidefeed">Sidefeed</a>
-    <nav class="nav-right">
-      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
-        <option value="ko.html">한국어</option>
-        <option value="index.html" selected>EN</option>
-        <option value="ja.html">日本語</option>
-      </select>
-      <a class="nav-cta" href="https://apps.apple.com/app/id6762836653" target="_blank" rel="noopener">App Store</a>
-    </nav>
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="./"><img src="assets/icon-180.png" alt=""><span>SIDEFEED</span></a>
+    <div class="lang"><a href="./" class="cur">EN</a><a href="ko/">한국어</a><a href="ja/">日本語</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost">S·F</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>SIDEFEED</span><span class="rule"></span><span class="num">TREND RESEARCH</span></div>
+      <h1>Find the next video<br>before the <em>algorithm</em> does.</h1>
+      <div class="demo" id="demo">
+        <span class="flag" id="demoFlag">🇺🇸</span>
+        <span class="cat" id="demoCat">GAMING</span>
+        <span class="from" id="demoFrom">#18</span>
+        <span class="arrow">→</span>
+        <span class="to" id="demoTo">#3</span>
+        <span class="delta " id="demoDelta">▲15 · 6H</span>
+      </div>
+      <p class="sub">Sidefeed is trend research for YouTube creators and content planners. Official trending charts from 12 countries, 14 categories, and 6-hour rank movement show you what's rising while it's still rising — on a feed that never personalizes.</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="https://apps.apple.com/app/id6762836653" aria-label="Download on the App Store"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a>
+        <span class="note">FREE DOWNLOAD · IPHONE &amp; IPAD · NO GOOGLE LOGIN</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="g up">▲9</span>Top mover</div><div class="chip c2"><span class="g new">N</span>New entry</div><div class="chip c3"><span class="g ">🌍</span>12 countries</div><div class="chip c4"><span class="g ">🎵</span>14 categories</div>
+      <div class="phone"><img src="assets/shot-en-trending.png" alt="Sidefeed trending screen showing the US YouTube chart with rank-change badges and a category breakdown bar"><div class="island"></div></div>
+    </div>
   </div>
 </header>
 
-<main>
-<div class="hero">
-  <div class="hero-copy">
-    <p class="kicker">Trend research for creators</p>
-    <h1>Your next video's clue is<br><em>off the charts.</em></h1>
-    <p class="hero-sub">Compare trending across 12 countries with Sidefeed's radar analysis — surfacing small-channel breakouts that raw view-count charts bury. Just the signals you need to plan your next video.</p>
-    <div class="hero-cta-row">
-      <a class="appstore-btn" href="https://apps.apple.com/app/id6762836653" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
-      
-    </div>
-    <p class="hero-foot">Free download · iPhone & iPad</p>
-  </div>
-  <div class="hero-visual" aria-hidden="true">
-    <div class="sfhero">
-      <img class="shot" src="../shots/sidefeed/en-1.jpg" alt="">
-      <div class="board">
-        <div class="row"><span class="rank">1</span><i class="tbar" style="width:84%"></i><span class="badge up">▲3</span></div>
-        <div class="row"><span class="rank">2</span><i class="tbar" style="width:66%"></i><span class="badge nw">NEW</span></div>
-        <div class="row"><span class="rank">3</span><i class="tbar" style="width:52%"></i><span class="badge up">▲7</span></div>
-        <div class="chips"><i>KR</i><i>US</i><i>JP</i><i>UK</i><i>DE</i><i>FR</i><i>+6</i></div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="marquee" aria-hidden="true"><div class="track"><span>UNITED STATES</span><span>JAPAN</span><span>UNITED KINGDOM</span><span>GERMANY</span><span>AUSTRALIA</span><span>CANADA</span><span>FRANCE</span><span>KOREA</span><span>SWITZERLAND</span><span>NETHERLANDS</span><span>SWEDEN</span><span>SINGAPORE</span><span>UNITED STATES</span><span>JAPAN</span><span>UNITED KINGDOM</span><span>GERMANY</span><span>AUSTRALIA</span><span>CANADA</span><span>FRANCE</span><span>KOREA</span><span>SWITZERLAND</span><span>NETHERLANDS</span><span>SWEDEN</span><span>SINGAPORE</span></div></div>
 
 <section>
   <div class="wrap">
-    <p class="sec-label">Features</p>
-    <h2 class="sec-title">Only the signals that matter, on one screen.</h2>
-    <div class="features">
-      <div class="feature"><div class="dot"></div><h3>Trending in 12 countries</h3><p>Korea, US, Japan, UK, Germany and more — switch charts with one tap and see what your niche looks like in other markets.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Radar Score</h3><p>Re-ranks by views-per-hour, engagement, and rank momentum — surfacing breakouts that absolute view counts hide.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Top Movers</h3><p>▲N / ▼N / NEW badges show movement vs. 6 hours ago, with big climbers collected in one place.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Category mix</h3><p>A color-stacked bar shows which categories own the chart right now. Follow only the ones you care about, out of 14.</p></div>
-    </div>
+    <div class="kicker"><span>HOW IT WORKS</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>From <em>“what should I make next?”</em> to a data-backed idea.</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">COUNTRY</span><h3>Pick a market</h3><p>Tap the flag to switch between 12 countries. Korea at breakfast, the US at lunch — each chart is the official YouTube trending for that market.</p></div><div class="step"><span class="n">02</span><span class="tag">SIGNALS</span><h3>Read the movement</h3><p>Every video carries its 6-hour rank change — ▲ rising, ▼ falling, NEW just entered. Top Movers surfaces the fastest climbers, and Radar catches breakouts beyond the chart.</p></div><div class="step"><span class="n">03</span><span class="tag">RESEARCH</span><h3>Keep the clues</h3><p>Open the insight sheet for rank history, category and view pace. Save promising videos to Watch Later — synced through your own iCloud.</p></div></div>
   </div>
 </section>
 
-<section class="cta">
+<section style="padding-top:0">
   <div class="wrap">
-    <h2 class="cta-title">Plan your next video<br>on signal, not gut.</h2>
-    <p class="cta-sub">Free to start · iPhone & iPad</p>
-    <a class="appstore-btn" href="https://apps.apple.com/app/id6762836653" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
+    <div class="kicker"><span>RANK MOVEMENT</span><span class="rule"></span><span class="num">EVERY 6 HOURS</span></div>
+    <h2>Trends are <em>movement</em>, not lists.</h2>
+    <p class="lede">A chart tells you what's big right now. Movement tells you what's about to be. Sidefeed snapshots every chart through the day and pins the 6-hour delta on every video.</p>
+    <div class="rank-table"><div class="rank-row"><span class="was">6h ago #18</span><span class="arrow">→</span><span class="to">now #3</span><span class="cat">🇺🇸 GAMING · <span class="d-up">▲15</span></span></div><div class="rank-row"><span class="was">6h ago #9</span><span class="arrow">→</span><span class="to">now #2</span><span class="cat">🇰🇷 MUSIC · <span class="d-up">▲7</span></span></div><div class="rank-row"><span class="was">6h ago —</span><span class="arrow">→</span><span class="to">now #5</span><span class="cat">🇯🇵 ENTERTAINMENT · <span class="d-new">NEW</span></span></div><div class="rank-row"><span class="was">6h ago #4</span><span class="arrow">→</span><span class="to">now #11</span><span class="cat">🇬🇧 SPORTS · <span class="d-down">▼7</span></span></div></div>
   </div>
 </section>
-</main>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>THE TOOLKIT</span><span class="rule"></span><span class="num">4 VIEWS</span></div>
+    <h2>Four views, <em>one research flow</em>.</h2>
+    <p class="lede">Official charts, Sidefeed's own ranking, category discovery and market switching — all built on public data, so everyone sees the same screen.</p>
+    <div class="views"><div class="view-card"><span class="ico">🔥</span><h3>Trending</h3><p>The official YouTube chart with 6-hour rank badges, Top Movers and a live category breakdown bar.</p></div><div class="view-card"><span class="ico">📡</span><h3>Radar</h3><p>Sidefeed's own ranking — catches breakouts climbing from outside the trending chart.</p></div><div class="view-card"><span class="ico">✨</span><h3>Discover</h3><p>Fresh popular videos across 14 categories. Public popularity, zero personalization.</p></div><div class="view-card"><span class="ico">🌍</span><h3>12 Countries</h3><p>One tap on the flag to compare markets. What's #1 in Tokyo right now?</p></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>SCREENS</span><span class="rule"></span><span class="num">IOS 17+</span></div>
+    <h2>A research desk, <em>not another feed</em>.</h2>
+    <div class="row"><figure><div class="phone"><img src="assets/shot-en-radar.png" alt="RADAR · BREAKOUT RANKING" loading="lazy"><div class="island"></div></div><figcaption>RADAR · BREAKOUT RANKING</figcaption></figure><figure><div class="phone"><img src="assets/shot-en-country.png" alt="12-COUNTRY SWITCHER" loading="lazy"><div class="island"></div></div><figcaption>12-COUNTRY SWITCHER</figcaption></figure><figure><div class="phone"><img src="assets/shot-en-discover.png" alt="DISCOVER · 14 CATEGORIES" loading="lazy"><div class="island"></div></div><figcaption>DISCOVER · 14 CATEGORIES</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>DETAILS</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>Built for research. <em>Deliberate</em> choices.</h2>
+    <div class="grid6"><div class="feat"><h3>No login, no personalization</h3><p>No Google account, no watch history. Everyone sees the same public data — what's actually trending, not what an algorithm thinks you want.</p></div><div class="feat"><h3>6-hour snapshots</h3><p>Rank history is computed from chart snapshots taken through the day — movement you can't see on YouTube itself.</p></div><div class="feat"><h3>Insight sheet</h3><p>Tap any video to see its rank, 6-hour delta, category and view pace before you decide to watch it on YouTube.</p></div><div class="feat"><h3>Shorts filter</h3><p>Researching long-form? Hide Shorts from every feed with one toggle.</p></div><div class="feat"><h3>Watch Later + iCloud</h3><p>Save reference videos and they follow you across devices through your own iCloud.</p></div><div class="feat"><h3>Feed control</h3><p>Block channels and dismiss videos to keep your research signal clean.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Plan the next video with data, not guesswork.</h2>
+    <p class="lede">Free download on iPhone &amp; iPad.</p>
+    <div class="cta"><a class="store-badge" id="storeLink2" href="https://apps.apple.com/app/id6762836653" aria-label="Download on the App Store"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap cols">
-    <span>© kkiruk studio</span>
-    <nav class="links">
-      <a href="/">kkiruk studio</a>
+  <div class="wrap">
+    <div class="brand"><img src="assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
-      <a href="ko.html">한국어</a> <a href="ja.html">日本語</a>
-    </nav>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">Terms</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+    <div class="yt-note">YouTube is a trademark of Google LLC. Sidefeed is an independent app and is not endorsed by or affiliated with YouTube.</div>
   </div>
 </footer>
 
+<script>
+  const items = [["🇺🇸", "GAMING", "#18", "#3", "▲15 · 6H", "up"], ["🇰🇷", "MUSIC", "#9", "#2", "▲7 · 6H", "up"], ["🇯🇵", "ENTERTAINMENT", "—", "#5", "NEW", "new"], ["🇬🇧", "SPORTS", "#21", "#6", "▲15 · 6H", "up"]];
+  const el = {
+    demo: document.getElementById("demo"),
+    flag: document.getElementById("demoFlag"),
+    cat: document.getElementById("demoCat"),
+    from: document.getElementById("demoFrom"),
+    to: document.getElementById("demoTo"),
+    delta: document.getElementById("demoDelta"),
+  };
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % items.length;
+      const [flag, cat, from, to, delta, kind] = items[i];
+      el.flag.textContent = flag;
+      el.cat.textContent = cat;
+      el.from.textContent = from;
+      el.to.textContent = to;
+      el.delta.textContent = delta;
+      el.delta.classList.toggle("new", kind === "new");
+      el.demo.classList.remove("tick");
+      void el.demo.offsetWidth;
+      el.demo.classList.add("tick");
+    }, 2800);
+  }
+</script>
 </body>
 </html>
