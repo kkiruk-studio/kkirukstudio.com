@@ -188,6 +188,13 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
    홈 리디자인 (2026-06) — 홈 전용 클래스만, 앱 랜딩과 무관
    ============================================================ */
 
+/* ── 본문 회색 가독성 보정 (홈 한정, 테마별) ── */
+.home { --ink2: #5F5F5F; }
+html.t-midnight .home { --ink2: #9BA0B2; }
+html.t-dawn     .home { --ink2: #AEB6D4; }
+html.t-sunset   .home { --ink2: #6E5F4C; }
+html.t-evening  .home { --ink2: #A29AC0; }
+
 /* ── 히어로 그리드 + 카피 ── */
 .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 36px; align-items: center; }
 .home-hero h1 em {
