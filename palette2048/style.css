@@ -25,9 +25,8 @@ header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
   background:rgba(13,12,15,.6);border-bottom:1px solid var(--line)}
 .bar{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
 .wordmark{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;font-size:17px}
-.wordmark .dot{width:16px;height:16px;border-radius:5px;
-  background:conic-gradient(from 45deg,#16377A,#2B6E9D,#4E8E79,#B49A2D,#D8D391,#16377A);
-  box-shadow:0 0 0 1px rgba(255,255,255,.15)}
+.wordmark .brand-icon{width:26px;height:26px;border-radius:7px;display:block;
+  box-shadow:0 0 0 1px rgba(255,255,255,.14)}
 .nav-right{display:flex;align-items:center;gap:14px}
 .lang-select{background:transparent;color:var(--ink2);border:1px solid var(--line);
   border-radius:8px;padding:6px 8px;font-size:13px;font-family:var(--sans)}
