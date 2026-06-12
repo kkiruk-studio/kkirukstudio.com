@@ -26,157 +26,101 @@
 <link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/cats-cute/index.html">
 <link rel="icon" type="image/png" href="../icons/cats-cute.png">
 <link rel="apple-touch-icon" href="../icons/cats-cute.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>body{font-family:"PingFang SC","Heiti SC",ui-rounded,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}</style>
+<style>
+
+:root{--head-font:"Long Cang"}
+body{font-family:"PingFang SC","Heiti SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+</style>
 <script src="/ga.js"></script>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <a class="wordmark" href="index.html"><img src="../icons/cats-cute.png" alt="">猫咪真的很可爱</a>
+    <a class="wordmark hf" href="index.html"><img src="../icons/cats-cute.png" alt="">猫咪真的很可爱</a>
     <select class="lang-select" onchange="location.href=this.value" aria-label="Language"><option value="ko.html">한국어</option><option value="index.html">EN</option><option value="ja.html">日本語</option><option value="zh-hans.html" selected>简体中文</option><option value="zh-hant.html">繁體中文</option><option value="es.html">Español</option><option value="pt.html">Português</option><option value="de.html">Deutsch</option><option value="fr.html">Français</option><option value="ru.html">Русский</option><option value="th.html">ไทย</option><option value="id.html">Bahasa Indonesia</option><option value="vi.html">Tiếng Việt</option></select>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="ghost" aria-hidden="true">CAT</div>
-  <div class="wrap">
-    <div>
-      <div class="kicker"><span>CATS ARE CUTE</span><span class="rule"></span><span class="num">猫咪小村放置游戏 · SINCE 2018</span></div>
-      <h1>一座墨线画成的小村，<br><em>只有猫咪是彩色的。</em></h1>
-      <div class="demo-kicker">听听猫咪在说什么</div>
-      <div class="demo wordbox">
-        <div class="who"><img id="demoFace" src="assets/cats/cat001.png" alt=""><span class="nm" id="demoName">小不点</span></div>
-        <div class="line" id="demoLine">没错，就是这个味道！</div>
-      </div>
-      <p class="sub">60+只猫咪，每只都有名字、性格，还有想说的话。喂喂猫、养养村，离开的时候奖励也会自己累积。广告只在你想看时才出现。</p>
-      <div class="cta">
-        <a class="store-badge b-ios" href="https://apps.apple.com/app/id1395888987"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>下载于</small><strong>App Store</strong></span></a>
-        <a class="store-badge b-play" href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg><span class="txt"><small>下载于</small><strong>Google Play</strong></span></a>
-        <span class="note">免费 · iOS &amp; Android · 无强制广告</span>
-      </div>
-    </div>
-    <div class="phone-col">
-      <div class="chip wordbox c1"><img src="assets/cats/cat021.png" alt="">宝贝<span class="h">♥</span></div><div class="chip wordbox c2"><img src="assets/cats/cat104.png" alt="">饺子<span class="h">♥</span></div><div class="chip wordbox c3"><img src="assets/cats/cat302.png" alt="">逗逗<span class="h">♥</span></div>
-      <div class="phone"><img src="../shots/cats-cute/zh-hans-1.jpg" alt="猫咪真的很可爱游戏画面 — 墨线小村和对话框里说话的猫咪"><div class="island"></div></div>
-    </div>
+  <img class="float f1" src="assets/cats/cat021.png" alt=""><img class="float f2" src="assets/cats/cat104.png" alt=""><img class="float f3" src="assets/cats/cat302.png" alt=""><img class="float f4" src="assets/cats/cat210.png" alt="">
+  <img class="float fh h1" src="assets/ui/heart.png" alt="">
+  <img class="float fh h2" src="assets/ui/heart.png" alt="">
+  <img class="appicon" src="../icons/cats-cute.png" alt="猫咪真的很可爱">
+  <h1 class="hf">猫咪真的很可爱</h1>
+  <p class="tag">收集60+只猫咪、养大自己小村的治愈系放置游戏</p>
+  <div class="badges">
+    <a href="https://apps.apple.com/app/id1395888987"><img class="apple" src="assets/badges/ios-zh-hans.svg" alt="在 App Store 下载"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><img src="assets/badges/play-zh-hans.png" alt="在 Google Play 下载"></a>
+  </div>
+  <p class="proof hf"><span class="s">★4.9</span> · 评价71,000+ · 下载10M+ · since 2018</p>
+  <div class="fan">
+    <div class="chip ch1"><img src="assets/cats/cat001.png" alt="">小不点 <span class="hh">♥</span></div><div class="chip ch2"><img src="assets/cats/cat115.png" alt="">春儿 <span class="hh">♥</span></div>
+    <div class="ph l"><img src="../shots/cats-cute/zh-hans-2.jpg" alt="在墨线小村里给猫咪喂食"></div>
+    <div class="ph c"><img src="../shots/cats-cute/zh-hans-1.jpg" alt="对话框里说话的猫咪"></div>
+    <div class="ph r"><img src="../shots/cats-cute/zh-hans-3.jpg" alt="在咖啡店旁陪猫咪玩"></div>
   </div>
 </header>
-
-<div class="skyline" aria-hidden="true"><div class="row"><img src="assets/props/tree2_3.png" style="height:120px" alt="" loading="lazy"><img src="assets/props/bed.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/piano.png" style="height:62px" alt="" loading="lazy"><img class="peek" src="assets/cats/cat104.png" style="height:38px" alt=""><img src="assets/props/ball.png" style="height:26px" alt="" loading="lazy"><img src="assets/props/basket3.png" style="height:46px" alt="" loading="lazy"><img src="assets/props/cart1.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/flowers.png" style="height:36px" alt="" loading="lazy"><img src="assets/props/chimney1.png" style="height:64px" alt="" loading="lazy"><img class="peek" src="assets/cats/cat302.png" style="height:38px" alt=""><img src="assets/props/tree4_3.png" style="height:96px" alt="" loading="lazy"></div></div>
+<div class="scallop"></div>
 
 <div class="marquee" aria-hidden="true"><div class="track"><img src="assets/cats/cat001.png" alt="" loading="lazy"><img src="assets/cats/cat003.png" alt="" loading="lazy"><img src="assets/cats/cat007.png" alt="" loading="lazy"><img src="assets/cats/cat010.png" alt="" loading="lazy"><img src="assets/cats/cat011.png" alt="" loading="lazy"><img src="assets/cats/cat015.png" alt="" loading="lazy"><img src="assets/cats/cat016.png" alt="" loading="lazy"><img src="assets/cats/cat021.png" alt="" loading="lazy"><img src="assets/cats/cat104.png" alt="" loading="lazy"><img src="assets/cats/cat106.png" alt="" loading="lazy"><img src="assets/cats/cat109.png" alt="" loading="lazy"><img src="assets/cats/cat113.png" alt="" loading="lazy"><img src="assets/cats/cat114.png" alt="" loading="lazy"><img src="assets/cats/cat115.png" alt="" loading="lazy"><img src="assets/cats/cat118.png" alt="" loading="lazy"><img src="assets/cats/cat201.png" alt="" loading="lazy"><img src="assets/cats/cat206.png" alt="" loading="lazy"><img src="assets/cats/cat210.png" alt="" loading="lazy"><img src="assets/cats/cat213.png" alt="" loading="lazy"><img src="assets/cats/cat221.png" alt="" loading="lazy"><img src="assets/cats/cat302.png" alt="" loading="lazy"><img src="assets/cats/cat020.png" alt="" loading="lazy"><img src="assets/cats/cat001.png" alt="" loading="lazy"><img src="assets/cats/cat003.png" alt="" loading="lazy"><img src="assets/cats/cat007.png" alt="" loading="lazy"><img src="assets/cats/cat010.png" alt="" loading="lazy"><img src="assets/cats/cat011.png" alt="" loading="lazy"><img src="assets/cats/cat015.png" alt="" loading="lazy"><img src="assets/cats/cat016.png" alt="" loading="lazy"><img src="assets/cats/cat021.png" alt="" loading="lazy"><img src="assets/cats/cat104.png" alt="" loading="lazy"><img src="assets/cats/cat106.png" alt="" loading="lazy"><img src="assets/cats/cat109.png" alt="" loading="lazy"><img src="assets/cats/cat113.png" alt="" loading="lazy"><img src="assets/cats/cat114.png" alt="" loading="lazy"><img src="assets/cats/cat115.png" alt="" loading="lazy"><img src="assets/cats/cat118.png" alt="" loading="lazy"><img src="assets/cats/cat201.png" alt="" loading="lazy"><img src="assets/cats/cat206.png" alt="" loading="lazy"><img src="assets/cats/cat210.png" alt="" loading="lazy"><img src="assets/cats/cat213.png" alt="" loading="lazy"><img src="assets/cats/cat221.png" alt="" loading="lazy"><img src="assets/cats/cat302.png" alt="" loading="lazy"><img src="assets/cats/cat020.png" alt="" loading="lazy"></div></div>
 
-<div class="stats">
-  <div class="wrap"><div class="stat"><div class="v"><em>★</em>4.9</div><div class="k">App Store 评分</div></div><div class="stat"><div class="v">71,000+</div><div class="k">全球评价</div></div><div class="stat"><div class="v">10M+</div><div class="k">累计下载</div></div><div class="stat"><div class="v">2018</div><div class="k">上线至今</div></div></div>
-</div>
-
 <section>
   <div class="wrap">
-    <div class="kicker"><span>玩法</span><span class="rule"></span><span class="num">01–03</span></div>
-    <h2>喂猫、收集,<em>小村慢慢长大。</em></h2>
-    <div class="steps"><div class="step wordbox"><span class="n">01</span><div class="ic"><img src="assets/ui/catfish.png" alt=""></div><span class="kicker" style="margin-bottom:6px"><span>喂食</span></span><h3>喂小鱼、攒爱心</h3><p>建筑会自动生产小鱼。给猫咪喂食、收集爱心，提升小村等级。</p></div><div class="step wordbox"><span class="n">02</span><div class="ic"><img src="assets/ui/gachaticket.png" alt=""></div><span class="kicker" style="margin-bottom:6px"><span>抽猫</span></span><h3>认识新猫咪</h3><p>用抽奖券抽新猫咪——普通、稀有、史诗，每只的长相和习惯都不一样。</p></div><div class="step wordbox"><span class="n">03</span><div class="ic"><img src="assets/ui/building.png" alt=""></div><span class="kicker" style="margin-bottom:6px"><span>建设</span></span><h3>打造自己的小村</h3><p>升级建筑、添置装饰，猫咪们会把每个角落当成自己的地盘。</p></div></div>
+    <div class="fblock"><div class="phwrap"><img class="peek" src="assets/cats/cat118.png" alt=""><div class="ph"><img src="../shots/cats-cute/zh-hans-1.jpg" alt="在墨线小村里给猫咪喂食" loading="lazy"></div></div><div><span class="k">🐱 收集猫咪</span><h2 class="hf">60+只猫咪<br>名字和性格都不一样</h2><p>用抽奖券抽新猫咪——普通、稀有、史诗，每只的长相和习惯都不同。升级时听到的猫咪碎碎念，是这游戏最棒的部分。</p></div></div><div class="fblock rev"><div class="phwrap"><img class="peek" src="assets/cats/cat016.png" alt=""><div class="ph"><img src="../shots/cats-cute/zh-hans-2.jpg" alt="对话框里说话的猫咪" loading="lazy"></div></div><div><span class="k">🐟 真正的放置</span><h2 class="hf">离开的时候<br>奖励也在累积</h2><p>建筑会自动生产小鱼。每天几分钟，喂喂猫、收收爱心，小村就会长大。广告只在你想看时出现——没有强制。</p></div></div><div class="fblock"><div class="phwrap"><img class="peek" src="assets/cats/cat213.png" alt=""><div class="ph"><img src="../shots/cats-cute/zh-hans-3.jpg" alt="在咖啡店旁陪猫咪玩" loading="lazy"></div></div><div><span class="k">🏠 装扮小村</span><h2 class="hf">一座墨线画成的小村<br>只有猫咪是彩色的</h2><p>在这座手绘墨线小村里，唯一的色彩就是猫咪。升级建筑、摆放装饰，把每个角落变成你的风格。</p></div></div>
   </div>
 </section>
 
-<section class="collection">
+<div class="scallop cream flip"></div>
+<section class="reviews">
   <div class="wrap">
-    <div class="kicker"><span>猫咪图鉴</span><span class="rule"></span><span class="num">60+ 只</span></div>
-    <h2>每只猫都有名字,<br><em>也有自己的想法。</em></h2>
-    <p class="lede">这些都是游戏里真实存在的猫咪——名字和稀有度原封不动。点一下盖住的卡片，就像游戏里抽猫一样。</p>
-    <div class="tiles" id="tiles"><div class="tile wordbox normal"><img src="assets/cats/cat001.png" alt="小不点" loading="lazy"><div class="nm">小不点</div><span class="rr">普通</span></div><div class="tile wordbox normal"><img src="assets/cats/cat021.png" alt="宝贝" loading="lazy"><div class="nm">宝贝</div><span class="rr">普通</span></div><div class="tile wordbox normal"><img src="assets/cats/cat016.png" alt="巧克力" loading="lazy"><div class="nm">巧克力</div><span class="rr">普通</span></div><div class="tile wordbox normal"><img src="assets/cats/cat007.png" alt="小可爱" loading="lazy"><div class="nm">小可爱</div><span class="rr">普通</span></div><div class="tile wordbox rare"><img src="assets/cats/cat104.png" alt="饺子" loading="lazy"><div class="nm">饺子</div><span class="rr">稀有</span></div><div class="tile wordbox rare"><img src="assets/cats/cat113.png" alt="努丽" loading="lazy"><div class="nm">努丽</div><span class="rr">稀有</span></div><div class="tile wordbox rare"><img src="assets/cats/cat115.png" alt="春儿" loading="lazy"><div class="nm">春儿</div><span class="rr">稀有</span></div><div class="tile wordbox rare"><img src="assets/cats/cat118.png" alt="哆瑞咪" loading="lazy"><div class="nm">哆瑞咪</div><span class="rr">稀有</span></div><div class="tile wordbox epic"><img src="assets/cats/cat201.png" alt="阿国" loading="lazy"><div class="nm">阿国</div><span class="rr">史诗</span></div><div class="tile wordbox epic"><img src="assets/cats/cat210.png" alt="MOMO" loading="lazy"><div class="nm">MOMO</div><span class="rr">史诗</span></div><div class="tile wordbox epic"><img src="assets/cats/cat213.png" alt="咕咕" loading="lazy"><div class="nm">咕咕</div><span class="rr">史诗</span></div><div class="tile wordbox special"><img src="assets/cats/cat302.png" alt="逗逗" loading="lazy"><div class="nm">逗逗</div><span class="rr">特别</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div></div>
-    <span class="col-hint">点卡片抽一只</span>
+    <h2 class="sec-h hf">玩家的真实评价</h2>
+    <p class="sec-sub">真实发布在 App Store 上的声音</p>
+    <div class="rcards">
+      <div class="rcard"><img class="face" src="assets/cats/cat007.png" alt=""><div class="st">★★★★★</div><p>"畫風很簡單乾淨，貓咪很可愛，沒有什麼進度壓力，還可以領養多種不同的貓貓，既滿足了貓貓癖也滿足了收集癖。"</p><div class="by">App Store 评价</div></div><div class="rcard"><img class="face" src="assets/cats/cat109.png" alt=""><div class="st">★★★★★</div><p>"家裡沒辦法養貓咪的！建議下載這個遊戲！裡面超多可愛貓貓！！❤️"</p><div class="by">App Store 评价</div></div><div class="rcard"><img class="face" src="assets/cats/cat221.png" alt=""><div class="st">★★★★★</div><p>"真的就是純粹的可愛 而且 根本是不用課金的那種 完全免費 你只需要偶爾開起來玩 就會覺得很療癒"</p><div class="by">App Store 评价</div></div>
+    </div>
+  </div>
+</section>
+<div class="scallop cream"></div>
+
+<section class="stats-sec">
+  <div class="wrap">
+    <h2 class="sec-h hf">七年来备受喜爱的猫咪小村</h2>
+    <p class="sec-sub">2018年起，由小小独立工作室用心维护</p>
+    <div class="grid">
+      <div class="cell"><img src="assets/ui/toy.png" alt=""><div class="v">★4.9</div><div class="k">App Store 评分</div></div><div class="cell"><img src="assets/ui/heart.png" alt=""><div class="v">71,000+</div><div class="k">全球评价</div></div><div class="cell"><img src="assets/ui/catfish.png" alt=""><div class="v">10M+</div><div class="k">累计下载</div></div><div class="cell"><img src="assets/ui/collection.png" alt=""><div class="v">2018</div><div class="k">上线至今</div></div>
+    </div>
   </div>
 </section>
 
-<section class="shots">
-  <div class="wrap">
-    <div class="kicker"><span>截图</span><span class="rule"></span><span class="num">游戏画面</span></div>
-    <h2>小村<em>真实的样子。</em></h2>
-    <div class="row"><figure><div class="phone"><img src="../shots/cats-cute/zh-hans-1.jpg" alt="听猫咪说话" loading="lazy"><div class="island"></div></div><figcaption>听猫咪说话</figcaption></figure><figure><div class="phone"><img src="../shots/cats-cute/zh-hans-2.jpg" alt="给猫咪喂食" loading="lazy"><div class="island"></div></div><figcaption>给猫咪喂食</figcaption></figure><figure><div class="phone"><img src="../shots/cats-cute/zh-hans-3.jpg" alt="陪猫咪玩耍" loading="lazy"><div class="island"></div></div><figcaption>陪猫咪玩耍</figcaption></figure></div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="kicker"><span>细节</span><span class="rule"></span><span class="num">06</span></div>
-    <h2>七年如一日,<em>安静又温柔。</em></h2>
-    <div class="grid6"><div class="feat wordbox"><div class="ic"><img src="assets/ui/catgrass.png" alt=""></div><h3>真正的放置</h3><p>关掉应用奖励也在累积，每天几分钟就够了。</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/heart.png" alt=""></div><h3>无强制广告</h3><p>没有任何打扰。想要奖励时，自己选择看广告。</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/cat.png" alt=""></div><h3>60+种性格</h3><p>每只猫都有名字、性格和在村里最爱做的事。</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/building.png" alt=""></div><h3>装扮乐趣</h3><p>升级建筑、摆放装饰，把小村的每个角落变成你的风格。</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/collection.png" alt=""></div><h3>13种语言</h3><p>日本、美国、韩国、越南、台湾……全球玩家都在玩。</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/toy.png" alt=""></div><h3>七年运营</h3><p>2018年至今由独立小工作室用心维护——★4.9，71,000+条评价。</p></div></div>
-  </div>
-</section>
+<div class="skyline" aria-hidden="true"><div class="row"><img src="assets/props/tree2_3.png" style="height:120px" alt="" loading="lazy"><img src="assets/props/bed.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/piano.png" style="height:62px" alt="" loading="lazy"><img src="assets/cats/cat104.png" style="height:38px" alt=""><img src="assets/props/ball.png" style="height:26px" alt="" loading="lazy"><img src="assets/props/basket3.png" style="height:46px" alt="" loading="lazy"><img src="assets/props/cart1.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/flowers.png" style="height:36px" alt="" loading="lazy"><img src="assets/props/chimney1.png" style="height:64px" alt="" loading="lazy"><img src="assets/cats/cat302.png" style="height:38px" alt=""><img src="assets/props/tree4_3.png" style="height:96px" alt="" loading="lazy"></div></div>
 
 <section class="final">
-  <div class="band">
-    <div class="wrap">
-      <h2>今天，猫咪们也在等你。</h2>
-      <p class="lede">iOS &amp; Android 免费。</p>
-      <div class="cta">
-        <a class="store-badge b-ios2" href="https://apps.apple.com/app/id1395888987"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>下载于</small><strong>App Store</strong></span></a>
-        <a class="store-badge b-play2" href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg><span class="txt"><small>下载于</small><strong>Google Play</strong></span></a>
-      </div>
+  <img class="float g1" src="assets/cats/cat021.png" alt=""><img class="float g2" src="assets/cats/cat001.png" alt="">
+  <div class="wrap">
+    <h2 class="hf">今天，猫咪们也在等你</h2>
+    <p>iOS &amp; Android 免费</p>
+    <div class="badges">
+      <a href="https://apps.apple.com/app/id1395888987"><img class="apple" src="assets/badges/ios-zh-hans.svg" alt="在 App Store 下载"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><img src="assets/badges/play-zh-hans.png" alt="在 Google Play 下载"></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="brand"><img src="../icons/cats-cute.png" alt=""><strong>kkiruk studio</strong></div>
+    <div>© 2026 kkiruk studio</div>
     <div class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">联系我们</a>
       <a href="https://kkiruk-studio.github.io/privacy-policy-app/">隐私政策</a>
       <a href="https://kkiruk-studio.github.io/terms-of-service-app/">服务条款</a>
     </div>
-    <div>© 2026 kkiruk studio</div>
   </div>
 </footer>
 
-<script>
-  // Word-box demo: real in-game cats speaking real in-game lines.
-  const DEMO = [{"s": "cat001", "n": "小不点", "t": "没错，就是这个味道！"}, {"s": "cat021", "n": "宝贝", "t": "我很可爱吧？"}, {"s": "cat104", "n": "饺子", "t": "管家也加油吧！喵"}, {"s": "cat115", "n": "春儿", "t": "要和我玩吗？"}, {"s": "cat201", "n": "阿国", "t": "Highfive！"}, {"s": "cat210", "n": "MOMO", "t": "温暖的阳光..."}, {"s": "cat302", "n": "逗逗", "t": "好睏…"}, {"s": "cat016", "n": "巧克力", "t": "我也知道我很可爱"}];
-  const faceEl = document.getElementById("demoFace");
-  const nameEl = document.getElementById("demoName");
-  const lineEl = document.getElementById("demoLine");
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-    (async function loop() {
-      let i = 0;
-      for (;;) {
-        const d = DEMO[i % DEMO.length];
-        faceEl.src = "assets/cats/" + d.s + ".png";
-        nameEl.textContent = d.n;
-        lineEl.textContent = "";
-        for (const ch of d.t) { lineEl.textContent += ch; await sleep(55); }
-        await sleep(2400);
-        i++;
-      }
-    })();
-  }
-
-  // Collection gacha: tap a hidden card to draw a real cat from the pool.
-  const POOL = [{"s": "cat003", "n": "蝴蝶", "r": "普通", "t": "normal"}, {"s": "cat004", "n": "黑喵", "r": "普通", "t": "normal"}, {"s": "cat005", "n": "鲭鱼", "r": "普通", "t": "normal"}, {"s": "cat010", "n": "杜丽", "r": "普通", "t": "normal"}, {"s": "cat011", "n": "天空", "r": "普通", "t": "normal"}, {"s": "cat015", "n": "秋刀鱼", "r": "普通", "t": "normal"}, {"s": "cat017", "n": "德九", "r": "普通", "t": "normal"}, {"s": "cat018", "n": "拉拉", "r": "普通", "t": "normal"}, {"s": "cat019", "n": "小盐巴", "r": "普通", "t": "normal"}, {"s": "cat020", "n": "咪咪", "r": "普通", "t": "normal"}, {"s": "cat106", "n": "豆腐", "r": "稀有", "t": "rare"}, {"s": "cat109", "n": "MARU", "r": "稀有", "t": "rare"}, {"s": "cat111", "n": "小白", "r": "稀有", "t": "rare"}, {"s": "cat114", "n": "甜糕", "r": "稀有", "t": "rare"}, {"s": "cat116", "n": "油豆腐", "r": "稀有", "t": "rare"}, {"s": "cat117", "n": "小柳", "r": "稀有", "t": "rare"}, {"s": "cat202", "n": "薯条", "r": "史诗", "t": "epic"}, {"s": "cat204", "n": "软绵绵", "r": "史诗", "t": "epic"}, {"s": "cat206", "n": "辣海鲜面", "r": "史诗", "t": "epic"}, {"s": "cat207", "n": "葡萄柚", "r": "史诗", "t": "epic"}, {"s": "cat209", "n": "圆圆", "r": "史诗", "t": "epic"}, {"s": "cat211", "n": "饼干", "r": "史诗", "t": "epic"}, {"s": "cat212", "n": "奉九", "r": "史诗", "t": "epic"}, {"s": "cat216", "n": "纳米", "r": "史诗", "t": "epic"}, {"s": "cat217", "n": "核桃", "r": "史诗", "t": "epic"}, {"s": "cat218", "n": "小血肠", "r": "史诗", "t": "epic"}, {"s": "cat219", "n": "幸福", "r": "史诗", "t": "epic"}, {"s": "cat220", "n": "小斑点", "r": "史诗", "t": "epic"}, {"s": "cat221", "n": "星仔", "r": "史诗", "t": "epic"}];
-  for (let i = POOL.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [POOL[i], POOL[j]] = [POOL[j], POOL[i]];
-  }
-  document.querySelectorAll(".tile.unknown").forEach(tile => {
-    const draw = () => {
-      const c = POOL.pop();
-      if (!c) return;
-      tile.classList.remove("unknown");
-      tile.classList.add(c.t, "pop");
-      tile.removeAttribute("role");
-      tile.removeAttribute("tabindex");
-      tile.querySelector("img").src = "assets/cats/" + c.s + ".png";
-      tile.querySelector("img").alt = c.n;
-      tile.querySelector(".nm").textContent = c.n;
-      tile.querySelector(".rr").textContent = c.r;
-    };
-    tile.addEventListener("click", draw);
-    tile.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); draw(); }
-    });
-  });
-</script>
 </body>
 </html>

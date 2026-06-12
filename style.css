@@ -328,3 +328,12 @@ html.js .reveal.on { opacity: 1; transform: none; }
   border: 1.5px solid color-mix(in srgb, var(--ink) 35%, transparent);
   border-radius: 9px; padding: 3px 6px; cursor: pointer;
 }
+
+/* ── 카드 설명/수상 분리 — 자랑 칩 ── */
+.app-card .creds { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.app-card .creds span {
+  font-size: 10.5px; font-weight: 650; color: var(--ink);
+  padding: 3px 8px; border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+}

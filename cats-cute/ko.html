@@ -26,157 +26,99 @@
 <link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/cats-cute/index.html">
 <link rel="icon" type="image/png" href="../icons/cats-cute.png">
 <link rel="apple-touch-icon" href="../icons/cats-cute.png">
+
 <link rel="stylesheet" href="style.css">
-<style>body{font-family:"Apple SD Gothic Neo","Pretendard",ui-rounded,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}</style>
+<style>
+@font-face{font-family:"BMYeonsung";src:url("assets/fonts/BMYEONSUNG-subset.woff2") format("woff2");font-display:swap}
+:root{--head-font:"BMYeonsung"}
+body{font-family:"Apple SD Gothic Neo","Pretendard",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+</style>
 <script src="/ga.js"></script>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <a class="wordmark" href="index.html"><img src="../icons/cats-cute.png" alt="">고양이는 정말 귀여워</a>
+    <a class="wordmark hf" href="index.html"><img src="../icons/cats-cute.png" alt="">고양이는 정말 귀여워</a>
     <select class="lang-select" onchange="location.href=this.value" aria-label="Language"><option value="ko.html" selected>한국어</option><option value="index.html">EN</option><option value="ja.html">日本語</option><option value="zh-hans.html">简体中文</option><option value="zh-hant.html">繁體中文</option><option value="es.html">Español</option><option value="pt.html">Português</option><option value="de.html">Deutsch</option><option value="fr.html">Français</option><option value="ru.html">Русский</option><option value="th.html">ไทย</option><option value="id.html">Bahasa Indonesia</option><option value="vi.html">Tiếng Việt</option></select>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="ghost" aria-hidden="true">CAT</div>
-  <div class="wrap">
-    <div>
-      <div class="kicker"><span>CATS ARE CUTE</span><span class="rule"></span><span class="num">고양이 마을 방치 게임 · SINCE 2018</span></div>
-      <h1>잉크로 그린 마을,<br><em>색은 고양이뿐.</em></h1>
-      <div class="demo-kicker">고양이의 말에 귀 기울여 보세요</div>
-      <div class="demo wordbox">
-        <div class="who"><img id="demoFace" src="assets/cats/cat001.png" alt=""><span class="nm" id="demoName">꼬미</span></div>
-        <div class="line" id="demoLine">그래 이맛이야!</div>
-      </div>
-      <p class="sub">이름도, 성격도, 할 말도 있는 고양이 60+마리. 밥을 주고 마을을 키우다 보면, 자리를 비운 사이에도 보상이 쌓입니다. 광고는 내가 보고 싶을 때만.</p>
-      <div class="cta">
-        <a class="store-badge b-ios" href="https://apps.apple.com/app/id1395888987"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a>
-        <a class="store-badge b-play" href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg><span class="txt"><small>다운로드는</small><strong>Google Play</strong></span></a>
-        <span class="note">무료 · iOS &amp; Android · 강제 광고 없음</span>
-      </div>
-    </div>
-    <div class="phone-col">
-      <div class="chip wordbox c1"><img src="assets/cats/cat021.png" alt="">복덩이<span class="h">♥</span></div><div class="chip wordbox c2"><img src="assets/cats/cat104.png" alt="">만두<span class="h">♥</span></div><div class="chip wordbox c3"><img src="assets/cats/cat302.png" alt="">까꿍이<span class="h">♥</span></div>
-      <div class="phone"><img src="../shots/cats-cute/ko-1.jpg" alt="고양이는 정말 귀여워 플레이 화면 — 잉크로 그린 마을과 말풍선 속 고양이"><div class="island"></div></div>
-    </div>
+  <img class="float f1" src="assets/cats/cat021.png" alt=""><img class="float f2" src="assets/cats/cat104.png" alt=""><img class="float f3" src="assets/cats/cat302.png" alt=""><img class="float f4" src="assets/cats/cat210.png" alt="">
+  <img class="float fh h1" src="assets/ui/heart.png" alt="">
+  <img class="float fh h2" src="assets/ui/heart.png" alt="">
+  <img class="appicon" src="../icons/cats-cute.png" alt="고양이는 정말 귀여워">
+  <h1 class="hf">고양이는 정말 귀여워</h1>
+  <p class="tag">고양이 60+마리를 모아 나만의 마을을 키우는 힐링 방치 게임</p>
+  <div class="badges">
+    <a href="https://apps.apple.com/app/id1395888987"><img class="apple" src="assets/badges/ios-ko.svg" alt="App Store에서 다운로드"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><img src="assets/badges/play-ko.png" alt="Google Play에서 다운로드"></a>
+  </div>
+  <p class="proof hf"><span class="s">★4.9</span> · 리뷰 71,000+ · 다운로드 10M+ · since 2018</p>
+  <div class="fan">
+    <div class="chip ch1"><img src="assets/cats/cat001.png" alt="">꼬미 <span class="hh">♥</span></div><div class="chip ch2"><img src="assets/cats/cat115.png" alt="">봄이 <span class="hh">♥</span></div>
+    <div class="ph l"><img src="../shots/cats-cute/ko-2.jpg" alt="잉크로 그린 마을에서 고양이 밥 주기"></div>
+    <div class="ph c"><img src="../shots/cats-cute/ko-1.jpg" alt="말풍선으로 말하는 고양이가 있는 마을"></div>
+    <div class="ph r"><img src="../shots/cats-cute/ko-3.jpg" alt="카페 옆에서 고양이랑 놀기"></div>
   </div>
 </header>
-
-<div class="skyline" aria-hidden="true"><div class="row"><img src="assets/props/tree2_3.png" style="height:120px" alt="" loading="lazy"><img src="assets/props/bed.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/piano.png" style="height:62px" alt="" loading="lazy"><img class="peek" src="assets/cats/cat104.png" style="height:38px" alt=""><img src="assets/props/ball.png" style="height:26px" alt="" loading="lazy"><img src="assets/props/basket3.png" style="height:46px" alt="" loading="lazy"><img src="assets/props/cart1.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/flowers.png" style="height:36px" alt="" loading="lazy"><img src="assets/props/chimney1.png" style="height:64px" alt="" loading="lazy"><img class="peek" src="assets/cats/cat302.png" style="height:38px" alt=""><img src="assets/props/tree4_3.png" style="height:96px" alt="" loading="lazy"></div></div>
+<div class="scallop"></div>
 
 <div class="marquee" aria-hidden="true"><div class="track"><img src="assets/cats/cat001.png" alt="" loading="lazy"><img src="assets/cats/cat003.png" alt="" loading="lazy"><img src="assets/cats/cat007.png" alt="" loading="lazy"><img src="assets/cats/cat010.png" alt="" loading="lazy"><img src="assets/cats/cat011.png" alt="" loading="lazy"><img src="assets/cats/cat015.png" alt="" loading="lazy"><img src="assets/cats/cat016.png" alt="" loading="lazy"><img src="assets/cats/cat021.png" alt="" loading="lazy"><img src="assets/cats/cat104.png" alt="" loading="lazy"><img src="assets/cats/cat106.png" alt="" loading="lazy"><img src="assets/cats/cat109.png" alt="" loading="lazy"><img src="assets/cats/cat113.png" alt="" loading="lazy"><img src="assets/cats/cat114.png" alt="" loading="lazy"><img src="assets/cats/cat115.png" alt="" loading="lazy"><img src="assets/cats/cat118.png" alt="" loading="lazy"><img src="assets/cats/cat201.png" alt="" loading="lazy"><img src="assets/cats/cat206.png" alt="" loading="lazy"><img src="assets/cats/cat210.png" alt="" loading="lazy"><img src="assets/cats/cat213.png" alt="" loading="lazy"><img src="assets/cats/cat221.png" alt="" loading="lazy"><img src="assets/cats/cat302.png" alt="" loading="lazy"><img src="assets/cats/cat020.png" alt="" loading="lazy"><img src="assets/cats/cat001.png" alt="" loading="lazy"><img src="assets/cats/cat003.png" alt="" loading="lazy"><img src="assets/cats/cat007.png" alt="" loading="lazy"><img src="assets/cats/cat010.png" alt="" loading="lazy"><img src="assets/cats/cat011.png" alt="" loading="lazy"><img src="assets/cats/cat015.png" alt="" loading="lazy"><img src="assets/cats/cat016.png" alt="" loading="lazy"><img src="assets/cats/cat021.png" alt="" loading="lazy"><img src="assets/cats/cat104.png" alt="" loading="lazy"><img src="assets/cats/cat106.png" alt="" loading="lazy"><img src="assets/cats/cat109.png" alt="" loading="lazy"><img src="assets/cats/cat113.png" alt="" loading="lazy"><img src="assets/cats/cat114.png" alt="" loading="lazy"><img src="assets/cats/cat115.png" alt="" loading="lazy"><img src="assets/cats/cat118.png" alt="" loading="lazy"><img src="assets/cats/cat201.png" alt="" loading="lazy"><img src="assets/cats/cat206.png" alt="" loading="lazy"><img src="assets/cats/cat210.png" alt="" loading="lazy"><img src="assets/cats/cat213.png" alt="" loading="lazy"><img src="assets/cats/cat221.png" alt="" loading="lazy"><img src="assets/cats/cat302.png" alt="" loading="lazy"><img src="assets/cats/cat020.png" alt="" loading="lazy"></div></div>
 
-<div class="stats">
-  <div class="wrap"><div class="stat"><div class="v"><em>★</em>4.9</div><div class="k">앱스토어 평점</div></div><div class="stat"><div class="v">71,000+</div><div class="k">전 세계 리뷰</div></div><div class="stat"><div class="v">10M+</div><div class="k">누적 다운로드</div></div><div class="stat"><div class="v">2018</div><div class="k">서비스 시작</div></div></div>
-</div>
-
 <section>
   <div class="wrap">
-    <div class="kicker"><span>이렇게 놀아요</span><span class="rule"></span><span class="num">01–03</span></div>
-    <h2>밥 주고, 모으고, <em>마을이 자라요.</em></h2>
-    <div class="steps"><div class="step wordbox"><span class="n">01</span><div class="ic"><img src="assets/ui/catfish.png" alt=""></div><span class="kicker" style="margin-bottom:6px"><span>밥 주기</span></span><h3>생선 주고 하트 받기</h3><p>건물이 알아서 생선을 만들어요. 고양이에게 밥을 주고 하트를 모아 마을 레벨을 올려요.</p></div><div class="step wordbox"><span class="n">02</span><div class="ic"><img src="assets/ui/gachaticket.png" alt=""></div><span class="kicker" style="margin-bottom:6px"><span>뽑기</span></span><h3>새 고양이 만나기</h3><p>뽑기 티켓으로 새 고양이를 만나요. 일반·레어·에픽, 얼굴도 습관도 다 달라요.</p></div><div class="step wordbox"><span class="n">03</span><div class="ic"><img src="assets/ui/building.png" alt=""></div><span class="kicker" style="margin-bottom:6px"><span>꾸미기</span></span><h3>나만의 마을 만들기</h3><p>건물을 업그레이드하고 구석구석 꾸미면, 고양이들이 제자리처럼 찾아와 앉아요.</p></div></div>
+    <div class="fblock"><div class="phwrap"><img class="peek" src="assets/cats/cat118.png" alt=""><div class="ph"><img src="../shots/cats-cute/ko-1.jpg" alt="잉크로 그린 마을에서 고양이 밥 주기" loading="lazy"></div></div><div><span class="k">🐱 고양이 수집</span><h2 class="hf">이름도 성격도 다른<br>고양이 60+마리</h2><p>뽑기로 새 고양이를 만나요. 일반부터 레어·에픽까지, 고양이마다 얼굴도 취미도 할 말도 달라요. 레벨업할 때마다 들려주는 고양이들의 말이 이 게임의 백미.</p></div></div><div class="fblock rev"><div class="phwrap"><img class="peek" src="assets/cats/cat016.png" alt=""><div class="ph"><img src="../shots/cats-cute/ko-2.jpg" alt="말풍선으로 말하는 고양이가 있는 마을" loading="lazy"></div></div><div><span class="k">🐟 힐링 방치</span><h2 class="hf">자리를 비워도<br>보상은 쌓여요</h2><p>건물이 알아서 생선을 만들어요. 하루 몇 분, 밥 주고 하트만 모으면 마을이 자라요. 광고는 보고 싶을 때만 — 강제 광고가 없어요.</p></div></div><div class="fblock"><div class="phwrap"><img class="peek" src="assets/cats/cat213.png" alt=""><div class="ph"><img src="../shots/cats-cute/ko-3.jpg" alt="카페 옆에서 고양이랑 놀기" loading="lazy"></div></div><div><span class="k">🏠 마을 꾸미기</span><h2 class="hf">잉크로 그린 마을,<br>색은 고양이뿐</h2><p>손그림 잉크 라인의 마을에서 컬러는 오직 고양이. 건물을 올리고 장식을 놓아 구석구석 내 취향대로 꾸며보세요.</p></div></div>
   </div>
 </section>
 
-<section class="collection">
+<div class="scallop cream flip"></div>
+<section class="reviews">
   <div class="wrap">
-    <div class="kicker"><span>고양이 도감</span><span class="rule"></span><span class="num">60+ 마리</span></div>
-    <h2>고양이마다 이름이 있어요.<br><em>할 말도요.</em></h2>
-    <p class="lede">전부 게임 속 진짜 고양이들이에요 — 이름도 등급도 그대로. 가려진 카드를 탭하면 게임 속 뽑기처럼 새 고양이가 나와요.</p>
-    <div class="tiles" id="tiles"><div class="tile wordbox normal"><img src="assets/cats/cat001.png" alt="꼬미" loading="lazy"><div class="nm">꼬미</div><span class="rr">일반</span></div><div class="tile wordbox normal"><img src="assets/cats/cat021.png" alt="복덩이" loading="lazy"><div class="nm">복덩이</div><span class="rr">일반</span></div><div class="tile wordbox normal"><img src="assets/cats/cat016.png" alt="초코" loading="lazy"><div class="nm">초코</div><span class="rr">일반</span></div><div class="tile wordbox normal"><img src="assets/cats/cat007.png" alt="블리" loading="lazy"><div class="nm">블리</div><span class="rr">일반</span></div><div class="tile wordbox rare"><img src="assets/cats/cat104.png" alt="만두" loading="lazy"><div class="nm">만두</div><span class="rr">레어</span></div><div class="tile wordbox rare"><img src="assets/cats/cat113.png" alt="누리" loading="lazy"><div class="nm">누리</div><span class="rr">레어</span></div><div class="tile wordbox rare"><img src="assets/cats/cat115.png" alt="봄이" loading="lazy"><div class="nm">봄이</div><span class="rr">레어</span></div><div class="tile wordbox rare"><img src="assets/cats/cat118.png" alt="도레미" loading="lazy"><div class="nm">도레미</div><span class="rr">레어</span></div><div class="tile wordbox epic"><img src="assets/cats/cat201.png" alt="꾸기" loading="lazy"><div class="nm">꾸기</div><span class="rr">에픽</span></div><div class="tile wordbox epic"><img src="assets/cats/cat210.png" alt="모모" loading="lazy"><div class="nm">모모</div><span class="rr">에픽</span></div><div class="tile wordbox epic"><img src="assets/cats/cat213.png" alt="꾸꾸" loading="lazy"><div class="nm">꾸꾸</div><span class="rr">에픽</span></div><div class="tile wordbox special"><img src="assets/cats/cat302.png" alt="까꿍이" loading="lazy"><div class="nm">까꿍이</div><span class="rr">스페셜</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div></div>
-    <span class="col-hint">카드를 탭해서 뽑아보세요</span>
+    <h2 class="sec-h hf">유저들의 진짜 리뷰</h2>
+    <p class="sec-sub">App Store에 실제로 올라온 이야기들</p>
+    <div class="rcards">
+      <div class="rcard"><img class="face" src="assets/cats/cat007.png" alt=""><div class="st">★★★★★</div><p>"너무너무 귀여워요! 기분 안좋을때 켜면 위로댕ㅁ.. 레벨업 할때마다 고양이들이 하는 말들 넘 조아요…"</p><div class="by">App Store 리뷰</div></div><div class="rcard"><img class="face" src="assets/cats/cat109.png" alt=""><div class="st">★★★★★</div><p>"이제2틀차인데 너무 귀엽고 재밌어요!!그리고 이 그림 특유의 느낌이 너무 깜찍하네여~^^"</p><div class="by">App Store 리뷰</div></div><div class="rcard"><img class="face" src="assets/cats/cat221.png" alt=""><div class="st">★★★★★</div><p>"고양이들 너무 귀엽고 광고도 적어서 좋아요!🐈❤️"</p><div class="by">App Store 리뷰</div></div>
+    </div>
+  </div>
+</section>
+<div class="scallop cream"></div>
+
+<section class="stats-sec">
+  <div class="wrap">
+    <h2 class="sec-h hf">7년째 사랑받는 고양이 마을</h2>
+    <p class="sec-sub">2018년부터, 작은 인디 스튜디오가 꾸준히</p>
+    <div class="grid">
+      <div class="cell"><img src="assets/ui/toy.png" alt=""><div class="v">★4.9</div><div class="k">앱스토어 평점</div></div><div class="cell"><img src="assets/ui/heart.png" alt=""><div class="v">71,000+</div><div class="k">전 세계 리뷰</div></div><div class="cell"><img src="assets/ui/catfish.png" alt=""><div class="v">10M+</div><div class="k">누적 다운로드</div></div><div class="cell"><img src="assets/ui/collection.png" alt=""><div class="v">2018</div><div class="k">서비스 시작</div></div>
+    </div>
   </div>
 </section>
 
-<section class="shots">
-  <div class="wrap">
-    <div class="kicker"><span>스크린샷</span><span class="rule"></span><span class="num">인게임</span></div>
-    <h2>마을은 <em>실제로 이렇게 생겼어요.</em></h2>
-    <div class="row"><figure><div class="phone"><img src="../shots/cats-cute/ko-1.jpg" alt="고양이의 이야기 듣기" loading="lazy"><div class="island"></div></div><figcaption>고양이의 이야기 듣기</figcaption></figure><figure><div class="phone"><img src="../shots/cats-cute/ko-2.jpg" alt="고양이 밥 주기" loading="lazy"><div class="island"></div></div><figcaption>고양이 밥 주기</figcaption></figure><figure><div class="phone"><img src="../shots/cats-cute/ko-3.jpg" alt="고양이랑 놀기" loading="lazy"><div class="island"></div></div><figcaption>고양이랑 놀기</figcaption></figure></div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="kicker"><span>디테일</span><span class="rule"></span><span class="num">06</span></div>
-    <h2>7년째, <em>조용하게 다정하게.</em></h2>
-    <div class="grid6"><div class="feat wordbox"><div class="ic"><img src="assets/ui/catgrass.png" alt=""></div><h3>진짜 방치형</h3><p>앱을 꺼도 보상은 계속 쌓여요. 하루 몇 분이면 충분해요.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/heart.png" alt=""></div><h3>강제 광고 없음</h3><p>아무것도 끼어들지 않아요. 보너스가 필요할 때만 내가 선택해서 봐요.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/cat.png" alt=""></div><h3>60+마리, 60+가지 성격</h3><p>고양이마다 이름과 성격, 마을에서 즐기는 취미가 따로 있어요.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/building.png" alt=""></div><h3>꾸미는 재미</h3><p>건물을 올리고 장식을 놓아 마을 구석구석을 내 취향으로.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/collection.png" alt=""></div><h3>13개 언어</h3><p>일본·미국·한국·베트남·대만… 전 세계에서 사랑받고 있어요.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/toy.png" alt=""></div><h3>7년의 운영</h3><p>2018년부터 1인 인디 스튜디오가 꾸준히 — ★4.9, 리뷰 71,000+.</p></div></div>
-  </div>
-</section>
+<div class="skyline" aria-hidden="true"><div class="row"><img src="assets/props/tree2_3.png" style="height:120px" alt="" loading="lazy"><img src="assets/props/bed.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/piano.png" style="height:62px" alt="" loading="lazy"><img src="assets/cats/cat104.png" style="height:38px" alt=""><img src="assets/props/ball.png" style="height:26px" alt="" loading="lazy"><img src="assets/props/basket3.png" style="height:46px" alt="" loading="lazy"><img src="assets/props/cart1.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/flowers.png" style="height:36px" alt="" loading="lazy"><img src="assets/props/chimney1.png" style="height:64px" alt="" loading="lazy"><img src="assets/cats/cat302.png" style="height:38px" alt=""><img src="assets/props/tree4_3.png" style="height:96px" alt="" loading="lazy"></div></div>
 
 <section class="final">
-  <div class="band">
-    <div class="wrap">
-      <h2>오늘도 고양이들이 기다리고 있어요.</h2>
-      <p class="lede">iOS &amp; Android 무료.</p>
-      <div class="cta">
-        <a class="store-badge b-ios2" href="https://apps.apple.com/app/id1395888987"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a>
-        <a class="store-badge b-play2" href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg><span class="txt"><small>다운로드는</small><strong>Google Play</strong></span></a>
-      </div>
+  <img class="float g1" src="assets/cats/cat021.png" alt=""><img class="float g2" src="assets/cats/cat001.png" alt="">
+  <div class="wrap">
+    <h2 class="hf">오늘도 고양이들이 기다리고 있어요</h2>
+    <p>iOS &amp; Android 무료</p>
+    <div class="badges">
+      <a href="https://apps.apple.com/app/id1395888987"><img class="apple" src="assets/badges/ios-ko.svg" alt="App Store에서 다운로드"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><img src="assets/badges/play-ko.png" alt="Google Play에서 다운로드"></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="brand"><img src="../icons/cats-cute.png" alt=""><strong>kkiruk studio</strong></div>
+    <div>© 2026 kkiruk studio</div>
     <div class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
       <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보 처리방침</a>
       <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
     </div>
-    <div>© 2026 kkiruk studio</div>
   </div>
 </footer>
 
-<script>
-  // Word-box demo: real in-game cats speaking real in-game lines.
-  const DEMO = [{"s": "cat001", "n": "꼬미", "t": "그래 이맛이야!"}, {"s": "cat021", "n": "복덩이", "t": "나 귀엽지"}, {"s": "cat104", "n": "만두", "t": "집사도 힘내라냥"}, {"s": "cat115", "n": "봄이", "t": "나랑 놀 거야?"}, {"s": "cat201", "n": "꾸기", "t": "하이파이브!"}, {"s": "cat210", "n": "모모", "t": "따뜻한 햇살..."}, {"s": "cat302", "n": "까꿍이", "t": "졸려..."}, {"s": "cat016", "n": "초코", "t": "나도 안다 귀여운거"}];
-  const faceEl = document.getElementById("demoFace");
-  const nameEl = document.getElementById("demoName");
-  const lineEl = document.getElementById("demoLine");
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-    (async function loop() {
-      let i = 0;
-      for (;;) {
-        const d = DEMO[i % DEMO.length];
-        faceEl.src = "assets/cats/" + d.s + ".png";
-        nameEl.textContent = d.n;
-        lineEl.textContent = "";
-        for (const ch of d.t) { lineEl.textContent += ch; await sleep(55); }
-        await sleep(2400);
-        i++;
-      }
-    })();
-  }
-
-  // Collection gacha: tap a hidden card to draw a real cat from the pool.
-  const POOL = [{"s": "cat003", "n": "나비", "r": "일반", "t": "normal"}, {"s": "cat004", "n": "까망이", "r": "일반", "t": "normal"}, {"s": "cat005", "n": "고등어", "r": "일반", "t": "normal"}, {"s": "cat010", "n": "두리", "r": "일반", "t": "normal"}, {"s": "cat011", "n": "하늘이", "r": "일반", "t": "normal"}, {"s": "cat015", "n": "꽁치", "r": "일반", "t": "normal"}, {"s": "cat017", "n": "덕구", "r": "일반", "t": "normal"}, {"s": "cat018", "n": "라라", "r": "일반", "t": "normal"}, {"s": "cat019", "n": "소금", "r": "일반", "t": "normal"}, {"s": "cat020", "n": "미미", "r": "일반", "t": "normal"}, {"s": "cat106", "n": "두부", "r": "레어", "t": "rare"}, {"s": "cat109", "n": "마루", "r": "레어", "t": "rare"}, {"s": "cat111", "n": "흰둥이", "r": "레어", "t": "rare"}, {"s": "cat114", "n": "꿀떡이", "r": "레어", "t": "rare"}, {"s": "cat116", "n": "유부", "r": "레어", "t": "rare"}, {"s": "cat117", "n": "버들이", "r": "레어", "t": "rare"}, {"s": "cat202", "n": "감튀", "r": "에픽", "t": "epic"}, {"s": "cat204", "n": "말랑이", "r": "에픽", "t": "epic"}, {"s": "cat206", "n": "짬뽕", "r": "에픽", "t": "epic"}, {"s": "cat207", "n": "자몽", "r": "에픽", "t": "epic"}, {"s": "cat209", "n": "둥실이", "r": "에픽", "t": "epic"}, {"s": "cat211", "n": "쿠키", "r": "에픽", "t": "epic"}, {"s": "cat212", "n": "봉구", "r": "에픽", "t": "epic"}, {"s": "cat216", "n": "나노", "r": "에픽", "t": "epic"}, {"s": "cat217", "n": "호두", "r": "에픽", "t": "epic"}, {"s": "cat218", "n": "순대", "r": "에픽", "t": "epic"}, {"s": "cat219", "n": "행복이", "r": "에픽", "t": "epic"}, {"s": "cat220", "n": "얼룩이", "r": "에픽", "t": "epic"}, {"s": "cat221", "n": "별이", "r": "에픽", "t": "epic"}];
-  for (let i = POOL.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [POOL[i], POOL[j]] = [POOL[j], POOL[i]];
-  }
-  document.querySelectorAll(".tile.unknown").forEach(tile => {
-    const draw = () => {
-      const c = POOL.pop();
-      if (!c) return;
-      tile.classList.remove("unknown");
-      tile.classList.add(c.t, "pop");
-      tile.removeAttribute("role");
-      tile.removeAttribute("tabindex");
-      tile.querySelector("img").src = "assets/cats/" + c.s + ".png";
-      tile.querySelector("img").alt = c.n;
-      tile.querySelector(".nm").textContent = c.n;
-      tile.querySelector(".rr").textContent = c.r;
-    };
-    tile.addEventListener("click", draw);
-    tile.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); draw(); }
-    });
-  });
-</script>
 </body>
 </html>
