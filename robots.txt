@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /drafts/
+Disallow: /gen/
+
+Sitemap: https://www.kkirukstudio.com/sitemap.xml
