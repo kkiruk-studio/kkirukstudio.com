@@ -466,7 +466,7 @@ def render(key):
 
 <script>
   // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
-  const APP_STORE_URL = "";
+  const APP_STORE_URL = "https://apps.apple.com/app/id6767477190";
   if (APP_STORE_URL) {{
     document.getElementById("storeLink").href = APP_STORE_URL;
     document.getElementById("storeLink2").href = APP_STORE_URL;
