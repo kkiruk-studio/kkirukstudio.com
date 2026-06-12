@@ -10,7 +10,8 @@ Authentic-data rules:
   zh-hans reuses zh-hant(TW) quotes because the CN storefront has no listing.
 - Heading fonts are the game's real fonts where the license allows web embedding:
   ko=BM연성체(self-host), latin/th/vi/ru=Itim "Itim Cat" subset(OFL, renamed),
-  ja=Yomogi·zh-hans=Long Cang (substitutes — あんずもじ/Senty는 웹 임베드 불가), zh-hant=system.
+  zh-hans·zh-hant=小赖体 "MaoCun" subset(OFL, renamed — 간·번 모두 커버),
+  ja=Yomogi CDN (substitute — あんずもじ/Senty는 웹 임베드 불가).
 
 Usage: python3 build.py
 """
@@ -161,7 +162,7 @@ LOCALES = {
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
     },
     "zh-hans": {
-        "file": "zh-hans.html", "lang": "zh-Hans", "head": "longcang", "body_font": '"PingFang SC","Heiti SC"', "shots": "zh-hans",
+        "file": "zh-hans.html", "lang": "zh-Hans", "head": "xiaolai", "body_font": '"PingFang SC","Heiti SC"', "shots": "zh-hans",
         "name": "猫咪真的很可爱",
         "title": "猫咪真的很可爱 — 养一座墨线画成的猫咪小村",
         "desc": "自2018年起备受喜爱的治愈系放置游戏。收集60+只手绘猫咪，养大一座墨线小村。★4.9 · 71,000+条评价 · iOS & Android 免费。",
@@ -183,7 +184,7 @@ LOCALES = {
         "f_contact": "联系我们", "f_privacy": "隐私政策", "f_terms": "服务条款",
     },
     "zh-hant": {
-        "file": "zh-hant.html", "lang": "zh-Hant", "head": "system-tc", "body_font": '"PingFang TC","Heiti TC"', "shots": "zh-hant",
+        "file": "zh-hant.html", "lang": "zh-Hant", "head": "xiaolai", "body_font": '"PingFang TC","Heiti TC"', "shots": "zh-hant",
         "name": "貓咪真的很可愛",
         "title": "貓咪真的很可愛 — 養一座墨線畫成的貓咪小村",
         "desc": "自2018年起深受喜愛的療癒系放置遊戲。收集60+隻手繪貓咪，養大一座墨線小村。★4.9 · 71,000+則評價 · iOS & Android 免費。",
@@ -384,18 +385,20 @@ LOCALES = {
 
 GOOGLE_FONT_LINKS = {
     "yomogi": '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">',
-    "longcang": '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">',
 }
 HEAD_FAMILY = {
     "yeonsung": '"BMYeonsung"',
     "itim": '"Itim Cat"',
     "yomogi": '"Yomogi"',
-    "longcang": '"Long Cang"',
-    "system-tc": '"Yuanti TC","PingFang TC"',
+    "xiaolai": '"MaoCun"',
 }
 FONT_FACE = {
     "yeonsung": '@font-face{font-family:"BMYeonsung";src:url("assets/fonts/BMYEONSUNG-subset.woff2") format("woff2");font-display:swap}',
     "itim": '@font-face{font-family:"Itim Cat";src:url("assets/fonts/ItimCat-subset.woff2") format("woff2");font-display:swap}',
+    # 小赖体(Xiaolai, OFL) 서브셋 — 예약명 회피로 "MaoCun" 리네임. zh 카피/고양이 이름/리뷰의
+    # 한자만 포함하므로 zh 텍스트 변경 시 재서브셋 필요:
+    #   pyftsubset Xiaolai-Regular.ttf --text-file=<zh 전체 텍스트> --flavor=woff2 + name 테이블 리네임
+    "xiaolai": '@font-face{font-family:"MaoCun";src:url("assets/fonts/MaoCun-subset.woff2") format("woff2");font-display:swap}',
 }
 
 
