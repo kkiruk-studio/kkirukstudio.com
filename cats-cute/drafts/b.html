@@ -4,95 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>[시안 B] 고양이는 정말 귀여워 — 표준 게임 랜딩 문법</title>
+<title>[시안 B] 고양이는 정말 귀여워 — 표준 게임 문법 + 아기자기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <style>
-:root{--orange:#f59a3e;--orange-deep:#e8862f;--ink:#3a2e22;--cream:#fff8ef}
+:root{--orange:#f59a3e;--orange-deep:#ee8c33;--peach:#ffe3bd;--ink:#3a2e22;--ink-line:#4a4744;--cream:#fff8ef}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"Apple SD Gothic Neo","Pretendard",-apple-system,BlinkMacSystemFont,sans-serif;
   color:var(--ink);line-height:1.6;overflow-x:hidden;background:#fff;-webkit-font-smoothing:antialiased}
 img{display:block}
 a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.jua{font-family:"Jua","Apple SD Gothic Neo",sans-serif;font-weight:400;letter-spacing:0}
 
-/* hero — full-bleed vivid */
-.hero{background:linear-gradient(160deg,#ffd9a3 0%,var(--orange) 55%,var(--orange-deep) 100%);
-  text-align:center;padding:72px 24px 0;position:relative;overflow:hidden}
-.hero .float{position:absolute;animation:bob 6s ease-in-out infinite;filter:drop-shadow(0 6px 10px rgba(90,50,0,.25))}
-.hero .f1{width:64px;top:14%;left:8%;animation-delay:0s}
-.hero .f2{width:52px;top:8%;right:12%;animation-delay:1.5s}
-.hero .f3{width:74px;top:42%;left:3%;animation-delay:3s}
-.hero .f4{width:58px;top:38%;right:5%;animation-delay:4.5s}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(4deg)}}
-.appicon{width:108px;height:108px;border-radius:26px;margin:0 auto 22px;
-  box-shadow:0 12px 30px rgba(90,50,0,.35);border:4px solid rgba(255,255,255,.6)}
-.hero h1{font-size:clamp(36px,5.4vw,60px);font-weight:900;color:#fff;
-  text-shadow:0 3px 0 rgba(90,50,0,.25);letter-spacing:-.02em}
-.hero .tag{font-size:clamp(16px,2.2vw,21px);color:#fff;opacity:.95;margin:14px 0 26px;font-weight:600}
+/* ---- hero ---- */
+.hero{background:linear-gradient(165deg,var(--peach) 0%,var(--orange) 58%,var(--orange-deep) 100%);
+  text-align:center;padding:68px 24px 0;position:relative;overflow:hidden}
+.hero .float{position:absolute;animation:bob 6s ease-in-out infinite;filter:drop-shadow(0 5px 8px rgba(120,70,10,.22))}
+.hero .f1{width:62px;top:13%;left:8%}
+.hero .f2{width:50px;top:7%;right:13%;animation-delay:1.5s}
+.hero .f3{width:72px;top:44%;left:4%;animation-delay:3s}
+.hero .f4{width:56px;top:40%;right:5%;animation-delay:4.5s}
+.hero .fh{width:34px;animation-duration:5s}
+.hero .h1{top:26%;left:17%;animation-delay:2.2s}
+.hero .h2{top:18%;right:24%;animation-delay:.8s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-15px) rotate(5deg)}}
+.appicon{width:106px;height:106px;border-radius:26px;margin:0 auto 20px;transform:rotate(-3deg);
+  box-shadow:0 10px 24px rgba(120,70,10,.32);border:5px solid #fff}
+.hero h1{font-size:clamp(38px,5.6vw,62px);color:#fff;line-height:1.18;
+  text-shadow:0 3px 0 rgba(140,80,10,.3)}
+.hero .tag{font-size:clamp(16px,2.2vw,20px);color:#fff;opacity:.96;margin:12px 0 26px;font-weight:700}
 .badges{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.badges img{height:54px;width:auto;border-radius:10px;transition:transform .15s}
-.badges a:hover img{transform:scale(1.05)}
-.proof{margin:20px 0 38px;color:#fff;font-weight:800;font-size:15px;text-shadow:0 1px 0 rgba(90,50,0,.2)}
-.proof .s{color:#ffe9c4}
-.fan{display:flex;justify-content:center;align-items:flex-end;gap:0;max-width:760px;margin:0 auto;transform:translateY(6px)}
-.fan .ph{width:230px;border-radius:30px;border:8px solid #2b2825;overflow:hidden;background:#fff;
-  box-shadow:0 18px 40px rgba(90,50,0,.4)}
+.badges img{height:54px;width:auto;border-radius:13px;border:3px solid #fff;
+  box-shadow:0 4px 0 rgba(120,70,10,.25);transition:transform .15s}
+.badges a:hover img{transform:scale(1.06) rotate(-1deg)}
+.proof{margin:20px 0 36px;color:#fff;font-size:17px;text-shadow:0 1px 0 rgba(120,70,10,.2)}
+.proof .s{color:#fff0d6}
+.fan{display:flex;justify-content:center;align-items:flex-end;max-width:760px;margin:0 auto;transform:translateY(6px);position:relative}
+.fan .ph{width:228px;border-radius:32px;border:5px solid var(--ink-line);overflow:hidden;background:#fff;
+  box-shadow:0 14px 30px rgba(120,70,10,.35)}
 .fan .ph img{width:100%}
-.fan .l{transform:rotate(-7deg) translateY(26px) translateX(18px);z-index:1}
-.fan .c{z-index:2;width:250px}
-.fan .r{transform:rotate(7deg) translateY(26px) translateX(-18px);z-index:1}
+.fan .l{transform:rotate(-7deg) translateY(28px) translateX(16px);z-index:1}
+.fan .c{z-index:2;width:248px}
+.fan .r{transform:rotate(7deg) translateY(28px) translateX(-16px);z-index:1}
+.fan .chip{position:absolute;display:flex;align-items:center;gap:7px;padding:6px 12px;z-index:3;
+  background:#fff;border:3px solid var(--ink-line);border-radius:13px;box-shadow:0 3px 0 rgba(43,40,37,.15);
+  font-family:"Jua",sans-serif;font-size:14px;white-space:nowrap;animation:bob2 5s ease-in-out infinite}
+.fan .chip img{width:28px}
+.fan .chip .hh{color:var(--orange-deep)}
+.fan .ch1{top:-4%;left:6%}
+.fan .ch2{top:30%;right:2%;animation-delay:2s}
+@keyframes bob2{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+
+/* scallop divider */
+.scallop{height:26px;background:radial-gradient(circle at 13px -8px,transparent 22px,#fff 23px);
+  background-size:52px 26px;margin-top:-1px;position:relative;z-index:2}
+.scallop.cream{background:radial-gradient(circle at 13px -8px,transparent 22px,var(--cream) 23px);background-size:52px 26px}
+.scallop.flip{transform:scaleY(-1);margin-top:0;margin-bottom:-1px}
 
 /* marquee */
-.marquee{background:#fff;padding:20px 0;overflow:hidden;border-bottom:1px solid #f0e6d8}
-.marquee .track{display:flex;gap:36px;width:max-content;animation:scroll 32s linear infinite}
+.marquee{background:#fff;padding:22px 0 14px;overflow:hidden}
+.marquee .track{display:flex;gap:38px;width:max-content;animation:scroll 32s linear infinite}
 .marquee img{width:52px}
+.marquee img:nth-child(even){transform:translateY(7px)}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
 /* feature blocks */
-section{padding:84px 0}
-.fblock{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:84px}
+section{padding:80px 0}
+.fblock{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:88px}
 .fblock:last-child{margin-bottom:0}
-.fblock .ph{width:250px;border-radius:30px;border:8px solid #2b2825;overflow:hidden;margin:0 auto;
-  box-shadow:0 16px 36px rgba(90,50,0,.2)}
+.fblock .phwrap{position:relative;width:250px;margin:0 auto}
+.fblock .ph{width:250px;border-radius:32px;border:5px solid var(--ink-line);overflow:hidden;
+  box-shadow:8px 8px 0 rgba(245,154,62,.35);transform:rotate(-2deg)}
+.fblock.rev .ph{transform:rotate(2deg);box-shadow:-8px 8px 0 rgba(245,154,62,.35)}
 .fblock .ph img{width:100%}
-.fblock .k{display:inline-block;background:var(--orange);color:#fff;font-weight:800;font-size:13px;
-  border-radius:99px;padding:5px 14px;margin-bottom:14px}
-.fblock h2{font-size:clamp(26px,3.4vw,36px);font-weight:900;letter-spacing:-.01em;margin-bottom:12px}
+.fblock .peek{position:absolute;width:52px;top:-30px;right:18px;transform:rotate(8deg)}
+.fblock.rev .peek{right:auto;left:18px;transform:rotate(-8deg)}
+.fblock .k{display:inline-block;background:#fff;border:3px solid var(--ink-line);color:var(--orange-deep);
+  font-family:"Jua",sans-serif;font-size:15px;border-radius:99px;padding:5px 16px;margin-bottom:14px;
+  box-shadow:0 3px 0 rgba(43,40,37,.12);transform:rotate(-1.5deg)}
+.fblock h2{font-size:clamp(27px,3.6vw,38px);line-height:1.3;margin-bottom:12px}
 .fblock p{font-size:16.5px;color:#7a6c5a}
-.fblock.rev .ph{order:2}
-.alt{background:var(--cream)}
+.fblock .ico{width:40px;display:inline-block;margin-bottom:10px}
+.fblock.rev .phwrap{order:2}
 
 /* reviews */
-.reviews{background:var(--cream)}
-.reviews h2,.stats-sec h2{font-size:clamp(26px,3.4vw,36px);font-weight:900;text-align:center;margin-bottom:40px}
-.rcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.rcard{background:#fff;border-radius:20px;padding:26px 24px;box-shadow:0 8px 24px rgba(90,50,0,.08)}
-.rcard .st{color:var(--orange);font-size:17px;letter-spacing:2px;margin-bottom:10px}
+.reviews{background:var(--cream);padding-top:64px}
+.sec-h{font-size:clamp(27px,3.6vw,38px);text-align:center;margin-bottom:8px}
+.sec-sub{text-align:center;color:#a8967f;font-size:15px;margin-bottom:48px;font-weight:600}
+.rcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rcard{background:#fff;border:3px solid var(--ink-line);border-radius:18px;padding:34px 22px 22px;
+  box-shadow:0 4px 0 rgba(43,40,37,.13);position:relative}
+.rcard:nth-child(1){transform:rotate(-1.2deg)}
+.rcard:nth-child(2){transform:rotate(.8deg) translateY(8px)}
+.rcard:nth-child(3){transform:rotate(-.6deg)}
+.rcard .face{position:absolute;top:-26px;left:20px;width:50px}
+.rcard .st{color:var(--orange-deep);font-size:16px;letter-spacing:2px;margin-bottom:10px}
 .rcard p{font-size:15px;font-weight:600;margin-bottom:12px}
 .rcard .by{font-size:12px;color:#a8967f}
 
 /* stats */
 .stats-sec .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-.stats-sec .v{font-size:clamp(28px,3.6vw,42px);font-weight:900;color:var(--orange-deep)}
+.stats-sec .cell img{height:38px;width:auto;margin:0 auto 10px}
+.stats-sec .v{font-family:"Jua",sans-serif;font-size:clamp(28px,3.6vw,42px);color:var(--orange-deep)}
 .stats-sec .k{font-size:13px;color:#a8967f;font-weight:700}
 
+/* skyline (ink props from the game) */
+.skyline{border-top:3px dashed #f0e0c8;border-bottom:3px solid var(--ink-line);background:#fff;overflow:hidden}
+.skyline .row{display:flex;align-items:flex-end;justify-content:center;gap:34px;padding:26px 24px 0;min-height:130px}
+.skyline img{height:auto;flex:0 0 auto}
+
 /* final */
-.final{background:linear-gradient(160deg,var(--orange) 0%,var(--orange-deep) 100%);text-align:center;color:#fff}
-.final h2{font-size:clamp(28px,4vw,44px);font-weight:900;text-shadow:0 3px 0 rgba(90,50,0,.25);margin-bottom:10px}
-.final p{font-size:17px;opacity:.95;margin-bottom:28px;font-weight:600}
+.final{background:linear-gradient(165deg,var(--orange) 0%,var(--orange-deep) 100%);
+  text-align:center;color:#fff;position:relative;overflow:hidden}
+.final .float{position:absolute;animation:bob 6s ease-in-out infinite;filter:drop-shadow(0 5px 8px rgba(120,70,10,.22))}
+.final .g1{width:54px;top:18%;left:12%}
+.final .g2{width:46px;top:24%;right:13%;animation-delay:2s}
+.final h2{font-size:clamp(30px,4.4vw,48px);text-shadow:0 3px 0 rgba(140,80,10,.3);margin-bottom:8px}
+.final p{font-size:17px;opacity:.96;margin-bottom:28px;font-weight:700}
 footer{background:#2b2825;color:#cfcac4;padding:34px 0;font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer a{color:#cfcac4;text-decoration:none;margin-left:18px}
 
 @media(max-width:860px){
-  .fan .ph{width:31vw;border-width:5px;border-radius:22px}
-  .fan .c{width:34vw}
-  .fblock{grid-template-columns:1fr;gap:34px;text-align:center}
-  .fblock.rev .ph{order:0}
+  .fan .ph{width:30vw;border-width:4px;border-radius:22px}
+  .fan .c{width:33vw}
+  .fan .chip{font-size:12px}
+  .fan .chip img{width:22px}
+  .fblock{grid-template-columns:1fr;gap:40px;text-align:center}
+  .fblock.rev .phwrap{order:0}
   .rcards{grid-template-columns:1fr}
+  .rcard:nth-child(2){transform:rotate(.8deg)}
   .stats-sec .grid{grid-template-columns:repeat(2,1fr)}
   .hero .f3,.hero .f4{display:none}
+  .skyline .row{gap:22px}
+  .skyline img{transform:scale(.85);transform-origin:bottom}
+  section{padding:60px 0}
 }
-@media(prefers-reduced-motion:reduce){.hero .float,.marquee .track{animation:none}}
+@media(prefers-reduced-motion:reduce){
+  .hero .float,.final .float,.marquee .track,.fan .chip{animation:none}
+}
 </style>
 </head>
 <body>
@@ -102,78 +154,112 @@ footer a{color:#cfcac4;text-decoration:none;margin-left:18px}
   <img class="float f2" src="../assets/cats/cat104.png" alt="">
   <img class="float f3" src="../assets/cats/cat302.png" alt="">
   <img class="float f4" src="../assets/cats/cat210.png" alt="">
+  <img class="float fh h1" src="../assets/ui/heart.png" alt="">
+  <img class="float fh h2" src="../assets/ui/heart.png" alt="">
   <img class="appicon" src="../../icons/cats-cute.png" alt="고양이는 정말 귀여워 앱 아이콘">
-  <h1>고양이는 정말 귀여워</h1>
+  <h1 class="jua">고양이는 정말 귀여워</h1>
   <p class="tag">고양이 60+마리를 모아 나만의 마을을 키우는 힐링 방치 게임</p>
   <div class="badges">
     <a href="https://apps.apple.com/app/id1395888987"><img src="appstore-badge-ko.svg" alt="App Store에서 다운로드" style="background:#000"></a>
     <a href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><img src="googleplay-badge-ko.png" alt="Google Play에서 다운로드"></a>
   </div>
-  <p class="proof"><span class="s">★4.9</span> · 리뷰 71,000+ · 다운로드 10M+ · SINCE 2018</p>
+  <p class="proof jua"><span class="s">★4.9</span> · 리뷰 71,000+ · 다운로드 10M+ · since 2018</p>
   <div class="fan">
+    <div class="chip ch1"><img src="../assets/cats/cat001.png" alt="">꼬미 <span class="hh">♥</span></div>
+    <div class="chip ch2"><img src="../assets/cats/cat115.png" alt="">반미 <span class="hh">♥</span></div>
     <div class="ph l"><img src="../../shots/cats-cute/ko-2.jpg" alt="고양이 밥 주기 화면"></div>
     <div class="ph c"><img src="../../shots/cats-cute/ko-1.jpg" alt="고양이 마을 화면"></div>
     <div class="ph r"><img src="../../shots/cats-cute/ko-3.jpg" alt="고양이랑 놀기 화면"></div>
   </div>
 </header>
+<div class="scallop"></div>
 
 <div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
 
 <section>
   <div class="wrap">
     <div class="fblock">
-      <div class="ph"><img src="../../shots/cats-cute/ko-1.jpg" alt="" loading="lazy"></div>
+      <div class="phwrap">
+        <img class="peek" src="../assets/cats/cat118.png" alt="">
+        <div class="ph"><img src="../../shots/cats-cute/ko-1.jpg" alt="" loading="lazy"></div>
+      </div>
       <div>
-        <span class="k">고양이 수집</span>
-        <h2>이름도 성격도 다른<br>고양이 60+마리</h2>
+        <span class="k">🐱 고양이 수집</span>
+        <h2 class="jua">이름도 성격도 다른<br>고양이 60+마리</h2>
         <p>뽑기로 새 고양이를 만나요. 일반부터 레어·에픽까지, 고양이마다 얼굴도 취미도 할 말도 달라요. 레벨업할 때마다 들려주는 고양이들의 말이 이 게임의 백미.</p>
       </div>
     </div>
     <div class="fblock rev">
-      <div class="ph"><img src="../../shots/cats-cute/ko-2.jpg" alt="" loading="lazy"></div>
+      <div class="phwrap">
+        <img class="peek" src="../assets/cats/cat016.png" alt="">
+        <div class="ph"><img src="../../shots/cats-cute/ko-2.jpg" alt="" loading="lazy"></div>
+      </div>
       <div>
-        <span class="k">힐링 방치</span>
-        <h2>자리를 비워도<br>보상은 쌓여요</h2>
+        <span class="k">🐟 힐링 방치</span>
+        <h2 class="jua">자리를 비워도<br>보상은 쌓여요</h2>
         <p>건물이 알아서 생선을 만들어요. 하루 몇 분, 밥 주고 하트만 모으면 마을이 자라요. 광고는 보고 싶을 때만 — 강제 광고가 없어요.</p>
       </div>
     </div>
     <div class="fblock">
-      <div class="ph"><img src="../../shots/cats-cute/ko-3.jpg" alt="" loading="lazy"></div>
+      <div class="phwrap">
+        <img class="peek" src="../assets/cats/cat213.png" alt="">
+        <div class="ph"><img src="../../shots/cats-cute/ko-3.jpg" alt="" loading="lazy"></div>
+      </div>
       <div>
-        <span class="k">마을 꾸미기</span>
-        <h2>잉크로 그린 마을,<br>색은 고양이뿐</h2>
+        <span class="k">🏠 마을 꾸미기</span>
+        <h2 class="jua">잉크로 그린 마을,<br>색은 고양이뿐</h2>
         <p>손그림 잉크 라인의 마을에서 컬러는 오직 고양이. 건물을 올리고 장식을 놓아 구석구석 내 취향대로 꾸며보세요.</p>
       </div>
     </div>
   </div>
 </section>
 
+<div class="scallop cream flip"></div>
 <section class="reviews">
   <div class="wrap">
-    <h2>유저들의 진짜 리뷰</h2>
+    <h2 class="sec-h jua">유저들의 진짜 리뷰</h2>
+    <p class="sec-sub">App Store에 실제로 올라온 이야기들</p>
     <div class="rcards">
-      <div class="rcard"><div class="st">★★★★★</div><p>"기분 안 좋을 때 켜면 위로돼요. 레벨업 할 때마다 고양이들이 하는 말들 넘 좋아요…"</p><div class="by">App Store 리뷰</div></div>
-      <div class="rcard"><div class="st">★★★★★</div><p>"이 그림 특유의 느낌이 너무 깜찍하네요~^^"</p><div class="by">App Store 리뷰</div></div>
-      <div class="rcard"><div class="st">★★★★★</div><p>"고양이들 너무 귀엽고 광고도 적어서 좋아요! 🐈❤️"</p><div class="by">App Store 리뷰</div></div>
+      <div class="rcard"><img class="face" src="../assets/cats/cat007.png" alt=""><div class="st">★★★★★</div><p>"기분 안 좋을 때 켜면 위로돼요. 레벨업 할 때마다 고양이들이 하는 말들 넘 좋아요…"</p><div class="by">App Store 리뷰</div></div>
+      <div class="rcard"><img class="face" src="../assets/cats/cat109.png" alt=""><div class="st">★★★★★</div><p>"이 그림 특유의 느낌이 너무 깜찍하네요~^^"</p><div class="by">App Store 리뷰</div></div>
+      <div class="rcard"><img class="face" src="../assets/cats/cat221.png" alt=""><div class="st">★★★★★</div><p>"고양이들 너무 귀엽고 광고도 적어서 좋아요! 🐈❤️"</p><div class="by">App Store 리뷰</div></div>
     </div>
   </div>
 </section>
+<div class="scallop cream"></div>
 
 <section class="stats-sec">
   <div class="wrap">
-    <h2>7년째 사랑받는 고양이 마을</h2>
+    <h2 class="sec-h jua">7년째 사랑받는 고양이 마을</h2>
+    <p class="sec-sub">2018년부터, 작은 인디 스튜디오가 꾸준히</p>
     <div class="grid">
-      <div><div class="v">★4.9</div><div class="k">앱스토어 평점</div></div>
-      <div><div class="v">71,000+</div><div class="k">전 세계 리뷰</div></div>
-      <div><div class="v">10M+</div><div class="k">누적 다운로드</div></div>
-      <div><div class="v">2018</div><div class="k">서비스 시작</div></div>
+      <div class="cell"><img src="../assets/ui/toy.png" alt=""><div class="v">★4.9</div><div class="k">앱스토어 평점</div></div>
+      <div class="cell"><img src="../assets/ui/heart.png" alt=""><div class="v">71,000+</div><div class="k">전 세계 리뷰</div></div>
+      <div class="cell"><img src="../assets/ui/catfish.png" alt=""><div class="v">10M+</div><div class="k">누적 다운로드</div></div>
+      <div class="cell"><img src="../assets/ui/collection.png" alt=""><div class="v">2018</div><div class="k">서비스 시작</div></div>
     </div>
   </div>
 </section>
 
+<div class="skyline" aria-hidden="true"><div class="row">
+  <img src="../assets/props/tree2_3.png" style="height:120px" alt="">
+  <img src="../assets/props/bed.png" style="height:56px" alt="">
+  <img src="../assets/props/piano.png" style="height:62px" alt="">
+  <img src="../assets/cats/cat104.png" style="height:38px" alt="">
+  <img src="../assets/props/ball.png" style="height:26px" alt="">
+  <img src="../assets/props/basket3.png" style="height:46px" alt="">
+  <img src="../assets/props/cart1.png" style="height:56px" alt="">
+  <img src="../assets/props/flowers.png" style="height:36px" alt="">
+  <img src="../assets/props/chimney1.png" style="height:64px" alt="">
+  <img src="../assets/cats/cat302.png" style="height:38px" alt="">
+  <img src="../assets/props/tree4_3.png" style="height:96px" alt="">
+</div></div>
+
 <section class="final">
+  <img class="float g1" src="../assets/cats/cat021.png" alt="">
+  <img class="float g2" src="../assets/cats/cat001.png" alt="">
   <div class="wrap">
-    <h2>오늘도 고양이들이 기다리고 있어요</h2>
+    <h2 class="jua">오늘도 고양이들이 기다리고 있어요</h2>
     <p>iOS &amp; Android 무료</p>
     <div class="badges">
       <a href="https://apps.apple.com/app/id1395888987"><img src="appstore-badge-ko.svg" alt="App Store에서 다운로드" style="background:#000"></a>
