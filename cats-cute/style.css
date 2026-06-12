@@ -40,9 +40,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
   text-shadow:0 3px 0 rgba(140,80,10,.3)}
 .hero .tag{font-size:clamp(16px,2.2vw,20px);color:#fff;opacity:.96;margin:12px 0 26px;font-weight:700}
 .badges{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.badges img{height:54px;width:auto;border-radius:13px;border:3px solid #fff;
+.badges img{height:54px;width:178px;object-fit:contain;background:#000;
+  border-radius:13px;border:3px solid #fff;
   box-shadow:0 4px 0 rgba(120,70,10,.25);transition:transform .15s}
-.badges img.apple{background:#000}
 .badges a:hover img{transform:scale(1.06) rotate(-1deg)}
 .proof{margin:20px 0 36px;color:#fff;font-size:17px;text-shadow:0 1px 0 rgba(120,70,10,.2)}
 .proof .s{color:#fff0d6}
