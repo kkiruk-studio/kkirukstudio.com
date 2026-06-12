@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시안 K · 노선도 — kkiruk studio</title>
+<meta name="robots" content="noindex">
+<style>
+:root { --bg:#F4F6F8; --ink:#19222C; --dim:#76828F; --g1:#F09000; --g2:#2E6DE6; --g3:#22A06B; --card:#fff; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--ink); line-height:1.5;
+  font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo",sans-serif;
+  -webkit-font-smoothing:antialiased; padding-bottom:70px; }
+a { color:inherit; text-decoration:none; }
+.wrap { max-width:960px; margin:0 auto; padding:0 22px; }
+
+.mast { background:var(--ink); color:#fff; padding:34px 0 30px; }
+.mast .wrap { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.mast h1 { font-size:clamp(24px,3.8vw,36px); font-weight:800; letter-spacing:-.02em; }
+.mast h1 small { display:block; font-size:13px; font-weight:600; color:#9DA9B6; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px; }
+.mast .stats { display:flex; gap:24px; text-align:right; }
+.mast .stats b { display:block; font-size:21px; font-weight:800; }
+.mast .stats span { font-size:11px; color:#9DA9B6; }
+.notice { background:#fff; border-bottom:1px solid #E3E8ED; font-size:12.5px; color:var(--dim); }
+.notice .wrap { display:flex; gap:8px 26px; flex-wrap:wrap; padding:11px 22px; }
+.notice b { color:var(--ink); font-weight:700; }
+
+.linewrap { padding:38px 0 6px; }
+.linehead { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.linehead .no { width:34px; height:34px; border-radius:50%; color:#fff; font-weight:800; font-size:15px;
+  display:flex; align-items:center; justify-content:center; }
+.linehead h2 { font-size:18px; font-weight:800; }
+.linehead span { font-size:12.5px; color:var(--dim); }
+.line { position:relative; margin:0 0 14px; padding:10px 0; }
+.line::before { content:""; position:absolute; left:26px; right:26px; top:50%; height:10px;
+  transform:translateY(-50%); border-radius:999px; background:var(--lc); }
+.stations { display:flex; justify-content:space-between; position:relative; }
+.st { position:relative; width:120px; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.st .dot { width:54px; height:54px; border-radius:50%; background:#fff; border:5px solid var(--lc);
+  display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px -6px rgba(20,35,50,.3);
+  transition:transform .14s ease; }
+.st:hover .dot { transform:scale(1.14); }
+.st .dot img { width:34px; height:34px; border-radius:8px; }
+.st .dot.term { background:var(--lc); }
+.st .dot.term img { border-radius:8px; }
+.st b { font-size:13.5px; font-weight:750; margin-top:9px; letter-spacing:-.01em; }
+.st span { font-size:11px; color:var(--dim); margin-top:1px; max-width:130px; }
+.st .tag { display:inline-block; font-size:9.5px; font-weight:800; color:#fff; background:var(--lc);
+  border-radius:4px; padding:1px 6px; margin-top:4px; letter-spacing:.04em; }
+.transfer { font-size:11px; color:var(--dim); margin-top:3px; }
+
+.legend { margin:34px 0 0; background:var(--card); border:1px solid #E3E8ED; border-radius:16px; padding:20px 24px;
+  display:flex; gap:14px 36px; flex-wrap:wrap; align-items:center; font-size:13px; }
+.legend .k { font-weight:800; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--dim); }
+.legend span b { font-weight:750; }
+.legend i { display:inline-block; width:22px; height:8px; border-radius:99px; margin-right:7px; vertical-align:1px; }
+
+.cta { text-align:center; margin:44px 0 0; }
+.cta h3 { font-size:20px; font-weight:800; }
+.cta p { font-size:13.5px; color:var(--dim); margin-top:6px; }
+.cta a.b { display:inline-block; margin:14px 5px 0; background:var(--ink); color:#fff;
+  font-size:14px; font-weight:700; border-radius:999px; padding:11px 22px; }
+.cta a.b.g { background:#fff; color:var(--ink); border:1px solid #D7DDE3; }
+footer { text-align:center; font-size:12px; color:var(--dim); margin-top:36px; }
+footer a { margin:0 8px; }
+
+@media (max-width:820px) {
+  .line::before { left:50%; top:36px; bottom:36px; right:auto; width:10px; height:auto; transform:translateX(-50%); }
+  .stations { flex-direction:column; gap:26px; align-items:center; }
+  .st { width:100%; }
+}
+.switch { position:fixed; bottom:16px; right:16px; z-index:99; display:flex; gap:3px; flex-wrap:wrap; max-width:240px; justify-content:flex-end;
+  background:#fff; border:1px solid #DDE3E9; border-radius:18px; padding:6px 9px;
+  font-size:11px; font-weight:700; box-shadow:0 10px 26px -10px rgba(0,0,0,.3); }
+.switch a { padding:2px 6px; border-radius:999px; color:#8A95A2; }
+.switch a.on { background:var(--ink); color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="switch"><a href="a-craft.html">A</a><a href="b-editorial.html">B</a><a href="c-bento.html">C</a><a href="d-dark.html">D</a><a href="e-before.html">E</a><a href="f-terminal.html">F</a><a href="g-store.html">G</a><a href="h-poster.html">H</a><a href="i-desktop.html">I</a><a href="j-chat.html">J</a><a class="on" href="k-metro.html">K</a><a href="l-pixel.html">L</a><a href="m-receipt.html">M</a><a href="n-timeline.html">N</a></div>
+
+<div class="mast"><div class="wrap">
+  <h1><small>kkiruk studio route map · seoul · since 2016</small>끼룩 스튜디오 노선도</h1>
+  <div class="stats">
+    <div><b>1,000만+</b><span>누적 다운로드</span></div>
+    <div><b>★ 4.9</b><span>App Store</span></div>
+    <div><b>18만+</b><span>전 세계 리뷰</span></div>
+  </div>
+</div></div>
+<div class="notice"><div class="wrap">
+  <span>🏆 <b>App Store Featured</b></span><span>✦ <b>Google Play Editors' Choice</b></span>
+  <span>📖 <b>App Store 스토리 소개</b></span><span>🎮 <b>MobileSyrup GotW 10/10</b></span>
+</div></div>
+
+<div class="wrap">
+
+  <div class="linewrap" style="--lc:var(--g1)">
+    <div class="linehead"><span class="no" style="background:var(--g1)">1</span><h2>게임선</h2><span>2016 James Spring 발 — 고양이 방면</span></div>
+    <div class="line" style="--lc:var(--g1)">
+      <div class="stations">
+        <a class="st" style="--lc:var(--g1)" href="#"><span class="dot term"><span style="font-size:24px">🌷</span></span>
+          <b>James Spring·Summer</b><span>2016 · 기점 — 모든 것의 시작</span></a>
+        <a class="st" style="--lc:var(--g1)" href="#"><span class="dot"><img src="../icons/cats-cute.png" alt=""></span>
+          <b>고양이는 정말 귀여워</b><span>힐링 수집 마을 · ★4.9 리뷰 18만+</span><span class="tag">10M+ 환승역</span></a>
+        <a class="st" style="--lc:var(--g1)" href="#"><span class="dot"><img src="../icons/cats-pop.png" alt=""></span>
+          <b>고양이는 정말 팡팡</b><span>수박게임식 머지 퍼즐</span><span class="tag">App Store 스토리</span></a>
+        <a class="st" style="--lc:var(--g1)" href="#"><span class="dot"><img src="../icons/palette2048.png" alt=""></span>
+          <b>팔레트 2048</b><span>매일 명화의 색 2048</span><span class="tag">개통 예정</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="linewrap" style="--lc:var(--g2)">
+    <div class="linehead"><span class="no" style="background:var(--g2)">2</span><h2>앱선</h2><span>매일의 작은 결정 방면 · 7개 역</span></div>
+    <div class="line" style="--lc:var(--g2)">
+      <div class="stations">
+        <a class="st" style="--lc:var(--g2)" href="#"><span class="dot"><img src="../icons/thanyesterday.png" alt=""></span>
+          <b>어제보다</b><span>"어제보다 3° 포근해요"</span></a>
+        <a class="st" style="--lc:var(--g2)" href="#"><span class="dot"><img src="../icons/pinclip.png" alt=""></span>
+          <b>PinClip</b><span>릴스·쇼츠 북마크</span></a>
+        <a class="st" style="--lc:var(--g2)" href="#"><span class="dot"><img src="../icons/sidefeed.png" alt=""></span>
+          <b>Sidefeed</b><span>12개국 트렌드 리서치</span></a>
+        <a class="st" style="--lc:var(--g2)" href="#"><span class="dot"><img src="../icons/talkmemo.png" alt=""></span>
+          <b>Talk Memo</b><span>워치 녹음 → 텍스트</span></a>
+        <a class="st" style="--lc:var(--g2)" href="#"><span class="dot"><img src="../icons/honestcamera.png" alt=""></span>
+          <b>Honest Camera</b><span>아이의 첫 카메라</span></a>
+        <a class="st" style="--lc:var(--g2)" href="#"><span class="dot"><img src="../icons/locallink.png" alt=""></span>
+          <b>Local Link</b><span>여행 지도 검색</span><span class="tag">개통 예정</span></a>
+        <a class="st" style="--lc:var(--g2)" href="#"><span class="dot"><img src="../icons/switchboard.png" alt=""></span>
+          <b>SwitchBoard</b><span>Claude Code 모니터</span><span class="tag">macOS</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="linewrap" style="--lc:var(--g3)">
+    <div class="linehead"><span class="no" style="background:var(--g3)">3</span><h2>앱 바깥선</h2><span>스티커 · 굿즈 · 아트웍 방면</span></div>
+    <div class="line" style="--lc:var(--g3)">
+      <div class="stations">
+        <a class="st" style="--lc:var(--g3)" href="#"><span class="dot"><img src="../icons/sticker-finger.png" alt=""></span>
+          <b>손꾸락씨의 직장생활</b><span>LINE 스티커 · 5개 언어</span></a>
+        <a class="st" style="--lc:var(--g3)" href="#"><span class="dot"><img src="../icons/sticker-purrsday.png" alt=""></span>
+          <b>꼬미와 함께 애옹애옹</b><span>움직이는 고양이 스티커</span></a>
+        <a class="st" style="--lc:var(--g3)" href="#"><span class="dot"><img src="../icons/goods-mug.png" alt=""></span>
+          <b>굿즈 샵</b><span>공식 캐릭터 굿즈 · Marpple</span></a>
+        <a class="st" style="--lc:var(--g3)" href="#"><span class="dot"><img src="../icons/artwork.png" alt=""></span>
+          <b>Departures</b><span>플랍 2,560개의 명화 · 웹</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="k">이용 안내</span>
+    <span><i style="background:var(--g1)"></i>게임선 — <b>2016년 개통</b></span>
+    <span><i style="background:var(--g2)"></i>앱선 — <b>매일 운행</b></span>
+    <span><i style="background:var(--g3)"></i>앱 바깥선 — <b>메신저·책상 경유</b></span>
+    <span>전 노선 <b>1인 운영</b> · 서울</span>
+  </div>
+
+  <div class="cta">
+    <h3>분실물 · 민원 · 제휴 문의 🚇</h3>
+    <p>써 본 소감, 새 앱 아이디어, 함께 하고 싶은 일 — 역무실은 항상 열려 있어요.</p>
+    <a class="b" href="mailto:kkirukstudio.help@gmail.com">✉️ 일반 문의</a>
+    <a class="b g" href="mailto:kkirukstudio@gmail.com">💼 비즈니스</a>
+  </div>
+
+  <footer>© 2026 kkiruk studio · <a href="#">개인정보 처리방침</a>·<a href="#">이용약관</a>·<a href="#">Instagram</a>·<a href="#">App Store</a>·<a href="#">Google Play</a></footer>
+</div>
+
+</body>
+</html>

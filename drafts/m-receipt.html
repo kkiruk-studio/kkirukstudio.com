@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시안 M · 영수증 — kkiruk studio</title>
+<meta name="robots" content="noindex">
+<style>
+:root { --ink:#26241F; --dim:#85816F; --paper:#FFFEF8; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { min-height:100vh; padding:46px 14px 90px; line-height:1.6; color:var(--ink);
+  font-family:ui-monospace,"SF Mono",Menlo,"Apple SD Gothic Neo",monospace;
+  background:#8E9AA6 url('') ;
+  background-image:linear-gradient(160deg,#9AA6B2,#7E8C99); -webkit-font-smoothing:antialiased; }
+a { color:inherit; }
+.receipt { max-width:420px; margin:0 auto; background:var(--paper); padding:30px 26px 38px;
+  box-shadow:0 30px 70px -24px rgba(20,30,40,.65);
+  -webkit-clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),97% 100%,94% calc(100% - 8px),91% 100%,88% calc(100% - 8px),85% 100%,82% calc(100% - 8px),79% 100%,76% calc(100% - 8px),73% 100%,70% calc(100% - 8px),67% 100%,64% calc(100% - 8px),61% 100%,58% calc(100% - 8px),55% 100%,52% calc(100% - 8px),49% 100%,46% calc(100% - 8px),43% 100%,40% calc(100% - 8px),37% 100%,34% calc(100% - 8px),31% 100%,28% calc(100% - 8px),25% 100%,22% calc(100% - 8px),19% 100%,16% calc(100% - 8px),13% 100%,10% calc(100% - 8px),7% 100%,4% calc(100% - 8px),0 100%);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),97% 100%,94% calc(100% - 8px),91% 100%,88% calc(100% - 8px),85% 100%,82% calc(100% - 8px),79% 100%,76% calc(100% - 8px),73% 100%,70% calc(100% - 8px),67% 100%,64% calc(100% - 8px),61% 100%,58% calc(100% - 8px),55% 100%,52% calc(100% - 8px),49% 100%,46% calc(100% - 8px),43% 100%,40% calc(100% - 8px),37% 100%,34% calc(100% - 8px),31% 100%,28% calc(100% - 8px),25% 100%,22% calc(100% - 8px),19% 100%,16% calc(100% - 8px),13% 100%,10% calc(100% - 8px),7% 100%,4% calc(100% - 8px),0 100%); }
+.center { text-align:center; }
+.logo { font-size:34px; }
+h1 { font-size:18px; font-weight:800; letter-spacing:.14em; margin-top:6px; }
+.meta { font-size:11px; color:var(--dim); margin-top:4px; }
+.rule { border:none; border-top:1.5px dashed #C9C4B0; margin:16px 0; }
+.rule.solid { border-top:2px solid var(--ink); }
+.sec { font-size:11.5px; font-weight:800; letter-spacing:.18em; margin:14px 0 8px; }
+.it { display:flex; align-items:baseline; gap:8px; font-size:12.5px; padding:3.5px 0; }
+.it a.nm { font-weight:700; text-decoration:none; white-space:nowrap; }
+.it a.nm:hover { text-decoration:underline; }
+.it .dots { flex:1; border-bottom:1.5px dotted #C9C4B0; transform:translateY(-3px); }
+.it .pr { white-space:nowrap; font-weight:700; }
+.it .pr small { font-weight:400; color:var(--dim); }
+.de { font-size:10.5px; color:var(--dim); margin:-2px 0 3px 2px; }
+.tot { display:flex; justify-content:space-between; font-size:14px; font-weight:800; padding:3px 0; }
+.tot.sub { font-size:12px; font-weight:700; }
+.awards { font-size:10.5px; color:var(--dim); line-height:1.8; }
+.awards b { color:var(--ink); }
+.stamp { margin:18px auto 0; width:fit-content; transform:rotate(-9deg);
+  border:3px double #C0392B; color:#C0392B; border-radius:8px;
+  font-weight:800; font-size:13px; letter-spacing:.2em; padding:6px 14px; opacity:.85; }
+.barcode { margin:20px auto 0; height:44px; width:240px;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 7px,transparent 7px 9px,var(--ink) 9px 10px,transparent 10px 13px); }
+.bcnum { font-size:10px; letter-spacing:.34em; margin-top:5px; }
+.thanks { font-size:11.5px; margin-top:16px; line-height:1.8; }
+.thanks a { font-weight:700; }
+.switch { position:fixed; bottom:16px; right:16px; z-index:99; display:flex; gap:3px; flex-wrap:wrap; max-width:240px; justify-content:flex-end;
+  background:#fff; border:1px solid #CCC; border-radius:14px; padding:6px 9px;
+  font-size:11px; font-weight:700; font-family:-apple-system,sans-serif;
+  box-shadow:0 10px 26px -10px rgba(0,0,0,.4); }
+.switch a { padding:2px 6px; border-radius:999px; color:#8A95A2; text-decoration:none; }
+.switch a.on { background:#26241F; color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="switch"><a href="a-craft.html">A</a><a href="b-editorial.html">B</a><a href="c-bento.html">C</a><a href="d-dark.html">D</a><a href="e-before.html">E</a><a href="f-terminal.html">F</a><a href="g-store.html">G</a><a href="h-poster.html">H</a><a href="i-desktop.html">I</a><a href="j-chat.html">J</a><a href="k-metro.html">K</a><a href="l-pixel.html">L</a><a class="on" href="m-receipt.html">M</a><a href="n-timeline.html">N</a></div>
+
+<div class="receipt">
+  <div class="center">
+    <div class="logo">😻</div>
+    <h1>KKIRUK STUDIO</h1>
+    <p class="meta">서울 · 1인 인디 스튜디오 · SINCE 2016<br>www.kkirukstudio.com</p>
+    <p class="meta">영수증 NO. 2016-2026 · 담당: 끼룩 (혼자)</p>
+  </div>
+
+  <hr class="rule solid">
+  <p class="sec">[ 게임 ]</p>
+  <div class="it"><a class="nm" href="#">고양이는 정말 귀여워</a><span class="dots"></span><span class="pr">10,000,000+<small> DL</small></span></div>
+  <p class="de">고양이 수집 힐링 마을 · ★4.9 · 리뷰 18만+ · Featured</p>
+  <div class="it"><a class="nm" href="#">고양이는 정말 팡팡</a><span class="dots"></span><span class="pr">★4.9</span></div>
+  <p class="de">수박게임식 머지 퍼즐 · App Store 스토리 소개</p>
+  <div class="it"><a class="nm" href="#">팔레트 2048</a><span class="dots"></span><span class="pr"><small>곧 출시</small></span></div>
+  <p class="de">매일 명화의 색으로 즐기는 숫자 없는 2048</p>
+  <div class="it"><a class="nm" href="#">James Spring·Summer</a><span class="dots"></span><span class="pr">2016</span></div>
+  <p class="de">모든 것의 시작 — 숨바꼭질 러너 · 물 위의 아케이드</p>
+
+  <hr class="rule">
+  <p class="sec">[ 앱 ]</p>
+  <div class="it"><a class="nm" href="#">어제보다</a><span class="dots"></span><span class="pr">3<small>초</small></span></div>
+  <p class="de">"어제보다 3° 포근해요" — 오늘 입을 옷이 3초 만에</p>
+  <div class="it"><a class="nm" href="#">PinClip</a><span class="dots"></span><span class="pr">1<small>탭 저장</small></span></div>
+  <p class="de">릴스·쇼츠 북마크 — 공유 한 번으로</p>
+  <div class="it"><a class="nm" href="#">Sidefeed</a><span class="dots"></span><span class="pr">12<small>개국</small></span></div>
+  <p class="de">유튜브 트렌딩 + Radar Score 리서치</p>
+  <div class="it"><a class="nm" href="#">Talk Memo</a><span class="dots"></span><span class="pr">1<small>회 결제</small></span></div>
+  <p class="de">워치 한 탭 녹음 → iPhone 텍스트 · 평생 사용</p>
+  <div class="it"><a class="nm" href="#">Honest Camera</a><span class="dots"></span><span class="pr">0<small> 광고</small></span></div>
+  <p class="de">셔터 하나뿐인 아이의 첫 카메라</p>
+  <div class="it"><a class="nm" href="#">Local Link</a><span class="dots"></span><span class="pr"><small>곧 출시</small></span></div>
+  <p class="de">아는 이름으로 검색 → 현지 지도 앱으로</p>
+  <div class="it"><a class="nm" href="#">SwitchBoard</a><span class="dots"></span><span class="pr"><small>macOS</small></span></div>
+  <p class="de">Claude Code 메뉴바 모니터 · GitHub</p>
+
+  <hr class="rule">
+  <p class="sec">[ 앱 바깥 ]</p>
+  <div class="it"><a class="nm" href="#">손꾸락씨의 직장생활</a><span class="dots"></span><span class="pr">5<small>개 언어</small></span></div>
+  <div class="it"><a class="nm" href="#">꼬미와 함께 애옹애옹</a><span class="dots"></span><span class="pr"><small>LINE</small></span></div>
+  <div class="it"><a class="nm" href="#">굿즈 샵 (Marpple)</a><span class="dots"></span><span class="pr"><small>공식</small></span></div>
+  <div class="it"><a class="nm" href="#">Departures</a><span class="dots"></span><span class="pr">2,560<small> 플랍</small></span></div>
+
+  <hr class="rule solid">
+  <div class="tot sub"><span>소계 (게임 4 + 앱 7 + 기타 4)</span><span>15 작품</span></div>
+  <div class="tot sub"><span>만든 사람</span><span>1 명</span></div>
+  <div class="tot"><span>합계 다운로드</span><span>10,000,000+</span></div>
+  <div class="tot sub"><span>평점 / 리뷰</span><span>★4.9 / 180,000+</span></div>
+
+  <hr class="rule">
+  <p class="awards center">
+    🏆 <b>App Store Featured</b> · <b>Google Play Editors' Choice</b><br>
+    <b>App Store 스토리 소개</b> · <b>MobileSyrup GotW 10/10</b>
+  </p>
+
+  <div class="stamp">교환·환불 대신 업데이트</div>
+
+  <div class="center">
+    <div class="barcode"></div>
+    <p class="bcnum">K K I R U K · 2 0 1 6 · 2 0 2 6</p>
+    <p class="thanks">
+      이용해 주셔서 고맙습니다. 또 만들게요!<br>
+      문의: <a href="mailto:kkirukstudio.help@gmail.com">kkirukstudio.help@gmail.com</a><br>
+      비즈니스: <a href="mailto:kkirukstudio@gmail.com">kkirukstudio@gmail.com</a><br>
+      <a href="#">Instagram</a> · <a href="#">X</a> · <a href="#">GitHub</a> · <a href="#">App Store</a> · <a href="#">Google Play</a>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

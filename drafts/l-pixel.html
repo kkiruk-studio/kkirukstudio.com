@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시안 L · 레트로 콘솔 — kkiruk studio</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face { font-family:'NeoDGM'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_neodgm@1.530/NeoDunggeunmo.woff') format('woff'); font-display:swap; }
+:root { --bg:#1A1133; --screen:#241A45; --line:#4A3C7E; --txt:#EDE9FF; --dim:#9D92C8;
+  --yel:#FFD83D; --grn:#5DFF8F; --pnk:#FF7AC8; --cyn:#5FE0FF; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--txt); line-height:1.7;
+  font-family:'NeoDGM',ui-monospace,'Apple SD Gothic Neo',monospace;
+  -webkit-font-smoothing:none; padding:30px 14px 80px;
+  background-image:radial-gradient(circle at 20% 0%, #2A1B55 0%, transparent 50%); }
+a { color:inherit; text-decoration:none; }
+.console { max-width:860px; margin:0 auto; border:4px solid var(--line); border-radius:18px;
+  background:var(--screen); box-shadow:0 0 0 8px #120B26, 0 36px 90px -30px rgba(0,0,0,.9);
+  overflow:hidden; position:relative; }
+.console::after { content:""; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(transparent 0 2px, rgba(0,0,0,.12) 2px 4px); }
+.hud { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+  padding:13px 20px; border-bottom:4px solid var(--line); font-size:13px; color:var(--dim); }
+.hud b { color:var(--yel); }
+.inner { padding:28px 26px 34px; position:relative; z-index:1; }
+
+h1 { font-size:clamp(22px,4.4vw,38px); color:var(--yel); text-shadow:3px 3px 0 #7A4E00;
+  letter-spacing:.02em; line-height:1.3; }
+.tagline { margin-top:10px; font-size:15px; }
+.tagline b { color:var(--grn); }
+.press { margin-top:16px; font-size:13px; color:var(--cyn); animation:blink 1.2s steps(1) infinite; }
+@keyframes blink { 50% { opacity:0; } }
+
+.statusbar { display:flex; gap:10px 28px; flex-wrap:wrap; margin:24px 0 4px;
+  border:3px solid var(--line); border-radius:10px; padding:12px 16px; font-size:13.5px; }
+.statusbar b { color:var(--grn); font-size:17px; }
+.statusbar span { color:var(--dim); }
+.troph { margin:14px 0 0; font-size:12.5px; color:var(--dim); }
+.troph b { color:var(--pnk); }
+
+h2.lv { margin:32px 0 4px; font-size:16px; color:var(--cyn); }
+h2.lv::before { content:"▶ "; color:var(--pnk); }
+p.lvd { font-size:12.5px; color:var(--dim); margin-bottom:12px; }
+.carts { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+.cart { border:3px solid var(--line); border-radius:10px; padding:13px 14px; background:#2B2052;
+  position:relative; transition:transform .12s; }
+.cart:hover { transform:translateY(-3px); border-color:var(--yel); }
+.cart::before { content:""; position:absolute; top:8px; right:10px; width:26px; height:7px;
+  border-radius:2px; background:repeating-linear-gradient(90deg,var(--line) 0 4px,transparent 4px 7px); }
+.cart .ic { display:flex; gap:11px; align-items:center; }
+.cart img { width:42px; height:42px; border-radius:8px; image-rendering:auto; border:2px solid var(--line); }
+.cart img.w { background:#fff; }
+.cart b { font-size:14px; display:block; line-height:1.35; }
+.cart .sub { font-size:11px; color:var(--dim); display:block; }
+.cart p { font-size:11.5px; color:var(--dim); margin-top:9px; line-height:1.55; }
+.cart p em { font-style:normal; color:var(--grn); }
+.cart .badge { position:absolute; bottom:10px; right:12px; font-size:10px; color:var(--yel); }
+
+.dialog { margin:34px 0 0; border:3px solid var(--txt); border-radius:10px; padding:16px 18px;
+  font-size:14px; background:#160F30; }
+.dialog .nm { color:var(--yel); font-size:12px; display:block; margin-bottom:5px; }
+.dialog .opts { display:flex; gap:10px 22px; flex-wrap:wrap; margin-top:12px; font-size:13.5px; }
+.dialog .opts a { color:var(--grn); }
+.dialog .opts a::before { content:"▸ "; }
+.dialog .opts a:hover { color:var(--yel); }
+footer { text-align:center; font-size:11px; color:var(--dim); margin-top:22px; }
+footer a { margin:0 6px; text-decoration:underline; }
+.switch { position:fixed; bottom:16px; right:16px; z-index:99; display:flex; gap:3px; flex-wrap:wrap; max-width:240px; justify-content:flex-end;
+  background:#241A45; border:2px solid var(--line); border-radius:14px; padding:6px 9px;
+  font-size:11px; font-weight:700; font-family:-apple-system,sans-serif; }
+.switch a { padding:2px 6px; border-radius:999px; color:var(--dim); }
+.switch a.on { background:var(--yel); color:#1A1133; }
+</style>
+</head>
+<body>
+
+<div class="switch"><a href="a-craft.html">A</a><a href="b-editorial.html">B</a><a href="c-bento.html">C</a><a href="d-dark.html">D</a><a href="e-before.html">E</a><a href="f-terminal.html">F</a><a href="g-store.html">G</a><a href="h-poster.html">H</a><a href="i-desktop.html">I</a><a href="j-chat.html">J</a><a href="k-metro.html">K</a><a class="on" href="l-pixel.html">L</a><a href="m-receipt.html">M</a><a href="n-timeline.html">N</a></div>
+
+<div class="console">
+  <div class="hud"><span>PLAYER: <b>KKIRUK</b> (SEOUL)</span><span>YEAR 2016 → 2026</span><span>♥♥♥♥♥</span></div>
+  <div class="inner">
+
+    <h1>KKIRUK STUDIO</h1>
+    <p class="tagline">매일 쓰게 되는 <b>작은 앱들</b>을 만드는 1인 스튜디오</p>
+    <p class="press">▶ PRESS START TO EXPLORE</p>
+
+    <div class="statusbar">
+      <span>DOWNLOADS <b>10,000,000+</b></span>
+      <span>RATING <b>★4.9</b></span>
+      <span>REVIEWS <b>180,000+</b></span>
+      <span>CREW <b>1</b></span>
+    </div>
+    <p class="troph">🏆 ACHIEVEMENTS: <b>App Store Featured</b> · <b>GP Editors' Choice</b> · <b>App Store 스토리</b> · <b>MobileSyrup GotW 10/10</b></p>
+
+    <h2 class="lv">WORLD 1 — 게임</h2>
+    <p class="lvd">2016년 James Spring에서 시작된 모험</p>
+    <div class="carts">
+      <a class="cart" href="#"><div class="ic"><img src="../icons/cats-cute.png" alt="">
+        <div><b>고양이는 정말 귀여워</b><span class="sub">CATS ARE CUTE</span></div></div>
+        <p>고양이 수집 힐링 마을 — <em>10M+ DL · ★4.9 · 리뷰 18만+</em></p><span class="badge">★BEST</span></a>
+      <a class="cart" href="#"><div class="ic"><img src="../icons/cats-pop.png" alt="">
+        <div><b>고양이는 정말 팡팡</b><span class="sub">POP TIME!</span></div></div>
+        <p>수박게임식 머지 퍼즐 — <em>App Store 스토리 · ★4.9</em></p></a>
+      <a class="cart" href="#"><div class="ic"><img src="../icons/palette2048.png" alt="">
+        <div><b>팔레트 2048</b><span class="sub">ART PUZZLE</span></div></div>
+        <p>매일 명화의 색으로 즐기는 2048 — <em>COMING SOON</em></p></a>
+      <a class="cart" href="#"><div class="ic"><span style="font-size:30px;width:42px;text-align:center">🌷</span>
+        <div><b>James Spring·Summer</b><span class="sub">2016 ORIGIN</span></div></div>
+        <p>숨바꼭질 러너 · 물 위의 아케이드 — 모든 것의 시작</p></a>
+    </div>
+
+    <h2 class="lv">WORLD 2 — 앱</h2>
+    <p class="lvd">매일의 작은 결정을 도와주는 도구들</p>
+    <div class="carts">
+      <a class="cart" href="#"><div class="ic"><img src="../icons/thanyesterday.png" alt="">
+        <div><b>어제보다</b><span class="sub">WEATHER</span></div></div>
+        <p>"어제보다 3° 포근해요" — <em>옷이 3초 만에</em></p></a>
+      <a class="cart" href="#"><div class="ic"><img src="../icons/pinclip.png" alt="">
+        <div><b>PinClip</b><span class="sub">BOOKMARKS</span></div></div>
+        <p>릴스·쇼츠, 공유 한 번으로 저장 → 3초 만에 찾기</p></a>
+      <a class="cart" href="#"><div class="ic"><img src="../icons/sidefeed.png" alt="">
+        <div><b>Sidefeed</b><span class="sub">RESEARCH</span></div></div>
+        <p><em>12개국 유튜브 트렌딩</em> + Radar Score</p></a>
+      <a class="cart" href="#"><div class="ic"><img src="../icons/talkmemo.png" alt="">
+        <div><b>Talk Memo</b><span class="sub">WATCHOS</span></div></div>
+        <p>워치 한 탭 녹음 → iPhone 텍스트 — <em>한 번 결제</em></p></a>
+      <a class="cart" href="#"><div class="ic"><img src="../icons/honestcamera.png" alt="">
+        <div><b>Honest Camera</b><span class="sub">KIDS</span></div></div>
+        <p>셔터 하나뿐인 아이의 첫 카메라 — <em>광고 없음</em></p></a>
+      <a class="cart" href="#"><div class="ic"><img src="../icons/locallink.png" alt="">
+        <div><b>Local Link</b><span class="sub">TRAVEL</span></div></div>
+        <p>아는 이름 → 현지 지도 앱으로 — <em>COMING SOON</em></p></a>
+      <a class="cart" href="#"><div class="ic"><img src="../icons/switchboard.png" alt="">
+        <div><b>SwitchBoard</b><span class="sub">MACOS</span></div></div>
+        <p>Claude Code 메뉴바 모니터 — <em>GITHUB</em></p></a>
+    </div>
+
+    <h2 class="lv">BONUS STAGE — 앱 바깥</h2>
+    <p class="lvd">스티커 · 굿즈 · 아트웍</p>
+    <div class="carts">
+      <a class="cart" href="#"><div class="ic"><img class="w" src="../icons/sticker-finger.png" alt="">
+        <div><b>손꾸락씨의 직장생활</b><span class="sub">LINE · 5 LANG</span></div></div>
+        <p>출근하는 손가락의 오피스 라이프 스티커</p></a>
+      <a class="cart" href="#"><div class="ic"><img class="w" src="../icons/sticker-purrsday.png" alt="">
+        <div><b>꼬미와 함께 애옹애옹</b><span class="sub">LINE</span></div></div>
+        <p>움직이는 고양이 스티커</p></a>
+      <a class="cart" href="#"><div class="ic"><img class="w" src="../icons/goods-mug.png" alt="">
+        <div><b>굿즈 샵</b><span class="sub">MARPPLE</span></div></div>
+        <p>고양이는 정말 귀여워 공식 굿즈</p></a>
+      <a class="cart" href="#"><div class="ic"><img src="../icons/artwork.png" alt="">
+        <div><b>Departures</b><span class="sub">WEB ART</span></div></div>
+        <p>플랍 2,560개가 그리는 명화 — <em>별이 빛나는 밤</em></p></a>
+    </div>
+
+    <div class="dialog">
+      <span class="nm">끼룩</span>
+      「여기까지 와줘서 고마워! 소감·아이디어·협업, 뭐든 환영이야.」
+      <div class="opts">
+        <a href="mailto:kkirukstudio.help@gmail.com">말을 건다 (일반 문의)</a>
+        <a href="mailto:kkirukstudio@gmail.com">거래한다 (비즈니스)</a>
+        <a href="#">Instagram</a><a href="#">GitHub</a>
+      </div>
+    </div>
+
+    <footer>© 2026 KKIRUK STUDIO · <a href="#">개인정보 처리방침</a><a href="#">이용약관</a><a href="#">App Store</a><a href="#">Google Play</a></footer>
+  </div>
+</div>
+
+</body>
+</html>
