@@ -1,0 +1,3915 @@
+{
+ "en": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "Tiny",
+    "rarity": "Normal"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "Sam",
+    "rarity": "Normal"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "Oscar",
+    "rarity": "Normal"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "Max",
+    "rarity": "Normal"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "Daisy",
+    "rarity": "Normal"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "Patch",
+    "rarity": "Normal"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "Sunny",
+    "rarity": "Normal"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "Milo",
+    "rarity": "Normal"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "Choco",
+    "rarity": "Normal"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "Jamie",
+    "rarity": "Normal"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "Laura",
+    "rarity": "Normal"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "Salt",
+    "rarity": "Normal"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "Mimi",
+    "rarity": "Normal"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "Fortune",
+    "rarity": "Normal"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "Dunkin",
+    "rarity": "Rare"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "Tofu",
+    "rarity": "Rare"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "Sniffy",
+    "rarity": "Rare"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "Jasper",
+    "rarity": "Rare"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "Nuri",
+    "rarity": "Rare"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "Honey",
+    "rarity": "Rare"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "Banhmi",
+    "rarity": "Rare"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "Inari",
+    "rarity": "Rare"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "Willy",
+    "rarity": "Rare"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "Doremi",
+    "rarity": "Rare"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "Taz",
+    "rarity": "Epic"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "Fries",
+    "rarity": "Epic"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "Boots",
+    "rarity": "Epic"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "Dumpling",
+    "rarity": "Epic"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "Charlie",
+    "rarity": "Epic"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "Poppy",
+    "rarity": "Epic"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "Fluffy",
+    "rarity": "Epic"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "Cookie",
+    "rarity": "Epic"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "Harry",
+    "rarity": "Epic"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "Mewton",
+    "rarity": "Epic"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "Nano",
+    "rarity": "Epic"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "Walnut",
+    "rarity": "Epic"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "Sunday",
+    "rarity": "Epic"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "Happy",
+    "rarity": "Epic"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "Tabby",
+    "rarity": "Epic"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "Stella",
+    "rarity": "Epic"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "Peekaboo",
+    "rarity": "Special"
+   }
+  ],
+  "lines": [
+   "Food is good!",
+   "Aren't I cute?",
+   "Cheer up, human.",
+   "Wanna play with me?",
+   "High Five!",
+   "Warm sunlight...",
+   "I'm sleepy...",
+   "I know, I'm adorable."
+  ]
+ },
+ "ko": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "꼬미",
+    "rarity": "일반"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "나비",
+    "rarity": "일반"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "까망이",
+    "rarity": "일반"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "고등어",
+    "rarity": "일반"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "블리",
+    "rarity": "일반"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "두리",
+    "rarity": "일반"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "하늘이",
+    "rarity": "일반"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "꽁치",
+    "rarity": "일반"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "초코",
+    "rarity": "일반"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "덕구",
+    "rarity": "일반"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "라라",
+    "rarity": "일반"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "소금",
+    "rarity": "일반"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "미미",
+    "rarity": "일반"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "복덩이",
+    "rarity": "일반"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "만두",
+    "rarity": "레어"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "두부",
+    "rarity": "레어"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "마루",
+    "rarity": "레어"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "흰둥이",
+    "rarity": "레어"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "누리",
+    "rarity": "레어"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "꿀떡이",
+    "rarity": "레어"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "봄이",
+    "rarity": "레어"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "유부",
+    "rarity": "레어"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "버들이",
+    "rarity": "레어"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "도레미",
+    "rarity": "레어"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "꾸기",
+    "rarity": "에픽"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "감튀",
+    "rarity": "에픽"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "말랑이",
+    "rarity": "에픽"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "짬뽕",
+    "rarity": "에픽"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "자몽",
+    "rarity": "에픽"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "둥실이",
+    "rarity": "에픽"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "모모",
+    "rarity": "에픽"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "쿠키",
+    "rarity": "에픽"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "봉구",
+    "rarity": "에픽"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "꾸꾸",
+    "rarity": "에픽"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "나노",
+    "rarity": "에픽"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "호두",
+    "rarity": "에픽"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "순대",
+    "rarity": "에픽"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "행복이",
+    "rarity": "에픽"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "얼룩이",
+    "rarity": "에픽"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "별이",
+    "rarity": "에픽"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "까꿍이",
+    "rarity": "스페셜"
+   }
+  ],
+  "lines": [
+   "그래 이맛이야!",
+   "나 귀엽지",
+   "집사도 힘내라냥",
+   "나랑 놀 거야?",
+   "하이파이브!",
+   "따뜻한 햇살...",
+   "졸려...",
+   "나도 안다 귀여운거"
+  ]
+ },
+ "ja": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "ココミ",
+    "rarity": "通常"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "ぬこさん",
+    "rarity": "通常"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "クロ",
+    "rarity": "通常"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "サバ",
+    "rarity": "通常"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "ラブリー",
+    "rarity": "通常"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "グレイ",
+    "rarity": "通常"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "そら",
+    "rarity": "通常"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "さんま",
+    "rarity": "通常"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "ちょこ",
+    "rarity": "通常"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "カレー",
+    "rarity": "通常"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "ララ",
+    "rarity": "通常"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "おしお",
+    "rarity": "通常"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "ミミ",
+    "rarity": "通常"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "ふくすけ",
+    "rarity": "通常"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "まんじゅう",
+    "rarity": "レア"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "とうふ",
+    "rarity": "レア"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "しょうゆ",
+    "rarity": "レア"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "シロ",
+    "rarity": "レア"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "まんまる",
+    "rarity": "レア"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "はにー",
+    "rarity": "レア"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "はる",
+    "rarity": "レア"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "いなり",
+    "rarity": "レア"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "やなぎ",
+    "rarity": "レア"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "ドレミ",
+    "rarity": "レア"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "あらい",
+    "rarity": "エピック"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "ポテト",
+    "rarity": "エピック"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "ふわり",
+    "rarity": "エピック"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "ちゃんぽん",
+    "rarity": "エピック"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "オレンジ",
+    "rarity": "エピック"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "ぽかり",
+    "rarity": "エピック"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "モモ",
+    "rarity": "エピック"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "クッキー",
+    "rarity": "エピック"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "ほんだ",
+    "rarity": "エピック"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "ココリ",
+    "rarity": "エピック"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "ナノ",
+    "rarity": "エピック"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "くるみ",
+    "rarity": "エピック"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "サンデー",
+    "rarity": "エピック"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "さち",
+    "rarity": "エピック"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "しみちゃん",
+    "rarity": "エピック"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "ステラ",
+    "rarity": "エピック"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "ぴーかぶー",
+    "rarity": "スペシャル"
+   }
+  ],
+  "lines": [
+   "うまいよにゃ",
+   "かわいいだろ？",
+   "頑張ってにゃ",
+   "遊んでくれるのか？",
+   "ハイタッチ！",
+   "あたたかい日差し……",
+   "眠いよにゃ…",
+   "かわいいって？知ってる"
+  ]
+ },
+ "zh-hans": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "小不点",
+    "rarity": "普通"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "蝴蝶",
+    "rarity": "普通"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "黑喵",
+    "rarity": "普通"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "鲭鱼",
+    "rarity": "普通"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "小可爱",
+    "rarity": "普通"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "杜丽",
+    "rarity": "普通"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "天空",
+    "rarity": "普通"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "秋刀鱼",
+    "rarity": "普通"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "巧克力",
+    "rarity": "普通"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "德九",
+    "rarity": "普通"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "拉拉",
+    "rarity": "普通"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "小盐巴",
+    "rarity": "普通"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "咪咪",
+    "rarity": "普通"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "宝贝",
+    "rarity": "普通"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "饺子",
+    "rarity": "稀有"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "豆腐",
+    "rarity": "稀有"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "MARU",
+    "rarity": "稀有"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "小白",
+    "rarity": "稀有"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "努丽",
+    "rarity": "稀有"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "甜糕",
+    "rarity": "稀有"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "春儿",
+    "rarity": "稀有"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "油豆腐",
+    "rarity": "稀有"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "小柳",
+    "rarity": "稀有"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "哆瑞咪",
+    "rarity": "稀有"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "阿国",
+    "rarity": "史诗"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "薯条",
+    "rarity": "史诗"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "软绵绵",
+    "rarity": "史诗"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "辣海鲜面",
+    "rarity": "史诗"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "葡萄柚",
+    "rarity": "史诗"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "圆圆",
+    "rarity": "史诗"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "MOMO",
+    "rarity": "史诗"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "饼干",
+    "rarity": "史诗"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "奉九",
+    "rarity": "史诗"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "咕咕",
+    "rarity": "史诗"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "纳米",
+    "rarity": "史诗"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "核桃",
+    "rarity": "史诗"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "小血肠",
+    "rarity": "史诗"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "幸福",
+    "rarity": "史诗"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "小斑点",
+    "rarity": "史诗"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "星仔",
+    "rarity": "史诗"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "逗逗",
+    "rarity": "特别"
+   }
+  ],
+  "lines": [
+   "没错，就是这个味道！",
+   "我很可爱吧？",
+   "管家也加油吧！喵",
+   "要和我玩吗？",
+   "Highfive！",
+   "温暖的阳光...",
+   "好睏…",
+   "我也知道我很可爱"
+  ]
+ },
+ "zh-hant": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "小不點",
+    "rarity": "普通"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "蝴蝶",
+    "rarity": "普通"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "黑喵",
+    "rarity": "普通"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "鯖魚",
+    "rarity": "普通"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "小可愛",
+    "rarity": "普通"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "杜麗",
+    "rarity": "普通"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "天空",
+    "rarity": "普通"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "秋刀魚",
+    "rarity": "普通"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "巧克力",
+    "rarity": "普通"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "德九",
+    "rarity": "普通"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "拉拉",
+    "rarity": "普通"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "小鹽巴",
+    "rarity": "普通"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "咪咪",
+    "rarity": "普通"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "寶貝",
+    "rarity": "普通"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "餃子",
+    "rarity": "稀有"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "豆腐",
+    "rarity": "稀有"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "MARU",
+    "rarity": "稀有"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "小白",
+    "rarity": "稀有"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "努麗",
+    "rarity": "稀有"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "甜糕",
+    "rarity": "稀有"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "春兒",
+    "rarity": "稀有"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "油豆腐",
+    "rarity": "稀有"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "小柳",
+    "rarity": "稀有"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "哆瑞咪",
+    "rarity": "稀有"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "阿國",
+    "rarity": "史詩"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "薯條",
+    "rarity": "史詩"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "軟綿綿",
+    "rarity": "史詩"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "辣海鮮麵",
+    "rarity": "史詩"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "葡萄柚",
+    "rarity": "史詩"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "圓圓",
+    "rarity": "史詩"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "MOMO",
+    "rarity": "史詩"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "餅乾",
+    "rarity": "史詩"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "奉九",
+    "rarity": "史詩"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "咕咕",
+    "rarity": "史詩"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "奈米",
+    "rarity": "史詩"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "核桃",
+    "rarity": "史詩"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "小血腸",
+    "rarity": "史詩"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "幸福",
+    "rarity": "史詩"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "小斑點",
+    "rarity": "史詩"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "星仔",
+    "rarity": "史詩"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "逗逗",
+    "rarity": "特別"
+   }
+  ],
+  "lines": [
+   "沒錯，就是這個味道！",
+   "我很可愛吧？",
+   "管家也加油吧！喵",
+   "要和我玩嗎？",
+   "Highfive！",
+   "溫暖的陽光…",
+   "好睏…",
+   "我也知道我很可愛"
+  ]
+ },
+ "es": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "Peque",
+    "rarity": "Normal"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "Sam",
+    "rarity": "Normal"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "Óscar",
+    "rarity": "Normal"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "Max",
+    "rarity": "Normal"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "Margarita",
+    "rarity": "Normal"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "Manchita",
+    "rarity": "Normal"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "Sol",
+    "rarity": "Normal"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "Milo",
+    "rarity": "Normal"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "Choco",
+    "rarity": "Normal"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "Jamie",
+    "rarity": "Normal"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "Laura",
+    "rarity": "Normal"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "Sal",
+    "rarity": "Normal"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "Mimi",
+    "rarity": "Normal"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "Fortuna",
+    "rarity": "Normal"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "Dunkin",
+    "rarity": "Especial"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "Tofu",
+    "rarity": "Especial"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "Naricitas",
+    "rarity": "Especial"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "Jasper",
+    "rarity": "Especial"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "Nuri",
+    "rarity": "Especial"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "Miel",
+    "rarity": "Especial"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "Banhmi",
+    "rarity": "Especial"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "Inari",
+    "rarity": "Especial"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "Willy",
+    "rarity": "Especial"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "Doremi",
+    "rarity": "Especial"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "Taz",
+    "rarity": "Épico"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "Papitas",
+    "rarity": "Épico"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "Botitas",
+    "rarity": "Épico"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "Empanadilla",
+    "rarity": "Épico"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "Charlie",
+    "rarity": "Épico"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "Amapola",
+    "rarity": "Épico"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "Blandito",
+    "rarity": "Épico"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "Galletita",
+    "rarity": "Épico"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "Harry",
+    "rarity": "Épico"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "Miaurelio",
+    "rarity": "Épico"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "Nano",
+    "rarity": "Épico"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "Nuez",
+    "rarity": "Épico"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "Domingo",
+    "rarity": "Épico"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "Happy",
+    "rarity": "Épico"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "Tigrita",
+    "rarity": "Épico"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "Stella",
+    "rarity": "Épico"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "Cucú",
+    "rarity": "Exclusivo"
+   }
+  ],
+  "lines": [
+   "¡La comida mola!",
+   "¿No soy una monada?",
+   "Anímate, humano.",
+   "¿Quieres jugar conmigo?",
+   "¡Choca esos cinco!",
+   "A gustito al solecito...",
+   "Tengo sueño...",
+   "Lo sé, soy una monada."
+  ]
+ },
+ "pt": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "Mini",
+    "rarity": "Normal"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "Samuca",
+    "rarity": "Normal"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "Thiaguinho",
+    "rarity": "Normal"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "Marquinhos",
+    "rarity": "Normal"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "Ani",
+    "rarity": "Normal"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "Lambido",
+    "rarity": "Normal"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "Sol",
+    "rarity": "Normal"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "Milo",
+    "rarity": "Normal"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "Choco",
+    "rarity": "Normal"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "James",
+    "rarity": "Normal"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "Laura",
+    "rarity": "Normal"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "Sal",
+    "rarity": "Normal"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "Mimi",
+    "rarity": "Normal"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "Fortuna",
+    "rarity": "Normal"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "Donut",
+    "rarity": "Raro"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "Tofu",
+    "rarity": "Raro"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "Narizinho",
+    "rarity": "Raro"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "Tesouro",
+    "rarity": "Raro"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "Nuri",
+    "rarity": "Raro"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "Mel",
+    "rarity": "Raro"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "Banhmi",
+    "rarity": "Raro"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "Inari",
+    "rarity": "Raro"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "Willy",
+    "rarity": "Raro"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "Doremi",
+    "rarity": "Raro"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "Taz",
+    "rarity": "Épico"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "Batatitas",
+    "rarity": "Épico"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "Botinhas",
+    "rarity": "Épico"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "Bolinho",
+    "rarity": "Épico"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "Charlie",
+    "rarity": "Épico"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "Flor",
+    "rarity": "Épico"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "Fofinho",
+    "rarity": "Épico"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "Biscoitinho",
+    "rarity": "Épico"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "Harry",
+    "rarity": "Épico"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "Miauxicano",
+    "rarity": "Épico"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "Nano",
+    "rarity": "Épico"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "Nozi",
+    "rarity": "Épico"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "Domingos",
+    "rarity": "Épico"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "Felix",
+    "rarity": "Épico"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "Malhado",
+    "rarity": "Épico"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "Estrela",
+    "rarity": "Épico"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "Surpresinha",
+    "rarity": "Especial"
+   }
+  ],
+  "lines": [
+   "Comida boa!",
+   "Sou uma fofura, né?",
+   "Anime-se, humano.",
+   "Quer brincar comigo?",
+   "Toca aqui!",
+   "Sol quente...",
+   "Estou com sono...",
+   "Eu sei, sou adorável."
+  ]
+ },
+ "de": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "Mini-Mini",
+    "rarity": "Normal"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "Samson",
+    "rarity": "Normal"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "Oskar",
+    "rarity": "Normal"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "Max",
+    "rarity": "Normal"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "Daisy",
+    "rarity": "Normal"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "Patch",
+    "rarity": "Normal"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "Sunny",
+    "rarity": "Normal"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "Milo",
+    "rarity": "Normal"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "Schoko",
+    "rarity": "Normal"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "Jamie",
+    "rarity": "Normal"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "Laura",
+    "rarity": "Normal"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "Salzi",
+    "rarity": "Normal"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "Mimi",
+    "rarity": "Normal"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "Fortuna",
+    "rarity": "Normal"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "Donut",
+    "rarity": "Selten"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "Tofu",
+    "rarity": "Selten"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "Schnüffi",
+    "rarity": "Selten"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "Jasper",
+    "rarity": "Selten"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "Nuri",
+    "rarity": "Selten"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "Honig",
+    "rarity": "Selten"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "Banhmi",
+    "rarity": "Selten"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "Inari",
+    "rarity": "Selten"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "Willi",
+    "rarity": "Selten"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "Doremi",
+    "rarity": "Selten"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "Tatz",
+    "rarity": "Episch"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "Fritte",
+    "rarity": "Episch"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "Stiefel",
+    "rarity": "Episch"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "Maultasche",
+    "rarity": "Episch"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "Charlie",
+    "rarity": "Episch"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "Poppi",
+    "rarity": "Episch"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "Flauschi",
+    "rarity": "Episch"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "Keks",
+    "rarity": "Episch"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "Harry",
+    "rarity": "Episch"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "Mewton",
+    "rarity": "Episch"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "Nano",
+    "rarity": "Episch"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "Walnuß",
+    "rarity": "Episch"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "Sonntag",
+    "rarity": "Episch"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "Fröhli",
+    "rarity": "Episch"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "Tabbi",
+    "rarity": "Episch"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "Stella",
+    "rarity": "Episch"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "Kuckuck",
+    "rarity": "Spezial"
+   }
+  ],
+  "lines": [
+   "Futter ist gut!",
+   "Bin ich nicht süß?",
+   "Kopf hoch, Mensch.",
+   "Willst du mit mir spielen?",
+   "High Five!",
+   "Warmes Sonnenlicht ...",
+   "Ich bin müde ...",
+   "Ich weiß, ich bin zum Knuddeln."
+  ]
+ },
+ "fr": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "Piti",
+    "rarity": "Normal"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "Sam",
+    "rarity": "Normal"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "Oscar",
+    "rarity": "Normal"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "Max",
+    "rarity": "Normal"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "Pâquerette",
+    "rarity": "Normal"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "Patch",
+    "rarity": "Normal"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "Soleil",
+    "rarity": "Normal"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "Milo",
+    "rarity": "Normal"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "Choco",
+    "rarity": "Normal"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "Jamie",
+    "rarity": "Normal"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "Laura",
+    "rarity": "Normal"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "Sel",
+    "rarity": "Normal"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "Mimi",
+    "rarity": "Normal"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "Fortune",
+    "rarity": "Normal"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "Donut",
+    "rarity": "Rare"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "Tofu",
+    "rarity": "Rare"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "Sniffie",
+    "rarity": "Rare"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "Jasper",
+    "rarity": "Rare"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "Nuri",
+    "rarity": "Rare"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "Miel",
+    "rarity": "Rare"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "Banhmi",
+    "rarity": "Rare"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "Inari",
+    "rarity": "Rare"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "Willy",
+    "rarity": "Rare"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "Dorémi",
+    "rarity": "Rare"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "Taz",
+    "rarity": "Épique"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "Frite",
+    "rarity": "Épique"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "Mécano",
+    "rarity": "Épique"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "Ravioli",
+    "rarity": "Épique"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "Charlie",
+    "rarity": "Épique"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "Poppy",
+    "rarity": "Épique"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "Fluffy",
+    "rarity": "Épique"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "Cookie",
+    "rarity": "Épique"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "Harry",
+    "rarity": "Épique"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "Mewton",
+    "rarity": "Épique"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "Nano",
+    "rarity": "Épique"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "Noix",
+    "rarity": "Épique"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "Dimanche",
+    "rarity": "Épique"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "Joyeux",
+    "rarity": "Épique"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "Tigré",
+    "rarity": "Épique"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "Stella",
+    "rarity": "Épique"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "Kikou",
+    "rarity": "Spécial"
+   }
+  ],
+  "lines": [
+   "J'adore ça !",
+   "Je suis adorable, non ?",
+   "Courage, humain !",
+   "Tu veux jouer avec moi ?",
+   "Tape m'en cinq !",
+   "Bien au chaud, au soleil...",
+   "J'ai sommeil...",
+   "Je sais, je suis adorable."
+  ]
+ },
+ "ru": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "Кроха",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "Сэм",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "Оскар",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "Макс",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "Дейзи",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "Патч",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "Санни",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "Майло",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "Чоко",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "Джейми",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "Лаура",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "Соль",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "Мими",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "Фортуна",
+    "rarity": "Обычный"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "Пончик",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "Тофу",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "Сниффи",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "Джаспер",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "Нури",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "Медовик",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "Банми",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "Инари",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "Уилли",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "Дореми",
+    "rarity": "Редкий"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "Таз",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "Фри",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "Бутс",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "Пельмешка",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "Чарли",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "Поппи",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "Пушистик",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "Печенька",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "Гарри",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "Мьютон",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "Нано",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "Орешек",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "Пятница",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "Лаки",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "Тэбби",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "Стелла",
+    "rarity": "Эпический"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "Куку",
+    "rarity": "Особый"
+   }
+  ],
+  "lines": [
+   "Еда это хорошо!",
+   "Я - сама милота.",
+   "Веселей, человек.",
+   "Давай поиграем?",
+   "Дай пять!",
+   "На солнце тепло...",
+   "Хочу спать...",
+   "Знаю, что милый."
+  ]
+ },
+ "th": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "เจ้าเปี๊ยก",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "แซม",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "ออสการ์",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "แม็กซ์",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "เดซี่",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "แพทช์",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "ซันนี่",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "ไมโล",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "ช็อคโก้",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "เจมี่",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "ลอร่า",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "เกลือ",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "มีมี่",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "โชคลาภ",
+    "rarity": "ทั่วไป"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "ดังกิ้น",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "เต้าหู้",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "สนิฟฟี่",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "แจ๊สเปอร์",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "นูริ",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "ฮันนี่",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "บานมี่",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "อินาริ",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "วิลลี่",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "โดเรมี่",
+    "rarity": "แรร์"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "แท็ซ",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "ฟรายส์",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "บูทส์",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "เกี๊ยวซ่า",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "ชาร์ลี",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "ป๊อปปี้",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "ฟูฟู",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "คุกกี้",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "แฮรี่",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "มิวตั้น",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "นาโน",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "วอลนัท",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "ซันเดย์",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "แฮปปี้",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "แท็บบี้",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "สเตลล่า",
+    "rarity": "อีพิค"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "จ๊ะเอ๋",
+    "rarity": "พิเศษ"
+   }
+  ],
+  "lines": [
+   "ของกินคือดี!",
+   "ฉันน่ารักใช่มั้ย?",
+   "ร่าเริงหน่อย มานุด",
+   "อยากเล่นกับฉันมั้ย?",
+   "ไฮไฟว์!",
+   "แดดอบอุ่น...",
+   "ฉันง่วง...",
+   "ฉันรู้ ฉันน่ารัก"
+  ]
+ },
+ "id": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "Tiny",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "Sam",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "Oscar",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "Max",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "Daisy",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "Patch",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "Sunny",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "Milo",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "Choco",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "Jamie",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "Laura",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "Salt",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "Mimi",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "Fortune",
+    "rarity": "Biasa"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "Dunkin",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "Tofu",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "Sniffy",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "Jasper",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "Nuri",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "Honey",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "Banhmi",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "Inari",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "Willy",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "Doremi",
+    "rarity": "Jarang"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "Taz",
+    "rarity": "Epik"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "Fries",
+    "rarity": "Epik"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "Boots",
+    "rarity": "Epik"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "Dumpling",
+    "rarity": "Epik"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "Charlie",
+    "rarity": "Epik"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "Poppy",
+    "rarity": "Epik"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "Fluffy",
+    "rarity": "Epik"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "Cookie",
+    "rarity": "Epik"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "Harry",
+    "rarity": "Epik"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "Mewton",
+    "rarity": "Epik"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "Nano",
+    "rarity": "Epik"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "Walnut",
+    "rarity": "Epik"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "Sunday",
+    "rarity": "Epik"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "Happy",
+    "rarity": "Epik"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "Tabby",
+    "rarity": "Epik"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "Stella",
+    "rarity": "Epik"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "Cilukba",
+    "rarity": "Spesial"
+   }
+  ],
+  "lines": [
+   "Makanan ini enak!",
+   "Aku imut kan?",
+   "Semangat, Kepala Pelayan!",
+   "Mau main bersama?",
+   "High Five!",
+   "Matahari yang hangat...",
+   "Ngantuk…",
+   "Aku tahu kalau aku lucu."
+  ]
+ },
+ "vi": {
+  "cats": [
+   {
+    "id": "1",
+    "sprite": "cat001",
+    "tier": "normal",
+    "name": "Tiny",
+    "rarity": "BT"
+   },
+   {
+    "id": "3",
+    "sprite": "cat003",
+    "tier": "normal",
+    "name": "Sam",
+    "rarity": "BT"
+   },
+   {
+    "id": "4",
+    "sprite": "cat004",
+    "tier": "normal",
+    "name": "Oscar",
+    "rarity": "BT"
+   },
+   {
+    "id": "5",
+    "sprite": "cat005",
+    "tier": "normal",
+    "name": "Max",
+    "rarity": "BT"
+   },
+   {
+    "id": "7",
+    "sprite": "cat007",
+    "tier": "normal",
+    "name": "Daisy",
+    "rarity": "BT"
+   },
+   {
+    "id": "10",
+    "sprite": "cat010",
+    "tier": "normal",
+    "name": "Patch",
+    "rarity": "BT"
+   },
+   {
+    "id": "11",
+    "sprite": "cat011",
+    "tier": "normal",
+    "name": "Sunny",
+    "rarity": "BT"
+   },
+   {
+    "id": "15",
+    "sprite": "cat015",
+    "tier": "normal",
+    "name": "Milo",
+    "rarity": "BT"
+   },
+   {
+    "id": "16",
+    "sprite": "cat016",
+    "tier": "normal",
+    "name": "Choco",
+    "rarity": "BT"
+   },
+   {
+    "id": "17",
+    "sprite": "cat017",
+    "tier": "normal",
+    "name": "Jamie",
+    "rarity": "BT"
+   },
+   {
+    "id": "18",
+    "sprite": "cat018",
+    "tier": "normal",
+    "name": "Laura",
+    "rarity": "BT"
+   },
+   {
+    "id": "19",
+    "sprite": "cat019",
+    "tier": "normal",
+    "name": "Salt",
+    "rarity": "BT"
+   },
+   {
+    "id": "20",
+    "sprite": "cat020",
+    "tier": "normal",
+    "name": "Mimi",
+    "rarity": "BT"
+   },
+   {
+    "id": "21",
+    "sprite": "cat021",
+    "tier": "normal",
+    "name": "Fortune",
+    "rarity": "BT"
+   },
+   {
+    "id": "25",
+    "sprite": "cat104",
+    "tier": "rare",
+    "name": "Dunkin",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "27",
+    "sprite": "cat106",
+    "tier": "rare",
+    "name": "Tofu",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "30",
+    "sprite": "cat109",
+    "tier": "rare",
+    "name": "Sniffy",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "32",
+    "sprite": "cat111",
+    "tier": "rare",
+    "name": "Jasper",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "34",
+    "sprite": "cat113",
+    "tier": "rare",
+    "name": "Nuri",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "35",
+    "sprite": "cat114",
+    "tier": "rare",
+    "name": "Honey",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "36",
+    "sprite": "cat115",
+    "tier": "rare",
+    "name": "Banhmi",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "37",
+    "sprite": "cat116",
+    "tier": "rare",
+    "name": "Inari",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "38",
+    "sprite": "cat117",
+    "tier": "rare",
+    "name": "Willy",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "39",
+    "sprite": "cat118",
+    "tier": "rare",
+    "name": "Doremi",
+    "rarity": "Hiếm"
+   },
+   {
+    "id": "40",
+    "sprite": "cat201",
+    "tier": "epic",
+    "name": "Taz",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "41",
+    "sprite": "cat202",
+    "tier": "epic",
+    "name": "Fries",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "43",
+    "sprite": "cat204",
+    "tier": "epic",
+    "name": "Boots",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "45",
+    "sprite": "cat206",
+    "tier": "epic",
+    "name": "Dumpling",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "46",
+    "sprite": "cat207",
+    "tier": "epic",
+    "name": "Charlie",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "48",
+    "sprite": "cat209",
+    "tier": "epic",
+    "name": "Poppy",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "49",
+    "sprite": "cat210",
+    "tier": "epic",
+    "name": "Fluffy",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "50",
+    "sprite": "cat211",
+    "tier": "epic",
+    "name": "Cookie",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "51",
+    "sprite": "cat212",
+    "tier": "epic",
+    "name": "Harry",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "52",
+    "sprite": "cat213",
+    "tier": "epic",
+    "name": "Mewton",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "55",
+    "sprite": "cat216",
+    "tier": "epic",
+    "name": "Nano",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "56",
+    "sprite": "cat217",
+    "tier": "epic",
+    "name": "Walnut",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "57",
+    "sprite": "cat218",
+    "tier": "epic",
+    "name": "Sunday",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "58",
+    "sprite": "cat219",
+    "tier": "epic",
+    "name": "Happy",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "59",
+    "sprite": "cat220",
+    "tier": "epic",
+    "name": "Tabby",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "60",
+    "sprite": "cat221",
+    "tier": "epic",
+    "name": "Stella",
+    "rarity": "Đ.Biệt"
+   },
+   {
+    "id": "62",
+    "sprite": "cat302",
+    "tier": "special",
+    "name": "Peekaboo",
+    "rarity": "Độc Đáo"
+   }
+  ],
+  "lines": [
+   "Đồ ăn là ngon thôi!",
+   "Tớ dễ cưng không?",
+   "Vui lên nào con người.",
+   "Chơi với tớ đi?",
+   "Đập tay!",
+   "Ánh nắng ấm áp…",
+   "Tớ buồn ngủ quá…",
+   "Tớ biết tớ dễ cưng."
+  ]
+ }
+}

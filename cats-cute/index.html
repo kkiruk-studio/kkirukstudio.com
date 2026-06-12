@@ -1,12 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cats are Cute — A healing village of collectible cats</title>
-<meta name="description" content="A calm idle game where you collect cats and grow a cozy village. Short sessions are enough; rewards stack on their own. ★4.9 · 71,000+ reviews.">
-<link rel="icon" type="image/png" href="../icons/cats-cute.png">
-<link rel="apple-touch-icon" href="../icons/cats-cute.png">
+<title>Cats are Cute — A hand-drawn village of collectible cats</title>
+<meta name="description" content="A calm idle game loved since 2018. Collect 60+ hand-drawn cats, feed them, and grow a cozy ink-line village. ★4.9 · 71,000+ reviews · free on iOS & Android.">
+<meta property="og:title" content="Cats are Cute — Idle Cat Village">
+<meta property="og:description" content="A village drawn in ink, where only the cats are in color. ★4.9 · 71,000+ reviews.">
+<meta property="og:image" content="https://www.kkirukstudio.com/icons/cats-cute.png">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kkirukstudio.com/cats-cute/">
 <link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/cats-cute/ko.html">
 <link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/cats-cute/index.html">
 <link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/cats-cute/ja.html">
@@ -21,95 +24,158 @@
 <link rel="alternate" hreflang="id" href="https://www.kkirukstudio.com/cats-cute/id.html">
 <link rel="alternate" hreflang="vi" href="https://www.kkirukstudio.com/cats-cute/vi.html">
 <link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/cats-cute/index.html">
-<meta property="og:title" content="Cats are Cute — A healing village of collectible cats">
-<meta property="og:description" content="A calm idle game where you collect cats and grow a cozy village. Short sessions are enough; rewards stack on their own. ★4.9 · 71,000+ reviews.">
-<meta property="og:image" content="../icons/cats-cute.png">
-<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="../icons/cats-cute.png">
+<link rel="apple-touch-icon" href="../icons/cats-cute.png">
 <link rel="stylesheet" href="style.css">
-<link rel="canonical" href="https://www.kkirukstudio.com/cats-cute/">
+
 </head>
 <body>
 
-<header>
-  <div class="bar">
-    <a class="wordmark" href="index.html"><img src="../icons/cats-cute.png" alt="Cats are Cute">Cats are Cute</a>
-    <nav class="nav-right">
-      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
-        <option value="ko.html">한국어</option>
-        <option value="index.html" selected>EN</option>
-        <option value="ja.html">日本語</option>
-        <option value="zh-hans.html">简体中文</option>
-        <option value="zh-hant.html">繁體中文</option>
-        <option value="es.html">Español</option>
-        <option value="pt.html">Português</option>
-        <option value="de.html">Deutsch</option>
-        <option value="fr.html">Français</option>
-        <option value="ru.html">Русский</option>
-        <option value="th.html">ไทย</option>
-        <option value="id.html">Bahasa Indonesia</option>
-        <option value="vi.html">Tiếng Việt</option>
-      </select>
-      <a class="nav-cta" href="https://apps.apple.com/app/id1395888987" target="_blank" rel="noopener">App Store</a>
-    </nav>
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="./"><img src="../icons/cats-cute.png" alt="">Cats are Cute</a>
+    <select class="lang-select" onchange="location.href=this.value" aria-label="Language"><option value="ko.html">한국어</option><option value="index.html" selected>EN</option><option value="ja.html">日本語</option><option value="zh-hans.html">简体中文</option><option value="zh-hant.html">繁體中文</option><option value="es.html">Español</option><option value="pt.html">Português</option><option value="de.html">Deutsch</option><option value="fr.html">Français</option><option value="ru.html">Русский</option><option value="th.html">ไทย</option><option value="id.html">Bahasa Indonesia</option><option value="vi.html">Tiếng Việt</option></select>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost" aria-hidden="true">CAT</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>CATS ARE CUTE</span><span class="rule"></span><span class="num">IDLE CAT VILLAGE · SINCE 2018</span></div>
+      <h1>A village drawn in ink.<br><em>Only the cats are in color.</em></h1>
+      <div class="demo-kicker">LISTEN TO THE CATS</div>
+      <div class="demo wordbox">
+        <div class="who"><img id="demoFace" src="assets/cats/cat001.png" alt=""><span class="nm" id="demoName">Tiny</span></div>
+        <div class="line" id="demoLine">Food is good!</div>
+      </div>
+      <p class="sub">Collect 60+ cats — each with a name, a personality and something to say. Feed them, grow your village, and let rewards stack while you're away. Ads only when you choose to watch.</p>
+      <div class="cta">
+        <a class="store-badge b-ios" href="https://apps.apple.com/app/id1395888987"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a>
+        <a class="store-badge b-play" href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg><span class="txt"><small>GET IT ON</small><strong>Google Play</strong></span></a>
+        <span class="note">FREE · IOS &amp; ANDROID · NO FORCED ADS</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip wordbox c1"><img src="assets/cats/cat021.png" alt="">Fortune<span class="h">♥</span></div><div class="chip wordbox c2"><img src="assets/cats/cat104.png" alt="">Dunkin<span class="h">♥</span></div><div class="chip wordbox c3"><img src="assets/cats/cat302.png" alt="">Peekaboo<span class="h">♥</span></div>
+      <div class="phone"><img src="../shots/cats-cute/en-1.jpg" alt="Cats are Cute gameplay — an ink-drawn village with a cat speaking in a word box"><div class="island"></div></div>
+    </div>
   </div>
 </header>
 
-<main>
-<div class="hero">
-  <div class="hero-copy">
-    <p class="kicker">Cats are Cute</p>
-    <h1>Collect cats,<br><em>watch your village grow.</em></h1>
-    <p class="hero-sub">A calm, healing idle sim. A short session is plenty — rewards keep stacking while you're away. Ads only when you choose to watch.</p>
-    <div class="hero-cta-row">
-      <a class="appstore-btn" href="https://apps.apple.com/app/id1395888987" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
-      <span class="rating"><span class="stars">★★★★★</span>4.9 · 180,000+</span>
-    </div>
-    <p class="hero-foot">Since 2018 · 10M+ downloads across iOS & Android</p>
-  </div>
-  <div class="hero-visual" aria-hidden="true">
-    <div class="fan">
-      <img src="../shots/cats-cute/en-1.jpg" alt="">
-      <img src="../shots/cats-cute/en-2.jpg" alt="">
-      <img src="../shots/cats-cute/en-3.jpg" alt="">
-      <div class="score">★ 4.9<span>180,000+</span></div>
-    </div>
-  </div>
+<div class="skyline" aria-hidden="true"><div class="row"><img src="assets/props/tree2_3.png" style="height:120px" alt="" loading="lazy"><img src="assets/props/bed.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/piano.png" style="height:62px" alt="" loading="lazy"><img class="peek" src="assets/cats/cat104.png" style="height:38px" alt=""><img src="assets/props/ball.png" style="height:26px" alt="" loading="lazy"><img src="assets/props/basket3.png" style="height:46px" alt="" loading="lazy"><img src="assets/props/cart1.png" style="height:56px" alt="" loading="lazy"><img src="assets/props/flowers.png" style="height:36px" alt="" loading="lazy"><img src="assets/props/chimney1.png" style="height:64px" alt="" loading="lazy"><img class="peek" src="assets/cats/cat302.png" style="height:38px" alt=""><img src="assets/props/tree4_3.png" style="height:96px" alt="" loading="lazy"></div></div>
+
+<div class="marquee" aria-hidden="true"><div class="track"><img src="assets/cats/cat001.png" alt="" loading="lazy"><img src="assets/cats/cat003.png" alt="" loading="lazy"><img src="assets/cats/cat007.png" alt="" loading="lazy"><img src="assets/cats/cat010.png" alt="" loading="lazy"><img src="assets/cats/cat011.png" alt="" loading="lazy"><img src="assets/cats/cat015.png" alt="" loading="lazy"><img src="assets/cats/cat016.png" alt="" loading="lazy"><img src="assets/cats/cat021.png" alt="" loading="lazy"><img src="assets/cats/cat104.png" alt="" loading="lazy"><img src="assets/cats/cat106.png" alt="" loading="lazy"><img src="assets/cats/cat109.png" alt="" loading="lazy"><img src="assets/cats/cat113.png" alt="" loading="lazy"><img src="assets/cats/cat114.png" alt="" loading="lazy"><img src="assets/cats/cat115.png" alt="" loading="lazy"><img src="assets/cats/cat118.png" alt="" loading="lazy"><img src="assets/cats/cat201.png" alt="" loading="lazy"><img src="assets/cats/cat206.png" alt="" loading="lazy"><img src="assets/cats/cat210.png" alt="" loading="lazy"><img src="assets/cats/cat213.png" alt="" loading="lazy"><img src="assets/cats/cat221.png" alt="" loading="lazy"><img src="assets/cats/cat302.png" alt="" loading="lazy"><img src="assets/cats/cat020.png" alt="" loading="lazy"><img src="assets/cats/cat001.png" alt="" loading="lazy"><img src="assets/cats/cat003.png" alt="" loading="lazy"><img src="assets/cats/cat007.png" alt="" loading="lazy"><img src="assets/cats/cat010.png" alt="" loading="lazy"><img src="assets/cats/cat011.png" alt="" loading="lazy"><img src="assets/cats/cat015.png" alt="" loading="lazy"><img src="assets/cats/cat016.png" alt="" loading="lazy"><img src="assets/cats/cat021.png" alt="" loading="lazy"><img src="assets/cats/cat104.png" alt="" loading="lazy"><img src="assets/cats/cat106.png" alt="" loading="lazy"><img src="assets/cats/cat109.png" alt="" loading="lazy"><img src="assets/cats/cat113.png" alt="" loading="lazy"><img src="assets/cats/cat114.png" alt="" loading="lazy"><img src="assets/cats/cat115.png" alt="" loading="lazy"><img src="assets/cats/cat118.png" alt="" loading="lazy"><img src="assets/cats/cat201.png" alt="" loading="lazy"><img src="assets/cats/cat206.png" alt="" loading="lazy"><img src="assets/cats/cat210.png" alt="" loading="lazy"><img src="assets/cats/cat213.png" alt="" loading="lazy"><img src="assets/cats/cat221.png" alt="" loading="lazy"><img src="assets/cats/cat302.png" alt="" loading="lazy"><img src="assets/cats/cat020.png" alt="" loading="lazy"></div></div>
+
+<div class="stats">
+  <div class="wrap"><div class="stat"><div class="v"><em>★</em>4.9</div><div class="k">App Store rating</div></div><div class="stat"><div class="v">71,000+</div><div class="k">Store reviews</div></div><div class="stat"><div class="v">10M+</div><div class="k">Downloads</div></div><div class="stat"><div class="v">2018</div><div class="k">Running since</div></div></div>
 </div>
 
 <section>
   <div class="wrap">
-    <p class="sec-label">What it's like</p>
-    <h2 class="sec-title">No tricky controls. Just a village to gaze at.</h2>
-    <div class="features">
-      <div class="feature"><div class="dot"></div><h3>Collect all kinds of cats</h3><p>Each with its own face and personality. The more you collect, the richer your village grows.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Decorate your village</h3><p>Upgrade buildings and fill the cats' world with cozy decorations.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Idle-friendly</h3><p>Progress continues while the app is closed. Commutes and bedtime minutes are plenty.</p></div>
-      <div class="feature"><div class="dot"></div><h3>No forced ads</h3><p>Nothing interrupts you. Watch ads only when you want the bonus.</p></div>
+    <div class="kicker"><span>HOW IT WORKS</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>Feed. Collect. <em>Watch it grow.</em></h2>
+    <div class="steps"><div class="step wordbox"><span class="n">01</span><div class="ic"><img src="assets/ui/catfish.png" alt=""></div><span class="kicker" style="margin-bottom:6px"><span>FEED</span></span><h3>Serve fish, earn hearts</h3><p>Buildings produce fish on their own. Feed the cats and collect hearts to level up your village.</p></div><div class="step wordbox"><span class="n">02</span><div class="ic"><img src="assets/ui/gachaticket.png" alt=""></div><span class="kicker" style="margin-bottom:6px"><span>COLLECT</span></span><h3>Draw new cats</h3><p>Use draw tickets to meet new cats — Normal, Rare and Epic, each with its own face and habits.</p></div><div class="step wordbox"><span class="n">03</span><div class="ic"><img src="assets/ui/building.png" alt=""></div><span class="kicker" style="margin-bottom:6px"><span>GROW</span></span><h3>Build your village</h3><p>Upgrade buildings and fill the ink-line town with cozy spots for the cats to claim.</p></div></div>
+  </div>
+</section>
+
+<section class="collection">
+  <div class="wrap">
+    <div class="kicker"><span>CAT COLLECTION</span><span class="rule"></span><span class="num">60+ CATS</span></div>
+    <h2>Every cat has a name.<br><em>And opinions.</em></h2>
+    <p class="lede">These are real cats from the game — names, rarities and all. Tap a hidden card to draw one, just like the in-game gacha.</p>
+    <div class="tiles" id="tiles"><div class="tile wordbox normal"><img src="assets/cats/cat001.png" alt="Tiny" loading="lazy"><div class="nm">Tiny</div><span class="rr">Normal</span></div><div class="tile wordbox normal"><img src="assets/cats/cat021.png" alt="Fortune" loading="lazy"><div class="nm">Fortune</div><span class="rr">Normal</span></div><div class="tile wordbox normal"><img src="assets/cats/cat016.png" alt="Choco" loading="lazy"><div class="nm">Choco</div><span class="rr">Normal</span></div><div class="tile wordbox normal"><img src="assets/cats/cat007.png" alt="Daisy" loading="lazy"><div class="nm">Daisy</div><span class="rr">Normal</span></div><div class="tile wordbox rare"><img src="assets/cats/cat104.png" alt="Dunkin" loading="lazy"><div class="nm">Dunkin</div><span class="rr">Rare</span></div><div class="tile wordbox rare"><img src="assets/cats/cat113.png" alt="Nuri" loading="lazy"><div class="nm">Nuri</div><span class="rr">Rare</span></div><div class="tile wordbox rare"><img src="assets/cats/cat115.png" alt="Banhmi" loading="lazy"><div class="nm">Banhmi</div><span class="rr">Rare</span></div><div class="tile wordbox rare"><img src="assets/cats/cat118.png" alt="Doremi" loading="lazy"><div class="nm">Doremi</div><span class="rr">Rare</span></div><div class="tile wordbox epic"><img src="assets/cats/cat201.png" alt="Taz" loading="lazy"><div class="nm">Taz</div><span class="rr">Epic</span></div><div class="tile wordbox epic"><img src="assets/cats/cat210.png" alt="Fluffy" loading="lazy"><div class="nm">Fluffy</div><span class="rr">Epic</span></div><div class="tile wordbox epic"><img src="assets/cats/cat213.png" alt="Mewton" loading="lazy"><div class="nm">Mewton</div><span class="rr">Epic</span></div><div class="tile wordbox special"><img src="assets/cats/cat302.png" alt="Peekaboo" loading="lazy"><div class="nm">Peekaboo</div><span class="rr">Special</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div><div class="tile wordbox unknown" role="button" tabindex="0"><img src="assets/cats/unknown.png" alt="?" loading="lazy"><div class="nm">?</div><span class="rr">···</span></div></div>
+    <span class="col-hint">TAP A CARD TO DRAW</span>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>SCREENS</span><span class="rule"></span><span class="num">IN-GAME</span></div>
+    <h2>The village, <em>as it actually looks.</em></h2>
+    <div class="row"><figure><div class="phone"><img src="../shots/cats-cute/en-1.jpg" alt="LISTEN TO THE CATS" loading="lazy"><div class="island"></div></div><figcaption>LISTEN TO THE CATS</figcaption></figure><figure><div class="phone"><img src="../shots/cats-cute/en-2.jpg" alt="FEED THE CATS" loading="lazy"><div class="island"></div></div><figcaption>FEED THE CATS</figcaption></figure><figure><div class="phone"><img src="../shots/cats-cute/en-3.jpg" alt="PLAY WITH THE CATS" loading="lazy"><div class="island"></div></div><figcaption>PLAY WITH THE CATS</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>DETAILS</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>Calm by design. <em>For seven years.</em></h2>
+    <div class="grid6"><div class="feat wordbox"><div class="ic"><img src="assets/ui/catgrass.png" alt=""></div><h3>True idle</h3><p>Progress keeps stacking while the app is closed. A few minutes a day is plenty.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/heart.png" alt=""></div><h3>No forced ads</h3><p>Nothing interrupts you. Watch an ad only when you want the bonus.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/cat.png" alt=""></div><h3>60+ personalities</h3><p>Each cat has a name, a personality and favorite things to do around town.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/building.png" alt=""></div><h3>A town to decorate</h3><p>Upgrade buildings and dress up every corner of the village.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/collection.png" alt=""></div><h3>13 languages</h3><p>Loved in Japan, the US, Korea, Vietnam, Taiwan and far beyond.</p></div><div class="feat wordbox"><div class="ic"><img src="assets/ui/toy.png" alt=""></div><h3>7 years of care</h3><p>Run by a tiny indie studio since 2018 — ★4.9 across 71,000+ reviews.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="band">
+    <div class="wrap">
+      <h2>The cats are waiting for you today, too.</h2>
+      <p class="lede">Free on iOS &amp; Android.</p>
+      <div class="cta">
+        <a class="store-badge b-ios2" href="https://apps.apple.com/app/id1395888987"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a>
+        <a class="store-badge b-play2" href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg><span class="txt"><small>GET IT ON</small><strong>Google Play</strong></span></a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta">
-  <div class="wrap">
-    <h2 class="cta-title">The cats are waiting<br>for you today, too.</h2>
-    <p class="cta-sub">Free download · iOS & Android</p>
-    <a class="appstore-btn" href="https://apps.apple.com/app/id1395888987" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
-  </div>
-</section>
-</main>
-
 <footer>
-  <div class="wrap cols">
-    <span>© kkiruk studio</span>
-    <nav class="links">
-      <a href="/">kkiruk studio</a>
+  <div class="wrap">
+    <div class="brand"><img src="../icons/cats-cute.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
-      <a href="ko.html">한국어</a> <a href="ja.html">日本語</a> <a href="zh-hans.html">简体中文</a> <a href="zh-hant.html">繁體中文</a> <a href="es.html">Español</a> <a href="pt.html">Português</a> <a href="de.html">Deutsch</a> <a href="fr.html">Français</a> <a href="ru.html">Русский</a> <a href="th.html">ไทย</a> <a href="id.html">Bahasa Indonesia</a> <a href="vi.html">Tiếng Việt</a>
-    </nav>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">Terms</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
   </div>
 </footer>
 
+<script>
+  // Word-box demo: real in-game cats speaking real in-game lines.
+  const DEMO = [{"s": "cat001", "n": "Tiny", "t": "Food is good!"}, {"s": "cat021", "n": "Fortune", "t": "Aren't I cute?"}, {"s": "cat104", "n": "Dunkin", "t": "Cheer up, human."}, {"s": "cat115", "n": "Banhmi", "t": "Wanna play with me?"}, {"s": "cat201", "n": "Taz", "t": "High Five!"}, {"s": "cat210", "n": "Fluffy", "t": "Warm sunlight..."}, {"s": "cat302", "n": "Peekaboo", "t": "I'm sleepy..."}, {"s": "cat016", "n": "Choco", "t": "I know, I'm adorable."}];
+  const faceEl = document.getElementById("demoFace");
+  const nameEl = document.getElementById("demoName");
+  const lineEl = document.getElementById("demoLine");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      let i = 0;
+      for (;;) {
+        const d = DEMO[i % DEMO.length];
+        faceEl.src = "assets/cats/" + d.s + ".png";
+        nameEl.textContent = d.n;
+        lineEl.textContent = "";
+        for (const ch of d.t) { lineEl.textContent += ch; await sleep(55); }
+        await sleep(2400);
+        i++;
+      }
+    })();
+  }
+
+  // Collection gacha: tap a hidden card to draw a real cat from the pool.
+  const POOL = [{"s": "cat003", "n": "Sam", "r": "Normal", "t": "normal"}, {"s": "cat004", "n": "Oscar", "r": "Normal", "t": "normal"}, {"s": "cat005", "n": "Max", "r": "Normal", "t": "normal"}, {"s": "cat010", "n": "Patch", "r": "Normal", "t": "normal"}, {"s": "cat011", "n": "Sunny", "r": "Normal", "t": "normal"}, {"s": "cat015", "n": "Milo", "r": "Normal", "t": "normal"}, {"s": "cat017", "n": "Jamie", "r": "Normal", "t": "normal"}, {"s": "cat018", "n": "Laura", "r": "Normal", "t": "normal"}, {"s": "cat019", "n": "Salt", "r": "Normal", "t": "normal"}, {"s": "cat020", "n": "Mimi", "r": "Normal", "t": "normal"}, {"s": "cat106", "n": "Tofu", "r": "Rare", "t": "rare"}, {"s": "cat109", "n": "Sniffy", "r": "Rare", "t": "rare"}, {"s": "cat111", "n": "Jasper", "r": "Rare", "t": "rare"}, {"s": "cat114", "n": "Honey", "r": "Rare", "t": "rare"}, {"s": "cat116", "n": "Inari", "r": "Rare", "t": "rare"}, {"s": "cat117", "n": "Willy", "r": "Rare", "t": "rare"}, {"s": "cat202", "n": "Fries", "r": "Epic", "t": "epic"}, {"s": "cat204", "n": "Boots", "r": "Epic", "t": "epic"}, {"s": "cat206", "n": "Dumpling", "r": "Epic", "t": "epic"}, {"s": "cat207", "n": "Charlie", "r": "Epic", "t": "epic"}, {"s": "cat209", "n": "Poppy", "r": "Epic", "t": "epic"}, {"s": "cat211", "n": "Cookie", "r": "Epic", "t": "epic"}, {"s": "cat212", "n": "Harry", "r": "Epic", "t": "epic"}, {"s": "cat216", "n": "Nano", "r": "Epic", "t": "epic"}, {"s": "cat217", "n": "Walnut", "r": "Epic", "t": "epic"}, {"s": "cat218", "n": "Sunday", "r": "Epic", "t": "epic"}, {"s": "cat219", "n": "Happy", "r": "Epic", "t": "epic"}, {"s": "cat220", "n": "Tabby", "r": "Epic", "t": "epic"}, {"s": "cat221", "n": "Stella", "r": "Epic", "t": "epic"}];
+  for (let i = POOL.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [POOL[i], POOL[j]] = [POOL[j], POOL[i]];
+  }
+  document.querySelectorAll(".tile.unknown").forEach(tile => {
+    const draw = () => {
+      const c = POOL.pop();
+      if (!c) return;
+      tile.classList.remove("unknown");
+      tile.classList.add(c.t, "pop");
+      tile.removeAttribute("role");
+      tile.removeAttribute("tabindex");
+      tile.querySelector("img").src = "assets/cats/" + c.s + ".png";
+      tile.querySelector("img").alt = c.n;
+      tile.querySelector(".nm").textContent = c.n;
+      tile.querySelector(".rr").textContent = c.r;
+    };
+    tile.addEventListener("click", draw);
+    tile.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); draw(); }
+    });
+  });
+</script>
 </body>
 </html>
