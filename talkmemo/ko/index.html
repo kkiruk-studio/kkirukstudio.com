@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>토크 메모 — 시계에 대고 말하면, iPhone에 글자로</title>
+<meta name="description" content="Apple Watch 한 번 탭하고 말하면 끝. iPhone에 텍스트로 적혀 있어요. 변환은 전부 기기 안에서, Notion·Bear·Obsidian으로 바로 내보내기. 광고도 구독도 없습니다.">
+<meta property="og:title" content="토크 메모 — 말하면 글이 되는 손목 메모">
+<meta property="og:description" content="시계 탭, 말하기, 끝. 폰에 글자로 적혀 있어요.">
+<meta property="og:image" content="https://www.kkirukstudio.com/talkmemo/assets/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kkirukstudio.com/talkmemo/ko/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/talkmemo/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/talkmemo/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/talkmemo/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/talkmemo/ja/">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo", "Pretendard","Segoe UI",sans-serif}</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>TALK·MEMO</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/" class="cur">한국어</a><a href="../ja/">日本語</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost">T·M</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>TALK · MEMO</span><span class="rule"></span><span class="num">손이 바빠도 메모</span></div>
+      <h1>좋은 생각이 떠올랐나요?<br>시계에 대고 <em>말만 하세요</em></h1>
+      <div class="demo">
+        <span class="ctx" id="demoCtx">러닝 중</span>
+        <span class="rec"><span class="dot"></span><span class="bars"><i></i><i></i><i></i><i></i><i></i></span></span>
+        <span class="arrow">→</span>
+        <span class="dst" id="demoDst">다음 버전엔 위젯부터 만들자</span>
+      </div>
+      <p class="sub">좋은 생각은 꼭 폰이 멀리 있을 때 떠오르죠. 달리는 중에, 운전 중에, 머리 감다가. Apple Watch를 한 번 탭하고 말하면 — iPhone을 집어 들 때쯤엔 이미 글자가 되어 있어요.</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="#" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a>
+        <span class="note">한 번 결제 · 구독 없음 · iPhone &amp; Apple Watch</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="g">N</span>Notion</div><div class="chip c2"><span class="g">B</span>Bear</div><div class="chip c3"><span class="g">O</span>Obsidian</div><div class="chip c4"><span class="g">S</span>Siri</div>
+      <div class="phone"><img src="../assets/shot-ko-home-dark.png" alt="토크 메모 iPhone 홈 화면 — 음성 메모가 텍스트로 변환되어 정리된 모습"><div class="island"></div></div>
+      <div class="watch"><img src="../assets/watch-rec.png" alt="Apple Watch에서 토크 메모 녹음 중 — 실시간 레벨 미터"></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>러닝 중</span><span>운전 중</span><span>샤워하다가</span><span>강아지 산책</span><span>설거지 중</span><span>출근길</span><span>운동 중</span><span>불 끄고 누워서</span><span>러닝 중</span><span>운전 중</span><span>샤워하다가</span><span>강아지 산책</span><span>설거지 중</span><span>출근길</span><span>운동 중</span><span>불 끄고 누워서</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>사용 방법</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>"아, 이거 좋다"에서 <em>저장까지 3초</em>.</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">탭</span><h3>손목을 한 번 탭</h3><p>뛰던 걸음 그대로. 큰 빨간 버튼 하나면 녹음 시작 — 액션 버튼, 콤플리케이션, Siri로도 시작돼요.</p></div><div class="step"><span class="n">02</span><span class="tag">말</span><h3>생각을 그대로 말하기</h3><p>타이핑도, 화면 볼 필요도 없어요. 친구한테 말하듯 말하고 정지를 누르면 끝.</p></div><div class="step"><span class="n">03</span><span class="tag">글</span><h3>iPhone에 글자로</h3><p>토크 메모를 열면 이미 적혀 있어요. 변환은 전부 iPhone 안에서 — 목소리는 어디로도 나가지 않아요.</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>그 순간</span><span class="rule"></span><span class="num">3초</span></div>
+    <h2>폰을 꺼내는 순간, 생각은 <em>벌써 도망가요</em>.</h2>
+    <p class="lede">잠금 풀고, 앱 찾고, 타이핑하는 동안 좋은 생각은 기다려주지 않아요. 토크 메모는 그 전부를 탭 한 번과 한 문장으로 줄였어요.</p>
+    <div class="moment-table"><div class="moment-row"><span class="who">러닝 중</span><span class="arrow">→</span><span class="to">“다음 버전엔 위젯부터 만들자”</span><span class="cat">멈추지 않아도</span></div><div class="moment-row"><span class="who">운전 중</span><span class="arrow">→</span><span class="to">“우유랑 달걀 사 가기”</span><span class="cat">손은 핸들에</span></div><div class="moment-row"><span class="who">샤워하다가</span><span class="arrow">→</span><span class="to">“발표는 질문으로 시작하자”</span><span class="cat">젖은 손 OK</span></div><div class="moment-row"><span class="who">불 끄고 누워서</span><span class="arrow">→</span><span class="to">“선물 주말에 주문하기”</span><span class="cat">눈 감은 채로</span></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>내보내기</span><span class="rule"></span><span class="num">내 노트 앱으로</span></div>
+    <h2>메모는 <em>내가 쓰는 노트 앱</em>으로.</h2>
+    <p class="lede">토크 메모에 가둬두지 않아요. Notion은 진짜 API로 데이터베이스에 바로, Bear·Obsidian은 한 탭에, 나머지는 공유 시트로 어디든.</p>
+    <div class="providers"><div class="prov"><span class="g">N</span><h3>Notion</h3><p>진짜 API 연동 — 내 데이터베이스에 페이지로 바로 들어가요.</p></div><div class="prov"><span class="g">B</span><h3>Bear</h3><p>한 탭이면 Bear 새 노트로.</p></div><div class="prov"><span class="g">O</span><h3>Obsidian</h3><p>내 vault에 새 노트로 쏙.</p></div><div class="prov"><span class="g">⇪</span><h3>공유 시트</h3><p>Apple 메모, 카카오톡, 메시지 — iOS가 보낼 수 있는 곳 어디든.</p></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>화면</span><span class="rule"></span><span class="num">WATCH + IPHONE</span></div>
+    <h2>워치와 아이폰, <em>한 흐름</em>.</h2>
+    <div class="row"><figure><div class="watch"><img src="../assets/watch-rec.png" alt="Apple Watch에서 토크 메모 녹음 중 — 실시간 레벨 미터" loading="lazy"></div><figcaption>한 탭이면 녹음</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ko-home-dark.png" alt="토크 메모 iPhone 홈 화면 — 음성 메모가 텍스트로 변환되어 정리된 모습" loading="lazy"><div class="island"></div></div><figcaption>글자는 자동으로</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ko-home-light.png" alt="토크 메모 iPhone 홈 화면 — 음성 메모가 텍스트로 변환되어 정리된 모습" loading="lazy"><div class="island"></div></div><figcaption>라이트 &amp; 다크</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>디테일</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>작은 앱, <em>분명한 선택</em>.</h2>
+    <div class="grid6"><div class="feat"><h3>기기 안에서 변환</h3><p>음성 인식이 iPhone 안에서 돌아가요. 목소리가 서버로 올라가지 않아요.</p></div><div class="feat"><h3>광고·추적 없음</h3><p>분석도 계정도 없어요. 앱이 수집하는 데이터 0.</p></div><div class="feat"><h3>한 번 결제, 평생</h3><p>구독 없음, 잠금 해제 등급 없음, 결제 유도 없음.</p></div><div class="feat"><h3>iCloud 동기화</h3><p>메모가 내 iCloud로 iPad까지 따라와요. 우리 서버가 아니라요.</p></div><div class="feat"><h3>3개 언어 인식</h3><p>한국어·영어·일본어 음성 인식 — 언제든 전환.</p></div><div class="feat"><h3>어디서든 시작</h3><p>액션 버튼, 콤플리케이션, 도크, "시리야, 녹음 시작"까지.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>다음 아이디어는 "기억해야지"에 맡기지 마세요.</h2>
+    <p class="lede">iPhone &amp; Apple Watch용 토크 메모.</p>
+    <div class="cta"><a class="store-badge" id="storeLink2" href="#" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보 처리방침</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+  const APP_STORE_URL = "https://apps.apple.com/app/id6764329223";
+  if (APP_STORE_URL) {
+    document.getElementById("storeLink").href = APP_STORE_URL;
+    document.getElementById("storeLink2").href = APP_STORE_URL;
+  }
+
+  const pairs = [["러닝 중", "다음 버전엔 위젯부터 만들자"], ["운전 중", "집에 갈 때 우유랑 달걀 사기"], ["샤워하다가", "발표는 질문으로 시작하자"], ["새벽 3시", "유진이 선물 주말에 주문하기"]];
+  const ctxEl = document.getElementById("demoCtx");
+  const dstEl = document.getElementById("demoDst");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        const [ctx, text] = pairs[i % pairs.length];
+        ctxEl.textContent = ctx;
+        dstEl.textContent = "";
+        await sleep(500);
+        for (const ch of text) { dstEl.textContent += ch; await sleep(45); }
+        await sleep(2400);
+        i++;
+      }
+    })();
+  }
+</script>
+</body>
+</html>
