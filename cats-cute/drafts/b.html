@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>[시안 B] 고양이는 정말 귀여워 — 표준 게임 랜딩 문법</title>
+<style>
+:root{--orange:#f59a3e;--orange-deep:#e8862f;--ink:#3a2e22;--cream:#fff8ef}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Apple SD Gothic Neo","Pretendard",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--ink);line-height:1.6;overflow-x:hidden;background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* hero — full-bleed vivid */
+.hero{background:linear-gradient(160deg,#ffd9a3 0%,var(--orange) 55%,var(--orange-deep) 100%);
+  text-align:center;padding:72px 24px 0;position:relative;overflow:hidden}
+.hero .float{position:absolute;animation:bob 6s ease-in-out infinite;filter:drop-shadow(0 6px 10px rgba(90,50,0,.25))}
+.hero .f1{width:64px;top:14%;left:8%;animation-delay:0s}
+.hero .f2{width:52px;top:8%;right:12%;animation-delay:1.5s}
+.hero .f3{width:74px;top:42%;left:3%;animation-delay:3s}
+.hero .f4{width:58px;top:38%;right:5%;animation-delay:4.5s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(4deg)}}
+.appicon{width:108px;height:108px;border-radius:26px;margin:0 auto 22px;
+  box-shadow:0 12px 30px rgba(90,50,0,.35);border:4px solid rgba(255,255,255,.6)}
+.hero h1{font-size:clamp(36px,5.4vw,60px);font-weight:900;color:#fff;
+  text-shadow:0 3px 0 rgba(90,50,0,.25);letter-spacing:-.02em}
+.hero .tag{font-size:clamp(16px,2.2vw,21px);color:#fff;opacity:.95;margin:14px 0 26px;font-weight:600}
+.badges{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.badges img{height:54px;width:auto;border-radius:10px;transition:transform .15s}
+.badges a:hover img{transform:scale(1.05)}
+.proof{margin:20px 0 38px;color:#fff;font-weight:800;font-size:15px;text-shadow:0 1px 0 rgba(90,50,0,.2)}
+.proof .s{color:#ffe9c4}
+.fan{display:flex;justify-content:center;align-items:flex-end;gap:0;max-width:760px;margin:0 auto;transform:translateY(6px)}
+.fan .ph{width:230px;border-radius:30px;border:8px solid #2b2825;overflow:hidden;background:#fff;
+  box-shadow:0 18px 40px rgba(90,50,0,.4)}
+.fan .ph img{width:100%}
+.fan .l{transform:rotate(-7deg) translateY(26px) translateX(18px);z-index:1}
+.fan .c{z-index:2;width:250px}
+.fan .r{transform:rotate(7deg) translateY(26px) translateX(-18px);z-index:1}
+
+/* marquee */
+.marquee{background:#fff;padding:20px 0;overflow:hidden;border-bottom:1px solid #f0e6d8}
+.marquee .track{display:flex;gap:36px;width:max-content;animation:scroll 32s linear infinite}
+.marquee img{width:52px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* feature blocks */
+section{padding:84px 0}
+.fblock{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:84px}
+.fblock:last-child{margin-bottom:0}
+.fblock .ph{width:250px;border-radius:30px;border:8px solid #2b2825;overflow:hidden;margin:0 auto;
+  box-shadow:0 16px 36px rgba(90,50,0,.2)}
+.fblock .ph img{width:100%}
+.fblock .k{display:inline-block;background:var(--orange);color:#fff;font-weight:800;font-size:13px;
+  border-radius:99px;padding:5px 14px;margin-bottom:14px}
+.fblock h2{font-size:clamp(26px,3.4vw,36px);font-weight:900;letter-spacing:-.01em;margin-bottom:12px}
+.fblock p{font-size:16.5px;color:#7a6c5a}
+.fblock.rev .ph{order:2}
+.alt{background:var(--cream)}
+
+/* reviews */
+.reviews{background:var(--cream)}
+.reviews h2,.stats-sec h2{font-size:clamp(26px,3.4vw,36px);font-weight:900;text-align:center;margin-bottom:40px}
+.rcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rcard{background:#fff;border-radius:20px;padding:26px 24px;box-shadow:0 8px 24px rgba(90,50,0,.08)}
+.rcard .st{color:var(--orange);font-size:17px;letter-spacing:2px;margin-bottom:10px}
+.rcard p{font-size:15px;font-weight:600;margin-bottom:12px}
+.rcard .by{font-size:12px;color:#a8967f}
+
+/* stats */
+.stats-sec .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stats-sec .v{font-size:clamp(28px,3.6vw,42px);font-weight:900;color:var(--orange-deep)}
+.stats-sec .k{font-size:13px;color:#a8967f;font-weight:700}
+
+/* final */
+.final{background:linear-gradient(160deg,var(--orange) 0%,var(--orange-deep) 100%);text-align:center;color:#fff}
+.final h2{font-size:clamp(28px,4vw,44px);font-weight:900;text-shadow:0 3px 0 rgba(90,50,0,.25);margin-bottom:10px}
+.final p{font-size:17px;opacity:.95;margin-bottom:28px;font-weight:600}
+footer{background:#2b2825;color:#cfcac4;padding:34px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer a{color:#cfcac4;text-decoration:none;margin-left:18px}
+
+@media(max-width:860px){
+  .fan .ph{width:31vw;border-width:5px;border-radius:22px}
+  .fan .c{width:34vw}
+  .fblock{grid-template-columns:1fr;gap:34px;text-align:center}
+  .fblock.rev .ph{order:0}
+  .rcards{grid-template-columns:1fr}
+  .stats-sec .grid{grid-template-columns:repeat(2,1fr)}
+  .hero .f3,.hero .f4{display:none}
+}
+@media(prefers-reduced-motion:reduce){.hero .float,.marquee .track{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="float f1" src="../assets/cats/cat021.png" alt="">
+  <img class="float f2" src="../assets/cats/cat104.png" alt="">
+  <img class="float f3" src="../assets/cats/cat302.png" alt="">
+  <img class="float f4" src="../assets/cats/cat210.png" alt="">
+  <img class="appicon" src="../../icons/cats-cute.png" alt="고양이는 정말 귀여워 앱 아이콘">
+  <h1>고양이는 정말 귀여워</h1>
+  <p class="tag">고양이 60+마리를 모아 나만의 마을을 키우는 힐링 방치 게임</p>
+  <div class="badges">
+    <a href="https://apps.apple.com/app/id1395888987"><img src="appstore-badge-ko.svg" alt="App Store에서 다운로드" style="background:#000"></a>
+    <a href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><img src="googleplay-badge-ko.png" alt="Google Play에서 다운로드"></a>
+  </div>
+  <p class="proof"><span class="s">★4.9</span> · 리뷰 71,000+ · 다운로드 10M+ · SINCE 2018</p>
+  <div class="fan">
+    <div class="ph l"><img src="../../shots/cats-cute/ko-2.jpg" alt="고양이 밥 주기 화면"></div>
+    <div class="ph c"><img src="../../shots/cats-cute/ko-1.jpg" alt="고양이 마을 화면"></div>
+    <div class="ph r"><img src="../../shots/cats-cute/ko-3.jpg" alt="고양이랑 놀기 화면"></div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="fblock">
+      <div class="ph"><img src="../../shots/cats-cute/ko-1.jpg" alt="" loading="lazy"></div>
+      <div>
+        <span class="k">고양이 수집</span>
+        <h2>이름도 성격도 다른<br>고양이 60+마리</h2>
+        <p>뽑기로 새 고양이를 만나요. 일반부터 레어·에픽까지, 고양이마다 얼굴도 취미도 할 말도 달라요. 레벨업할 때마다 들려주는 고양이들의 말이 이 게임의 백미.</p>
+      </div>
+    </div>
+    <div class="fblock rev">
+      <div class="ph"><img src="../../shots/cats-cute/ko-2.jpg" alt="" loading="lazy"></div>
+      <div>
+        <span class="k">힐링 방치</span>
+        <h2>자리를 비워도<br>보상은 쌓여요</h2>
+        <p>건물이 알아서 생선을 만들어요. 하루 몇 분, 밥 주고 하트만 모으면 마을이 자라요. 광고는 보고 싶을 때만 — 강제 광고가 없어요.</p>
+      </div>
+    </div>
+    <div class="fblock">
+      <div class="ph"><img src="../../shots/cats-cute/ko-3.jpg" alt="" loading="lazy"></div>
+      <div>
+        <span class="k">마을 꾸미기</span>
+        <h2>잉크로 그린 마을,<br>색은 고양이뿐</h2>
+        <p>손그림 잉크 라인의 마을에서 컬러는 오직 고양이. 건물을 올리고 장식을 놓아 구석구석 내 취향대로 꾸며보세요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <h2>유저들의 진짜 리뷰</h2>
+    <div class="rcards">
+      <div class="rcard"><div class="st">★★★★★</div><p>"기분 안 좋을 때 켜면 위로돼요. 레벨업 할 때마다 고양이들이 하는 말들 넘 좋아요…"</p><div class="by">App Store 리뷰</div></div>
+      <div class="rcard"><div class="st">★★★★★</div><p>"이 그림 특유의 느낌이 너무 깜찍하네요~^^"</p><div class="by">App Store 리뷰</div></div>
+      <div class="rcard"><div class="st">★★★★★</div><p>"고양이들 너무 귀엽고 광고도 적어서 좋아요! 🐈❤️"</p><div class="by">App Store 리뷰</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-sec">
+  <div class="wrap">
+    <h2>7년째 사랑받는 고양이 마을</h2>
+    <div class="grid">
+      <div><div class="v">★4.9</div><div class="k">앱스토어 평점</div></div>
+      <div><div class="v">71,000+</div><div class="k">전 세계 리뷰</div></div>
+      <div><div class="v">10M+</div><div class="k">누적 다운로드</div></div>
+      <div><div class="v">2018</div><div class="k">서비스 시작</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>오늘도 고양이들이 기다리고 있어요</h2>
+    <p>iOS &amp; Android 무료</p>
+    <div class="badges">
+      <a href="https://apps.apple.com/app/id1395888987"><img src="appstore-badge-ko.svg" alt="App Store에서 다운로드" style="background:#000"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"><img src="googleplay-badge-ko.png" alt="Google Play에서 다운로드"></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 kkiruk studio</div>
+    <div>
+      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보 처리방침</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
+    </div>
+  </div>
+</footer>
+
+<div style="position:fixed;bottom:18px;right:18px;z-index:99;display:flex;gap:6px;align-items:center;background:#fff;border:2px solid #4a4744;border-radius:99px;padding:6px 10px;font:700 13px ui-rounded,-apple-system,sans-serif;box-shadow:0 3px 0 rgba(0,0,0,.15)">
+<span style="font-size:11px;color:#6f6a64">시안</span>
+<a href="a.html" style="text-decoration:none;color:#2b2825;border-radius:99px;padding:3px 10px">A</a>
+<a href="b.html" style="text-decoration:none;background:#e8862f;color:#fff;border-radius:99px;padding:3px 10px">B</a>
+<a href="c.html" style="text-decoration:none;color:#2b2825;border-radius:99px;padding:3px 10px">C</a>
+</div>
+
+<script>
+const SP=["cat001","cat003","cat007","cat010","cat011","cat015","cat016","cat021","cat104","cat106","cat109","cat113","cat114","cat115","cat118","cat201","cat206","cat210","cat213","cat221","cat302","cat020"];
+document.getElementById("mq").innerHTML=SP.concat(SP).map(s=>`<img src="../assets/cats/${s}.png" alt="" loading="lazy">`).join("");
+</script>
+</body>
+</html>
