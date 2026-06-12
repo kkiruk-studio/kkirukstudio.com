@@ -168,8 +168,8 @@ def langsel(cur):
     short={'en':'EN','ko':'한국어','ja':'日本語','zh-Hans':'简体中文','zh-Hant':'繁體中文'}
     return "\n".join(f'        <option value="{f}"{" selected" if c==cur else ""}>{short[c]}</option>' for c,f,_ in LANGS)
 def hreflang():
-    out=[f'<link rel="alternate" hreflang="{c}" href="{f}">' for c,f,_ in LANGS]
-    out.append('<link rel="alternate" hreflang="x-default" href="index.html">')
+    out=[f'<link rel="alternate" hreflang="{c}" href="https://www.kkirukstudio.com/palette2048/{f}">' for c,f,_ in LANGS]
+    out.append('<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/palette2048/index.html">')
     return "\n".join(out)
 def footlangs(cur):
     return "\n".join(f'      <a href="{f}">{name}</a>' for c,f,name in LANGS if c!=cur)
@@ -194,7 +194,7 @@ TMPL='''<!DOCTYPE html>
 <title>{title}</title>
 <meta name="description" content="{desc}">
 {hreflang}
-<link rel="canonical" href="{self}">
+<link rel="canonical" href="https://www.kkirukstudio.com/palette2048/{self}">
 <meta property="og:title" content="{ogt}">
 <meta property="og:description" content="{ogd}">
 <link rel="icon" type="image/png" href="icon.png">

@@ -104,9 +104,11 @@ def render_head(app, lang, langs, s, icon=None, og_image=None, extra_head=""):
     htmllang = HTML_LANG.get(lang, lang)
     icon = icon or f"../icons/{slug}.png"
     og_image = og_image or icon
+    base = f"https://www.kkirukstudio.com/{slug}"
     hreflangs = "\n".join(
-        f'<link rel="alternate" hreflang="{HREFLANG.get(l, l)}" href="{page_file(l)}">' for l in langs
-    ) + '\n<link rel="alternate" hreflang="x-default" href="index.html">'
+        f'<link rel="alternate" hreflang="{HREFLANG.get(l, l)}" href="{base}/{page_file(l)}">' for l in langs
+    ) + f'\n<link rel="alternate" hreflang="x-default" href="{base}/index.html">'
+    hreflangs += f'\n<link rel="canonical" href="{base}/{page_file(lang)}">'
     return f"""<!DOCTYPE html>
 <html lang="{htmllang}">
 <head>

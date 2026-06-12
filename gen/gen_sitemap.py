@@ -40,7 +40,7 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
         if 'http-equiv="refresh"' in head:
             continue
         m = re.search(r'rel="canonical"\s+href="([^"]+)"', head)
-        if m:
+        if m and m.group(1).startswith("http"):
             url = m.group(1)
         else:
             p = relf.replace(os.sep, "/")
