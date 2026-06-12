@@ -300,6 +300,7 @@ def render(key):
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="stylesheet" href="assets/style.css">
 {font_override}
+<script src="/ga.js"></script>
 </head>
 <body>
 

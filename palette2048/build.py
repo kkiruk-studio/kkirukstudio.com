@@ -202,6 +202,7 @@ TMPL='''<!DOCTYPE html>
 <meta property="og:image" content="icon.png">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="style.css">
+<script src="/ga.js"></script>
 </head>
 <body>
 

@@ -124,6 +124,7 @@ def render_head(app, lang, langs, s, icon=None, og_image=None, extra_head=""):
 <meta property="og:image" content="{og_image}">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="style.css">{extra_head}
+<script src="/ga.js"></script>
 </head>
 <body>"""
 
