@@ -90,3 +90,4 @@ footer .links { display:flex; gap:16px; flex-wrap:wrap; }
 @keyframes pop { 0%,100% { transform:scale(1); } 50% { transform:scale(1.14); } }
 @keyframes bob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
 @media (max-width:520px) { .fan { transform:scale(.84); margin:-26px 0; } }
+.appstore-btn svg.gp { width:20px; height:20px; }

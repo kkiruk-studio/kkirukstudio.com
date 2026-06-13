@@ -7,6 +7,9 @@ import os
 SITE = os.path.join(os.path.dirname(__file__), "..")
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
+GOOGLE_SVG = '<svg viewBox="0 0 512 512" class="gp" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>'
+
+PLAY_HL = {"zh-hans": "zh-CN", "zh-hant": "zh-TW"}  # 그 외 lang 그대로 사용
 
 LANG_NAMES = {
     "en": "EN", "ko": "한국어", "ja": "日本語", "zh-hans": "简体中文", "zh-hant": "繁體中文",
@@ -97,6 +100,14 @@ footer .links {{ display:flex; gap:16px; flex-wrap:wrap; }}
 def store_url(app, lang):
     return f"https://apps.apple.com/{STORE_CC.get(lang, '')}app/id{app['trackId']}"
 
+
+def play_url(app, lang):
+    """app['play_id'](안드로이드 패키지명)가 있을 때만 Google Play URL 반환, 없으면 None."""
+    pid = app.get("play_id")
+    if not pid:
+        return None
+    return f"https://play.google.com/store/apps/details?id={pid}&hl={PLAY_HL.get(lang, lang)}"
+
 # ── 공유 빌딩블록 (단순·리치 랜딩 모두 사용) ──────────────────
 def render_head(app, lang, langs, s, icon=None, og_image=None, extra_head=""):
     """공통 <head> + <body> 시작. 리치 랜딩은 extra_head 로 추가 메타/프리로드 주입."""
@@ -172,6 +183,13 @@ def render_footer(app, lang, langs, s):
 
 def render_page(app, lang, s, langs):
     store = store_url(app, lang)
+    # Google Play 버튼 — play_id 있는 앱만. 없으면 빈 문자열이라 iOS 전용 앱 출력은 불변.
+    play = play_url(app, lang)
+    play_btn = play_btn_cta = ""
+    if play:
+        plabel = s.get("cta_play", "Google Play")
+        play_btn = f'\n      <a class="appstore-btn" href="{play}" target="_blank" rel="noopener">{GOOGLE_SVG}{plabel}</a>'
+        play_btn_cta = f'\n    <a class="appstore-btn" href="{play}" target="_blank" rel="noopener">{GOOGLE_SVG}{plabel}</a>'
 
     feats = "\n".join(
         f'      <div class="feature"><div class="dot"></div><h3>{t}</h3><p>{d}</p></div>'
@@ -205,7 +223,7 @@ def render_page(app, lang, s, langs):
     <h1>{s['h1']}</h1>
     <p class="hero-sub">{s['sub']}</p>
     <div class="hero-cta-row">
-      <a class="appstore-btn" href="{store}" target="_blank" rel="noopener">{APPLE_SVG}{s['cta']}</a>
+      <a class="appstore-btn" href="{store}" target="_blank" rel="noopener">{APPLE_SVG}{s['cta']}</a>{play_btn}
       {rating}
     </div>
     <p class="hero-foot">{s['foot']}</p>
@@ -229,7 +247,7 @@ def render_page(app, lang, s, langs):
   <div class="wrap">
     <h2 class="cta-title">{s['cta_title']}</h2>
     <p class="cta-sub">{s['cta_sub']}</p>
-    <a class="appstore-btn" href="{store}" target="_blank" rel="noopener">{APPLE_SVG}{s['cta']}</a>
+    <a class="appstore-btn" href="{store}" target="_blank" rel="noopener">{APPLE_SVG}{s['cta']}</a>{play_btn_cta}
   </div>
 </section>
 </main>

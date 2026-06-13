@@ -38,11 +38,13 @@ CSS = """
 @keyframes pop { 0%,100% { transform:scale(1); } 50% { transform:scale(1.14); } }
 @keyframes bob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
 @media (max-width:520px) { .fan { transform:scale(.84); margin:-26px 0; } }
+.appstore-btn svg.gp { width:20px; height:20px; }
 """
 
 APP = {
     "slug": "cats-pop",
     "trackId": "1556403381",
+    "play_id": "com.game.kkiruk.catsarepop",
     "rating": "4.8 · 3,900+",
     "theme": {"bg": "#FFF1E4", "ink": "#3F2A1E", "ink2": "#A88D7A", "accent": "#FF7A59"},
     "hero_html": HERO,
@@ -55,7 +57,7 @@ S = {
     "kicker": "Cats are Cute: Pop Time!",
     "h1": "합칠수록 커지는,<br><em>고양이 팡팡!</em>",
     "sub": "수박게임 스타일의 귀여운 고양이 머지 퍼즐. 같은 고양이를 떨어뜨려 합치면 더 큰 고양이로 — 잠깐 쉬어가기 딱 좋은 한 판.",
-    "cta": "App Store에서 받기", "foot": "오프라인에서도 OK · 인터넷 없이 언제든 한 판",
+    "cta": "App Store에서 받기", "cta_play": "Google Play에서 받기", "foot": "오프라인에서도 OK · 인터넷 없이 언제든 한 판",
     "feat_label": "이런 게임이에요", "feat_title": "간단한 조작, 부드러운 사운드, 부담 없는 한 판.",
     "features": [
         ("11종 고양이 진화", "합칠수록 더 귀여워지는 고양이들. 가장 큰 고양이까지 가면 깜짝 놀랄 거예요."),
@@ -70,7 +72,7 @@ S = {
     "kicker": "Cats are Cute: Pop Time!",
     "h1": "Merge them and they grow —<br><em>pop pop cats!</em>",
     "sub": "A cute suika-style merge puzzle. Drop matching cats to merge them into bigger ones — the perfect round for a short break.",
-    "cta": "Download on the App Store", "foot": "Works offline · A quick round anytime, no internet needed",
+    "cta": "Download on the App Store", "cta_play": "Get it on Google Play", "foot": "Works offline · A quick round anytime, no internet needed",
     "feat_label": "What it's like", "feat_title": "Simple controls, soft sounds, zero pressure.",
     "features": [
         ("11 cat evolutions", "Cats get cuter as they merge. Reach the biggest one and you're in for a surprise."),
@@ -85,7 +87,7 @@ S = {
     "kicker": "Cats are Cute: Pop Time!",
     "h1": "合体するほど大きくなる、<br><em>ねこポンポン!</em>",
     "sub": "スイカゲーム風のかわいいねこマージパズル。同じねこを落として合体させると、もっと大きなねこに — ちょっとした息抜きにぴったりの一局。",
-    "cta": "App Storeでダウンロード", "foot": "オフラインOK · ネットなしでもいつでも一局",
+    "cta": "App Storeでダウンロード", "cta_play": "Google Playでダウンロード", "foot": "オフラインOK · ネットなしでもいつでも一局",
     "feat_label": "こんなゲーム", "feat_title": "簡単操作、やさしいサウンド、気軽な一局。",
     "features": [
         ("ねこ11種の進化", "合体するほどかわいくなるねこたち。いちばん大きなねこまで行くと、びっくりしますよ。"),
@@ -100,7 +102,7 @@ S = {
     "kicker": "Cats are Cute: Pop Time!",
     "h1": "Fusiónalos y crecen —<br><em>¡pop pop gatos!</em>",
     "sub": "Un adorable puzzle de fusión estilo suika. Deja caer gatos iguales para fusionarlos en otros más grandes — la partida perfecta para un descanso corto.",
-    "cta": "Descargar en el App Store", "foot": "Funciona sin conexión · Una partida rápida en cualquier momento",
+    "cta": "Descargar en el App Store", "cta_play": "Descargar en Google Play", "foot": "Funciona sin conexión · Una partida rápida en cualquier momento",
     "feat_label": "Cómo es", "feat_title": "Controles simples, sonidos suaves, cero presión.",
     "features": [
         ("11 evoluciones de gatos", "Los gatos se vuelven más adorables al fusionarse. Llega al más grande y te llevarás una sorpresa."),
@@ -115,7 +117,7 @@ S = {
     "kicker": "Cats are Cute: Pop Time!",
     "h1": "Funda e eles crescem —<br><em>pop pop gatos!</em>",
     "sub": "Um fofo puzzle de fusão estilo suika. Solte gatos iguais para fundi-los em gatos maiores — a partida perfeita para uma pausa rápida.",
-    "cta": "Baixar na App Store", "foot": "Funciona offline · Uma partida rápida a qualquer hora",
+    "cta": "Baixar na App Store", "cta_play": "Baixar no Google Play", "foot": "Funciona offline · Uma partida rápida a qualquer hora",
     "feat_label": "Como é", "feat_title": "Controles simples, sons suaves, zero pressão.",
     "features": [
         ("11 evoluções de gatos", "Os gatos ficam mais fofos ao se fundir. Chegue ao maior e prepare-se para uma surpresa."),
@@ -130,7 +132,7 @@ S = {
     "kicker": "Cats are Cute: Pop Time!",
     "h1": "越合越大，<br><em>猫咪砰砰!</em>",
     "sub": "西瓜游戏风格的可爱猫咪合成拼图。把相同的猫咪合在一起，变成更大的猫 — 适合小憩一下的轻松一局。",
-    "cta": "在 App Store 下载", "foot": "支持离线 · 没网也能随时来一局",
+    "cta": "在 App Store 下载", "cta_play": "在 Google Play 下载", "foot": "支持离线 · 没网也能随时来一局",
     "feat_label": "游戏特色", "feat_title": "操作简单，音效柔和，毫无压力。",
     "features": [
         ("11种猫咪进化", "越合越可爱的猫咪们。合到最大的那只，你会大吃一惊。"),
@@ -145,7 +147,7 @@ S = {
     "kicker": "Cats are Cute: Pop Time!",
     "h1": "越合越大，<br><em>貓咪砰砰!</em>",
     "sub": "西瓜遊戲風格的可愛貓咪合成拼圖。把相同的貓咪合在一起，變成更大的貓 — 適合小歇一下的輕鬆一局。",
-    "cta": "在 App Store 下載", "foot": "支援離線 · 沒網路也能隨時來一局",
+    "cta": "在 App Store 下載", "cta_play": "在 Google Play 下載", "foot": "支援離線 · 沒網路也能隨時來一局",
     "feat_label": "遊戲特色", "feat_title": "操作簡單，音效柔和，毫無壓力。",
     "features": [
         ("11種貓咪進化", "越合越可愛的貓咪們。合到最大的那隻，你會大吃一驚。"),
