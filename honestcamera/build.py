@@ -292,8 +292,16 @@ def render(key):
 <meta name="description" content="{loc['desc']}">
 <meta property="og:title" content="{loc['og_title']}">
 <meta property="og:description" content="{loc['og_desc']}">
-<meta property="og:image" content="{BASE_URL}assets/icon-512.png">
+<meta property="og:image" content="https://www.kkirukstudio.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="{canonical}">
+<meta property="og:site_name" content="kkiruk studio">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{loc['og_title']}">
+<meta name="twitter:description" content="{loc['og_desc']}">
+<meta name="twitter:image" content="https://www.kkirukstudio.com/og-image.png">
 <link rel="canonical" href="{canonical}">
 {hreflang_block()}
 <link rel="icon" type="image/png" href="assets/icon-180.png">

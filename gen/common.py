@@ -114,12 +114,14 @@ def render_head(app, lang, langs, s, icon=None, og_image=None, extra_head=""):
     slug = app["slug"]
     htmllang = HTML_LANG.get(lang, lang)
     icon = icon or f"../icons/{slug}.png"
-    og_image = og_image or icon
+    # 와이드 소셜 카드: 스튜디오 루트 카드 재사용 (앱별 전용 카드는 후속).
+    og_image = og_image or "https://www.kkirukstudio.com/og-image.png"
     base = f"https://www.kkirukstudio.com/{slug}"
+    page_url = f"{base}/{page_file(lang)}"
     hreflangs = "\n".join(
         f'<link rel="alternate" hreflang="{HREFLANG.get(l, l)}" href="{base}/{page_file(l)}">' for l in langs
     ) + f'\n<link rel="alternate" hreflang="x-default" href="{base}/index.html">'
-    hreflangs += f'\n<link rel="canonical" href="{base}/{page_file(lang)}">'
+    hreflangs += f'\n<link rel="canonical" href="{page_url}">'
     return f"""<!DOCTYPE html>
 <html lang="{htmllang}">
 <head>
@@ -133,7 +135,15 @@ def render_head(app, lang, langs, s, icon=None, og_image=None, extra_head=""):
 <meta property="og:title" content="{s['title']}">
 <meta property="og:description" content="{s['meta_desc']}">
 <meta property="og:image" content="{og_image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="{page_url}">
+<meta property="og:site_name" content="kkiruk studio">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{s['title']}">
+<meta name="twitter:description" content="{s['meta_desc']}">
+<meta name="twitter:image" content="{og_image}">
 <link rel="stylesheet" href="style.css">{extra_head}
 <script src="/ga.js"></script>
 </head>

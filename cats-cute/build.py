@@ -22,7 +22,8 @@ ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/cats-cute/"
 APPSTORE_URL = "https://apps.apple.com/app/id1395888987"
 PLAY_URL = "https://play.google.com/store/apps/details?id=com.game.kkiruk.myadorablecats"
-OG_IMAGE = "https://www.kkirukstudio.com/icons/cats-cute.png"
+# 와이드 소셜 카드: 스튜디오 루트 카드 재사용 (앱별 전용 카드는 후속).
+OG_IMAGE = "https://www.kkirukstudio.com/og-image.png"
 
 GAME = json.loads((ROOT / "game_data.json").read_text(encoding="utf-8"))
 
@@ -483,7 +484,15 @@ def render(key):
 <meta property="og:title" content="{loc['og_title']}">
 <meta property="og:description" content="{loc['og_desc']}">
 <meta property="og:image" content="{OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="{canonical}">
+<meta property="og:site_name" content="kkiruk studio">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{loc['og_title']}">
+<meta name="twitter:description" content="{loc['og_desc']}">
+<meta name="twitter:image" content="{OG_IMAGE}">
 <link rel="canonical" href="{canonical}">
 {hreflang_block()}
 <link rel="icon" type="image/png" href="../icons/cats-cute.png">
