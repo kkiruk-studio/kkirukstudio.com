@@ -5,6 +5,7 @@
   --maxw:1120px;
 }
 *{box-sizing:border-box;}
+html,body{max-width:100%;overflow-x:hidden;}
 html{-webkit-text-size-adjust:100%;}
 body{
   margin:0; background:var(--paper); color:var(--ink);
@@ -108,7 +109,15 @@ img{max-width:100%; display:block;}
   .about h2,.about p{ grid-column:1/7; }
   .about p{ margin-top:16px; }
   .sets .list{ grid-column:1/7; }
-  .set{ grid-column:span 6; }
+  .sets .head h2{ font-size:25px; line-height:33px; }
+  .set{ grid-column:span 6; grid-template-columns:104px 1fr; column-gap:16px; align-items:start; }
+  .set h3{ font-size:18px; line-height:24px; }
+  .set p{ font-size:13px; line-height:20px; margin-top:6px; }
+  .set .buy{ margin-top:12px; }
+  .about h2{ font-size:27px; line-height:35px; }
+  .follow h2{ font-size:30px; line-height:38px; }
+  .about,.sets,.follow{ padding-block:56px; }
+  .hero{ padding-block:64px 56px; }
   .follow h2,.follow .x{ grid-column:1/7; }
   .follow .x{ margin-top:24px; }
   .bar .wordmark{ grid-column:1/4; }
