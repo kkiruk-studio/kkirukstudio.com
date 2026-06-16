@@ -20,7 +20,7 @@
 <body>
 
 <header class="bar">
-  <div class="grid">
+  <div class="wrap">
     <div class="wordmark">限界<b>ねこ</b></div>
     <nav>
       <a href="#sets">スタンプ</a>
@@ -30,26 +30,27 @@
 </header>
 
 <section class="hero">
-  <div class="grid">
-    <p class="kicker">限界ねこ / Genkai Neko</p>
-    <h1>今日も限界、<br>でもかわいい。</h1>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="kicker">限界ねこ / Genkai Neko</p>
+      <h1>今日も限界、<br>でもかわいい。</h1>
+      <p class="sub">がんばる人の自虐を、ねこが代弁する LINEスタンプ。社畜も、エンジニアも、今日もおつかれさま。</p>
+      <p class="meta">LINE Creators Market · by kkiruk studio</p>
+    </div>
     <img class="hero-art" src="assets/hero.png" alt="「お疲れさまです」とつぶやく限界会社員ねこ">
-    <p class="sub">がんばる人の自虐を、ねこが代弁する LINEスタンプ。社畜も、エンジニアも、今日もおつかれさま。</p>
-    <p class="meta">LINE Creators Market<br>by kkiruk studio</p>
-    <div class="grid-overlay" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   </div>
 </section>
 
 <section class="about">
-  <div class="grid">
+  <div class="wrap">
     <p class="kicker">限界ねこってなに?</p>
-    <h2>がんばる人の、<br>心の声。</h2>
+    <h2>がんばる人の、心の声。</h2>
     <p>いつも限界まで頑張って、ちょっと放心しているねこ。社畜、エンジニア、これから育児も — 言えない「心の声」を、ねこが代わりにつぶやきます。かわいいから、ぜんぶ許せる。</p>
   </div>
 </section>
 
 <section class="sets" id="sets">
-  <div class="grid">
+  <div class="wrap">
     <div class="head">
       <p class="kicker">スタンプ一覧</p>
       <h2>使って、心の声を代弁させて。</h2>
@@ -110,16 +111,18 @@
 </section>
 
 <section class="follow">
-  <div class="grid">
-    <p class="kicker">FOLLOW</p>
-    <h2>新作とあるあるは、Xで。</h2>
-    <div class="x"><a href="https://x.com/genkaineko_st">@genkaineko_st</a></div>
+  <div class="wrap">
+    <div>
+      <p class="kicker">FOLLOW</p>
+      <h2>新作とあるあるは、Xで。</h2>
+    </div>
+    <div class="x"><a href="https://x.com/genkaineko_st" target="_blank" rel="noopener">@genkaineko_st</a></div>
   </div>
 </section>
 
 <footer class="foot">
-  <div class="grid">
-    <div class="who">© kkiruk studio</div>
+  <div class="wrap">
+    <div>© kkiruk studio</div>
     <div class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">お問い合わせ</a>
       <a href="https://www.kkirukstudio.com/">kkiruk studio</a>
@@ -127,9 +130,5 @@
   </div>
 </footer>
 
-<script>
-  // dev: press "g" to show the grid overlay
-  addEventListener('keydown', function(e){ if(e.key==='g') document.body.classList.toggle('show-grid'); });
-</script>
 </body>
 </html>
