@@ -110,7 +110,8 @@ img{max-width:100%; display:block;}
   .about p{ margin-top:16px; }
   .sets .list{ grid-column:1/7; }
   .sets .head h2{ font-size:25px; line-height:33px; }
-  .set{ grid-column:span 6; grid-template-columns:104px 1fr; column-gap:16px; align-items:start; }
+  .set{ grid-column:span 6; grid-template-columns:1fr; row-gap:10px; align-items:start; }
+  .set .art{ width:120px; justify-self:start; }
   .set h3{ font-size:18px; line-height:24px; }
   .set p{ font-size:13px; line-height:20px; margin-top:6px; }
   .set .buy{ margin-top:12px; }
