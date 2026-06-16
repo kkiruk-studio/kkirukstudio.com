@@ -18,6 +18,8 @@ img{ max-width:100%; display:block; }
 /* CJK 줄바꿈: 마지막 줄 한 글자 남는 현상 방지 (줄 길이 균등) */
 .hero h1, .hero .sub, .about h2, .about p, .sets .head h2, .set h3, .set p, .follow h2{
   text-wrap:balance;
+  word-break:auto-phrase;   /* 일본어 구 단위 줄바꿈 (本番·あるある 등 단어 안 쪼갬) */
+  line-break:strict;
 }
 
 /* bar */
