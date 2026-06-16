@@ -15,6 +15,11 @@ img{ max-width:100%; display:block; }
 .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
 .kicker{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:700; }
 
+/* CJK 줄바꿈: 마지막 줄 한 글자 남는 현상 방지 (줄 길이 균등) */
+.hero h1, .hero .sub, .about h2, .about p, .sets .head h2, .set h3, .set p, .follow h2{
+  text-wrap:balance;
+}
+
 /* bar */
 .bar{ border-bottom:1px solid var(--rule); }
 .bar .wrap{ display:flex; justify-content:space-between; align-items:center; padding-top:16px; padding-bottom:16px; }
