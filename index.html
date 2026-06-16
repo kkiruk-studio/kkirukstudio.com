@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* 기기 언어 자동 감지 — 수동 선택(localStorage.lang)이 있으면 그것을 우선 */
+(function(){try{
+  var p=localStorage.getItem('lang');
+  if(p!==null){ if(p&&p!=='/')location.replace(p); return; }
+  var l=(navigator.language||'en').toLowerCase(), d=null;
+  if(l.indexOf('ko')===0) d=null;
+  else if(l.indexOf('ja')===0) d='/ja.html';
+  else if(l.indexOf('zh')===0) d=(l.indexOf('tw')>-1||l.indexOf('hk')>-1||l.indexOf('hant')>-1)?'/zh-hant.html':'/zh-hans.html';
+  else d='/en.html';
+  if(d) location.replace(d);
+}catch(e){}})();
+</script>
 <title>kkiruk studio — 매일 쓰게 되는 작은 앱들</title>
 <meta name="description" content="서울의 1인 인디 스튜디오. 혼자 만든 앱과 게임이 1,000만 번 넘게 다운로드됐어요 — 어제보다, 고양이는 정말 귀여워, PinClip, Sidefeed, Talk Memo, Honest Camera.">
 <link rel="icon" type="image/png" href="icons/cats-cute.png">
@@ -39,7 +52,7 @@
       <a href="#apps">Apps</a>
       <a href="#extras">Stickers</a>
       <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
-      <select class="lang-sel" onchange="location.href=this.value" aria-label="언어">
+      <select class="lang-sel" onchange="try{localStorage.setItem('lang',this.value)}catch(e){};location.href=this.value" aria-label="언어">
         <option value="/" selected>한국어</option>
         <option value="/en.html">English</option>
         <option value="/ja.html">日本語</option>

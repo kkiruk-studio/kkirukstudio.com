@@ -32,7 +32,7 @@
       <a href="#apps">アプリ</a>
       <a href="#extras">スタンプ</a>
       <a href="mailto:kkirukstudio.help@gmail.com">お問い合わせ</a>
-      <select class="lang-sel" onchange="location.href=this.value" aria-label="Language">
+      <select class="lang-sel" onchange="try{localStorage.setItem('lang',this.value)}catch(e){};location.href=this.value" aria-label="Language">
         <option value="/">한국어</option>
         <option value="/en.html">English</option>
         <option value="/ja.html" selected>日本語</option>
