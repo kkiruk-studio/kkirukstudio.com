@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>比昨天 — 冷?熱?和昨天比的天氣</title>
-<meta name="description" content="不是「21°C」，而是「比昨天暖3°」。現在加入 Tint 主題、小工具、穿搭建議和更清楚的空氣品質。">
+<meta name="description" content="不是「21°C」，而是「比昨天暖3°」。和昨天比較，今天穿什麼馬上知道。">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/thanyesterday/index.html">
@@ -14,7 +14,7 @@
 <link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/thanyesterday/zh-hant.html">
 <link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/thanyesterday/index.html">
 <meta property="og:title" content="比昨天 — 冷?熱?和昨天比的天氣">
-<meta property="og:description" content="不是數字，而是和昨天比的一句話。Tint 主題和小工具讓今天的天氣更快看懂。">
+<meta property="og:description" content="不是數字，而是和昨天比的一句話。今天穿什麼立刻決定。">
 <meta property="og:image" content="https://www.kkirukstudio.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -23,9 +23,9 @@
 <meta property="og:site_name" content="kkiruk studio">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="比昨天 — 冷?熱?和昨天比的天氣">
-<meta name="twitter:description" content="不是數字，而是和昨天比的一句話。Tint 主題和小工具讓今天的天氣更快看懂。">
+<meta name="twitter:description" content="不是數字，而是和昨天比的一句話。今天穿什麼立刻決定。">
 <meta name="twitter:image" content="https://www.kkirukstudio.com/og-image.png">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=9">
 <link rel="canonical" href="https://www.kkirukstudio.com/thanyesterday/zh-hant.html">
 <script src="/ga.js"></script>
 </head>
@@ -53,7 +53,7 @@
   <div class="hero-copy">
     <p class="kicker">Weather, than yesterday</p>
     <h1 class="hero-msg">
-      <span class="cycle" data-cycle='["比昨天暖3°","穿昨天的衣服就可以","一眼比較兩個地點"]'>比昨天暖3°</span>
+      <span class="cycle" data-cycle='["比昨天暖3°","穿昨天的衣服就可以","風比昨天平靜"]'>比昨天暖3°</span>
     </h1>
     <p class="hero-sub">
       沒人知道21°C到底是什麼感覺。<br>
@@ -70,7 +70,7 @@
       <div class="proof gold"><b>第1名</b><span>韓國 App Store 天氣榜</span></div>
       <div class="proof plain"><b>★ 5.0</b><span>App Store 評分</span></div>
     </div>
-    <p class="hero-foot">免費下載 · 年度訂閱7天免費試用 · iPhone & iPad</p>
+    <p class="hero-foot">免費下載 · iPhone & iPad · 支援小工具</p>
   </div>
 
   <!-- 應用畫面模擬 -->
@@ -120,14 +120,16 @@
         <p>「昨天的衣服加件薄外套」— 和昨天比著推薦，所以真的準。怕冷的人會推薦得更暖一些。</p>
       </div>
       <div class="feature">
-        <div class="f-visual"><div class="v-simple"><b>23°</b><span>比昨天</span></div></div>
-        <h3>簡潔視圖</h3>
-        <p>比較訊息、目前溫度、最高和最低溫更突出，早上看一眼就夠。</p>
+        <div class="f-visual">
+          <div class="v-rain"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <h3>出門前知道雨雪</h3>
+        <p>需要帶傘的日子提前提醒。幾點開始下雨，小工具上也能看到。</p>
       </div>
       <div class="feature">
         <div class="f-visual"><div class="v-timestrip"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-        <h3>Tint 主題</h3>
-        <p>App 和主畫面小工具會隨著時間與天氣柔和變色，白天和夜晚都有不同氛圍。</p>
+        <h3>隨時間變色的畫面</h3>
+        <p>凌晨、早晨、白天、日落、夜晚。每次打開都是那個時刻的光。</p>
       </div>
       <div class="feature">
         <div class="f-visual"><span class="v-bell">🔔</span></div>
@@ -136,8 +138,8 @@
       </div>
       <div class="feature">
         <div class="f-visual"><div class="v-dots"><i></i><i class="on"></i><i></i><i></i></div></div>
-        <h3>更穩定的天氣資料</h3>
-        <p>空氣品質和逐小時預報匹配得更仔細，等級和數字都更容易讀懂。</p>
+        <h3>空氣品質也精準</h3>
+        <p>PM2.5 用「好·差」等級或數字都能看。</p>
       </div>
     </div>
   </div>
@@ -147,8 +149,8 @@
 <section>
   <div class="wrap">
     <p class="sec-label">小工具</p>
-    <h2 class="sec-title">主畫面上，兩個地點一目了然。</h2>
-    <p class="sec-sub">Small 小工具快速查看一個地點，Medium 小工具用同一主題比較家和公司這類兩個地點。</p>
+    <h2 class="sec-title">不用打開 App 也能看到。</h2>
+    <p class="sec-sub">主畫面小工具直接顯示和昨天的差別，還有鎖定畫面小工具。</p>
     <div class="widgets">
       <div class="wg2-small">
         <span class="wg2-loc">台北</span><span class="wg2-ref">↻</span>
@@ -163,7 +165,7 @@
           <div class="wg2-now"><div><span class="nl">現在</span><span class="t">23<small>°C</small></span></div>
             <p class="c">☁ 多雲</p><p class="hl">H 25°C L 15°C</p></div>
         </div>
-        <div class="wg2-half">
+        <div class="wg2-half dark">
           <span class="wg2-loc">紐約</span><span class="wg2-ref">↻</span>
           <div class="wg2-msg"><span class="m">今天最高溫</span><span class="m">比昨天</span><span class="d">↑11°C</span></div>
           <div class="wg2-now"><div><span class="nl">現在</span><span class="t">22<small>°C</small></span></div>
@@ -180,7 +182,7 @@
     <div class="sun"><i></i><i></i><i></i><i></i></div>
     <div class="moon"></div>
     <h2 class="cta-title">從明天早上開始，<br>和昨天比一比。</h2>
-    <p class="cta-sub">免費開始 · 年度訂閱7天免費試用 · 支援小工具</p>
+    <p class="cta-sub">免費開始 · 支援小工具 · iPhone & iPad</p>
     <p class="cta-proof">韓國 App Store 天氣榜第1名 · ★ 5.0</p>
     <a class="appstore-btn" href="https://apps.apple.com/tw/app/id6761168631" target="_blank" rel="noopener">
       <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
@@ -205,6 +207,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=3"></script>
+<script src="app.js"></script>
 </body>
 </html>

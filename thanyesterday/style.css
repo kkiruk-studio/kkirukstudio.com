@@ -23,7 +23,7 @@ html.t-evening  { --bg:#181428; --ink:#E8E2F0; --ink2:#6B6480; --accent:#6B7FA3;
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Pretendard Variable", Pretendard,
@@ -33,7 +33,6 @@ body {
   transition: background .6s ease, color .6s ease;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -80,7 +79,6 @@ header .bar {
   font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
   color: var(--ink2); margin-bottom: 22px;
 }
-.hero-copy { min-width: 0; }
 .hero-msg {
   font-size: clamp(34px, 5.2vw, 56px);
   font-weight: 650; letter-spacing: -.02em; line-height: 1.18;
@@ -234,14 +232,6 @@ section { padding: 52px 0; }
 .v-dots { display: flex; gap: 8px; align-items: center; }
 .v-dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--ink2); opacity: .5; }
 .v-dots i.on { width: 14px; height: 14px; background: var(--accent); opacity: 1; }
-.v-simple {
-  width: 78px; height: 48px; border-radius: 15px;
-  background: color-mix(in srgb, var(--accent) 20%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 44%, transparent);
-  display: flex; flex-direction: column; justify-content: center; padding: 8px 11px;
-}
-.v-simple b { font-size: 21px; font-weight: 750; line-height: 1; letter-spacing: -.02em; }
-.v-simple span { font-size: 10px; color: var(--ink2); margin-top: 3px; }
 
 /* ── 위젯 쇼케이스 ───────────────────── */
 .widgets { display: flex; gap: 20px; margin-top: 44px; flex-wrap: wrap; align-items: center; }
@@ -294,16 +284,6 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
   section { padding: 40px 0; }
 }
 @media (max-width: 540px) {
-  header .bar { padding: 12px 14px; }
-  .wordmark { gap: 7px; font-size: 13px; }
-  .wordmark img { width: 22px; height: 22px; border-radius: 6px; }
-  .nav-right { gap: 8px; font-size: 12px; }
-  .lang-select { font-size: 12px; max-width: 82px; }
-  .nav-cta { display: none; }
-  .hero { padding-left: 18px; padding-right: 18px; }
-  .hero-msg { font-size: 30px; line-height: 1.2; min-height: auto; }
-  .hero-sub { font-size: 14px; max-width: 300px; overflow-wrap: break-word; }
-  .hero-sub br { display: none; }
   .features { grid-template-columns: 1fr; }
   .widgets { justify-content: center; }
 }
@@ -326,7 +306,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 }
 .wg-home::before {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to top left,
+  background: linear-gradient(to top right,
     rgba(0,0,0,.045) 49.7%, rgba(26,26,26,.18) 49.7%,
     rgba(26,26,26,.18) 50.1%, transparent 50.1%);
 }
@@ -371,39 +351,35 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 /* ── 실기기 사진 기준 위젯 재현 (비한국어 페이지용) ── */
 .wg2-small, .wg2-half {
   position: relative; overflow: hidden;
-  background:
-    radial-gradient(135% 120% at 16% 12%, rgba(250,238,206,.55), transparent 55%),
-    #F1E8D2;
-  color: #2A2622;
+  background: #FAF3E0; color: #1A1A1A;
 }
 .wg2-small { width: 168px; height: 168px; border-radius: 24px; flex-shrink: 0;
   border: 1px solid rgba(26,26,26,.07); box-shadow: 0 16px 36px -14px rgba(26,26,26,.28); }
 .wg2-small::before, .wg2-half::before {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to top left,
-    rgba(120,95,45,.05) 49.7%, rgba(74,58,32,.16) 49.7%,
-    rgba(74,58,32,.16) 50.1%, transparent 50.1%);
+  background: linear-gradient(to top right,
+    rgba(0,0,0,.05) 49.7%, rgba(26,26,26,.15) 49.7%,
+    rgba(26,26,26,.15) 50.1%, transparent 50.1%);
 }
 .wg2-med { display: flex; width: 352px; height: 168px; border-radius: 24px; overflow: hidden; flex-shrink: 0;
   border: 1px solid rgba(26,26,26,.07); box-shadow: 0 16px 36px -14px rgba(26,26,26,.28); }
 .wg2-half { width: 50%; height: 100%; }
-.wg2-half + .wg2-half { border-left: 1px solid rgba(26,26,26,.08); }
 .wg2-half.dark { background: #17171D; color: #F2EFE8; }
 .wg2-half.dark::before {
-  background: linear-gradient(to top left,
+  background: linear-gradient(to top right,
     rgba(255,255,255,.05) 49.7%, rgba(255,255,255,.14) 49.7%,
     rgba(255,255,255,.14) 50.1%, transparent 50.1%);
 }
 .wg2-loc { position: absolute; top: 11px; left: 13px; font-size: 10px; font-weight: 500; opacity: .55; }
 .wg2-msg { position: absolute; top: 26px; left: 13px; line-height: 1.3; font-weight: 650; }
 .wg2-msg .m { display: block; font-size: 14px; }
-.wg2-msg .d { display: block; font-size: 27px; margin-top: 3px; }
+.wg2-msg .d { display: block; font-size: 24px; margin-top: 1px; }
 .wg2-ref { position: absolute; top: 10px; right: 10px; width: 21px; height: 21px; border-radius: 50%;
   border: 1px solid rgba(128,128,128,.35); opacity: .55; font-size: 10px; line-height: 19px; text-align: center; }
 .wg2-now { position: absolute; right: 13px; bottom: 10px; text-align: right; }
 .wg2-now .nl { font-size: 10px; font-weight: 500; opacity: .55; margin-right: 3px; }
-.wg2-now .t { font-size: 45px; font-weight: 700; letter-spacing: -.02em; }
-.wg2-now .t small { font-size: 18px; font-weight: 650; }
+.wg2-now .t { font-size: 36px; font-weight: 650; letter-spacing: -.02em; }
+.wg2-now .t small { font-size: 15px; font-weight: 600; }
 .wg2-now .c { font-size: 11px; opacity: .55; margin-top: 1px; }
 .wg2-now .hl { font-size: 10px; opacity: .5; font-family: ui-monospace, monospace; margin-top: 1px; }
 /* 잠금화면 행 — 파란 배경 위 화이트 비브런시 */
@@ -485,10 +461,3 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .cta-proof { margin-top: 16px; font-size: 14px; font-weight: 700;
   color: color-mix(in srgb, var(--ink) 75%, var(--accent)); }
 @media (max-width: 860px) { .proofs { justify-content: center; } }
-
-/* 우하단 현재 기온: 줄간격 축소 + 하단에 붙이기 */
-.wg2-now { bottom: 9px; line-height: 1.08; }
-.wg2-now > div { line-height: 1; }
-.wg2-now .t { line-height: 1; }
-.wg2-now .c { margin-top: 0; }
-.wg2-now .hl { margin-top: 0; }
