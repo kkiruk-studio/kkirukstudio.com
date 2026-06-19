@@ -372,18 +372,17 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .wg2-small, .wg2-half {
   position: relative; overflow: hidden;
   background:
-    radial-gradient(circle at 22% 18%, rgba(246,197,143,.34), transparent 38%),
-    radial-gradient(circle at 78% 72%, rgba(119,179,213,.26), transparent 43%),
-    #F7F6F2;
-  color: #1A1A1A;
+    radial-gradient(135% 120% at 16% 12%, rgba(250,238,206,.55), transparent 55%),
+    #F1E8D2;
+  color: #2A2622;
 }
 .wg2-small { width: 168px; height: 168px; border-radius: 24px; flex-shrink: 0;
   border: 1px solid rgba(26,26,26,.07); box-shadow: 0 16px 36px -14px rgba(26,26,26,.28); }
 .wg2-small::before, .wg2-half::before {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(to top left,
-    rgba(0,0,0,.05) 49.7%, rgba(26,26,26,.15) 49.7%,
-    rgba(26,26,26,.15) 50.1%, transparent 50.1%);
+    rgba(120,95,45,.05) 49.7%, rgba(74,58,32,.16) 49.7%,
+    rgba(74,58,32,.16) 50.1%, transparent 50.1%);
 }
 .wg2-med { display: flex; width: 352px; height: 168px; border-radius: 24px; overflow: hidden; flex-shrink: 0;
   border: 1px solid rgba(26,26,26,.07); box-shadow: 0 16px 36px -14px rgba(26,26,26,.28); }
@@ -398,13 +397,13 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .wg2-loc { position: absolute; top: 11px; left: 13px; font-size: 10px; font-weight: 500; opacity: .55; }
 .wg2-msg { position: absolute; top: 26px; left: 13px; line-height: 1.3; font-weight: 650; }
 .wg2-msg .m { display: block; font-size: 14px; }
-.wg2-msg .d { display: block; font-size: 24px; margin-top: 1px; }
+.wg2-msg .d { display: block; font-size: 27px; margin-top: 3px; }
 .wg2-ref { position: absolute; top: 10px; right: 10px; width: 21px; height: 21px; border-radius: 50%;
   border: 1px solid rgba(128,128,128,.35); opacity: .55; font-size: 10px; line-height: 19px; text-align: center; }
 .wg2-now { position: absolute; right: 13px; bottom: 10px; text-align: right; }
 .wg2-now .nl { font-size: 10px; font-weight: 500; opacity: .55; margin-right: 3px; }
-.wg2-now .t { font-size: 36px; font-weight: 650; letter-spacing: -.02em; }
-.wg2-now .t small { font-size: 15px; font-weight: 600; }
+.wg2-now .t { font-size: 45px; font-weight: 700; letter-spacing: -.02em; }
+.wg2-now .t small { font-size: 18px; font-weight: 650; }
 .wg2-now .c { font-size: 11px; opacity: .55; margin-top: 1px; }
 .wg2-now .hl { font-size: 10px; opacity: .5; font-family: ui-monospace, monospace; margin-top: 1px; }
 /* 잠금화면 행 — 파란 배경 위 화이트 비브런시 */
