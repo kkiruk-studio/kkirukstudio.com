@@ -3,6 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* Auto-detect browser language on first visit (root/en only). Respects a prior manual choice. */
+(function(){
+  try{
+    if(localStorage.getItem('ek_lang')) return;            // already chose/auto-routed before
+    var n=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();
+    var d=n.indexOf('ko')===0?'ko/':n.indexOf('ja')===0?'ja/':null;
+    if(d){ localStorage.setItem('ek_lang', d==='ko/'?'ko':'ja'); location.replace(d); }
+    else { localStorage.setItem('ek_lang','en'); }
+  }catch(e){}
+})();
+</script>
 <title>everykeep — Home maintenance reminders</title>
 <meta name="description" content="Filters, warranties, registrations, cleaning cycles — everykeep remembers the easy-to-forget upkeep of everything you own, and reminds you before it's due. Free, on-device.">
 <link rel="canonical" href="https://www.kkirukstudio.com/everykeep/">
@@ -150,6 +162,18 @@
       }
     })();
   }
+</script>
+<script>
+/* Remember the visitor's manual language choice so the root won't auto-redirect again. */
+(function(){
+  document.querySelectorAll('.lang a').forEach(function(a){
+    a.addEventListener('click', function(){
+      var h=a.getAttribute('href')||'';
+      var c=h.indexOf('ko')>-1?'ko':h.indexOf('ja')>-1?'ja':'en';
+      try{ localStorage.setItem('ek_lang', c); }catch(e){}
+    });
+  });
+})();
 </script>
 </body>
 </html>

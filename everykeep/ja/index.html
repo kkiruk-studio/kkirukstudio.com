@@ -151,5 +151,17 @@
     })();
   }
 </script>
+<script>
+/* Remember the visitor's manual language choice so the root won't auto-redirect again. */
+(function(){
+  document.querySelectorAll('.lang a').forEach(function(a){
+    a.addEventListener('click', function(){
+      var h=a.getAttribute('href')||'';
+      var c=h.indexOf('ko')>-1?'ko':h.indexOf('ja')>-1?'ja':'en';
+      try{ localStorage.setItem('ek_lang', c); }catch(e){}
+    });
+  });
+})();
+</script>
 </body>
 </html>

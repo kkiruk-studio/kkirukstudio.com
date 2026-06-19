@@ -180,9 +180,39 @@ def badge(loc, el_id):
             f'<span class="txt"><small>{loc["badge_small"]}</small><strong>App Store</strong></span></a>')
 
 
+REDIRECT_SCRIPT = """<script>
+/* Auto-detect browser language on first visit (root/en only). Respects a prior manual choice. */
+(function(){
+  try{
+    if(localStorage.getItem('ek_lang')) return;            // already chose/auto-routed before
+    var n=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();
+    var d=n.indexOf('ko')===0?'ko/':n.indexOf('ja')===0?'ja/':null;
+    if(d){ localStorage.setItem('ek_lang', d==='ko/'?'ko':'ja'); location.replace(d); }
+    else { localStorage.setItem('ek_lang','en'); }
+  }catch(e){}
+})();
+</script>
+"""
+
+LANG_PERSIST_SCRIPT = """<script>
+/* Remember the visitor's manual language choice so the root won't auto-redirect again. */
+(function(){
+  document.querySelectorAll('.lang a').forEach(function(a){
+    a.addEventListener('click', function(){
+      var h=a.getAttribute('href')||'';
+      var c=h.indexOf('ko')>-1?'ko':h.indexOf('ja')>-1?'ja':'en';
+      try{ localStorage.setItem('ek_lang', c); }catch(e){}
+    });
+  });
+})();
+</script>
+"""
+
+
 def render(key):
     loc = LOCALES[key]
     rel = "../" if loc["dir"] else ""
+    redirect_script = REDIRECT_SCRIPT if loc["dir"] == "" else ""
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
     chips = "".join(
         f'<div class="chip c{i+1}"><span class="g">{g}</span>{label}</div>'
@@ -217,7 +247,7 @@ def render(key):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{loc['title']}</title>
+{redirect_script}<title>{loc['title']}</title>
 <meta name="description" content="{loc['desc']}">
 <link rel="canonical" href="{canonical}">
 <meta property="og:title" content="{loc['og_title']}">
@@ -362,7 +392,7 @@ def render(key):
     }})();
   }}
 </script>
-</body>
+{LANG_PERSIST_SCRIPT}</body>
 </html>
 """
     out = ROOT / loc["dir"] / "index.html"
