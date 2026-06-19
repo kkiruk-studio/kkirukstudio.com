@@ -357,7 +357,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
   border: 1px solid rgba(26,26,26,.07); box-shadow: 0 16px 36px -14px rgba(26,26,26,.28); }
 .wg2-small::before, .wg2-half::before {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to top right,
+  background: linear-gradient(to top left,
     rgba(0,0,0,.05) 49.7%, rgba(26,26,26,.15) 49.7%,
     rgba(26,26,26,.15) 50.1%, transparent 50.1%);
 }
@@ -366,7 +366,7 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .wg2-half { width: 50%; height: 100%; }
 .wg2-half.dark { background: #17171D; color: #F2EFE8; }
 .wg2-half.dark::before {
-  background: linear-gradient(to top right,
+  background: linear-gradient(to top left,
     rgba(255,255,255,.05) 49.7%, rgba(255,255,255,.14) 49.7%,
     rgba(255,255,255,.14) 50.1%, transparent 50.1%);
 }
