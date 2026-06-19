@@ -376,7 +376,8 @@ footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .wg2-msg .d { display: block; font-size: 22px; margin-top: -2px; }
 .wg2-ref { position: absolute; top: 10px; right: 10px; width: 21px; height: 21px; border-radius: 50%;
   border: 1px solid rgba(128,128,128,.35); opacity: .55; font-size: 10px; line-height: 19px; text-align: center; }
-.wg2-now { position: absolute; right: 13px; bottom: 6px; text-align: right; }
+.wg2-now { position: absolute; right: 13px; bottom: 10px; text-align: right; }
+.wg2-now > div { transform: translateY(4px); }
 .wg2-now .nl { font-size: 10px; font-weight: 500; opacity: .55; margin-right: 3px; }
 .wg2-now .t { font-size: 36px; font-weight: 650; letter-spacing: -.02em; }
 .wg2-now .t small { font-size: 15px; font-weight: 600; }
