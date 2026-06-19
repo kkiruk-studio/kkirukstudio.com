@@ -228,3 +228,6 @@ footer a:hover { color: #fff; }
 .shots .row{ align-items:start; }
 .shots .shot-flat{ filter:drop-shadow(0 16px 38px rgba(0,0,0,.10)); }
 @media (max-width:860px){ .hero-shot{ max-width:260px; } }
+
+/* brand is lowercase 'everykeep' — don't force-uppercase the hero kicker brand */
+.hero .kicker > span:first-child{ text-transform:none; letter-spacing:.16em; }

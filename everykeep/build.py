@@ -271,7 +271,7 @@ def render(key):
 
 <nav>
   <div class="wrap">
-    <a class="wordmark" href="{rel if rel else './'}"><img src="{rel}assets/icon-180.png" alt=""><span>EVERYKEEP</span></a>
+    <a class="wordmark" href="{rel if rel else './'}"><img src="{rel}assets/icon-180.png" alt=""><span>everykeep</span></a>
     <div class="lang">{lang_nav(loc['dir'], rel)}</div>
   </div>
 </nav>
@@ -280,7 +280,7 @@ def render(key):
   <div class="ghost">e·k</div>
   <div class="wrap">
     <div>
-      <div class="kicker"><span>EVERYKEEP</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
+      <div class="kicker"><span>everykeep</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
       <h1>{loc['h1']}</h1>
       <div class="demo">
         <span class="src" id="demoSrc">{loc['pairs'][0][0]}</span>
