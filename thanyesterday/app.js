@@ -42,3 +42,17 @@
     }, 3800);
   }
 })();
+
+/* ── Themes section: 기본/물들임 전환 데모 ── */
+(function () {
+  var scene = document.querySelector(".theme-scene");
+  if (!scene) return;
+  var btns = document.querySelectorAll(".theme-switch button");
+  btns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      btns.forEach(function (x) { x.classList.remove("on"); });
+      b.classList.add("on");
+      scene.className = "theme-scene " + b.getAttribute("data-theme");
+    });
+  });
+})();
