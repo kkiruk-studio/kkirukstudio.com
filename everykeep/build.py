@@ -235,7 +235,7 @@ def render(key):
     )
     shot_files = ["home", "keepy", "calendar"]
     shots = "".join(
-        f'<figure><div class="phone"><img src="{rel}assets/shot-{loc["shots"]}-{f}.png" alt="{cap}" loading="lazy"><div class="island"></div></div><figcaption>{cap}</figcaption></figure>'
+        f'<figure><img class="shot-flat" src="{rel}assets/shot-{loc["shots"]}-{f}.png" alt="{cap}" loading="lazy"></figure>'
         for f, cap in zip(shot_files, loc["shots_caps"])
     )
     feats = "".join(f'<div class="feat"><h3>{h}</h3><p>{p}</p></div>' for h, p in loc["feats"])
@@ -295,7 +295,7 @@ def render(key):
     </div>
     <div class="phone-col">
       {chips}
-      <div class="phone"><img src="{rel}assets/shot-{loc['shots']}-home.png" alt="{loc['hero_alt']}"><div class="island"></div></div>
+      <img class="shot-flat hero-shot" src="{rel}assets/shot-{loc['shots']}-home.png" alt="{loc['hero_alt']}">
     </div>
   </div>
 </header>

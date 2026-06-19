@@ -221,3 +221,10 @@ footer a:hover { color: #fff; }
 .status h3{ font-size:16px; font-weight:800; margin-bottom:6px; }
 .status p{ color:var(--ink2); font-size:14px; word-break:keep-all; }
 @media (max-width:860px){ .keepy-row{ grid-template-columns:repeat(2,1fr); } .status-grid{ grid-template-columns:1fr; } }
+
+/* composite marketing screenshots already include device frame + caption → show flat, no CSS phone */
+.shot-flat{ width:100%; display:block; border-radius:30px; }
+.hero-shot{ max-width:300px; margin:0 auto; filter:drop-shadow(0 28px 56px rgba(16,70,34,.30)); }
+.shots .row{ align-items:start; }
+.shots .shot-flat{ filter:drop-shadow(0 16px 38px rgba(0,0,0,.10)); }
+@media (max-width:860px){ .hero-shot{ max-width:260px; } }
