@@ -1,0 +1,92 @@
+/* 極限貓 landing (zh-Hant) — simple & robust (kkirukstudio.com homepage approach) */
+:root{
+  --accent:#e1251b; --ink:#111; --paper:#fff; --mute:#7a7a7a; --rule:#e6e6e6;
+  --maxw:1080px;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ max-width:100%; overflow-x:hidden; }
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Helvetica Neue",Arial,"PingFang TC","Heiti TC","Noto Sans TC",sans-serif;
+  font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+.kicker{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:700; }
+
+/* CJK 줄바꿈: 마지막 줄 한 글자 남는 현상 방지 (줄 길이 균등) */
+.hero h1, .hero .sub, .about h2, .about p, .sets .head h2, .set h3, .set p, .follow h2{
+  text-wrap:balance;
+  word-break:auto-phrase;   /* 일본어 구 단위 줄바꿈 (本番·あるある 등 단어 안 쪼갬) */
+  line-break:strict;
+}
+
+/* bar */
+.bar{ border-bottom:1px solid var(--rule); }
+.bar .wrap{ display:flex; justify-content:space-between; align-items:center; padding-top:16px; padding-bottom:16px; }
+.bar .wordmark{ font-weight:800; letter-spacing:.02em; }
+.bar .wordmark b{ color:var(--accent); }
+.bar nav{ font-size:13px; color:var(--mute); }
+.bar nav a{ margin-left:20px; }
+.bar nav a:hover{ color:var(--ink); }
+
+/* hero */
+.hero{ padding:72px 0; border-bottom:1px solid var(--rule); }
+.hero-grid{ display:grid; grid-template-columns:1.25fr .75fr; gap:40px; align-items:center; }
+.hero h1{ font-size:62px; line-height:1.12; font-weight:800; letter-spacing:-.02em; margin:14px 0 0; }
+.hero .sub{ font-size:19px; line-height:1.65; color:#333; margin-top:22px; max-width:30em; }
+.hero .meta{ font-size:13px; color:var(--mute); margin-top:24px; border-left:2px solid var(--accent); padding-left:14px; }
+.hero-art{ width:100%; max-width:320px; margin-left:auto; }
+
+/* about */
+.about{ padding:64px 0; border-bottom:1px solid var(--rule); }
+.about h2{ font-size:30px; line-height:1.25; font-weight:800; margin:14px 0 0; }
+.about p{ font-size:18px; line-height:1.8; color:#333; margin-top:18px; max-width:36em; }
+
+/* sets */
+.sets{ padding:64px 0; border-bottom:1px solid var(--rule); }
+.sets .head{ margin-bottom:32px; }
+.sets .head h2{ font-size:30px; line-height:1.25; font-weight:800; margin-top:14px; }
+.list{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.set{ display:flex; gap:18px; align-items:center; background:color-mix(in srgb,var(--accent) 4%,var(--paper)); border:1px solid var(--rule); border-radius:20px; padding:20px; }
+.set .art{ flex:0 0 104px; width:104px; height:104px; background:var(--paper); border:1px solid var(--rule); border-radius:14px; display:grid; place-items:center; }
+.set .art img{ width:90%; height:90%; object-fit:contain; }
+.set .body{ flex:1; min-width:0; }
+.set .num{ font-size:12px; letter-spacing:.1em; color:var(--accent); font-weight:700; }
+.set h3{ font-size:18px; line-height:1.3; font-weight:800; margin-top:6px; }
+.set p{ font-size:13.5px; line-height:1.5; color:#555; margin-top:6px; }
+.set .buy{ display:inline-block; margin-top:12px; font-size:13px; font-weight:700; border-bottom:2px solid var(--accent); padding-bottom:2px; }
+.set.soon{ opacity:.65; }
+
+/* follow */
+.follow{ padding:64px 0; background:var(--ink); color:var(--paper); }
+.follow .wrap{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+.follow .kicker{ color:#ff6a5e; }
+.follow h2{ font-size:36px; line-height:1.2; font-weight:800; margin-top:14px; letter-spacing:-.01em; }
+.follow .x a{ display:inline-block; border:2px solid var(--paper); padding:12px 22px; font-weight:700; white-space:nowrap; }
+.follow .x a:hover{ background:var(--paper); color:var(--ink); }
+
+/* footer */
+.foot{ padding:40px 0; color:var(--mute); font-size:13px; }
+.foot .wrap{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+.foot .links a{ margin-left:20px; }
+.foot .links a:first-child{ margin-left:0; }
+.foot .links a:hover{ color:var(--ink); }
+
+/* responsive */
+@media (max-width:760px){
+  .hero{ padding:52px 0; }
+  .hero-grid{ grid-template-columns:1fr; gap:24px; }
+  .hero-art{ order:-1; max-width:230px; margin:0 auto; }
+  .hero h1{ font-size:42px; }
+  .hero .sub{ font-size:17px; }
+  .about,.sets,.follow{ padding:48px 0; }
+  .about h2,.sets .head h2{ font-size:25px; }
+  .about p{ font-size:16px; }
+  .list{ grid-template-columns:1fr; }
+  .set{ padding:18px; gap:16px; }
+  .set .art{ flex:0 0 90px; width:90px; height:90px; }
+  .follow h2{ font-size:30px; }
+}
+@media (prefers-reduced-motion:reduce){ *{ transition:none!important; } }
