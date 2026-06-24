@@ -10,7 +10,7 @@ import pathlib
 ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/everykeep/"
 OG_IMAGE = "https://www.kkirukstudio.com/everykeep/og.png"  # TODO: custom everykeep OG 1200x630
-APP_STORE_URL = ""  # TODO: fill after App Store approval (com.app.kkiruk.everykeep)
+APP_STORE_URL = "https://apps.apple.com/app/id6781988992"  # live 2026-06-24
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
@@ -27,8 +27,8 @@ LOCALES = {
         "h1": "Filters, warranties, the small upkeep —<br>everykeep <em>remembers</em> when you can't.",
         "pairs": [["Water filter", "Replace · 5 days"], ["Aircon filter", "Clean · 12 days"], ["Laptop warranty", "Ends · 340 days"], ["Purifier filter", "Replace · today"]],
         "sub": "Filters, warranties, registrations, cleaning cycles — the easy-to-forget upkeep of everything you own, in one place. everykeep remembers when it's due and quietly reminds you. Free, and nothing leaves your phone.",
-        "note": "FREE · IPHONE &amp; IPAD · COMING SOON",
-        "badge_small": "Coming soon to the", "badge_aria": "everykeep on the App Store",
+        "note": "FREE · IPHONE &amp; IPAD",
+        "badge_small": "Download on the", "badge_aria": "everykeep on the App Store",
         "chips": [["↻", "Replace"], ["✦", "Clean"], ["🛡", "Warranty"], ["✓", "Register"]],
         "hero_alt": "everykeep home screen showing upcoming upkeep and the Keepy character",
         "marquee": ["WATER FILTER", "AIRCON", "AIR PURIFIER", "TOOTHBRUSH HEAD", "CONTACT LENS", "WARRANTY", "REGISTRATION", "CLEANING"],
@@ -73,8 +73,8 @@ LOCALES = {
         "h1": "필터·보증·잊기 쉬운 관리,<br>everykeep이 <em>대신 기억</em>해요.",
         "pairs": [["정수기 필터", "교체 · 5일"], ["에어컨 필터", "청소 · 12일"], ["노트북 보증", "만료 · 340일"], ["공기청정기 필터", "교체 · 오늘"]],
         "sub": "필터 교체, 보증 만료, 정품 등록, 청소 주기 — 잊어버리기 쉬운 우리 집 물건 관리를 한곳에. 갈 때가 되면 everykeep이 대신 기억하고 조용히 알려줘요. 무료, 그리고 기록은 기기 밖으로 안 나가요.",
-        "note": "무료 · iPhone &amp; iPad · 곧 출시",
-        "badge_small": "곧 만나요", "badge_aria": "App Store의 everykeep",
+        "note": "무료 · iPhone &amp; iPad",
+        "badge_small": "다운로드는", "badge_aria": "App Store의 everykeep",
         "chips": [["↻", "교체"], ["✦", "청소"], ["🛡", "보증"], ["✓", "정품"]],
         "hero_alt": "everykeep 홈 화면 — 다가오는 관리 일정과 키프이 캐릭터",
         "marquee": ["정수기 필터", "에어컨", "공기청정기", "칫솔모", "콘택트렌즈", "보증서", "정품등록", "청소 주기"],
@@ -119,8 +119,8 @@ LOCALES = {
         "h1": "フィルター・保証・忘れがちなお手入れ、<br>everykeepが<em>覚えて</em>おきます。",
         "pairs": [["浄水フィルター", "交換 · 5日"], ["エアコンフィルター", "清掃 · 12日"], ["ノートPC保証", "満了 · 340日"], ["空気清浄機フィルター", "交換 · 今日"]],
         "sub": "フィルター交換、保証の満了、正規登録、清掃の周期 — 忘れがちなモノのお手入れをひとつに。その時が来たらeverykeepが覚えていて、そっと知らせます。無料、記録は端末の外に出ません。",
-        "note": "無料 · iPhone &amp; iPad · 近日公開",
-        "badge_small": "まもなく公開", "badge_aria": "App Store の everykeep",
+        "note": "無料 · iPhone &amp; iPad",
+        "badge_small": "ダウンロードは", "badge_aria": "App Store の everykeep",
         "chips": [["↻", "交換"], ["✦", "清掃"], ["🛡", "保証"], ["✓", "登録"]],
         "hero_alt": "everykeepのホーム画面 — これからのお手入れとキープイ",
         "marquee": ["浄水フィルター", "エアコン", "空気清浄機", "歯ブラシ", "コンタクト", "保証書", "正規登録", "清掃周期"],
@@ -366,7 +366,7 @@ def render(key):
 
 <script>
   // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
-  const APP_STORE_URL = "";
+  const APP_STORE_URL = "https://apps.apple.com/app/id6781988992";
   if (APP_STORE_URL) {{
     document.getElementById("storeLink").href = APP_STORE_URL;
     document.getElementById("storeLink2").href = APP_STORE_URL;
