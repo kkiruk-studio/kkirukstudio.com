@@ -15,7 +15,9 @@ CSS_VERSION = "3"  # bump whenever style.css changes — busts stale browser cac
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
-LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh-hans/", "简体"), ("zh-hant/", "繁體")]
+LANG_LABELS = [("index.html", "EN"), ("ko.html", "한국어"), ("ja.html", "日本語"), ("zh-hans.html", "简体"), ("zh-hant.html", "繁體")]
+FILES = {"en": "index.html", "ko": "ko.html", "ja": "ja.html", "zh-hans": "zh-hans.html", "zh-hant": "zh-hant.html"}
+URLPATH = {"en": "", "ko": "ko.html", "ja": "ja.html", "zh-hans": "zh-hans.html", "zh-hant": "zh-hant.html"}
 PLAT_GLYPH = {"yt": "▶", "tt": "♪", "ig": "✦", "any": "∞"}
 
 LOCALES = {
@@ -350,15 +352,15 @@ LOCALES = {
 def hreflang_block():
     lines = [f'<link rel="alternate" hreflang="x-default" href="{BASE_URL}">']
     for key, loc in LOCALES.items():
-        lines.append(f'<link rel="alternate" hreflang="{loc["lang"]}" href="{BASE_URL}{loc["dir"]}">')
+        lines.append(f'<link rel="alternate" hreflang="{loc["lang"]}" href="{BASE_URL}{URLPATH[key]}">')
     return "\n".join(lines)
 
 
-def lang_nav(cur_dir, rel):
+def lang_nav(cur_file):
     out = []
-    for d, label in LANG_LABELS:
-        cls = ' class="cur"' if d == cur_dir else ""
-        href = (rel + d) if d else (rel if rel else "./")
+    for f, label in LANG_LABELS:
+        cls = ' class="cur"' if f == cur_file else ""
+        href = "./" if f == "index.html" else f
         out.append(f'<a href="{href}"{cls}>{label}</a>')
     return "".join(out)
 
@@ -370,7 +372,7 @@ def badge(loc):
 
 def render(key):
     loc = LOCALES[key]
-    rel = "../" if loc["dir"] else ""
+    rel = ""
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
 
     first = loc["demo_cards"][0]
@@ -434,9 +436,17 @@ def render(key):
 <meta name="description" content="{loc['desc']}">
 <meta property="og:title" content="{loc['og_title']}">
 <meta property="og:description" content="{loc['og_desc']}">
-<meta property="og:image" content="{BASE_URL}assets/icon-512.png">
+<meta property="og:image" content="{BASE_URL}og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="{BASE_URL}{URLPATH[key]}">
+<meta property="og:site_name" content="kkiruk studio">
 <meta property="og:type" content="website">
-<link rel="canonical" href="{BASE_URL}{loc['dir']}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{loc['og_title']}">
+<meta name="twitter:description" content="{loc['og_desc']}">
+<meta name="twitter:image" content="{BASE_URL}og.png">
+<link rel="canonical" href="{BASE_URL}{URLPATH[key]}">
 {hreflang_block()}
 <link rel="icon" type="image/png" href="{rel}assets/icon-180.png">
 <link rel="apple-touch-icon" href="{rel}assets/icon-180.png">
@@ -450,7 +460,7 @@ def render(key):
   <div class="wrap">
     <a class="wordmark" href="{rel if rel else './'}"><img src="{rel}assets/icon-180.png" alt="">Pinclip</a>
     <div class="nav-right">
-      <div class="lang">{lang_nav(loc['dir'], rel)}</div>
+      <div class="lang">{lang_nav(FILES[key])}</div>
       <a class="nav-cta" href="{APP_STORE_URL}">App Store</a>
     </div>
   </div>
@@ -598,8 +608,7 @@ def render(key):
 </body>
 </html>
 """
-    out = ROOT / loc["dir"] / "index.html"
-    out.parent.mkdir(exist_ok=True)
+    out = ROOT / FILES[key]
     out.write_text(html, encoding="utf-8")
     print(f"wrote {out.relative_to(ROOT)} ({len(html)} bytes)")
 

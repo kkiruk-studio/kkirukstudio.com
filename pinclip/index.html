@@ -1,107 +1,185 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PinClip — Find that video again in 3 seconds</title>
-<meta name="description" content="Bookmark Reels, Shorts, and any video link with one share-sheet tap. Auto titles & thumbnails, folders, widgets, iCloud sync.">
-<link rel="icon" type="image/png" href="../icons/pinclip.png">
-<link rel="apple-touch-icon" href="../icons/pinclip.png">
-<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/pinclip/ko.html">
-<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/pinclip/index.html">
-<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/pinclip/ja.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/pinclip/zh-hans.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/pinclip/zh-hant.html">
-<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/pinclip/index.html">
-<link rel="canonical" href="https://www.kkirukstudio.com/pinclip/index.html">
-<meta property="og:title" content="PinClip — Find that video again in 3 seconds">
-<meta property="og:description" content="Bookmark Reels, Shorts, and any video link with one share-sheet tap. Auto titles & thumbnails, folders, widgets, iCloud sync.">
+<title>Pinclip — Save Shorts, Reels & TikToks. Find them in 3 seconds.</title>
+<meta name="description" content="Tap share on any short-form video and Pinclip saves it with the title and thumbnail filled in automatically. Folders, tags, widgets and iCloud sync keep your videos organized.">
+<meta property="og:title" content="Pinclip — Short-form Video Bookmarks">
+<meta property="og:description" content="Save the videos you love, so you can find them again.">
 <meta property="og:image" content="https://www.kkirukstudio.com/pinclip/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://www.kkirukstudio.com/pinclip/index.html">
+<meta property="og:url" content="https://www.kkirukstudio.com/pinclip/">
 <meta property="og:site_name" content="kkiruk studio">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PinClip — Find that video again in 3 seconds">
-<meta name="twitter:description" content="Bookmark Reels, Shorts, and any video link with one share-sheet tap. Auto titles & thumbnails, folders, widgets, iCloud sync.">
+<meta name="twitter:title" content="Pinclip — Short-form Video Bookmarks">
+<meta name="twitter:description" content="Save the videos you love, so you can find them again.">
 <meta name="twitter:image" content="https://www.kkirukstudio.com/pinclip/og.png">
-<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://www.kkirukstudio.com/pinclip/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/pinclip/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/pinclip/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/pinclip/ko.html">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/pinclip/ja.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/pinclip/zh-hans.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/pinclip/zh-hant.html">
+<link rel="icon" type="image/png" href="assets/icon-180.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="assets/style.css?v=3">
+
 <script src="/ga.js"></script>
 </head>
 <body>
 
-<header>
-  <div class="bar">
-    <a class="wordmark" href="index.html"><img src="../icons/pinclip.png" alt="PinClip">PinClip</a>
-    <nav class="nav-right">
-      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
-        <option value="ko.html">한국어</option>
-        <option value="index.html" selected>EN</option>
-        <option value="ja.html">日本語</option>
-        <option value="zh-hans.html">简体中文</option>
-        <option value="zh-hant.html">繁體中文</option>
-      </select>
-      <a class="nav-cta" href="https://apps.apple.com/app/id6761982511" target="_blank" rel="noopener">App Store</a>
-    </nav>
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="./"><img src="assets/icon-180.png" alt="">Pinclip</a>
+    <div class="nav-right">
+      <div class="lang"><a href="./" class="cur">EN</a><a href="ko.html">한국어</a><a href="ja.html">日本語</a><a href="zh-hans.html">简体</a><a href="zh-hant.html">繁體</a></div>
+      <a class="nav-cta" href="https://apps.apple.com/app/id6761982511">App Store</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="badge-pill">📌 The easy way to save short videos</span>
+      <h1>That video you loved?<br>Save it so you can <em>find it again</em>.</h1>
+      <p class="sub">You watch a Short or a Reel, think “I'll come back to this” — and then it's gone. Pinclip is a place to keep those videos. Tap the share button on any video, choose Pinclip, and that's it: the title and preview picture are added automatically, and everything is sorted into folders.</p>
+      <div class="cta">
+        <a class="store-badge" href="https://apps.apple.com/app/id6761982511" aria-label="Download on the App Store"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a>
+        <span class="note">FREE DOWNLOAD · IPHONE &amp; IPAD</span>
+      </div>
+      <div class="flow" aria-hidden="true"><span class="pin" id="flowPin">📌</span><div class="vcard" id="flowCard"><span class="thumb t1" id="flowThumb">🍝<span class="pb yt" id="flowPb">▶</span></span><span class="t" id="flowTitle">5-Minute Pasta Recipe</span></div><span class="arr">→</span><div class="fold" id="flowFold"><span class="ic">📁</span><span id="flowFoldName">Recipes</span><span class="cnt" id="flowCnt">4</span></div></div>
+    </div>
+    <div class="phone-col">
+      <div class="float-card f1"><span class="thumb t2 ">👗<span class="pb ig">✦</span></span><span>Fall Daily Look Outfits</span></div><div class="float-card f2"><span class="thumb t3 ">🏋️<span class="pb tt">♪</span></span><span>5-Min Plank Challenge</span></div><div class="float-card f3"><span class="thumb t4 ">☕<span class="pb yt">▶</span></span><span>Best 7 Cafes in Brooklyn</span></div><div class="float-chip">📁 Recipes</div>
+      <div class="phone"><img src="assets/shot-en-home.png" alt="Pinclip home screen with recently saved videos and folders like Recipes, Home Workout and NYC Cafes"><div class="island"></div></div>
+    </div>
   </div>
 </header>
 
-<main>
-<div class="hero">
-  <div class="hero-copy">
-    <p class="kicker">Bookmark Reels & Shorts</p>
-    <h1>Where did I see that video?<br><em>Now it takes 3 seconds.</em></h1>
-    <p class="hero-sub">Tap share while watching — PinClip saves the link with its title and thumbnail, neatly filed in folders. Works with YouTube, Reels, Shorts, TikTok and more.</p>
-    <div class="hero-cta-row">
-      <a class="appstore-btn" href="https://apps.apple.com/app/id6761982511" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
-      
-    </div>
-    <p class="hero-foot">Free download · iPhone & iPad</p>
+<section>
+  <div class="wrap">
+    <span class="badge-pill">How it works</span>
+    <h2>It only takes <em>three steps</em>.</h2>
+    <div class="steps"><div class="step"><span class="n">1</span><span class="ico">📤</span><h3>Tap the share button on a video</h3><p>Watching something on YouTube, Instagram or TikTok that you want to keep? Tap the share (arrow) button below it and choose Pinclip. You never have to leave the app you're in.</p></div><div class="step"><span class="n">2</span><span class="ico">🪄</span><h3>Pinclip does the rest for you</h3><p>It grabs the video's title and preview picture automatically. You don't have to type anything — your collection ends up looking like a photo album, easy to scan.</p></div><div class="step"><span class="n">3</span><span class="ico">🗂️</span><h3>Put it in a folder</h3><p>Make folders like “Cooking” or “Workout” and drop videos in. Add tags and a little note, and you'll never forget why you saved something.</p></div></div>
   </div>
-  <div class="hero-visual" aria-hidden="true">
-    <div class="fanx">
-      <img class="shot s1" src="../shots/pinclip/en-2.jpg" alt="">
-      <img class="shot s2" src="../shots/pinclip/en-1.jpg" alt="">
-      <div class="pin"><i></i></div>
-    </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="badge-pill">Finding it again</span>
+    <h2>Can't remember the title? <em>Found in 3 seconds</em> anyway.</h2>
+    <p class="lede">“That pasta video from last week…” — you often can't remember the title or the channel. In Pinclip, you just open the folder or tap a tag, and there it is. Like this:</p>
+    <div class="mems"><div class="mem"><span class="q">“that pasta Short from Tuesday…”</span><span class="arr">→</span><span class="dest"><span class="chipf">📁 Recipes · #pasta</span><span class="pb yt">▶</span></span></div><div class="mem"><span class="q">“the outfit Reel I liked…”</span><span class="arr">→</span><span class="dest"><span class="chipf">📁 Fashion · #ootd</span><span class="pb ig">✦</span></span></div><div class="mem"><span class="q">“that plank challenge…”</span><span class="arr">→</span><span class="dest"><span class="chipf">📁 Home Workout · #core</span><span class="pb tt">♪</span></span></div><div class="mem"><span class="q">“cafes for the weekend…”</span><span class="arr">→</span><span class="dest"><span class="chipf">📁 NYC Cafes · #brooklyn</span><span class="pb yt">▶</span></span></div></div>
   </div>
-</div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="badge-pill">Platforms</span>
+    <h2>YouTube, TikTok, Instagram — <em>all in one place</em>.</h2>
+    <p class="lede">It doesn't matter which app the video came from — you save them all the same way. YouTube and TikTok videos even fill in their own title and preview picture, and everything you save can be searched in one library.</p>
+    <div class="providers"><div class="prov"><span class="pic yt">▶</span><h3>YouTube Shorts</h3><ul><li><span class="g">✓</span>Auto title</li><li><span class="g">✓</span>Auto thumbnail</li></ul></div><div class="prov"><span class="pic tt">♪</span><h3>TikTok</h3><ul><li><span class="g">✓</span>Auto title</li><li><span class="g">✓</span>Auto thumbnail</li></ul></div><div class="prov"><span class="pic ig">✦</span><h3>Instagram Reels</h3><ul><li><span class="g">✓</span>One-tap save</li><li><span class="g">✓</span>Smart folders</li></ul></div><div class="prov"><span class="pic any">∞</span><h3>Any video link</h3><ul><li><span class="g">✓</span>Same library</li><li><span class="g">✓</span>Tag search</li></ul></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="badge-pill">Share a folder</span>
+    <h2>Send a whole folder <em>as a single link</em>.</h2>
+    <p class="lede">That “NYC Cafes” folder you put together? Too good to keep to yourself. Turn the folder into a link and send it — your friend can see it right in their browser, no app needed. And if they use Pinclip too, they can import the whole folder into their own collection.</p>
+    <div class="share-flow" aria-hidden="true"><div class="scard sfolder"><span class="ic">📁</span><span><strong>NYC Cafes</strong><small>2 videos</small></span></div><span class="sarr">→</span><div class="scard slink">🔗 pinclip.link/f/3kx9q2</div><span class="sarr">→</span><div class="scard sfriend"><strong>Your friend can:</strong><span>🌐 View it right in the browser</span><span>📲 Import it into their Pinclip</span></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <span class="badge-pill">Screens</span>
+    <h2>Here's what it <em>actually looks like</em>.</h2>
+    <div class="row"><figure><div class="phone"><img src="assets/shot-en-folder.png" alt="📁 Folders that stay tidy" loading="lazy"><div class="island"></div></div><figcaption><span>📁 Folders that stay tidy</span></figcaption></figure><figure><div class="phone"><img src="assets/shot-en-detail.png" alt="🏷️ Tags · notes · one tap back" loading="lazy"><div class="island"></div></div><figcaption><span>🏷️ Tags · notes · one tap back</span></figcaption></figure><figure><div class="phone"><img src="assets/shot-en-feed.png" alt="🔍 Your whole feed, searchable" loading="lazy"><div class="island"></div></div><figcaption><span>🔍 Your whole feed, searchable</span></figcaption></figure></div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
-    <p class="sec-label">Features</p>
-    <h2 class="sec-title">Saving takes a second. Filing is automatic.</h2>
-    <div class="features">
-      <div class="feature"><div class="dot"></div><h3>One tap to save</h3><p>Share button → PinClip, from any app. That's it.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Auto title & thumbnail</h3><p>Drop a link; the metadata fills itself in.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Folders + notes</h3><p>Organize by topic, leave a short note on any clip.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Widgets & iCloud</h3><p>Favorite folders one tap from your Home Screen. Synced everywhere.</p></div>
-    </div>
+    <span class="badge-pill">More</span>
+    <h2>It does <em>more</em>, too.</h2>
+    <div class="grid6"><div class="feat"><span class="ico">📤</span><h3>Save without switching apps</h3><p>You don't have to close YouTube, Instagram or TikTok. Share button → Pinclip — two taps and you're back to watching.</p></div><div class="feat"><span class="ico">📲</span><h3>Home Screen widgets</h3><p>Put your favorite folders or videos right on your phone's Home Screen. Unlock, tap once, and the video is playing.</p></div><div class="feat"><span class="ico">☁️</span><h3>iCloud sync</h3><p>With Pro, videos you save on your iPhone show up on your iPad too. It syncs through your own iCloud, so it stays private.</p></div><div class="feat"><span class="ico">▶️</span><h3>Jump back to the original</h3><p>Tap a saved video and it opens right where it came from — YouTube, Instagram or TikTok. Watching it again takes one tap.</p></div><div class="feat"><span class="ico">🗂️</span><h3>Smart folders</h3><p>Pinclip automatically groups videos by where they came from — YouTube, Instagram or TikTok. No effort needed.</p></div><div class="feat"><span class="ico">#️⃣</span><h3>Tags and notes</h3><p>Add a tag like #cooking, or a note about why you saved it. Later, tap the tag and every related video shows up.</p></div></div>
   </div>
 </section>
 
-<section class="cta">
+<section class="final">
   <div class="wrap">
-    <h2 class="cta-title">Don't let it scroll away.<br>Pin it.</h2>
-    <p class="cta-sub">Free to start · iPhone & iPad</p>
-    <a class="appstore-btn" href="https://apps.apple.com/app/id6761982511" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
+    <h2>Never lose a video again.</h2>
+    <p class="lede">Pinclip is free to start, on iPhone and iPad.</p>
+    <div class="cta"><a class="store-badge" href="https://apps.apple.com/app/id6761982511" aria-label="Download on the App Store"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a></div>
   </div>
 </section>
-</main>
 
 <footer>
-  <div class="wrap cols">
-    <span>© kkiruk studio</span>
-    <nav class="links">
-      <a href="/">kkiruk studio</a>
+  <div class="wrap">
+    <div class="brand"><img src="assets/icon-180.png" alt=""><a href="/"><strong>kkiruk studio</strong></a></div>
+    <div class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
-      <a href="ko.html">한국어</a> <a href="ja.html">日本語</a> <a href="zh-hans.html">简体中文</a> <a href="zh-hant.html">繁體中文</a>
-    </nav>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">Terms</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
   </div>
 </footer>
 
+<script>
+  const GLYPH = { yt: "▶", tt: "♪", ig: "✦" };
+  const cards = [["yt", "🍝", "5-Minute Pasta Recipe", "Recipes"], ["ig", "👗", "Fall Daily Look Outfits", "Fashion"], ["tt", "🏋️", "5-Min Plank Challenge", "Home Workout"], ["yt", "☕", "Best 7 Cafes in Brooklyn", "NYC Cafes"]];
+  const card = document.getElementById("flowCard");
+  const thumb = document.getElementById("flowThumb");
+  const pb = document.getElementById("flowPb");
+  const title = document.getElementById("flowTitle");
+  const pin = document.getElementById("flowPin");
+  const fold = document.getElementById("flowFold");
+  const foldName = document.getElementById("flowFoldName");
+  const cnt = document.getElementById("flowCnt");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    let i = 0, count = 4;
+    (async function loop() {
+      for (;;) {
+        const [plat, emoji, t, folder] = cards[i % cards.length];
+        card.classList.add("hidden");
+        card.classList.remove("fly");
+        card.style.removeProperty("--fly-x");
+        pin.classList.remove("stamp");
+        thumb.className = "thumb t" + (i % 4 + 1);
+        thumb.childNodes[0].nodeValue = emoji;
+        pb.className = "pb " + plat;
+        pb.textContent = GLYPH[plat];
+        title.textContent = t;
+        foldName.textContent = folder;
+        await sleep(60);
+        card.classList.remove("hidden");
+        await sleep(950);
+        pin.classList.add("stamp");
+        await sleep(700);
+        const dx = fold.getBoundingClientRect().left - card.getBoundingClientRect().left;
+        card.style.setProperty("--fly-x", dx + "px");
+        pin.classList.remove("stamp");
+        card.classList.add("fly");
+        await sleep(600);
+        fold.classList.add("bump");
+        cnt.textContent = ++count;
+        await sleep(420);
+        fold.classList.remove("bump");
+        await sleep(750);
+        i++;
+      }
+    })();
+  } else {
+    pin.classList.add("stamp");
+  }
+</script>
 </body>
 </html>
