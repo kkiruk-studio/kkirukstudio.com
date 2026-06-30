@@ -124,9 +124,10 @@ img{ max-width:100%; display:block; }
   .about h2,.sets .head h2,.family .head h2{ font-size:25px; }
   .family .lead{ font-size:16px; }
   /* tree → 2-col node grid on mobile (connectors off) */
-  .couple{ flex-direction:column; gap:12px; }
-  .couple .bond{ transform:rotate(90deg); padding:2px 0; }
-  .couple .bond::before{ display:none; }
+  /* keep 父♡母 side by side so they read as a couple */
+  .couple{ display:flex; gap:0; width:100%; }
+  .couple .node{ width:auto; flex:1 1 0; min-width:0; }
+  .couple .bond{ flex:0 0 auto; padding:0 12px; }
   .trunk{ height:20px; }
   .kids-row{ display:block; }
   .kids{ flex-wrap:wrap; gap:12px; }
