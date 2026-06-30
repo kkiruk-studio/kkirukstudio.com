@@ -1,4 +1,4 @@
-/* Palette 2048 landing — the hero board cycles through real painting palettes,
+/* Palette landing — the hero board cycles through real painting palettes,
    the way the app paints a new masterpiece each day. */
 (function () {
   var PAINTINGS = [
