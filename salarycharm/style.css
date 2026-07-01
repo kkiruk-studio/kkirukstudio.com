@@ -84,8 +84,10 @@ em{ font-style:normal; color:var(--cinnabar); }
 .area-list li{ font-size:13px; color:var(--inkSoft); }
 .area-list li b{ color:var(--cinnabar); font-weight:700; margin-right:6px; }
 
-.prescribe{ margin-top:24px; background:var(--paper); border:1px solid var(--paperDeep); border-radius:18px; padding:18px 20px; }
-.prescribe h3{ font-family:var(--serif); font-size:19px; font-weight:700; }
+.prescribe{ display:flex; align-items:center; gap:20px; margin-top:24px; background:var(--paper); border:1px solid var(--paperDeep); border-radius:18px; padding:20px 22px; }
+.rx-body h3{ font-family:var(--serif); font-size:19px; font-weight:700; }
+.rx-body p{ font-size:14.5px; color:var(--inkSoft); margin-top:8px; line-height:1.7; }
+.rx-body p b{ color:var(--cinnabar); font-weight:700; }
 /* 약한 운 →(처방 도장)→ 부적 흐름 */
 .rx-flow{ display:flex; align-items:center; justify-content:flex-start; gap:12px; margin-top:16px; flex-wrap:wrap; }
 .rx-item{ display:flex; flex-direction:column; align-items:center; gap:8px; }
@@ -100,7 +102,7 @@ em{ font-style:normal; color:var(--cinnabar); }
   box-shadow:0 10px 20px -10px rgba(122,26,20,.5), inset 0 0 0 2px rgba(166,36,28,.14); }
 .mini-charm span{ font-family:var(--mincho); font-size:18px; color:var(--cinnabar); text-align:center; line-height:1; align-self:center; }
 .rx-arrow{ align-self:flex-start; margin-top:21px; font-size:18px; color:var(--faint); }
-.rx-seal{ width:60px; height:60px; border-radius:11px; background:var(--cinnabar); color:#fff;
+.rx-seal{ flex:0 0 auto; width:64px; height:64px; border-radius:12px; background:var(--cinnabar); color:#fff;
   font-family:var(--mincho); font-size:22px; font-weight:600; display:grid; place-items:center;
   transform:rotate(-5deg); box-shadow:0 10px 20px -8px rgba(122,26,20,.55); }
 .cmp-note b{ color:var(--cinnabar); font-weight:700; }
@@ -226,8 +228,7 @@ section{ padding:74px 0; border-bottom:1px solid var(--paperDeep); }
   .bar nav a:not(.soon){ display:none; }
   .luck-grid2{ grid-template-columns:1fr; gap:34px; text-align:center; }
   .luck-copy .eyebrow{ justify-content:center; }
-  .prescribe h3{ text-align:center; }
-  .rx-flow{ justify-content:center; }
+  .prescribe{ flex-direction:column; text-align:center; gap:14px; }
   .area-list{ grid-template-columns:1fr; justify-items:center; }
   .compare{ grid-template-columns:1fr; }
 }
