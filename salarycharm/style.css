@@ -1,0 +1,143 @@
+/* 직장인 부적 landing — 전통 부적 미감 (paper·cinnabar·gold·明朝) */
+:root{
+  --paper:#FFF6E3; --paper2:#F3E7C8; --paperDeep:#E9D7AE;
+  --ink:#29211A; --inkSoft:#4D4033; --faint:#9C886B;
+  --cinnabar:#A6241C; --cinnabarDark:#7A1A14;
+  --gold:#E8AD33; --goldLite:#FFDB66; --line:#CBB084;
+  --maxw:1060px;
+  --serif:"AppleMyungjo","Nanum Myeongjo","Hiragino Mincho ProN",serif;
+  --mincho:"Hiragino Mincho ProN","AppleMyungjo",serif;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ max-width:100%; overflow-x:hidden; }
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Segoe UI",sans-serif;
+  font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased;
+}
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+em{ font-style:normal; color:var(--cinnabar); }
+.cjk{ word-break:auto-phrase; line-break:strict; text-wrap:balance; }
+
+/* eyebrow (monospace + 주사 점) */
+.eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:ui-monospace,Menlo,monospace;
+  font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--faint); }
+.eyebrow::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--cinnabar); }
+
+/* bar */
+.bar{ position:sticky; top:0; z-index:50; background:color-mix(in srgb,var(--paper) 86%,transparent);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--paperDeep); }
+.bar .wrap{ display:flex; align-items:center; justify-content:space-between; padding:14px 24px; }
+.wordmark{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:17px; letter-spacing:-.01em; }
+.wordmark img{ width:28px; height:28px; border-radius:8px; }
+.wordmark b{ color:var(--cinnabar); }
+.bar nav{ display:flex; align-items:center; gap:20px; font-size:13.5px; color:var(--inkSoft); }
+.bar nav a:hover{ color:var(--cinnabar); }
+.bar .soon{ font-family:ui-monospace,Menlo,monospace; font-size:11px; font-weight:700; letter-spacing:.08em;
+  color:var(--cinnabar); border:1.5px solid var(--cinnabar); border-radius:999px; padding:5px 12px; }
+
+/* hero */
+.hero{ padding:72px 0 64px; border-bottom:1px solid var(--paperDeep); }
+.hero-grid{ display:grid; grid-template-columns:1.08fr .92fr; gap:48px; align-items:center; }
+.hero h1{ font-family:var(--serif); font-size:clamp(34px,5vw,56px); line-height:1.18; font-weight:700;
+  letter-spacing:-.01em; margin:18px 0 0; }
+.hero .sub{ font-size:clamp(16px,1.7vw,18px); color:var(--inkSoft); margin-top:20px; max-width:30em; }
+.hero .cta-row{ margin-top:30px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.btn{ display:inline-flex; align-items:center; gap:9px; background:var(--cinnabar); color:#fff;
+  padding:14px 24px; border-radius:13px; font-size:15.5px; font-weight:700; transition:transform .15s,opacity .2s; }
+.btn:hover{ transform:translateY(-1px); opacity:.94; }
+.btn.ghost{ background:transparent; color:var(--cinnabar); border:1.5px solid var(--cinnabar); }
+.hero .note{ margin-top:18px; font-size:13px; color:var(--faint); }
+.hero .note b{ color:var(--inkSoft); font-weight:700; }
+
+/* 부적 카드 (signature visual) */
+.charm-visual{ display:flex; flex-direction:column; align-items:center; }
+.charm{ width:288px; }
+.charm-frame{ position:relative; border-radius:14px; padding:18px;
+  background:linear-gradient(160deg,#FFE49A 0%,var(--goldLite) 38%,var(--gold) 100%);
+  border:2px solid var(--cinnabarDark);
+  box-shadow:0 26px 60px -24px rgba(122,26,20,.55), inset 0 0 0 6px rgba(166,36,28,.16); }
+.charm-frame::after{ content:""; position:absolute; inset:7px; border:1.5px solid rgba(122,26,20,.45);
+  border-radius:8px; pointer-events:none; }
+.charm-glyphs{ display:grid; grid-template-columns:1fr 1fr; }
+.charm-glyphs span{ font-family:var(--mincho); font-size:84px; line-height:1; font-weight:600;
+  color:var(--cinnabar); text-align:center; padding:14px 0; }
+.charm-glyphs span:nth-child(1),.charm-glyphs span:nth-child(2){ border-bottom:1.5px solid rgba(122,26,20,.30); }
+.charm-glyphs span:nth-child(1),.charm-glyphs span:nth-child(3){ border-right:1.5px solid rgba(122,26,20,.30); }
+.charm-name{ font-family:var(--serif); font-size:19px; font-weight:700; text-align:center; margin-top:20px; }
+.charm-drip{ font-size:13.5px; color:var(--cinnabar); text-align:center; margin-top:8px; line-height:1.6;
+  border-left:2px solid var(--cinnabar); padding-left:0; max-width:26em; }
+.charm-seal{ position:absolute; right:-14px; bottom:34px; width:54px; height:54px; border-radius:9px;
+  background:var(--cinnabar); color:#fff; font-family:var(--mincho); display:grid; place-items:center;
+  font-size:13px; line-height:1.05; text-align:center; transform:rotate(6deg);
+  box-shadow:0 8px 18px -6px rgba(122,26,20,.7); }
+
+/* section */
+section{ padding:74px 0; border-bottom:1px solid var(--paperDeep); }
+.sec-head h2{ font-family:var(--serif); font-size:clamp(26px,3.4vw,38px); line-height:1.28; font-weight:700;
+  letter-spacing:-.01em; margin-top:14px; max-width:20em; }
+.sec-head .lede{ font-size:16.5px; color:var(--inkSoft); margin-top:16px; max-width:34em; }
+
+/* 운 4갈래 */
+.luck{ background:var(--paper2); }
+.luck-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:38px; }
+.luck-card{ background:var(--paper); border:1px solid var(--paperDeep); border-radius:18px; padding:22px 20px; }
+.luck-card .nm{ font-family:var(--serif); font-size:19px; font-weight:700; }
+.luck-card .stars{ color:var(--gold); letter-spacing:2px; font-size:15px; margin-top:8px; }
+.luck-card .stars .off{ color:var(--paperDeep); }
+.luck-card p{ font-size:13.5px; color:var(--inkSoft); margin-top:8px; }
+.luck-card.weak{ border-color:var(--cinnabar); }
+.luck-card.weak .tag{ display:inline-block; font-family:ui-monospace,Menlo,monospace; font-size:10px; font-weight:700;
+  letter-spacing:.06em; color:#fff; background:var(--cinnabar); border-radius:999px; padding:2px 9px; margin-top:10px; }
+
+/* features */
+.feat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:40px; }
+.feat{ background:var(--paper2); border:1px solid var(--paperDeep); border-radius:20px; padding:26px; }
+.feat .ic{ font-family:var(--mincho); font-size:30px; color:var(--cinnabar); line-height:1; }
+.feat h3{ font-family:var(--serif); font-size:19px; font-weight:700; margin-top:14px; }
+.feat p{ font-size:14.5px; color:var(--inkSoft); margin-top:8px; }
+
+/* screenshots */
+.screens{ background:var(--paper2); }
+.shots{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:40px; }
+.shot figure{ margin:0; }
+.shot img{ border-radius:24px; border:1px solid var(--paperDeep);
+  box-shadow:0 24px 50px -22px rgba(41,33,26,.5); }
+.shot figcaption{ font-size:13px; color:var(--inkSoft); margin-top:14px; text-align:center; }
+.shot figcaption b{ font-family:var(--serif); font-weight:700; color:var(--ink); display:block; font-size:14.5px; }
+
+/* trust */
+.trust{ text-align:center; }
+.trust .row{ display:flex; justify-content:center; flex-wrap:wrap; gap:14px 28px; margin-top:30px; }
+.trust .row span{ font-size:15px; font-weight:700; color:var(--inkSoft); }
+.trust .row span::before{ content:"・"; color:var(--cinnabar); margin-right:6px; }
+
+/* final cta */
+.final{ text-align:center; border-bottom:none; }
+.final h2{ font-family:var(--serif); font-size:clamp(26px,3.6vw,40px); line-height:1.3; font-weight:700; }
+.final .sub{ color:var(--inkSoft); margin-top:14px; font-size:16px; }
+.final .btn{ margin-top:28px; }
+
+/* footer */
+.foot{ background:var(--ink); color:#cbb89a; padding:40px 0 56px; font-size:13.5px; }
+.foot .wrap{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; }
+.foot a:hover{ color:#fff; }
+.foot .links{ display:flex; gap:18px; flex-wrap:wrap; }
+
+@media (max-width:860px){
+  .hero{ padding:48px 0; }
+  .hero-grid{ grid-template-columns:1fr; gap:40px; text-align:center; }
+  .hero .sub{ margin-left:auto; margin-right:auto; }
+  .hero .cta-row{ justify-content:center; }
+  .charm-visual{ order:-1; }
+  .charm-drip{ border:0; }
+  section{ padding:52px 0; }
+  .luck-grid{ grid-template-columns:1fr 1fr; }
+  .feat-grid{ grid-template-columns:1fr; }
+  .shots{ grid-template-columns:1fr 1fr; }
+  .bar nav a:not(.soon){ display:none; }
+}
+@media (max-width:460px){ .shots{ grid-template-columns:1fr 1fr; } .charm{ width:248px; } .charm-glyphs span{ font-size:72px; } }
+@media (prefers-reduced-motion:reduce){ *{ transition:none!important; } }
