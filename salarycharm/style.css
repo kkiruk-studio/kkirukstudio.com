@@ -74,6 +74,14 @@ em{ font-style:normal; color:var(--cinnabar); }
   font-size:13px; line-height:1.05; text-align:center; transform:rotate(6deg);
   box-shadow:0 8px 18px -6px rgba(122,26,20,.7); }
 
+/* 공유 카드 (실제 앱 산출물) */
+.share-fig{ margin:0; text-align:center; }
+.share-card{ width:100%; max-width:352px; border-radius:12px;
+  box-shadow:0 28px 64px -24px rgba(122,26,20,.5); }
+.share-fig figcaption{ font-size:13.5px; color:var(--inkSoft); margin-top:18px; line-height:1.6; max-width:24em;
+  margin-left:auto; margin-right:auto; }
+.share-fig figcaption b{ color:var(--cinnabar); font-weight:700; }
+
 /* section */
 section{ padding:74px 0; border-bottom:1px solid var(--paperDeep); }
 .sec-head h2{ font-family:var(--serif); font-size:clamp(26px,3.4vw,38px); line-height:1.28; font-weight:700;
