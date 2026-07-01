@@ -131,11 +131,7 @@ section{ padding:74px 0; border-bottom:1px solid var(--paperDeep); }
 /* screenshots */
 .screens{ background:var(--paper2); }
 .shots{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:40px; }
-.shot figure{ margin:0; }
-.shot img{ border-radius:24px; border:1px solid var(--paperDeep);
-  box-shadow:0 24px 50px -22px rgba(41,33,26,.5); }
-.shot figcaption{ font-size:13px; color:var(--inkSoft); margin-top:14px; text-align:center; }
-.shot figcaption b{ font-family:var(--serif); font-weight:700; color:var(--ink); display:block; font-size:14.5px; }
+.shot img{ border-radius:18px; box-shadow:0 20px 44px -22px rgba(41,33,26,.45); }
 
 /* trust */
 .trust{ text-align:center; }
