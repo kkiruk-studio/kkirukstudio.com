@@ -79,14 +79,37 @@ em{ font-style:normal; color:var(--cinnabar); }
 .luck-shot{ margin:0; text-align:center; }
 .luck-shot img{ width:100%; max-width:300px; border-radius:26px; border:1px solid var(--paperDeep);
   box-shadow:0 28px 58px -24px rgba(41,33,26,.5); }
-.prescribe{ display:flex; align-items:center; gap:22px; margin-top:28px;
-  background:var(--paper); border:1px solid var(--paperDeep); border-radius:20px; padding:22px 24px; }
-.rx-seal{ flex:0 0 auto; width:80px; height:80px; border-radius:13px; background:var(--cinnabar); color:#fff;
-  font-family:var(--mincho); font-size:29px; font-weight:600; display:grid; place-items:center;
-  transform:rotate(-5deg); box-shadow:0 10px 22px -8px rgba(122,26,20,.6); }
-.rx-body h3{ font-family:var(--serif); font-size:21px; font-weight:700; }
-.rx-body p{ font-size:15px; color:var(--inkSoft); margin-top:8px; line-height:1.7; }
-.rx-body p b{ color:var(--cinnabar); font-weight:700; }
+.prescribe{ margin-top:26px; background:var(--paper); border:1px solid var(--paperDeep); border-radius:20px; padding:22px 24px; }
+.prescribe h3{ font-family:var(--serif); font-size:20px; font-weight:700; }
+/* 약한 운 →(처방 도장)→ 부적 흐름 */
+.rx-flow{ display:flex; align-items:center; gap:12px; margin-top:16px; flex-wrap:wrap; }
+.rx-node{ display:flex; flex-direction:column; align-items:center; gap:6px; border-radius:14px; padding:12px 16px; min-width:92px; }
+.rx-node.weak{ background:color-mix(in srgb,var(--cinnabar) 6%,var(--paper)); border:1px solid var(--cinnabar); }
+.rx-node.charm{ background:linear-gradient(160deg,#FFE49A,var(--gold)); border:1px solid var(--cinnabarDark); }
+.rx-node .k{ font-size:12px; font-weight:700; color:var(--faint); }
+.rx-node.weak .k{ color:var(--cinnabar); }
+.rx-node.charm .k{ color:var(--cinnabarDark); }
+.rx-node .v{ font-size:15px; letter-spacing:1px; color:var(--cinnabar); }
+.rx-node .v .off{ color:var(--paperDeep); }
+.rx-node.charm .glyph{ font-family:var(--mincho); font-size:30px; color:var(--cinnabar); line-height:1; }
+.rx-arrow{ font-size:20px; color:var(--faint); }
+.rx-seal{ flex:0 0 auto; width:64px; height:64px; border-radius:12px; background:var(--cinnabar); color:#fff;
+  font-family:var(--mincho); font-size:23px; font-weight:600; display:grid; place-items:center;
+  transform:rotate(-5deg); box-shadow:0 8px 18px -6px rgba(122,26,20,.6); }
+
+/* 무료 vs 단골 비교표 */
+.compare{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+.ccol{ background:var(--paper); border:1px solid var(--paperDeep); border-radius:16px; padding:18px 20px; }
+.ccol.paid{ background:color-mix(in srgb,var(--cinnabar) 6%,var(--paper)); border-color:var(--cinnabar); }
+.ccol .ct{ font-family:var(--serif); font-size:16px; font-weight:700; padding-bottom:10px; border-bottom:1px solid var(--paperDeep); }
+.ccol.paid .ct{ color:var(--cinnabar); border-color:color-mix(in srgb,var(--cinnabar) 30%,transparent); }
+.ccol .ct span{ font-family:-apple-system,sans-serif; font-size:11px; font-weight:700; color:var(--faint); }
+.ccol ul{ list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:9px; }
+.ccol li{ font-size:14px; color:var(--inkSoft); padding-left:20px; position:relative; }
+.ccol li::before{ content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:800; }
+.ccol.paid li::before{ color:var(--cinnabar); }
+.ccol li b{ color:var(--cinnabar); font-weight:700; }
+.cmp-note{ font-size:13px; color:var(--faint); margin-top:14px; }
 
 /* 단골(무제한 이용권) 혜택 콜아웃 — 유료임을 시각적으로 분리 */
 .regular{ margin-top:20px; background:color-mix(in srgb,var(--cinnabar) 6%,var(--paper));
@@ -194,8 +217,9 @@ section{ padding:74px 0; border-bottom:1px solid var(--paperDeep); }
   .bar nav a:not(.soon){ display:none; }
   .luck-grid2{ grid-template-columns:1fr; gap:34px; text-align:center; }
   .luck-copy .eyebrow{ justify-content:center; }
-  .prescribe{ flex-direction:column; text-align:center; gap:14px; }
-  .rx-body p{ margin-left:auto; margin-right:auto; max-width:26em; }
+  .prescribe h3{ text-align:center; }
+  .rx-flow{ justify-content:center; }
+  .compare{ grid-template-columns:1fr; }
 }
 @media (max-width:460px){ .shots{ grid-template-columns:1fr 1fr; } .charm{ width:248px; } .charm-glyphs span{ font-size:72px; } }
 @media (prefers-reduced-motion:reduce){ *{ transition:none!important; } }
