@@ -79,25 +79,30 @@ em{ font-style:normal; color:var(--cinnabar); }
 .luck-shot{ margin:0; text-align:center; }
 .luck-shot img{ width:100%; max-width:300px; border-radius:26px; border:1px solid var(--paperDeep);
   box-shadow:0 28px 58px -24px rgba(41,33,26,.5); }
-.prescribe{ margin-top:26px; background:var(--paper); border:1px solid var(--paperDeep); border-radius:20px; padding:22px 24px; }
-.prescribe h3{ font-family:var(--serif); font-size:20px; font-weight:700; }
+/* 네 운 설명 */
+.area-list{ list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px 22px; margin-top:16px; max-width:34em; }
+.area-list li{ font-size:13px; color:var(--inkSoft); }
+.area-list li b{ color:var(--cinnabar); font-weight:700; margin-right:6px; }
+
+.prescribe{ margin-top:24px; background:var(--paper); border:1px solid var(--paperDeep); border-radius:18px; padding:18px 20px; }
+.prescribe h3{ font-family:var(--serif); font-size:19px; font-weight:700; }
 /* 약한 운 →(처방 도장)→ 부적 흐름 */
-.rx-flow{ display:flex; align-items:center; justify-content:flex-start; gap:16px; margin-top:20px; flex-wrap:wrap; }
-.rx-item{ display:flex; flex-direction:column; align-items:center; gap:10px; }
-.rx-lbl{ font-size:12px; font-weight:700; color:var(--faint); letter-spacing:.01em; }
-.rx-stars{ height:82px; display:flex; align-items:center; padding:0 18px;
-  background:color-mix(in srgb,var(--cinnabar) 6%,var(--paper)); border:1px solid var(--cinnabar); border-radius:15px;
-  font-size:19px; letter-spacing:3px; color:var(--cinnabar); }
+.rx-flow{ display:flex; align-items:center; justify-content:flex-start; gap:12px; margin-top:16px; flex-wrap:wrap; }
+.rx-item{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+.rx-lbl{ font-size:11.5px; font-weight:700; color:var(--faint); letter-spacing:.01em; }
+.rx-stars{ height:60px; display:flex; align-items:center; padding:0 13px;
+  background:color-mix(in srgb,var(--cinnabar) 6%,var(--paper)); border:1px solid var(--cinnabar); border-radius:12px;
+  font-size:15px; letter-spacing:2px; color:var(--cinnabar); }
 .rx-stars i{ color:var(--paperDeep); font-style:normal; }
-.mini-charm{ display:grid; grid-template-columns:1fr 1fr; width:66px; height:82px; padding:6px 5px;
+.mini-charm{ display:grid; grid-template-columns:1fr 1fr; width:52px; height:66px; padding:5px 4px;
   background:linear-gradient(160deg,#FFE49A 0%,var(--goldLite) 40%,var(--gold) 100%);
-  border:2px solid var(--cinnabarDark); border-radius:9px;
-  box-shadow:0 12px 24px -10px rgba(122,26,20,.5), inset 0 0 0 3px rgba(166,36,28,.14); }
-.mini-charm span{ font-family:var(--mincho); font-size:23px; color:var(--cinnabar); text-align:center; line-height:1; align-self:center; }
-.rx-arrow{ align-self:flex-start; margin-top:30px; font-size:20px; color:var(--faint); }
-.rx-seal{ width:82px; height:82px; border-radius:14px; background:var(--cinnabar); color:#fff;
-  font-family:var(--mincho); font-size:29px; font-weight:600; display:grid; place-items:center;
-  transform:rotate(-5deg); box-shadow:0 12px 24px -8px rgba(122,26,20,.55); }
+  border:1.5px solid var(--cinnabarDark); border-radius:8px;
+  box-shadow:0 10px 20px -10px rgba(122,26,20,.5), inset 0 0 0 2px rgba(166,36,28,.14); }
+.mini-charm span{ font-family:var(--mincho); font-size:18px; color:var(--cinnabar); text-align:center; line-height:1; align-self:center; }
+.rx-arrow{ align-self:flex-start; margin-top:21px; font-size:18px; color:var(--faint); }
+.rx-seal{ width:60px; height:60px; border-radius:11px; background:var(--cinnabar); color:#fff;
+  font-family:var(--mincho); font-size:22px; font-weight:600; display:grid; place-items:center;
+  transform:rotate(-5deg); box-shadow:0 10px 20px -8px rgba(122,26,20,.55); }
 .cmp-note b{ color:var(--cinnabar); font-weight:700; }
 
 /* 무료 vs 단골 비교표 */
@@ -223,6 +228,7 @@ section{ padding:74px 0; border-bottom:1px solid var(--paperDeep); }
   .luck-copy .eyebrow{ justify-content:center; }
   .prescribe h3{ text-align:center; }
   .rx-flow{ justify-content:center; }
+  .area-list{ grid-template-columns:1fr; justify-items:center; }
   .compare{ grid-template-columns:1fr; }
 }
 @media (max-width:460px){ .shots{ grid-template-columns:1fr 1fr; } .charm{ width:248px; } .charm-glyphs span{ font-size:72px; } }
