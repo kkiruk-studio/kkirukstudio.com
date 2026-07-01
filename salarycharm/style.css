@@ -79,6 +79,8 @@ em{ font-style:normal; color:var(--cinnabar); }
 .luck-shot{ margin:0; text-align:center; }
 .luck-shot img{ width:100%; max-width:300px; border-radius:26px; border:1px solid var(--paperDeep);
   box-shadow:0 28px 58px -24px rgba(41,33,26,.5); }
+.luck-copy .lede{ font-size:15.5px; color:var(--inkSoft); margin-top:14px; max-width:34em; }
+.luck-sub{ font-family:var(--serif); font-size:19px; font-weight:700; margin-top:26px; }
 /* 네 운 설명 */
 .area-list{ list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px 22px; margin-top:16px; max-width:34em; }
 .area-list li{ font-size:13px; color:var(--inkSoft); }
