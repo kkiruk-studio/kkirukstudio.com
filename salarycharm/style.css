@@ -82,20 +82,23 @@ em{ font-style:normal; color:var(--cinnabar); }
 .prescribe{ margin-top:26px; background:var(--paper); border:1px solid var(--paperDeep); border-radius:20px; padding:22px 24px; }
 .prescribe h3{ font-family:var(--serif); font-size:20px; font-weight:700; }
 /* 약한 운 →(처방 도장)→ 부적 흐름 */
-.rx-flow{ display:flex; align-items:center; gap:12px; margin-top:16px; flex-wrap:wrap; }
-.rx-node{ display:flex; flex-direction:column; align-items:center; gap:6px; border-radius:14px; padding:12px 16px; min-width:92px; }
-.rx-node.weak{ background:color-mix(in srgb,var(--cinnabar) 6%,var(--paper)); border:1px solid var(--cinnabar); }
-.rx-node.charm{ background:linear-gradient(160deg,#FFE49A,var(--gold)); border:1px solid var(--cinnabarDark); }
-.rx-node .k{ font-size:12px; font-weight:700; color:var(--faint); }
-.rx-node.weak .k{ color:var(--cinnabar); }
-.rx-node.charm .k{ color:var(--cinnabarDark); }
-.rx-node .v{ font-size:15px; letter-spacing:1px; color:var(--cinnabar); }
-.rx-node .v .off{ color:var(--paperDeep); }
-.rx-node.charm .glyph{ font-family:var(--mincho); font-size:30px; color:var(--cinnabar); line-height:1; }
-.rx-arrow{ font-size:20px; color:var(--faint); }
-.rx-seal{ flex:0 0 auto; width:64px; height:64px; border-radius:12px; background:var(--cinnabar); color:#fff;
-  font-family:var(--mincho); font-size:23px; font-weight:600; display:grid; place-items:center;
-  transform:rotate(-5deg); box-shadow:0 8px 18px -6px rgba(122,26,20,.6); }
+.rx-flow{ display:flex; align-items:center; justify-content:flex-start; gap:16px; margin-top:20px; flex-wrap:wrap; }
+.rx-item{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+.rx-lbl{ font-size:12px; font-weight:700; color:var(--faint); letter-spacing:.01em; }
+.rx-stars{ height:82px; display:flex; align-items:center; padding:0 18px;
+  background:color-mix(in srgb,var(--cinnabar) 6%,var(--paper)); border:1px solid var(--cinnabar); border-radius:15px;
+  font-size:19px; letter-spacing:3px; color:var(--cinnabar); }
+.rx-stars i{ color:var(--paperDeep); font-style:normal; }
+.mini-charm{ display:grid; grid-template-columns:1fr 1fr; width:66px; height:82px; padding:6px 5px;
+  background:linear-gradient(160deg,#FFE49A 0%,var(--goldLite) 40%,var(--gold) 100%);
+  border:2px solid var(--cinnabarDark); border-radius:9px;
+  box-shadow:0 12px 24px -10px rgba(122,26,20,.5), inset 0 0 0 3px rgba(166,36,28,.14); }
+.mini-charm span{ font-family:var(--mincho); font-size:23px; color:var(--cinnabar); text-align:center; line-height:1; align-self:center; }
+.rx-arrow{ align-self:flex-start; margin-top:30px; font-size:20px; color:var(--faint); }
+.rx-seal{ width:82px; height:82px; border-radius:14px; background:var(--cinnabar); color:#fff;
+  font-family:var(--mincho); font-size:29px; font-weight:600; display:grid; place-items:center;
+  transform:rotate(-5deg); box-shadow:0 12px 24px -8px rgba(122,26,20,.55); }
+.cmp-note b{ color:var(--cinnabar); font-weight:700; }
 
 /* 무료 vs 단골 비교표 */
 .compare{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
