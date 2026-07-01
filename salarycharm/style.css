@@ -74,6 +74,13 @@ em{ font-style:normal; color:var(--cinnabar); }
   font-size:13px; line-height:1.05; text-align:center; transform:rotate(6deg);
   box-shadow:0 8px 18px -6px rgba(122,26,20,.7); }
 
+/* 단골(무제한 이용권) 혜택 콜아웃 — 유료임을 시각적으로 분리 */
+.regular{ margin-top:20px; background:color-mix(in srgb,var(--cinnabar) 6%,var(--paper));
+  border:1.5px solid var(--cinnabar); border-radius:20px; padding:26px 28px; }
+.regular h3{ font-family:var(--serif); font-size:clamp(20px,2.4vw,24px); font-weight:700; margin-top:10px; }
+.regular p{ font-size:15px; color:var(--inkSoft); margin-top:10px; max-width:44em; line-height:1.75; }
+.regular p b{ color:var(--cinnabar); font-weight:700; }
+
 /* 공유 카드 (실제 앱 산출물) */
 .share-fig{ margin:0; text-align:center; }
 .share-card{ width:100%; max-width:352px; border-radius:12px;
