@@ -111,6 +111,7 @@ em{ font-style:normal; color:var(--cinnabar); }
 .ccol li{ font-size:14px; color:var(--inkSoft); padding-left:20px; position:relative; }
 .ccol li::before{ content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:800; }
 .ccol.paid li::before{ color:var(--cinnabar); }
+.ccol li.heart::before{ content:"\2661"; }
 .ccol li b{ color:var(--cinnabar); font-weight:700; }
 .cmp-note{ font-size:13px; color:var(--faint); margin-top:14px; }
 
