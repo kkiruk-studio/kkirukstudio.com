@@ -74,6 +74,20 @@ em{ font-style:normal; color:var(--cinnabar); }
   font-size:13px; line-height:1.05; text-align:center; transform:rotate(6deg);
   box-shadow:0 8px 18px -6px rgba(122,26,20,.7); }
 
+/* 오늘의 운 — 스크린샷 옆 설명 + 큰 처방 도장 */
+.luck-grid2{ display:grid; grid-template-columns:.82fr 1.18fr; gap:52px; align-items:center; }
+.luck-shot{ margin:0; text-align:center; }
+.luck-shot img{ width:100%; max-width:300px; border-radius:26px; border:1px solid var(--paperDeep);
+  box-shadow:0 28px 58px -24px rgba(41,33,26,.5); }
+.prescribe{ display:flex; align-items:center; gap:22px; margin-top:28px;
+  background:var(--paper); border:1px solid var(--paperDeep); border-radius:20px; padding:22px 24px; }
+.rx-seal{ flex:0 0 auto; width:104px; height:104px; border-radius:16px; background:var(--cinnabar); color:#fff;
+  font-family:var(--mincho); font-size:40px; font-weight:600; display:grid; place-items:center;
+  transform:rotate(-5deg); box-shadow:0 12px 26px -8px rgba(122,26,20,.6); }
+.rx-body h3{ font-family:var(--serif); font-size:21px; font-weight:700; }
+.rx-body p{ font-size:15px; color:var(--inkSoft); margin-top:8px; line-height:1.7; }
+.rx-body p b{ color:var(--cinnabar); font-weight:700; }
+
 /* 단골(무제한 이용권) 혜택 콜아웃 — 유료임을 시각적으로 분리 */
 .regular{ margin-top:20px; background:color-mix(in srgb,var(--cinnabar) 6%,var(--paper));
   border:1.5px solid var(--cinnabar); border-radius:20px; padding:26px 28px; }
@@ -178,9 +192,10 @@ section{ padding:74px 0; border-bottom:1px solid var(--paperDeep); }
   .feat-grid{ grid-template-columns:1fr; }
   .shots{ grid-template-columns:1fr 1fr; }
   .bar nav a:not(.soon){ display:none; }
-  .luck-graph{ gap:14px; height:156px; }
-  .luck-graph .col{ width:auto; flex:1; }
-  .fortune-items{ margin-left:auto; margin-right:auto; }
+  .luck-grid2{ grid-template-columns:1fr; gap:34px; text-align:center; }
+  .luck-copy .eyebrow{ justify-content:center; }
+  .prescribe{ flex-direction:column; text-align:center; gap:14px; }
+  .rx-body p{ margin-left:auto; margin-right:auto; max-width:26em; }
 }
 @media (max-width:460px){ .shots{ grid-template-columns:1fr 1fr; } .charm{ width:248px; } .charm-glyphs span{ font-size:72px; } }
 @media (prefers-reduced-motion:reduce){ *{ transition:none!important; } }
