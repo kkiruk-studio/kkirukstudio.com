@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>로컬링크 — 해외 장소, 현지 지도앱에서 바로 열기 [시안: 웨이파인딩]</title>
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<script src="/ga.js"></script>
+<style>
+:root{
+  --navy:#0d2340;
+  --navy2:#123a63;
+  --ink:#16202b;
+  --ink2:#5c6773;
+  --green:#0a7d4f;
+  --green-ink:#066b45;
+  --green-deep:#065c3a;
+  --yellow:#ffc93c;
+  --cream-top:#fbf7ee;
+  --cream-bottom:#efe9d7;
+  --rule:#dbd5c2;
+  --mono: ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --sign: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Apple SD Gothic Neo","Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sign);
+  color:var(--ink);
+  background:var(--cream-top);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+
+/* eyebrow / sign-code row, shared */
+.kicker{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:12px;font-weight:700;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--green-ink);
+}
+.kicker .rule{flex:1;height:1px;background:rgba(22,32,43,.16)}
+.kicker .num{color:rgba(22,32,43,.4);letter-spacing:.1em}
+
+/* ---------- top stripe + nav ---------- */
+.stripe{height:5px;background:linear-gradient(90deg,var(--green) 0 70%,var(--yellow) 70% 100%)}
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,247,238,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(22,32,43,.1);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+.wordmark{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.wordmark img{width:26px;height:26px;border-radius:6px}
+.wordmark span{font-family:var(--mono);font-size:13px;font-weight:800;letter-spacing:.26em;color:var(--navy)}
+.lang{display:flex;align-items:center;gap:2px;flex-wrap:wrap;justify-content:flex-end}
+.lang a{font-size:12px;font-weight:700;text-decoration:none;padding:4px 7px;border-radius:4px;color:var(--ink2)}
+.lang a:hover{color:var(--ink)}
+.lang a.cur{color:var(--green-ink);pointer-events:none}
+
+/* ---------- hero : departure board ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(175deg,var(--navy) 0%,var(--navy2) 100%)}
+.hero .wrap{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+  padding-top:68px;padding-bottom:0;
+}
+.hero .kicker{color:rgba(255,255,255,.85)}
+.hero .kicker .rule{background:rgba(255,255,255,.28)}
+.hero .kicker span:first-child{color:var(--yellow)}
+.hero h1{
+  margin:24px 0 0;font-size:clamp(32px,4.6vw,54px);line-height:1.16;
+  font-weight:900;letter-spacing:-.015em;word-break:keep-all;
+}
+.hero h1 em{font-style:normal;border-bottom:6px solid var(--green);padding-bottom:1px}
+
+/* departure-board demo row */
+.board{
+  margin-top:30px;border:1px solid rgba(255,255,255,.18);border-radius:6px;
+  background:rgba(0,0,0,.22);box-shadow:0 24px 50px rgba(0,0,0,.35);
+  overflow:hidden;
+}
+.board-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 18px;font-family:var(--mono);font-size:10px;font-weight:700;
+  letter-spacing:.24em;color:rgba(255,255,255,.55);border-bottom:1px solid rgba(255,255,255,.14);
+}
+.board-head .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(10,125,79,.25)}
+.board-row{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:18px 18px 20px;font-family:var(--mono);
+  font-size:clamp(19px,2.6vw,28px);font-weight:800;letter-spacing:.01em;
+  position:relative;
+}
+.board-row::before{
+  content:"";position:absolute;left:18px;right:18px;top:50%;height:1px;
+  background:rgba(255,255,255,.08);pointer-events:none;
+}
+.board .lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;color:rgba(255,255,255,.45)}
+.board .cell{display:flex;flex-direction:column;gap:4px}
+.board .src{min-width:11ch}
+.board .src::after{content:"";display:inline-block;width:2px;height:.9em;background:var(--yellow);margin-left:2px;vertical-align:-.1em;animation:blink 1s steps(1) infinite}
+.board .arrow{color:var(--green);font-weight:950;font-size:1.1em}
+.board .dst{color:var(--yellow);min-width:6ch}
+@keyframes blink{50%{opacity:0}}
+
+.hero .sub{margin-top:26px;max-width:34em;font-size:17px;color:rgba(255,255,255,.88);word-break:keep-all}
+.cta{margin:30px 0 56px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.store-badge{
+  display:inline-flex;align-items:center;gap:12px;text-decoration:none;
+  background:var(--green);color:#fff;border-radius:8px;padding:12px 22px;
+  border:1px solid rgba(255,255,255,.2);transition:transform .15s ease,background .15s ease;
+}
+.store-badge:hover{transform:translateY(-2px);background:var(--green-deep)}
+.store-badge svg{width:26px;height:26px;fill:#fff}
+.store-badge .txt{line-height:1.15;text-align:left}
+.store-badge .txt small{display:block;font-size:11px;opacity:.85}
+.store-badge .txt strong{font-size:17px;font-weight:700;letter-spacing:.01em}
+.cta .note{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.7)}
+
+.hero .phone-col{position:relative;align-self:end}
+.phone{
+  position:relative;width:min(320px,78vw);margin:0 auto;
+  border-radius:46px;padding:11px;background:#0a0f16;
+  box-shadow:0 40px 80px rgba(0,0,0,.5),inset 0 0 0 2px rgba(255,255,255,.09);
+}
+.phone img{border-radius:36px}
+.phone .island{position:absolute;top:21px;left:50%;transform:translateX(-50%);width:86px;height:26px;border-radius:14px;background:#030303}
+.hero .phone{margin-bottom:-64px}
+.pin{
+  position:absolute;z-index:2;display:flex;align-items:center;gap:8px;
+  background:#fff;color:var(--ink);font-weight:800;font-size:14px;white-space:nowrap;
+  padding:7px 16px 7px 9px;box-shadow:0 14px 30px rgba(0,0,0,.3);
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,0 100%);
+}
+.pin .g{
+  display:grid;place-items:center;width:26px;height:26px;border-radius:50%;
+  background:var(--green);color:#fff;font-size:13px;font-weight:900;flex:none;
+}
+.pin.c1{left:-8%;top:22%;transform:rotate(-4deg)}
+.pin.c2{right:-12%;top:37%;transform:rotate(3deg)}
+.pin.c3{left:-4%;top:56%;transform:rotate(3deg)}
+.pin.c4{right:-8%;top:70%;transform:rotate(-4deg)}
+
+/* ---------- marquee : arrivals ticker ---------- */
+.marquee{overflow:hidden;border-bottom:1px solid rgba(22,32,43,.1);background:var(--navy)}
+.marquee .track{
+  display:flex;gap:0;width:max-content;
+  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.28em;color:rgba(255,255,255,.7);
+  animation:scroll 30s linear infinite;
+}
+.marquee .track span{padding:14px 24px;border-right:1px solid rgba(255,255,255,.12)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){
+  .marquee .track{animation:none}
+  .board .src::after{animation:none}
+}
+
+/* ---------- sections ---------- */
+section{padding:88px 0}
+section h2{font-size:clamp(25px,3.4vw,38px);font-weight:900;letter-spacing:-.015em;margin:20px 0 14px;word-break:keep-all;color:var(--navy)}
+section h2 em{font-style:normal;color:var(--green-ink)}
+section .lede{color:var(--ink2);max-width:40em;font-size:17px;word-break:keep-all}
+
+/* gate plaques */
+.steps{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;
+  border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:#fff;
+}
+.step{position:relative;padding:26px 24px 24px;border-right:1px solid var(--rule)}
+.step:last-child{border-right:none}
+.step::after{
+  content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);
+  font-size:20px;font-weight:900;color:var(--green);background:#fff;
+  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--rule);z-index:2;
+}
+.step:last-child::after{display:none}
+.step .n{
+  display:inline-block;font-family:var(--mono);font-weight:800;font-size:26px;
+  background:var(--navy);color:#fff;border-radius:5px;padding:5px 11px;letter-spacing:-.02em;
+}
+.step .tag{
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;
+  color:var(--green-ink);display:block;margin:16px 0 8px;
+}
+.step h3{font-size:18px;font-weight:800;margin-bottom:8px;color:var(--navy)}
+.step p{color:var(--ink2);font-size:14.5px;word-break:keep-all}
+
+/* convert table : signage row list */
+.convert-table{margin-top:44px;border-top:2px solid var(--navy);counter-reset:row}
+.convert-row{
+  counter-increment:row;
+  display:grid;grid-template-columns:22px 1fr auto 1fr auto;gap:16px;align-items:center;
+  padding:18px 6px;border-bottom:1px solid var(--rule);font-size:clamp(17px,2.1vw,22px);font-weight:700;
+}
+.convert-row::before{
+  content:counter(row,decimal-leading-zero);font-family:var(--mono);font-size:11px;font-weight:700;
+  color:rgba(22,32,43,.35);
+}
+.convert-row:nth-child(even){background:rgba(10,125,79,.04)}
+.convert-row .arrow{color:var(--green);font-weight:950}
+.convert-row .to{color:var(--green-ink)}
+.convert-row .cat{
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--ink2);
+  justify-self:end;border:1px solid var(--rule);border-radius:3px;padding:4px 8px;
+}
+
+/* providers : gate directory */
+.providers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+.prov{border:1px solid var(--rule);border-radius:6px;padding:22px;background:#fff;border-top:3px solid var(--green)}
+.prov .flag{font-size:24px}
+.prov h3{font-size:15px;font-weight:800;margin:10px 0 12px;color:var(--navy)}
+.prov ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.prov li{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600}
+.prov .g{
+  display:grid;place-items:center;width:23px;height:23px;border-radius:50%;
+  background:var(--navy);color:#fff;font-size:11px;font-weight:900;flex:none;
+}
+
+/* shots */
+.shots{background:linear-gradient(180deg,var(--cream-top),var(--cream-bottom))}
+.shots .row{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:52px;align-items:start}
+.shots .phone{width:100%}
+.shots figcaption{text-align:center;margin-top:16px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--ink2)}
+.shots figure:nth-child(2){transform:translateY(34px)}
+
+/* feature list */
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 32px;margin-top:48px}
+.feat{border-top:2px solid var(--navy);padding-top:16px}
+.feat h3{font-size:15.5px;font-weight:800;margin-bottom:6px;color:var(--navy)}
+.feat p{color:var(--ink2);font-size:14px;word-break:keep-all}
+
+/* ---------- final cta : boarding pass ---------- */
+.final{background:linear-gradient(175deg,var(--navy),var(--navy2));color:#fff}
+.final .wrap{padding:0 24px}
+.pass{
+  max-width:760px;margin:0 auto;display:grid;grid-template-columns:1fr 200px;
+  background:#fff;color:var(--ink);border-radius:14px;overflow:visible;
+  box-shadow:0 40px 80px rgba(0,0,0,.35);position:relative;
+}
+.pass-main{padding:44px 40px;position:relative}
+.pass-main h2{margin:0 0 12px;color:var(--navy)}
+.pass-main .lede{color:var(--ink2);max-width:none}
+.pass-main .cta{margin:26px 0 0;justify-content:flex-start}
+.pass-main .store-badge{background:var(--navy)}
+.pass-main .store-badge:hover{background:var(--navy2)}
+.pass-stub{
+  background:var(--green);color:#fff;padding:32px 22px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  position:relative;text-align:center;
+}
+.pass-stub .seal{
+  width:64px;height:64px;border-radius:50%;background:#fff;padding:6px;
+  box-shadow:0 0 0 2px rgba(255,255,255,.5);
+}
+.pass-stub .seal img{border-radius:50%}
+.pass-stub .barcode{
+  width:100%;height:30px;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.9) 0 2px,transparent 2px 5px,rgba(255,255,255,.9) 5px 6px,transparent 6px 10px);
+  opacity:.8;
+}
+.perf{
+  position:absolute;left:calc(100% - 200px);top:0;bottom:0;width:0;
+  border-left:2px dashed rgba(22,32,43,.25);
+}
+.perf::before,.perf::after{
+  content:"";position:absolute;left:-9px;width:18px;height:18px;border-radius:50%;
+  background:var(--navy);
+}
+.perf::before{top:-9px}
+.perf::after{bottom:-9px}
+
+footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 0;font-size:14px}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer .brand{display:flex;align-items:center;gap:10px;color:#fff}
+footer .brand img{width:24px;height:24px;border-radius:6px}
+footer .links{display:flex;gap:22px;flex-wrap:wrap}
+footer a{color:rgba(255,255,255,.65);text-decoration:none}
+footer a:hover{color:#fff}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:12px;padding-top:52px}
+  .hero .phone{margin-bottom:-48px;margin-top:26px}
+  .pin.c1{left:0} .pin.c3{left:2%}
+  .pin.c2{right:0} .pin.c4{right:1%}
+  .steps{grid-template-columns:1fr}
+  .step{border-right:none;border-bottom:1px solid var(--rule)}
+  .step:last-child{border-bottom:none}
+  .step::after{content:"↓";right:50%;top:auto;bottom:-13px;transform:translateX(50%)}
+  .providers,.grid6,.shots .row{grid-template-columns:1fr}
+  .shots figure:nth-child(2){transform:none}
+  section{padding:60px 0}
+  .wordmark span{display:none}
+  .pass{grid-template-columns:1fr}
+  .perf{left:0;right:0;top:auto;bottom:200px;width:auto;height:0;border-left:none;border-top:2px dashed rgba(22,32,43,.25)}
+  .perf::before,.perf::after{top:-9px;left:auto}
+  .perf::before{left:-9px}
+  .perf::after{right:-9px;left:auto}
+}
+@media (max-width:480px){
+  .board-row{font-size:18px;gap:10px}
+  .board .src{min-width:9ch}
+  .convert-row{grid-template-columns:16px 1fr auto;row-gap:6px}
+  .convert-row .to{grid-column:3}
+  .convert-row .cat{grid-column:2 / span 2;justify-self:start;margin-top:2px}
+  .pass-main{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="stripe" aria-hidden="true"></div>
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>LOCAL·LINK</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/" class="cur">한국어</a><a href="../ja/">日本語</a><a href="../zh-hans/">简体</a><a href="../zh-hant/">繁體</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>LOCAL · LINK</span><span class="rule"></span><span class="num">여행 지도 검색</span></div>
+      <h1>아는 이름 그대로,<br>현지에서 <em>진짜 통하는</em> 지도로</h1>
+      <div class="board">
+        <div class="board-head"><span><span class="dot"></span> LIVE CONVERT</span><span>ROUTE 01/04</span></div>
+        <div class="board-row">
+          <div class="cell"><span class="lbl">FROM</span><span class="src" id="demoSrc">Wukang Road</span></div>
+          <span class="arrow">→</span>
+          <div class="cell"><span class="lbl">TO</span><span class="dst" id="demoDst">武康路</span></div>
+        </div>
+      </div>
+      <p class="sub">중국에선 구글지도가 안 되고, 일본·대만에선 한국어 검색이 안 먹히죠. 로컬링크가 발음·로마자·한국어 표기를 현지 문자 검색어로 바꿔서, 그 나라에서 실제로 쓰는 지도앱으로 바로 열어줍니다.</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="https://apps.apple.com/app/id6767477190" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a>
+        <span class="note">무료 · iPhone &amp; iPad · 가입 없음</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="pin c1"><span class="g">高</span>가오더 지도</div><div class="pin c2"><span class="g">G</span>구글 지도</div><div class="pin c3"><span class="g">N</span>네이버 지도</div><div class="pin c4"><span class="g">A</span>애플 지도</div>
+      <div class="phone"><img src="../assets/shot-ko-05-launch.png" alt="로컬링크 지도 선택 화면 — 武康路를 가오더·애플 지도로 여는 버튼"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>중국</span><span>일본</span><span>대만</span><span>태국</span><span>베트남</span><span>홍콩</span><span>마카오</span><span>한국</span><span>중국</span><span>일본</span><span>대만</span><span>태국</span><span>베트남</span><span>홍콩</span><span>마카오</span><span>한국</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>사용 방법</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>"이거 어떻게 검색하지?"에서 <em>지도 핀까지 세 번의 탭</em>.</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">목적지</span><h3>여행 국가 선택</h3><p>나라와 도시를 고르면, 그 지역 표기에 맞는 검색을 준비합니다.</p></div><div class="step"><span class="n">02</span><span class="tag">검색</span><h3>아는 이름으로 입력</h3><p>한국어 표기든 영문이든 발음대로든 — 현지 지도가 실제로 인식하는 현지 문자 후보를 만들어줍니다.</p></div><div class="step"><span class="n">03</span><span class="tag">지도</span><h3>맞는 지도앱으로 열기</h3><p>변환된 검색어를 가오더·구글·네이버·카카오·애플 지도로 한 탭에 전달. 앱이 없으면 웹으로 열립니다.</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>변환</span><span class="rule"></span><span class="num">현지 문자</span></div>
+    <h2>드디어 <em>검색이 되는</em> 이름.</h2>
+    <p class="lede">현지 지도는 현지 문자로 장소를 찾습니다. 가오더에 "Wukang Road"를 쳐봐야 안 나오지만, 武康路는 바로 나옵니다.</p>
+    <div class="convert-table"><div class="convert-row"><span>Wukang Road</span><span class="arrow">→</span><span class="to">武康路</span><span class="cat">중국 · 한자</span></div><div class="convert-row"><span>이치란 시부야</span><span class="arrow">→</span><span class="to">一蘭 渋谷</span><span class="cat">일본 · 간지</span></div><div class="convert-row"><span>딘타이펑 타이베이</span><span class="arrow">→</span><span class="to">鼎泰豐 台北</span><span class="cat">대만 · 한자</span></div><div class="convert-row"><span>와이탄</span><span class="arrow">→</span><span class="to">外滩</span><span class="cat">중국 · 한자</span></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>지도앱</span><span class="rule"></span><span class="num">나라별 분기</span></div>
+    <h2>나라마다 <em>되는 지도가 다르니까</em>.</h2>
+    <p class="lede">목적지마다 실제로 동작하는 지도앱을 우선순위대로 보여줍니다. 앱이 설치돼 있지 않으면 자동으로 웹 지도로 열립니다.</p>
+    <div class="providers"><div class="prov"><span class="flag">🇨🇳</span><h3>중국</h3><ul><li><span class="g">高</span>가오더 (Amap)</li></ul></div><div class="prov"><span class="flag">🇯🇵</span><h3>일본 · 대만 · 동남아</h3><ul><li><span class="g">G</span>구글 지도</li></ul></div><div class="prov"><span class="flag">🇰🇷</span><h3>한국</h3><ul><li><span class="g">N</span>네이버 지도</li><li><span class="g">K</span>카카오맵</li></ul></div><div class="prov"><span class="flag">🌍</span><h3>어디서나</h3><ul><li><span class="g">A</span>애플 지도</li></ul></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>화면</span><span class="rule"></span><span class="num">IOS 26</span></div>
+    <h2>꾸미기보다 <em>현장에서 쓰는 도구</em>로.</h2>
+    <div class="row"><figure><div class="phone"><img src="../assets/shot-ko-03-candidates.png" alt="현지 문자 후보" loading="lazy"><div class="island"></div></div><figcaption>현지 문자 후보</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ko-05-launch.png" alt="한 탭 지도 열기" loading="lazy"><div class="island"></div></div><figcaption>한 탭 지도 열기</figcaption></figure><figure><div class="phone"><img src="../assets/shot-ko-04-saved.png" alt="저장 · iCloud 동기화" loading="lazy"><div class="island"></div></div><figcaption>저장 · iCloud 동기화</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>디테일</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>작은 앱, <em>분명한 선택</em>.</h2>
+    <div class="grid6"><div class="feat"><h3>오프라인 동작</h3><p>변환 데이터가 앱 안에 들어 있어요. 로밍이 안 터져도 변환은 됩니다.</p></div><div class="feat"><h3>가입·추적 없음</h3><p>계정도, 기기 밖으로 나가는 분석 데이터도 없습니다.</p></div><div class="feat"><h3>iCloud 동기화</h3><p>저장한 장소는 내 iCloud로 iPad까지 따라옵니다. 우리 서버가 아니라요.</p></div><div class="feat"><h3>나라별 추천 검색</h3><p>상하이 커피 체인, 도쿄 라멘 — 목적지별 자주 찾는 장소를 큐레이션.</p></div><div class="feat"><h3>5개 언어</h3><p>한국어 · English · 日本語 · 简体中文 · 繁體中文, UI와 변환 모두.</p></div><div class="feat"><h3>복사 · 크게 보기</h3><p>택시 기사님께 현지 문자를 전체 화면으로 보여주거나 어디든 붙여넣기.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="pass">
+      <div class="pass-main">
+        <h2>철자 고민은 이제 그만.</h2>
+        <p class="lede">iPhone · iPad 무료.</p>
+        <div class="cta"><a class="store-badge" id="storeLink2" href="https://apps.apple.com/app/id6767477190" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a></div>
+      </div>
+      <div class="perf" aria-hidden="true"></div>
+      <div class="pass-stub" aria-hidden="true">
+        <div class="seal"><img src="../assets/icon-180.png" alt=""></div>
+        <div class="barcode"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보 처리방침</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+  // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
+  const APP_STORE_URL = "https://apps.apple.com/app/id6767477190";
+  if (APP_STORE_URL) {
+    document.getElementById("storeLink").href = APP_STORE_URL;
+    document.getElementById("storeLink2").href = APP_STORE_URL;
+  }
+
+  const pairs = [["Wukang Road", "武康路"], ["이치란 시부야", "一蘭 渋谷"], ["딘타이펑 타이베이", "鼎泰豐 台北"], ["와이탄", "外滩"]];
+  const srcEl = document.getElementById("demoSrc");
+  const dstEl = document.getElementById("demoDst");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        const [src, dst] = pairs[i % pairs.length];
+        dstEl.textContent = "";
+        srcEl.textContent = "";
+        for (const ch of src) { srcEl.textContent += ch; await sleep(70); }
+        await sleep(350);
+        dstEl.textContent = dst;
+        await sleep(2200);
+        i++;
+      }
+    })();
+  }
+</script>
+</body>
+</html>

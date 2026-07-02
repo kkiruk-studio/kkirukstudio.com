@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>everykeep — 라벨·행택 시안 (draft)</title>
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<script src="/ga.js"></script>
+<style>
+/* =====================================================================
+   DESIGN CONCEPT — "라벨 스티커 & 행택" (label sticker & hang tag)
+   그린 아이덴티티는 유지하되, 히어로를 "초록 코르크보드/펠트보드"로,
+   콘텐츠 카드는 그 위에 매달린 크라프트/크림 톤 종이 택(tag)으로 다룬다.
+   구멍+끈(punch+loop), 점선 절취선, 스티커 필 코너로 물성을 표현.
+   무인양품/문구점 결 — 손그림 키프이 캐릭터만 웜톤을 담당하고
+   나머지 UI는 절제된 모노+세리프리스, 회전은 "성장" 요소에만 제한적으로.
+   ===================================================================== */
+:root {
+  --accent: #2ec24a;
+  --accent-deep: #1c9d38;
+  --ink: #2b2620;
+  --ink2: #7d7256;
+  --kraft: #efe4c9;
+  --kraft-deep: #ddcb9d;
+  --paper: #fbf6e9;
+  --paper2: #fffdf6;
+  --twine: #b49a63;
+  --rule: rgba(43,38,32,.16);
+  --rule-dash: rgba(43,38,32,.32);
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background-color: var(--kraft);
+  background-image: radial-gradient(rgba(43,38,32,.06) 1px, transparent 1.3px);
+  background-size: 5px 5px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+.kicker {
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent-deep);
+}
+.kicker .rule { flex: 1; height: 1px; background: var(--rule); }
+.kicker .num { color: var(--ink2); letter-spacing: .1em; }
+.kicker.light { color: rgba(255,255,255,.92); }
+.kicker.light .rule { background: rgba(255,255,255,.35); }
+.kicker.light .num { color: rgba(255,255,255,.6); }
+.kicker > span:first-child { text-transform: none; letter-spacing: .16em; }
+
+/* punched hole + twine loop — reusable "hang tag" cue */
+.punch { position: relative; }
+.punch::before {
+  content: ""; position: absolute; top: 10px; left: 16px; width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(0,0,0,.09);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.4), inset 0 -1px 1px rgba(255,255,255,.25);
+}
+.punch::after {
+  content: ""; position: absolute; top: -6px; left: 11px; width: 20px; height: 14px;
+  border: 2px solid var(--twine); border-bottom-color: transparent; border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* ---------- nav ---------- */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(239,228,201,.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px dashed var(--rule-dash);
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+.wordmark { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; }
+.wordmark img { width: 28px; height: 28px; border-radius: 7px; }
+.wordmark span { font-family: var(--mono); font-size: 13px; font-weight: 800; letter-spacing: .28em; text-transform: lowercase; }
+.lang { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
+.lang a { font-size: 12px; font-weight: 700; text-decoration: none; padding: 4px 7px; border-radius: 7px; color: var(--ink2); }
+.lang a:hover { color: var(--ink); }
+.lang a.cur { color: var(--accent-deep); pointer-events: none; }
+
+/* ---------- hero (felt/corkboard in green, tags pinned on top) ---------- */
+.hero {
+  position: relative; overflow: hidden; color: #fff;
+  background-color: var(--accent-deep);
+  background-image:
+    linear-gradient(165deg, var(--accent) 0%, var(--accent-deep) 100%),
+    radial-gradient(rgba(255,255,255,.09) 1px, transparent 1.4px);
+  background-size: auto, 4px 4px;
+}
+.hero .ghost {
+  position: absolute; right: -40px; top: -60px; z-index: 0;
+  font-weight: 950; font-size: clamp(220px, 38vw, 480px); line-height: 1;
+  color: rgba(255,255,255,.07); pointer-events: none; user-select: none;
+}
+.hero .wrap { position: relative; z-index: 1; padding-top: 40px; padding-bottom: 0; }
+
+/* growth strip — signature element: keepy hang tags on a clothesline */
+.grow-band { padding-bottom: 26px; }
+.growth-strip { position: relative; margin-top: 18px; display: flex; align-items: flex-end; justify-content: center; gap: 8px; flex-wrap: wrap; padding-top: 14px; }
+.growth-strip .strip-line {
+  position: absolute; left: 6%; right: 6%; top: 22px; height: 0; border-top: 2px dashed rgba(255,255,255,.4); z-index: 0;
+}
+.g-tag {
+  position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: var(--paper); color: var(--ink); border-radius: 12px; padding: 14px 10px 10px;
+  width: 84px; box-shadow: 0 10px 22px rgba(10,40,18,.28);
+  transform: rotate(var(--rot, 0deg));
+}
+.g-tag::before, .g-tag::after { filter: none; }
+.g-tag img { width: 46px; height: 46px; object-fit: contain; }
+.g-tag span { font-family: var(--mono); font-size: 11px; font-weight: 800; letter-spacing: .06em; color: var(--accent-deep); }
+.g-arrow { align-self: center; margin-bottom: 20px; color: rgba(255,255,255,.55); font-weight: 900; font-size: 15px; }
+
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center;
+  padding-top: 8px;
+}
+.hero h1 {
+  margin: 24px 0 0; font-size: clamp(34px, 5vw, 58px); line-height: 1.14;
+  font-weight: 900; letter-spacing: -0.015em; word-break: keep-all;
+}
+.hero h1 em {
+  font-style: normal; position: relative; z-index: 0; padding: 0 .1em; white-space: nowrap;
+}
+.hero h1 em::before {
+  content: ""; position: absolute; inset: .1em -.05em 0; background: rgba(255,255,255,.24);
+  transform: rotate(-1deg); border-radius: 3px; z-index: -1;
+}
+
+/* demo pill re-cut as a hang tag */
+.tag-demo {
+  margin-top: 30px; display: inline-flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  background: var(--paper); color: var(--ink); border-radius: 12px;
+  padding: 14px 26px 14px 34px; border: 1.5px dashed var(--rule-dash);
+  box-shadow: 0 22px 46px rgba(10,40,18,.32);
+  font-size: clamp(18px, 2.4vw, 26px); font-weight: 800;
+  transform: rotate(-1.4deg);
+}
+.tag-demo .src { min-width: 11ch; }
+.tag-demo .src::after { content: ""; display: inline-block; width: 2px; height: 1em; background: var(--accent-deep); margin-left: 2px; vertical-align: -0.12em; animation: blink 1s steps(1) infinite; }
+.tag-demo .arrow { color: var(--accent-deep); font-weight: 950; }
+.tag-demo .dst { color: var(--accent-deep); min-width: 6ch; font-family: var(--mono); }
+@keyframes blink { 50% { opacity: 0; } }
+
+.hero .sub { margin-top: 26px; max-width: 34em; font-size: 17px; color: rgba(255,255,255,.92); word-break: keep-all; }
+.cta { margin: 30px 0 56px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.store-badge {
+  display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
+  background: #0b0b0b; color: #fff; border-radius: 14px; padding: 12px 22px;
+  border: 1px solid rgba(255,255,255,.25); transition: transform .15s ease;
+}
+.store-badge:hover { transform: translateY(-2px); }
+.store-badge svg { width: 26px; height: 26px; fill: #fff; }
+.store-badge .txt { line-height: 1.15; text-align: left; }
+.store-badge .txt small { display: block; font-size: 11px; opacity: .8; }
+.store-badge .txt strong { font-size: 17px; font-weight: 700; letter-spacing: .01em; }
+.cta .note { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: rgba(255,255,255,.85); }
+
+.hero .phone-col { position: relative; align-self: end; }
+.chip {
+  position: absolute; z-index: 2; display: flex; align-items: center; gap: 8px;
+  background: var(--paper); color: var(--ink); font-weight: 800; font-size: 13px; white-space: nowrap;
+  border-radius: 99px; padding: 7px 14px 7px 7px; box-shadow: 0 14px 30px rgba(10,40,18,.32);
+  border: 1px dashed var(--rule-dash);
+}
+.chip .g {
+  display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent-deep); color: #fff; font-size: 13px; font-weight: 900;
+  border: 1.5px dashed rgba(255,255,255,.55);
+}
+.chip.c1 { left: -8%;  top: 24%; transform: rotate(-6deg); }
+.chip.c2 { right: -10%; top: 38%; transform: rotate(5deg); }
+.chip.c3 { left: -4%;  top: 56%; transform: rotate(4deg); }
+.chip.c4 { right: -6%; top: 70%; transform: rotate(-5deg); }
+
+.shot-flat { width: 100%; display: block; border-radius: 30px; }
+.hero-shot { max-width: 300px; margin: 0 auto; filter: drop-shadow(0 28px 56px rgba(6,32,14,.38)); }
+.hero .phone-col .hero-shot { margin-top: 8px; margin-bottom: -8px; }
+
+/* ---------- marquee — ticker strip ---------- */
+.marquee { overflow: hidden; border-top: 1px dashed var(--rule-dash); border-bottom: 1px dashed var(--rule-dash); background: var(--kraft-deep); }
+.marquee .track {
+  display: flex; gap: 48px; padding: 14px 0; width: max-content;
+  font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .3em; color: var(--ink2);
+  animation: scroll 30s linear infinite;
+}
+@keyframes scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .marquee .track { animation: none; }
+  .tag-demo .src::after { animation: none; }
+}
+
+/* ---------- sections ---------- */
+section { padding: 88px 0; }
+section h2 { font-size: clamp(26px, 3.5vw, 39px); font-weight: 900; letter-spacing: -0.015em; margin: 22px 0 14px; word-break: keep-all; }
+section h2 em { font-style: normal; color: var(--accent-deep); }
+section .lede { color: var(--ink2); max-width: 40em; font-size: 17px; word-break: keep-all; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+.step { position: relative; border-top: 1.5px dashed var(--rule-dash); padding-top: 22px; }
+.step .n {
+  position: absolute; right: 0; top: 6px; font-weight: 950; font-size: 88px; line-height: 1;
+  color: rgba(43,38,32,.07); pointer-events: none;
+}
+.step h3 { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+.step p { color: var(--ink2); font-size: 15px; word-break: keep-all; }
+.step .tag { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .22em; color: var(--accent-deep); display: block; margin-bottom: 10px; }
+
+/* keepy growth row — full hang tags on a garland */
+.keepy-row { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 56px; }
+.keepy-row::before {
+  content: ""; position: absolute; left: 4%; right: 4%; top: 14px; height: 0; border-top: 2px dashed var(--rule-dash); z-index: 0;
+}
+.keepy {
+  position: relative; z-index: 1; background: var(--paper); border: 1.5px dashed var(--rule-dash); border-radius: 16px;
+  padding: 26px 16px 20px; text-align: center; box-shadow: 0 10px 24px rgba(43,38,32,.1);
+  transform: rotate(var(--rot, 0deg));
+}
+.keepy img { width: 84px; height: 84px; object-fit: contain; margin: 0 auto 14px; }
+.keepy h3 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+.keepy p { color: var(--ink2); font-size: 13px; word-break: keep-all; }
+.keepy .pt {
+  font-family: var(--mono); font-size: 10px; font-weight: 800; letter-spacing: .14em; color: var(--paper2);
+  display: inline-block; margin-top: 12px; background: var(--accent-deep); border-radius: 99px; padding: 3px 10px;
+}
+
+/* status — label stickers, kept orderly (no rotation) for scan-ability */
+.status-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+.status {
+  position: relative; overflow: hidden; border: 1.5px dashed var(--rule-dash); border-radius: 18px; padding: 24px;
+  background: var(--paper); box-shadow: 0 8px 20px rgba(43,38,32,.08);
+}
+.status::after {
+  content: ""; position: absolute; top: 0; right: 0; width: 26px; height: 26px;
+  background: linear-gradient(135deg, transparent 50%, rgba(43,38,32,.06) 50%, rgba(43,38,32,.14) 100%);
+}
+.status .dot { position: relative; width: 16px; height: 16px; border-radius: 50%; display: block; margin-bottom: 16px; }
+.status .dot::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1.5px dashed currentColor; opacity: .5; }
+.status.green .dot { background: #2ec24a; color: #2ec24a; }
+.status.amber .dot { background: #d98a1e; color: #d98a1e; }
+.status.red .dot { background: #c9432f; color: #c9432f; }
+.status h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+.status p { color: var(--ink2); font-size: 14px; word-break: keep-all; }
+
+.shots { background: linear-gradient(180deg, var(--kraft), var(--kraft-deep)); }
+.shots .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 52px; align-items: start; }
+.shots figure { background: var(--paper); border: 1.5px dashed var(--rule-dash); border-radius: 22px; padding: 14px; }
+.shots .shot-flat { border-radius: 20px; filter: drop-shadow(0 14px 30px rgba(43,38,32,.14)); }
+.shots figure:nth-child(2) { transform: translateY(28px); }
+
+.grid6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 32px; margin-top: 48px; }
+.feat { border-top: 1.5px dashed var(--rule-dash); padding-top: 18px; }
+.feat h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+.feat p { color: var(--ink2); font-size: 14px; word-break: keep-all; }
+
+/* ---------- final cta / footer ---------- */
+.final {
+  position: relative; overflow: hidden;
+  background-color: var(--accent-deep);
+  background-image: linear-gradient(165deg, var(--accent), var(--accent-deep)), radial-gradient(rgba(255,255,255,.09) 1px, transparent 1.4px);
+  background-size: auto, 4px 4px;
+  color: #fff; text-align: center;
+}
+.final h2 { margin: 0 0 12px; }
+.final .lede { color: rgba(255,255,255,.9); margin: 0 auto; }
+.final .cta { justify-content: center; margin-bottom: 0; }
+
+footer { background: #1c1712; color: #b9ac93; padding: 44px 0; font-size: 14px; border-top: 4px solid var(--kraft-deep); }
+footer .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+footer .brand { display: flex; align-items: center; gap: 10px; color: #fff; }
+footer .brand img { width: 24px; height: 24px; border-radius: 6px; }
+footer .links { display: flex; gap: 22px; flex-wrap: wrap; }
+footer a { color: #b9ac93; text-decoration: none; }
+footer a:hover { color: #fff; }
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 12px; }
+  .hero .wrap { padding-top: 28px; }
+  .hero .phone-col .hero-shot { max-width: 260px; margin-top: 22px; }
+  .chip.c1 { left: 0; } .chip.c3 { left: 2%; }
+  .chip.c2 { right: 0; } .chip.c4 { right: 1%; }
+  .steps, .grid6, .shots .row { grid-template-columns: 1fr; }
+  .keepy-row { grid-template-columns: repeat(2, 1fr); }
+  .status-grid { grid-template-columns: 1fr; }
+  .shots figure:nth-child(2) { transform: none; }
+  section { padding: 64px 0; }
+  .wordmark span { display: none; }
+  .g-tag { width: 72px; padding: 11px 6px 8px; }
+  .g-tag img { width: 38px; height: 38px; }
+  .growth-strip { gap: 4px; }
+  .g-arrow { margin-bottom: 16px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>everykeep</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/" class="cur">한국어</a><a href="../ja/">日本語</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost">e·k</div>
+  <div class="wrap">
+
+    <div class="grow-band">
+      <div class="kicker light"><span>키프이</span><span class="rule"></span><span class="num">함께 자라요</span></div>
+      <div class="growth-strip">
+        <div class="strip-line" aria-hidden="true"></div>
+        <div class="g-tag punch" style="--rot:-5deg"><img src="../assets/keepy-seed.png" alt="씨앗" loading="lazy"><span>씨앗</span></div>
+        <div class="g-arrow">→</div>
+        <div class="g-tag punch" style="--rot:4deg"><img src="../assets/keepy-sprout.png" alt="새싹" loading="lazy"><span>새싹</span></div>
+        <div class="g-arrow">→</div>
+        <div class="g-tag punch" style="--rot:-3deg"><img src="../assets/keepy-leaf.png" alt="잎새" loading="lazy"><span>잎새</span></div>
+        <div class="g-arrow">→</div>
+        <div class="g-tag punch" style="--rot:5deg"><img src="../assets/keepy-bloom.png" alt="활짝" loading="lazy"><span>활짝</span></div>
+      </div>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <div class="kicker light"><span>everykeep</span><span class="rule"></span><span class="num">물건 관리</span></div>
+        <h1>필터·보증·잊기 쉬운 관리,<br>everykeep이 <em>대신 기억</em>해요.</h1>
+        <div class="tag-demo punch">
+          <span class="src" id="demoSrc">정수기 필터</span>
+          <span class="arrow">→</span>
+          <span class="dst" id="demoDst">교체 · 5일</span>
+        </div>
+        <p class="sub">필터 교체, 보증 만료, 정품 등록, 청소 주기 — 잊어버리기 쉬운 우리 집 물건 관리를 한곳에. 갈 때가 되면 everykeep이 대신 기억하고 조용히 알려줘요. 무료, 그리고 기록은 기기 밖으로 안 나가요.</p>
+        <div class="cta">
+          <a class="store-badge" id="storeLink" href="https://apps.apple.com/app/id6781988992" aria-label="App Store의 everykeep"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a>
+          <span class="note">무료 · iPhone &amp; iPad</span>
+        </div>
+      </div>
+      <div class="phone-col">
+        <div class="chip c1"><span class="g">↻</span>교체</div><div class="chip c2"><span class="g">✦</span>청소</div><div class="chip c3"><span class="g">🛡</span>보증</div><div class="chip c4"><span class="g">✓</span>정품</div>
+        <img class="shot-flat hero-shot" src="../assets/shot-ko-home.png" alt="everykeep 홈 화면 — 다가오는 관리 일정과 키프이 캐릭터">
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>정수기 필터</span><span>에어컨</span><span>공기청정기</span><span>칫솔모</span><span>콘택트렌즈</span><span>보증서</span><span>정품등록</span><span>청소 주기</span><span>정수기 필터</span><span>에어컨</span><span>공기청정기</span><span>칫솔모</span><span>콘택트렌즈</span><span>보증서</span><span>정품등록</span><span>청소 주기</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>사용 방법</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2><em>“마지막에 언제 했더라?”</em>에서 해결까지.</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">등록</span><h3>물건을 추가</h3><p>물건과 주기를 등록해요 — 3개월마다 필터, 내년에 끝나는 보증처럼.</p></div><div class="step"><span class="n">02</span><span class="tag">알림</span><h3>키프이가 기억</h3><p>날짜를 추적하다가 때가 오기 전에 알려줘요 — 30·7·1일 전, 원하는 대로.</p></div><div class="step"><span class="n">03</span><span class="tag">완료</span><h3>한 탭이면 끝</h3><p>완료를 누르면 다음 날짜가 자동으로. 키프이도 한 뼘 자라요.</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>키프이</span><span class="rule"></span><span class="num">함께 자라요</span></div>
+    <h2>기록할수록 <em>자라는</em> 정리 동반자.</h2>
+    <p class="lede">물건을 등록하거나 할 일을 끝낼 때마다 키프이가 돌봄을 얻어 한 단계씩 자라요 — 씨앗에서 활짝까지. 잔소리 없이, 잘 챙긴 마음만 차곡차곡.</p>
+    <div class="keepy-row"><div class="keepy" style="--rot:-2deg"><img src="../assets/keepy-seed.png" alt="씨앗" loading="lazy"><h3>씨앗</h3><p>갓 심은</p><span class="pt">시작</span></div><div class="keepy" style="--rot:1.5deg"><img src="../assets/keepy-sprout.png" alt="새싹" loading="lazy"><h3>새싹</h3><p>자라기 시작</p><span class="pt">30 P</span></div><div class="keepy" style="--rot:-1.5deg"><img src="../assets/keepy-leaf.png" alt="잎새" loading="lazy"><h3>잎새</h3><p>한창 크는 중</p><span class="pt">70 P</span></div><div class="keepy" style="--rot:2deg"><img src="../assets/keepy-bloom.png" alt="활짝" loading="lazy"><h3>활짝</h3><p>활짝 핀</p><span class="pt">150 P</span></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>상태</span><span class="rule"></span><span class="num">한눈에</span></div>
+    <h2><em>미리</em> 보여요.</h2>
+    <p class="lede">모든 물건에 신호등 하나. 여유 있음·곧 임박·지남 — 뒤질 것도, 엑셀도 없이.</p>
+    <div class="status-grid"><div class="status green"><span class="dot"></span><h3>여유 있음</h3><p>기록돼 있고 순조로워요.</p></div><div class="status amber"><span class="dot"></span><h3>곧 임박</h3><p>알림 범위 안에 들어왔어요.</p></div><div class="status red"><span class="dot"></span><h3>지남</h3><p>이제 챙길 때예요.</p></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>화면</span><span class="rule"></span><span class="num">iOS</span></div>
+    <h2>관리하는 게 아니라, <em>흘끗 보는</em> 앱.</h2>
+    <div class="row"><figure><img class="shot-flat" src="../assets/shot-ko-home.png" alt="오늘 챙길 일" loading="lazy"></figure><figure><img class="shot-flat" src="../assets/shot-ko-keepy.png" alt="자라는 키프이" loading="lazy"></figure><figure><img class="shot-flat" src="../assets/shot-ko-calendar.png" alt="캘린더 타임라인" loading="lazy"></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>디테일</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>무료 앱, <em>꼼꼼한</em> 선택.</h2>
+    <div class="grid6"><div class="feat"><h3>데이터 미수집</h3><p>모든 기록이 내 아이폰 안에만. 계정도, 기기 밖으로 나가는 분석도 없어요.</p></div><div class="feat"><h3>딱 맞는 알림</h3><p>물건마다 30·7·1일·당일 알림을 골라서. 원하는 만큼만 챙겨요.</p></div><div class="feat"><h3>자라는 키프이</h3><p>기록하고 완료할수록 한 단계씩 자라는 손그림 정리 동반자.</p></div><div class="feat"><h3>캘린더 타임라인</h3><p>이번 주·이번 달 챙길 일을 깔끔한 타임라인으로.</p></div><div class="feat"><h3>한눈에 수명</h3><p>보관함에서 물건별 남은 수명을 링으로. 초록·앰버·완료.</p></div><div class="feat"><h3>사진 · 보증</h3><p>사진 첨부, 보증·정품 등록일 저장, 영수증도 나중에 바로.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>이제 기억하려 애쓰지 마세요.</h2>
+    <p class="lede">iPhone · iPad 무료.</p>
+    <div class="cta"><a class="store-badge" id="storeLink2" href="https://apps.apple.com/app/id6781988992" aria-label="App Store의 everykeep"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보 처리방침</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+  // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
+  const APP_STORE_URL = "https://apps.apple.com/app/id6781988992";
+  if (APP_STORE_URL) {
+    document.getElementById("storeLink").href = APP_STORE_URL;
+    document.getElementById("storeLink2").href = APP_STORE_URL;
+  }
+
+  const pairs = [["정수기 필터", "교체 · 5일"], ["에어컨 필터", "청소 · 12일"], ["노트북 보증", "만료 · 340일"], ["공기청정기 필터", "교체 · 오늘"]];
+  const srcEl = document.getElementById("demoSrc");
+  const dstEl = document.getElementById("demoDst");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        const [src, dst] = pairs[i % pairs.length];
+        dstEl.textContent = "";
+        srcEl.textContent = "";
+        for (const ch of src) { srcEl.textContent += ch; await sleep(70); }
+        await sleep(350);
+        dstEl.textContent = dst;
+        await sleep(2200);
+        i++;
+      }
+    })();
+  }
+</script>
+<script>
+/* Remember the visitor's manual language choice so the root won't auto-redirect again. */
+(function(){
+  document.querySelectorAll('.lang a').forEach(function(a){
+    a.addEventListener('click', function(){
+      var h=a.getAttribute('href')||'';
+      var c=h.indexOf('ko')>-1?'ko':h.indexOf('ja')>-1?'ja':'en';
+      try{ localStorage.setItem('ek_lang', c); }catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>
