@@ -13,7 +13,7 @@ MARQUEE = ["VAN GOGH","MONET","HOKUSAI","KLIMT","VERMEER","WARHOL","DA VINCI","M
 SHOTS = [("assets/shot3.png","s_cap1"),("assets/shot1.png","s_cap2"),("assets/shot2.png","s_cap3")]
 
 L = {
-"en": dict(htmllang="en", brand="Palette", self="index.html",
+"en": dict(htmllang="en", soon="Coming soon", cta_soon="Coming soon to the App Store", brand="Palette", self="index.html",
  title="Palette: Daily Art Puzzle — Play a famous painting's colors",
  desc="A daily color puzzle: the board is painted with a real masterpiece's palette. Merge by color — no numbers. And every Saturday, guess the painting from its colors alone.",
  ogt="Palette — Play a famous painting's colors", ogd="A new masterpiece every day. Merge by color, complete the painting. Saturdays: guess the artwork from its colors.",
@@ -43,7 +43,7 @@ L = {
  ctitle="Today's painting is<br>already on the wall.", csub="Free to play · 122 masterpieces · iPhone &amp; iPad",
  fc="Contact", fp="Privacy", ft="Terms"),
 
-"ko": dict(htmllang="ko", brand="Palette", self="ko.html",
+"ko": dict(htmllang="ko", soon="곧 출시", cta_soon="App Store 곧 출시", brand="Palette", self="ko.html",
  title="Palette: 매일 명화 퍼즐 — 명화의 색으로 즐기는 퍼즐",
  desc="매일 보드가 실제 명화의 팔레트로 칠해집니다. 숫자 없이 색으로 타일을 합쳐 그림을 완성하세요. 토요일엔 색만 보고 그림을 맞히는 미스터리 데이.",
  ogt="Palette — 매일 명화의 색으로", ogd="매일 새로운 명화. 색으로 합쳐 그림을 완성하고, 토요일엔 색만 보고 작품을 맞혀보세요.",
@@ -73,7 +73,7 @@ L = {
  ctitle="오늘의 그림이<br>이미 벽에 걸렸어요.", csub="무료 플레이 · 명화 122점 · 아이폰 &amp; 아이패드",
  fc="문의", fp="개인정보", ft="약관"),
 
-"ja": dict(htmllang="ja", brand="Palette", self="ja.html",
+"ja": dict(htmllang="ja", soon="近日公開", cta_soon="App Storeで近日公開", brand="Palette", self="ja.html",
  title="Palette: 名画の色パズル — 毎日、名画の色で遊ぶ",
  desc="毎日、ボードが実際の名画のパレットで彩られます。数字ではなく色でタイルを合わせて絵を完成。土曜日は色だけで作品を当てるミステリーデー。",
  ogt="Palette — 名画の色で遊ぶ", ogd="毎日新しい名画。色を合わせて絵を完成、土曜日は色だけで作品を当ててみましょう。",
@@ -103,7 +103,7 @@ L = {
  ctitle="今日の絵は<br>もう壁に掛かっています。", csub="無料で遊べる · 名画122点 · iPhone &amp; iPad",
  fc="お問い合わせ", fp="プライバシー", ft="規約"),
 
-"zh-Hans": dict(htmllang="zh-Hans", brand="Palette", self="zh-hans.html",
+"zh-Hans": dict(htmllang="zh-Hans", soon="即将推出", cta_soon="即将登陆 App Store", brand="Palette", self="zh-hans.html",
  title="Palette：每日名画拼图 — 每天用名画的颜色玩的拼图",
  desc="每天，棋盘都被一幅真实名画的调色板点亮。不用数字，用颜色合并拼出画作。周六是只凭颜色猜画的谜题日。",
  ogt="Palette — 用名画的颜色游玩", ogd="每天一幅新名画。合并颜色拼出画作，周六只凭颜色猜出作品。",
@@ -133,7 +133,7 @@ L = {
  ctitle="今天的画<br>已经挂在墙上。", csub="免费畅玩 · 122 幅名画 · iPhone 和 iPad",
  fc="联系", fp="隐私", ft="条款"),
 
-"zh-Hant": dict(htmllang="zh-Hant", brand="Palette", self="zh-hant.html",
+"zh-Hant": dict(htmllang="zh-Hant", soon="即將推出", cta_soon="即將登陸 App Store", brand="Palette", self="zh-hant.html",
  title="Palette：每日名畫拼圖 — 每天用名畫的顏色玩的拼圖",
  desc="每天，棋盤都被一幅真實名畫的調色盤點亮。不用數字，用顏色合併拼出畫作。週六是只憑顏色猜畫的謎題日。",
  ogt="Palette — 用名畫的顏色遊玩", ogd="每天一幅新名畫。合併顏色拼出畫作，週六只憑顏色猜出作品。",
@@ -213,7 +213,7 @@ TMPL='''<!DOCTYPE html>
       <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
 {langsel}
       </select>
-      <a class="nav-cta" href="{app}" target="_blank" rel="noopener">App Store</a>
+      {nav_cta}
     </nav>
   </div>
 </header>
@@ -225,7 +225,7 @@ TMPL='''<!DOCTYPE html>
     <h1 class="hero-msg">{hmsg}</h1>
     <p class="hero-sub">{hsub}</p>
     <div class="hero-cta-row">
-      <a class="appstore-btn" href="{app}" target="_blank" rel="noopener">{svg}{cta}</a>
+      {store_btn}
       <span class="rating"><span class="stars">★★★★★</span>{rating}</span>
     </div>
     <p class="hero-foot">{hfoot}</p>
@@ -292,7 +292,7 @@ TMPL='''<!DOCTYPE html>
   <div class="wrap">
     <h2 class="cta-title">{ctitle}</h2>
     <p class="cta-sub">{csub}</p>
-    <a class="appstore-btn" href="{app}" target="_blank" rel="noopener">{svg}{cta}</a>
+    {store_btn}
   </div>
 </section>
 </main>
@@ -317,6 +317,14 @@ TMPL='''<!DOCTYPE html>
 for code,fname,_ in LANGS:
     d=L[code]
     params=dict(d)
+    # 미출시 상태(APP 플레이스홀더)면 CTA를 비활성 '곧 출시' 스팬으로. 출시 후 APP만 채우고 재실행.
+    if "YOURAPPID" in APP:
+        nav_cta = f'<span class="nav-cta soon">{d["soon"]}</span>'
+        store_btn = f'<span class="appstore-btn soon">{SVG}{d["cta_soon"]}</span>'
+    else:
+        nav_cta = f'<a class="nav-cta" href="{APP}" target="_blank" rel="noopener">App Store</a>'
+        store_btn = f'<a class="appstore-btn" href="{APP}" target="_blank" rel="noopener">{SVG}{d["cta"]}</a>'
+    params.update(nav_cta=nav_cta, store_btn=store_btn)
     params.update(svg=SVG, app=APP, hreflang=hreflang(), langsel=langsel(code),
         footlangs=footlangs(code), steps=steps_html(d), feats=feats_html(d),
         shots=shots_html(d), marquee=marquee_html())

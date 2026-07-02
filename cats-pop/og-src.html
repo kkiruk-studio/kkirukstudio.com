@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- OG 이미지 소스 (1200x630). 재생성:
+     python3 -m http.server 8934 (사이트 루트) 후
+     chrome --headless --window-size=1200,630 --screenshot=og.png http://127.0.0.1:8934/cats-pop/og-src.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:"Itim Cat";src:url("assets/fonts/ItimCat-subset.woff2") format("woff2")}
+@font-face{font-family:"BMYeonsung";src:url("assets/fonts/BMYEONSUNG-subset.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;overflow:hidden;position:relative;
+  background:linear-gradient(150deg,#ffc9a3 0%,#ff9a6e 30%,#ff7a59 62%,#f0603c 100%);
+  font-family:"Itim Cat",sans-serif;color:#fff}
+.icon{position:absolute;top:74px;left:84px;width:132px;height:132px;border-radius:32px;
+  border:6px solid #fff;box-shadow:0 12px 28px rgba(150,60,20,.35);transform:rotate(-3deg)}
+.name-ko{position:absolute;top:84px;left:252px;font-family:"BMYeonsung";font-size:64px;
+  text-shadow:0 3px 0 rgba(170,60,20,.3)}
+.name-en{position:absolute;top:164px;left:254px;font-size:34px;opacity:.95}
+.proof{position:absolute;top:224px;left:254px;font-size:26px;color:#ffedc9}
+.ladder{position:absolute;left:0;right:0;bottom:34px;display:flex;align-items:flex-end;
+  justify-content:center;gap:14px}
+.ladder img{filter:drop-shadow(0 6px 8px rgba(120,40,10,.3))}
+.arrow{font-size:30px;font-weight:800;color:#fff;opacity:.75;padding-bottom:12px}
+.spark{position:absolute;font-size:44px}
+</style>
+</head>
+<body>
+<img class="icon" src="../icons/cats-pop.png" alt="">
+<div class="name-ko">고양이는 정말 팡팡</div>
+<div class="name-en">Cats are Cute: Pop Time!</div>
+<div class="proof">★4.8 · 10,000+ ratings · Free</div>
+<div class="ladder">
+  <img src="assets/balls/ball1.png" style="height:44px"><span class="arrow">→</span>
+  <img src="assets/balls/ball3.png" style="height:66px"><span class="arrow">→</span>
+  <img src="assets/balls/ball5.png" style="height:96px"><span class="arrow">→</span>
+  <img src="assets/balls/ball7.png" style="height:136px"><span class="arrow">→</span>
+  <img src="assets/balls/ball9.png" style="height:186px"><span class="arrow">→</span>
+  <span style="position:relative"><img src="assets/balls/ball11.png" style="height:248px"><span class="spark" style="top:-20px;right:-14px">✨</span></span>
+</div>
+</body>
+</html>

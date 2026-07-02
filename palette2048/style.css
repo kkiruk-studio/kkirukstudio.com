@@ -171,3 +171,6 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--ink3);font-si
   .steps{grid-template-columns:1fr}
   .ghost{display:none}
 }
+
+/* 미출시 곧 출시 상태 (build.py가 APP 플레이스홀더일 때 생성) */
+.nav-cta.soon, .appstore-btn.soon { opacity:.65; cursor:default; }
