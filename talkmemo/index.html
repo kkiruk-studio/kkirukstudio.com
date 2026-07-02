@@ -1,106 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Talk Memo — Voice on Watch, text on iPhone</title>
-<meta name="description" content="Tap your Apple Watch, speak your idea — it arrives on iPhone as text. One-time purchase, no subscription, no ads. Export to Notion, Bear, Obsidian.">
-<link rel="icon" type="image/png" href="../icons/talkmemo.png">
-<link rel="apple-touch-icon" href="../icons/talkmemo.png">
-<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/talkmemo/ko.html">
-<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/talkmemo/index.html">
-<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/talkmemo/ja.html">
-<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/talkmemo/index.html">
-<link rel="canonical" href="https://www.kkirukstudio.com/talkmemo/index.html">
-<meta property="og:title" content="Talk Memo — Voice on Watch, text on iPhone">
-<meta property="og:description" content="Tap your Apple Watch, speak your idea — it arrives on iPhone as text. One-time purchase, no subscription, no ads. Export to Notion, Bear, Obsidian.">
-<meta property="og:image" content="https://www.kkirukstudio.com/talkmemo/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://www.kkirukstudio.com/talkmemo/index.html">
-<meta property="og:site_name" content="kkiruk studio">
+<title>Talk Memo — Speak to your watch, read it on your iPhone</title>
+<meta name="description" content="Tap your Apple Watch, say what's on your mind, and it's on your iPhone as text — transcribed on your device, ready to send to Notion, Bear or Obsidian. No ads, no subscription.">
+<meta property="og:title" content="Talk Memo — Voice to text, wrist to phone">
+<meta property="og:description" content="Tap your watch. Say it. Read it on your phone as text.">
+<meta property="og:image" content="https://www.kkirukstudio.com/talkmemo/assets/icon-512.png">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Talk Memo — Voice on Watch, text on iPhone">
-<meta name="twitter:description" content="Tap your Apple Watch, speak your idea — it arrives on iPhone as text. One-time purchase, no subscription, no ads. Export to Notion, Bear, Obsidian.">
-<meta name="twitter:image" content="https://www.kkirukstudio.com/talkmemo/og.png">
-<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://www.kkirukstudio.com/talkmemo/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/talkmemo/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/talkmemo/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/talkmemo/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/talkmemo/ja/">
+<link rel="icon" type="image/png" href="assets/icon-180.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="assets/style.css">
+
 <script src="/ga.js"></script>
 </head>
 <body>
 
-<header>
-  <div class="bar">
-    <a class="wordmark" href="index.html"><img src="../icons/talkmemo.png" alt="Talk Memo">Talk Memo</a>
-    <nav class="nav-right">
-      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
-        <option value="ko.html">한국어</option>
-        <option value="index.html" selected>EN</option>
-        <option value="ja.html">日本語</option>
-      </select>
-      <a class="nav-cta" href="https://apps.apple.com/app/id6764329223" target="_blank" rel="noopener">App Store</a>
-    </nav>
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="./"><img src="assets/icon-180.png" alt=""><span>TALK·MEMO</span></a>
+    <div class="lang"><a href="./" class="cur">EN</a><a href="ko/">한국어</a><a href="ja/">日本語</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="rec-pill"><span class="rdot"></span><span class="rec">REC</span><span>VOICE NOTES, <em>HANDS-FREE</em></span></div>
+      <h1>Got an idea?<br><em>Just say it</em> to your wrist.</h1>
+      <div class="demo-card">
+        <div class="dhead"><span class="dtime">09:41</span><span class="ctx" id="demoCtx">MID-RUN</span></div>
+        <div class="dtext"><span id="demoDst">Build the widget first in the next version.</span></div>
+        <div class="dfoot"><span class="rdot"></span><span class="bars"><i></i><i></i><i></i><i></i><i></i></span><span class="dstamp">TALK MEMO</span></div>
+      </div>
+      <p class="sub">Your best ideas show up mid-run, mid-drive, mid-shampoo — exactly when your phone is out of reach. Tap your Apple Watch once and talk. By the time you pick up your iPhone, it's already text.</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="#" aria-label="Download on the App Store"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a>
+        <span class="note">BUY ONCE · NO SUBSCRIPTION · IPHONE &amp; APPLE WATCH</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="pt"></span>Notion</div><div class="chip c2"><span class="pt"></span>Bear</div><div class="chip c3"><span class="pt"></span>Obsidian</div><div class="chip c4"><span class="pt"></span>Siri</div>
+      <div class="phone"><img src="assets/shot-en-home-dark.png" alt="Talk Memo home screen on iPhone showing voice memos transcribed to text"><div class="island"></div></div>
+      <div class="watch"><img src="assets/watch-rec.png" alt="Talk Memo recording on Apple Watch with a live level meter"></div>
+    </div>
   </div>
 </header>
 
-<main>
-<div class="hero">
-  <div class="hero-copy">
-    <p class="kicker">Voice on Watch, text on iPhone</p>
-    <h1>One tap on your wrist.<br><em>Ideas become text.</em></h1>
-    <p class="hero-sub">Mid-run, mid-drive, mid-dishes — good ideas vanish while you dig out your phone. Tap your watch and speak. It's waiting on your iPhone as text.</p>
-    <div class="hero-cta-row">
-      <a class="appstore-btn" href="https://apps.apple.com/app/id6764329223" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
-      
-    </div>
-    <p class="hero-foot">One-time purchase · No subscription · No ads · No tracking</p>
-  </div>
-  <div class="hero-visual" aria-hidden="true">
-    <div class="tmhero">
-      <img class="shot" src="../shots/talkmemo/en-1.jpg" alt="">
-      <div class="watch">
-        <span class="rec"></span>
-        <div class="wave"><i></i><i></i><i></i><i></i><i></i></div>
-        <span class="crown"></span>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="wave-strip" aria-hidden="true"><i style="height:6px;animation-delay:0.0s"></i><i style="height:30px;animation-delay:0.13s"></i><i style="height:32px;animation-delay:0.26s"></i><i style="height:41px;animation-delay:0.39s"></i><i style="height:32px;animation-delay:0.52s"></i><i style="height:24px;animation-delay:0.65s"></i><i style="height:17px;animation-delay:0.78s"></i><i style="height:29px;animation-delay:0.0s"></i><i style="height:39px;animation-delay:0.13s"></i><i style="height:35px;animation-delay:0.26s"></i><i style="height:34px;animation-delay:0.39s"></i><i style="height:13px;animation-delay:0.52s"></i><i style="height:24px;animation-delay:0.65s"></i><i style="height:27px;animation-delay:0.78s"></i><i style="height:41px;animation-delay:0.0s"></i><i style="height:34px;animation-delay:0.13s"></i><i style="height:30px;animation-delay:0.26s"></i><i style="height:14px;animation-delay:0.39s"></i><i style="height:25px;animation-delay:0.52s"></i><i style="height:36px;animation-delay:0.65s"></i><i style="height:37px;animation-delay:0.78s"></i><i style="height:37px;animation-delay:0.0s"></i><i style="height:21px;animation-delay:0.13s"></i><i style="height:18px;animation-delay:0.26s"></i><i style="height:22px;animation-delay:0.39s"></i><i style="height:40px;animation-delay:0.52s"></i><i style="height:34px;animation-delay:0.65s"></i><i style="height:35px;animation-delay:0.78s"></i><i style="height:18px;animation-delay:0.0s"></i><i style="height:20px;animation-delay:0.13s"></i><i style="height:31px;animation-delay:0.26s"></i><i style="height:38px;animation-delay:0.39s"></i><i style="height:39px;animation-delay:0.52s"></i><i style="height:27px;animation-delay:0.65s"></i><i style="height:19px;animation-delay:0.78s"></i><i style="height:18px;animation-delay:0.0s"></i><i style="height:37px;animation-delay:0.13s"></i><i style="height:33px;animation-delay:0.26s"></i><i style="height:39px;animation-delay:0.39s"></i><i style="height:23px;animation-delay:0.52s"></i><i style="height:15px;animation-delay:0.65s"></i><i style="height:25px;animation-delay:0.78s"></i><i style="height:37px;animation-delay:0.0s"></i><i style="height:39px;animation-delay:0.13s"></i><i style="height:33px;animation-delay:0.26s"></i><i style="height:25px;animation-delay:0.39s"></i><i style="height:14px;animation-delay:0.52s"></i><i style="height:33px;animation-delay:0.65s"></i><i style="height:32px;animation-delay:0.78s"></i><i style="height:41px;animation-delay:0.0s"></i><i style="height:26px;animation-delay:0.13s"></i><i style="height:21px;animation-delay:0.26s"></i><i style="height:19px;animation-delay:0.39s"></i><i style="height:34px;animation-delay:0.52s"></i><i style="height:38px;animation-delay:0.65s"></i><i style="height:37px;animation-delay:0.78s"></i></div>
 
 <section>
   <div class="wrap">
-    <p class="sec-label">Features</p>
-    <h2 class="sec-title">Capture without breaking flow.</h2>
-    <div class="features">
-      <div class="feature"><div class="dot"></div><h3>One tap on the watch</h3><p>Tap to record, tap to stop. Your phone stays in your pocket.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Automatic transcription</h3><p>Recordings sync to iPhone and become text on-device. Nothing leaves your phone.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Send it anywhere</h3><p>Clean export to Notion, Bear, Obsidian — whatever notes app you live in.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Four ways to start</h3><p>Ultra Action Button, watch-face complication, the Dock, or Siri & Shortcuts.</p></div>
-    </div>
+    <div class="sec-head"><span class="stamp"><span class="rdot"></span>00:01</span><span class="label">HOW IT WORKS</span><span class="line"></span></div>
+    <h2>From a thought in your head to saved text, in <em>three seconds</em>.</h2>
+    <div class="pipeline"><div class="stage"><span class="stamp-sm">0:00</span><div class="viz"><div class="mini-watch"><span class="rbtn"></span></div></div><h3>Tap your wrist</h3><p>Keep running. One tap on the big red button starts recording — the action button, a watch-face complication or Siri work too.</p></div><div class="flow">→</div><div class="stage"><span class="stamp-sm">0:03</span><div class="viz"><div class="talk-wave"><i style="height:18px;animation-delay:0s"></i><i style="height:34px;animation-delay:0.12s"></i><i style="height:52px;animation-delay:0.24s"></i><i style="height:40px;animation-delay:0.36s"></i><i style="height:60px;animation-delay:0.48s"></i><i style="height:30px;animation-delay:0.6s"></i><i style="height:46px;animation-delay:0.72s"></i><i style="height:22px;animation-delay:0.84s"></i><i style="height:38px;animation-delay:0.96s"></i><i style="height:54px;animation-delay:0.3s"></i><i style="height:28px;animation-delay:0.54s"></i><i style="height:14px;animation-delay:0.18s"></i></div></div><h3>Say what you're thinking</h3><p>No typing, no looking at a screen. Say it like you'd tell a friend, then tap stop.</p></div><div class="flow">→</div><div class="stage"><span class="stamp-sm">0:04</span><div class="viz"><div class="text-mini"><span class="tm-time">09:41</span><span class="tm-line w1"></span><span class="tm-line w2"></span><span class="tm-line w3"></span></div></div><h3>It's text on your iPhone</h3><p>Open Talk Memo and it's already written down. Transcription happens on your device — your voice never leaves it.</p></div></div>
   </div>
 </section>
 
-<section class="cta">
+<section style="padding-top:0">
   <div class="wrap">
-    <h2 class="cta-title">Don't lose<br>your next good idea.</h2>
-    <p class="cta-sub">Pay once · Yours forever · Apple Watch + iPhone</p>
-    <a class="appstore-btn" href="https://apps.apple.com/app/id6764329223" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
+    <div class="sec-head"><span class="stamp"><span class="rdot"></span>00:02</span><span class="label">ONE DAY WITH TALK MEMO</span><span class="line"></span></div>
+    <h2>Reach for your phone, and the idea is <em>already gone</em>.</h2>
+    <p class="lede">Unlock, find the app, start typing — good ideas don't wait that long. Talk Memo cuts the whole dance down to one tap and one sentence. A day's worth of passing thoughts, all kept:</p>
+    <div class="applist"><div class="day">TODAY</div><div class="mrow"><span class="time">07:12</span><span class="txt">Build the widget first in the next version.</span><span class="tag">MID-RUN</span></div><div class="mrow"><span class="time">08:45</span><span class="txt">Milk and eggs on the way home.</span><span class="tag">DRIVING</span></div><div class="mrow"><span class="time">21:03</span><span class="txt">Open the talk with a question, not a slide.<br><span class="exp">Notion</span></span><span class="tag">SHOWER</span></div><div class="mrow"><span class="time">23:58</span><span class="txt">Order Mia's birthday gift this weekend.</span><span class="tag">LIGHTS OUT</span></div></div>
   </div>
 </section>
-</main>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><span class="stamp"><span class="rdot"></span>00:03</span><span class="label">EXPORT</span><span class="line"></span></div>
+    <h2>Your words end up <em>where you work</em>.</h2>
+    <p class="lede">Talk Memo doesn't trap your notes. One tap on a memo opens the export sheet — exactly like this one:</p>
+    <div class="sheet"><div class="grab"></div><div class="sheet-title">Export memo</div><div class="srow s1"><span class="sicon">N</span><div class="body"><h3>Notion</h3><p>A real API integration — memos land in your database as pages.</p></div><span class="chev">→</span></div><div class="srow s2"><span class="sicon">B</span><div class="body"><h3>Bear</h3><p>One tap creates a new Bear note, ready to edit.</p></div><span class="chev">→</span></div><div class="srow s3"><span class="sicon">O</span><div class="body"><h3>Obsidian</h3><p>Drops straight into your vault as a new note.</p></div><span class="chev">→</span></div><div class="srow s4"><span class="sicon">⇪</span><div class="body"><h3>Share sheet</h3><p>Apple Notes, Messages, anywhere iOS can share.</p></div><span class="chev">→</span></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="sec-head"><span class="stamp"><span class="rdot"></span>00:04</span><span class="label">SCREENS</span><span class="line"></span></div>
+    <h2>Two screens, <em>one flow</em>.</h2>
+    <div class="row"><figure><div class="watch"><img src="assets/watch-rec.png" alt="Talk Memo recording on Apple Watch with a live level meter" loading="lazy"></div><figcaption>ONE TAP TO RECORD</figcaption></figure><figure><div class="phone"><img src="assets/shot-en-home-dark.png" alt="Talk Memo home screen on iPhone showing voice memos transcribed to text" loading="lazy"><div class="island"></div></div><figcaption>TEXT, AUTOMATICALLY</figcaption></figure><figure><div class="phone"><img src="assets/shot-en-home-light.png" alt="Talk Memo home screen on iPhone showing voice memos transcribed to text" loading="lazy"><div class="island"></div></div><figcaption>LIGHT &amp; DARK</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="stamp"><span class="rdot"></span>00:05</span><span class="label">DETAILS</span><span class="line"></span></div>
+    <h2>Small app. <em>Deliberate</em> choices.</h2>
+    <div class="set-grid"><div class="set-card"><div class="set-title">PRIVACY</div><div class="frow"><span class="check">✓</span><div><h3>On-device transcription</h3><p>Speech recognition runs on your iPhone. Your voice is never uploaded anywhere.</p></div></div><div class="frow"><span class="check">✓</span><div><h3>No ads, no tracking</h3><p>Zero analytics, zero accounts. The app collects nothing.</p></div></div><div class="frow"><span class="check">✓</span><div><h3>Buy once, keep forever</h3><p>One purchase. No subscription, no locked tiers, no nagging.</p></div></div></div><div class="set-card"><div class="set-title">EVERYDAY</div><div class="frow"><span class="check">✓</span><div><h3>iCloud sync</h3><p>Memos follow you to your iPad through your own iCloud — not our servers.</p></div></div><div class="frow"><span class="check">✓</span><div><h3>Speaks 3 languages</h3><p>Korean, English and Japanese recognition — switch any time.</p></div></div><div class="frow"><span class="check">✓</span><div><h3>Starts from anywhere</h3><p>Action button, complication, dock, or “Hey Siri, start recording.”</p></div></div></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <a class="record-btn" id="storeLink2" href="#" aria-label="Download Talk Memo on the App Store"><span></span></a>
+    <div class="cap">TAP TO START</div>
+    <h2>Your next idea deserves better than “I'll remember it.”</h2>
+    <p class="lede">Talk Memo for iPhone &amp; Apple Watch.</p>
+    <div class="cta"><a class="store-badge" id="storeLink3" href="#" aria-label="Download on the App Store"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>Download on the</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap cols">
-    <span>© kkiruk studio</span>
-    <nav class="links">
-      <a href="/">kkiruk studio</a>
+  <div class="wrap">
+    <div class="brand"><img src="assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
-      <a href="ko.html">한국어</a> <a href="ja.html">日本語</a>
-    </nav>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">Terms</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
   </div>
 </footer>
 
+<script>
+  const APP_STORE_URL = "https://apps.apple.com/app/id6764329223";
+  if (APP_STORE_URL) {
+    for (const id of ["storeLink", "storeLink2", "storeLink3"]) {
+      const el = document.getElementById(id);
+      if (el) el.href = APP_STORE_URL;
+    }
+  }
+
+  const pairs = [["MID-RUN", "Build the widget first in the next version."], ["DRIVING", "Pick up milk and eggs on the way home."], ["SHOWER", "Open the talk with a question, not a slide."], ["3 AM", "Order Mia's birthday gift this weekend."]];
+  const ctxEl = document.getElementById("demoCtx");
+  const dstEl = document.getElementById("demoDst");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let i = 0;
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        const [ctx, text] = pairs[i % pairs.length];
+        ctxEl.textContent = ctx;
+        dstEl.textContent = "";
+        await sleep(500);
+        for (const ch of text) { dstEl.textContent += ch; await sleep(45); }
+        await sleep(2400);
+        i++;
+      }
+    })();
+  }
+</script>
 </body>
 </html>
