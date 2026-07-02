@@ -1,115 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cats are Cute: Pop Time! — The cat merge puzzle that grows</title>
-<meta name="description" content="A cute suika-style cat merge puzzle. 11 evolutions, 4 modes, 90 cosmetics, global rankings. ★4.8.">
-<link rel="icon" type="image/png" href="../icons/cats-pop.png">
-<link rel="apple-touch-icon" href="../icons/cats-pop.png">
-<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/cats-pop/ko.html">
-<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/cats-pop/index.html">
-<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/cats-pop/ja.html">
-<link rel="alternate" hreflang="es" href="https://www.kkirukstudio.com/cats-pop/es.html">
-<link rel="alternate" hreflang="pt" href="https://www.kkirukstudio.com/cats-pop/pt.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/cats-pop/zh-hans.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/cats-pop/zh-hant.html">
-<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/cats-pop/index.html">
-<link rel="canonical" href="https://www.kkirukstudio.com/cats-pop/index.html">
-<meta property="og:title" content="Cats are Cute: Pop Time! — The cat merge puzzle that grows">
-<meta property="og:description" content="A cute suika-style cat merge puzzle. 11 evolutions, 4 modes, 90 cosmetics, global rankings. ★4.8.">
+<title>Cats are Cute: Pop Time! — The suika-style cat merge puzzle</title>
+<meta name="description" content="Drop matching cats and they merge into bigger ones — a suika-style puzzle with 11 evolutions, 4 modes and 90+ cosmetics. ★4.8 · 10,000+ ratings · free on iOS & Android.">
+<meta property="og:title" content="Cats are Cute: Pop Time! — Cat Merge Puzzle">
+<meta property="og:description" content="Merge them and they grow. Pop! ★4.8 · 10,000+ ratings.">
 <meta property="og:image" content="https://www.kkirukstudio.com/cats-pop/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://www.kkirukstudio.com/cats-pop/index.html">
+<meta property="og:url" content="https://www.kkirukstudio.com/cats-pop/">
 <meta property="og:site_name" content="kkiruk studio">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cats are Cute: Pop Time! — The cat merge puzzle that grows">
-<meta name="twitter:description" content="A cute suika-style cat merge puzzle. 11 evolutions, 4 modes, 90 cosmetics, global rankings. ★4.8.">
+<meta name="twitter:title" content="Cats are Cute: Pop Time! — Cat Merge Puzzle">
+<meta name="twitter:description" content="Merge them and they grow. Pop! ★4.8 · 10,000+ ratings.">
 <meta name="twitter:image" content="https://www.kkirukstudio.com/cats-pop/og.png">
+<link rel="canonical" href="https://www.kkirukstudio.com/cats-pop/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/cats-pop/ko.html">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/cats-pop/index.html">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/cats-pop/ja.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/cats-pop/zh-hans.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/cats-pop/zh-hant.html">
+<link rel="alternate" hreflang="es" href="https://www.kkirukstudio.com/cats-pop/es.html">
+<link rel="alternate" hreflang="pt" href="https://www.kkirukstudio.com/cats-pop/pt.html">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/cats-pop/index.html">
+<link rel="icon" type="image/png" href="../icons/cats-pop.png">
+<link rel="apple-touch-icon" href="../icons/cats-pop.png">
+
 <link rel="stylesheet" href="style.css">
+<style>
+@font-face{font-family:"Itim Cat";src:url("assets/fonts/ItimCat-subset.woff2") format("woff2");font-display:swap}
+:root{--head-font:"Itim Cat"}
+
+</style>
 <script src="/ga.js"></script>
 </head>
 <body>
 
-<header>
-  <div class="bar">
-    <a class="wordmark" href="index.html"><img src="../icons/cats-pop.png" alt="Cats are Cute: Pop Time!">Cats are Cute: Pop Time!</a>
-    <nav class="nav-right">
-      <select class="lang-select" onchange="location.href=this.value" aria-label="Language">
-        <option value="ko.html">한국어</option>
-        <option value="index.html" selected>EN</option>
-        <option value="ja.html">日本語</option>
-        <option value="es.html">Español</option>
-        <option value="pt.html">Português</option>
-        <option value="zh-hans.html">简体中文</option>
-        <option value="zh-hant.html">繁體中文</option>
-      </select>
-      <a class="nav-cta" href="https://apps.apple.com/app/id1556403381" target="_blank" rel="noopener">App Store</a>
-    </nav>
+<nav>
+  <div class="wrap">
+    <a class="wordmark hf" href="./"><img src="../icons/cats-pop.png" alt="">Cats are Cute: Pop Time!</a>
+    <select class="lang-select" onchange="location.href=this.value" aria-label="Language"><option value="ko.html">한국어</option><option value="index.html" selected>EN</option><option value="ja.html">日本語</option><option value="zh-hans.html">简体中文</option><option value="zh-hant.html">繁體中文</option><option value="es.html">Español</option><option value="pt.html">Português</option></select>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="float f1" src="assets/balls/ball5.png" alt=""><img class="float f2" src="assets/balls/ball2.png" alt=""><img class="float f3" src="assets/balls/ball8.png" alt=""><img class="float f4" src="assets/balls/ball3.png" alt="">
+  <img class="appicon" src="../icons/cats-pop.png" alt="Cats are Cute: Pop Time!">
+  <h1 class="hf">Cats are Cute: Pop Time!</h1>
+  <p class="tag">Drop matching cats to merge them bigger — and that little pop! sound pops your stress too</p>
+  <div class="badges">
+    <a href="https://apps.apple.com/app/id1556403381"><img class="apple" src="assets/badges/ios-en.svg" alt="Download on the App Store"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.game.kkiruk.catsarepop"><img src="assets/badges/play-en.png" alt="Get it on Google Play"></a>
+  </div>
+  <p class="proof hf"><span class="s">★4.8</span> · 10,000+ ratings worldwide · Free</p>
+  <div class="creds"><span>🏆 Google Play Indie Games Festival TOP 20</span><span>⭐ Featured on the App Store</span><span>📺 Seen in a TV Asahi drama (Japan)</span></div>
+  <div class="fan">
+    <div class="mergechip"><img src="assets/balls/ball3.png" alt=""><b>+</b><img src="assets/balls/ball3.png" alt=""><b>=</b><img class="big" src="assets/balls/ball4.png" alt=""></div>
+    <div class="rankchip">★4.8<small>10,000+ ratings</small></div>
+    <div class="ph l"><img src="../shots/cats-pop/en-2.jpg" alt="Cat balls stacking up in the play field"></div>
+    <div class="ph c"><img src="../shots/cats-pop/en-1.jpg" alt="Merging two cats into a bigger one"></div>
+    <div class="ph r"><img src="../shots/cats-pop/en-3.jpg" alt="Decorating cats with accessories"></div>
   </div>
 </header>
+<div class="scallop"></div>
 
-<main>
-<div class="hero">
-  <div class="hero-copy">
-    <p class="kicker">Cats are Cute: Pop Time!</p>
-    <h1>Merge them and they grow —<br><em>pop pop cats!</em></h1>
-    <p class="hero-sub">A cute suika-style merge puzzle. Drop matching cats to merge them into bigger ones — the perfect round for a short break.</p>
-    <div class="hero-cta-row">
-      <a class="appstore-btn" href="https://apps.apple.com/app/id1556403381" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
-      <a class="appstore-btn" href="https://play.google.com/store/apps/details?id=com.game.kkiruk.catsarepop&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" class="gp" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>Get it on Google Play</a>
-      <span class="rating"><span class="stars">★★★★★</span>4.8 · 3,900+</span>
-    </div>
-    <p class="hero-foot">Works offline · A quick round anytime, no internet needed</p>
-  </div>
-  <div class="hero-visual" aria-hidden="true">
-    <div class="popwrap">
-      <div class="fan">
-        <img src="../shots/cats-pop/en-1.jpg" alt="">
-        <img src="../shots/cats-pop/en-2.jpg" alt="">
-        <div class="score">★ 4.8<span>3,900+</span></div>
-        <div class="featpill">App Store<span>Featured Story</span></div>
-      </div>
-      <div class="merge"><i></i><i></i><i></i><i></i><b>!</b></div>
-    </div>
-  </div>
-</div>
-
-<section>
+<section class="ladder-sec">
   <div class="wrap">
-    <p class="sec-label">What it's like</p>
-    <h2 class="sec-title">Simple controls, soft sounds, zero pressure.</h2>
-    <div class="features">
-      <div class="feature"><div class="dot"></div><h3>11 cat evolutions</h3><p>Cats get cuter as they merge. Reach the biggest one and you're in for a surprise.</p></div>
-      <div class="feature"><div class="dot"></div><h3>4 game modes</h3><p>Classic, Speed, 5-Minute Challenge, Race to 1000 — pick your mood.</p></div>
-      <div class="feature"><div class="dot"></div><h3>90 cosmetics</h3><p>Cat accessories and board themes to make it yours.</p></div>
-      <div class="feature"><div class="dot"></div><h3>Global rankings</h3><p>Compete with players worldwide. Chase today's high score.</p></div>
+    <h2 class="sec-h hf">From tiny to titanic — 11 cats to evolve</h2>
+    <p class="sec-sub">When two matching cats meet, the next one is born. These are the real 11 from the game.</p>
+  </div>
+  <div class="ladder" aria-hidden="true"><img class="b1" src="assets/balls/ball1.png" alt=""><span class="a">→</span><img class="b2" src="assets/balls/ball2.png" alt=""><span class="a">→</span><img class="b3" src="assets/balls/ball3.png" alt=""><span class="a">→</span><img class="b4" src="assets/balls/ball4.png" alt=""><span class="a">→</span><img class="b5" src="assets/balls/ball5.png" alt=""><span class="a">→</span><img class="b6" src="assets/balls/ball6.png" alt=""><span class="a">→</span><img class="b7" src="assets/balls/ball7.png" alt=""><span class="a">→</span><img class="b8" src="assets/balls/ball8.png" alt=""><span class="a">→</span><img class="b9" src="assets/balls/ball9.png" alt=""><span class="a">→</span><img class="b10" src="assets/balls/ball10.png" alt=""><span class="a">→</span><span class="last"><img class="b11" src="assets/balls/ball11.png" alt=""><span class="spark">✨</span></span></div>
+  <p class="tease hf">And when two of the biggest cats finally meet…? Go see for yourself 🎆</p>
+</section>
+
+<div class="scallop cream flip"></div>
+<section class="why">
+  <div class="wrap">
+    <div class="fblock"><div class="phwrap"><img class="peek" src="assets/balls/ball6.png" alt=""><div class="ph"><img src="../shots/cats-pop/en-1.jpg" alt="Cat balls stacking up in the play field" loading="lazy"></div></div><div><span class="k">🐱 POP MERGE</span><h2 class="hf">Cute on the surface,<br>sneaky-competitive underneath</h2><p>One rule: matching cats merge into a bigger cat. But those little cat ears make every drop roll and tumble unpredictably — that's what keeps you saying "one more try". The pop! sound and haptics when they burst? Pure serotonin.</p></div></div><div class="fblock rev"><div class="phwrap"><img class="peek" src="assets/balls/ball4.png" alt=""><div class="ph"><img src="../shots/cats-pop/en-2.jpg" alt="Merging two cats into a bigger one" loading="lazy"></div></div><div><span class="k">🎮 4 MODES + RANKINGS</span><h2 class="hf">Four ways to play,<br>one leaderboard to climb</h2><p>From laid-back Classic to finger-busting Speed, a 5-minute time attack and the Race to 1000. Every mode has its own global leaderboard — chase today's best score.</p><div class="modechips"><span>Classic</span><span>Speed</span><span>5-Minute</span><span>Race to 1000</span></div></div></div><div class="fblock"><div class="phwrap"><img class="peek" src="assets/balls/ball10.png" alt=""><div class="ph"><img src="../shots/cats-pop/en-3.jpg" alt="Decorating cats with accessories" loading="lazy"></div></div><div><span class="k">🎀 MAKE IT YOURS</span><h2 class="hf">90+ cosmetics,<br>zero forced ads</h2><p>Dress your cats in glasses, hats and ribbons, and swap the board theme to match. Ads only when you choose to watch — and it works offline, anywhere.</p></div></div>
+  </div>
+</section>
+<div class="scallop cream"></div>
+
+<section class="reviews">
+  <div class="wrap">
+    <h2 class="sec-h hf">Real reviews from players</h2>
+    <p class="sec-sub">Actually posted on the App Store</p>
+    <div class="rcards">
+      <div class="rcard"><img class="face" src="assets/balls/ball2_oh.png" alt=""><div class="st">★★★★★</div><p>"It’s Suika but with cute cats! What more could you possibly ask for?"</p><div class="by">App Store review</div></div><div class="rcard"><img class="face" src="assets/balls/ball7_wink.png" alt=""><div class="st">★★★★★</div><p>"It’s pop time. You pop the cats. Little cats become bigger cats. Pop cats. It’s good."</p><div class="by">App Store review</div></div><div class="rcard"><img class="face" src="assets/balls/ball1_surprise.png" alt=""><div class="st">★★★★★</div><p>"Super cute, super fun. I can also get to customize the cats! This is a great puzzle!"</p><div class="by">App Store review</div></div>
     </div>
   </div>
 </section>
 
-<section class="cta">
+<div class="scallop cream flip"></div>
+<section class="stats-sec">
   <div class="wrap">
-    <h2 class="cta-title">Think you can reach<br>the biggest cat?</h2>
-    <p class="cta-sub">Free download · iOS & Android</p>
-    <a class="appstore-btn" href="https://apps.apple.com/app/id1556403381" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a>
-    <a class="appstore-btn" href="https://play.google.com/store/apps/details?id=com.game.kkiruk.catsarepop&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" class="gp" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>Get it on Google Play</a>
+    <h2 class="sec-h hf">Small game, loudly loved</h2>
+    <p class="sec-sub">By the studio behind Cats are Cute (★4.9 · 71,000+ reviews)</p>
+    <div class="grid">
+      <div class="cell"><img src="assets/balls/ball4.png" alt=""><div class="v">★4.8</div><div class="k">App Store rating</div></div><div class="cell"><img src="assets/balls/ball7.png" alt=""><div class="v">10,000+</div><div class="k">Ratings worldwide</div></div><div class="cell"><img src="assets/balls/ball9.png" alt=""><div class="v">11</div><div class="k">Cat evolutions</div></div><div class="cell"><img src="assets/balls/ball11.png" alt=""><div class="v">4</div><div class="k">Game modes</div></div>
+    </div>
   </div>
 </section>
-</main>
+<div class="scallop cream"></div>
+
+<section class="final">
+  <img class="float g1" src="assets/balls/ball11_wink.png" alt=""><img class="float g2" src="assets/balls/ball7.png" alt="">
+  <div class="wrap">
+    <h2 class="hf">Think you can reach<br>the biggest cat?</h2>
+    <p>Free on iOS &amp; Android</p>
+    <div class="badges">
+      <a href="https://apps.apple.com/app/id1556403381"><img class="apple" src="assets/badges/ios-en.svg" alt="Download on the App Store"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.game.kkiruk.catsarepop"><img src="assets/badges/play-en.png" alt="Get it on Google Play"></a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap cols">
-    <span>© kkiruk studio</span>
-    <nav class="links">
+  <div class="wrap">
+    <div>© 2026 kkiruk studio</div>
+    <div class="links">
       <a href="/">kkiruk studio</a>
       <a href="mailto:kkirukstudio.help@gmail.com">Contact</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
-      <a href="ko.html">한국어</a> <a href="ja.html">日本語</a> <a href="es.html">Español</a> <a href="pt.html">Português</a> <a href="zh-hans.html">简体中文</a> <a href="zh-hant.html">繁體中文</a>
-    </nav>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">Terms</a>
+    </div>
   </div>
 </footer>
 

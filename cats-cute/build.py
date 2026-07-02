@@ -522,6 +522,7 @@ def render(key):
     {badges(loc, key)}
   </div>
   <p class="proof hf">{loc['proof']}</p>
+  <p class="press">&ldquo;An outstanding 10 out of 10 meows&rdquo; <span>&mdash; MobileSyrup &middot; Game of the Week</span></p>
   <div class="fan">
     {chips}
     <div class="ph l"><img src="../shots/cats-cute/{loc['shots']}-2.jpg" alt="{loc['alts'][0]}"></div>
