@@ -11,14 +11,14 @@ import pathlib
 ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/pinclip/"
 APP_STORE_URL = "https://apps.apple.com/app/id6761982511"
-CSS_VERSION = "3"  # bump whenever style.css changes — busts stale browser caches
+CSS_VERSION = "4"  # bump whenever style.css changes — busts stale browser caches
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
 LANG_LABELS = [("index.html", "EN"), ("ko.html", "한국어"), ("ja.html", "日本語"), ("zh-hans.html", "简体"), ("zh-hant.html", "繁體")]
 FILES = {"en": "index.html", "ko": "ko.html", "ja": "ja.html", "zh-hans": "zh-hans.html", "zh-hant": "zh-hant.html"}
 URLPATH = {"en": "", "ko": "ko.html", "ja": "ja.html", "zh-hans": "zh-hans.html", "zh-hant": "zh-hant.html"}
-PLAT_GLYPH = {"yt": "▶", "tt": "♪", "ig": "✦", "any": "∞"}
+PLAT_GLYPH = {"yt": "▶", "tt": "♪", "ig": "✦", "any": "∞", "shorts": "▶", "map": "⌖", "shop": "$", "blog": "✎"}
 
 LOCALES = {
     "en": {
@@ -56,8 +56,8 @@ LOCALES = {
             ["yt", "cafes for the weekend…", "NYC Cafes · #brooklyn"],
         ],
         "maps_kicker": "Platforms",
-        "maps_h2": "YouTube, TikTok, Instagram — <em>all in one place</em>.",
-        "maps_lede": "It doesn't matter which app the video came from — you save them all the same way. YouTube and TikTok videos even fill in their own title and preview picture, and everything you save can be searched in one library.",
+        "maps_h2": "YouTube, TikTok, Maps, Shopping — <em>all in one place</em>.",
+        "maps_lede": "It's not just short-form video anymore. Share a map pin, a shopping page or a blog post the same way, and Pinclip saves it — place names, titles and photos filled in automatically — right alongside your videos, in one searchable library.",
         "share_kicker": "Share a folder",
         "share_h2": "Send a whole folder <em>as a single link</em>.",
         "share_lede": "That “NYC Cafes” folder you put together? Too good to keep to yourself. Turn the folder into a link and send it — your friend can see it right in their browser, no app needed. And if they use Pinclip too, they can import the whole folder into their own collection.",
@@ -65,10 +65,10 @@ LOCALES = {
         "share_friend": "Your friend can:",
         "share_view": "View it right in the browser", "share_import": "Import it into their Pinclip",
         "providers": [
-            ["yt", "YouTube Shorts", [["✓", "Auto title"], ["✓", "Auto thumbnail"]]],
-            ["tt", "TikTok", [["✓", "Auto title"], ["✓", "Auto thumbnail"]]],
-            ["ig", "Instagram Reels", [["✓", "One-tap save"], ["✓", "Smart folders"]]],
-            ["any", "Any video link", [["✓", "Same library"], ["✓", "Tag search"]]],
+            ["shorts", "YouTube, TikTok & Reels", [["✓", "Title & thumbnail, auto"], ["✓", "Also works: X, Threads"]]],
+            ["map", "Google & Apple Maps", [["✓", "Auto place name"], ["✓", "Naver & Kakao too"]]],
+            ["shop", "Shopping wishlists", [["✓", "Title & photo, auto"], ["✓", "Any store you shop"]]],
+            ["blog", "Blogs & articles", [["✓", "Saved as a card"], ["✓", "Pinterest too"]]],
         ],
         "shots_kicker": "Screens",
         "shots_h2": "Here's what it <em>actually looks like</em>.",
@@ -121,8 +121,8 @@ LOCALES = {
             ["yt", "주말에 갈 카페…", "서울 카페 · #성수동"],
         ],
         "maps_kicker": "플랫폼",
-        "maps_h2": "유튜브, 틱톡, 인스타그램 — <em>전부 한곳에</em> 모여요.",
-        "maps_lede": "어느 앱에서 보던 영상이든 똑같은 방법으로 저장할 수 있어요. 유튜브와 틱톡 영상은 제목과 미리보기 사진까지 알아서 채워지고, 저장한 영상은 전부 한 저장함에서 검색돼요.",
+        "maps_h2": "유튜브, 틱톡, 지도, 쇼핑몰 — <em>전부 한곳에</em> 모여요.",
+        "maps_lede": "숏폼 영상만이 아니에요. 지도 핀이나 쇼핑몰 페이지, 블로그 글도 똑같은 방법으로 저장할 수 있어요. 지도는 장소 이름까지 자동으로 알아내고, 저장한 건 전부 한 저장함에서 검색돼요.",
         "share_kicker": "폴더 공유",
         "share_h2": "모아 둔 폴더, <em>링크 하나로</em> 친구에게 보낼 수 있어요.",
         "share_lede": "열심히 모은 '서울 카페' 폴더, 나만 보기 아깝잖아요. 폴더를 링크로 만들어 보내면, 친구는 앱이 없어도 브라우저에서 바로 볼 수 있어요. 친구도 Pinclip을 쓰고 있다면, 그 폴더를 통째로 자기 저장함에 가져갈 수도 있고요.",
@@ -130,10 +130,10 @@ LOCALES = {
         "share_friend": "받은 친구는:",
         "share_view": "브라우저에서 바로 보기", "share_import": "자기 Pinclip으로 가져가기",
         "providers": [
-            ["yt", "유튜브 쇼츠", [["✓", "제목 자동"], ["✓", "썸네일 자동"]]],
-            ["tt", "틱톡", [["✓", "제목 자동"], ["✓", "썸네일 자동"]]],
-            ["ig", "인스타 릴스", [["✓", "한 탭 저장"], ["✓", "스마트 폴더"]]],
-            ["any", "그 외 영상 링크", [["✓", "같은 라이브러리"], ["✓", "태그 검색"]]],
+            ["shorts", "유튜브·틱톡·인스타 릴스", [["✓", "제목·썸네일 자동"], ["✓", "X·Threads도 OK"]]],
+            ["map", "네이버 지도·카카오맵", [["✓", "장소 이름 자동 저장"], ["✓", "구글·애플 지도도"]]],
+            ["shop", "쇼핑몰 위시리스트", [["✓", "무신사·올리브영·쿠팡"], ["✓", "제목·사진 자동"]]],
+            ["blog", "네이버블로그·브런치·티스토리", [["✓", "글도 카드로 저장"], ["✓", "핀터레스트도 지원"]]],
         ],
         "shots_kicker": "화면",
         "shots_h2": "실제 화면은 <em>이렇게 생겼어요</em>.",
@@ -186,8 +186,8 @@ LOCALES = {
             ["yt", "週末に行くカフェ…", "京都カフェ · #嵐山"],
         ],
         "maps_kicker": "プラットフォーム",
-        "maps_h2": "YouTube も TikTok も Instagram も、<em>ぜんぶ一か所に</em>。",
-        "maps_lede": "どのアプリで見ていた動画でも、同じやり方で保存できます。YouTube と TikTok はタイトルとプレビュー画像まで自動で入って、保存した動画はぜんぶ同じ保存箱から検索できます。",
+        "maps_h2": "YouTube も TikTok も、地図もショッピングも<em>ぜんぶ一か所に</em>。",
+        "maps_lede": "ショート動画だけじゃありません。地図の場所やショッピングサイト、ブログ記事も同じやり方で保存できます。場所の名前やタイトル、写真は自動で入って、動画と一緒に同じ保存箱からまとめて検索できます。",
         "share_kicker": "フォルダを共有",
         "share_h2": "集めたフォルダは、<em>リンクひとつで</em>友だちに送れます。",
         "share_lede": "がんばって集めた「京都カフェ」フォルダ、自分だけで見るのはもったいないですよね。フォルダをリンクにして送れば、友だちはアプリがなくてもブラウザでそのまま見られます。友だちも Pinclip を使っていれば、フォルダごと自分の保存箱に取り込むこともできます。",
@@ -195,10 +195,10 @@ LOCALES = {
         "share_friend": "受け取った友だちは:",
         "share_view": "ブラウザでそのまま見る", "share_import": "自分の Pinclip に取り込む",
         "providers": [
-            ["yt", "YouTube ショート", [["✓", "タイトル自動"], ["✓", "サムネイル自動"]]],
-            ["tt", "TikTok", [["✓", "タイトル自動"], ["✓", "サムネイル自動"]]],
-            ["ig", "インスタ リール", [["✓", "ワンタップ保存"], ["✓", "スマートフォルダ"]]],
-            ["any", "その他の動画リンク", [["✓", "同じライブラリ"], ["✓", "タグ検索"]]],
+            ["shorts", "YouTube・TikTok・リール", [["✓", "タイトル・サムネ自動"], ["✓", "X・Threadsも対応"]]],
+            ["map", "Google マップ・Apple マップ", [["✓", "場所の名前を自動保存"], ["✓", "ネイバー・カカオも"]]],
+            ["shop", "ショッピングの欲しいものリスト", [["✓", "タイトル・写真も自動"], ["✓", "いろんなショップでOK"]]],
+            ["blog", "ブログ・記事", [["✓", "カードで保存"], ["✓", "Pinterest にも対応"]]],
         ],
         "shots_kicker": "画面",
         "shots_h2": "実際の画面は<em>こんな感じ</em>。",
@@ -251,8 +251,8 @@ LOCALES = {
             ["yt", "周末想去的咖啡馆…", "巴黎咖啡馆 · #咖啡"],
         ],
         "maps_kicker": "平台",
-        "maps_h2": "YouTube、TikTok、Instagram——<em>全都收在一个地方</em>。",
-        "maps_lede": "不管视频来自哪个应用，保存方法都一样。YouTube 和 TikTok 的视频连标题和预览图都自动填好，所有收藏都能在同一个收藏箱里搜索。",
+        "maps_h2": "YouTube、TikTok、地图、购物——<em>全都收在一个地方</em>。",
+        "maps_lede": "不只是短视频。分享一个地图地点、购物页面或博客文章，保存方法都一样——地点名称、标题和图片都会自动填好，和视频一起放进同一个可以搜索的收藏箱。",
         "share_kicker": "分享文件夹",
         "share_h2": "整理好的文件夹，<em>一条链接</em>就能分享。",
         "share_lede": "辛苦整理的“巴黎咖啡馆”文件夹，只有自己看太可惜了。把文件夹变成链接发出去，朋友不用装应用，在浏览器里就能直接看。如果朋友也在用 Pinclip，还能把整个文件夹导入自己的收藏箱。",
@@ -260,10 +260,10 @@ LOCALES = {
         "share_friend": "收到的朋友可以:",
         "share_view": "在浏览器里直接看", "share_import": "导入自己的 Pinclip",
         "providers": [
-            ["yt", "YouTube Shorts", [["✓", "自动标题"], ["✓", "自动封面"]]],
-            ["tt", "TikTok", [["✓", "自动标题"], ["✓", "自动封面"]]],
-            ["ig", "Instagram Reels", [["✓", "一键保存"], ["✓", "智能文件夹"]]],
-            ["any", "其他视频链接", [["✓", "同一个收藏库"], ["✓", "标签搜索"]]],
+            ["shorts", "YouTube、TikTok、Reels", [["✓", "标题·封面自动"], ["✓", "X、Threads 也支持"]]],
+            ["map", "谷歌地图、苹果地图", [["✓", "自动保存地点名称"], ["✓", "Naver、Kakao 地图也支持"]]],
+            ["shop", "购物心愿单", [["✓", "标题·图片自动"], ["✓", "常逛的商城都行"]]],
+            ["blog", "博客·文章", [["✓", "存成卡片"], ["✓", "Pinterest 也支持"]]],
         ],
         "shots_kicker": "界面",
         "shots_h2": "实际界面<em>长这样</em>。",
@@ -316,8 +316,8 @@ LOCALES = {
             ["yt", "週末想去的咖啡廳…", "羅馬咖啡廳 · #咖啡"],
         ],
         "maps_kicker": "平台",
-        "maps_h2": "YouTube、TikTok、Instagram——<em>全都收在同一個地方</em>。",
-        "maps_lede": "不管影片來自哪個 App，儲存方法都一樣。YouTube 和 TikTok 的影片連標題和預覽圖都自動填好，所有收藏都能在同一個收藏箱裡搜尋。",
+        "maps_h2": "YouTube、TikTok、地圖、購物——<em>全都收在同一個地方</em>。",
+        "maps_lede": "不只是短影音。分享一個地圖地點、購物頁面或部落格文章，儲存方法都一樣——地點名稱、標題和圖片都會自動填好，和影片一起放進同一個可以搜尋的收藏箱。",
         "share_kicker": "分享資料夾",
         "share_h2": "整理好的資料夾，<em>一條連結</em>就能分享。",
         "share_lede": "辛苦整理的「羅馬咖啡廳」資料夾，只有自己看太可惜了。把資料夾變成連結送出去，朋友不用裝 App，在瀏覽器裡就能直接看。如果朋友也在用 Pinclip，還能把整個資料夾匯入自己的收藏箱。",
@@ -325,10 +325,10 @@ LOCALES = {
         "share_friend": "收到的朋友可以:",
         "share_view": "在瀏覽器裡直接看", "share_import": "匯入自己的 Pinclip",
         "providers": [
-            ["yt", "YouTube Shorts", [["✓", "自動標題"], ["✓", "自動封面"]]],
-            ["tt", "TikTok", [["✓", "自動標題"], ["✓", "自動封面"]]],
-            ["ig", "IG Reels", [["✓", "一鍵儲存"], ["✓", "智慧資料夾"]]],
-            ["any", "其他影片連結", [["✓", "同一個收藏庫"], ["✓", "標籤搜尋"]]],
+            ["shorts", "YouTube、TikTok、Reels", [["✓", "標題·封面自動"], ["✓", "X、Threads 也支援"]]],
+            ["map", "Google 地圖、Apple 地圖", [["✓", "自動儲存地點名稱"], ["✓", "Naver、Kakao 地圖也支援"]]],
+            ["shop", "購物願望清單", [["✓", "標題·圖片自動"], ["✓", "常逛的商城都可以"]]],
+            ["blog", "部落格·文章", [["✓", "存成卡片"], ["✓", "Pinterest 也支援"]]],
         ],
         "shots_kicker": "畫面",
         "shots_h2": "實際畫面<em>長這樣</em>。",

@@ -235,6 +235,10 @@ section .lede { color: var(--ink2); max-width: 40em; font-size: 17px; word-break
 .prov .pic.tt { background: var(--tt); }
 .prov .pic.ig { background: linear-gradient(45deg, #f9ce34, #ee2a7b 55%, #6228d7); }
 .prov .pic.any { background: var(--accent); }
+.prov .pic.shorts { background: linear-gradient(135deg, var(--yt) 0%, #ee2a7b 55%, var(--tt) 100%); }
+.prov .pic.map { background: #22a05c; }
+.prov .pic.shop { background: #f5a623; }
+.prov .pic.blog { background: #3b82f6; }
 .prov h3 { font-size: 15.5px; font-weight: 800; margin: 14px 0 12px; }
 .prov ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .prov li { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 600; color: var(--ink2); }
