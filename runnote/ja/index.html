@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RunNote — ひと言の振り返りで磨かれるAIランニングコーチ</title>
+<meta name="description" content="リアルタイムトラッキングではなく、振り返り型のランニング記録アプリ。Apple Watchで走ってひと言残すだけで、ClaudeのAIコーチングが記録とともに的確になります。">
+<meta property="og:title" content="RunNote — あなたを知るAIランニングコーチ">
+<meta property="og:description" content="ひと言の振り返りが積み重なるほど的確になるコーチング。">
+<meta property="og:image" content="https://www.kkirukstudio.com/runnote/assets/mark.svg">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kkirukstudio.com/runnote/ja/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/runnote/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/runnote/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/runnote/en/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/runnote/ja/">
+<link rel="icon" type="image/svg+xml" href="../assets/mark.svg">
+<link rel="apple-touch-icon" href="../assets/mark.svg">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic","Segoe UI",sans-serif}</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><span class="mark">RN.</span><span>RUN·NOTE</span></a>
+    <div class="lang"><a href="../">한국어</a><a href="../en/">EN</a><a href="../ja/" class="cur">日本語</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost">RN</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>RUN · NOTE</span><span class="rule"></span><span class="num">ランニング日記</span></div>
+      <h1>走って、ひと言書くだけ。<br>記録が増えるほど<em>あなたを知るコーチ</em>に。</h1>
+      <p class="sub">リアルタイムのトラッキングアプリではありません。Apple Watchで走ってRunNoteを開けば、記録はもう入っています。書くのは体調とひと言だけ。積み重なるほどClaudeのコーチングが的確になります。</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="#" aria-label="App Store でダウンロード"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>ダウンロードは</small><strong>App Store</strong></span></a>
+        <span class="note">近日公開 · iPhone &amp; Apple Watch · 7日間無料トライアル</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="g">5K</span>本日の距離</div><div class="chip c2"><span class="g">Z3</span>心拍ゾーン</div><div class="chip c3"><span class="g">AI</span>コーチ済み</div>
+      <div class="phone">
+        <div class="screen">
+          <div class="demo-screen">
+            <div class="run-card" id="demoRun"><div class="stats"><div class="stat"><b>5.2 km</b><span>距離</span></div><div class="stat"><b>32:10</b><span>時間</span></div><div class="stat"><b>155 bpm</b><span>平均心拍</span></div></div></div>
+            <div class="retro-card" id="demoRetro"><span class="mood">🙂</span><div class="txt" id="demoRetroTxt"></div></div>
+            <div class="coach-block" id="demoCoach"><div class="lbl">AIコーチ</div><p>直近3回のランで同じパターンが出ています。坂の前でケイデンスを5spm上げてみましょう。</p><p>今週末も同じコースで試してみますか？</p></div>
+          </div>
+        </div>
+        <div class="island"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>HEALTHKIT連携</span><span>AIコーチング</span><span>心拍5ゾーン</span><span>ケイデンス</span><span>コーチノート</span><span>ランナーレベル</span><span>シューズ距離</span><span>トレーニング計画</span><span>HEALTHKIT連携</span><span>AIコーチング</span><span>心拍5ゾーン</span><span>ケイデンス</span><span>コーチノート</span><span>ランナーレベル</span><span>シューズ距離</span><span>トレーニング計画</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>使い方</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>走って、ひと言残して、<em>コーチングを受ける</em>。</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">STEP 01</span><h3>走る</h3><p>Apple Watchで走るだけ。HealthKitが距離・ペース・心拍を自動で取り込みます。</p></div><div class="step"><span class="n">02</span><span class="tag">STEP 02</span><h3>ひと言残す</h3><p>体調の絵文字ひとつと、ひと言メモ。痛みがあれば部位も。それだけです。</p></div><div class="step"><span class="n">03</span><span class="tag">STEP 03</span><h3>コーチングを受ける</h3><p>積み重なった記録からClaudeがパターンを見つけ、次のランへの問いを残します。</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>積み重ねるほど的確に</span><span class="rule"></span><span class="num">1 → 20 RUNS</span></div>
+    <h2>記録が<em>10回</em>を超えると、コーチングが変わります。</h2>
+    <p class="lede">1回目は誰にでも当てはまる助言。10回目はあなたの坂道ペースの癖を知った助言。積み重ねるほどコーチングは的確になります。</p>
+    <div class="value-wrap">
+      <div class="value-chart">
+        <svg viewBox="0 0 500 170" role="img" aria-label="コーチング精度"><polyline class="curve" points="60.0,92.0 186.7,62.0 313.3,41.6 440.0,24.8"></polyline><circle class="pt" cx="60.0" cy="92.0" r="5"></circle><circle class="pt" cx="186.7" cy="62.0" r="5"></circle><circle class="pt" cx="313.3" cy="41.6" r="5"></circle><circle class="pt" cx="440.0" cy="24.8" r="5"></circle><text class="pt-label" x="60.0" y="78.0" text-anchor="middle">40%</text><text class="pt-label" x="186.7" y="48.0" text-anchor="middle">65%</text><text class="pt-label" x="313.3" y="27.6" text-anchor="middle">82%</text><text class="pt-label" x="440.0" y="10.8" text-anchor="middle">96%</text><text class="x-label" x="60.0" y="163" text-anchor="middle">1回目</text><text class="x-label" x="186.7" y="163" text-anchor="middle">5回目</text><text class="x-label" x="313.3" y="163" text-anchor="middle">10回目</text><text class="x-label" x="440.0" y="163" text-anchor="middle">20回目</text></svg>
+        <div class="value-legend"><span>コーチング精度</span></div>
+      </div>
+      <div class="note-stack"><div class="note-card n1"><span class="tag">3週間前の観察</span>坂道で失速するパターンが3回連続で見られます。</div><div class="note-card n2"><span class="tag">2週間前の観察</span>左膝の違和感が3週連続で記録されています。</div><div class="note-card n3"><span class="tag">今週の観察</span>週末のロング走の翌週、回復が早い傾向です。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>画面</span><span class="rule"></span><span class="num">MOCKUP</span></div>
+    <h2>記録から<em>コーチング</em>まで、ひと目で。</h2>
+    <div class="row">
+      <figure>
+        <div class="phone"><div class="screen">
+          <div class="cal-head">2026年7月 · 12回 · 68km</div>
+          <div class="cal-grid"><span class=""></span><span class=""></span><span class="d1"></span><span class=""></span><span class=""></span><span class=""></span><span class="d2"></span><span class=""></span><span class=""></span><span class=""></span><span class="d1"></span><span class=""></span><span class=""></span><span class=""></span><span class="d3"></span><span class=""></span><span class=""></span><span class="d1"></span><span class=""></span><span class=""></span><span class="d2"></span><span class=""></span><span class=""></span><span class="d1"></span><span class=""></span><span class=""></span><span class=""></span><span class="d3"></span><span class=""></span><span class="d2"></span><span class=""></span><span class=""></span><span class="d1"></span><span class=""></span><span class=""></span></div>
+          <div class="cal-list"><div class="row2"><span class="d">7月28日</span><span class="k">5.2 km</span><span>5:58/km</span></div><div class="row2"><span class="d">7月25日</span><span class="k">8.0 km</span><span>6:20/km</span></div><div class="row2"><span class="d">7月21日</span><span class="k">3.1 km</span><span>6:05/km</span></div></div>
+        </div><div class="island"></div></div>
+        <figcaption>月間カレンダー・記録</figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><div class="screen">
+          <div class="zone-bar"><span class="z1" style="width:10%"></span><span class="z2" style="width:25%"></span><span class="z3" style="width:35%"></span><span class="z4" style="width:20%"></span><span class="z5" style="width:10%"></span></div>
+          <div class="zone-legend"><span><i class="z1"></i>Z1</span><span><i class="z2"></i>Z2</span><span><i class="z3"></i>Z3</span><span><i class="z4"></i>Z4</span><span><i class="z5"></i>Z5</span></div>
+          <div class="splits"><div class="split-row"><span class="km">1KM</span><span class="bar" style="width:40%"></span><span class="pace">5:58</span></div><div class="split-row"><span class="km">2KM</span><span class="bar" style="width:45%"></span><span class="pace">6:02</span></div><div class="split-row"><span class="km">3KM</span><span class="bar" style="width:56%"></span><span class="pace">6:10</span></div><div class="split-row"><span class="km">4KM</span><span class="bar" style="width:75%"></span><span class="pace">6:25</span></div><div class="split-row"><span class="km">5KM</span><span class="bar" style="width:95%"></span><span class="pace">6:40</span></div></div>
+        </div><div class="island"></div></div>
+        <figcaption>心拍5ゾーン・kmスプリット</figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><div class="screen">
+          <div class="coach-mock-lbl">AIコーチ</div>
+          <div class="coach-mock-card"><p>今週の3回のランすべてで、坂道でペースが5〜8%落ちています。</p><p>次のランの前に、坂道区間のケイデンスを5spm上げてみませんか？</p></div>
+          <span class="coach-mock-tag">コーチノート・3週連続の傾向</span>
+        </div><div class="island"></div></div>
+        <figcaption>AIコーチングカード</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>こだわり</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>小さな記録帳、<em>明確な違い</em>。</h2>
+    <div class="grid6"><div class="feat"><h3>HealthKit自動連携</h3><p>Watchで走ってアプリを開くだけ。距離・ペース・心拍はもう入っています。</p></div><div class="feat"><h3>その日の天気を自動記録</h3><p>WeatherKitがランニング当時の気温・湿度を記録に残します。</p></div><div class="feat"><h3>ランニングダイナミクス + フォームスコア</h3><p>上下動・接地時間・歩幅・パワーからフォームを採点。</p></div><div class="feat"><h3>心拍5ゾーン・kmスプリット・高度</h3><p>ゾーン別の時間配分、区間ペース、高度変化がひと目でわかります。</p></div><div class="feat"><h3>部位別 痛みガイド</h3><p>膝、足首… 部位ごとの原因・ストレッチ・休むべきサインまで。</p></div><div class="feat"><h3>コーチノート(長期記憶)</h3><p>走るほど、AIがあなたについて覚えていることが増えていきます。</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>走って、ひと言書くだけ。</h2>
+    <p class="lede">公開時7日間無料トライアル · iPhone &amp; Apple Watch</p>
+    <div class="cta"><a class="store-badge" id="storeLink2" href="#" aria-label="App Store でダウンロード"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>ダウンロードは</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><span class="mark">RN.</span><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">お問い合わせ</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">プライバシーポリシー</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">利用規約</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+  // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
+  const APP_STORE_URL = "";
+  document.querySelectorAll(".store-badge").forEach((el) => {
+    if (APP_STORE_URL) {
+      el.href = APP_STORE_URL;
+    } else {
+      el.classList.add("disabled");
+      el.removeAttribute("href");
+      el.setAttribute("aria-disabled", "true");
+      const txt = el.querySelector(".txt");
+      if (txt) txt.innerHTML = "<strong>近日App Storeで公開</strong>";
+    }
+  });
+
+  (function () {
+    const runCard = document.getElementById("demoRun");
+    const retroCard = document.getElementById("demoRetro");
+    const retroTxt = document.getElementById("demoRetroTxt");
+    const coachBlock = document.getElementById("demoCoach");
+    const note = '皇居ランの坂道で、また後半ペースが落ちた';
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduced) {
+      runCard.classList.add("show");
+      retroCard.classList.add("show", "done");
+      retroTxt.textContent = note;
+      coachBlock.classList.add("show");
+      return;
+    }
+
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        runCard.classList.remove("show");
+        retroCard.classList.remove("show", "done");
+        coachBlock.classList.remove("show");
+        retroTxt.textContent = "";
+        await sleep(500);
+        runCard.classList.add("show");
+        await sleep(900);
+        retroCard.classList.add("show");
+        await sleep(300);
+        for (const ch of note) {
+          retroTxt.textContent += ch;
+          await sleep(45);
+        }
+        retroCard.classList.add("done");
+        await sleep(700);
+        coachBlock.classList.add("show");
+        await sleep(4200);
+      }
+    })();
+  })();
+</script>
+<script src="/ga.js"></script>
+</body>
+</html>
