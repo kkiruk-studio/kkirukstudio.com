@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>デスクブレス — アプリを閉じても続く呼吸のリズム</title>
+<meta name="description" content="デスクブレスはダイナミックアイランドやメニューバーに静かな呼吸の輪を灯し続けます。吸う4秒・吐く6秒のリズムを在宅勤務中も、デスクワーク中も視界の端で確認し、ストレッチ通知で猫背をほぐしましょう。">
+<meta property="og:title" content="デスクブレス — デスクワーク向け呼吸タイマー">
+<meta property="og:description" content="アプリを閉じても続く呼吸のリズム。在宅勤務とデスクワークのためのタイマー。">
+<meta property="og:image" content="https://www.kkirukstudio.com/deskbreath/assets/icon-180.png">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kkirukstudio.com/deskbreath/ja/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/deskbreath/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/deskbreath/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/deskbreath/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/deskbreath/ja/">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic","Segoe UI",sans-serif}</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>DESK·BREATH</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/">한국어</a><a href="../ja/" class="cur">日本語</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ghost">DB</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>DESK · BREATH</span><span class="rule"></span><span class="num">呼吸タイマー</span></div>
+      <h1>アプリを閉じても、<br><em>呼吸のリズム</em>は続く。</h1>
+      <p class="sub">オンライン会議と作業の合間、呼吸はつい忘れがちです。デスクブレスはアプリを閉じても、ダイナミックアイランドとメニューバーに静かな呼吸の輪を灯し続けます — 吸う4秒、吐く6秒。猫背が固まる前に、デスクワークが長引く前に、視界の端でリズムを確かめて。</p>
+      <div class="cta">
+        <a class="store-badge soon" id="storeLink" href="javascript:void(0)" aria-disabled="true"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>App Store</small><strong>近日公開</strong></span></a>
+        <span class="note">無料プリセット · IPHONE &amp; MAC · サブスクなし</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb-stage">
+        <div class="orb" id="orb"></div>
+        <div class="orb-count" id="orbCount">4</div>
+        <div class="orb-label" id="orbLabel">吸う</div>
+      </div>
+      <div class="phone-mini">
+        <div class="screen">
+          <div class="island"><span class="mini-orb"></span><span class="mini-timer">25:04</span></div>
+          <div class="clock">9:41</div>
+          <div class="caption">DeskBreath · Box breathing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>呼吸</span><span>集中</span><span>ストレッチ</span><span>猫背</span><span>リズム</span><span>在宅勤務</span><span>デスクワーク</span><span>回復</span><span>呼吸</span><span>集中</span><span>ストレッチ</span><span>猫背</span><span>リズム</span><span>在宅勤務</span><span>デスクワーク</span><span>回復</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>使い方</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>「作業に没頭」から<em>健やかな一日</em>まで、3つの瞬間。</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">はじめる</span><h3>リズムを選んで開始</h3><p>ボックス呼吸、4-7-8、または自分だけの秒数設定 — 登録不要でメニューバーやアプリからすぐ無料で始められます。</p></div><div class="step"><span class="n">02</span><span class="tag">見る</span><h3>作業しながら確かめる</h3><p>ダイナミックアイランドやメニューバーで呼吸の輪が動き続けます。スクロールの合間に一度見るだけで呼吸が整います。</p></div><div class="step"><span class="n">03</span><span class="tag">立ち上がる</span><h3>ストレッチ通知で動く</h3><p>30・50・90・120分ごとの通知が、立ち上がって肩を回し、姿勢を整えるタイミングを教えてくれます。</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>起動し続ける</span><span class="rule"></span><span class="num">アプリを閉じても</span></div>
+    <h2>アプリを閉じても、<br><em>リズム</em>は止まらない。</h2>
+    <p class="lede">猫背やこりは、アプリを開き直すまで待ってくれません。デスクブレスはロック画面でも、メニューバーでも呼吸の輪を灯し続けます。</p>
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="iphone-mock">
+          <div class="island"><span class="mini-orb"></span><span class="mini-timer">25:04</span></div>
+          <div class="lock-time">9:41</div>
+        </div>
+        <span class="tag">IPHONE</span>
+        <h3>ダイナミックアイランド &amp; ロック画面</h3>
+        <p>ライブアクティビティがダイナミックアイランドに呼吸の輪とカウントダウンを表示し続けます。オンライン会議中でも、ロックを解除しなくても見えます。</p>
+      </div>
+      <div class="platform-card">
+        <div class="mac-mock">
+          <div class="menubar"><span class="dot"></span><span class="dot"></span><span class="menu-orb"></span></div>
+          <div class="floating"></div>
+        </div>
+        <span class="tag">MAC</span>
+        <h3>メニューバー &amp; フローティングオーブ</h3>
+        <p>小さな呼吸の輪がメニューバーに常駐し、必要なら常に最前面に浮かぶフローティングオーブが作業画面の上に静かに佇みます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>画面</span><span class="rule"></span><span class="num">IOS 17+ · MACOS 14+</span></div>
+    <h2>仕事の合間に使う道具、<em>デモではなく</em>。</h2>
+    <div class="row"><figure><div class="phone-frame"><img src="../assets/shot-ja-01-main-active.png" alt="呼吸セッション実行中" loading="lazy"><div class="island"></div></div><figcaption>呼吸セッション実行中</figcaption></figure><figure><div class="phone-frame"><img src="../assets/shot-ja-02-settings.png" alt="リズム · プリセット設定" loading="lazy"><div class="island"></div></div><figcaption>リズム · プリセット設定</figcaption></figure><figure><div class="phone-frame"><img src="../assets/shot-ja-03-stats.png" alt="週間統計 · ストリーク" loading="lazy"><div class="island"></div></div><figcaption>週間統計 · ストリーク</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>こだわり</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>小さなアプリ、<em>明確な選択</em>。</h2>
+    <div class="grid6"><div class="feat"><h3>ボックス呼吸 · プリセット</h3><p>4-4-4-4 ボックス呼吸、4-7-8 など — 無料で内蔵、ワンタップですぐ始められます。</p></div><div class="feat"><h3>リズムのカスタム · ハプティック</h3><p>吸う・吐く秒数を自分で設定し、切り替わるたびにハプティックで感じられます — 無料。</p></div><div class="feat"><h3>色・画像で着せ替え <span class='pro-chip'>PRO</span></h3><p>呼吸の輪の色を変え、好きな画像を入れ、カウントの向きも自分好みに反転できます。</p></div><div class="feat"><h3>週間統計 · ストリーク <span class='pro-chip'>PRO</span></h3><p>今週実際に終えたセッション数を確認し、ストリークをつなげましょう。</p></div><div class="feat"><h3>ストレッチ通知</h3><p>30・50・90・120分ごとに、立ち上がってストレッチし、姿勢を整える通知。</p></div><div class="feat"><h3>買い切り、サブスクなし</h3><p>Pro は一度きりの買い切り。毎月引き落とされる料金はありません。</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>呼吸にリズムを。</h2>
+    <p class="lede">iPhone と Mac で無料プリセット。Pro は買い切り一回。</p>
+    <div class="cta"><a class="store-badge soon" id="storeLink2" href="javascript:void(0)" aria-disabled="true"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>App Store</small><strong>近日公開</strong></span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">お問い合わせ</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">プライバシーポリシー</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">利用規約</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+  const orb = document.getElementById("orb");
+  const orbCount = document.getElementById("orbCount");
+  const orbLabel = document.getElementById("orbLabel");
+  const labels = {"in": "吸う", "out": "吐く"};
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    (async function loop() {
+      for (;;) {
+        // inhale: 4s, scale up, tide color, count 4 -> 0
+        orbLabel.textContent = labels.in;
+        orb.style.transition = "transform 4s linear, background-color 4s linear";
+        orb.style.transform = "scale(1.42)";
+        orb.style.backgroundColor = "var(--tide)";
+        for (let i = 4; i >= 0; i--) { orbCount.textContent = i; if (i > 0) await sleep(1000); }
+
+        // exhale: 6s, scale down, ember color, count 6 -> 0
+        orbLabel.textContent = labels.out;
+        orb.style.transition = "transform 6s linear, background-color 6s linear";
+        orb.style.transform = "scale(1)";
+        orb.style.backgroundColor = "var(--ember)";
+        for (let i = 6; i >= 0; i--) { orbCount.textContent = i; if (i > 0) await sleep(1000); }
+      }
+    })();
+  }
+</script>
+</body>
+</html>

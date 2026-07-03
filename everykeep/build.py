@@ -48,7 +48,7 @@ LOCALES = {
         "status_lede": "Every item carries a simple traffic-light. Plenty of time, due soon, or overdue — no digging, no spreadsheet.",
         "status": [["Plenty of time", "Logged and on track."], ["Due soon", "Within your reminder window."], ["Overdue", "Time to take care of it."]],
         "shots_kicker": "SCREENS", "shots_num": "iOS",
-        "shots_h2": "Built to be <em>glanced at</em>, not managed.",
+        "shots_h2": "Everything you're tracking, <em>at a glance</em>.",
         "shots_caps": ["TODAY'S UPKEEP", "KEEPY GROWS", "CALENDAR TIMELINE"],
         "feat_kicker": "DETAILS", "feat_num": "06",
         "feat_h2": "Free app. <em>Careful</em> choices.",
@@ -94,7 +94,7 @@ LOCALES = {
         "status_lede": "모든 물건에 신호등 하나. 여유 있음·곧 임박·지남 — 뒤질 것도, 엑셀도 없이.",
         "status": [["여유 있음", "기록돼 있고 순조로워요."], ["곧 임박", "알림 범위 안에 들어왔어요."], ["지남", "이제 챙길 때예요."]],
         "shots_kicker": "화면", "shots_num": "iOS",
-        "shots_h2": "관리하는 게 아니라, <em>흘끗 보는</em> 앱.",
+        "shots_h2": "챙길 일 전부, <em>한눈에</em> 보여요.",
         "shots_caps": ["오늘 챙길 일", "자라는 키프이", "캘린더 타임라인"],
         "feat_kicker": "디테일", "feat_num": "06",
         "feat_h2": "무료 앱, <em>꼼꼼한</em> 선택.",
@@ -140,7 +140,7 @@ LOCALES = {
         "status_lede": "すべてのモノに信号がひとつ。余裕あり・もうすぐ・期限切れ — 探す手間も、表計算もなし。",
         "status": [["余裕あり", "記録済みで順調。"], ["もうすぐ", "通知の範囲に入りました。"], ["期限切れ", "そろそろお手入れを。"]],
         "shots_kicker": "画面", "shots_num": "iOS",
-        "shots_h2": "管理ではなく、<em>ちらっと見る</em>アプリ。",
+        "shots_h2": "やることが全部、<em>ひと目で</em>わかります。",
         "shots_caps": ["今日のお手入れ", "育つキープイ", "カレンダー"],
         "feat_kicker": "こだわり", "feat_num": "06",
         "feat_h2": "無料アプリ、<em>ていねいな</em>選択。",
@@ -224,10 +224,19 @@ def render(key):
         for i, (tag, h, p) in enumerate(loc["steps"])
     )
     keepy_imgs = ["seed", "sprout", "leaf", "bloom"]
+    keepy_rotations = ["-2deg", "1.5deg", "-1.5deg", "2deg"]
     keepy = "".join(
-        f'<div class="keepy"><img src="{rel}assets/keepy-{img}.png" alt="{name}" loading="lazy"><h3>{name}</h3><p>{cap}</p><span class="pt">{pt}</span></div>'
-        for img, (name, cap, pt) in zip(keepy_imgs, loc["keepy"])
+        f'<div class="keepy" style="--rot:{rot}"><img src="{rel}assets/keepy-{img}.png" alt="{name}" loading="lazy"><h3>{name}</h3><p>{cap}</p><span class="pt">{pt}</span></div>'
+        for rot, img, (name, cap, pt) in zip(keepy_rotations, keepy_imgs, loc["keepy"])
     )
+    growth_rotations = ["-5deg", "4deg", "-3deg", "5deg"]
+    growth_tags = []
+    for i, (img, rot) in enumerate(zip(keepy_imgs, growth_rotations)):
+        name = loc["keepy"][i][0]
+        growth_tags.append(f'<div class="g-tag punch" style="--rot:{rot}"><img src="{rel}assets/keepy-{img}.png" alt="{name}" loading="lazy"><span>{name}</span></div>')
+        if i < len(keepy_imgs) - 1:
+            growth_tags.append('<div class="g-arrow">→</div>')
+    growth_strip = "".join(growth_tags)
     status_cls = ["green", "amber", "red"]
     status = "".join(
         f'<div class="status {c}"><span class="dot"></span><h3>{h}</h3><p>{p}</p></div>'
@@ -284,23 +293,34 @@ def render(key):
 <header class="hero">
   <div class="ghost">e·k</div>
   <div class="wrap">
-    <div>
-      <div class="kicker"><span>everykeep</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
-      <h1>{loc['h1']}</h1>
-      <div class="demo">
-        <span class="src" id="demoSrc">{loc['pairs'][0][0]}</span>
-        <span class="arrow">→</span>
-        <span class="dst" id="demoDst">{loc['pairs'][0][1]}</span>
-      </div>
-      <p class="sub">{loc['sub']}</p>
-      <div class="cta">
-        {badge(loc, 'storeLink')}
-        <span class="note">{loc['note']}</span>
+
+    <div class="grow-band">
+      <div class="kicker light"><span>{loc['keepy_kicker']}</span><span class="rule"></span><span class="num">{loc['keepy_num']}</span></div>
+      <div class="growth-strip">
+        <div class="strip-line" aria-hidden="true"></div>
+        {growth_strip}
       </div>
     </div>
-    <div class="phone-col">
-      {chips}
-      <img class="shot-flat hero-shot" src="{rel}assets/shot-{loc['shots']}-home.png" alt="{loc['hero_alt']}">
+
+    <div class="hero-grid">
+      <div>
+        <div class="kicker light"><span>everykeep</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
+        <h1>{loc['h1']}</h1>
+        <div class="tag-demo punch">
+          <span class="src" id="demoSrc">{loc['pairs'][0][0]}</span>
+          <span class="arrow">→</span>
+          <span class="dst" id="demoDst">{loc['pairs'][0][1]}</span>
+        </div>
+        <p class="sub">{loc['sub']}</p>
+        <div class="cta">
+          {badge(loc, 'storeLink')}
+          <span class="note">{loc['note']}</span>
+        </div>
+      </div>
+      <div class="phone-col">
+        {chips}
+        <img class="shot-flat hero-shot" src="{rel}assets/shot-{loc['shots']}-home.png" alt="{loc['hero_alt']}">
+      </div>
     </div>
   </div>
 </header>
