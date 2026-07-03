@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>鉄ログ — 乗った駅が、そのまま地図になる（リデザイン試案）</title>
+<meta name="description" content="駅をタップするだけで乗車を記録。乗った路線の色が地図に広がり、完乗すると朱色のスタンプが押されます。全国163社・571路線・10,096駅対応の乗りつぶしアプリ。">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<style>
+:root {
+  --accent: #c22e2e;
+  --accent-deep: #8f2020;
+  --ink: #1c1a17;
+  --ink2: rgba(28,26,23,.6);
+  --ink3: rgba(28,26,23,.42);
+  --paper: #f5f2eb;
+  --paper-top: #faf8f3;
+  --paper-deep: #ece6d8;
+  --rule: rgba(28,26,23,.14);
+  --rule-soft: rgba(28,26,23,.08);
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --mincho: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "AppleMyungjo", serif;
+  --line-green: #80c241;   /* 山手線 */
+  --line-orange: #f15a22;  /* 中央線 */
+  --line-sky: #00b2e5;     /* 京浜東北線 */
+  --line-red: var(--accent); /* 丸ノ内線 / brand */
+  --line-gold: #f6b338;    /* 銀座線 */
+  --line-gray: rgba(28,26,23,.22);
+}
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px 0 56px; position: relative; }
+
+/* ================= rail spine ================= */
+/* One continuous colored line runs down the page, threading each section like
+   a subway route diagram. rail-fill grows with scroll to visualize "riding"
+   the page — a direct nod to the app's own color-spreads-as-you-ride mechanic. */
+.railspine { position: absolute; top: 0; bottom: 0; left: 18px; width: 20px; z-index: 5; pointer-events: none; }
+.railspine .track { position: absolute; left: 9px; top: 0; bottom: 0; width: 4px; background: var(--line-gray); border-radius: 2px; }
+.railspine .fill {
+  position: absolute; left: 9px; top: 0; width: 4px; height: 0;
+  background: linear-gradient(180deg, var(--line-red) 0%, var(--line-gold) 22%, var(--line-green) 46%, var(--line-sky) 68%, var(--line-orange) 88%, var(--line-red) 100%);
+  border-radius: 2px; transition: height .08s linear;
+}
+.stop-dot {
+  position: absolute; left: 3px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--paper); border: 4px solid var(--line-gray); transform: translateY(-8px);
+  transition: border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.stop-dot.lit { box-shadow: 0 0 0 5px rgba(194,46,46,.12); }
+.stop-dot[data-c="red"].lit { border-color: var(--line-red); }
+.stop-dot[data-c="gold"].lit { border-color: var(--line-gold); }
+.stop-dot[data-c="green"].lit { border-color: var(--line-green); }
+.stop-dot[data-c="sky"].lit { border-color: var(--line-sky); }
+.stop-dot[data-c="orange"].lit { border-color: var(--line-orange); }
+
+@media (max-width: 860px) {
+  .wrap { padding-left: 34px; }
+  .railspine { left: 6px; width: 14px; }
+  .railspine .track, .railspine .fill { left: 5px; }
+  .stop-dot { left: 0; width: 12px; height: 12px; border-width: 3px; }
+}
+
+/* ================= kicker (nameplate strip) ================= */
+.kicker {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--ink2);
+}
+.kicker .chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%; color: #fff; font-family: var(--mincho);
+  font-size: 12px; letter-spacing: 0; flex: none;
+}
+.kicker[data-c="red"] .chip { background: var(--line-red); }
+.kicker[data-c="gold"] .chip { background: var(--line-gold); }
+.kicker[data-c="green"] .chip { background: var(--line-green); }
+.kicker[data-c="sky"] .chip { background: var(--line-sky); }
+.kicker[data-c="orange"] .chip { background: var(--line-orange); }
+.kicker .rule { flex: 1; height: 1px; background: var(--rule); }
+.kicker .num { color: var(--ink3); letter-spacing: .08em; text-transform: none; }
+
+/* ================= nav ================= */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250,248,243,.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule-soft);
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; padding-left: 24px; }
+.wordmark { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; }
+.wordmark img { width: 28px; height: 28px; border-radius: 7px; }
+.wordmark span { font-family: var(--mincho); font-size: 16px; font-weight: 700; letter-spacing: .04em; }
+.lang { display: flex; align-items: center; gap: 2px; }
+.lang a { font-size: 12px; font-weight: 700; text-decoration: none; padding: 4px 7px; border-radius: 7px; color: var(--ink2); }
+.lang a.cur { color: var(--accent); }
+
+/* ================= hero / 駅名標 ================= */
+.hero { position: relative; background: linear-gradient(180deg, var(--paper-top), var(--paper)); overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; padding-top: 56px; padding-bottom: 72px; }
+
+.ekimeihyo {
+  display: inline-block; background: #fff; border-radius: 6px; overflow: hidden;
+  box-shadow: 0 20px 40px rgba(28,26,23,.1); border: 1px solid var(--rule);
+}
+.ekimeihyo .bar { height: 7px; background: linear-gradient(90deg, var(--line-red), var(--line-gold) 25%, var(--line-green) 50%, var(--line-sky) 75%, var(--line-orange)); }
+.ekimeihyo .body { display: flex; align-items: center; gap: 18px; padding: 14px 22px; }
+.ekimeihyo .arrow { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: .1em; white-space: nowrap; }
+.ekimeihyo .name { text-align: center; }
+.ekimeihyo .name .jp { font-family: var(--mincho); font-weight: 700; font-size: 26px; color: var(--ink); letter-spacing: .06em; }
+.ekimeihyo .name .en { display: block; margin-top: 2px; font-family: var(--mono); font-size: 10px; letter-spacing: .22em; color: var(--ink3); text-transform: uppercase; }
+
+.hero h1 {
+  margin: 26px 0 0; font-family: var(--mincho); font-size: clamp(32px, 4.4vw, 50px); line-height: 1.32;
+  font-weight: 700; letter-spacing: -.01em; word-break: keep-all; color: var(--ink);
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .sub { margin-top: 22px; max-width: 34em; font-size: 16px; color: var(--ink2); word-break: keep-all; }
+.cta { margin: 30px 0 0; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.store-badge {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+  background: var(--ink); color: #fff; border-radius: 14px; padding: 12px 22px;
+  border: 1px solid rgba(255,255,255,.1); transition: transform .15s ease;
+}
+.store-badge:hover { transform: translateY(-2px); }
+.store-badge.disabled { background: transparent; color: var(--ink3); border: 1px dashed var(--rule); cursor: default; pointer-events: none; }
+.store-badge .txt { line-height: 1.15; text-align: left; }
+.store-badge .txt small { display: block; font-size: 11px; opacity: .75; }
+.store-badge .txt strong { font-size: 16px; font-weight: 700; letter-spacing: .01em; }
+.cta .note { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; color: var(--ink3); }
+
+/* hero right: rail map + before/after fill demo */
+.railmap-col { display: flex; flex-direction: column; gap: 18px; }
+.railmap { position: relative; background: #fff; border: 1px solid var(--rule); border-radius: 22px; padding: 20px; box-shadow: 0 30px 60px rgba(28,26,23,.1); }
+.railmap svg { width: 100%; height: auto; display: block; }
+.rail-base { fill: none; stroke: var(--line-gray); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.rail-color { fill: none; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; }
+.rail-color.c-loop { stroke: var(--line-green); animation: draw-loop 13s ease-in-out infinite; }
+.rail-color.c-r1 { stroke: var(--line-orange); animation: draw-r1 13s ease-in-out infinite; }
+.rail-color.c-r2 { stroke: var(--line-sky); animation: draw-r2 13s ease-in-out infinite; }
+.rail-color.c-r3 { stroke: var(--line-red); animation: draw-r3 13s ease-in-out infinite; }
+.dot { fill: var(--line-gray); }
+.dot.loop { animation: dot-loop 13s ease-in-out infinite; }
+.dot.r1 { animation: dot-r1 13s ease-in-out infinite; }
+.dot.r2 { animation: dot-r2 13s ease-in-out infinite; }
+.dot.r3 { animation: dot-r3 13s ease-in-out infinite; }
+@keyframes draw-loop { 0%{stroke-dashoffset:100} 18%{stroke-dashoffset:0} 90%{stroke-dashoffset:0} 96%{stroke-dashoffset:100} 100%{stroke-dashoffset:100} }
+@keyframes draw-r1   { 0%{stroke-dashoffset:100} 18%{stroke-dashoffset:100} 32%{stroke-dashoffset:0} 90%{stroke-dashoffset:0} 96%{stroke-dashoffset:100} 100%{stroke-dashoffset:100} }
+@keyframes draw-r2   { 0%{stroke-dashoffset:100} 32%{stroke-dashoffset:100} 46%{stroke-dashoffset:0} 90%{stroke-dashoffset:0} 96%{stroke-dashoffset:100} 100%{stroke-dashoffset:100} }
+@keyframes draw-r3   { 0%{stroke-dashoffset:100} 46%{stroke-dashoffset:100} 60%{stroke-dashoffset:0} 90%{stroke-dashoffset:0} 96%{stroke-dashoffset:100} 100%{stroke-dashoffset:100} }
+@keyframes dot-loop { 0%{fill:var(--line-gray)} 16%{fill:var(--line-gray)} 19%{fill:var(--line-green)} 90%{fill:var(--line-green)} 96%{fill:var(--line-gray)} 100%{fill:var(--line-gray)} }
+@keyframes dot-r1   { 0%{fill:var(--line-gray)} 30%{fill:var(--line-gray)} 33%{fill:var(--line-orange)} 90%{fill:var(--line-orange)} 96%{fill:var(--line-gray)} 100%{fill:var(--line-gray)} }
+@keyframes dot-r2   { 0%{fill:var(--line-gray)} 44%{fill:var(--line-gray)} 47%{fill:var(--line-sky)} 90%{fill:var(--line-sky)} 96%{fill:var(--line-gray)} 100%{fill:var(--line-gray)} }
+@keyframes dot-r3   { 0%{fill:var(--line-gray)} 58%{fill:var(--line-gray)} 61%{fill:var(--line-red)} 90%{fill:var(--line-red)} 96%{fill:var(--line-gray)} 100%{fill:var(--line-gray)} }
+.railmap-caption { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; color: var(--ink3); }
+.railmap-legend { display: flex; gap: 10px; flex-wrap: wrap; }
+.railmap-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.railmap-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.railmap-legend i.g { background: var(--line-green); } .railmap-legend i.o { background: var(--line-orange); }
+.railmap-legend i.s { background: var(--line-sky); } .railmap-legend i.r { background: var(--line-red); }
+@media (prefers-reduced-motion: reduce) {
+  .rail-color, .dot { animation: none !important; } .rail-color { stroke-dashoffset: 0 !important; }
+  .dot.loop { fill: var(--line-green) !important; } .dot.r1 { fill: var(--line-orange) !important; }
+  .dot.r2 { fill: var(--line-sky) !important; } .dot.r3 { fill: var(--line-red) !important; }
+}
+
+/* stamp motif */
+.stamp {
+  position: absolute; width: 108px; height: 108px; border-radius: 50%;
+  border: 3.5px solid var(--accent); color: var(--accent); display: flex; align-items: center; justify-content: center;
+  transform: rotate(-14deg); opacity: .9; font-family: var(--mincho); pointer-events: none;
+  background: radial-gradient(circle, rgba(194,46,46,.03), transparent 70%);
+}
+.stamp::before {
+  content: ""; position: absolute; inset: 7px; border: 1px solid var(--accent); border-radius: 50%; opacity: .6;
+}
+.stamp span { font-size: 24px; font-weight: 700; letter-spacing: .1em; }
+.hero .stamp { right: 8px; top: -6px; }
+
+/* ================= marquee ================= */
+.marquee { overflow: hidden; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); background: var(--paper-top); }
+.marquee .track { display: flex; gap: 44px; padding: 14px 0; width: max-content; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .26em; color: var(--ink2); animation: scroll 32s linear infinite; }
+.marquee .track span.hl { color: var(--accent); }
+@keyframes scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee .track { animation: none; } }
+
+/* ================= sections ================= */
+section { padding: 84px 0; position: relative; }
+section h2 { font-family: var(--mincho); font-size: clamp(24px, 3.2vw, 36px); font-weight: 700; letter-spacing: -.01em; margin: 20px 0 14px; word-break: keep-all; }
+section h2 em { font-style: normal; color: var(--accent); }
+section .lede { color: var(--ink2); max-width: 40em; font-size: 16px; word-break: keep-all; }
+
+/* how it works: platform stops */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 46px; counter-reset: stop; border-top: 3px solid var(--rule); }
+.step { position: relative; padding: 26px 20px 0 0; border-right: 1px dashed var(--rule); }
+.step:last-child { border-right: none; }
+.step::before {
+  content: ""; position: absolute; top: -3px; left: 0; width: 34px; height: 3px; background: var(--step-c, var(--accent));
+}
+.step .n { font-family: var(--mono); font-weight: 700; font-size: 12px; color: var(--step-c, var(--accent)); letter-spacing: .1em; }
+.step .tag { display: inline-block; margin-top: 8px; font-family: var(--mincho); font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 99px; background: var(--paper-top); border: 1px solid var(--rule); color: var(--ink2); }
+.step h3 { font-size: 18px; font-weight: 700; margin: 14px 0 8px; }
+.step p { color: var(--ink2); font-size: 14.5px; word-break: keep-all; }
+.step:nth-child(1) { --step-c: var(--line-green); }
+.step:nth-child(2) { --step-c: var(--line-sky); }
+.step:nth-child(3) { --step-c: var(--line-red); }
+
+/* value / stat tiles */
+.value { position: relative; background: var(--paper-top); border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; background: var(--rule); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.stat { background: var(--paper); padding: 30px 22px; text-align: center; }
+.stat .n { font-family: var(--mincho); font-weight: 700; font-size: clamp(34px, 5vw, 56px); color: var(--ink); line-height: 1; }
+.stat:nth-child(1) .n { color: var(--line-orange); }
+.stat:nth-child(2) .n { color: var(--line-green); }
+.stat:nth-child(3) .n { color: var(--line-red); }
+.stat .l { margin-top: 10px; font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: var(--ink2); }
+
+/* fill demo: gray line -> colored line comparison */
+.filldemo { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.filldemo .card { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 20px 22px; }
+.filldemo .card b { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .16em; color: var(--ink3); margin-bottom: 14px; }
+.filldemo svg { width: 100%; height: auto; display: block; }
+.filldemo .before .ln { stroke: var(--line-gray); }
+.filldemo .after .ln { stroke: var(--line-green); }
+.filldemo .before circle, .filldemo .after circle { fill: var(--paper); stroke-width: 3; }
+.filldemo .before circle { stroke: var(--line-gray); }
+.filldemo .after circle { stroke: var(--line-green); }
+.filldemo .after circle.done { fill: var(--line-green); }
+
+/* screenshots */
+.shots .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 52px; align-items: start; }
+.phone { position: relative; width: 100%; max-width: 260px; margin: 0 auto; border-radius: 40px; padding: 10px; background: #101010; box-shadow: 0 30px 60px rgba(28,26,23,.18), inset 0 0 0 2px rgba(255,255,255,.06); }
+.phone img { border-radius: 31px; }
+.phone .island { position: absolute; top: 19px; left: 50%; transform: translateX(-50%); width: 78px; height: 24px; border-radius: 13px; background: #030303; }
+.shots figcaption { text-align: center; margin-top: 16px; font-size: 14px; color: var(--ink2); word-break: keep-all; }
+.shots figure:nth-child(2) { transform: translateY(28px); }
+
+/* feature grid: platform boards */
+.grid6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 32px; margin-top: 48px; }
+.feat { position: relative; border-top: 1px solid var(--rule); padding-top: 18px; }
+.feat h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.feat p { color: var(--ink2); font-size: 14px; word-break: keep-all; }
+.feat .pro { font-family: var(--mono); font-size: 9.5px; font-weight: 700; letter-spacing: .14em; color: var(--accent); border: 1px solid var(--accent); border-radius: 99px; padding: 2px 7px; }
+
+/* final / footer */
+.final { background: linear-gradient(165deg, var(--ink), #2a2620); color: #fff; text-align: center; position: relative; overflow: hidden; }
+.final h2 { color: #fff; margin: 0 0 12px; }
+.final h2 em { color: #e8a3a3; }
+.final .lede { color: rgba(255,255,255,.75); margin: 0 auto; }
+.final .cta { justify-content: center; margin: 30px 0 0; }
+.final .store-badge { background: #fff; color: var(--ink); }
+.final .store-badge.disabled { color: rgba(255,255,255,.55); border-color: rgba(255,255,255,.3); background: transparent; }
+.final .cta .note { color: rgba(255,255,255,.6); }
+.final .stamp { border-color: rgba(255,255,255,.5); color: rgba(255,255,255,.7); left: 50%; margin-left: 210px; top: 6px; }
+
+footer { background: #14120f; color: #a9a49a; padding: 44px 0; font-size: 14px; }
+footer .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-left: 24px; }
+footer .brand { display: flex; align-items: center; gap: 10px; color: #fff; }
+footer .brand img { width: 24px; height: 24px; border-radius: 6px; }
+footer .links { display: flex; gap: 22px; flex-wrap: wrap; }
+footer a { color: #a9a49a; text-decoration: none; }
+footer a:hover { color: #fff; }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 30px; padding-top: 44px; padding-bottom: 52px; }
+  .steps, .stats, .grid6, .shots .row, .filldemo { grid-template-columns: 1fr; }
+  .step { border-right: none; border-bottom: 1px dashed var(--rule); padding-bottom: 24px; }
+  .step:last-child { border-bottom: none; }
+  .shots figure:nth-child(2) { transform: none; }
+  section { padding: 56px 0; }
+  .wordmark span { display: none; }
+  .ekimeihyo .body { padding: 10px 14px; gap: 10px; }
+  .ekimeihyo .name .jp { font-size: 20px; }
+  .ekimeihyo .arrow { font-size: 9px; }
+  .hero .stamp { width: 78px; height: 78px; right: -6px; top: -10px; }
+  .hero .stamp span { font-size: 17px; }
+  .final .stamp { display: none; }
+  .stats { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="railspine" id="railspine">
+  <div class="track"></div>
+  <div class="fill" id="railfill"></div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>鉄ログ</span></a>
+    <div class="lang">
+      <a class="cur" href="#">日本語</a><a href="#">한국어</a><a href="#">EN</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="stop-dot" data-c="red" style="top:8px"></div>
+    <div>
+      <div class="ekimeihyo">
+        <div class="bar"></div>
+        <div class="body">
+          <span class="arrow">← STAMP BOOK</span>
+          <span class="name"><span class="jp">鉄ログ</span><span class="en">TETSULOG</span></span>
+          <span class="arrow">全国 10,096 駅 →</span>
+        </div>
+      </div>
+      <h1>乗った駅が、<br>そのまま<em>地図になる</em>。</h1>
+      <p class="sub">地図の駅をタップするだけで乗車を記録。乗った路線の色がそのまま地図に広がります。全国163社・571路線・10,096駅の乗りつぶしを、鉄ログでスタンプ帳のように記録しましょう。</p>
+      <div class="cta">
+        <span class="store-badge disabled" aria-disabled="true"><span class="txt"><small>近日公開</small><strong>App Store</strong></span></span>
+        <span class="note">iPhone・iPad・一部無料</span>
+      </div>
+    </div>
+    <div class="railmap-col">
+      <div class="railmap">
+        <svg viewBox="0 20 400 400" aria-hidden="true">
+          <polyline class="rail-base" points="200,70 260,90 296,140 300,220 268,286 200,318 132,286 100,220 104,140 140,90 200,70"/>
+          <polyline class="rail-color c-loop" pathLength="100" points="200,70 260,90 296,140 300,220 268,286 200,318 132,286 100,220 104,140 140,90 200,70"/>
+          <polyline class="rail-base" points="296,140 355,105 388,50"/>
+          <polyline class="rail-color c-r1" pathLength="100" points="296,140 355,105 388,50"/>
+          <polyline class="rail-base" points="100,220 42,258 14,320"/>
+          <polyline class="rail-color c-r2" pathLength="100" points="100,220 42,258 14,320"/>
+          <polyline class="rail-base" points="200,318 199,360 194,398"/>
+          <polyline class="rail-color c-r3" pathLength="100" points="200,318 199,360 194,398"/>
+          <circle class="dot loop" cx="200" cy="70"  r="5"/>
+          <circle class="dot loop" cx="296" cy="140" r="5"/>
+          <circle class="dot loop" cx="268" cy="286" r="5"/>
+          <circle class="dot loop" cx="200" cy="318" r="5"/>
+          <circle class="dot loop" cx="104" cy="140" r="5"/>
+          <circle class="dot loop" cx="132" cy="286" r="5"/>
+          <circle class="dot r1" cx="355" cy="105" r="5"/>
+          <circle class="dot r1" cx="388" cy="50"  r="5"/>
+          <circle class="dot r2" cx="42"  cy="258" r="5"/>
+          <circle class="dot r2" cx="14"  cy="320" r="5"/>
+          <circle class="dot r3" cx="199" cy="360" r="5"/>
+          <circle class="dot r3" cx="194" cy="398" r="5"/>
+        </svg>
+      </div>
+      <div class="railmap-caption">
+        <span>路線をタップで記録、色が広がり、スタンプが押される。</span>
+        <span class="railmap-legend"><span><i class="g"></i></span><span><i class="o"></i></span><span><i class="s"></i></span><span><i class="r"></i></span></span>
+      </div>
+    </div>
+    <div class="stamp"><span>完乗</span></div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>山手線</span><span>大阪環状線</span><span>銀座線</span><span>ゆいレール</span><span>函館市電</span><span>東海道新幹線</span><span class="hl">完乗</span><span class="hl">駅スタンプ</span><span class="hl">乗りつぶし</span>
+  <span>山手線</span><span>大阪環状線</span><span>銀座線</span><span>ゆいレール</span><span>函館市電</span><span>東海道新幹線</span><span class="hl">完乗</span><span class="hl">駅スタンプ</span><span class="hl">乗りつぶし</span>
+</div></div>
+
+<section>
+  <div class="wrap">
+    <div class="stop-dot" data-c="green"></div>
+    <div class="kicker" data-c="green"><span class="chip">帳</span><span>· 使い方</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>駅をタップしてから、<em>スタンプが押される</em>まで。</h2>
+    <div class="steps">
+      <div class="step"><span class="n">01 / LOG</span><span class="tag">記録</span><h3>駅をタップして記録</h3><p>地図の駅をタップするだけ。乗った日付と区間を鉄ログが記録します。</p></div>
+      <div class="step"><span class="n">02 / COLOR</span><span class="tag">着色</span><h3>地図が色づく</h3><p>乗った路線の色が地図に広がります。未乗の区間はグレーのまま、乗った実感が一目でわかります。</p></div>
+      <div class="step"><span class="n">03 / STAMP</span><span class="tag">収集</span><h3>スタンプが貯まる</h3><p>路線を完乗すると、朱色の「完乗」スタンプが押されます。帳面のページが少しずつ埋まっていきます。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="value">
+  <div class="wrap">
+    <div class="stop-dot" data-c="orange"></div>
+    <div class="kicker" data-c="orange"><span class="chip">帳</span><span>· 全国データ</span><span class="rule"></span><span class="num">JR・私鉄・第三セクター</span></div>
+    <h2>全国<em>163社・571路線・10,096駅</em>を、これ一つで。</h2>
+    <p class="lede">JRグループ・大手私鉄・地方私鉄・第三セクターの路線データをあらかじめ収録。山手線一周でも、全国完乗でも、鉄ログが記録を引き継ぎます。</p>
+    <div class="stats">
+      <div class="stat"><div class="n">163</div><div class="l">鉄道会社</div></div>
+      <div class="stat"><div class="n">571</div><div class="l">路線</div></div>
+      <div class="stat"><div class="n">10,096</div><div class="l">駅</div></div>
+    </div>
+    <div class="filldemo">
+      <div class="card before">
+        <b>乗る前 · BEFORE</b>
+        <svg viewBox="0 0 280 40"><polyline class="ln" points="8,20 272,20" fill="none" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="8" cy="20" r="6"/><circle cx="90" cy="20" r="6"/><circle cx="180" cy="20" r="6"/><circle cx="272" cy="20" r="6"/></svg>
+      </div>
+      <div class="card after">
+        <b>完乗後 · AFTER</b>
+        <svg viewBox="0 0 280 40"><polyline class="ln" points="8,20 272,20" fill="none" stroke-width="5" stroke-linecap="round"/>
+          <circle class="done" cx="8" cy="20" r="6"/><circle class="done" cx="90" cy="20" r="6"/><circle class="done" cx="180" cy="20" r="6"/><circle class="done" cx="272" cy="20" r="6"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="stop-dot" data-c="sky"></div>
+    <div class="kicker" data-c="sky"><span class="chip">帳</span><span>· 画面</span><span class="rule"></span><span class="num">IOS</span></div>
+    <h2>飾りより、<em>手元で使う帳面</em>として。</h2>
+    <div class="row">
+      <figure><div class="phone"><img src="../assets/shot-1-map.png" alt="地図がそのまま乗車記録に"><div class="island"></div></div><figcaption>地図がそのまま乗車記録に</figcaption></figure>
+      <figure><div class="phone"><img src="../assets/shot-2-stamps.png" alt="駅スタンプ帳で会社別に管理"><div class="island"></div></div><figcaption>駅スタンプ帳で会社別に管理</figcaption></figure>
+      <figure><div class="phone"><img src="../assets/shot-3-completion.png" alt="完乗の瞬間に届く記念カード"><div class="island"></div></div><figcaption>完乗の瞬間に届く記念カード</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="stop-dot" data-c="red"></div>
+    <div class="kicker" data-c="red"><span class="chip">帳</span><span>· こだわり</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>小さなアプリ、<em>明確な選択</em>。</h2>
+    <div class="grid6">
+      <div class="feat"><h3>過去の乗車もOK</h3><p>昔の乗車履歴もあとから登録できます。今日から始めても、過去の完乗記録はそのまま有効です。</p></div>
+      <div class="feat"><h3>区間まとめて入力</h3><p>起点と終点を選ぶだけで、区間内の駅をまとめて乗車済みにできます。</p></div>
+      <div class="feat"><h3>完乗祝いカード</h3><p>路線を完乗すると、朱印風の記念カードが自動で作られます。SNSでのシェアにも使えます。</p></div>
+      <div class="feat"><h3>47都道府県ヒートマップ<span class="pro">PRO</span></h3><p>都道府県ごとの乗車率を地図の濃淡で可視化。旅の足跡が色でわかります。</p></div>
+      <div class="feat"><h3>PDF御朱印帳<span class="pro">PRO</span></h3><p>スタンプ帳をPDFで書き出して、印刷したり手元に保存したりできます。</p></div>
+      <div class="feat"><h3>iCloud同期</h3><p>記録はiCloudで同期。iPhoneでもiPadでも同じ帳面が開けます。無料でご利用いただけます。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="stop-dot" data-c="gold" style="border-color:#3a342c"></div>
+    <div class="stamp"><span>完乗</span></div>
+    <h2>次の一駅から、<em>乗りつぶし</em>を記録しよう。</h2>
+    <p class="lede">近日 App Store 公開予定。</p>
+    <div class="cta"><span class="store-badge disabled" aria-disabled="true"><span class="txt"><small>近日公開</small><strong>App Store</strong></span></span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">お問い合わせ</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">プライバシーポリシー</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">利用規約</a>
+    </div>
+    <div>© 2026 kkiruk studio</div>
+  </div>
+</footer>
+
+<script>
+// Rail spine: fill height tracks scroll progress (mirrors the app's own
+// "color spreads as you ride" mechanic), and each section's stop-dot lights
+// up in its own line color once scrolled past.
+(function () {
+  var fill = document.getElementById('railfill');
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.stop-dot'));
+
+  function layout() {
+    var docH = document.documentElement.scrollHeight;
+    dots.forEach(function (d) {
+      var rect = d.getBoundingClientRect();
+      d._docTop = rect.top + window.scrollY;
+    });
+    onScroll(docH);
+  }
+
+  function onScroll(docH) {
+    docH = docH || document.documentElement.scrollHeight;
+    var scrollY = window.scrollY;
+    var viewH = window.innerHeight;
+    var trackH = document.getElementById('railspine').offsetHeight;
+    var progressPx = Math.min(trackH, (scrollY / (docH - viewH || 1)) * trackH);
+    fill.style.height = Math.max(0, progressPx) + 'px';
+
+    var line = scrollY + viewH * 0.5;
+    dots.forEach(function (d) {
+      if (d._docTop <= line) d.classList.add('lit'); else d.classList.remove('lit');
+    });
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () { onScroll(); ticking = false; });
+      ticking = true;
+    }
+  });
+  window.addEventListener('resize', layout);
+  window.addEventListener('load', layout);
+  layout();
+})();
+</script>
+<script src="/ga.js"></script>
+</body>
+</html>
