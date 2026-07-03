@@ -33,11 +33,11 @@ LOCALES = {
         "orb_in": "Breathe in", "orb_out": "Breathe out",
         "marquee": ["BREATHE", "FOCUS", "STRETCH", "POSTURE", "RHYTHM", "DEEP WORK", "DESK FATIGUE", "CALM"],
         "how_kicker": "HOW IT WORKS",
-        "how_h2": "Three moments between <em>“heads-down”</em> and a healthier desk day.",
+        "how_h2": "Three moments where the <em>rhythm</em> finds you.",
         "steps": [
             ["START", "Pick a rhythm and go", "Box breathing, 4-7-8, or your own inhale/exhale seconds — start free, no account, right from the menu bar or the app."],
             ["GLANCE", "Catch it mid deep-work", "The circle keeps breathing in your Dynamic Island or menu bar. A glance mid-scroll is enough to slow your breath back down."],
-            ["STAND UP", "Rise on the stretch cue", "Every 30, 50, 90 or 120 minutes, a gentle nudge tells you to stand, roll your shoulders, and reset your posture."],
+            ["STAND UP", "Rise on the stretch cue", "Every 30, 60, 90 or 120 minutes, a gentle nudge tells you to stand, roll your shoulders, and reset your posture."],
         ],
         "value_kicker": "STILL RUNNING", "value_num": "APP CLOSED",
         "value_h2": "Close the app.<br>The <em>rhythm</em> doesn't close with it.",
@@ -56,7 +56,7 @@ LOCALES = {
             ["Custom rhythm &amp; haptics", "Set your own inhale/exhale seconds and feel each phase change as a haptic pulse — free.", False],
             ["Color, image &amp; direction", "Recolor the circle, drop in your own image, and flip the countdown direction to match how you focus.", True],
             ["Weekly stats &amp; streaks", "See how many sessions you actually finished this week, and keep the streak alive.", True],
-            ["Stretch reminders", "Nudges every 30, 50, 90 or 120 minutes to stand, stretch, and reset your posture.", False],
+            ["Stretch reminders", "Nudges every 30, 60, 90 or 120 minutes to stand, stretch, and reset your posture.", False],
             ["Pay once. No subscription.", "Pro is a single lifetime purchase — one payment, no recurring fees, ever.", False],
         ],
         "final_h2": "Give your breath a rhythm.", "final_lede": "Free presets on iPhone and Mac. Pro unlocks once, forever.",
@@ -76,11 +76,11 @@ LOCALES = {
         "orb_in": "들숨", "orb_out": "날숨",
         "marquee": ["호흡", "집중", "스트레칭", "거북목", "리듬", "재택근무", "야근", "회복"],
         "how_kicker": "사용 방법",
-        "how_h2": "“집중 모드”에서 <em>더 건강한 하루</em>까지, 세 순간.",
+        "how_h2": "<em>호흡 원</em>이 당신을 찾아오는 세 순간.",
         "steps": [
             ["시작", "리듬을 고르고 시작", "박스호흡, 4-7-8, 혹은 나만의 들숨·날숨 초 — 계정 없이 메뉴바나 앱에서 바로 무료로 시작합니다."],
             ["곁눈질", "일하며 리듬 확인", "다이나믹 아일랜드나 메뉴바에서 호흡 원이 계속 움직입니다. 화면을 스크롤하다 한 번 곁눈질하는 것만으로 호흡이 다시 느려집니다."],
-            ["일어나기", "스트레칭 알림에 일어나기", "30·50·90·120분마다 부드러운 알림이 자리에서 일어나 어깨를 풀고 자세를 바로잡으라고 알려줍니다."],
+            ["일어나기", "스트레칭 알림에 일어나기", "30·60·90·120분마다 부드러운 알림이 자리에서 일어나 어깨를 풀고 자세를 바로잡으라고 알려줍니다."],
         ],
         "value_kicker": "계속 실행 중", "value_num": "앱을 닫아도",
         "value_h2": "앱을 닫아도,<br><em>리듬</em>은 꺼지지 않습니다.",
@@ -99,7 +99,7 @@ LOCALES = {
             ["리듬 커스텀 · 햅틱", "들숨·날숨 초를 직접 정하고, 단계가 바뀔 때마다 햅틱으로 느껴보세요 — 무료.", False],
             ["색 · 이미지 꾸미기", "호흡 원 색을 바꾸고 원하는 이미지를 넣고, 카운트 방향까지 내게 맞게 뒤집습니다.", True],
             ["주간 통계 · 스트릭", "이번 주 실제로 끝낸 세션이 몇 번인지 확인하고 스트릭을 이어가세요.", True],
-            ["스트레칭 알림", "30·50·90·120분마다 일어나서 스트레칭하고 자세를 바로잡으라는 알림.", False],
+            ["스트레칭 알림", "30·60·90·120분마다 일어나서 스트레칭하고 자세를 바로잡으라는 알림.", False],
             ["평생 한 번 결제, 구독 없음", "Pro는 평생 한 번 결제입니다. 매달 빠져나가는 구독료는 없습니다.", False],
         ],
         "final_h2": "호흡에 리듬을 붙이세요.", "final_lede": "iPhone과 Mac에서 무료 프리셋으로. Pro는 평생 한 번 결제.",
@@ -119,11 +119,11 @@ LOCALES = {
         "orb_in": "吸う", "orb_out": "吐く",
         "marquee": ["呼吸", "集中", "ストレッチ", "猫背", "リズム", "在宅勤務", "デスクワーク", "回復"],
         "how_kicker": "使い方",
-        "how_h2": "「作業に没頭」から<em>健やかな一日</em>まで、3つの瞬間。",
+        "how_h2": "<em>呼吸の輪</em>があなたを見つける3つの瞬間。",
         "steps": [
             ["はじめる", "リズムを選んで開始", "ボックス呼吸、4-7-8、または自分だけの秒数設定 — 登録不要でメニューバーやアプリからすぐ無料で始められます。"],
             ["見る", "作業しながら確かめる", "ダイナミックアイランドやメニューバーで呼吸の輪が動き続けます。スクロールの合間に一度見るだけで呼吸が整います。"],
-            ["立ち上がる", "ストレッチ通知で動く", "30・50・90・120分ごとの通知が、立ち上がって肩を回し、姿勢を整えるタイミングを教えてくれます。"],
+            ["立ち上がる", "ストレッチ通知で動く", "30・60・90・120分ごとの通知が、立ち上がって肩を回し、姿勢を整えるタイミングを教えてくれます。"],
         ],
         "value_kicker": "起動し続ける", "value_num": "アプリを閉じても",
         "value_h2": "アプリを閉じても、<br><em>リズム</em>は止まらない。",
@@ -142,7 +142,7 @@ LOCALES = {
             ["リズムのカスタム · ハプティック", "吸う・吐く秒数を自分で設定し、切り替わるたびにハプティックで感じられます — 無料。", False],
             ["色・画像で着せ替え", "呼吸の輪の色を変え、好きな画像を入れ、カウントの向きも自分好みに反転できます。", True],
             ["週間統計 · ストリーク", "今週実際に終えたセッション数を確認し、ストリークをつなげましょう。", True],
-            ["ストレッチ通知", "30・50・90・120分ごとに、立ち上がってストレッチし、姿勢を整える通知。", False],
+            ["ストレッチ通知", "30・60・90・120分ごとに、立ち上がってストレッチし、姿勢を整える通知。", False],
             ["買い切り、サブスクなし", "Pro は一度きりの買い切り。毎月引き落とされる料金はありません。", False],
         ],
         "final_h2": "呼吸にリズムを。", "final_lede": "iPhone と Mac で無料プリセット。Pro は買い切り一回。",
@@ -353,7 +353,6 @@ def render(key):
     }})();
   }}
 </script>
-<script src="/ga.js"></script>
 </body>
 </html>
 """
