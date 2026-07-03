@@ -353,6 +353,7 @@ def render(key):
     }})();
   }}
 </script>
+<script src="/ga.js"></script>
 </body>
 </html>
 """
