@@ -1,0 +1,37 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1200px;height:630px;overflow:hidden;}
+body{display:flex;align-items:center;color:#2a211a;
+  background:linear-gradient(135deg,#fffaf0 0%,#fff6e3 55%,#f8ecd2 100%);
+  font-family:"AppleMyungjo","Hiragino Mincho ProN","Noto Serif KR",serif;}
+.left{width:690px;padding:76px 10px 68px 80px;display:flex;flex-direction:column;height:100%;}
+.kicker{color:#a6241c;font-weight:700;letter-spacing:.34em;font-size:21px;}
+.kicker::before{content:"●";font-size:13px;vertical-align:3px;margin-right:14px;}
+h1{font-size:47px;line-height:70px;font-weight:800;letter-spacing:0;margin-top:32px;word-break:keep-all;}
+h1 .red{color:#a6241c;}
+.sub{font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:27px;line-height:42px;color:#5c4f40;margin-top:26px;word-break:keep-all;width:430px;}
+.brand{margin-top:auto;display:flex;align-items:center;gap:14px;font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:26px;font-weight:800;}
+.brand img{width:52px;height:52px;border-radius:12px;}
+.brand .red{color:#a6241c;margin-left:-6px;}
+.right{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;}
+.charm{width:330px;height:330px;border-radius:34px;position:relative;
+  background:linear-gradient(160deg,#ffdb66,#e8ad33);
+  border:6px solid #3a2d1a;box-shadow:0 18px 40px rgba(90,60,10,.28);}
+.charm .inner{position:absolute;inset:16px;border:3px solid rgba(166,36,28,.85);border-radius:18px;
+  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;}
+.charm .inner::before{content:"";position:absolute;left:50%;top:8%;bottom:8%;width:2px;background:rgba(166,36,28,.35);}
+.charm .inner::after{content:"";position:absolute;top:50%;left:8%;right:8%;height:2px;background:rgba(166,36,28,.35);}
+.charm span{display:flex;align-items:center;justify-content:center;font-size:104px;font-weight:800;color:#9e1f16;}
+.caption{font-size:24px;letter-spacing:.14em;color:#4a3c2c;font-weight:700;}
+</style></head><body>
+<div class="left">
+  <div class="kicker">매일 아침 · 출근길에</div>
+  <h1>오늘도 출근하는 그대에게,<br><span class="red">웃음 한 장 드립니다.</span></h1>
+  <div class="sub">직장 생활에 지친 출근길, 웃기고 든든한 창작 사자성어 부적 한 장.</div>
+  <div class="brand"><img src="assets/icon.png">직장인 <span class="red">부적</span></div>
+</div>
+<div class="right">
+  <div class="charm"><div class="inner"><span>萬</span><span>事</span><span>亨</span><span>通</span></div></div>
+  <div class="caption">만사형통 · 萬事亨通</div>
+</div>
+</body></html>
