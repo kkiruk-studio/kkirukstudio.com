@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
-  <rect width="180" height="180" rx="40" fill="#22A45A"/>
-  <text x="90" y="118" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="66" font-weight="800" fill="#ffffff" text-anchor="middle">RN.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#2FB667"/><stop offset="1" stop-color="#0F6B38"/></linearGradient></defs>
+<rect width="1024" height="1024" rx="228" fill="url(#g)"/>
+<path d="M 200 700 C 300 700 300 480 420 480 C 540 480 500 640 620 640 C 740 640 700 380 810 350"
+ fill="none" stroke="#fff" stroke-width="64" stroke-linecap="round"/>
+<circle cx="810" cy="350" r="58" fill="#fff"/>
+<circle cx="810" cy="350" r="26" fill="#22A45A"/>
+<path d="M 200 810 L 620 810" stroke="#BBF0D2" stroke-width="30" stroke-linecap="round" stroke-dasharray="4 60"/>
 </svg>
