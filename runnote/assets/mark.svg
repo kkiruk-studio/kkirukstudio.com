@@ -2,9 +2,11 @@
 <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
 <stop offset="0" stop-color="#2FB667"/><stop offset="1" stop-color="#0F6B38"/></linearGradient></defs>
 <rect width="1024" height="1024" rx="228" fill="url(#g)"/>
-<path d="M 200 700 C 300 700 300 480 420 480 C 540 480 500 640 620 640 C 740 640 700 380 810 350"
- fill="none" stroke="#fff" stroke-width="64" stroke-linecap="round"/>
-<circle cx="810" cy="350" r="58" fill="#fff"/>
-<circle cx="810" cy="350" r="26" fill="#22A45A"/>
-<path d="M 200 810 L 620 810" stroke="#BBF0D2" stroke-width="30" stroke-linecap="round" stroke-dasharray="4 60"/>
+<path d="M 232 200 H 660 L 792 332 V 824 Q 792 856 760 856 H 232 Q 200 856 200 824 V 232 Q 200 200 232 200 Z" fill="#fff"/>
+<path d="M 660 200 L 792 332 H 692 Q 660 332 660 300 Z" fill="#D3F0DD"/>
+<path d="M 292 380 H 600" stroke="#B5AD9E" stroke-width="34" stroke-linecap="round" opacity="0.55"/>
+<path d="M 292 500 H 700" stroke="#B5AD9E" stroke-width="34" stroke-linecap="round" opacity="0.55"/>
+<path d="M 292 650 L 400 650 L 400 740 L 530 740 L 530 610 L 650 610"
+ fill="none" stroke="#22A45A" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="650" cy="610" r="46" fill="#22A45A"/><circle cx="650" cy="610" r="19" fill="#fff"/>
 </svg>
