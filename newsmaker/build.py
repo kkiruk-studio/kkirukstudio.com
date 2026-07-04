@@ -75,6 +75,15 @@ LOCALES = {
         ],
         "final_h2": "Make today's breaking news.", "final_lede": "Free on iPhone.",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
+        "flag_word": "BREAKING", "live_label": "LIVE · BROADCAST", "alert_tag": "EMERGENCY ALERT",
+        "theme_lede": "Preview all 14 card themes like real news screens, then pick the font that matches your mood.",
+        "theme_cards": [
+            ["BREAKING", "BREAKING", "BREAKING: Meeting canceled"],
+            ["CAPTION", "FUNNY CAPTION", "Package arrived early lol"],
+            ["FRONT PAGE", "NEWS·MAKER GAZETTE", "Final offer received"],
+            ["ALERT", "EMERGENCY ALERT", "New PR — 500 total"],
+        ],
+        "font_labels": ["Impact · Caps", "Serif · Italic", "Handwriting", "Bold Round"],
     },
     "ko": {
         "dir": "ko/", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"',
@@ -136,6 +145,15 @@ LOCALES = {
         ],
         "final_h2": "오늘의 속보를 만들어보세요.", "final_lede": "아이폰 무료.",
         "f_contact": "문의", "f_privacy": "개인정보 처리방침", "f_terms": "이용약관",
+        "flag_word": "속보", "live_label": "LIVE · 생중계", "alert_tag": "긴급재난문자",
+        "theme_lede": "14가지 카드 테마를 실제 뉴스 화면처럼 미리 보고, 나에게 맞는 폰트를 골라보세요.",
+        "theme_cards": [
+            ["속보", "BREAKING", "속보: 회의 전격 취소"],
+            ["방송자막", "예능자막", "택배 하루 만에 도착 ㅋㅋ"],
+            ["신문 · 1면", "NEWS·MAKER GAZETTE", "최종 합격 통보"],
+            ["재난문자", "긴급재난문자", "오운완 3대 500 달성"],
+        ],
+        "font_labels": ["임팩트 · 대문자", "명조 · 이탤릭", "손글씨", "통통 라운드"],
     },
 }
 
@@ -165,11 +183,11 @@ def render(key):
     loc = LOCALES[key]
     rel = "../" if loc["dir"] else ""
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
-    chips = "".join(
-        f'<div class="chip c{i+1}"><span class="g">{g}</span>{label}</div>'
-        for i, (g, label) in enumerate(loc["chips"])
+    chip_stack = "".join(
+        f'<div class="chip"><span class="g">{g}</span>{label}</div>'
+        for g, label in loc["chips"]
     )
-    marquee = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
+    ticker_track = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
     steps = "".join(
         f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
         for i, (tag, h, p) in enumerate(loc["steps"])
@@ -178,8 +196,24 @@ def render(key):
         f'<div class="convert-row"><span>{a}</span><span class="arrow">→</span><span class="to">{b}</span><span class="cat">{c}</span></div>'
         for a, b, c in loc["conv_rows"]
     )
+    np_articles = "".join(
+        f'<div class="np-article"><span class="cat">{cat}</span><h3>{b}</h3><p>{loc["steps"][i][2]}</p></div>'
+        for i, (a, b, cat) in enumerate(loc["conv_rows"][:3])
+    )
+    theme_classes = ["tc-breaking", "tc-chyron", "tc-paper", "tc-alert"]
+    theme_cards = "".join(
+        f'<div class="theme-card {cls}"><span class="tc-label">{label}</span>'
+        f'<div class="tc-content"><span class="bar">{bar}</span><div class="headline">{headline}</div></div></div>'
+        for cls, (label, bar, headline) in zip(theme_classes, loc["theme_cards"])
+    )
+    font_classes = ["", "f2", "f3", "f4"]
+    glyph_sample = "가나다" if loc["lang"] == "ko" else "Aa Bb"
+    font_cards = "".join(
+        f'<div class="font-card {cls}"><div class="glyph">{glyph_sample}</div><div class="lbl">{lbl}</div></div>'
+        for cls, lbl in zip(font_classes, loc["font_labels"])
+    )
     provs = "".join(
-        '<div class="prov"><span class="flag">%s</span><h3>%s</h3><ul>%s</ul></div>'
+        '<div><span class="flag">%s</span><h3>%s</h3><ul>%s</ul></div>'
         % (flag, name, "".join(f'<li><span class="g">{g}</span>{n}</li>' for g, n in items))
         for flag, name, items in loc["providers"]
     )
@@ -189,6 +223,8 @@ def render(key):
         for f, cap in zip(shot_files, loc["shots_caps"])
     )
     feats = "".join(f'<div class="feat"><h3>{h}</h3><p>{p}</p></div>' for h, p in loc["feats"])
+    feat_h2 = loc["feat_h2"].replace("<em>", '<em style="color:var(--red); font-style:normal;">')
+    alert_title = f'{loc["feats"][5][0]} — {loc["feats"][5][1]}'
     pairs_json = json.dumps(loc["pairs"], ensure_ascii=False)
 
     html = f"""<!doctype html>
@@ -211,6 +247,13 @@ def render(key):
 </head>
 <body>
 
+<div class="ticker-bar">
+  <div class="ticker-flag"><span class="dot"></span>{loc['flag_word']}</div>
+  <div class="ticker-viewport">
+    <div class="ticker-track">{ticker_track}</div>
+  </div>
+</div>
+
 <nav>
   <div class="wrap">
     <a class="wordmark" href="{rel if rel else './'}"><img src="{rel}assets/icon-180.png" alt=""><span>NEWS·MAKER</span></a>
@@ -219,69 +262,119 @@ def render(key):
 </nav>
 
 <header class="hero">
-  <div class="ghost">속보</div>
+  <div class="breaking-strip">
+    <span class="badge"><span>{loc['flag_word']}</span></span>
+    <span class="kicker-txt">{loc['kicker_num']} &nbsp;·&nbsp; NEWS · MAKER</span>
+  </div>
   <div class="wrap">
-    <div>
-      <div class="kicker"><span>NEWS · MAKER</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
-      <h1>{loc['h1']}</h1>
-      <div class="demo">
-        <span class="src" id="demoSrc">{loc['pairs'][0][0]}</span>
-        <span class="arrow">→</span>
-        <span class="dst" id="demoDst">{loc['pairs'][0][1]}</span>
+    <div class="hero-grid">
+      <div>
+        <h1>{loc['h1']}</h1>
+
+        <div class="chyron">
+          <div class="chyron-top"><span>{loc['live_label']}</span><span>NEWS·MAKER</span></div>
+          <div class="chyron-body">
+            <span class="src" id="demoSrc">{loc['pairs'][0][0]}</span>
+            <span class="dst" id="demoDst" data-flag="{loc['flag_word']}">{loc['pairs'][0][1]}</span>
+          </div>
+        </div>
+
+        <p class="sub">{loc['sub']}</p>
+        <div class="cta">
+          {badge(loc, 'storeLink')}
+          <span class="note">{loc['note']}</span>
+        </div>
       </div>
-      <p class="sub">{loc['sub']}</p>
-      <div class="cta">
-        {badge(loc, 'storeLink')}
-        <span class="note">{loc['note']}</span>
+      <div class="phone-col">
+        <div class="chip-stack">{chip_stack}</div>
+        <div class="phone"><img src="{rel}assets/shot-1-hero.png" alt="{loc['hero_alt']}"><div class="island"></div></div>
       </div>
-    </div>
-    <div class="phone-col">
-      {chips}
-      <div class="phone"><img src="{rel}assets/shot-1-hero.png" alt="{loc['hero_alt']}"><div class="island"></div></div>
     </div>
   </div>
 </header>
 
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
+<div class="chyron-divider">
+  <div class="wrap inner">
+    <span class="num">01–03</span>
+    <div><h2>{loc['how_h2']}</h2></div>
+  </div>
+</div>
 
 <section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['how_kicker']}</span><span class="rule"></span><span class="num">01–03</span></div>
-    <h2>{loc['how_h2']}</h2>
     <div class="steps">{steps}</div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<div class="chyron-divider">
+  <div class="wrap inner">
+    <span class="num">{loc['conv_num']}</span>
+    <div>
+      <h2>{loc['conv_h2']}</h2>
+      <p class="sub-lede">{loc['conv_lede']}</p>
+    </div>
+  </div>
+</div>
+
+<section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['conv_kicker']}</span><span class="rule"></span><span class="num">{loc['conv_num']}</span></div>
-    <h2>{loc['conv_h2']}</h2>
-    <p class="lede">{loc['conv_lede']}</p>
     <div class="convert-table">{conv}</div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<div class="newspaper-wrap">
   <div class="wrap">
-    <div class="kicker"><span>{loc['styles_kicker']}</span><span class="rule"></span><span class="num">{loc['styles_num']}</span></div>
-    <h2>{loc['styles_h2']}</h2>
-    <p class="lede">{loc['styles_lede']}</p>
-    <div class="providers">{provs}</div>
+    <div class="newspaper">
+      <div class="np-masthead">
+        <div class="kicker-row"><span>{loc['styles_kicker']} · {loc['styles_num']}</span><span>NEWS·MAKER GAZETTE</span></div>
+        <h2>{loc['styles_h2']}</h2>
+        <div class="dateline">{loc['styles_lede']}</div>
+      </div>
+      <div class="np-body">
+        <p class="np-lede">{loc['styles_lede']} {loc['conv_lede']}</p>
+        {np_articles}
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker-num" style="color:#333; opacity:1;"><span>{loc['styles_kicker']}</span><span class="rule" style="background:#999;"></span><span>{loc['styles_num']}</span></div>
+    <p class="style-lede">{loc['theme_lede']}</p>
+    <div class="theme-grid">{theme_cards}</div>
+    <div class="font-grid">{font_cards}</div>
+    <div class="prov">{provs}</div>
   </div>
 </section>
 
+<div class="chyron-divider">
+  <div class="wrap inner">
+    <span class="num">{loc['shots_num']}</span>
+    <div><h2>{loc['shots_h2']}</h2></div>
+  </div>
+</div>
+
 <section class="shots">
   <div class="wrap">
-    <div class="kicker"><span>{loc['shots_kicker']}</span><span class="rule"></span><span class="num">{loc['shots_num']}</span></div>
-    <h2>{loc['shots_h2']}</h2>
     <div class="row">{shots}</div>
   </div>
 </section>
 
+<div class="alert-block">
+  <div class="alert-inner">
+    <div class="alert-siren">🚨</div>
+    <div class="alert-txt">
+      <span class="tag">{loc['alert_tag']}</span>
+      <h3>{alert_title}</h3>
+    </div>
+  </div>
+</div>
+
 <section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['feat_kicker']}</span><span class="rule"></span><span class="num">{loc['feat_num']}</span></div>
-    <h2>{loc['feat_h2']}</h2>
+    <div class="kicker-num" style="color:#333; opacity:1;"><span>{loc['feat_kicker']}</span><span class="rule" style="background:#999;"></span><span>{loc['feat_num']}</span></div>
+    <h2 style="color:var(--ink); font-weight:900; font-size:clamp(24px,3.6vw,36px); margin-bottom:20px;">{feat_h2}</h2>
     <div class="grid6">{feats}</div>
   </div>
 </section>
@@ -306,6 +399,7 @@ def render(key):
   </div>
 </footer>
 
+<script src="/ga.js"></script>
 <script>
   // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
   const APP_STORE_URL = "";

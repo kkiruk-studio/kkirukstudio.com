@@ -180,7 +180,6 @@ def render(key):
     rel = "../" if loc["dir"] else ""
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
 
-    marquee = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
     steps = "".join(
         f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
         for i, (tag, h, p) in enumerate(loc["steps"])
@@ -224,49 +223,46 @@ def render(key):
 </nav>
 
 <header class="hero">
-  <div class="ghost">DB</div>
   <div class="wrap">
-    <div>
-      <div class="kicker"><span>DESK · BREATH</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
-      <h1>{loc['h1']}</h1>
-      <p class="sub">{loc['sub']}</p>
-      <div class="cta">
-        {badge(loc, 'storeLink')}
-        <span class="note">{loc['note']}</span>
-      </div>
+    <div class="kicker">{loc['kicker_num']}</div>
+    <h1>{loc['h1']}</h1>
+
+    <div class="orb-stage">
+      <div class="orb" id="orb"></div>
+      <div class="orb-count" id="orbCount">4</div>
     </div>
-    <div class="hero-visual">
-      <div class="orb-stage">
-        <div class="orb" id="orb"></div>
-        <div class="orb-count" id="orbCount">4</div>
-        <div class="orb-label" id="orbLabel">{loc['orb_in']}</div>
-      </div>
-      <div class="phone-mini">
-        <div class="screen">
-          <div class="island"><span class="mini-orb"></span><span class="mini-timer">25:04</span></div>
-          <div class="clock">9:41</div>
-          <div class="caption">DeskBreath · Box breathing</div>
-        </div>
-      </div>
+    <div class="orb-label" id="orbLabel">{loc['orb_in']}</div>
+
+    <p class="sub">{loc['sub']}</p>
+
+    <div class="cta">
+      {badge(loc, 'storeLink')}
+      <span class="note">{loc['note']}</span>
     </div>
   </div>
 </header>
 
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
+<div class="rule"></div>
 
 <section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['how_kicker']}</span><span class="rule"></span><span class="num">01–03</span></div>
-    <h2>{loc['how_h2']}</h2>
+    <div class="section-head">
+      <div class="kicker">{loc['how_kicker']}</div>
+      <h2>{loc['how_h2']}</h2>
+    </div>
     <div class="steps">{steps}</div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<div class="rule"></div>
+
+<section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['value_kicker']}</span><span class="rule"></span><span class="num">{loc['value_num']}</span></div>
-    <h2>{loc['value_h2']}</h2>
-    <p class="lede">{loc['value_lede']}</p>
+    <div class="section-head">
+      <div class="kicker">{loc['value_kicker']} · {loc['value_num']}</div>
+      <h2>{loc['value_h2']}</h2>
+      <p class="lede">{loc['value_lede']}</p>
+    </div>
     <div class="platform-grid">
       <div class="platform-card">
         <div class="iphone-mock">
@@ -290,21 +286,31 @@ def render(key):
   </div>
 </section>
 
+<div class="rule"></div>
+
 <section class="shots">
   <div class="wrap">
-    <div class="kicker"><span>{loc['shots_kicker']}</span><span class="rule"></span><span class="num">{loc['shots_num']}</span></div>
-    <h2>{loc['shots_h2']}</h2>
+    <div class="section-head">
+      <div class="kicker">{loc['shots_kicker']} · {loc['shots_num']}</div>
+      <h2>{loc['shots_h2']}</h2>
+    </div>
     <div class="row">{shots}</div>
   </div>
 </section>
 
+<div class="rule"></div>
+
 <section>
   <div class="wrap">
-    <div class="kicker"><span>{loc['feat_kicker']}</span><span class="rule"></span><span class="num">{loc['feat_num']}</span></div>
-    <h2>{loc['feat_h2']}</h2>
+    <div class="section-head">
+      <div class="kicker">{loc['feat_kicker']} · {loc['feat_num']}</div>
+      <h2>{loc['feat_h2']}</h2>
+    </div>
     <div class="grid6">{feats}</div>
   </div>
 </section>
+
+<div class="rule"></div>
 
 <section class="final">
   <div class="wrap">
@@ -338,21 +344,24 @@ def render(key):
       for (;;) {{
         // inhale: 4s, scale up, tide color, count 4 -> 0
         orbLabel.textContent = labels.in;
-        orb.style.transition = "transform 4s linear, background-color 4s linear";
-        orb.style.transform = "scale(1.42)";
+        orb.style.transition = "transform 4s linear, background-color 4s linear, box-shadow 4s linear";
+        orb.style.transform = "scale(1.32)";
         orb.style.backgroundColor = "var(--tide)";
+        orb.style.boxShadow = "0 0 120px 20px color-mix(in srgb, var(--tide) 45%, transparent)";
         for (let i = 4; i >= 0; i--) {{ orbCount.textContent = i; if (i > 0) await sleep(1000); }}
 
         // exhale: 6s, scale down, ember color, count 6 -> 0
         orbLabel.textContent = labels.out;
-        orb.style.transition = "transform 6s linear, background-color 6s linear";
+        orb.style.transition = "transform 6s linear, background-color 6s linear, box-shadow 6s linear";
         orb.style.transform = "scale(1)";
         orb.style.backgroundColor = "var(--ember)";
+        orb.style.boxShadow = "0 0 60px 6px color-mix(in srgb, var(--ember) 30%, transparent)";
         for (let i = 6; i >= 0; i--) {{ orbCount.textContent = i; if (i > 0) await sleep(1000); }}
       }}
     }})();
   }}
 </script>
+<script src="/ga.js"></script>
 </body>
 </html>
 """

@@ -29,49 +29,46 @@
 </nav>
 
 <header class="hero">
-  <div class="ghost">DB</div>
   <div class="wrap">
-    <div>
-      <div class="kicker"><span>DESK · BREATH</span><span class="rule"></span><span class="num">呼吸タイマー</span></div>
-      <h1>アプリを閉じても、<br><em>呼吸のリズム</em>は続く。</h1>
-      <p class="sub">オンライン会議と作業の合間、呼吸はつい忘れがちです。デスクブレスはアプリを閉じても、ダイナミックアイランドとメニューバーに静かな呼吸の輪を灯し続けます — 吸う4秒、吐く6秒。猫背が固まる前に、デスクワークが長引く前に、視界の端でリズムを確かめて。</p>
-      <div class="cta">
-        <a class="store-badge soon" id="storeLink" href="javascript:void(0)" aria-disabled="true"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>App Store</small><strong>近日公開</strong></span></a>
-        <span class="note">無料プリセット · IPHONE &amp; MAC · サブスクなし</span>
-      </div>
+    <div class="kicker">呼吸タイマー</div>
+    <h1>アプリを閉じても、<br><em>呼吸のリズム</em>は続く。</h1>
+
+    <div class="orb-stage">
+      <div class="orb" id="orb"></div>
+      <div class="orb-count" id="orbCount">4</div>
     </div>
-    <div class="hero-visual">
-      <div class="orb-stage">
-        <div class="orb" id="orb"></div>
-        <div class="orb-count" id="orbCount">4</div>
-        <div class="orb-label" id="orbLabel">吸う</div>
-      </div>
-      <div class="phone-mini">
-        <div class="screen">
-          <div class="island"><span class="mini-orb"></span><span class="mini-timer">25:04</span></div>
-          <div class="clock">9:41</div>
-          <div class="caption">DeskBreath · Box breathing</div>
-        </div>
-      </div>
+    <div class="orb-label" id="orbLabel">吸う</div>
+
+    <p class="sub">オンライン会議と作業の合間、呼吸はつい忘れがちです。デスクブレスはアプリを閉じても、ダイナミックアイランドとメニューバーに静かな呼吸の輪を灯し続けます — 吸う4秒、吐く6秒。猫背が固まる前に、デスクワークが長引く前に、視界の端でリズムを確かめて。</p>
+
+    <div class="cta">
+      <a class="store-badge soon" id="storeLink" href="javascript:void(0)" aria-disabled="true"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>App Store</small><strong>近日公開</strong></span></a>
+      <span class="note">無料プリセット · IPHONE &amp; MAC · サブスクなし</span>
     </div>
   </div>
 </header>
 
-<div class="marquee" aria-hidden="true"><div class="track"><span>呼吸</span><span>集中</span><span>ストレッチ</span><span>猫背</span><span>リズム</span><span>在宅勤務</span><span>デスクワーク</span><span>回復</span><span>呼吸</span><span>集中</span><span>ストレッチ</span><span>猫背</span><span>リズム</span><span>在宅勤務</span><span>デスクワーク</span><span>回復</span></div></div>
+<div class="rule"></div>
 
 <section>
   <div class="wrap">
-    <div class="kicker"><span>使い方</span><span class="rule"></span><span class="num">01–03</span></div>
-    <h2><em>呼吸の輪</em>があなたを見つける3つの瞬間。</h2>
+    <div class="section-head">
+      <div class="kicker">使い方</div>
+      <h2><em>呼吸の輪</em>があなたを見つける3つの瞬間。</h2>
+    </div>
     <div class="steps"><div class="step"><span class="n">01</span><span class="tag">はじめる</span><h3>リズムを選んで開始</h3><p>ボックス呼吸、4-7-8、または自分だけの秒数設定 — 登録不要でメニューバーやアプリからすぐ無料で始められます。</p></div><div class="step"><span class="n">02</span><span class="tag">見る</span><h3>作業しながら確かめる</h3><p>ダイナミックアイランドやメニューバーで呼吸の輪が動き続けます。スクロールの合間に一度見るだけで呼吸が整います。</p></div><div class="step"><span class="n">03</span><span class="tag">立ち上がる</span><h3>ストレッチ通知で動く</h3><p>30・60・90・120分ごとの通知が、立ち上がって肩を回し、姿勢を整えるタイミングを教えてくれます。</p></div></div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<div class="rule"></div>
+
+<section>
   <div class="wrap">
-    <div class="kicker"><span>起動し続ける</span><span class="rule"></span><span class="num">アプリを閉じても</span></div>
-    <h2>アプリを閉じても、<br><em>リズム</em>は止まらない。</h2>
-    <p class="lede">猫背やこりは、アプリを開き直すまで待ってくれません。デスクブレスはロック画面でも、メニューバーでも呼吸の輪を灯し続けます。</p>
+    <div class="section-head">
+      <div class="kicker">起動し続ける · アプリを閉じても</div>
+      <h2>アプリを閉じても、<br><em>リズム</em>は止まらない。</h2>
+      <p class="lede">猫背やこりは、アプリを開き直すまで待ってくれません。デスクブレスはロック画面でも、メニューバーでも呼吸の輪を灯し続けます。</p>
+    </div>
     <div class="platform-grid">
       <div class="platform-card">
         <div class="iphone-mock">
@@ -95,21 +92,31 @@
   </div>
 </section>
 
+<div class="rule"></div>
+
 <section class="shots">
   <div class="wrap">
-    <div class="kicker"><span>画面</span><span class="rule"></span><span class="num">IOS 17+ · MACOS 14+</span></div>
-    <h2>仕事の合間に使う道具、<em>デモではなく</em>。</h2>
+    <div class="section-head">
+      <div class="kicker">画面 · IOS 17+ · MACOS 14+</div>
+      <h2>仕事の合間に使う道具、<em>デモではなく</em>。</h2>
+    </div>
     <div class="row"><figure><div class="phone-frame"><img src="../assets/shot-ja-01-main-active.png" alt="呼吸セッション実行中" loading="lazy"><div class="island"></div></div><figcaption>呼吸セッション実行中</figcaption></figure><figure><div class="phone-frame"><img src="../assets/shot-ja-02-settings.png" alt="リズム · プリセット設定" loading="lazy"><div class="island"></div></div><figcaption>リズム · プリセット設定</figcaption></figure><figure><div class="phone-frame"><img src="../assets/shot-ja-03-stats.png" alt="週間統計 · ストリーク" loading="lazy"><div class="island"></div></div><figcaption>週間統計 · ストリーク</figcaption></figure></div>
   </div>
 </section>
 
+<div class="rule"></div>
+
 <section>
   <div class="wrap">
-    <div class="kicker"><span>こだわり</span><span class="rule"></span><span class="num">06</span></div>
-    <h2>小さなアプリ、<em>明確な選択</em>。</h2>
+    <div class="section-head">
+      <div class="kicker">こだわり · 06</div>
+      <h2>小さなアプリ、<em>明確な選択</em>。</h2>
+    </div>
     <div class="grid6"><div class="feat"><h3>ボックス呼吸 · プリセット</h3><p>4-4-4-4 ボックス呼吸、4-7-8 など — 無料で内蔵、ワンタップですぐ始められます。</p></div><div class="feat"><h3>リズムのカスタム · ハプティック</h3><p>吸う・吐く秒数を自分で設定し、切り替わるたびにハプティックで感じられます — 無料。</p></div><div class="feat"><h3>色・画像で着せ替え <span class='pro-chip'>PRO</span></h3><p>呼吸の輪の色を変え、好きな画像を入れ、カウントの向きも自分好みに反転できます。</p></div><div class="feat"><h3>週間統計 · ストリーク <span class='pro-chip'>PRO</span></h3><p>今週実際に終えたセッション数を確認し、ストリークをつなげましょう。</p></div><div class="feat"><h3>ストレッチ通知</h3><p>30・60・90・120分ごとに、立ち上がってストレッチし、姿勢を整える通知。</p></div><div class="feat"><h3>買い切り、サブスクなし</h3><p>Pro は一度きりの買い切り。毎月引き落とされる料金はありません。</p></div></div>
   </div>
 </section>
+
+<div class="rule"></div>
 
 <section class="final">
   <div class="wrap">
@@ -143,20 +150,23 @@
       for (;;) {
         // inhale: 4s, scale up, tide color, count 4 -> 0
         orbLabel.textContent = labels.in;
-        orb.style.transition = "transform 4s linear, background-color 4s linear";
-        orb.style.transform = "scale(1.42)";
+        orb.style.transition = "transform 4s linear, background-color 4s linear, box-shadow 4s linear";
+        orb.style.transform = "scale(1.32)";
         orb.style.backgroundColor = "var(--tide)";
+        orb.style.boxShadow = "0 0 120px 20px color-mix(in srgb, var(--tide) 45%, transparent)";
         for (let i = 4; i >= 0; i--) { orbCount.textContent = i; if (i > 0) await sleep(1000); }
 
         // exhale: 6s, scale down, ember color, count 6 -> 0
         orbLabel.textContent = labels.out;
-        orb.style.transition = "transform 6s linear, background-color 6s linear";
+        orb.style.transition = "transform 6s linear, background-color 6s linear, box-shadow 6s linear";
         orb.style.transform = "scale(1)";
         orb.style.backgroundColor = "var(--ember)";
+        orb.style.boxShadow = "0 0 60px 6px color-mix(in srgb, var(--ember) 30%, transparent)";
         for (let i = 6; i >= 0; i--) { orbCount.textContent = i; if (i > 0) await sleep(1000); }
       }
     })();
   }
 </script>
+<script src="/ga.js"></script>
 </body>
 </html>
