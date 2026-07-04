@@ -330,17 +330,12 @@ def render(key):
         <h2>{loc['styles_h2']}</h2>
         <div class="dateline">{loc['styles_lede']}</div>
       </div>
-      <div class="np-body">
-        <p class="np-lede">{loc['styles_lede']} {loc['conv_lede']}</p>
-        {np_articles}
-      </div>
     </div>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="kicker-num" style="color:#333; opacity:1;"><span>{loc['styles_kicker']}</span><span class="rule" style="background:#999;"></span><span>{loc['styles_num']}</span></div>
     <p class="style-lede">{loc['theme_lede']}</p>
     <div class="theme-grid">{theme_cards}</div>
     <div class="font-grid">{font_cards}</div>
