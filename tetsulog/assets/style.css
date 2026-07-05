@@ -16,6 +16,9 @@
   --line-sky: #00b2e5;
   --line-red: var(--accent);
   --line-gray: rgba(28,26,23,.22);
+  --yamanote-green: #9ACD32; /* JR山手線 公式グリーン — ヒーロー路線図専用 */
+  --rail-keihin: #00B4E3;    /* 京浜東北線 公式スカイブルー — ヒーロー路線図専用 */
+  --rail-sobu: #FFD400;      /* 総武線 公式イエロー — ヒーロー路線図専用 */
 }
 * { box-sizing: border-box; margin: 0; }
 html { scroll-behavior: smooth; }
@@ -84,33 +87,69 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 .store-badge .txt strong { font-size: 16px; font-weight: 700; letter-spacing: .01em; }
 .cta .note { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; color: var(--ink3); }
 
-/* ---------- hero rail map demo ---------- */
+/* ---------- station-sign title card (駅名標) ---------- */
+.ekimeihyo {
+  display: inline-block; background: #fff; border-radius: 6px; overflow: hidden;
+  box-shadow: 0 20px 40px rgba(28,26,23,.1); border: 1px solid var(--rule);
+}
+.ekimeihyo .bar { height: 7px; background: linear-gradient(90deg, var(--line-red), var(--line-gold, #f6b338) 25%, var(--line-green) 50%, var(--line-sky) 75%, var(--line-orange)); }
+.ekimeihyo .body { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 22px; }
+.ekimeihyo .arrow { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: .1em; white-space: nowrap; }
+.ekimeihyo .adj { display: flex; align-items: center; gap: 8px; flex: none; }
+.ekimeihyo .adj-next { justify-content: flex-end; }
+.ekimeihyo .roundel {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--yamanote-green);
+  color: var(--yamanote-green); font-family: var(--mincho); font-weight: 700; font-size: 12px;
+}
+.ekimeihyo .name { text-align: center; flex: 1; }
+.ekimeihyo .name .jp { font-family: var(--mincho); font-weight: 700; font-size: 26px; color: var(--ink); letter-spacing: .06em; }
+.ekimeihyo .name .en { display: block; margin-top: 2px; font-family: var(--mono); font-size: 10px; letter-spacing: .22em; color: var(--ink3); text-transform: uppercase; }
+
+/* ---------- hero rail map (real Yamanote map) ---------- */
 .railmap-col { position: relative; }
 .railmap {
   position: relative; background: #fff; border: 1px solid var(--rule);
-  border-radius: 22px; padding: 22px; box-shadow: 0 30px 60px rgba(28,26,23,.1);
+  border-radius: 22px; padding: 20px; box-shadow: 0 30px 60px rgba(28,26,23,.1); overflow: hidden;
 }
-.railmap svg { width: 100%; height: auto; display: block; }
-.rail-base { fill: none; stroke: var(--line-gray); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
-.rail-color { fill: none; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; }
-.rail-color.c-loop { stroke: var(--line-green); animation: draw-loop 13s ease-in-out infinite; }
-.rail-color.c-r1 { stroke: var(--line-orange); animation: draw-r1 13s ease-in-out infinite; }
-.rail-color.c-r2 { stroke: var(--line-sky); animation: draw-r2 13s ease-in-out infinite; }
-.rail-color.c-r3 { stroke: var(--line-red); animation: draw-r3 13s ease-in-out infinite; }
-.dot { fill: var(--line-gray); }
-.dot.loop { animation: dot-loop 13s ease-in-out infinite; }
-.dot.r1 { animation: dot-r1 13s ease-in-out infinite; }
-.dot.r2 { animation: dot-r2 13s ease-in-out infinite; }
-.dot.r3 { animation: dot-r3 13s ease-in-out infinite; }
+.railmap-underlay {
+  position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: 50% 46%;
+  filter: brightness(1.02);
+  opacity: .92;
+}
+.railmap svg { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
+.rail-casing { fill: none; stroke: #fff; stroke-opacity: .95; stroke-width: 44; stroke-linecap: round; stroke-linejoin: round; }
+.rail-base { fill: none; stroke: var(--line-gray); stroke-width: 20; stroke-linecap: round; stroke-linejoin: round; }
+.rail-color { fill: none; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; stroke-dashoffset: 0; }
+.rail-color.c-loop { stroke: var(--yamanote-green); stroke-dashoffset: 100; animation: draw-loop 2.6s ease-out .3s forwards; }
+/* branch lines (中央線・京浜東北線・総武線): thinner than the loop, same dasharray/dashoffset
+   draw-on mechanic, staggered so each line lights up strictly after the previous one finishes. */
+.rail-branch-casing { fill: none; stroke: #fff; stroke-opacity: .95; stroke-width: 26; stroke-linecap: round; stroke-linejoin: round; }
+.rail-branch-base { fill: none; stroke: var(--line-gray); stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+.rail-color.c-chuo { stroke: var(--line-orange); stroke-width: 12; stroke-dashoffset: 100; animation: draw-loop 1.2s ease-out 2.9s forwards; }
+.rail-color.c-keihin { stroke: var(--rail-keihin); stroke-width: 12; stroke-dashoffset: 100; animation: draw-loop 1.4s ease-out 4.1s forwards; }
+.rail-color.c-sobu { stroke: var(--rail-sobu); stroke-width: 12; stroke-dashoffset: 100; animation: draw-loop 1s ease-out 5.5s forwards; }
+.dot { fill: var(--yamanote-green); stroke: #fff; stroke-width: 3.5; }
+.dot.loop { fill: var(--line-gray); animation: dot-loop 2.6s ease-out .3s forwards; }
+.dot.major { stroke: #fff; stroke-width: 5; }
+.dot.major.loop { fill: var(--line-gray); animation: dot-loop 2.6s ease-out .3s forwards; }
+.eki-label { font-family: var(--mincho); font-weight: 700; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 7px; stroke-linejoin: round; }
+@keyframes draw-loop { 0%{stroke-dashoffset:100} 100%{stroke-dashoffset:0} }
+@keyframes dot-loop { 0%{fill:var(--line-gray)} 55%{fill:var(--line-gray)} 100%{fill:var(--yamanote-green)} }
 
-@keyframes draw-loop { 0%{stroke-dashoffset:100} 18%{stroke-dashoffset:0} 90%{stroke-dashoffset:0} 96%{stroke-dashoffset:100} 100%{stroke-dashoffset:100} }
-@keyframes draw-r1   { 0%{stroke-dashoffset:100} 18%{stroke-dashoffset:100} 32%{stroke-dashoffset:0} 90%{stroke-dashoffset:0} 96%{stroke-dashoffset:100} 100%{stroke-dashoffset:100} }
-@keyframes draw-r2   { 0%{stroke-dashoffset:100} 32%{stroke-dashoffset:100} 46%{stroke-dashoffset:0} 90%{stroke-dashoffset:0} 96%{stroke-dashoffset:100} 100%{stroke-dashoffset:100} }
-@keyframes draw-r3   { 0%{stroke-dashoffset:100} 46%{stroke-dashoffset:100} 60%{stroke-dashoffset:0} 90%{stroke-dashoffset:0} 96%{stroke-dashoffset:100} 100%{stroke-dashoffset:100} }
-@keyframes dot-loop { 0%{fill:var(--line-gray)} 16%{fill:var(--line-gray)} 19%{fill:var(--line-green)} 90%{fill:var(--line-green)} 96%{fill:var(--line-gray)} 100%{fill:var(--line-gray)} }
-@keyframes dot-r1   { 0%{fill:var(--line-gray)} 30%{fill:var(--line-gray)} 33%{fill:var(--line-orange)} 90%{fill:var(--line-orange)} 96%{fill:var(--line-gray)} 100%{fill:var(--line-gray)} }
-@keyframes dot-r2   { 0%{fill:var(--line-gray)} 44%{fill:var(--line-gray)} 47%{fill:var(--line-sky)} 90%{fill:var(--line-sky)} 96%{fill:var(--line-gray)} 100%{fill:var(--line-gray)} }
-@keyframes dot-r3   { 0%{fill:var(--line-gray)} 58%{fill:var(--line-gray)} 61%{fill:var(--line-red)} 90%{fill:var(--line-red)} 96%{fill:var(--line-gray)} 100%{fill:var(--line-gray)} }
+/* stamp motif (完乗) */
+.stamp {
+  position: absolute; z-index: 2; right: 20px; bottom: 20px;
+  width: 108px; height: 108px; border-radius: 50%;
+  border: 3.5px solid var(--accent); color: var(--accent); display: flex; align-items: center; justify-content: center;
+  transform: rotate(-14deg); opacity: .9; font-family: var(--mincho); pointer-events: none;
+  background: radial-gradient(circle, rgba(245,242,235,.82), rgba(245,242,235,.5) 70%);
+}
+.stamp::before {
+  content: ""; position: absolute; inset: 7px; border: 1px solid var(--accent); border-radius: 50%; opacity: .6;
+}
+.stamp span { font-size: 24px; font-weight: 700; letter-spacing: .1em; }
 
 .railmap-caption {
   display: flex; justify-content: space-between; align-items: center;
@@ -119,18 +158,13 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 .railmap-legend { display: flex; gap: 12px; flex-wrap: wrap; }
 .railmap-legend span { display: inline-flex; align-items: center; gap: 5px; }
 .railmap-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-.railmap-legend i.g { background: var(--line-green); }
-.railmap-legend i.o { background: var(--line-orange); }
-.railmap-legend i.s { background: var(--line-sky); }
-.railmap-legend i.r { background: var(--line-red); }
+.railmap-legend i.g { background: var(--yamanote-green); }
+.railmap-credit { margin-top: 8px; font-family: var(--mono); font-size: 9px; letter-spacing: .05em; color: var(--ink3); text-align: right; }
 
 @media (prefers-reduced-motion: reduce) {
   .rail-color, .dot { animation: none !important; }
   .rail-color { stroke-dashoffset: 0 !important; }
-  .dot.loop { fill: var(--line-green) !important; }
-  .dot.r1 { fill: var(--line-orange) !important; }
-  .dot.r2 { fill: var(--line-sky) !important; }
-  .dot.r3 { fill: var(--line-red) !important; }
+  .dot.loop, .dot.major.loop { fill: var(--yamanote-green) !important; }
 }
 
 /* ---------- marquee ---------- */
@@ -217,4 +251,9 @@ footer a:hover { color: #fff; }
   section { padding: 60px 0; }
   .wordmark span { display: none; }
   .value .ghost { font-size: clamp(100px, 40vw, 200px); right: -10px; }
+  .ekimeihyo .body { padding: 10px 14px; gap: 10px; }
+  .ekimeihyo .name .jp { font-size: 20px; }
+  .ekimeihyo .arrow { font-size: 9px; }
+  .railmap .stamp { width: 82px; height: 82px; right: 14px; bottom: 14px; }
+  .railmap .stamp span { font-size: 18px; }
 }

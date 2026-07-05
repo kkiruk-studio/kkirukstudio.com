@@ -25,27 +25,68 @@ MARQUEE_ITEMS = [
     ("完乗", True), ("駅スタンプ", True), ("乗りつぶし", True),
 ]
 
-RAILMAP_SVG = """<svg viewBox="0 20 400 400" aria-hidden="true">
-  <polyline class="rail-base" points="200,70 260,90 296,140 300,220 268,286 200,318 132,286 100,220 104,140 140,90 200,70"/>
-  <polyline class="rail-color c-loop" pathLength="100" points="200,70 260,90 296,140 300,220 268,286 200,318 132,286 100,220 104,140 140,90 200,70"/>
-  <polyline class="rail-base" points="296,140 355,105 388,50"/>
-  <polyline class="rail-color c-r1" pathLength="100" points="296,140 355,105 388,50"/>
-  <polyline class="rail-base" points="100,220 42,258 14,320"/>
-  <polyline class="rail-color c-r2" pathLength="100" points="100,220 42,258 14,320"/>
-  <polyline class="rail-base" points="200,318 199,360 194,398"/>
-  <polyline class="rail-color c-r3" pathLength="100" points="200,318 199,360 194,398"/>
-  <circle class="dot loop" cx="200" cy="70"  r="5"/>
-  <circle class="dot loop" cx="296" cy="140" r="5"/>
-  <circle class="dot loop" cx="268" cy="286" r="5"/>
-  <circle class="dot loop" cx="200" cy="318" r="5"/>
-  <circle class="dot loop" cx="104" cy="140" r="5"/>
-  <circle class="dot loop" cx="132" cy="286" r="5"/>
-  <circle class="dot r1" cx="355" cy="105" r="5"/>
-  <circle class="dot r1" cx="388" cy="50"  r="5"/>
-  <circle class="dot r2" cx="42"  cy="258" r="5"/>
-  <circle class="dot r2" cx="14"  cy="320" r="5"/>
-  <circle class="dot r3" cx="199" cy="360" r="5"/>
-  <circle class="dot r3" cx="194" cy="398" r="5"/>
+# 山手線30駅を実際の経緯度からWebメルカトル図法で投影（z=14, タイル原点 x0=14549 y0=6448）。
+# 背景地図（assets/yamanote-map.png, 1280x2048px）と1px単位で一致するviewBox。
+# 分岐路線（中央線・京浜東北線・総武線）は同じ座標系上に実在駅を起点として延伸。
+# viewBox/座標はデザイン確定案（drafts/railmap.html）と完全に一致させ、変更しないこと。
+OSM_CREDIT = "© OpenStreetMap contributors"
+RAILMAP_SVG = """<svg viewBox="0 0 1280 2048" aria-hidden="true">
+  <path class="rail-casing" d="M1012.7,937.2 966.1,1027.5 910.2,1146.6 898.6,1308.6 785.5,1446.3 702.8,1589.6 681.9,1692.8 561.9,1819.0 502.4,1725.8 412.7,1615.4 348.6,1431.9 249.6,1269.9 262.4,1095.0 255.4,908.5 235.6,816.7 231.0,653.2 275.2,486.7 303.2,361.9 358.0,244.2 563.0,212.6 686.5,191.1 777.4,143.7 940.5,120.8 1009.2,205.4 1057.0,268.6 1147.9,364.7 1130.4,465.2 1099.0,559.9 1090.8,690.5 1055.8,786.6 Z"/>
+  <path class="rail-base" d="M1012.7,937.2 966.1,1027.5 910.2,1146.6 898.6,1308.6 785.5,1446.3 702.8,1589.6 681.9,1692.8 561.9,1819.0 502.4,1725.8 412.7,1615.4 348.6,1431.9 249.6,1269.9 262.4,1095.0 255.4,908.5 235.6,816.7 231.0,653.2 275.2,486.7 303.2,361.9 358.0,244.2 563.0,212.6 686.5,191.1 777.4,143.7 940.5,120.8 1009.2,205.4 1057.0,268.6 1147.9,364.7 1130.4,465.2 1099.0,559.9 1090.8,690.5 1055.8,786.6 Z"/>
+  <path class="rail-color c-loop" pathLength="100" d="M1012.7,937.2 966.1,1027.5 910.2,1146.6 898.6,1308.6 785.5,1446.3 702.8,1589.6 681.9,1692.8 561.9,1819.0 502.4,1725.8 412.7,1615.4 348.6,1431.9 249.6,1269.9 262.4,1095.0 255.4,908.5 235.6,816.7 231.0,653.2 275.2,486.7 303.2,361.9 358.0,244.2 563.0,212.6 686.5,191.1 777.4,143.7 940.5,120.8 1009.2,205.4 1057.0,268.6 1147.9,364.7 1130.4,465.2 1099.0,559.9 1090.8,690.5 1055.8,786.6 Z"/>
+
+  <path class="rail-branch-casing" d="M235.6,816.7 150,798 70,782 0,768"/>
+  <path class="rail-branch-base" d="M235.6,816.7 150,798 70,782 0,768"/>
+  <path class="rail-color c-chuo" pathLength="100" d="M235.6,816.7 150,798 70,782 0,768"/>
+
+  <path class="rail-branch-casing" d="M1130.4,465.2 1155,320 1185,160 1210,20"/>
+  <path class="rail-branch-base" d="M1130.4,465.2 1155,320 1185,160 1210,20"/>
+  <path class="rail-color c-keihin" pathLength="100" d="M1130.4,465.2 1155,320 1185,160 1210,20"/>
+  <path class="rail-branch-casing" d="M681.9,1692.8 600,1830 520,1950 430,2048"/>
+  <path class="rail-branch-base" d="M681.9,1692.8 600,1830 520,1950 430,2048"/>
+  <path class="rail-color c-keihin" pathLength="100" d="M681.9,1692.8 600,1830 520,1950 430,2048"/>
+
+  <path class="rail-branch-casing" d="M1090.8,690.5 1180,705 1250,725 1280,735"/>
+  <path class="rail-branch-base" d="M1090.8,690.5 1180,705 1250,725 1280,735"/>
+  <path class="rail-color c-sobu" pathLength="100" d="M1090.8,690.5 1180,705 1250,725 1280,735"/>
+
+  <circle class="dot major loop" cx="1012.7" cy="937.2" r="16"/>
+  <circle class="dot loop" cx="966.1" cy="1027.5" r="11"/>
+  <circle class="dot loop" cx="910.2" cy="1146.6" r="11"/>
+  <circle class="dot loop" cx="898.6" cy="1308.6" r="11"/>
+  <circle class="dot loop" cx="785.5" cy="1446.3" r="11"/>
+  <circle class="dot loop" cx="702.8" cy="1589.6" r="11"/>
+  <circle class="dot major loop" cx="681.9" cy="1692.8" r="16"/>
+  <circle class="dot loop" cx="561.9" cy="1819.0" r="11"/>
+  <circle class="dot loop" cx="502.4" cy="1725.8" r="11"/>
+  <circle class="dot loop" cx="412.7" cy="1615.4" r="11"/>
+  <circle class="dot loop" cx="348.6" cy="1431.9" r="11"/>
+  <circle class="dot major loop" cx="249.6" cy="1269.9" r="16"/>
+  <circle class="dot loop" cx="262.4" cy="1095.0" r="11"/>
+  <circle class="dot loop" cx="255.4" cy="908.5" r="11"/>
+  <circle class="dot major loop" cx="235.6" cy="816.7" r="16"/>
+  <circle class="dot loop" cx="231.0" cy="653.2" r="11"/>
+  <circle class="dot loop" cx="275.2" cy="486.7" r="11"/>
+  <circle class="dot loop" cx="303.2" cy="361.9" r="11"/>
+  <circle class="dot major loop" cx="358.0" cy="244.2" r="16"/>
+  <circle class="dot loop" cx="563.0" cy="212.6" r="11"/>
+  <circle class="dot loop" cx="686.5" cy="191.1" r="11"/>
+  <circle class="dot loop" cx="777.4" cy="143.7" r="11"/>
+  <circle class="dot loop" cx="940.5" cy="120.8" r="11"/>
+  <circle class="dot loop" cx="1009.2" cy="205.4" r="11"/>
+  <circle class="dot loop" cx="1057.0" cy="268.6" r="11"/>
+  <circle class="dot loop" cx="1147.9" cy="364.7" r="11"/>
+  <circle class="dot major loop" cx="1130.4" cy="465.2" r="16"/>
+  <circle class="dot loop" cx="1099.0" cy="559.9" r="11"/>
+  <circle class="dot loop" cx="1090.8" cy="690.5" r="11"/>
+  <circle class="dot loop" cx="1055.8" cy="786.6" r="11"/>
+
+  <text class="eki-label" x="1032" y="930" text-anchor="start" font-size="46">東京</text>
+  <text class="eki-label" x="212" y="810" text-anchor="end" font-size="46">新宿</text>
+  <text class="eki-label" x="228" y="1290" text-anchor="end" font-size="46">渋谷</text>
+  <text class="eki-label" x="338" y="230" text-anchor="end" font-size="46">池袋</text>
+  <text class="eki-label" x="1150" y="450" text-anchor="start" font-size="46">上野</text>
+  <text class="eki-label" x="681.9" y="1740" text-anchor="middle" font-size="46">品川</text>
 </svg>"""
 
 LOCALES = {
@@ -268,7 +309,14 @@ def render(key):
 <header class="hero">
   <div class="wrap">
     <div>
-      {kicker(loc['kicker_word'], loc['kicker_num'])}
+      <div class="ekimeihyo">
+        <div class="bar"></div>
+        <div class="body">
+          <div class="adj adj-prev"><span class="roundel">鉄</span><span class="arrow">← {loc['kicker_word']}</span></div>
+          <div class="name"><span class="jp">{loc['brand']}</span><span class="en">TETSULOG</span></div>
+          <div class="adj adj-next"><span class="arrow">{loc['kicker_num']} →</span></div>
+        </div>
+      </div>
       <h1>{loc['h1']}</h1>
       <p class="sub">{loc['sub']}</p>
       <div class="cta">
@@ -278,14 +326,15 @@ def render(key):
     </div>
     <div class="railmap-col">
       <div class="railmap">
+        <div class="railmap-underlay" aria-hidden="true" style="background-image:url('{rel}assets/yamanote-map.png')"></div>
         {RAILMAP_SVG}
+        <div class="stamp"><span>完乗</span></div>
       </div>
       <div class="railmap-caption">
         <span>{loc['railmap_caption']}</span>
-        <span class="railmap-legend">
-          <span><i class="g"></i></span><span><i class="o"></i></span><span><i class="s"></i></span><span><i class="r"></i></span>
-        </span>
+        <span class="railmap-legend"><span><i class="g"></i></span></span>
       </div>
+      <div class="railmap-credit">{OSM_CREDIT}</div>
     </div>
   </div>
 </header>
