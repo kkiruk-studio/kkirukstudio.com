@@ -75,7 +75,7 @@ LOCALES = {
         ],
         "final_h2": "Make today's breaking news.", "final_lede": "Free on iPhone.",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
-        "flag_word": "BREAKING", "live_label": "LIVE · BROADCAST", "alert_tag": "EMERGENCY ALERT",
+        "flag_word": "BREAKING", "live_label": "LIVE · BROADCAST",
         "theme_lede": "Preview all 14 card themes like real news screens, then pick the font that matches your mood.",
         "theme_cards": [
             ["BREAKING", "BREAKING", "BREAKING: Meeting canceled"],
@@ -145,7 +145,7 @@ LOCALES = {
         ],
         "final_h2": "오늘의 속보를 만들어보세요.", "final_lede": "아이폰 무료.",
         "f_contact": "문의", "f_privacy": "개인정보 처리방침", "f_terms": "이용약관",
-        "flag_word": "속보", "live_label": "LIVE · 생중계", "alert_tag": "긴급재난문자",
+        "flag_word": "속보", "live_label": "LIVE · 생중계",
         "theme_lede": "14가지 카드 테마를 실제 뉴스 화면처럼 미리 보고, 나에게 맞는 폰트를 골라보세요.",
         "theme_cards": [
             ["속보", "BREAKING", "속보: 회의 전격 취소"],
@@ -224,7 +224,6 @@ def render(key):
     )
     feats = "".join(f'<div class="feat"><h3>{h}</h3><p>{p}</p></div>' for h, p in loc["feats"])
     feat_h2 = loc["feat_h2"].replace("<em>", '<em style="color:var(--red); font-style:normal;">')
-    alert_title = f'{loc["feats"][5][0]} — {loc["feats"][5][1]}'
     pairs_json = json.dumps(loc["pairs"], ensure_ascii=False)
 
     html = f"""<!doctype html>
@@ -355,16 +354,6 @@ def render(key):
     <div class="row">{shots}</div>
   </div>
 </section>
-
-<div class="alert-block">
-  <div class="alert-inner">
-    <div class="alert-siren">🚨</div>
-    <div class="alert-txt">
-      <span class="tag">{loc['alert_tag']}</span>
-      <h3>{alert_title}</h3>
-    </div>
-  </div>
-</div>
 
 <section>
   <div class="wrap">
