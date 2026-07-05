@@ -17,7 +17,7 @@ body {
   background: var(--paper);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  font-weight: 400;
+  font-weight: 500;
 }
 a { color: inherit; }
 img { display: block; max-width: 100%; }
@@ -49,7 +49,7 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 .hero { padding: 120px 0 90px; text-align: center; }
 .hero h1 {
   margin: 34px auto 0; max-width: 15em;
-  font-size: clamp(28px, 4.4vw, 46px); font-weight: 300; line-height: 1.4;
+  font-size: clamp(28px, 4.4vw, 46px); font-weight: 400; line-height: 1.4;
   letter-spacing: -0.01em; word-break: keep-all; overflow-wrap: break-word;
 }
 .hero h1 em { font-style: normal; font-weight: 500; color: var(--tide); }
@@ -76,7 +76,7 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 }
 
 .hero .sub {
-  margin: 56px auto 0; max-width: 34em; font-size: 16px; font-weight: 400; color: var(--muted);
+  margin: 56px auto 0; max-width: 34em; font-size: 16px; font-weight: 500; color: var(--muted);
   word-break: keep-all; overflow-wrap: break-word;
 }
 
@@ -101,11 +101,11 @@ section { padding: 120px 0; }
 .section-head { text-align: center; max-width: 40em; margin: 0 auto 72px; }
 .section-head .kicker { margin-bottom: 22px; }
 section h2 {
-  font-size: clamp(24px, 3vw, 32px); font-weight: 300; letter-spacing: -0.01em;
+  font-size: clamp(24px, 3vw, 32px); font-weight: 400; letter-spacing: -0.01em;
   line-height: 1.5; word-break: keep-all; overflow-wrap: break-word;
 }
 section h2 em { font-style: normal; font-weight: 500; }
-section .lede { color: var(--muted); font-size: 15.5px; margin-top: 18px; font-weight: 400; word-break: keep-all; overflow-wrap: break-word; }
+section .lede { color: var(--muted); font-size: 15.5px; margin-top: 18px; font-weight: 500; word-break: keep-all; overflow-wrap: break-word; }
 
 /* ---------- how it works ---------- */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
@@ -115,47 +115,31 @@ section .lede { color: var(--muted); font-size: 15.5px; margin-top: 18px; font-w
 .step:nth-child(2) .tag { color: var(--ember); }
 .step:nth-child(3) .tag { color: var(--tide); }
 .step h3 { font-size: 17px; font-weight: 500; margin-bottom: 10px; }
-.step p { color: var(--muted); font-size: 14.5px; font-weight: 400; word-break: keep-all; overflow-wrap: break-word; }
+.step p { color: var(--muted); font-size: 14.5px; font-weight: 500; word-break: keep-all; overflow-wrap: break-word; }
 
 /* ---------- value: iphone / mac ---------- */
 .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .platform-card { min-width: 0; border: 1px solid var(--line); border-radius: 18px; padding: 36px; background: var(--paper-2); text-align: center; }
 .platform-card .tag { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: .28em; color: var(--muted); }
 .platform-card h3 { font-size: 18px; font-weight: 500; margin: 16px 0 12px; }
-.platform-card p { color: var(--muted); font-size: 14.5px; font-weight: 400; word-break: keep-all; overflow-wrap: break-word; }
+.platform-card p { color: var(--muted); font-size: 14.5px; font-weight: 500; word-break: keep-all; overflow-wrap: break-word; }
 
-.iphone-mock {
-  width: 132px; height: 124px; margin: 0 auto 26px; border-radius: 24px; position: relative;
-  background: linear-gradient(180deg, #16191f, #0a0c10); overflow: hidden; border: 1px solid var(--line);
+.device-shot {
+  margin: 0 auto 26px; border-radius: 22px; overflow: hidden; border: 1px solid var(--line);
+  background: #0a0c10;
 }
-.iphone-mock .island {
-  position: absolute; top: 13px; left: 50%; transform: translateX(-50%);
-  display: flex; align-items: center; gap: 5px; background: #000; border-radius: 16px; padding: 5px 10px;
-}
-.iphone-mock .mini-orb {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.5), transparent 55%), var(--ember);
-}
-.iphone-mock .mini-timer { font-family: var(--mono); font-size: 8.5px; color: #fff; font-weight: 500; }
-.iphone-mock .lock-time { position: absolute; top: 52px; left: 0; right: 0; text-align: center; color: rgba(255,255,255,.85); font-size: 22px; font-weight: 200; }
+.device-shot.iphone { width: 100%; max-width: 168px; }
+.device-shot.mac { width: 100%; max-width: none; border-radius: 12px; }
+.device-shot img { width: 100%; height: auto; display: block; }
 
-.mac-mock {
-  width: 100%; height: 124px; margin-bottom: 26px; position: relative; border-radius: 12px;
-  background: linear-gradient(180deg, #14171c, #0c0e12); overflow: hidden; border: 1px solid var(--line);
+/* ---------- mac highlight section ---------- */
+.mac-highlight .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: start; }
+.mac-highlight figure { min-width: 0; }
+.mac-highlight .frame {
+  border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #0a0c10;
 }
-.mac-mock .menubar { height: 24px; background: rgba(0,0,0,.5); display: flex; align-items: center; justify-content: flex-end; gap: 7px; padding: 0 12px; border-bottom: 1px solid var(--line); }
-.mac-mock .menubar .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.25); }
-.mac-mock .menubar .menu-orb {
-  width: 11px; height: 11px; border-radius: 50%; margin-left: 3px;
-  background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.5), transparent 55%), var(--tide);
-}
-.mac-mock .floating {
-  position: absolute; right: 16px; bottom: 16px; width: 38px; height: 38px; border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.4), transparent 55%), var(--ember);
-  animation: floatPulse 6s ease-in-out infinite;
-}
-@keyframes floatPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
-@media (prefers-reduced-motion: reduce) { .mac-mock .floating { animation: none; } }
+.mac-highlight .frame img { width: 100%; height: auto; display: block; }
+.mac-highlight figcaption { text-align: center; margin-top: 18px; font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: .16em; color: var(--muted); }
 
 /* ---------- screenshots ---------- */
 .shots .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: start; }
@@ -175,7 +159,7 @@ section .lede { color: var(--muted); font-size: 15.5px; margin-top: 18px; font-w
 .grid6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
 .feat { min-width: 0; background: var(--paper); padding: 30px 28px; }
 .feat h3 { font-size: 15.5px; font-weight: 500; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-.feat p { color: var(--muted); font-size: 13.5px; font-weight: 400; word-break: keep-all; overflow-wrap: break-word; }
+.feat p { color: var(--muted); font-size: 13.5px; font-weight: 500; word-break: keep-all; overflow-wrap: break-word; }
 .pro-chip {
   font-family: var(--mono); font-size: 9px; font-weight: 500; letter-spacing: .1em;
   color: var(--paper); background: var(--ember); border-radius: 5px; padding: 2px 6px; flex: none;
@@ -200,7 +184,7 @@ footer a:hover { color: var(--text); }
   .orb-stage { width: 190px; height: 190px; margin: 56px auto 20px; }
   .orb-count { font-size: 36px; }
   section { padding: 80px 0; }
-  .steps, .platform-grid, .grid6, .shots .row { grid-template-columns: 1fr; }
+  .steps, .platform-grid, .grid6, .shots .row, .mac-highlight .row { grid-template-columns: 1fr; }
   .steps, .grid6 { border-radius: 14px; }
   .shots figure:nth-child(2) { transform: none; }
   .wordmark span { display: none; }

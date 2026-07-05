@@ -61,6 +61,10 @@ LOCALES = {
         ],
         "final_h2": "Give your breath a rhythm.", "final_lede": "Free presets on iPhone and Mac. Pro unlocks once, forever.",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
+        "mac_hi_kicker": "STAYS AT YOUR DESK",
+        "mac_hi_h2": "On Mac, DeskBreath isn't an app you open. <em>It's an app that stays.</em>",
+        "mac_hi_lede": "Pin the orb to your menu bar, or let it float above whatever you're working on — DeskBreath stays on screen for the whole shift, not just the moment you open it.",
+        "mac_hi_caps": ["MENU BAR ORB", "FLOATING ORB", "WEEKLY STATS"],
     },
     "ko": {
         "dir": "ko/", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"', "shots": "ko",
@@ -104,6 +108,10 @@ LOCALES = {
         ],
         "final_h2": "호흡에 리듬을 붙이세요.", "final_lede": "iPhone과 Mac에서 무료 프리셋으로. Pro는 평생 한 번 결제.",
         "f_contact": "문의", "f_privacy": "개인정보 처리방침", "f_terms": "이용약관",
+        "mac_hi_kicker": "메뉴바에 상주",
+        "mac_hi_h2": "Mac에서 데스크브레스는 잠깐 켜는 앱이 아니라, <em>계속 화면에 머무는 존재</em>입니다.",
+        "mac_hi_lede": "메뉴바에 호흡 원을 고정하거나, 작업 화면 위에 플로팅 오브로 띄워두세요. 하루 종일 화면 어딘가에서 조용히 리듬을 지킵니다.",
+        "mac_hi_caps": ["메뉴바 오브", "플로팅 오브", "주간 통계"],
     },
     "ja": {
         "dir": "ja/", "lang": "ja", "font": '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic"', "shots": "ja",
@@ -147,6 +155,10 @@ LOCALES = {
         ],
         "final_h2": "呼吸にリズムを。", "final_lede": "iPhone と Mac で無料プリセット。Pro は買い切り一回。",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
+        "mac_hi_kicker": "メニューバーに常駐",
+        "mac_hi_h2": "Macでは、デスクブレスは「たまに開くアプリ」ではなく<em>ずっと画面にいる存在</em>です。",
+        "mac_hi_lede": "呼吸の輪をメニューバーに固定するか、作業画面の上にフローティングオーブとして浮かべておきましょう。仕事中ずっと、画面のどこかで静かにリズムを刻み続けます。",
+        "mac_hi_caps": ["メニューバーオーブ", "フローティングオーブ", "週間統計"],
     },
 }
 
@@ -194,6 +206,11 @@ def render(key):
         for h, p, pro in loc["feats"]
     )
     orb_labels_json = json.dumps({"in": loc["orb_in"], "out": loc["orb_out"]}, ensure_ascii=False)
+    mac_hi_files = ["mac-menubar", "mac-orb", "mac-stats"]
+    mac_hi_shots = "".join(
+        f'<figure><div class="frame"><img src="{rel}assets/{f}-{loc["shots"]}.png" alt="{cap}" loading="lazy"></div><figcaption>{cap}</figcaption></figure>'
+        for f, cap in zip(mac_hi_files, loc["mac_hi_caps"])
+    )
 
     html = f"""<!doctype html>
 <html lang="{loc['lang']}">
@@ -265,24 +282,35 @@ def render(key):
     </div>
     <div class="platform-grid">
       <div class="platform-card">
-        <div class="iphone-mock">
-          <div class="island"><span class="mini-orb"></span><span class="mini-timer">25:04</span></div>
-          <div class="lock-time">9:41</div>
+        <div class="device-shot iphone">
+          <img src="{rel}assets/island-{loc["shots"]}.png" alt="{loc['iphone_h3']}" loading="lazy">
         </div>
         <span class="tag">{loc['iphone_tag']}</span>
         <h3>{loc['iphone_h3']}</h3>
         <p>{loc['iphone_p']}</p>
       </div>
       <div class="platform-card">
-        <div class="mac-mock">
-          <div class="menubar"><span class="dot"></span><span class="dot"></span><span class="menu-orb"></span></div>
-          <div class="floating"></div>
+        <div class="device-shot mac">
+          <img src="{rel}assets/mac-menubar-{loc["shots"]}.png" alt="{loc['mac_h3']}" loading="lazy">
         </div>
         <span class="tag">{loc['mac_tag']}</span>
         <h3>{loc['mac_h3']}</h3>
         <p>{loc['mac_p']}</p>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section class="mac-highlight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">{loc['mac_hi_kicker']}</div>
+      <h2>{loc['mac_hi_h2']}</h2>
+      <p class="lede">{loc['mac_hi_lede']}</p>
+    </div>
+    <div class="row">{mac_hi_shots}</div>
   </div>
 </section>
 
