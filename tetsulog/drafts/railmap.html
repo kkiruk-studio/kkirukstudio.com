@@ -145,33 +145,31 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 .railmap { position: relative; background: #fff; border: 1px solid var(--rule); border-radius: 22px; padding: 20px; box-shadow: 0 30px 60px rgba(28,26,23,.1); overflow: hidden; }
 .railmap-underlay {
   position: absolute; inset: 0; z-index: 0;
-  background-image: url('../assets/yamanote-map.png');
-  background-size: cover; background-position: 50% 42%;
-  filter: grayscale(.6) brightness(1.16) saturate(1.3) blur(2.2px);
-  opacity: .3;
-  -webkit-mask-image: radial-gradient(ellipse 78% 72% at 50% 46%, #000 46%, transparent 88%);
-          mask-image: radial-gradient(ellipse 78% 72% at 50% 46%, #000 46%, transparent 88%);
+  background-image: url('assets/yamanote-map.png');
+  background-size: cover; background-position: 50% 46%;
+  filter: brightness(1.02);
+  opacity: .92;
 }
+.rail-casing { fill: none; stroke: #fff; stroke-opacity: .95; stroke-width: 44; stroke-linecap: round; stroke-linejoin: round; }
 .railmap svg { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
-.rail-base { fill: none; stroke: var(--line-gray); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
-.rail-color { fill: none; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; }
-.rail-color.c-loop { stroke: var(--yamanote-green); animation: draw-loop 9s ease-in-out infinite; }
-.dot { fill: var(--line-gray); }
-.dot.loop { animation: dot-loop 9s ease-in-out infinite; }
-.dot.major { fill: var(--line-gray); stroke: #fff; stroke-width: 1.5; }
-.dot.major.loop { animation: dot-loop 9s ease-in-out infinite; }
-.eki-label { font-family: var(--mincho); font-size: 15px; font-weight: 700; fill: var(--ink2); animation: label-in 9s ease-in-out infinite; }
-@keyframes draw-loop { 0%{stroke-dashoffset:100} 10%{stroke-dashoffset:100} 85%{stroke-dashoffset:0} 96%{stroke-dashoffset:0} 100%{stroke-dashoffset:100} }
-@keyframes dot-loop { 0%{fill:var(--line-gray)} 10%{fill:var(--line-gray)} 22%{fill:var(--yamanote-green)} 85%{fill:var(--yamanote-green)} 96%{fill:var(--line-gray)} 100%{fill:var(--line-gray)} }
-@keyframes label-in { 0%{fill:var(--ink3)} 10%{fill:var(--ink3)} 22%{fill:var(--ink)} 85%{fill:var(--ink)} 96%{fill:var(--ink3)} 100%{fill:var(--ink3)} }
+.rail-base { fill: none; stroke: var(--line-gray); stroke-width: 20; stroke-linecap: round; stroke-linejoin: round; }
+.rail-color { fill: none; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; stroke-dashoffset: 0; }
+.rail-color.c-loop { stroke: var(--yamanote-green); stroke-dashoffset: 100; animation: draw-loop 2.6s ease-out .3s forwards; }
+.dot { fill: var(--yamanote-green); stroke: #fff; stroke-width: 3.5; }
+.dot.loop { fill: var(--line-gray); animation: dot-loop 2.6s ease-out .3s forwards; }
+.dot.major { stroke: #fff; stroke-width: 5; }
+.dot.major.loop { fill: var(--line-gray); animation: dot-loop 2.6s ease-out .3s forwards; }
+.eki-label { font-family: var(--mincho); font-weight: 700; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 7px; stroke-linejoin: round; }
+@keyframes draw-loop { 0%{stroke-dashoffset:100} 100%{stroke-dashoffset:0} }
+@keyframes dot-loop { 0%{fill:var(--line-gray)} 55%{fill:var(--line-gray)} 100%{fill:var(--yamanote-green)} }
 .railmap-caption { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; color: var(--ink3); }
 .railmap-legend { display: flex; gap: 10px; flex-wrap: wrap; }
 .railmap-legend span { display: inline-flex; align-items: center; gap: 5px; }
 .railmap-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
 .railmap-legend i.g { background: var(--yamanote-green); }
 @media (prefers-reduced-motion: reduce) {
-  .rail-color, .dot, .eki-label { animation: none !important; } .rail-color { stroke-dashoffset: 0 !important; }
-  .dot.loop { fill: var(--yamanote-green) !important; } .eki-label { fill: var(--ink) !important; }
+  .rail-color, .dot { animation: none !important; } .rail-color { stroke-dashoffset: 0 !important; }
+  .dot.loop, .dot.major.loop { fill: var(--yamanote-green) !important; }
 }
 
 /* stamp motif */
@@ -185,7 +183,7 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
   content: ""; position: absolute; inset: 7px; border: 1px solid var(--accent); border-radius: 50%; opacity: .6;
 }
 .stamp span { font-size: 24px; font-weight: 700; letter-spacing: .1em; }
-.hero .stamp { right: 8px; top: -6px; }
+.railmap .stamp { z-index: 2; right: 20px; bottom: 20px; background: radial-gradient(circle, rgba(245,242,235,.82), rgba(245,242,235,.5) 70%); }
 
 /* ================= marquee ================= */
 .marquee { overflow: hidden; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); background: var(--paper-top); }
@@ -282,8 +280,8 @@ footer a:hover { color: #fff; }
   .ekimeihyo .body { padding: 10px 14px; gap: 10px; }
   .ekimeihyo .name .jp { font-size: 20px; }
   .ekimeihyo .arrow { font-size: 9px; }
-  .hero .stamp { width: 78px; height: 78px; right: -6px; top: -10px; }
-  .hero .stamp span { font-size: 17px; }
+  .railmap .stamp { width: 82px; height: 82px; right: 14px; bottom: 14px; }
+  .railmap .stamp span { font-size: 18px; }
   .final .stamp { display: none; }
   .stats { border-radius: 0; }
 }
@@ -326,50 +324,53 @@ footer a:hover { color: #fff; }
     </div>
     <div class="railmap-col">
       <div class="railmap">
-        <div class="railmap-underlay" aria-hidden="true"></div>
-        <svg viewBox="0 0 400 520" aria-hidden="true">
-          <!-- 実際の山手線30駅・実ルート形状（東京→有楽町→…→神田→東京の環状） -->
-          <path class="rail-base" d="M315,263 299,284 278,314 274,351 233,382 204,416 200,440 159,470 134,450 106,423 81,379 48,341 48,301 48,256 40,233 40,195 52,158 65,128 85,104 155,94 200,87 233,77 290,70 315,90 331,104 360,131 356,151 344,175 340,206 331,226 Z"/>
-          <path class="rail-color c-loop" pathLength="100" d="M315,263 299,284 278,314 274,351 233,382 204,416 200,440 159,470 134,450 106,423 81,379 48,341 48,301 48,256 40,233 40,195 52,158 65,128 85,104 155,94 200,87 233,77 290,70 315,90 331,104 360,131 356,151 344,175 340,206 331,226 Z"/>
+        <div class="railmap-underlay" aria-hidden="true" data-tile-z="14" data-tile-x0="14549" data-tile-y0="6448"></div>
+        <!-- 山手線30駅を実際の経緯度からWebメルカトル図法で投影（z=14, タイル原点 x0=14549 y0=6448）。
+             背景地図（yamanote-map.png, 1280x2048px）と1px単位で一致するviewBox。 -->
+        <svg viewBox="0 0 1280 2048" aria-hidden="true">
+          <path class="rail-casing" d="M1012.7,937.2 966.1,1027.5 910.2,1146.6 898.6,1308.6 785.5,1446.3 702.8,1589.6 681.9,1692.8 561.9,1819.0 502.4,1725.8 412.7,1615.4 348.6,1431.9 249.6,1269.9 262.4,1095.0 255.4,908.5 235.6,816.7 231.0,653.2 275.2,486.7 303.2,361.9 358.0,244.2 563.0,212.6 686.5,191.1 777.4,143.7 940.5,120.8 1009.2,205.4 1057.0,268.6 1147.9,364.7 1130.4,465.2 1099.0,559.9 1090.8,690.5 1055.8,786.6 Z"/>
+          <path class="rail-base" d="M1012.7,937.2 966.1,1027.5 910.2,1146.6 898.6,1308.6 785.5,1446.3 702.8,1589.6 681.9,1692.8 561.9,1819.0 502.4,1725.8 412.7,1615.4 348.6,1431.9 249.6,1269.9 262.4,1095.0 255.4,908.5 235.6,816.7 231.0,653.2 275.2,486.7 303.2,361.9 358.0,244.2 563.0,212.6 686.5,191.1 777.4,143.7 940.5,120.8 1009.2,205.4 1057.0,268.6 1147.9,364.7 1130.4,465.2 1099.0,559.9 1090.8,690.5 1055.8,786.6 Z"/>
+          <path class="rail-color c-loop" pathLength="100" d="M1012.7,937.2 966.1,1027.5 910.2,1146.6 898.6,1308.6 785.5,1446.3 702.8,1589.6 681.9,1692.8 561.9,1819.0 502.4,1725.8 412.7,1615.4 348.6,1431.9 249.6,1269.9 262.4,1095.0 255.4,908.5 235.6,816.7 231.0,653.2 275.2,486.7 303.2,361.9 358.0,244.2 563.0,212.6 686.5,191.1 777.4,143.7 940.5,120.8 1009.2,205.4 1057.0,268.6 1147.9,364.7 1130.4,465.2 1099.0,559.9 1090.8,690.5 1055.8,786.6 Z"/>
 
-          <circle class="dot major loop" cx="315" cy="263" r="6"/>  <!-- 東京 -->
-          <circle class="dot loop" cx="299" cy="284" r="4"/>        <!-- 有楽町 -->
-          <circle class="dot loop" cx="278" cy="314" r="4"/>        <!-- 新橋 -->
-          <circle class="dot loop" cx="274" cy="351" r="4"/>        <!-- 浜松町 -->
-          <circle class="dot loop" cx="233" cy="382" r="4"/>        <!-- 田町 -->
-          <circle class="dot loop" cx="204" cy="416" r="4"/>        <!-- 高輪ゲートウェイ -->
-          <circle class="dot major loop" cx="200" cy="440" r="6"/>  <!-- 品川 -->
-          <circle class="dot loop" cx="159" cy="470" r="4"/>        <!-- 大崎 -->
-          <circle class="dot loop" cx="134" cy="450" r="4"/>        <!-- 五反田 -->
-          <circle class="dot loop" cx="106" cy="423" r="4"/>        <!-- 目黒 -->
-          <circle class="dot loop" cx="81"  cy="379" r="4"/>        <!-- 恵比寿 -->
-          <circle class="dot major loop" cx="48" cy="341" r="6"/>   <!-- 渋谷 -->
-          <circle class="dot loop" cx="48"  cy="301" r="4"/>        <!-- 原宿 -->
-          <circle class="dot loop" cx="48"  cy="256" r="4"/>        <!-- 代々木 -->
-          <circle class="dot major loop" cx="40" cy="233" r="6"/>   <!-- 新宿 -->
-          <circle class="dot loop" cx="40"  cy="195" r="4"/>        <!-- 新大久保 -->
-          <circle class="dot loop" cx="52"  cy="158" r="4"/>        <!-- 高田馬場 -->
-          <circle class="dot loop" cx="65"  cy="128" r="4"/>        <!-- 目白 -->
-          <circle class="dot major loop" cx="85" cy="104" r="6"/>   <!-- 池袋 -->
-          <circle class="dot loop" cx="155" cy="94"  r="4"/>        <!-- 大塚 -->
-          <circle class="dot loop" cx="200" cy="87"  r="4"/>        <!-- 巣鴨 -->
-          <circle class="dot loop" cx="233" cy="77"  r="4"/>        <!-- 駒込 -->
-          <circle class="dot loop" cx="290" cy="70"  r="4"/>        <!-- 田端 -->
-          <circle class="dot loop" cx="315" cy="90"  r="4"/>        <!-- 西日暮里 -->
-          <circle class="dot loop" cx="331" cy="104" r="4"/>        <!-- 日暮里 -->
-          <circle class="dot loop" cx="360" cy="131" r="4"/>        <!-- 鶯谷 -->
-          <circle class="dot major loop" cx="356" cy="151" r="6"/>  <!-- 上野 -->
-          <circle class="dot loop" cx="344" cy="175" r="4"/>        <!-- 御徒町 -->
-          <circle class="dot loop" cx="340" cy="206" r="4"/>        <!-- 秋葉原 -->
-          <circle class="dot loop" cx="331" cy="226" r="4"/>        <!-- 神田 -->
+          <circle class="dot major loop" cx="1012.7" cy="937.2" r="16"/>  <!-- 東京 -->
+          <circle class="dot loop" cx="966.1" cy="1027.5" r="11"/>          <!-- 有楽町 -->
+          <circle class="dot loop" cx="910.2" cy="1146.6" r="11"/>          <!-- 新橋 -->
+          <circle class="dot loop" cx="898.6" cy="1308.6" r="11"/>          <!-- 浜松町 -->
+          <circle class="dot loop" cx="785.5" cy="1446.3" r="11"/>          <!-- 田町 -->
+          <circle class="dot loop" cx="702.8" cy="1589.6" r="11"/>          <!-- 高輪ゲートウェイ -->
+          <circle class="dot major loop" cx="681.9" cy="1692.8" r="16"/>  <!-- 品川 -->
+          <circle class="dot loop" cx="561.9" cy="1819.0" r="11"/>          <!-- 大崎 -->
+          <circle class="dot loop" cx="502.4" cy="1725.8" r="11"/>          <!-- 五反田 -->
+          <circle class="dot loop" cx="412.7" cy="1615.4" r="11"/>          <!-- 目黒 -->
+          <circle class="dot loop" cx="348.6" cy="1431.9" r="11"/>          <!-- 恵比寿 -->
+          <circle class="dot major loop" cx="249.6" cy="1269.9" r="16"/>  <!-- 渋谷 -->
+          <circle class="dot loop" cx="262.4" cy="1095.0" r="11"/>          <!-- 原宿 -->
+          <circle class="dot loop" cx="255.4" cy="908.5" r="11"/>           <!-- 代々木 -->
+          <circle class="dot major loop" cx="235.6" cy="816.7" r="16"/>   <!-- 新宿 -->
+          <circle class="dot loop" cx="231.0" cy="653.2" r="11"/>           <!-- 新大久保 -->
+          <circle class="dot loop" cx="275.2" cy="486.7" r="11"/>           <!-- 高田馬場 -->
+          <circle class="dot loop" cx="303.2" cy="361.9" r="11"/>           <!-- 目白 -->
+          <circle class="dot major loop" cx="358.0" cy="244.2" r="16"/>   <!-- 池袋 -->
+          <circle class="dot loop" cx="563.0" cy="212.6" r="11"/>           <!-- 大塚 -->
+          <circle class="dot loop" cx="686.5" cy="191.1" r="11"/>           <!-- 巣鴨 -->
+          <circle class="dot loop" cx="777.4" cy="143.7" r="11"/>           <!-- 駒込 -->
+          <circle class="dot loop" cx="940.5" cy="120.8" r="11"/>           <!-- 田端 -->
+          <circle class="dot loop" cx="1009.2" cy="205.4" r="11"/>          <!-- 西日暮里 -->
+          <circle class="dot loop" cx="1057.0" cy="268.6" r="11"/>          <!-- 日暮里 -->
+          <circle class="dot loop" cx="1147.9" cy="364.7" r="11"/>          <!-- 鶯谷 -->
+          <circle class="dot major loop" cx="1130.4" cy="465.2" r="16"/>  <!-- 上野 -->
+          <circle class="dot loop" cx="1099.0" cy="559.9" r="11"/>          <!-- 御徒町 -->
+          <circle class="dot loop" cx="1090.8" cy="690.5" r="11"/>          <!-- 秋葉原 -->
+          <circle class="dot loop" cx="1055.8" cy="786.6" r="11"/>          <!-- 神田 -->
 
-          <text class="eki-label" x="325" y="260" text-anchor="start">東京</text>
-          <text class="eki-label" x="30" y="237" text-anchor="end">新宿</text>
-          <text class="eki-label" x="36" y="345" text-anchor="end">渋谷</text>
-          <text class="eki-label" x="76" y="93" text-anchor="end">池袋</text>
-          <text class="eki-label" x="368" y="150" text-anchor="start">上野</text>
-          <text class="eki-label" x="200" y="462" text-anchor="middle">品川</text>
+          <text class="eki-label" x="1032" y="930" text-anchor="start" font-size="46">東京</text>
+          <text class="eki-label" x="212" y="810" text-anchor="end" font-size="46">新宿</text>
+          <text class="eki-label" x="228" y="1290" text-anchor="end" font-size="46">渋谷</text>
+          <text class="eki-label" x="338" y="230" text-anchor="end" font-size="46">池袋</text>
+          <text class="eki-label" x="1150" y="450" text-anchor="start" font-size="46">上野</text>
+          <text class="eki-label" x="681.9" y="1740" text-anchor="middle" font-size="46">品川</text>
         </svg>
+        <div class="stamp"><span>完乗</span></div>
       </div>
       <div class="railmap-caption">
         <span>路線をタップで記録、色が広がり、スタンプが押される。</span>
@@ -377,7 +378,6 @@ footer a:hover { color: #fff; }
       </div>
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:.05em;color:var(--ink3);text-align:right;">© OpenStreetMap contributors</div>
     </div>
-    <div class="stamp"><span>完乗</span></div>
   </div>
 </header>
 
