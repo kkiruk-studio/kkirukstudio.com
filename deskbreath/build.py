@@ -206,7 +206,7 @@ def render(key):
         for h, p, pro in loc["feats"]
     )
     orb_labels_json = json.dumps({"in": loc["orb_in"], "out": loc["orb_out"]}, ensure_ascii=False)
-    mac_hi_files = ["mac-menubar", "mac-orb", "mac-stats"]
+    mac_hi_files = ["macreal-menubar", "macreal-orb", "macreal-stats"]
     mac_hi_shots = "".join(
         f'<figure><div class="frame"><img src="{rel}assets/{f}-{loc["shots"]}.png" alt="{cap}" loading="lazy"></div><figcaption>{cap}</figcaption></figure>'
         for f, cap in zip(mac_hi_files, loc["mac_hi_caps"])
@@ -291,7 +291,7 @@ def render(key):
       </div>
       <div class="platform-card">
         <div class="device-shot mac">
-          <img src="{rel}assets/mac-menubar-{loc["shots"]}.png" alt="{loc['mac_h3']}" loading="lazy">
+          <img src="{rel}assets/macreal-menubar-{loc["shots"]}.png" alt="{loc['mac_h3']}" loading="lazy">
         </div>
         <span class="tag">{loc['mac_tag']}</span>
         <h3>{loc['mac_h3']}</h3>

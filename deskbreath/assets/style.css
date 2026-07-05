@@ -129,14 +129,19 @@ section .lede { color: var(--muted); font-size: 15.5px; margin-top: 18px; font-w
   background: #0a0c10;
 }
 .device-shot.iphone { width: 100%; max-width: 168px; }
-.device-shot.mac { width: 100%; max-width: none; border-radius: 12px; }
+.device-shot.mac {
+  width: 100%; max-width: 200px; border-radius: 16px;
+  box-shadow: 0 20px 40px -16px rgba(0,0,0,.55);
+}
 .device-shot img { width: 100%; height: auto; display: block; }
 
 /* ---------- mac highlight section ---------- */
 .mac-highlight .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: start; }
 .mac-highlight figure { min-width: 0; }
 .mac-highlight .frame {
-  border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #0a0c10;
+  max-width: 220px; margin: 0 auto; border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--line); background: #0a0c10;
+  box-shadow: 0 20px 40px -16px rgba(0,0,0,.55);
 }
 .mac-highlight .frame img { width: 100%; height: auto; display: block; }
 .mac-highlight figcaption { text-align: center; margin-top: 18px; font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: .16em; color: var(--muted); }
