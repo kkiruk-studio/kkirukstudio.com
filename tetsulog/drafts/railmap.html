@@ -28,6 +28,8 @@
   --line-red: var(--accent); /* 丸ノ内線 / brand */
   --line-gold: #f6b338;    /* 銀座線 */
   --line-gray: rgba(28,26,23,.22);
+  --rail-keihin: #00B4E3; /* 京浜東北線 公式スカイブルー — ヒーロー路線図専用 */
+  --rail-sobu: #FFD400;   /* 総武線 公式イエロー — ヒーロー路線図専用 */
 }
 * { box-sizing: border-box; margin: 0; }
 html { scroll-behavior: smooth; }
@@ -115,9 +117,16 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
   box-shadow: 0 20px 40px rgba(28,26,23,.1); border: 1px solid var(--rule);
 }
 .ekimeihyo .bar { height: 7px; background: linear-gradient(90deg, var(--line-red), var(--line-gold) 25%, var(--line-green) 50%, var(--line-sky) 75%, var(--line-orange)); }
-.ekimeihyo .body { display: flex; align-items: center; gap: 18px; padding: 14px 22px; }
+.ekimeihyo .body { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 22px; }
 .ekimeihyo .arrow { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: .1em; white-space: nowrap; }
-.ekimeihyo .name { text-align: center; }
+.ekimeihyo .adj { display: flex; align-items: center; gap: 8px; flex: none; }
+.ekimeihyo .adj-next { justify-content: flex-end; }
+.ekimeihyo .roundel {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--yamanote-green);
+  color: var(--yamanote-green); font-family: var(--mincho); font-weight: 700; font-size: 12px;
+}
+.ekimeihyo .name { text-align: center; flex: 1; }
 .ekimeihyo .name .jp { font-family: var(--mincho); font-weight: 700; font-size: 26px; color: var(--ink); letter-spacing: .06em; }
 .ekimeihyo .name .en { display: block; margin-top: 2px; font-family: var(--mono); font-size: 10px; letter-spacing: .22em; color: var(--ink3); text-transform: uppercase; }
 
@@ -155,6 +164,13 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 .rail-base { fill: none; stroke: var(--line-gray); stroke-width: 20; stroke-linecap: round; stroke-linejoin: round; }
 .rail-color { fill: none; stroke-width: 20; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; stroke-dashoffset: 0; }
 .rail-color.c-loop { stroke: var(--yamanote-green); stroke-dashoffset: 100; animation: draw-loop 2.6s ease-out .3s forwards; }
+/* branch lines (中央線・京浜東北線・総武線): thinner than the loop, same dasharray/dashoffset draw-on mechanic,
+   staggered so each line lights up strictly after the previous one finishes. Loop: .3s delay + 2.6s = ends 2.9s. */
+.rail-branch-casing { fill: none; stroke: #fff; stroke-opacity: .95; stroke-width: 26; stroke-linecap: round; stroke-linejoin: round; }
+.rail-branch-base { fill: none; stroke: var(--line-gray); stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+.rail-color.c-chuo { stroke: var(--line-orange); stroke-width: 12; stroke-dashoffset: 100; animation: draw-loop 1.2s ease-out 2.9s forwards; }
+.rail-color.c-keihin { stroke: var(--rail-keihin); stroke-width: 12; stroke-dashoffset: 100; animation: draw-loop 1.4s ease-out 4.1s forwards; }
+.rail-color.c-sobu { stroke: var(--rail-sobu); stroke-width: 12; stroke-dashoffset: 100; animation: draw-loop 1s ease-out 5.5s forwards; }
 .dot { fill: var(--yamanote-green); stroke: #fff; stroke-width: 3.5; }
 .dot.loop { fill: var(--line-gray); animation: dot-loop 2.6s ease-out .3s forwards; }
 .dot.major { stroke: #fff; stroke-width: 5; }
@@ -310,9 +326,9 @@ footer a:hover { color: #fff; }
       <div class="ekimeihyo">
         <div class="bar"></div>
         <div class="body">
-          <span class="arrow">← STAMP BOOK</span>
-          <span class="name"><span class="jp">鉄ログ</span><span class="en">TETSULOG</span></span>
-          <span class="arrow">全国 10,096 駅 →</span>
+          <div class="adj adj-prev"><span class="roundel">鉄</span><span class="arrow">← STAMP BOOK</span></div>
+          <div class="name"><span class="jp">鉄ログ</span><span class="en">TETSULOG</span></div>
+          <div class="adj adj-next"><span class="arrow">全国 10,096 駅 →</span></div>
         </div>
       </div>
       <h1>乗った駅が、<br>そのまま<em>地図になる</em>。</h1>
@@ -331,6 +347,26 @@ footer a:hover { color: #fff; }
           <path class="rail-casing" d="M1012.7,937.2 966.1,1027.5 910.2,1146.6 898.6,1308.6 785.5,1446.3 702.8,1589.6 681.9,1692.8 561.9,1819.0 502.4,1725.8 412.7,1615.4 348.6,1431.9 249.6,1269.9 262.4,1095.0 255.4,908.5 235.6,816.7 231.0,653.2 275.2,486.7 303.2,361.9 358.0,244.2 563.0,212.6 686.5,191.1 777.4,143.7 940.5,120.8 1009.2,205.4 1057.0,268.6 1147.9,364.7 1130.4,465.2 1099.0,559.9 1090.8,690.5 1055.8,786.6 Z"/>
           <path class="rail-base" d="M1012.7,937.2 966.1,1027.5 910.2,1146.6 898.6,1308.6 785.5,1446.3 702.8,1589.6 681.9,1692.8 561.9,1819.0 502.4,1725.8 412.7,1615.4 348.6,1431.9 249.6,1269.9 262.4,1095.0 255.4,908.5 235.6,816.7 231.0,653.2 275.2,486.7 303.2,361.9 358.0,244.2 563.0,212.6 686.5,191.1 777.4,143.7 940.5,120.8 1009.2,205.4 1057.0,268.6 1147.9,364.7 1130.4,465.2 1099.0,559.9 1090.8,690.5 1055.8,786.6 Z"/>
           <path class="rail-color c-loop" pathLength="100" d="M1012.7,937.2 966.1,1027.5 910.2,1146.6 898.6,1308.6 785.5,1446.3 702.8,1589.6 681.9,1692.8 561.9,1819.0 502.4,1725.8 412.7,1615.4 348.6,1431.9 249.6,1269.9 262.4,1095.0 255.4,908.5 235.6,816.7 231.0,653.2 275.2,486.7 303.2,361.9 358.0,244.2 563.0,212.6 686.5,191.1 777.4,143.7 940.5,120.8 1009.2,205.4 1057.0,268.6 1147.9,364.7 1130.4,465.2 1099.0,559.9 1090.8,690.5 1055.8,786.6 Z"/>
+
+          <!-- 分岐路線: 山手線と同じviewBox/タイル座標系上に、実在駅（新宿・上野・品川・秋葉原）を起点として
+               中央線・京浜東北線・総武線を延伸。casing(白縁)→base(グレー)→color(路線色, 順番に点灯) の3層構造。 -->
+          <!-- 中央線: 新宿から西へ -->
+          <path class="rail-branch-casing" d="M235.6,816.7 150,798 70,782 0,768"/>
+          <path class="rail-branch-base" d="M235.6,816.7 150,798 70,782 0,768"/>
+          <path class="rail-color c-chuo" pathLength="100" d="M235.6,816.7 150,798 70,782 0,768"/>
+
+          <!-- 京浜東北線: 上野から北（田端・王子方面）、品川から南（川崎・横浜方面） -->
+          <path class="rail-branch-casing" d="M1130.4,465.2 1155,320 1185,160 1210,20"/>
+          <path class="rail-branch-base" d="M1130.4,465.2 1155,320 1185,160 1210,20"/>
+          <path class="rail-color c-keihin" pathLength="100" d="M1130.4,465.2 1155,320 1185,160 1210,20"/>
+          <path class="rail-branch-casing" d="M681.9,1692.8 600,1830 520,1950 430,2048"/>
+          <path class="rail-branch-base" d="M681.9,1692.8 600,1830 520,1950 430,2048"/>
+          <path class="rail-color c-keihin" pathLength="100" d="M681.9,1692.8 600,1830 520,1950 430,2048"/>
+
+          <!-- 総武線: 秋葉原から東（千葉方面） -->
+          <path class="rail-branch-casing" d="M1090.8,690.5 1180,705 1250,725 1280,735"/>
+          <path class="rail-branch-base" d="M1090.8,690.5 1180,705 1250,725 1280,735"/>
+          <path class="rail-color c-sobu" pathLength="100" d="M1090.8,690.5 1180,705 1250,725 1280,735"/>
 
           <circle class="dot major loop" cx="1012.7" cy="937.2" r="16"/>  <!-- 東京 -->
           <circle class="dot loop" cx="966.1" cy="1027.5" r="11"/>          <!-- 有楽町 -->
