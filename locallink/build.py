@@ -62,7 +62,7 @@ LOCALES = {
         "shots_h2": "Built like a field tool, <em>not a brochure</em>.",
         "shots_caps": ["LOCAL-SCRIPT CANDIDATES", "ONE-TAP MAP LAUNCH", "SAVED · ICLOUD SYNC"],
         "feat_kicker": "DETAILS", "feat_num": "06",
-        "feat_h2": "Small app. <em>Deliberate</em> choices.",
+        "feat_h2": "Down to <em>the details</em>.",
         "feats": [
             ["Works offline", "The conversion data ships inside the app. Airport basement? Still converts."],
             ["No account, no tracking", "Nothing to sign up for. No analytics leave your device."],
@@ -118,7 +118,7 @@ LOCALES = {
         "shots_h2": "실제 화면은 <em>이렇게 생겼어요</em>.",
         "shots_caps": ["현지 문자 후보", "한 탭 지도 열기", "저장 · iCloud 동기화"],
         "feat_kicker": "디테일", "feat_num": "06",
-        "feat_h2": "작지만 <em>이런 것까지</em> 챙겼어요.",
+        "feat_h2": "<em>이런 것까지</em> 챙겼어요.",
         "feats": [
             ["오프라인 동작", "변환 데이터가 앱 안에 들어 있어요. 로밍이 안 터져도 변환은 됩니다."],
             ["가입·추적 없음", "계정도, 기기 밖으로 나가는 분석 데이터도 없습니다."],
@@ -174,7 +174,7 @@ LOCALES = {
         "shots_h2": "飾りより、<em>旅先で使う道具</em>。",
         "shots_caps": ["現地文字の候補", "ワンタップで地図起動", "保存 · iCloud 同期"],
         "feat_kicker": "こだわり", "feat_num": "06",
-        "feat_h2": "小さなアプリ、<em>明確な選択</em>。",
+        "feat_h2": "<em>細部まで</em>気を配りました。",
         "feats": [
             ["オフラインで動く", "変換データはアプリに内蔵。電波がなくても変換できます。"],
             ["登録・トラッキングなし", "アカウント不要。分析データが端末の外に出ることはありません。"],
@@ -230,7 +230,7 @@ LOCALES = {
         "shots_h2": "不是宣传册，是<em>旅途中的工具</em>。",
         "shots_caps": ["当地文字候选", "一键打开地图", "收藏 · iCloud 同步"],
         "feat_kicker": "细节", "feat_num": "06",
-        "feat_h2": "小应用，<em>明确的取舍</em>。",
+        "feat_h2": "<em>连细节</em>都照顾到了。",
         "feats": [
             ["离线可用", "转换数据内置在应用里，没有网络也能转换。"],
             ["无注册、无追踪", "不需要账号，分析数据不会离开你的设备。"],
@@ -286,7 +286,7 @@ LOCALES = {
         "shots_h2": "不是型錄，是<em>旅途中的工具</em>。",
         "shots_caps": ["在地文字候選", "一鍵開啟地圖", "收藏 · iCloud 同步"],
         "feat_kicker": "細節", "feat_num": "06",
-        "feat_h2": "小 App，<em>明確的取捨</em>。",
+        "feat_h2": "<em>連細節</em>都照顧到了。",
         "feats": [
             ["離線可用", "轉換資料內建在 App 裡，沒有網路也能轉換。"],
             ["免註冊、無追蹤", "不需要帳號，分析資料不會離開你的裝置。"],

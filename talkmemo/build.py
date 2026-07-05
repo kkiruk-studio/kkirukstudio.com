@@ -66,7 +66,7 @@ LOCALES = {
         "shots_h2": "Two screens, <em>one flow</em>.",
         "shots_caps": ["ONE TAP TO RECORD", "TEXT, AUTOMATICALLY", "LIGHT &amp; DARK"],
         "feat_label": "DETAILS",
-        "feat_h2": "Small app. <em>Deliberate</em> choices.",
+        "feat_h2": "So no idea <em>slips away</em>.",
         "feat_groups": [
             ["PRIVACY", [
                 ["On-device transcription", "Speech recognition runs on your iPhone. Your voice is never uploaded anywhere."],
@@ -135,7 +135,7 @@ LOCALES = {
         "shots_h2": "워치와 아이폰, <em>한 흐름</em>.",
         "shots_caps": ["한 탭이면 녹음", "글자는 자동으로", "라이트 &amp; 다크"],
         "feat_label": "디테일",
-        "feat_h2": "작은 앱, <em>분명한 선택</em>.",
+        "feat_h2": "생각을 <em>놓치지 않도록</em>.",
         "feat_groups": [
             ["프라이버시", [
                 ["기기 안에서 변환", "음성 인식이 iPhone 안에서 돌아가요. 목소리가 서버로 올라가지 않아요."],
@@ -204,7 +204,7 @@ LOCALES = {
         "shots_h2": "Watch と iPhone、<em>ひとつの流れ</em>。",
         "shots_caps": ["ワンタップで録音", "文字は自動で", "ライト &amp; ダーク"],
         "feat_label": "こだわり",
-        "feat_h2": "小さなアプリ、<em>明確な選択</em>。",
+        "feat_h2": "アイデアを<em>逃さないために</em>。",
         "feat_groups": [
             ["プライバシー", [
                 ["端末内で変換", "音声認識は iPhone の中で完結。声がサーバーに送られることはありません。"],

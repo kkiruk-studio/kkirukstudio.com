@@ -55,7 +55,7 @@ LOCALES = {
         "shots_h2": "Two screens. <em>That's everything.</em>",
         "shots_caps": ["ONE YELLOW SHUTTER", "TAP X TO SHOOT AGAIN", "WHAT THEY SAW IS WHAT YOU GET"],
         "feat_kicker": "DETAILS", "feat_num": "06",
-        "feat_h2": "Small app. <em>Parent-grade</em> decisions.",
+        "feat_h2": "Every choice, <em>parent-grade</em>.",
         "feats": [
             ["Saves to your Photos library", "Photos don't get trapped inside the app — they land in the family library at full quality, the moment they're taken."],
             ["Paid once. That's it.", "No subscription, no coins, no “premium”. Inside the app there is nothing to buy and no ad to tap."],
@@ -105,7 +105,7 @@ LOCALES = {
         "shots_h2": "화면은 둘뿐. <em>이게 다예요.</em>",
         "shots_caps": ["노란 셔터 하나", "빨간 X로 또 찍기", "본 대로 찍혀요"],
         "feat_kicker": "디테일", "feat_num": "06",
-        "feat_h2": "작은 앱이지만 <em>부모 마음</em>으로 만들었어요.",
+        "feat_h2": "<em>부모 마음</em>으로 하나하나 정했어요.",
         "feats": [
             ["사진 앱에 바로 저장", "사진이 앱 안에 갇히지 않아요. 찍는 순간 원본 화질 그대로 사진 보관함에 들어가요."],
             ["한 번 사면 끝", "구독도 코인도 '프리미엄'도 없어요. 앱 안에 살 것도, 잘못 누를 광고도 없어요."],
@@ -155,7 +155,7 @@ LOCALES = {
         "shots_h2": "画面はふたつ。<em>それでぜんぶ。</em>",
         "shots_caps": ["黄色いシャッターひとつ", "赤い×でもう一回", "見たままが撮れる"],
         "feat_kicker": "こだわり", "feat_num": "06",
-        "feat_h2": "小さなアプリ、<em>親の目線</em>の決断。",
+        "feat_h2": "ひとつひとつ、<em>親の目線</em>で。",
         "feats": [
             ["写真ライブラリへ直行", "写真がアプリの中に閉じ込められません。撮った瞬間、家族の写真ライブラリへ元の画質のまま保存されます。"],
             ["買い切り、それだけ", "サブスクもコインも「プレミアム」もなし。アプリの中に買うものも、押してしまう広告もありません。"],
@@ -205,7 +205,7 @@ LOCALES = {
         "shots_h2": "兩個畫面，<em>就是全部。</em>",
         "shots_caps": ["一顆黃色快門", "紅色 × 再拍一張", "看到什麼拍到什麼"],
         "feat_kicker": "細節", "feat_num": "06",
-        "feat_h2": "小小的 App，<em>家長標準</em>的決定。",
+        "feat_h2": "每個決定，都是<em>家長標準</em>。",
         "feats": [
             ["直接存進照片圖庫", "照片不會被關在 App 裡。按下快門的那一刻，就以原始畫質存進家人的照片圖庫。"],
             ["買斷一次就好", "沒有訂閱、沒有代幣、沒有「進階版」。App 裡沒有東西可以買，也沒有廣告可以誤按。"],

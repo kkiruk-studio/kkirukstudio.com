@@ -50,7 +50,7 @@ LOCALES = {
         "shots_h2": "Built for the middle of a workday, <em>not a demo</em>.",
         "shots_caps": ["ACTIVE BREATHING SESSION", "RHYTHM &amp; PRESET SETTINGS", "WEEKLY STATS &amp; STREAK"],
         "feat_kicker": "DETAILS", "feat_num": "06",
-        "feat_h2": "Small app. <em>Deliberate</em> choices.",
+        "feat_h2": "Quiet, but <em>thorough</em>.",
         "feats": [
             ["Box breathing &amp; presets", "4-4-4-4 box breathing, 4-7-8, and more — free, built in, ready in one tap.", False],
             ["Custom rhythm &amp; haptics", "Set your own inhale/exhale seconds and feel each phase change as a haptic pulse — free.", False],
@@ -97,7 +97,7 @@ LOCALES = {
         "shots_h2": "업무 중간에 쓰는 도구, <em>데모가 아니라</em>.",
         "shots_caps": ["호흡 세션 진행 중", "리듬 · 프리셋 설정", "주간 통계 · 스트릭"],
         "feat_kicker": "디테일", "feat_num": "06",
-        "feat_h2": "작은 앱, <em>분명한 선택</em>.",
+        "feat_h2": "조용하지만, <em>빈틈은 없이</em>.",
         "feats": [
             ["박스호흡 · 프리셋", "4-4-4-4 박스호흡, 4-7-8 등 — 무료로 내장, 한 탭이면 바로 시작합니다.", False],
             ["리듬 커스텀 · 햅틱", "들숨·날숨 초를 직접 정하고, 단계가 바뀔 때마다 햅틱으로 느껴보세요 — 무료.", False],
@@ -144,7 +144,7 @@ LOCALES = {
         "shots_h2": "仕事の合間に使う道具、<em>デモではなく</em>。",
         "shots_caps": ["呼吸セッション実行中", "リズム · プリセット設定", "週間統計 · ストリーク"],
         "feat_kicker": "こだわり", "feat_num": "06",
-        "feat_h2": "小さなアプリ、<em>明確な選択</em>。",
+        "feat_h2": "静かに、でも<em>抜かりなく</em>。",
         "feats": [
             ["ボックス呼吸 · プリセット", "4-4-4-4 ボックス呼吸、4-7-8 など — 無料で内蔵、ワンタップですぐ始められます。", False],
             ["リズムのカスタム · ハプティック", "吸う・吐く秒数を自分で設定し、切り替わるたびにハプティックで感じられます — 無料。", False],

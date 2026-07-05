@@ -78,7 +78,7 @@ LOCALES = {
         "shots_h2": "飾りより、<em>手元で使う帳面</em>として。",
         "shots_caps": ["地図がそのまま乗車記録に", "駅スタンプ帳で会社別に管理", "完乗の瞬間に届く記念カード"],
         "feat_kicker": "こだわり", "feat_num": "06",
-        "feat_h2": "小さなアプリ、<em>明確な選択</em>。",
+        "feat_h2": "記録する人のための、<em>心配り</em>。",
         "feats": [
             ["過去の乗車もOK", "昔の乗車履歴もあとから登録できます。今日から始めても、過去の完乗記録はそのまま有効です。", False],
             ["区間まとめて入力", "起点と終点を選ぶだけで、区間内の駅をまとめて乗車済みにできます。", False],
@@ -120,7 +120,7 @@ LOCALES = {
         "shots_h2": "꾸미기보다 <em>손에 쥐는 기록장</em>으로.",
         "shots_caps": ["지도가 곧 탑승 기록이 됩니다", "회사별 역 스탬프북으로 정리", "완주 순간, 기념 카드가 도착"],
         "feat_kicker": "디테일", "feat_num": "06",
-        "feat_h2": "작은 앱, <em>분명한 선택</em>.",
+        "feat_h2": "기록하는 사람을 위한, <em>배려</em>.",
         "feats": [
             ["과거 탑승도 OK", "예전에 탄 기록도 나중에 등록할 수 있어요. 오늘 시작해도 과거 완주 기록은 그대로 인정됩니다.", False],
             ["구간 한 번에 입력", "출발역과 도착역만 고르면 구간 전체가 한 번에 탑승 처리됩니다.", False],
@@ -162,7 +162,7 @@ LOCALES = {
         "shots_h2": "Built like a field notebook, <em>not a brochure</em>.",
         "shots_caps": ["The map is the ride log", "A stamp book organized by operator", "A keepsake card the moment you finish a line"],
         "feat_kicker": "DETAILS", "feat_num": "06",
-        "feat_h2": "Small app. <em>Deliberate</em> choices.",
+        "feat_h2": "Built for <em>the record-keeper</em>.",
         "feats": [
             ["Backfill past rides", "Log rides you took years ago. Starting today doesn't erase the lines you'd already completed.", False],
             ["Log a whole segment at once", "Pick a start and end station — every stop between gets marked ridden in one step.", False],

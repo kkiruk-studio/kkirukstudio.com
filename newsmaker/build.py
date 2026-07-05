@@ -64,7 +64,7 @@ LOCALES = {
         "shots_h2": "Built for <em>fast, funny front pages</em>.",
         "shots_caps": ["14 THEMES", "12 FONTS", "MY LIBRARY"],
         "feat_kicker": "DETAILS", "feat_num": "06",
-        "feat_h2": "Small app. <em>Loaded</em> toolbox.",
+        "feat_h2": "One tap. <em>Every</em> tool.",
         "feats": [
             ["14 card themes", "Breaking news, broadcast caption, tabloid, newspaper, magazine, emergency alert and more."],
             ["12 display fonts", "Impact, handwriting, serif, bold rounded — every headline has a voice."],
@@ -134,7 +134,7 @@ LOCALES = {
         "shots_h2": "빠르고 웃긴 <em>1면 제작소</em>.",
         "shots_caps": ["테마 14종", "폰트 12종", "내 보관함"],
         "feat_kicker": "디테일", "feat_num": "06",
-        "feat_h2": "작은 앱, <em>꽉 찬</em> 도구함.",
+        "feat_h2": "탭 한 번에, <em>도구는 전부</em>.",
         "feats": [
             ["카드 테마 14종", "속보, 방송자막, 예능자막, 신문, 매거진, 재난문자 등 상황별 스타일."],
             ["디스플레이 폰트 12종", "임팩트, 손글씨, 명조, 통통 라운드 — 헤드라인마다 다른 목소리."],
