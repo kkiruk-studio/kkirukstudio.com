@@ -97,14 +97,25 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 
 /* ---------- mac showcase (menubar / orb / stats) ---------- */
 .mac-showcase { padding: 64px 0; }
-.mac-showcase .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: end; }
+.mac-showcase .kicker { margin-bottom: 22px; }
+.mac-showcase h2 { margin-bottom: 44px; max-width: 26em; }
+.mac-showcase .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: start; }
+.mac-shot-card { min-width: 0; display: flex; flex-direction: column; }
 .mac-shot {
-  min-width: 0; position: relative; border-radius: 16px; overflow: hidden;
+  position: relative; border-radius: 16px; overflow: hidden;
   border: 1px solid var(--line); background: var(--paper-2);
   box-shadow: 0 0 60px -24px color-mix(in srgb, var(--tide) 30%, transparent);
 }
 .mac-shot img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.mac-shot:nth-child(2) { align-self: center; max-width: 78%; margin: 0 auto; }
+.mac-shot-card:nth-child(2) .mac-shot { max-width: 78%; margin: 0 auto; }
+.mac-shot-card .cap { display: block; margin-top: 20px; padding: 0 4px; }
+.mac-shot-card .cap .tag {
+  display: block; font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+  letter-spacing: .24em; text-transform: uppercase; margin-bottom: 10px; color: var(--tide);
+}
+.mac-shot-card:nth-child(2) .cap .tag { color: var(--ember); }
+.mac-shot-card .cap h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+.mac-shot-card .cap p { color: var(--muted); font-size: 14px; font-weight: 500; word-break: keep-all; overflow-wrap: break-word; }
 
 /* ---------- rule / section rhythm ---------- */
 .rule { height: 1px; background: var(--line); max-width: 920px; margin: 0 auto; }

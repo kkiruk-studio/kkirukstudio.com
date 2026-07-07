@@ -44,7 +44,14 @@ LOCALES = {
         "iphone_tag": "IPHONE", "iphone_h3": "Tap to Start, Feel Every Phase",
         "iphone_p": "Tap the breathing circle once to start or pause, and feel distinct haptics as you move from inhale to hold to exhale — no need to watch the screen.",
         "mac_tag": "MAC", "mac_h3": "Menu Bar &amp; Floating Circle",
-        "mac_p": "A tiny breathing circle lives in your menu bar, and an optional always-on-top floating circle sits quietly over whatever you're working on.",
+        "mac_p": "A menu bar icon, plus an optional always-on-top floating circle — pick whichever fits how you work.",
+        "mac_show_kicker": "ON YOUR MAC", "mac_show_num": "SEE IT IN USE",
+        "mac_show_h2": "What DeskBreath actually looks like <em>while you work</em>.",
+        "mac_shots": [
+            ["MENU BAR", "Lives in the menu bar, always", "No app to find or open — glance up once while you work and it's already there."],
+            ["FLOATING ORB", "A breathing circle over your screen", "It floats quietly above your document. Just follow the rhythm out of the corner of your eye."],
+            ["STATS", "Checked right where you work", "See how many breaths and stretches you actually did today, without leaving your desk."],
+        ],
         "shots_kicker": "SCREENS", "shots_num": "IOS 17+ · MACOS 14+",
         "shots_h2": "Built for the middle of a workday, <em>not a demo</em>.",
         "shots_caps": ["ACTIVE BREATHING SESSION", "RHYTHM &amp; PRESET SETTINGS", "WEEKLY STATS &amp; STREAK"],
@@ -87,7 +94,14 @@ LOCALES = {
         "iphone_tag": "IPHONE", "iphone_h3": "탭으로 시작, 단계마다 느끼기",
         "iphone_p": "호흡 원을 한 번 탭해서 시작하거나 멈추고, 들숨에서 멈춤, 날숨으로 넘어갈 때마다 다른 햅틱을 느껴보세요 — 화면을 보지 않아도 됩니다.",
         "mac_tag": "MAC", "mac_h3": "메뉴바 &amp; 플로팅 호흡 원",
-        "mac_p": "작은 호흡 원이 메뉴바에 상주하고, 원하면 항상 위에 뜨는 플로팅 호흡 원이 작업 화면 위에 조용히 자리합니다.",
+        "mac_p": "메뉴바 아이콘과, 원하면 항상 위에 뜨는 플로팅 호흡 원까지 — 편한 방식을 골라 쓰세요.",
+        "mac_show_kicker": "맥에서", "mac_show_num": "실제 사용 화면",
+        "mac_show_h2": "일하는 동안 데스크브레스는 <em>이렇게</em> 보입니다.",
+        "mac_shots": [
+            ["메뉴바", "메뉴바에 항상 있습니다", "앱을 찾아 여는 순간조차 없앴습니다 — 일하다 한 번 올려다보면 됩니다."],
+            ["플로팅 원", "화면 위에 떠 있는 호흡 원", "문서 위에 조용히 떠 있어요. 곁눈으로 리듬만 따라가면 됩니다."],
+            ["통계", "일하던 자리에서 확인", "오늘 몇 번 숨을 골랐는지, 스트레칭을 했는지 자리를 뜨지 않고 확인하세요."],
+        ],
         "shots_kicker": "화면", "shots_num": "IOS 17+ · MACOS 14+",
         "shots_h2": "업무 중간에 쓰는 도구, <em>데모가 아니라</em>.",
         "shots_caps": ["호흡 세션 진행 중", "리듬 · 프리셋 설정", "주간 통계 · 스트릭"],
@@ -130,7 +144,14 @@ LOCALES = {
         "iphone_tag": "IPHONE", "iphone_h3": "タップで開始、段階ごとに感じる",
         "iphone_p": "呼吸の輪をタップひとつで開始・一時停止し、吸う・止める・吐くが切り替わるたびに違う触覚を感じてください — 画面を見る必要はありません。",
         "mac_tag": "MAC", "mac_h3": "メニューバー &amp; フローティングオーブ",
-        "mac_p": "小さな呼吸の輪がメニューバーに常駐し、必要なら常に最前面に浮かぶフローティングオーブが作業画面の上に静かに佇みます。",
+        "mac_p": "メニューバーのアイコンと、必要なら常に最前面に浮かぶフローティングオーブ — お好みで選べます。",
+        "mac_show_kicker": "Mac で", "mac_show_num": "実際の使用画面",
+        "mac_show_h2": "作業中のデスクブレスは<em>こんな見た目</em>です。",
+        "mac_shots": [
+            ["メニューバー", "メニューバーに常駐", "アプリを探して開く手間さえありません。作業中にふと目を上げるだけです。"],
+            ["フローティングオーブ", "画面に浮かぶ呼吸の輪", "書類の上に静かに浮かびます。視界の端でリズムを追うだけで十分です。"],
+            ["統計", "作業していたその場で確認", "今日何回呼吸を整えたか、ストレッチをしたか。席を立たずに確認できます。"],
+        ],
         "shots_kicker": "画面", "shots_num": "IOS 17+ · MACOS 14+",
         "shots_h2": "仕事の合間に使う道具、<em>デモではなく</em>。",
         "shots_caps": ["呼吸セッション実行中", "リズム · プリセット設定", "週間統計 · ストリーク"],
@@ -181,8 +202,12 @@ def render(key):
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
 
     mac_shots = "".join(
-        f'<figure class="mac-shot" style="aspect-ratio:{w}/{h}"><img src="{rel}assets/macreal-{name}-{loc["shots"]}.png" alt="" loading="lazy"></figure>'
-        for name, w, h in [("menubar", 528, 932), ("orb", 528, 528), ("stats", 840, 1000)]
+        f'<figure class="mac-shot-card"><div class="mac-shot" style="aspect-ratio:{w}/{h}">'
+        f'<img src="{rel}assets/macreal-{name}-{loc["shots"]}.png" alt="{h3}" loading="lazy"></div>'
+        f'<figcaption class="cap"><span class="tag">{tag}</span><h3>{h3}</h3><p>{p}</p></figcaption></figure>'
+        for (name, w, h), (tag, h3, p) in zip(
+            [("menubar", 528, 932), ("orb", 528, 528), ("stats", 840, 1000)], loc["mac_shots"]
+        )
     )
     steps = "".join(
         f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
@@ -257,6 +282,8 @@ def render(key):
 
 <section class="mac-showcase">
   <div class="wrap">
+    <div class="kicker"><span>{loc['mac_show_kicker']}</span><span class="rule"></span><span class="num">{loc['mac_show_num']}</span></div>
+    <h2>{loc['mac_show_h2']}</h2>
     <div class="row">{mac_shots}</div>
   </div>
 </section>
