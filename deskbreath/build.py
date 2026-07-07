@@ -31,7 +31,6 @@ LOCALES = {
         "badge_small": "Download on the", "note": "FREE PRESETS · IPHONE &amp; MAC · NO SUBSCRIPTION",
         "badge_aria": "Download on the App Store", "coming_soon": "Coming soon",
         "orb_in": "Breathe in", "orb_out": "Breathe out",
-        "marquee": ["BREATHE", "FOCUS", "STRETCH", "POSTURE", "RHYTHM", "DEEP WORK", "DESK FATIGUE", "CALM"],
         "how_kicker": "HOW IT WORKS",
         "how_h2": "Three moments where the <em>rhythm</em> finds you.",
         "steps": [
@@ -75,7 +74,6 @@ LOCALES = {
         "badge_small": "다운로드는", "note": "무료 프리셋 · IPHONE &amp; MAC · 구독 없음",
         "badge_aria": "App Store에서 다운로드", "coming_soon": "출시 예정",
         "orb_in": "들숨", "orb_out": "날숨",
-        "marquee": ["호흡", "집중", "스트레칭", "거북목", "리듬", "재택근무", "야근", "회복"],
         "how_kicker": "사용 방법",
         "how_h2": "<em>호흡 원</em>이 당신을 찾아오는 세 순간.",
         "steps": [
@@ -119,7 +117,6 @@ LOCALES = {
         "badge_small": "ダウンロードは", "note": "無料プリセット · IPHONE &amp; MAC · サブスクなし",
         "badge_aria": "App Store でダウンロード", "coming_soon": "近日公開",
         "orb_in": "吸う", "orb_out": "吐く",
-        "marquee": ["呼吸", "集中", "ストレッチ", "猫背", "リズム", "在宅勤務", "デスクワーク", "回復"],
         "how_kicker": "使い方",
         "how_h2": "<em>呼吸の輪</em>があなたを見つける3つの瞬間。",
         "steps": [
@@ -183,7 +180,10 @@ def render(key):
     rel = "../" if loc["dir"] else ""
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
 
-    marquee = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
+    mac_shots = "".join(
+        f'<figure class="mac-shot" style="aspect-ratio:{w}/{h}"><img src="{rel}assets/macreal-{name}-{loc["shots"]}.png" alt="" loading="lazy"></figure>'
+        for name, w, h in [("menubar", 528, 932), ("orb", 528, 528), ("stats", 840, 1000)]
+    )
     steps = "".join(
         f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
         for i, (tag, h, p) in enumerate(loc["steps"])
@@ -255,7 +255,11 @@ def render(key):
   </div>
 </header>
 
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
+<section class="mac-showcase">
+  <div class="wrap">
+    <div class="row">{mac_shots}</div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -356,6 +360,7 @@ def render(key):
     }})();
   }}
 </script>
+<script src="/ga.js"></script>
 </body>
 </html>
 """
