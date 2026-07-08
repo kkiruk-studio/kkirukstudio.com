@@ -23,7 +23,7 @@
 
   function paint(p) {
     for (var k = 0; k < cells.length; k++) {
-      cells[k].style.backgroundColor = p.c[k % p.c.length];
+      cells[k].style.backgroundColor = p.c[Math.floor(k * p.c.length / cells.length)];
     }
     if (nameEl) nameEl.textContent = p.name;
     if (artistEl) artistEl.textContent = p.artist;
