@@ -1,17 +1,18 @@
-/* Palette landing — the hero board cycles through real painting palettes,
-   the way the app paints a new masterpiece each day. */
+/* Palette landing — the hero board mirrors the day's real painting: each of the
+   16 tiles takes the dominant color of that region of the artwork, snapped to
+   the app's curated palette. A real painting fades in beside it. */
 (function () {
   var PAINTINGS = [
     { img: "starry-night.jpg", name: "The Starry Night", artist: "Vincent van Gogh",
-      c: ["#151A19","#16377A","#1E4E63","#2B6E9D","#4E8E79","#7C9A5A","#B49A2D","#C9B84A","#D8D391"] },
+      c: ["#16377A","#4E8E79","#4E8E79","#4E8E79","#4E8E79","#4E8E79","#4E8E79","#2B6E9D","#151A19","#4E8E79","#4E8E79","#4E8E79","#151A19","#151A19","#16377A","#16377A"] },
     { img: "sunflowers.jpg", name: "Sunflowers", artist: "Vincent van Gogh",
-      c: ["#2A3915","#4A4018","#7C2E1C","#197C6F","#8A6A2E","#C78F36","#D0A23A","#D8B14A","#DEBA58"] },
+      c: ["#DEBA58","#DEBA58","#DEBA58","#C78F36","#7C2E1C","#C78F36","#C78F36","#C78F36","#197C6F","#C78F36","#C78F36","#197C6F","#C78F36","#C78F36","#C78F36","#C78F36"] },
     { img: "scream.jpg", name: "The Scream", artist: "Edvard Munch",
-      c: ["#1F2E3A","#2E3E4E","#3A4A5A","#7A5436","#B5642A","#C97A30","#D98A3A","#E0A94E","#EFD89A"] },
+      c: ["#B3532A","#B3532A","#C0A365","#C0A365","#C0A365","#C0A365","#2D2623","#2D2623","#B3532A","#C0A365","#2D2623","#2D2623","#B3532A","#2D2623","#2D2623","#2D2623"] },
     { img: "kiss.jpg", name: "The Kiss", artist: "Gustav Klimt",
-      c: ["#2A2410","#4A3E14","#6E5A1E","#94781E","#B8941E","#CDA838","#D9B94A","#E8D27A","#F2E6B0"] },
+      c: ["#896D23","#896D23","#896D23","#896D23","#896D23","#D4B645","#D4B645","#896D23","#896D23","#D4B645","#D4B645","#896D23","#896D23","#896D23","#896D23","#896D23"] },
     { img: "mona-lisa.jpg", name: "Mona Lisa", artist: "Leonardo da Vinci",
-      c: ["#1A140C","#2A2012","#3B2E1A","#54462A","#6B5A38","#857046","#9A8456","#C0A878","#E0D2A8"] }
+      c: ["#95A146","#95A146","#95A146","#95A146","#8F5A24","#290E25","#290E25","#8F5A24","#290E25","#290E25","#290E25","#290E25","#190E2B","#290E25","#190E2B","#190E2B"] }
   ];
 
   var board = document.getElementById("board");
@@ -25,7 +26,7 @@
 
   function paint(p) {
     for (var k = 0; k < cells.length; k++) {
-      cells[k].style.backgroundColor = p.c[Math.floor(k * p.c.length / cells.length)];
+      cells[k].style.backgroundColor = p.c[k % p.c.length];
     }
     if (imgEl && p.img) {
       imgEl.style.opacity = 0;
