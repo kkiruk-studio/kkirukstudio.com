@@ -4,7 +4,7 @@
 (function () {
   var PAINTINGS = [
     { img: "starry-night.jpg", name: "The Starry Night", artist: "Vincent van Gogh",
-      c: ["#16377A","#2B6E9D","#4E8E79","#D8D391","#2B6E9D","#16377A","#D8D391","#2B6E9D","#151A19","#2B6E9D","#4E8E79","#16377A","#151A19","#16377A","#B49A2D","#151A19"] },
+      c: ["#16377A","#2B6E9D","#4E8E79","#D8D391","#2B6E9D","#16377A","#D8D391","#2B6E9D","#151A19","#2B6E9D","#4E8E79","#16377A","#151A19","#16377A","#16377A","#151A19"] },
     { img: "sunflowers.jpg", name: "Sunflowers", artist: "Vincent van Gogh",
       c: ["#197C6F","#DEBA58","#D0A23A","#197C6F","#D0A23A","#7C2E1C","#DEBA58","#C78F36","#DEBA58","#C78F36","#7C2E1C","#D0A23A","#C78F36","#DEBA58","#2A3915","#C78F36"] },
     { img: "scream.jpg", name: "The Scream", artist: "Edvard Munch",
