@@ -47,8 +47,8 @@
   .tl-item h3 img { width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; }
   .tl-item p { font-size: 14.5px; color: var(--ink2); margin-top: 8px; max-width: 42em; }
   .tl-item p b { color: var(--ink); font-weight: 650; }
-  .tl-milestone { text-align: center; padding: 4px 0; }
-  .tl-milestone .tl-dot { background: var(--accent); border-color: var(--accent); left: 16px; }
+  .tl-milestone { padding: 4px 0; }
+  .tl-milestone .tl-dot { background: var(--accent); border-color: var(--accent); }
   .tl-milestone .tl-dot::after { background: var(--bg); }
   .tl-milestone .big { font-size: 26px; font-weight: 750; letter-spacing: -.02em; }
 
@@ -58,6 +58,8 @@
   .tl-shots { display: flex; gap: 12px; margin-top: 14px; }
   .tl-shots img { width: 130px; border-radius: 12px; border: 2px solid var(--ink); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 14%, transparent); }
   @media (max-width: 560px) { .tl-shots img { width: 40%; } }
+  .tl-icons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .tl-icons img { width: 44px; height: 44px; border-radius: 11px; border: 2px solid var(--ink); box-shadow: 2px 2px 0 color-mix(in srgb, var(--ink) 14%, transparent); }
 </style>
 </head>
 <body class="home">
@@ -151,6 +153,7 @@
         <p class="tl-date">2026</p>
         <h3><img src="/icons/palette2048.png" alt="Palette 2048">The tenth year</h3>
         <p>What started as a game studio has grown into a wider lineup of apps and games — Than Yesterday, PinClip, Talk Memo, Honest Camera, Palette 2048... and it keeps going.</p>
+        <div class="tl-icons"><img src="/icons/thanyesterday.png" alt="어제보다" title="어제보다" loading="lazy"><img src="/icons/pinclip.png" alt="PinClip" title="PinClip" loading="lazy"><img src="/icons/sidefeed.png" alt="Sidefeed" title="Sidefeed" loading="lazy"><img src="/icons/talkmemo.png" alt="Talk Memo" title="Talk Memo" loading="lazy"><img src="/icons/honestcamera.png" alt="Honest Camera" title="Honest Camera" loading="lazy"><img src="/icons/everykeep.png" alt="everykeep" title="everykeep" loading="lazy"><img src="/icons/palette2048.png" alt="팔레트 2048" title="팔레트 2048" loading="lazy"><img src="/icons/locallink.png" alt="Local Link" title="Local Link" loading="lazy"><img src="/icons/salarycharm.png" alt="직장인 부적" title="직장인 부적" loading="lazy"><img src="/icons/tetsulog.png" alt="のりつぶ" title="のりつぶ" loading="lazy"></div>
       </div>
 
     </div>
