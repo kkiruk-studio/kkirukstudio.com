@@ -13,7 +13,7 @@ ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/runnote/"
 APP_STORE_URL = ""  # fill in after App Store approval, e.g. https://apps.apple.com/app/id0000000000
 
-LANG_LABELS = [("", "한국어"), ("en/", "EN"), ("ja/", "日本語")]
+LANG_LABELS = [("", "한국어"), ("en/", "EN"), ("ja/", "日本語"), ("zh/", "繁體")]
 
 # Shared, non-localized decorative data ---------------------------------
 
@@ -243,6 +243,73 @@ LOCALES = {
         "final_h2": "走って、ひと言書くだけ。",
         "final_lede": "公開時7日間無料トライアル · iPhone &amp; Apple Watch",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
+    },
+    "zh": {
+        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC", "Microsoft JhengHei"',
+        "title": "RunNote — 用一句跑後筆記,打造懂你的 AI 教練",
+        "desc": "不是即時追蹤,而是以筆記為核心的跑步紀錄。用手錶跑完,只需留下狀態和一句話,記錄越多,Claude AI 教練就越精準。",
+        "og_title": "RunNote — 懂你的 AI 跑步教練",
+        "og_desc": "一句筆記累積越多,教練建議越精準。",
+        "kicker_num": "跑步筆記日誌",
+        "h1": "跑完寫一句,<br>記錄越多,就成為<em>懂你的教練</em>",
+        "sub": "這不是即時追蹤 App。用 Apple Watch 跑步後打開 App,記錄早已自動同步,你只需留下狀態和一句筆記。這一句話累積越多,Claude AI 就能越精準掌握你的模式。",
+        "note": "即將推出 · iPhone &amp; Apple Watch · 7 天免費試用",
+        "badge_small": "立即下載", "badge_aria": "前往 App Store 下載",
+        "badge_soon": "即將於 App Store 上架",
+        "chips": [["5K", "今日公里"], ["Z3", "心率區間"], ["AI", "教練完成"]],
+        "marquee": ["HEALTHKIT 自動同步", "AI 教練", "心率5區間", "步頻", "教練筆記", "跑者等級", "鞋子里程", "訓練計畫"],
+        "demo": {
+            "stat_labels": ["距離", "時間", "平均心率"],
+            "stat_values": ["5.2 km", "32:10", "155 bpm"],
+            "mood": "🙂",
+            "note": "最後在上坡配速崩潰了",
+            "ai_label": "AI 教練",
+            "ai_lines": [
+                "最近3次跑步都出現同樣模式。上坡前試著把步頻提高5spm。",
+                "這個週末要不要再挑戰一次同樣路線?",
+            ],
+        },
+        "how_kicker": "使用方法", "how_num": "01–03",
+        "how_h2": "跑步、留下一句話、接受<em>教練指導</em>。",
+        "steps": [
+            ["用手錶跑步", "只要戴著Apple Watch跑步就好。HealthKit會自動抓取距離、配速、心率。"],
+            ["寫一句筆記", "一個狀態表情符號,加一句話。如果哪裡不舒服,寫下部位。就這麼簡單。"],
+            ["接受AI教練指導", "根據累積的筆記,Claude會指出模式,並為下次跑步留下提問。"],
+        ],
+        "value_kicker": "越來越精準的教練", "value_num": "1 → 20 RUNS",
+        "value_h2": "筆記累積到<em>10篇</em>,教練建議就會不同。",
+        "value_lede": "第1次是給任何人的建議,第10次是了解你上坡配速模式的建議。記錄越多,教練精準度越高。",
+        "value_axis": "教練精準度",
+        "chart_points": [["第1次", 40], ["第5次", 65], ["第10次", 82], ["第20次", 96]],
+        "notes": [
+            ["3週前的觀察", "上坡配速崩潰的模式反覆出現。"],
+            ["2週前的觀察", "左膝疼痛已連續記錄3週。"],
+            ["本週觀察", "週末長跑後恢復速度較快。"],
+        ],
+        "shots_kicker": "畫面", "shots_num": "MOCKUP",
+        "shots_h2": "從記錄到<em>教練指導</em>,一目了然。",
+        "shots_caps": ["月曆檢視 · 記錄", "心率5區間 · 公里分段", "AI 教練卡片"],
+        "cal_head": "2026年7月 · 12次 · 68公里",
+        "cal_list": [["7月28日", "5.2 km", "5:58/km"], ["7月25日", "8.0 km", "6:20/km"], ["7月21日", "3.1 km", "6:05/km"]],
+        "zone_legend": ["Z1", "Z2", "Z3", "Z4", "Z5"],
+        "coach_mock_lines": [
+            "本週3次跑步,上坡配速都掉了5~8%。",
+            "下次跑步前,試著把上坡路段的步頻提高5spm如何?",
+        ],
+        "coach_mock_tag": "教練筆記 · 連續3週觀察",
+        "feat_kicker": "細節", "feat_num": "06",
+        "feat_h2": "小小的記錄本,<em>明確的差異</em>。",
+        "feats": [
+            ["HealthKit 自動同步", "用手錶跑步後打開App,距離、配速、心率都已自動同步。"],
+            ["自動記錄跑步當時天氣", "WeatherKit會將當天的氣溫與濕度記錄下來。"],
+            ["跑步動態 + 姿勢評分", "以垂直振幅、觸地時間、步幅、功率評出的姿勢分數。"],
+            ["心率5區間 · 公里分段 · 高度", "區間時間分布、分段配速、高度變化,一目了然。"],
+            ["依部位管理的疼痛指南", "膝蓋、腳踝……各部位的原因、伸展方式,以及該休息的訊號。"],
+            ["教練筆記(長期記憶)", "跑得越多,AI對你的了解就累積得越多。"],
+        ],
+        "final_h2": "現在,跑完只需留下一句話。",
+        "final_lede": "上線後7天免費試用 · iPhone &amp; Apple Watch",
+        "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
     },
 }
 
