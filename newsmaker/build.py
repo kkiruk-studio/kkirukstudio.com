@@ -16,7 +16,7 @@ LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh-hant
 
 LOCALES = {
     "en": {
-        "dir": "", "lang": "en", "font": None,
+        "dir": "", "lang": "en", "font": None, "assets_dir": "en",
         "title": "Newsmaker — Turn your day into breaking-news memes",
         "desc": "Type one headline, pick a theme and font, and Newsmaker turns your ordinary day into a shareable breaking-news meme. No account, no ads, all on-device. Free for iPhone.",
         "og_title": "Newsmaker — Breaking Meme Maker",
@@ -86,7 +86,7 @@ LOCALES = {
         "font_labels": ["Impact · Caps", "Serif · Italic", "Handwriting", "Bold Round"],
     },
     "ko": {
-        "dir": "ko/", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"',
+        "dir": "ko/", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"', "assets_dir": "ko",
         "title": "속보메이커 — 평범한 하루를 속보 짤로",
         "desc": "헤드라인 한 줄만 입력하면 속보메이커가 테마와 폰트를 입혀 공유용 짤로 만들어줍니다. 계정도 광고도 없이, 모든 처리는 기기 안에서. 아이폰 무료 앱.",
         "og_title": "속보메이커 — 속보 짤 제조기",
@@ -156,7 +156,7 @@ LOCALES = {
         "font_labels": ["임팩트 · 대문자", "명조 · 이탤릭", "손글씨", "통통 라운드"],
     },
     "ja": {
-        "dir": "ja/", "lang": "ja", "font": '"Hiragino Sans", "Hiragino Kaku Gothic ProN"',
+        "dir": "ja/", "lang": "ja", "font": '"Hiragino Sans", "Hiragino Kaku Gothic ProN"', "assets_dir": "ja",
         "title": "速報メーカー — 平凡な一日を速報ミームに",
         "desc": "見出しを一言入力するだけで、速報メーカーがテーマとフォントを添えてシェア用ミームに変換。アカウントも広告もなし、すべて端末内で処理。iPhone無料アプリ。",
         "og_title": "速報メーカー — 速報ミーム製造機",
@@ -226,7 +226,7 @@ LOCALES = {
         "font_labels": ["インパクト · 大文字", "明朝 · イタリック", "手書き", "丸ゴシック"],
     },
     "zh-Hant": {
-        "dir": "zh-hant/", "lang": "zh-Hant", "font": '"PingFang TC", "Microsoft JhengHei"',
+        "dir": "zh-hant/", "lang": "zh-Hant", "font": '"PingFang TC", "Microsoft JhengHei"', "assets_dir": "zh-hant",
         "title": "快訊製造機 — 把平凡的一天變成快訊迷因",
         "desc": "只要輸入一句標題，快訊製造機就會套上主題和字型，做成可以分享的迷因。不需帳號、沒有廣告，全程在裝置端處理。iPhone 免費下載。",
         "og_title": "快訊製造機 — 快訊迷因製造機",
@@ -359,7 +359,7 @@ def render(key):
     )
     shot_files = ["2-theme", "3-font", "4-gallery"]
     shots = "".join(
-        f'<figure><div class="phone"><img src="{rel}assets/shot-{f}.png" alt="{cap}" loading="lazy"><div class="island"></div></div><figcaption>{cap}</figcaption></figure>'
+        f'<figure><div class="phone"><img src="{rel}assets/{loc["assets_dir"]}/shot-{f}.png" alt="{cap}" loading="lazy"><div class="island"></div></div><figcaption>{cap}</figcaption></figure>'
         for f, cap in zip(shot_files, loc["shots_caps"])
     )
     feats = "".join(f'<div class="feat"><h3>{h}</h3><p>{p}</p></div>' for h, p in loc["feats"])
@@ -426,7 +426,7 @@ def render(key):
       </div>
       <div class="phone-col">
         <div class="chip-stack">{chip_stack}</div>
-        <div class="phone"><img src="{rel}assets/shot-1-hero.png" alt="{loc['hero_alt']}"><div class="island"></div></div>
+        <div class="phone"><img src="{rel}assets/{loc['assets_dir']}/shot-1-hero.png" alt="{loc['hero_alt']}"><div class="island"></div></div>
       </div>
     </div>
   </div>
