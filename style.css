@@ -340,3 +340,7 @@ html.js .reveal.on { opacity: 1; transform: none; }
   background: color-mix(in srgb, var(--accent) 22%, transparent);
   border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
 }
+
+/* 10주년 배지 */
+a.badge-10y { color: var(--ink); text-decoration: none; background: #FFE94A; border-color: var(--ink); font-weight: 700; }
+a.badge-10y:hover { transform: translateY(-1px); }
