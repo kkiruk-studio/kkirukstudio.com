@@ -26,6 +26,7 @@ LOCALES = {
         "og_title": "DeskBreath — Breathing Timer for Desk Work",
         "og_desc": "A breathing rhythm built for desk work — one tap, real haptics, honest stretch tracking.",
         "kicker_num": "BREATHING TIMER",
+        "brand_line1": "DeskBreath", "brand_line2": "Breathing timer",
         "h1": "One tap.<br>A rhythm you can <em>feel</em>.",
         "sub": "Between back-to-back calls and heads-down deep work, breathing is the first thing you forget. DeskBreath turns it into something physical — tap the circle once to start, and feel each phase change as a distinct pulse for inhale, hold, and exhale.",
         "note": "FREE PRESETS · IPHONE &amp; MAC · NO SUBSCRIPTION",
@@ -76,6 +77,7 @@ LOCALES = {
         "og_title": "데스크브레스 — 업무용 호흡 타이머",
         "og_desc": "탭 한 번, 확실한 햅틱, 정직한 스트레칭 기록 — 업무를 위한 호흡 리듬.",
         "kicker_num": "호흡 타이머",
+        "brand_line1": "데스크브레스", "brand_line2": "호흡 타이머",
         "h1": "탭 한 번,<br><em>느껴지는</em> 호흡 리듬.",
         "sub": "화상회의와 집중 작업 사이, 호흡은 자꾸 잊혀집니다. 데스크브레스는 호흡 원을 한 번 탭하면 시작하고, 들숨·멈춤·날숨이 바뀔 때마다 확실한 햅틱으로 느껴져요.",
         "note": "무료 프리셋 · IPHONE &amp; MAC · 구독 없음",
@@ -126,6 +128,7 @@ LOCALES = {
         "og_title": "デスクブレス — デスクワーク向け呼吸タイマー",
         "og_desc": "タップひとつ、はっきりした触覚、正直なストレッチ記録 — 仕事のための呼吸リズム。",
         "kicker_num": "呼吸タイマー",
+        "brand_line1": "デスクブレス", "brand_line2": "呼吸タイマー",
         "h1": "タップひとつで、<br><em>感じる</em>呼吸のリズム。",
         "sub": "オンライン会議と作業の合間、呼吸はつい忘れがちです。デスクブレスは呼吸オーブをタップひとつで開始でき、吸う・止める・吐くが切り替わるたびにはっきりした触覚で感じられます。",
         "note": "無料プリセット · IPHONE &amp; MAC · サブスクなし",
@@ -176,6 +179,7 @@ LOCALES = {
         "og_title": "DeskBreath — 專為辦公設計的呼吸計時器",
         "og_desc": "輕點一下、分明的震動、誠實的伸展紀錄——為工作打造的呼吸節奏。",
         "kicker_num": "呼吸計時器",
+        "brand_line1": "DeskBreath", "brand_line2": "呼吸計時器",
         "h1": "輕點一下，<br><em>感受</em>呼吸的節奏。",
         "sub": "會議接著會議、深度工作接著深度工作之間，呼吸往往是最先被忘記的事。DeskBreath 把它變成看得見、感覺得到的東西——輕點呼吸圓一下就開始，吸氣、停頓、吐氣切換時都有分明的震動提醒你。",
         "note": "免費預設 · IPHONE &amp; MAC · 無需訂閱",
@@ -296,7 +300,7 @@ def render(key):
 
 <nav>
   <div class="wrap">
-    <a class="wordmark" href="{rel if rel else './'}"><img src="{rel}assets/icon-180.png" alt=""><span>DESK·BREATH</span></a>
+    <a class="wordmark" href="{rel if rel else './'}"><span class="l1">{loc['brand_line1']}</span><span class="l2">{loc['brand_line2']}</span></a>
     <div class="lang">{lang_nav(loc['dir'], rel)}</div>
   </div>
 </nav>
@@ -318,13 +322,6 @@ def render(key):
         <div class="orb" id="orb"></div>
         <div class="orb-count" id="orbCount">4</div>
         <div class="orb-label" id="orbLabel">{loc['orb_in']}</div>
-      </div>
-      <div class="phone-mini">
-        <div class="screen">
-          <div class="island"><span class="mini-orb"></span><span class="mini-timer">25:04</span></div>
-          <div class="clock">9:41</div>
-          <div class="caption">DeskBreath · Box breathing</div>
-        </div>
       </div>
     </div>
   </div>
