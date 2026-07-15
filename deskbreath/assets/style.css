@@ -97,7 +97,7 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
   position: absolute; inset: 0; border-radius: 50%;
   background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.55), transparent 55%), var(--tide);
   box-shadow: 0 30px 60px rgba(0,0,0,.28);
-  transform: scale(1);
+  transform: scale(0.6);  /* 날숨 끝(0) = 최소 크기에서 시작 */
   transition: transform 4s linear, background-color 4s linear;
 }
 .orb-count {

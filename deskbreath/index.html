@@ -149,14 +149,14 @@
         // inhale: 4s, scale up, tide color, count 4 -> 0
         orbLabel.textContent = labels.in;
         orb.style.transition = "transform 4s linear, background-color 4s linear";
-        orb.style.transform = "scale(1.42)";
+        orb.style.transform = "scale(1)";
         orb.style.backgroundColor = "var(--tide)";
         await countdown(4, 4);
 
         // exhale: 6s, scale down, ember color, count 6 -> 0
         orbLabel.textContent = labels.out;
         orb.style.transition = "transform 6s linear, background-color 6s linear";
-        orb.style.transform = "scale(1)";
+        orb.style.transform = "scale(0.6)";
         orb.style.backgroundColor = "var(--ember)";
         await countdown(6, 6);
       }
