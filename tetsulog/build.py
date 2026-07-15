@@ -14,7 +14,7 @@ BASE_URL = "https://www.kkirukstudio.com/tetsulog/"
 # real store badge.
 APP_STORE_URL = ""
 
-LANG_LABELS = [("", "日本語"), ("ko/", "한국어"), ("en/", "EN")]
+LANG_LABELS = [("", "日本語"), ("ko/", "한국어"), ("en/", "EN"), ("zh/", "繁體中文")]
 
 # Shared marquee content across all locales: real Japanese line names plus the
 # three otaku-culture words that anchor the app's concept, regardless of UI
@@ -215,6 +215,48 @@ LOCALES = {
         "final_h2": "Start logging your <em>next line</em> today.",
         "final_lede": "Coming soon to the App Store.",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
+    },
+    "zh": {
+        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC"',
+        "title": "Tetsulog 鉄ログ — 搭過的車站，直接變成地圖",
+        "desc": "點一下車站就能記錄乘車。搭過的路線顏色會在地圖上蔓延，完乘時蓋下朱紅印章。收錄全日本163家公司、571條路線、10,096個車站的鐵道乘車紀錄 App。",
+        "og_title": "Tetsulog 鉄ログ — 日本鐵道乘車紀錄",
+        "og_desc": "搭過的車站，直接變成地圖。全日本163家公司・571條路線・10,096個車站。",
+        "brand": "Tetsulog",
+        "kicker_word": "集章帳",
+        "kicker_num": "全日本 10,096 站",
+        "h1": "搭過的車站，<br>直接<em>變成地圖</em>。",
+        "sub": "只要點一下地圖上的車站，就能記錄這趟乘車。搭過的路線顏色會直接在地圖上蔓延。把日本之旅搭過的路線，以全日本163家公司・571條路線・10,096個車站的規模，像集章帳一樣記錄在 Tetsulog 裡。",
+        "cta_note": "iPhone・iPad・部分免費",
+        "badge_small": "即將上架",
+        "railmap_caption": "點選路線記錄，顏色蔓延，印章蓋下。",
+        "how_kicker": "使用方法", "how_num": "01–03",
+        "how_h2": "從點一下車站，到<em>蓋下印章</em>為止。",
+        "steps": [
+            ["記錄", "點一下車站來記錄", "只要點地圖上的車站即可。乘車日期與區間都由 Tetsulog 記下。"],
+            ["上色", "地圖染上顏色", "搭過的路線顏色會在地圖上蔓延。未搭乘的區間保持灰色，搭過多少一目瞭然。"],
+            ["收集", "印章慢慢累積", "完乘一條路線，就會蓋下朱紅色的「完乘」印章。帳簿的頁面一點一點被填滿。"],
+        ],
+        "value_kicker": "全日本資料", "value_num": "JR・私鐵・第三部門",
+        "value_h2": "全日本<em>163家公司・571條路線・10,096個車站</em>，一個 App 全收錄。",
+        "value_lede": "JR 集團、大型私鐵、地方私鐵、第三部門鐵道的路線資料全部內建。不論是山手線一圈，還是全日本完乘，Tetsulog 都會替你記下來。",
+        "stats": [["163", "鐵道公司"], ["571", "路線"], ["10,096", "車站"]],
+        "shots_kicker": "畫面", "shots_num": "IOS",
+        "shots_h2": "不做花俏，<em>做一本隨手可用的帳簿</em>。",
+        "shots_caps": ["地圖本身就是乘車紀錄", "依公司整理的車站集章帳", "完乘瞬間送達的紀念卡"],
+        "feat_kicker": "堅持", "feat_num": "06",
+        "feat_h2": "為記錄的人準備的<em>貼心設計</em>。",
+        "feats": [
+            ["過去的乘車也 OK", "以前搭過的紀錄也能事後補登。就算今天才開始，過去的完乘紀錄一樣有效。", False],
+            ["整段區間一次輸入", "只要選擇起點與終點，區間內的車站就能一次全部標記為已搭乘。", False],
+            ["完乘紀念卡", "完乘一條路線，就會自動生成朱印風的紀念卡，也能直接分享到社群。", False],
+            ["47都道府縣熱度地圖", "以地圖深淺呈現各都道府縣的乘車率，旅行的足跡用顏色一看就懂。", True],
+            ["PDF 御朱印帳", "可將集章帳匯出成 PDF，列印或留存都方便。", True],
+            ["iCloud 同步", "紀錄透過 iCloud 同步，iPhone 和 iPad 都能打開同一本帳簿。免費使用。", False],
+        ],
+        "final_h2": "從下一站開始，記錄你的<em>完乘之旅</em>。",
+        "final_lede": "即將在 App Store 上架。",
+        "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
     },
 }
 
