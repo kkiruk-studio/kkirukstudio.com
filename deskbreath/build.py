@@ -4,10 +4,12 @@
 Usage: python3 build.py
 Output: ./index.html (en), ./ko/index.html, ./ja/index.html
 """
-import json
+import json, hashlib
 import pathlib
 
+CSS_V = None
 ROOT = pathlib.Path(__file__).parent
+CSS_V = hashlib.md5((ROOT / "assets" / "style.css").read_bytes()).hexdigest()[:8]
 BASE_URL = "https://www.kkirukstudio.com/deskbreath/"
 
 IOS_URL = "https://apps.apple.com/app/id6786591689"
@@ -256,7 +258,7 @@ def render(key):
 {hreflang_block()}
 <link rel="icon" type="image/png" href="{rel}assets/icon-180.png">
 <link rel="apple-touch-icon" href="{rel}assets/icon-180.png">
-<link rel="stylesheet" href="{rel}assets/style.css">
+<link rel="stylesheet" href="{rel}assets/style.css?v={CSS_V}">
 {font_override}
 </head>
 <body>
