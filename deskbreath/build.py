@@ -16,7 +16,7 @@ APP_STORE_URL = ""
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
-LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語")]
+LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh/", "繁體中文")]
 
 LOCALES = {
     "en": {
@@ -31,6 +31,7 @@ LOCALES = {
         "badge_small": "Download on the", "note": "FREE PRESETS · IPHONE &amp; MAC · NO SUBSCRIPTION",
         "badge_aria": "Download on the App Store", "coming_soon": "Coming soon",
         "orb_in": "Breathe in", "orb_out": "Breathe out",
+        "marquee": ["BREATHE", "FOCUS", "STRETCH", "POSTURE", "RHYTHM", "DEEP WORK", "DESK FATIGUE", "CALM"],
         "how_kicker": "HOW IT WORKS",
         "how_h2": "Three moments where the <em>rhythm</em> finds you.",
         "steps": [
@@ -44,14 +45,7 @@ LOCALES = {
         "iphone_tag": "IPHONE", "iphone_h3": "Tap to Start, Feel Every Phase",
         "iphone_p": "Tap the breathing circle once to start or pause, and feel distinct haptics as you move from inhale to hold to exhale — no need to watch the screen.",
         "mac_tag": "MAC", "mac_h3": "Menu Bar &amp; Floating Circle",
-        "mac_p": "A menu bar icon, plus an optional always-on-top floating circle — pick whichever fits how you work.",
-        "mac_show_kicker": "ON YOUR MAC", "mac_show_num": "SEE IT IN USE",
-        "mac_show_h2": "What DeskBreath actually looks like <em>while you work</em>.",
-        "mac_shots": [
-            ["MENU BAR", "Lives in the menu bar, always", "No app to find or open — glance up once while you work and it's already there."],
-            ["FLOATING ORB", "A breathing circle over your screen", "It floats quietly above your document. Just follow the rhythm out of the corner of your eye."],
-            ["STATS", "Checked right where you work", "See how many breaths and stretches you actually did today, without leaving your desk."],
-        ],
+        "mac_p": "A tiny breathing circle lives in your menu bar, and an optional always-on-top floating circle sits quietly over whatever you're working on.",
         "shots_kicker": "SCREENS", "shots_num": "IOS 17+ · MACOS 14+",
         "shots_h2": "Built for the middle of a workday, <em>not a demo</em>.",
         "shots_caps": ["ACTIVE BREATHING SESSION", "RHYTHM &amp; PRESET SETTINGS", "WEEKLY STATS &amp; STREAK"],
@@ -81,6 +75,7 @@ LOCALES = {
         "badge_small": "다운로드는", "note": "무료 프리셋 · IPHONE &amp; MAC · 구독 없음",
         "badge_aria": "App Store에서 다운로드", "coming_soon": "출시 예정",
         "orb_in": "들숨", "orb_out": "날숨",
+        "marquee": ["호흡", "집중", "스트레칭", "거북목", "리듬", "재택근무", "야근", "회복"],
         "how_kicker": "사용 방법",
         "how_h2": "<em>호흡 원</em>이 당신을 찾아오는 세 순간.",
         "steps": [
@@ -94,14 +89,7 @@ LOCALES = {
         "iphone_tag": "IPHONE", "iphone_h3": "탭으로 시작, 단계마다 느끼기",
         "iphone_p": "호흡 원을 한 번 탭해서 시작하거나 멈추고, 들숨에서 멈춤, 날숨으로 넘어갈 때마다 다른 햅틱을 느껴보세요 — 화면을 보지 않아도 됩니다.",
         "mac_tag": "MAC", "mac_h3": "메뉴바 &amp; 플로팅 호흡 원",
-        "mac_p": "메뉴바 아이콘과, 원하면 항상 위에 뜨는 플로팅 호흡 원까지 — 편한 방식을 골라 쓰세요.",
-        "mac_show_kicker": "맥에서", "mac_show_num": "실제 사용 화면",
-        "mac_show_h2": "일하는 동안 데스크브레스는 <em>이렇게</em> 보입니다.",
-        "mac_shots": [
-            ["메뉴바", "메뉴바에 항상 있습니다", "앱을 찾아 여는 순간조차 없앴습니다 — 일하다 한 번 올려다보면 됩니다."],
-            ["플로팅 원", "화면 위에 떠 있는 호흡 원", "문서 위에 조용히 떠 있어요. 곁눈으로 리듬만 따라가면 됩니다."],
-            ["통계", "일하던 자리에서 확인", "오늘 몇 번 숨을 골랐는지, 스트레칭을 했는지 자리를 뜨지 않고 확인하세요."],
-        ],
+        "mac_p": "작은 호흡 원이 메뉴바에 상주하고, 원하면 항상 위에 뜨는 플로팅 호흡 원이 작업 화면 위에 조용히 자리합니다.",
         "shots_kicker": "화면", "shots_num": "IOS 17+ · MACOS 14+",
         "shots_h2": "업무 중간에 쓰는 도구, <em>데모가 아니라</em>.",
         "shots_caps": ["호흡 세션 진행 중", "리듬 · 프리셋 설정", "주간 통계 · 스트릭"],
@@ -131,6 +119,7 @@ LOCALES = {
         "badge_small": "ダウンロードは", "note": "無料プリセット · IPHONE &amp; MAC · サブスクなし",
         "badge_aria": "App Store でダウンロード", "coming_soon": "近日公開",
         "orb_in": "吸う", "orb_out": "吐く",
+        "marquee": ["呼吸", "集中", "ストレッチ", "猫背", "リズム", "在宅勤務", "デスクワーク", "回復"],
         "how_kicker": "使い方",
         "how_h2": "<em>呼吸の輪</em>があなたを見つける3つの瞬間。",
         "steps": [
@@ -144,14 +133,7 @@ LOCALES = {
         "iphone_tag": "IPHONE", "iphone_h3": "タップで開始、段階ごとに感じる",
         "iphone_p": "呼吸の輪をタップひとつで開始・一時停止し、吸う・止める・吐くが切り替わるたびに違う触覚を感じてください — 画面を見る必要はありません。",
         "mac_tag": "MAC", "mac_h3": "メニューバー &amp; フローティングオーブ",
-        "mac_p": "メニューバーのアイコンと、必要なら常に最前面に浮かぶフローティングオーブ — お好みで選べます。",
-        "mac_show_kicker": "Mac で", "mac_show_num": "実際の使用画面",
-        "mac_show_h2": "作業中のデスクブレスは<em>こんな見た目</em>です。",
-        "mac_shots": [
-            ["メニューバー", "メニューバーに常駐", "アプリを探して開く手間さえありません。作業中にふと目を上げるだけです。"],
-            ["フローティングオーブ", "画面に浮かぶ呼吸の輪", "書類の上に静かに浮かびます。視界の端でリズムを追うだけで十分です。"],
-            ["統計", "作業していたその場で確認", "今日何回呼吸を整えたか、ストレッチをしたか。席を立たずに確認できます。"],
-        ],
+        "mac_p": "小さな呼吸の輪がメニューバーに常駐し、必要なら常に最前面に浮かぶフローティングオーブが作業画面の上に静かに佇みます。",
         "shots_kicker": "画面", "shots_num": "IOS 17+ · MACOS 14+",
         "shots_h2": "仕事の合間に使う道具、<em>デモではなく</em>。",
         "shots_caps": ["呼吸セッション実行中", "リズム · プリセット設定", "週間統計 · ストリーク"],
@@ -168,6 +150,50 @@ LOCALES = {
         ],
         "final_h2": "呼吸にリズムを。", "final_lede": "iPhone と Mac で無料プリセット。Pro は買い切り一回。",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
+    },
+    "zh": {
+        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC", "Heiti TC"', "shots": "en",
+        "title": "DeskBreath — 輕點一下，感受呼吸的節奏",
+        "desc": "DeskBreath 讓你輕點一下就開始呼吸，吸氣、停頓、吐氣都有分明的震動節奏可以感受。伸展提醒也很誠實，只記錄你真的做到的——為整天坐在書桌前的你打造。",
+        "og_title": "DeskBreath — 專為辦公設計的呼吸計時器",
+        "og_desc": "輕點一下、分明的震動、誠實的伸展紀錄——為工作打造的呼吸節奏。",
+        "kicker_num": "呼吸計時器",
+        "h1": "輕點一下，<br><em>感受</em>呼吸的節奏。",
+        "sub": "會議接著會議、深度工作接著深度工作之間，呼吸往往是最先被忘記的事。DeskBreath 把它變成看得見、感覺得到的東西——輕點呼吸圓一下就開始，吸氣、停頓、吐氣切換時都有分明的震動提醒你。",
+        "badge_small": "下載於", "note": "免費預設 · IPHONE &amp; MAC · 無需訂閱",
+        "badge_aria": "在 App Store 下載", "coming_soon": "即將推出",
+        "orb_in": "吸氣", "orb_out": "吐氣",
+        "marquee": ["呼吸", "專注", "伸展", "姿勢", "節奏", "深度工作", "久坐疲勞", "放鬆"],
+        "how_kicker": "使用方式",
+        "how_h2": "<em>呼吸的節奏</em>找上你的三個時刻。",
+        "steps": [
+            ["開始", "選一個節奏，開始", "箱式呼吸、4-7-8，或自訂吸氣／吐氣秒數——免費開始，不需帳號，選單列或 App 都能直接使用。"],
+            ["感受", "感受每一次轉換", "吸氣、停頓、吐氣各有分明的震動，讓你不用盯著螢幕也能跟上節奏。"],
+            ["起身", "伸展提醒，起身活動", "每 30、60、90 或 120 分鐘，會有溫和的提醒告訴你該起身伸展了——真的做到才點「完成」，紀錄才會誠實。"],
+        ],
+        "value_kicker": "真正誠實的紀錄", "value_num": "不只是計時器",
+        "value_h2": "一個<em>知道</em>你有沒有真的動的計時器。",
+        "value_lede": "久坐疲勞不會在意你跳過了多少提醒。DeskBreath 只有在你真的點下「完成」時才計入伸展紀錄——而且工作時段滿 10 小時會自動結束，下班後就不會再打擾你。",
+        "iphone_tag": "IPHONE", "iphone_h3": "輕點開始，感受每個階段",
+        "iphone_p": "輕點呼吸圓一下就能開始或暫停，從吸氣到停頓、再到吐氣，每次切換都能感受到不同的震動——不用一直盯著螢幕。",
+        "mac_tag": "MAC", "mac_h3": "選單列 &amp; 懸浮呼吸圓",
+        "mac_p": "小小的呼吸圓常駐在選單列，也可以選擇一個永遠置頂的懸浮呼吸圓，安靜地待在你正在做的事情上方。",
+        "shots_kicker": "畫面", "shots_num": "IOS 17+ · MACOS 14+",
+        "shots_h2": "為工作中場打造，<em>不是為了展示</em>。",
+        "shots_caps": ["呼吸練習進行中", "節奏與預設設定", "週統計與連續紀錄"],
+        "feat_kicker": "細節", "feat_num": "07",
+        "feat_h2": "小小的 App，<em>用心的選擇</em>。",
+        "feats": [
+            ["箱式呼吸 &amp; 預設", "4-4-4-4 箱式呼吸、4-7-8 等——免費內建，一點就能開始。", False],
+            ["每個階段都有震動", "吸氣、停頓、吐氣都有分明的震動，秒數也能自訂。免費。", False],
+            ["顏色、圖片與方向", "更換呼吸圓顏色、放上自己的圖片，還能翻轉倒數方向，配合你的專注方式。", True],
+            ["7 種呼吸圓主題", "圓形、等化器、環形、綻放、箱型、波形、脈動——選一個適合你的樣子。", True],
+            ["週統計與連續紀錄", "看看這週真正完成了幾次，持續累積你的連續紀錄。", True],
+            ["誠實的伸展提醒", "每 30、60、90 或 120 分鐘提醒一次——真的做到才點「完成」。", False],
+            ["買斷制，無需訂閱", "Pro 只需一次付費——沒有訂閱，沒有持續扣款。", False],
+        ],
+        "final_h2": "給你的呼吸一個節奏。", "final_lede": "iPhone 與 Mac 上的免費預設。Pro 一次付費，終身使用。",
+        "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
     },
 }
 
@@ -201,14 +227,7 @@ def render(key):
     rel = "../" if loc["dir"] else ""
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
 
-    mac_shots = "".join(
-        f'<figure class="mac-shot-card"><div class="mac-shot" style="aspect-ratio:{w}/{h}">'
-        f'<img src="{rel}assets/macreal-{name}-{loc["shots"]}.png" alt="{h3}" loading="lazy"></div>'
-        f'<figcaption class="cap"><span class="tag">{tag}</span><h3>{h3}</h3><p>{p}</p></figcaption></figure>'
-        for (name, w, h), (tag, h3, p) in zip(
-            [("menubar", 528, 932), ("orb", 528, 528), ("stats", 840, 1000)], loc["mac_shots"]
-        )
-    )
+    marquee = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
     steps = "".join(
         f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
         for i, (tag, h, p) in enumerate(loc["steps"])
@@ -280,13 +299,7 @@ def render(key):
   </div>
 </header>
 
-<section class="mac-showcase">
-  <div class="wrap">
-    <div class="kicker"><span>{loc['mac_show_kicker']}</span><span class="rule"></span><span class="num">{loc['mac_show_num']}</span></div>
-    <h2>{loc['mac_show_h2']}</h2>
-    <div class="row">{mac_shots}</div>
-  </div>
-</section>
+<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
 
 <section>
   <div class="wrap">
@@ -387,7 +400,6 @@ def render(key):
     }})();
   }}
 </script>
-<script src="/ga.js"></script>
 </body>
 </html>
 """
