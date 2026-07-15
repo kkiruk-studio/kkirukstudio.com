@@ -92,7 +92,7 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 /* ---------- hero visual: breathing orb + phone mockup ---------- */
 .hero-visual { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; }
 
-.orb-stage { position: relative; width: 220px; height: 220px; flex: none; }
+.orb-stage { position: relative; width: 168px; height: 168px; flex: none; }
 .orb {
   position: absolute; inset: 0; border-radius: 50%;
   background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.55), transparent 55%), var(--tide);
@@ -102,7 +102,7 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 }
 .orb-count {
   position: absolute; inset: 0; display: grid; place-items: center;
-  font-size: 56px; font-weight: 900; color: #fff; font-variant-numeric: tabular-nums;
+  font-size: 42px; font-weight: 900; color: #fff; font-variant-numeric: tabular-nums;
 }
 .orb-label {
   position: absolute; left: 50%; bottom: -38px; transform: translateX(-50%);

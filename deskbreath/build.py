@@ -226,7 +226,6 @@ def render(key):
     rel = "../" if loc["dir"] else ""
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
 
-    marquee = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
     steps = "".join(
         f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
         for i, (tag, h, p) in enumerate(loc["steps"])
@@ -298,7 +297,6 @@ def render(key):
   </div>
 </header>
 
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
 
 <section>
   <div class="wrap">
@@ -380,6 +378,11 @@ def render(key):
 
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {{
     const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    // n..0 을 단계 길이에 딱 맞춰 고르게 표시 — 0 도 한 박자 보인다.
+    const countdown = async (n, seconds) => {{
+      const step = seconds * 1000 / (n + 1);
+      for (let i = n; i >= 0; i--) {{ orbCount.textContent = i; await sleep(step); }}
+    }};
     (async function loop() {{
       for (;;) {{
         // inhale: 4s, scale up, tide color, count 4 -> 0
@@ -387,14 +390,14 @@ def render(key):
         orb.style.transition = "transform 4s linear, background-color 4s linear";
         orb.style.transform = "scale(1.42)";
         orb.style.backgroundColor = "var(--tide)";
-        for (let i = 4; i >= 0; i--) {{ orbCount.textContent = i; if (i > 0) await sleep(1000); }}
+        await countdown(4, 4);
 
         // exhale: 6s, scale down, ember color, count 6 -> 0
         orbLabel.textContent = labels.out;
         orb.style.transition = "transform 6s linear, background-color 6s linear";
         orb.style.transform = "scale(1)";
         orb.style.backgroundColor = "var(--ember)";
-        for (let i = 6; i >= 0; i--) {{ orbCount.textContent = i; if (i > 0) await sleep(1000); }}
+        await countdown(6, 6);
       }}
     }})();
   }}
