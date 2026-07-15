@@ -10,9 +10,8 @@ import pathlib
 ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/deskbreath/"
 
-# Fill in after App Store approval (e.g. https://apps.apple.com/app/id1234567890),
-# then re-run `python3 build.py`. Empty renders a disabled "Coming soon" badge.
-APP_STORE_URL = ""
+IOS_URL = "https://apps.apple.com/app/id6786591689"
+MAC_URL = "https://apps.apple.com/app/id6786591689?platform=mac"
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
@@ -28,8 +27,8 @@ LOCALES = {
         "kicker_num": "BREATHING TIMER",
         "h1": "One tap.<br>A rhythm you can <em>feel</em>.",
         "sub": "Between back-to-back calls and heads-down deep work, breathing is the first thing you forget. DeskBreath turns it into something physical — tap the circle once to start, and feel each phase change as a distinct pulse for inhale, hold, and exhale.",
-        "badge_small": "Download on the", "note": "FREE PRESETS · IPHONE &amp; MAC · NO SUBSCRIPTION",
-        "badge_aria": "Download on the App Store", "coming_soon": "Coming soon",
+        "note": "FREE PRESETS · IPHONE &amp; MAC · NO SUBSCRIPTION",
+        "ios_cta": "Download on the App Store", "mac_cta": "Download for Mac",
         "orb_in": "Breathe in", "orb_out": "Breathe out",
         "marquee": ["BREATHE", "FOCUS", "STRETCH", "POSTURE", "RHYTHM", "DEEP WORK", "DESK FATIGUE", "CALM"],
         "how_kicker": "HOW IT WORKS",
@@ -72,8 +71,8 @@ LOCALES = {
         "kicker_num": "호흡 타이머",
         "h1": "탭 한 번,<br><em>느껴지는</em> 호흡 리듬.",
         "sub": "화상회의와 집중 작업 사이, 호흡은 자꾸 잊혀집니다. 데스크브레스는 호흡 원을 한 번 탭하면 시작하고, 들숨·멈춤·날숨이 바뀔 때마다 확실한 햅틱으로 느껴져요.",
-        "badge_small": "다운로드는", "note": "무료 프리셋 · IPHONE &amp; MAC · 구독 없음",
-        "badge_aria": "App Store에서 다운로드", "coming_soon": "출시 예정",
+        "note": "무료 프리셋 · IPHONE &amp; MAC · 구독 없음",
+        "ios_cta": "App Store에서 받기", "mac_cta": "Mac App Store에서 받기",
         "orb_in": "들숨", "orb_out": "날숨",
         "marquee": ["호흡", "집중", "스트레칭", "거북목", "리듬", "재택근무", "야근", "회복"],
         "how_kicker": "사용 방법",
@@ -116,8 +115,8 @@ LOCALES = {
         "kicker_num": "呼吸タイマー",
         "h1": "タップひとつで、<br><em>感じる</em>呼吸のリズム。",
         "sub": "オンライン会議と作業の合間、呼吸はつい忘れがちです。デスクブレスは呼吸オーブをタップひとつで開始でき、吸う・止める・吐くが切り替わるたびにはっきりした触覚で感じられます。",
-        "badge_small": "ダウンロードは", "note": "無料プリセット · IPHONE &amp; MAC · サブスクなし",
-        "badge_aria": "App Store でダウンロード", "coming_soon": "近日公開",
+        "note": "無料プリセット · IPHONE &amp; MAC · サブスクなし",
+        "ios_cta": "App Storeでダウンロード", "mac_cta": "Mac App Storeでダウンロード",
         "orb_in": "吸う", "orb_out": "吐く",
         "marquee": ["呼吸", "集中", "ストレッチ", "猫背", "リズム", "在宅勤務", "デスクワーク", "回復"],
         "how_kicker": "使い方",
@@ -160,8 +159,8 @@ LOCALES = {
         "kicker_num": "呼吸計時器",
         "h1": "輕點一下，<br><em>感受</em>呼吸的節奏。",
         "sub": "會議接著會議、深度工作接著深度工作之間，呼吸往往是最先被忘記的事。DeskBreath 把它變成看得見、感覺得到的東西——輕點呼吸圓一下就開始，吸氣、停頓、吐氣切換時都有分明的震動提醒你。",
-        "badge_small": "下載於", "note": "免費預設 · IPHONE &amp; MAC · 無需訂閱",
-        "badge_aria": "在 App Store 下載", "coming_soon": "即將推出",
+        "note": "免費預設 · IPHONE &amp; MAC · 無需訂閱",
+        "ios_cta": "在 App Store 下載", "mac_cta": "在 Mac App Store 下載",
         "orb_in": "吸氣", "orb_out": "吐氣",
         "marquee": ["呼吸", "專注", "伸展", "姿勢", "節奏", "深度工作", "久坐疲勞", "放鬆"],
         "how_kicker": "使用方式",
@@ -215,11 +214,11 @@ def lang_nav(cur_dir, rel):
 
 
 def badge(loc, el_id):
-    if APP_STORE_URL:
-        return (f'<a class="store-badge" id="{el_id}" href="{APP_STORE_URL}" aria-label="{loc["badge_aria"]}">{APPLE_SVG}'
-                f'<span class="txt"><small>{loc["badge_small"]}</small><strong>App Store</strong></span></a>')
-    return (f'<a class="store-badge soon" id="{el_id}" href="javascript:void(0)" aria-disabled="true">{APPLE_SVG}'
-            f'<span class="txt"><small>App Store</small><strong>{loc["coming_soon"]}</strong></span></a>')
+    ios = (f'<a class="store-badge" id="{el_id}" href="{IOS_URL}" target="_blank" rel="noopener" aria-label="{loc["ios_cta"]}">{APPLE_SVG}'
+           f'<span class="txt"><strong>{loc["ios_cta"]}</strong></span></a>')
+    mac = (f'<a class="store-badge secondary" id="{el_id}-mac" href="{MAC_URL}" target="_blank" rel="noopener" aria-label="{loc["mac_cta"]}">{APPLE_SVG}'
+           f'<span class="txt"><strong>{loc["mac_cta"]}</strong></span></a>')
+    return ios + mac
 
 
 def render(key):
