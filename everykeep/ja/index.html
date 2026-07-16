@@ -25,6 +25,7 @@
 <link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/everykeep/">
 <link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/everykeep/ko/">
 <link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/everykeep/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/everykeep/zh/">
 <link rel="icon" type="image/png" href="../assets/icon-180.png">
 <link rel="apple-touch-icon" href="../assets/icon-180.png">
 <link rel="stylesheet" href="../assets/style.css">
@@ -36,7 +37,7 @@
 <nav>
   <div class="wrap">
     <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>everykeep</span></a>
-    <div class="lang"><a href="../">EN</a><a href="../ko/">한국어</a><a href="../ja/" class="cur">日本語</a></div>
+    <div class="lang"><a href="../">EN</a><a href="../ko/">한국어</a><a href="../ja/" class="cur">日本語</a><a href="../zh/">繁體中文</a></div>
   </div>
 </nav>
 
@@ -173,7 +174,7 @@
   document.querySelectorAll('.lang a').forEach(function(a){
     a.addEventListener('click', function(){
       var h=a.getAttribute('href')||'';
-      var c=h.indexOf('ko')>-1?'ko':h.indexOf('ja')>-1?'ja':'en';
+      var c=h.indexOf('ko')>-1?'ko':h.indexOf('ja')>-1?'ja':h.indexOf('zh')>-1?'zh':'en';
       try{ localStorage.setItem('ek_lang', c); }catch(e){}
     });
   });

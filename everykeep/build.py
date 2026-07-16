@@ -14,7 +14,7 @@ APP_STORE_URL = "https://apps.apple.com/app/id6781988992"  # live 2026-06-24
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
-LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語")]
+LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh/", "繁體中文")]
 
 LOCALES = {
     "en": {
@@ -155,6 +155,52 @@ LOCALES = {
         "final_h2": "もう覚えようとしなくて大丈夫。", "final_lede": "iPhone · iPad 無料。",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
     },
+    "zh": {
+        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC"', "shots": "ja",
+        "title": "everykeep — 居家保養提醒",
+        "desc": "濾芯更換、保固到期、產品註冊、清潔週期 — 容易忘記的居家保養，everykeep 幫你記住，時間到了就提醒。免費，資料只留在裝置上。",
+        "og_title": "everykeep — 你忘記的，它替你記得",
+        "og_desc": "家裡每樣東西容易忘記的保養，通通收在一起。免費。",
+        "kicker_num": "居家保養",
+        "h1": "濾芯、保固、容易忘記的保養，<br>everykeep <em>替你記得</em>。",
+        "pairs": [["淨水器濾芯", "更換 · 5天後"], ["冷氣濾網", "清潔 · 12天後"], ["筆電保固", "到期 · 340天後"], ["空氣清淨機濾芯", "更換 · 就是今天"]],
+        "sub": "濾芯更換、保固到期、產品註冊、清潔週期 — 家裡每樣東西容易忘記的保養，通通收在一起。時間快到了，everykeep 會替你記得，靜靜地提醒你。免費，資料完全不會離開手機。",
+        "note": "免費 · iPhone &amp; iPad",
+        "badge_small": "立即下載", "badge_aria": "App Store 上的 everykeep",
+        "chips": [["↻", "更換"], ["✦", "清潔"], ["🛡", "保固"], ["✓", "註冊"]],
+        "hero_alt": "everykeep 首頁畫面，顯示即將到來的保養事項與 Keepy",
+        "marquee": ["淨水器濾芯", "冷氣", "空氣清淨機", "牙刷頭", "隱形眼鏡", "保固卡", "產品註冊", "清潔週期"],
+        "how_kicker": "使用方法",
+        "how_h2": "從<em>「上次是什麼時候做的？」</em>到搞定為止。",
+        "steps": [
+            ["註冊", "新增一件物品", "登記物品和保養週期 — 像是每 3 個月換一次濾芯，或明年到期的保固。"],
+            ["提醒", "everykeep 幫你記得", "追蹤日期，快到的時候提前提醒你 — 30、7、1 天前，都由你決定。"],
+            ["完成", "點一下就搞定", "按下完成，下一次日期自動排好。Keepy 也會跟著長大一點。"],
+        ],
+        "keepy_kicker": "KEEPY", "keepy_num": "陪你一起成長",
+        "keepy_h2": "越常保養，Keepy 就<em>長得越大</em>。",
+        "keepy_lede": "每次登記物品或完成保養，Keepy 都會獲得一點照顧、升一級 — 從種子到盛開。沒有嘮叨，只有默默證明你都有照顧好。",
+        "keepy": [["種子", "剛種下", "起點"], ["新芽", "開始發芽", "30 點"], ["嫩葉", "慢慢長大", "70 點"], ["盛開", "完全長大", "150 點"]],
+        "status_kicker": "狀態", "status_num": "一目瞭然",
+        "status_h2": "<em>提前</em>看得到。",
+        "status_lede": "每件物品都有一個簡單的燈號。時間還早、快到期、已逾期 — 不用翻找，也不用做表格。",
+        "status": [["時間還早", "已登記，進度正常。"], ["快到期", "進入提醒範圍內。"], ["已逾期", "該處理了。"]],
+        "shots_kicker": "畫面", "shots_num": "iOS",
+        "shots_h2": "所有保養事項，<em>一眼看清</em>。",
+        "shots_caps": ["今天要做的保養", "成長中的 Keepy", "行事曆時間軸"],
+        "feat_kicker": "細節", "feat_num": "06",
+        "feat_h2": "免費的 App，<em>用心</em>的選擇。",
+        "feats": [
+            ["資料只留在裝置上", "所有紀錄只存在你的 iPhone 裡。不用帳號，也沒有離開裝置的分析追蹤。"],
+            ["剛剛好的通知", "每件物品都能選擇 30 / 7 / 1 天前或當天提醒，只收到你需要的提醒。"],
+            ["Keepy 陪你成長", "每次登記或完成保養，這位手繪的保養夥伴就會跟著升一級。"],
+            ["行事曆時間軸", "本週、本月要做的保養，用清爽的時間軸一次看清。"],
+            ["剩餘壽命一目瞭然", "收藏庫用圓環顯示每件物品的剩餘壽命 — 綠、橘、完成。"],
+            ["照片與保固", "附上照片，保存保固與註冊日期，之後要找收據也方便。"],
+        ],
+        "final_h2": "別再靠自己硬記了。", "final_lede": "iPhone、iPad 免費使用。",
+        "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
+    },
 }
 
 
@@ -186,8 +232,8 @@ REDIRECT_SCRIPT = """<script>
   try{
     if(localStorage.getItem('ek_lang')) return;            // already chose/auto-routed before
     var n=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();
-    var d=n.indexOf('ko')===0?'ko/':n.indexOf('ja')===0?'ja/':null;
-    if(d){ localStorage.setItem('ek_lang', d==='ko/'?'ko':'ja'); location.replace(d); }
+    var d=n.indexOf('ko')===0?'ko/':n.indexOf('ja')===0?'ja/':(n.indexOf('zh-hant')===0||n.indexOf('zh-tw')===0||n.indexOf('zh-hk')===0)?'zh/':null;
+    if(d){ localStorage.setItem('ek_lang', d==='ko/'?'ko':d==='ja/'?'ja':'zh'); location.replace(d); }
     else { localStorage.setItem('ek_lang','en'); }
   }catch(e){}
 })();
@@ -200,7 +246,7 @@ LANG_PERSIST_SCRIPT = """<script>
   document.querySelectorAll('.lang a').forEach(function(a){
     a.addEventListener('click', function(){
       var h=a.getAttribute('href')||'';
-      var c=h.indexOf('ko')>-1?'ko':h.indexOf('ja')>-1?'ja':'en';
+      var c=h.indexOf('ko')>-1?'ko':h.indexOf('ja')>-1?'ja':h.indexOf('zh')>-1?'zh':'en';
       try{ localStorage.setItem('ek_lang', c); }catch(e){}
     });
   });
