@@ -245,7 +245,7 @@ LOCALES = {
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
     },
     "zh": {
-        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC", "Heiti TC", "Microsoft JhengHei"', "shots": "en",
+        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC", "Heiti TC", "Microsoft JhengHei"', "shots": "zh",
         "title": "Sidefeed — 用國家排行榜看 YouTube 現在在紅什麼",
         "desc": "YouTube官方發燒榜「趨勢」、自家演算的急升榜「雷達」、14個分類的熱門影片「探索」——涵蓋14個國家的YouTube趨勢，一個App全部看到。給正在企劃下一支影片的創作者的趨勢研究工具。",
         "og_title": "Sidefeed — 用國家別看 YouTube 趨勢",
