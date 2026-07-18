@@ -85,9 +85,9 @@ LOCALES = {
             ["2주 전 관찰", "왼쪽 무릎 통증이 3주 연속 기록됐어요."],
             ["이번 주 관찰", "주말 장거리 후 회복이 빠른 편이에요."],
         ],
-        "shots_kicker": "화면", "shots_num": "MOCKUP",
+        "shots_kicker": "화면", "shots_num": "SCREENS",
         "shots_h2": "기록에서 <em>코칭</em>까지, 한눈에.",
-        "shots_caps": ["월간 캘린더 · 기록", "심박 5존 · km 스플릿", "AI 코칭 카드"],
+        "shots_caps": ["홈 · 오늘의 러닝", "러닝 상세 기록", "AI 코칭 카드", "히스토리 · 캘린더"],
         "cal_head": "2026년 7월 · 12회 · 68km",
         "cal_list": [["7월 28일", "5.2 km", "5:58/km"], ["7월 25일", "8.0 km", "6:20/km"], ["7월 21일", "3.1 km", "6:05/km"]],
         "zone_legend": ["Z1", "Z2", "Z3", "Z4", "Z5"],
@@ -152,9 +152,9 @@ LOCALES = {
             ["Observed 2 weeks ago", "Left knee soreness logged 3 weeks running."],
             ["Observed this week", "You recover fast after long weekend runs."],
         ],
-        "shots_kicker": "SCREENS", "shots_num": "MOCKUP",
+        "shots_kicker": "SCREENS", "shots_num": "SCREENS",
         "shots_h2": "From your log to <em>your coaching</em>, at a glance.",
-        "shots_caps": ["MONTHLY CALENDAR · LOG", "HR ZONES · KM SPLITS", "AI COACHING CARD"],
+        "shots_caps": ["HOME · TODAY'S RUN", "RUN DETAIL", "AI COACHING CARD", "HISTORY · CALENDAR"],
         "cal_head": "JULY 2026 · 12 RUNS · 68 KM",
         "cal_list": [["Jul 28", "5.2 km", "5:58/km"], ["Jul 25", "8.0 km", "6:20/km"], ["Jul 21", "3.1 km", "6:05/km"]],
         "zone_legend": ["Z1", "Z2", "Z3", "Z4", "Z5"],
@@ -219,9 +219,9 @@ LOCALES = {
             ["2週間前の観察", "左膝の違和感が3週連続で記録されています。"],
             ["今週の観察", "週末のロング走の翌週、回復が早い傾向です。"],
         ],
-        "shots_kicker": "画面", "shots_num": "MOCKUP",
+        "shots_kicker": "画面", "shots_num": "SCREENS",
         "shots_h2": "記録から<em>コーチング</em>まで、ひと目で。",
-        "shots_caps": ["月間カレンダー・記録", "心拍5ゾーン・kmスプリット", "AIコーチングカード"],
+        "shots_caps": ["ホーム・今日のラン", "ラン詳細記録", "AIコーチングカード", "履歴・カレンダー"],
         "cal_head": "2026年7月 · 12回 · 68km",
         "cal_list": [["7月28日", "5.2 km", "5:58/km"], ["7月25日", "8.0 km", "6:20/km"], ["7月21日", "3.1 km", "6:05/km"]],
         "zone_legend": ["Z1", "Z2", "Z3", "Z4", "Z5"],
@@ -286,9 +286,9 @@ LOCALES = {
             ["2週前的觀察", "左膝疼痛已連續記錄3週。"],
             ["本週觀察", "週末長跑後恢復速度較快。"],
         ],
-        "shots_kicker": "畫面", "shots_num": "MOCKUP",
+        "shots_kicker": "畫面", "shots_num": "SCREENS",
         "shots_h2": "從記錄到<em>教練指導</em>,一目了然。",
-        "shots_caps": ["月曆檢視 · 記錄", "心率5區間 · 公里分段", "AI 教練卡片"],
+        "shots_caps": ["首頁 · 今日跑步", "跑步詳細記錄", "AI 教練卡片", "歷史記錄 · 日曆"],
         "cal_head": "2026年7月 · 12次 · 68公里",
         "cal_list": [["7月28日", "5.2 km", "5:58/km"], ["7月25日", "8.0 km", "6:20/km"], ["7月21日", "3.1 km", "6:05/km"]],
         "zone_legend": ["Z1", "Z2", "Z3", "Z4", "Z5"],
@@ -402,6 +402,13 @@ def render(key):
 
     feats = "".join(f'<div class="feat"><h3>{h}</h3><p>{p}</p></div>' for h, p in loc["feats"])
 
+    shots = "".join(
+        f'<figure class="shot-card">'
+        f'<img src="{rel}assets/shot-{key}-{i:02d}.png" alt="{cap}" loading="lazy" width="294" height="640">'
+        f'<figcaption>{cap}</figcaption></figure>'
+        for i, cap in enumerate(loc["shots_caps"], start=1)
+    )
+
     demo_note_json = repr(d["note"])
 
     html = f"""<!doctype html>
@@ -413,12 +420,12 @@ def render(key):
 <meta name="description" content="{loc['desc']}">
 <meta property="og:title" content="{loc['og_title']}">
 <meta property="og:description" content="{loc['og_desc']}">
-<meta property="og:image" content="{BASE_URL}assets/mark.svg">
+<meta property="og:image" content="{BASE_URL}assets/icon-512.png">
 <meta property="og:type" content="website">
 <link rel="canonical" href="{BASE_URL}{loc['dir']}">
 {hreflang_block()}
-<link rel="icon" type="image/svg+xml" href="{rel}assets/mark.svg">
-<link rel="apple-touch-icon" href="{rel}assets/mark.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="{rel}assets/icon-32.png">
+<link rel="apple-touch-icon" href="{rel}assets/icon-180.png">
 <link rel="stylesheet" href="{rel}assets/style.css">
 {font_override}
 </head>
@@ -488,32 +495,7 @@ def render(key):
   <div class="wrap">
     <div class="kicker"><span>{loc['shots_kicker']}</span><span class="rule"></span><span class="num">{loc['shots_num']}</span></div>
     <h2>{loc['shots_h2']}</h2>
-    <div class="row">
-      <figure>
-        <div class="phone"><div class="screen">
-          <div class="cal-head">{loc['cal_head']}</div>
-          <div class="cal-grid">{cal_grid}</div>
-          <div class="cal-list">{cal_list}</div>
-        </div><div class="island"></div></div>
-        <figcaption>{loc['shots_caps'][0]}</figcaption>
-      </figure>
-      <figure>
-        <div class="phone"><div class="screen">
-          <div class="zone-bar">{zone_bar}</div>
-          <div class="zone-legend">{zone_legend}</div>
-          <div class="splits">{splits}</div>
-        </div><div class="island"></div></div>
-        <figcaption>{loc['shots_caps'][1]}</figcaption>
-      </figure>
-      <figure>
-        <div class="phone"><div class="screen">
-          <div class="coach-mock-lbl">{d['ai_label']}</div>
-          <div class="coach-mock-card">{coach_mock_paras}</div>
-          <span class="coach-mock-tag">{loc['coach_mock_tag']}</span>
-        </div><div class="island"></div></div>
-        <figcaption>{loc['shots_caps'][2]}</figcaption>
-      </figure>
-    </div>
+    <div class="row row-4">{shots}</div>
   </div>
 </section>
 

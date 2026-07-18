@@ -225,6 +225,11 @@ section .lede { color: var(--muted); max-width: 40em; font-size: 17px; word-brea
 .shots .phone { width: 100%; }
 .shots figcaption { text-align: center; margin-top: 16px; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .22em; color: var(--muted); }
 .shots figure:nth-child(2) { transform: translateY(34px); }
+.shots .row-4 { grid-template-columns: repeat(4, 1fr); }
+.shots .row-4 figure:nth-child(2) { transform: translateY(20px); }
+.shots .row-4 figure:nth-child(4) { transform: translateY(20px); }
+.shots .shot-card { margin: 0; }
+.shots .shot-card img { display: block; width: 100%; height: auto; border-radius: 18px; box-shadow: 0 12px 32px -12px rgba(0,0,0,.25); }
 
 /* calendar mockup */
 .cal-head { font-family: var(--mono); font-size: 10px; font-weight: 800; letter-spacing: .1em; color: var(--muted); margin-bottom: 8px; }
