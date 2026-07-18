@@ -226,8 +226,9 @@ body{
 .p1 h1 em{font-style:normal;color:var(--accent)}
 .p1 .top{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:120px;flex-wrap:wrap;gap:8px}
 .p1 .h1w{grid-column:1/12}
-.p1 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;margin-top:120px;flex-wrap:wrap;gap:16px}
-.p1 .foot .rule{width:200px}
+.p1 .rulew{grid-column:1/-1;margin-top:120px}
+.p1 .rulew .rule{width:200px}
+.p1 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:32px;flex-wrap:wrap;gap:16px}
 .p1 .lede-meta{font-size:18px;letter-spacing:.04em;text-transform:none;font-weight:700}
 .p1 .fl{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
 .p1 .btn{display:inline-block;border:2px solid var(--ink);border-radius:999px;
@@ -429,11 +430,9 @@ body{{{word_break}}}
     <div class="h1w">
       <h1><span class="line"><span>{loc['p1_h1'][0]}</span></span><span class="line"><span>{loc['p1_h1'][1]}</span></span></h1>
     </div>
+    <div class="rulew"><div class="rule"></div></div>
     <div class="foot">
-      <div class="fl">
-        <div class="rule"></div>
-        <a class="btn storeLink io d4" href="{btn_href}">{loc['badge_soon']}</a>
-      </div>
+      <a class="btn storeLink io d4" href="{btn_href}">{loc['badge_soon']}</a>
       <span class="meta lede-meta io d3">{loc['p1_lede']}</span>
     </div>
   </div>
