@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RunNote — 러닝 후 한 줄 노트로 완성되는 AI 코칭</title>
-<meta name="description" content="실시간 트래킹이 아닌 노트 기반 러닝 기록장. 워치로 뛰고 컨디션과 한 줄만 남기면, 기록이 쌓일수록 Claude AI 코칭이 정교해집니다.">
+<meta name="description" content="실시간 트래킹이 아닌 노트 기반 러닝 기록장. 워치로 뛰고 컨디션과 한 줄만 남기면, 기록이 쌓일수록 AI 코칭이 정교해집니다.">
 <meta property="og:title" content="RunNote — 나를 아는 AI 러닝 코치">
 <meta property="og:description" content="한 줄 노트가 쌓일수록 정교해지는 AI 코칭.">
 <meta property="og:image" content="https://www.kkirukstudio.com/runnote/assets/icon-512.png">
@@ -17,122 +17,339 @@
 <link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/runnote/zh/">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
-<link rel="stylesheet" href="assets/style.css">
+<style>
+
+:root{
+  --cols:12; --gutter:24px; --margin:64px; --baseline:8px;
+  --accent:#1E9B52; --ink:#141414; --paper:#F4F1E8; --paper2:#ECE8DB;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink);
+  font:16px/24px "Helvetica Neue", Helvetica, "Apple SD Gothic Neo", Pretendard, sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.grid{
+  display:grid; grid-template-columns:repeat(var(--cols),1fr);
+  column-gap:var(--gutter); max-width:1240px; margin-inline:auto;
+  padding-inline:var(--margin); position:relative;
+}
+
+/* ── 포스터 공통 ── */
+.poster{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding-block:96px;position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
+.meta{font-size:15px;line-height:24px;letter-spacing:.12em;font-weight:700;text-transform:uppercase}
+.rule{height:8px;background:var(--accent)}
+.mono{font-family:"SF Mono", ui-monospace, Menlo, monospace}
+
+/* 언어 스위처 */
+.langnav{position:absolute;top:24px;right:64px;z-index:5;display:flex;gap:16px}
+.langnav a{font-size:13px;letter-spacing:.08em;font-weight:700;color:#00000088;text-decoration:none}
+.langnav a.cur{color:var(--ink);text-decoration:underline}
+
+/* P1 표지 */
+.p1 h1{font-size:clamp(64px,10vw,152px);line-height:.96;font-weight:800;letter-spacing:-.03em}
+.p1 h1 em{font-style:normal;color:var(--accent)}
+.p1 .top{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:120px;flex-wrap:wrap;gap:8px}
+.p1 .h1w{grid-column:1/12}
+.p1 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;margin-top:120px;flex-wrap:wrap;gap:16px}
+.p1 .foot .rule{width:200px}
+.p1 .lede-meta{font-size:18px;letter-spacing:.04em;text-transform:none;font-weight:700}
+.p1 .side{position:absolute;right:28px;top:50%;transform:rotate(90deg) translateX(-50%);transform-origin:right top;
+  font-size:14px;letter-spacing:.3em;font-weight:700;color:#00000055}
+
+/* P2 숫자 */
+.p2{background:var(--accent);color:#fff;border-bottom:none}
+.p2 .big{grid-column:1/-1;font-weight:800;letter-spacing:-.04em;
+  font-size:clamp(120px,24vw,340px);line-height:.9}
+.p2 .big small{font-size:.22em;font-weight:700;letter-spacing:0;vertical-align:.16em;margin-left:8px}
+.p2 .stats{grid-column:1/-1;display:grid;grid-template-columns:subgrid;margin-top:64px;
+  border-top:2px solid #ffffff66;padding-top:24px}
+.p2 .stat{grid-column:span 3}
+.p2 .stat b{display:block;font-size:40px;line-height:48px;font-weight:800}
+.p2 .stat span{font-size:15px;letter-spacing:.12em;font-weight:700;opacity:.8}
+.p2 .contour{position:absolute;inset:0;opacity:.12;pointer-events:none}
+.p2 .meta-row{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:56px}
+
+/* P3 코치 */
+.p3 .h2w{grid-column:1/9}
+.p3 h2{font-size:clamp(40px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.p3 h2 em{font-style:normal;background:linear-gradient(transparent 62%, color-mix(in srgb,var(--accent) 38%, transparent) 62%)}
+.p3 .lede{grid-column:1/8;font-size:19px;line-height:32px;font-weight:600;color:#000000B3;margin-top:8px}
+.p3 .notes{grid-column:1/-1;margin-top:80px;display:grid;grid-template-columns:subgrid}
+.p3 .note{grid-column:span 4;border-top:2px solid var(--ink);padding-top:16px}
+.p3 .note .meta{color:var(--accent)}
+.p3 .note p{margin-top:16px;font-size:20px;line-height:32px;font-weight:700}
+.p3 .note:nth-child(1) p{opacity:.35}
+.p3 .note:nth-child(2) p{opacity:.7}
+
+/* P3B 루프 */
+.p3b{background:var(--paper2)}
+.p3b .metah{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:88px;flex-wrap:wrap;gap:8px}
+.p3b .loop{grid-column:1/-1}
+.p3b .step{display:flex;align-items:baseline;gap:32px;border-top:2px solid var(--ink);padding:24px 0;
+  font-size:clamp(32px,5.6vw,76px);line-height:1.05;font-weight:800;letter-spacing:-.02em}
+.p3b .step .no{font-family:"SF Mono",ui-monospace,monospace;font-size:16px;font-weight:700;color:var(--accent)}
+.p3b .step .sub{margin-left:auto;font-size:17px;line-height:26px;font-weight:600;color:#00000099;letter-spacing:0;max-width:320px;text-align:right}
+.p3b .step:last-child{border-bottom:2px solid var(--ink)}
+.p3b .step:last-child strong{color:var(--accent)}
+.p3b .loopmark{grid-column:1/-1;margin-top:48px;display:flex;align-items:center;gap:16px}
+.p3b .loopmark svg{width:40px;height:40px;flex:none}
+.p3b .loopmark .meta{color:#00000099}
+
+/* P3C 질문 */
+.p3c .h2w{grid-column:1/-1;margin-bottom:72px}
+.p3c h2{font-size:clamp(40px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.p3c h2 em{font-style:normal;color:var(--accent)}
+.p3c .qs{grid-column:1/-1;display:grid;grid-template-columns:subgrid;row-gap:40px}
+.p3c .q{grid-column:span 6;border-left:8px solid var(--accent);padding-left:24px}
+.p3c .q p{font-size:clamp(22px,2.6vw,34px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.p3c .q span{display:block;margin-top:12px;font-size:17px;line-height:26px;font-weight:600;color:#00000099}
+
+/* P4 인덱스 + 실물 */
+.p4 .idx{grid-column:1/7}
+.p4 .idx h3{font-size:15px;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:40px}
+.p4 ol{list-style:none;counter-reset:n}
+.p4 li{counter-increment:n;display:flex;gap:24px;align-items:baseline;
+  border-top:1px solid #00000033;padding:16px 0;font-size:26px;line-height:38px;font-weight:800;letter-spacing:-.01em}
+.p4 li::before{content:counter(n,decimal-leading-zero);font-size:14px;font-weight:700;color:var(--accent);
+  font-family:"SF Mono",ui-monospace,monospace}
+.p4 .shot{grid-column:8/13;align-self:center}
+.p4 .shot img{width:100%;border-radius:24px;box-shadow:0 32px 64px -24px #00000040}
+.p4 .shot figcaption{margin-top:16px;font-size:14px;letter-spacing:.12em;font-weight:700;color:#00000088}
+
+/* P5 CTA */
+.p5{background:var(--ink);color:var(--paper);border-bottom:none;min-height:80vh}
+.p5 .h2w{grid-column:1/-1}
+.p5 h2{font-size:clamp(56px,10vw,136px);line-height:.98;font-weight:800;letter-spacing:-.03em}
+.p5 h2 em{font-style:normal;color:var(--accent)}
+.p5 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:96px;flex-wrap:wrap;gap:16px}
+.p5 .btn{display:inline-block;border:2px solid var(--paper);border-radius:999px;
+  padding:16px 40px;color:var(--paper);text-decoration:none;font-weight:800;font-size:16px}
+.p5 .btn:hover{background:var(--accent);border-color:var(--accent)}
+.p5 .btn.disabled{cursor:default}
+.p5 .langnav a{color:#ffffff88}
+.p5 .langnav a.cur{color:var(--paper)}
+
+/* ── 배경 패턴 (러닝 포스터) ── */
+.bg{position:absolute;inset:0;pointer-events:none}
+.p1 .bg path{stroke:var(--ink);opacity:.13}
+.p1 .bg .pin{fill:var(--accent);opacity:.9}
+.p3b .bg{opacity:.1}
+.p3b .bg path{stroke:var(--ink)}
+.p3c .bg{right:-4%;left:auto;width:46%;opacity:.07;display:flex;align-items:center;justify-content:flex-end}
+.p3c .bg span{font-size:clamp(400px,44vw,640px);font-weight:800;line-height:1;color:var(--ink)}
+.p5 .bg{opacity:.14}
+.p5 .bg path{stroke:var(--paper)}
+
+/* ── 모션 ── */
+.io{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.io.in{opacity:1;transform:none}
+.io.d1{transition-delay:.12s}.io.d2{transition-delay:.24s}.io.d3{transition-delay:.36s}
+.io.d4{transition-delay:.48s}.io.d5{transition-delay:.6s}.io.d6{transition-delay:.72s}
+.p1 h1 .line{display:block;overflow:hidden}
+.p1 h1 .line span{display:inline-block;transform:translateY(110%);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.p1.in h1 .line:nth-child(1) span{transform:none;transition-delay:.1s}
+.p1.in h1 .line:nth-child(2) span{transform:none;transition-delay:.28s}
+.p1 .rule{transform-origin:left;transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.7,.2,1) .6s}
+.p1.in .rule{transform:scaleX(1)}
+.p2 .contour path{stroke-dasharray:1600;stroke-dashoffset:1600;transition:stroke-dashoffset 2.4s ease}
+.p2.in .contour path{stroke-dashoffset:0}
+.p2.in .contour path:nth-child(2){transition-delay:.15s}
+.p2.in .contour path:nth-child(3){transition-delay:.3s}
+.p2.in .contour path:nth-child(4){transition-delay:.45s}
+.p2.in .contour path:nth-child(5){transition-delay:.6s}
+.p2 .big{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.2,.7,.2,1) .2s}
+.p2.in .big{clip-path:inset(0 0 0 0)}
+.p3 h2 em{background-size:0% 100%;background-repeat:no-repeat;transition:background-size .9s ease .5s}
+.p3.in h2 em{background-size:100% 100%}
+.p5 h2 em{position:relative}
+@media (prefers-reduced-motion: reduce){
+  .io,.p1 h1 .line span,.p1 .rule,.p2 .big,.p2 .contour path,.p3 h2 em{transition:none!important;transform:none!important;opacity:1!important;clip-path:none!important;stroke-dashoffset:0!important;background-size:100% 100%!important}
+}
+
+@media (max-width:760px){
+  :root{--margin:24px;--gutter:16px}
+  .langnav{position:static;justify-content:flex-end;margin-bottom:16px}
+  .p1 .h1w{grid-column:1/-1}
+  .p2 .stat{grid-column:span 6;margin-bottom:24px}
+  .p3 .h2w{grid-column:1/-1}
+  .p3 .lede{grid-column:1/-1}
+  .p3 .note{grid-column:1/-1;margin-bottom:24px}
+  .p3b .step{flex-wrap:wrap;gap:12px}
+  .p3b .step .sub{margin-left:0;text-align:left;max-width:none;flex-basis:100%}
+  .p3c .q{grid-column:1/-1}
+  .p4 .idx{grid-column:1/-1}
+  .p4 .shot{grid-column:1/-1;margin-top:48px}
+}
+
+body{word-break:keep-all;}
+</style>
 <style>body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo", "Pretendard","Segoe UI",sans-serif}</style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a class="wordmark" href="./"><span class="mark">RN.</span><span>RUN·NOTE</span></a>
-    <div class="lang"><a href="./" class="cur">한국어</a><a href="en/">EN</a><a href="ja/">日本語</a><a href="zh/">繁體</a></div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="ghost">RN</div>
-  <div class="wrap">
-    <div>
-      <div class="kicker"><span>RUN · NOTE</span><span class="rule"></span><span class="num">러닝 노트 · AI 코칭</span></div>
-      <h1>뛰고 나서 한 줄,<br>기록이 쌓일수록 <em>나를 아는 코치</em>가 됩니다</h1>
-      <p class="sub">실시간 트래킹 앱이 아니에요. 워치로 뛰고 앱을 열면 기록은 자동으로 들어와 있고, 남기는 건 컨디션과 한 줄 노트뿐. 그 한 줄이 쌓일수록 Claude AI가 당신의 패턴을 더 정확히 짚어냅니다.</p>
-      <div class="cta">
-        <a class="store-badge" id="storeLink" href="#" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a>
-        <span class="note">출시 예정 · iPhone &amp; Apple Watch · 7일 무료 체험</span>
-      </div>
+<!-- P1 · 표지 포스터 -->
+<section class="poster p1">
+  <div class="langnav"><a href="./" class="cur">한국어</a><a href="en/">EN</a><a href="ja/">日本語</a><a href="zh/">繁體</a></div>
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+    <path class="route" d="M-40 780 C 220 700, 300 830, 520 760 S 820 560, 960 480 S 1180 300, 1300 180 S 1420 80, 1480 40"
+      stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round"/>
+    <circle class="pin" cx="1300" cy="180" r="7"/>
+  </svg>
+  <div class="grid">
+    <div class="top">
+      <span class="meta io">RUN·NOTE</span>
+      <span class="meta io d2">AI Running Journal</span>
+      <span class="meta io d4">iPhone · Watch</span>
     </div>
-    <div class="phone-col">
-      <div class="chip c1"><span class="g">5K</span>km 오늘</div><div class="chip c2"><span class="g">Z3</span>심박존</div><div class="chip c3"><span class="g">AI</span>코칭 완료</div>
-      <div class="phone">
-        <div class="screen">
-          <div class="app-area">
-            <img class="hero-shot" src="assets/hero-ko.png" alt="" loading="eager" width="640" height="1293">
-            <img class="hero-part card" src="assets/hero-crops/ko-card.png" alt="" loading="eager">
-            <img class="hero-part stat" src="assets/hero-crops/ko-stat.png" alt="" loading="eager">
-            <img class="hero-part tab" src="assets/hero-crops/ko-tab.png" alt="" loading="eager">
-          </div>
-        </div>
-      </div>
+    <div class="h1w">
+      <h1><span class="line"><span>뛰고 나서,</span></span><span class="line"><span><em>한 줄.</em></span></span></h1>
+    </div>
+    <div class="foot">
+      <div class="rule"></div>
+      <span class="meta lede-meta io d3">실시간 트래킹 아님 — 기록은 자동, 당신은 한 줄만</span>
     </div>
   </div>
-</header>
-
-<div class="marquee" aria-hidden="true"><div class="track"><span>HEALTHKIT 자동 동기화</span><span>AI 코칭</span><span>심박 5구간</span><span>케이던스</span><span>코치 노트</span><span>러너 레벨</span><span>신발 거리</span><span>훈련 플랜</span><span>HEALTHKIT 자동 동기화</span><span>AI 코칭</span><span>심박 5구간</span><span>케이던스</span><span>코치 노트</span><span>러너 레벨</span><span>신발 거리</span><span>훈련 플랜</span></div></div>
-
-<section>
-  <div class="wrap">
-    <div class="kicker"><span>사용 방법</span><span class="rule"></span><span class="num">01–03</span></div>
-    <h2>뛰고, 한 줄 남기고, <em>코칭</em>을 받으세요.</h2>
-    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">STEP 01</span><h3>워치로 뛰기</h3><p>Apple Watch로 뛰기만 하면 끝. HealthKit이 거리·페이스·심박을 자동으로 가져옵니다.</p></div><div class="step"><span class="n">02</span><span class="tag">STEP 02</span><h3>한 줄 노트</h3><p>컨디션 이모지 하나, 한 줄 메모. 아팠던 곳이 있으면 부위까지. 그게 전부예요.</p></div><div class="step"><span class="n">03</span><span class="tag">STEP 03</span><h3>AI 코칭 받기</h3><p>쌓인 노트를 바탕으로 Claude가 패턴을 짚고, 다음 러닝을 위한 질문을 남깁니다.</p></div></div>
-  </div>
+  <span class="side">RUNNING POSTER SERIES — 01</span>
 </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="kicker"><span>정교해지는 코칭</span><span class="rule"></span><span class="num">1 → 20 RUNS</span></div>
-    <h2>노트가 <em>10줄</em>이 되면, 코칭이 달라집니다.</h2>
-    <p class="lede">1회차는 누구에게나 하는 조언, 10회차는 당신의 오르막 페이스 패턴을 아는 조언. 기록이 쌓일수록 코칭 정밀도가 올라갑니다.</p>
-    <div class="value-wrap">
-      <div class="value-chart">
-        <svg viewBox="0 0 500 170" role="img" aria-label="코칭 정밀도"><polyline class="curve" points="60.0,92.0 186.7,62.0 313.3,41.6 440.0,24.8"></polyline><circle class="pt" cx="60.0" cy="92.0" r="5"></circle><circle class="pt" cx="186.7" cy="62.0" r="5"></circle><circle class="pt" cx="313.3" cy="41.6" r="5"></circle><circle class="pt" cx="440.0" cy="24.8" r="5"></circle><text class="pt-label" x="60.0" y="78.0" text-anchor="middle">40%</text><text class="pt-label" x="186.7" y="48.0" text-anchor="middle">65%</text><text class="pt-label" x="313.3" y="27.6" text-anchor="middle">82%</text><text class="pt-label" x="440.0" y="10.8" text-anchor="middle">96%</text><text class="x-label" x="60.0" y="163" text-anchor="middle">1회</text><text class="x-label" x="186.7" y="163" text-anchor="middle">5회</text><text class="x-label" x="313.3" y="163" text-anchor="middle">10회</text><text class="x-label" x="440.0" y="163" text-anchor="middle">20회</text></svg>
-        <div class="value-legend"><span>코칭 정밀도</span></div>
-      </div>
-      <div class="note-stack"><div class="note-card n1"><span class="tag">3주 전 관찰</span>오르막에서 페이스가 무너지는 패턴이 반복됩니다.</div><div class="note-card n2"><span class="tag">2주 전 관찰</span>왼쪽 무릎 통증이 3주 연속 기록됐어요.</div><div class="note-card n3"><span class="tag">이번 주 관찰</span>주말 장거리 후 회복이 빠른 편이에요.</div></div>
+<!-- P2 · 숫자 포스터 -->
+<section class="poster p2">
+  <svg class="contour" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#fff" stroke-width="1.5">
+      <path d="M-50 640 C 200 560, 340 700, 620 620 S 1000 500, 1260 590"/>
+      <path d="M-50 560 C 180 470, 380 620, 640 540 S 980 420, 1260 500"/>
+      <path d="M-50 480 C 160 390, 420 540, 660 460 S 960 340, 1260 410"/>
+      <path d="M-50 400 C 140 310, 460 460, 680 380 S 940 260, 1260 320"/>
+      <path d="M-50 320 C 120 230, 500 380, 700 300 S 920 180, 1260 230"/>
+    </g>
+  </svg>
+  <div class="grid">
+    <div class="meta-row io"><span class="meta">TODAY'S RUN</span><span class="meta">07 · 14 · TUE</span></div>
+    <div class="big">5.00<small>KM</small></div>
+    <div class="stats">
+      <div class="stat io d1"><span>PACE</span><b class="mono">5'43"</b></div>
+      <div class="stat io d2"><span>TIME</span><b class="mono">31:04</b></div>
+      <div class="stat io d3"><span>ZONE</span><b class="mono">Z3</b></div>
+      <div class="stat io d4"><span>NOTE</span><b>한 줄이면 끝</b></div>
     </div>
   </div>
 </section>
 
-<section class="shots">
-  <div class="wrap">
-    <div class="kicker"><span>화면</span><span class="rule"></span><span class="num">SCREENS</span></div>
-    <h2>기록에서 <em>코칭</em>까지, 한눈에.</h2>
-    <div class="row row-4"><figure class="shot-card"><img src="assets/shot-ko-01.png" alt="홈 · 오늘의 러닝" loading="lazy" width="294" height="640"><figcaption>홈 · 오늘의 러닝</figcaption></figure><figure class="shot-card"><img src="assets/shot-ko-02.png" alt="러닝 상세 기록" loading="lazy" width="294" height="640"><figcaption>러닝 상세 기록</figcaption></figure><figure class="shot-card"><img src="assets/shot-ko-03.png" alt="AI 코칭 카드" loading="lazy" width="294" height="640"><figcaption>AI 코칭 카드</figcaption></figure><figure class="shot-card"><img src="assets/shot-ko-04.png" alt="히스토리 · 캘린더" loading="lazy" width="294" height="640"><figcaption>히스토리 · 캘린더</figcaption></figure></div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="kicker"><span>디테일</span><span class="rule"></span><span class="num">06</span></div>
-    <h2>작은 기록장, <em>분명한 차별점</em>.</h2>
-    <div class="grid6"><div class="feat"><h3>HealthKit 자동 동기화</h3><p>워치로 뛰고 앱만 열면 거리·페이스·심박이 자동으로 들어와 있어요.</p></div><div class="feat"><h3>러닝 당시 날씨 자동 기록</h3><p>WeatherKit이 그날의 기온과 습도를 기록에 남깁니다.</p></div><div class="feat"><h3>러닝 다이내믹스 + 자세 점수</h3><p>수직 진폭·접지 시간·보폭·파워로 매기는 자세 점수.</p></div><div class="feat"><h3>심박 5구간 · km 스플릿 · 고도</h3><p>존별 시간 분포와 구간별 페이스, 고도 변화까지 한눈에.</p></div><div class="feat"><h3>통증 부위별 관리 가이드</h3><p>무릎, 발목… 부위별 원인과 스트레칭, 쉬어야 할 신호까지.</p></div><div class="feat"><h3>코치 노트 (장기 기억)</h3><p>러닝을 거듭할수록 AI가 당신에 대해 기억하는 것들이 쌓입니다.</p></div></div>
-  </div>
-</section>
-
-<section class="final">
-  <div class="wrap">
-    <h2>이제, 뛰고 한 줄만 남기세요.</h2>
-    <p class="lede">출시 후 7일 무료 체험 · iPhone &amp; Apple Watch</p>
-    <div class="cta"><a class="store-badge" id="storeLink2" href="#" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a></div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="brand"><span class="mark">RN.</span><strong>kkiruk studio</strong></div>
-    <div class="links">
-      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보 처리방침</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
+<!-- P3 · 코치 포스터 -->
+<section class="poster p3">
+  <div class="grid">
+    <div class="h2w io">
+      <h2>기록이 쌓일수록,<br><em>코치는 당신을 외웁니다.</em></h2>
     </div>
-    <div>© 2026 kkiruk studio</div>
+    <p class="lede io d2">궁금한 건 물어보고, 부족한 건 다음 러닝에서 보완하고 —<br>그렇게 러닝은 점점 더 즐거워집니다.</p>
+    <div class="notes">
+      <div class="note io d1"><span class="meta">RUN 01</span><p>"왜 오르막만 오면 숨이 찰까?" — 물어보세요. 코치가 답합니다.</p></div><div class="note io d3"><span class="meta">RUN 10</span><p>오르막에서 페이스가 무너지는 패턴 — 다음 러닝은 케이던스로 보완해요.</p></div><div class="note io d5"><span class="meta">RUN 20</span><p>오르막 페이스 유지 성공. 뛸수록 나아지고, 나아질수록 즐거워집니다.</p></div>
+    </div>
   </div>
+</section>
+
+<!-- P3B · 루프 포스터 -->
+<section class="poster p3b">
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="2">
+    <path d="M-60 900 C 300 620, 900 620, 1500 880"/>
+    <path d="M-60 830 C 300 540, 900 540, 1500 810"/>
+    <path d="M-60 760 C 300 460, 900 460, 1500 740"/>
+    <path d="M-60 690 C 300 380, 900 380, 1500 670"/>
+  </svg>
+  <div class="grid">
+    <div class="metah io"><span class="meta">THE LOOP</span><span class="meta">매 러닝이 다음 러닝을 만듭니다</span></div>
+    <div class="loop">
+      <div class="step io d1"><span class="no">01</span><strong>뛴다.</strong><span class="sub">워치가 알아서 기록합니다</span></div><div class="step io d2"><span class="no">02</span><strong>적는다.</strong><span class="sub">컨디션·통증·기분, 딱 한 줄</span></div><div class="step io d3"><span class="no">03</span><strong>배운다.</strong><span class="sub">코치가 부족한 부분을 짚어줍니다</span></div><div class="step io d4"><span class="no">04</span><strong>다시 뛴다.</strong><span class="sub">이번엔 보완해서 — 그래서 더 즐겁게</span></div>
+    </div>
+    <div class="loopmark io d5">
+      <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="3">
+        <path d="M33 20a13 13 0 1 1-4-9.4"/><path d="M29 4v7h7" stroke-linejoin="round"/>
+      </svg>
+      <span class="meta">그리고 다시 01로 — 반복할수록 코치는 정확해집니다</span>
+    </div>
+  </div>
+</section>
+
+<!-- P3C · 질문 포스터 -->
+<section class="poster p3c">
+  <div class="bg"><span>?</span></div>
+  <div class="grid">
+    <div class="h2w io">
+      <h2>궁금한 건<br><em>코치에게 물어보세요.</em></h2>
+    </div>
+    <div class="qs">
+      <div class="q io d1"><p>"왜 5km만 넘으면 페이스가 떨어질까?"</p><span>당신의 심박·케이던스 기록을 근거로 답합니다</span></div><div class="q io d2"><p>"무릎이 좀 아픈데, 내일 뛰어도 돼?"</p><span>통증 노트 3주 치를 기억하고 있는 코치의 답은 다릅니다</span></div><div class="q io d3"><p>"장마철엔 어떻게 뛰어야 해?"</p><span>날씨는 자동 기록 — 빗속 러닝 데이터도 코칭 재료가 됩니다</span></div><div class="q io d4"><p>"다음 목표는 뭘로 잡을까?"</p><span>지금 실력에서 반 발짝 앞 — 부담 없는 다음 목표를 제안합니다</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- P4 · 인덱스 + 실물 -->
+<section class="poster p4">
+  <div class="grid">
+    <div class="idx">
+      <h3>INDEX — WHAT'S INSIDE</h3>
+      <ol>
+        <li class="io d1">HealthKit 자동 동기화</li><li class="io d2">한 줄 노트 · 통증 부위</li><li class="io d3">심박 5구간 · 케이던스</li><li class="io d4">AI 코치</li><li class="io d5">코치 노트 — 장기 기억</li><li class="io d6">날씨 자동 기록</li>
+      </ol>
+    </div>
+    <figure class="shot io d2">
+      <img src="assets/hero-ko.png" alt="RunNote">
+      <figcaption class="io d4">ACTUAL APP — NO MOCKUP</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- P5 · CTA 포스터 -->
+<section class="poster p5">
+  <div class="langnav"><a href="./" class="cur">한국어</a><a href="en/">EN</a><a href="ja/">日本語</a><a href="zh/">繁體</a></div>
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="2">
+    <path d="M-60 760 L 1500 640"/>
+    <path d="M-60 810 L 1500 690"/>
+    <path d="M-60 860 L 1500 740"/>
+    <path d="M-60 910 L 1500 790"/>
+  </svg>
+  <div class="grid">
+    <div class="h2w io">
+      <h2>오늘 뛰었다면,<br><em>한 줄 남기세요.</em></h2>
+    </div>
+    <div class="foot io d2">
+      <a class="btn" id="storeLink" href="#">곧 App Store에서</a>
+      <span class="meta io d3">7-Day Free Trial · iPhone &amp; Apple Watch</span>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:48px 64px;font-size:13px;letter-spacing:.06em;color:#00000088;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;background:var(--ink);color:#ffffff88">
+  <span>© 2026 kkiruk studio</span>
+  <span style="display:flex;gap:20px">
+    <a href="mailto:kkirukstudio.help@gmail.com" style="color:inherit;text-decoration:none">문의</a>
+    <a href="https://kkiruk-studio.github.io/privacy-policy-app/" style="color:inherit;text-decoration:none">개인정보 처리방침</a>
+    <a href="https://kkiruk-studio.github.io/terms-of-service-app/" style="color:inherit;text-decoration:none">이용약관</a>
+  </span>
 </footer>
 
 <script>
-  // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
   const APP_STORE_URL = "";
-  document.querySelectorAll(".store-badge").forEach((el) => {
+  document.querySelectorAll("#storeLink").forEach((el) => {
     if (APP_STORE_URL) {
       el.href = APP_STORE_URL;
     } else {
       el.classList.add("disabled");
       el.removeAttribute("href");
       el.setAttribute("aria-disabled", "true");
-      const txt = el.querySelector(".txt");
-      if (txt) txt.innerHTML = "<strong>곧 App Store에서 만나요</strong>";
     }
   });
-
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  }), {threshold: .25});
+  document.querySelectorAll('.poster').forEach(p => obs.observe(p));
+  const obs2 = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs2.unobserve(e.target); }
+  }), {threshold: .3});
+  document.querySelectorAll('.io').forEach(el => obs2.observe(el));
 </script>
 <script src="/ga.js"></script>
 </body>

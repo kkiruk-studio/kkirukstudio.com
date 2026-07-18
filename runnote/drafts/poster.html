@@ -1,24 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RunNote — A one-line running journal with AI coaching that knows you</title>
-<meta name="description" content="Not a live-tracking app. Run with your Watch, log one line about how you felt, and the AI coaching gets sharper with every entry.">
-<meta property="og:title" content="RunNote — An AI running coach that learns you">
-<meta property="og:description" content="Coaching that gets sharper with every one-line note.">
-<meta property="og:image" content="https://www.kkirukstudio.com/runnote/assets/icon-512.png">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://www.kkirukstudio.com/runnote/en/">
-<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/runnote/">
-<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/runnote/">
-<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/runnote/en/">
-<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/runnote/ja/">
-<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/runnote/zh/">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png">
-<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<title>RunNote — 포스터 테마 드래프트</title>
 <style>
-
 :root{
   --cols:12; --gutter:24px; --margin:64px; --baseline:8px;
   --accent:#1E9B52; --ink:#141414; --paper:#F4F1E8; --paper2:#ECE8DB;
@@ -29,12 +15,18 @@ body{
   background:var(--paper); color:var(--ink);
   font:16px/24px "Helvetica Neue", Helvetica, "Apple SD Gothic Neo", Pretendard, sans-serif;
   -webkit-font-smoothing:antialiased;
+  word-break:keep-all;
 }
 .grid{
   display:grid; grid-template-columns:repeat(var(--cols),1fr);
   column-gap:var(--gutter); max-width:1240px; margin-inline:auto;
   padding-inline:var(--margin); position:relative;
 }
+.grid-overlay{position:absolute;inset:0 var(--margin);display:grid;
+  grid-template-columns:repeat(var(--cols),1fr);column-gap:var(--gutter);
+  pointer-events:none;opacity:0}
+.grid-overlay span{background:color-mix(in srgb, var(--accent) 10%, transparent)}
+.show-grid .grid-overlay{opacity:1}
 
 /* ── 포스터 공통 ── */
 .poster{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
@@ -43,17 +35,13 @@ body{
 .rule{height:8px;background:var(--accent)}
 .mono{font-family:"SF Mono", ui-monospace, Menlo, monospace}
 
-/* 언어 스위처 */
-.langnav{position:absolute;top:24px;right:64px;z-index:5;display:flex;gap:16px}
-.langnav a{font-size:13px;letter-spacing:.08em;font-weight:700;color:#00000088;text-decoration:none}
-.langnav a.cur{color:var(--ink);text-decoration:underline}
-
 /* P1 표지 */
-.p1 h1{font-size:clamp(64px,10vw,152px);line-height:.96;font-weight:800;letter-spacing:-.03em}
+.p1 h1{font-size:clamp(72px,11vw,152px);line-height:.96;font-weight:800;letter-spacing:-.03em;
+  text-box-trim:trim-both;text-box-edge:cap alphabetic}
 .p1 h1 em{font-style:normal;color:var(--accent)}
-.p1 .top{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:120px;flex-wrap:wrap;gap:8px}
+.p1 .top{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:120px}
 .p1 .h1w{grid-column:1/12}
-.p1 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;margin-top:120px;flex-wrap:wrap;gap:16px}
+.p1 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;margin-top:120px}
 .p1 .foot .rule{width:200px}
 .p1 .lede-meta{font-size:18px;letter-spacing:.04em;text-transform:none;font-weight:700}
 .p1 .side{position:absolute;right:28px;top:50%;transform:rotate(90deg) translateX(-50%);transform-origin:right top;
@@ -74,7 +62,7 @@ body{
 
 /* P3 코치 */
 .p3 .h2w{grid-column:1/9}
-.p3 h2{font-size:clamp(40px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.p3 h2{font-size:clamp(48px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
 .p3 h2 em{font-style:normal;background:linear-gradient(transparent 62%, color-mix(in srgb,var(--accent) 38%, transparent) 62%)}
 .p3 .lede{grid-column:1/8;font-size:19px;line-height:32px;font-weight:600;color:#000000B3;margin-top:8px}
 .p3 .notes{grid-column:1/-1;margin-top:80px;display:grid;grid-template-columns:subgrid}
@@ -86,25 +74,25 @@ body{
 
 /* P3B 루프 */
 .p3b{background:var(--paper2)}
-.p3b .metah{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:88px;flex-wrap:wrap;gap:8px}
+.p3b .metah{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:88px}
 .p3b .loop{grid-column:1/-1}
 .p3b .step{display:flex;align-items:baseline;gap:32px;border-top:2px solid var(--ink);padding:24px 0;
-  font-size:clamp(32px,5.6vw,76px);line-height:1.05;font-weight:800;letter-spacing:-.02em}
+  font-size:clamp(40px,5.6vw,76px);line-height:1.05;font-weight:800;letter-spacing:-.02em}
 .p3b .step .no{font-family:"SF Mono",ui-monospace,monospace;font-size:16px;font-weight:700;color:var(--accent)}
 .p3b .step .sub{margin-left:auto;font-size:17px;line-height:26px;font-weight:600;color:#00000099;letter-spacing:0;max-width:320px;text-align:right}
 .p3b .step:last-child{border-bottom:2px solid var(--ink)}
 .p3b .step:last-child strong{color:var(--accent)}
 .p3b .loopmark{grid-column:1/-1;margin-top:48px;display:flex;align-items:center;gap:16px}
-.p3b .loopmark svg{width:40px;height:40px;flex:none}
+.p3b .loopmark svg{width:40px;height:40px}
 .p3b .loopmark .meta{color:#00000099}
 
 /* P3C 질문 */
 .p3c .h2w{grid-column:1/-1;margin-bottom:72px}
-.p3c h2{font-size:clamp(40px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.p3c h2{font-size:clamp(48px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
 .p3c h2 em{font-style:normal;color:var(--accent)}
 .p3c .qs{grid-column:1/-1;display:grid;grid-template-columns:subgrid;row-gap:40px}
 .p3c .q{grid-column:span 6;border-left:8px solid var(--accent);padding-left:24px}
-.p3c .q p{font-size:clamp(22px,2.6vw,34px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.p3c .q p{font-size:clamp(24px,2.6vw,34px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
 .p3c .q span{display:block;margin-top:12px;font-size:17px;line-height:26px;font-weight:600;color:#00000099}
 
 /* P4 인덱스 + 실물 */
@@ -112,7 +100,7 @@ body{
 .p4 .idx h3{font-size:15px;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:40px}
 .p4 ol{list-style:none;counter-reset:n}
 .p4 li{counter-increment:n;display:flex;gap:24px;align-items:baseline;
-  border-top:1px solid #00000033;padding:16px 0;font-size:26px;line-height:38px;font-weight:800;letter-spacing:-.01em}
+  border-top:1px solid #00000033;padding:16px 0;font-size:28px;line-height:40px;font-weight:800;letter-spacing:-.01em}
 .p4 li::before{content:counter(n,decimal-leading-zero);font-size:14px;font-weight:700;color:var(--accent);
   font-family:"SF Mono",ui-monospace,monospace}
 .p4 .shot{grid-column:8/13;align-self:center}
@@ -122,15 +110,13 @@ body{
 /* P5 CTA */
 .p5{background:var(--ink);color:var(--paper);border-bottom:none;min-height:80vh}
 .p5 .h2w{grid-column:1/-1}
-.p5 h2{font-size:clamp(56px,10vw,136px);line-height:.98;font-weight:800;letter-spacing:-.03em}
+.p5 h2{font-size:clamp(64px,10vw,136px);line-height:.98;font-weight:800;letter-spacing:-.03em}
 .p5 h2 em{font-style:normal;color:var(--accent)}
-.p5 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:96px;flex-wrap:wrap;gap:16px}
+.p5 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:96px}
 .p5 .btn{display:inline-block;border:2px solid var(--paper);border-radius:999px;
   padding:16px 40px;color:var(--paper);text-decoration:none;font-weight:800;font-size:16px}
 .p5 .btn:hover{background:var(--accent);border-color:var(--accent)}
-.p5 .btn.disabled{cursor:default}
-.p5 .langnav a{color:#ffffff88}
-.p5 .langnav a.cur{color:var(--paper)}
+
 
 /* ── 배경 패턴 (러닝 포스터) ── */
 .bg{position:absolute;inset:0;pointer-events:none}
@@ -148,12 +134,14 @@ body{
 .io.in{opacity:1;transform:none}
 .io.d1{transition-delay:.12s}.io.d2{transition-delay:.24s}.io.d3{transition-delay:.36s}
 .io.d4{transition-delay:.48s}.io.d5{transition-delay:.6s}.io.d6{transition-delay:.72s}
+/* P1: 헤드라인 줄 상승 + 룰 드로우 */
 .p1 h1 .line{display:block;overflow:hidden}
 .p1 h1 .line span{display:inline-block;transform:translateY(110%);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .p1.in h1 .line:nth-child(1) span{transform:none;transition-delay:.1s}
 .p1.in h1 .line:nth-child(2) span{transform:none;transition-delay:.28s}
 .p1 .rule{transform-origin:left;transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.7,.2,1) .6s}
 .p1.in .rule{transform:scaleX(1)}
+/* P2: 등고선 드로우 + 숫자 클립 리빌 */
 .p2 .contour path{stroke-dasharray:1600;stroke-dashoffset:1600;transition:stroke-dashoffset 2.4s ease}
 .p2.in .contour path{stroke-dashoffset:0}
 .p2.in .contour path:nth-child(2){transition-delay:.15s}
@@ -162,8 +150,10 @@ body{
 .p2.in .contour path:nth-child(5){transition-delay:.6s}
 .p2 .big{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.2,.7,.2,1) .2s}
 .p2.in .big{clip-path:inset(0 0 0 0)}
+/* P3: 형광펜 스윕 */
 .p3 h2 em{background-size:0% 100%;background-repeat:no-repeat;transition:background-size .9s ease .5s}
 .p3.in h2 em{background-size:100% 100%}
+/* P5 CTA 밑줄 스윕 재사용 */
 .p5 h2 em{position:relative}
 @media (prefers-reduced-motion: reduce){
   .io,.p1 h1 .line span,.p1 .rule,.p2 .big,.p2 .contour path,.p3 h2 em{transition:none!important;transform:none!important;opacity:1!important;clip-path:none!important;stroke-dashoffset:0!important;background-size:100% 100%!important}
@@ -171,11 +161,9 @@ body{
 
 @media (max-width:760px){
   :root{--margin:24px;--gutter:16px}
-  .langnav{position:static;justify-content:flex-end;margin-bottom:16px}
   .p1 .h1w{grid-column:1/-1}
   .p2 .stat{grid-column:span 6;margin-bottom:24px}
   .p3 .h2w{grid-column:1/-1}
-  .p3 .lede{grid-column:1/-1}
   .p3 .note{grid-column:1/-1;margin-bottom:24px}
   .p3b .step{flex-wrap:wrap;gap:12px}
   .p3b .step .sub{margin-left:0;text-align:left;max-width:none;flex-basis:100%}
@@ -183,33 +171,30 @@ body{
   .p4 .idx{grid-column:1/-1}
   .p4 .shot{grid-column:1/-1;margin-top:48px}
 }
-
-body{}
 </style>
-
 </head>
 <body>
 
 <!-- P1 · 표지 포스터 -->
 <section class="poster p1">
-  <div class="langnav"><a href="../">한국어</a><a href="../en/" class="cur">EN</a><a href="../ja/">日本語</a><a href="../zh/">繁體</a></div>
   <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
     <path class="route" d="M-40 780 C 220 700, 300 830, 520 760 S 820 560, 960 480 S 1180 300, 1300 180 S 1420 80, 1480 40"
       stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round"/>
     <circle class="pin" cx="1300" cy="180" r="7"/>
   </svg>
   <div class="grid">
+    <div class="grid-overlay"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="top">
       <span class="meta io">RUN·NOTE</span>
       <span class="meta io d2">AI Running Journal</span>
       <span class="meta io d4">iPhone · Watch</span>
     </div>
     <div class="h1w">
-      <h1><span class="line"><span>Run first,</span></span><span class="line"><span><em>then one line.</em></span></span></h1>
+      <h1><span class="line"><span>뛰고 나서,</span></span><span class="line"><span><em>한 줄.</em></span></span></h1>
     </div>
     <div class="foot">
       <div class="rule"></div>
-      <span class="meta lede-meta io d3">Not live tracking — logging is automatic, you write one line</span>
+      <span class="meta lede-meta io d3">실시간 트래킹 아님 — 기록은 자동, 당신은 한 줄만</span>
     </div>
   </div>
   <span class="side">RUNNING POSTER SERIES — 01</span>
@@ -233,7 +218,7 @@ body{}
       <div class="stat io d1"><span>PACE</span><b class="mono">5'43"</b></div>
       <div class="stat io d2"><span>TIME</span><b class="mono">31:04</b></div>
       <div class="stat io d3"><span>ZONE</span><b class="mono">Z3</b></div>
-      <div class="stat io d4"><span>NOTE</span><b>One line, done</b></div>
+      <div class="stat io d4"><span>NOTE</span><b>한 줄이면 끝</b></div>
     </div>
   </div>
 </section>
@@ -242,11 +227,13 @@ body{}
 <section class="poster p3">
   <div class="grid">
     <div class="h2w io">
-      <h2>The more you log,<br><em>the more your coach knows you.</em></h2>
+      <h2>기록이 쌓일수록,<br><em>코치는 당신을 외웁니다.</em></h2>
     </div>
-    <p class="lede io d2">Ask what you're curious about, fix what's missing next run —<br>and running keeps getting more fun.</p>
+    <p class="lede io d2">궁금한 건 물어보고, 부족한 건 다음 러닝에서 보완하고 —<br>그렇게 러닝은 점점 더 즐거워집니다.</p>
     <div class="notes">
-      <div class="note io d1"><span class="meta">RUN 01</span><p>"Why do I lose my breath on every climb?" — just ask. The coach answers.</p></div><div class="note io d3"><span class="meta">RUN 10</span><p>Pace fades on climbs, same pattern — next run, fix it with cadence.</p></div><div class="note io d5"><span class="meta">RUN 20</span><p>Pace held on the climb. The more you run, the better it gets — and the more fun.</p></div>
+      <div class="note io d1"><span class="meta">RUN 01</span><p>"왜 오르막만 오면 숨이 찰까?" — 물어보세요. 코치가 답합니다.</p></div>
+      <div class="note io d3"><span class="meta">RUN 10</span><p>오르막에서 페이스가 무너지는 패턴 — 다음 러닝은 케이던스로 보완해요.</p></div>
+      <div class="note io d5"><span class="meta">RUN 20</span><p>오르막 페이스 유지 성공. 뛸수록 나아지고, 나아질수록 즐거워집니다.</p></div>
     </div>
   </div>
 </section>
@@ -260,15 +247,18 @@ body{}
     <path d="M-60 690 C 300 380, 900 380, 1500 670"/>
   </svg>
   <div class="grid">
-    <div class="metah io"><span class="meta">THE LOOP</span><span class="meta">Every run shapes the next one</span></div>
+    <div class="metah io"><span class="meta">THE LOOP</span><span class="meta">매 러닝이 다음 러닝을 만듭니다</span></div>
     <div class="loop">
-      <div class="step io d1"><span class="no">01</span><strong>Run.</strong><span class="sub">Your Watch logs it automatically</span></div><div class="step io d2"><span class="no">02</span><strong>Write.</strong><span class="sub">Condition, soreness, mood — one line</span></div><div class="step io d3"><span class="no">03</span><strong>Learn.</strong><span class="sub">The coach points out what's missing</span></div><div class="step io d4"><span class="no">04</span><strong>Run again.</strong><span class="sub">This time, fixed — so it's more fun</span></div>
+      <div class="step io d1"><span class="no">01</span><strong>뛴다.</strong><span class="sub">워치가 알아서 기록합니다</span></div>
+      <div class="step io d2"><span class="no">02</span><strong>적는다.</strong><span class="sub">컨디션·통증·기분, 딱 한 줄</span></div>
+      <div class="step io d3"><span class="no">03</span><strong>배운다.</strong><span class="sub">코치가 부족한 부분을 짚어줍니다</span></div>
+      <div class="step io d4"><span class="no">04</span><strong>다시 뛴다.</strong><span class="sub">이번엔 보완해서 — 그래서 더 즐겁게</span></div>
     </div>
     <div class="loopmark io d5">
       <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="3">
         <path d="M33 20a13 13 0 1 1-4-9.4"/><path d="M29 4v7h7" stroke-linejoin="round"/>
       </svg>
-      <span class="meta">Then back to 01 — the more you repeat it, the sharper the coach gets</span>
+      <span class="meta">그리고 다시 01로 — 반복할수록 코치는 정확해집니다</span>
     </div>
   </div>
 </section>
@@ -278,10 +268,13 @@ body{}
   <div class="bg"><span>?</span></div>
   <div class="grid">
     <div class="h2w io">
-      <h2>Curious about<br><em>something? Ask your coach.</em></h2>
+      <h2>궁금한 건<br><em>코치에게 물어보세요.</em></h2>
     </div>
     <div class="qs">
-      <div class="q io d1"><p>"Why does my pace drop after 5km?"</p><span>Answered from your own heart rate and cadence data</span></div><div class="q io d2"><p>"My knee hurts a bit — okay to run tomorrow?"</p><span>A coach that remembers 3 weeks of pain notes answers differently</span></div><div class="q io d3"><p>"How should I run in the rainy season?"</p><span>Weather is logged automatically — even rainy runs become coaching material</span></div><div class="q io d4"><p>"What should my next goal be?"</p><span>Half a step beyond where you are now — no-pressure next goals</span></div>
+      <div class="q io d1"><p>"왜 5km만 넘으면 페이스가 떨어질까?"</p><span>당신의 심박·케이던스 기록을 근거로 답합니다</span></div>
+      <div class="q io d2"><p>"무릎이 좀 아픈데, 내일 뛰어도 돼?"</p><span>통증 노트 3주 치를 기억하고 있는 코치의 답은 다릅니다</span></div>
+      <div class="q io d3"><p>"장마철엔 어떻게 뛰어야 해?"</p><span>날씨는 자동 기록 — 빗속 러닝 데이터도 코칭 재료가 됩니다</span></div>
+      <div class="q io d4"><p>"다음 목표는 뭘로 잡을까?"</p><span>지금 실력에서 반 발짝 앞 — 부담 없는 다음 목표를 제안합니다</span></div>
     </div>
   </div>
 </section>
@@ -292,11 +285,16 @@ body{}
     <div class="idx">
       <h3>INDEX — WHAT'S INSIDE</h3>
       <ol>
-        <li class="io d1">HealthKit auto-sync</li><li class="io d2">One-line notes · pain areas</li><li class="io d3">5 HR zones · cadence</li><li class="io d4">AI coach</li><li class="io d5">Coach notes — long-term memory</li><li class="io d6">Weather, logged automatically</li>
+        <li class="io d1">HealthKit 자동 동기화</li>
+        <li class="io d2">한 줄 노트 · 통증 부위</li>
+        <li class="io d3">심박 5구간 · 케이던스</li>
+        <li class="io d4">AI 코치</li>
+        <li class="io d5">코치 노트 — 장기 기억</li>
+        <li class="io d6">날씨 자동 기록</li>
       </ol>
     </div>
     <figure class="shot io d2">
-      <img src="../assets/hero-en.png" alt="RunNote">
+      <img src="../assets/hero-ko.png" alt="RunNote 홈 화면">
       <figcaption class="io d4">ACTUAL APP — NO MOCKUP</figcaption>
     </figure>
   </div>
@@ -304,7 +302,6 @@ body{}
 
 <!-- P5 · CTA 포스터 -->
 <section class="poster p5">
-  <div class="langnav"><a href="../">한국어</a><a href="../en/" class="cur">EN</a><a href="../ja/">日本語</a><a href="../zh/">繁體</a></div>
   <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="2">
     <path d="M-60 760 L 1500 640"/>
     <path d="M-60 810 L 1500 690"/>
@@ -313,44 +310,25 @@ body{}
   </svg>
   <div class="grid">
     <div class="h2w io">
-      <h2>If you ran today,<br><em>leave one line.</em></h2>
+      <h2>오늘 뛰었다면,<br><em>한 줄 남기세요.</em></h2>
     </div>
     <div class="foot io d2">
-      <a class="btn" id="storeLink" href="#">Coming soon</a>
+      <a class="btn" href="#">곧 App Store에서</a>
       <span class="meta io d3">7-Day Free Trial · iPhone &amp; Apple Watch</span>
     </div>
   </div>
 </section>
 
-<footer style="padding:48px 64px;font-size:13px;letter-spacing:.06em;color:#00000088;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;background:var(--ink);color:#ffffff88">
-  <span>© 2026 kkiruk studio</span>
-  <span style="display:flex;gap:20px">
-    <a href="mailto:kkirukstudio.help@gmail.com" style="color:inherit;text-decoration:none">Contact</a>
-    <a href="https://kkiruk-studio.github.io/privacy-policy-app/" style="color:inherit;text-decoration:none">Privacy</a>
-    <a href="https://kkiruk-studio.github.io/terms-of-service-app/" style="color:inherit;text-decoration:none">Terms</a>
-  </span>
-</footer>
-
 <script>
-  const APP_STORE_URL = "";
-  document.querySelectorAll("#storeLink").forEach((el) => {
-    if (APP_STORE_URL) {
-      el.href = APP_STORE_URL;
-    } else {
-      el.classList.add("disabled");
-      el.removeAttribute("href");
-      el.setAttribute("aria-disabled", "true");
-    }
-  });
-  const obs = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
-  }), {threshold: .25});
-  document.querySelectorAll('.poster').forEach(p => obs.observe(p));
-  const obs2 = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); obs2.unobserve(e.target); }
-  }), {threshold: .3});
-  document.querySelectorAll('.io').forEach(el => obs2.observe(el));
+addEventListener('keydown', e => { if (e.key === 'g') document.body.classList.toggle('show-grid'); });
+const obs = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+}), {threshold: .25});
+document.querySelectorAll('.poster').forEach(p => obs.observe(p));
+const obs2 = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); obs2.unobserve(e.target); }
+}), {threshold: .3});
+document.querySelectorAll('.io').forEach(el => obs2.observe(el));
 </script>
-<script src="/ga.js"></script>
 </body>
 </html>

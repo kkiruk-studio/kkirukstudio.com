@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Generate index.html for every locale from one template.
+"""Generate index.html for every locale from one template (poster theme).
 
 Usage: python3 build.py
-Output: ./index.html (ko, root), ./en/index.html, ./ja/index.html
+Output: ./index.html (ko, root), ./en/index.html, ./ja/index.html, ./zh/index.html
 
 Root = Korean (kkiruk studio's primary market for RunNote). Do not hand-edit
 the generated HTML files -- edit this file and re-run `python3 build.py`.
+
+Design source of truth: drafts/poster.html (7-poster editorial layout).
 """
 import pathlib
 
@@ -15,300 +17,157 @@ APP_STORE_URL = ""  # fill in after App Store approval, e.g. https://apps.apple.
 
 LANG_LABELS = [("", "한국어"), ("en/", "EN"), ("ja/", "日本語"), ("zh/", "繁體")]
 
-# Shared, non-localized decorative data ---------------------------------
-
-# 35-cell (7x5) calendar mockup: '' = no run, d1/d2/d3 = run-day intensity
-CAL_CELLS = ["", "", "d1", "", "", "", "d2",
-             "", "", "", "d1", "", "", "",
-             "d3", "", "", "d1", "", "", "d2",
-             "", "", "d1", "", "", "", "d3",
-             "", "d2", "", "", "d1", "", ""]
-
-# HR 5-zone time-distribution widths (%), sum = 100
-ZONE_WIDTHS = [10, 25, 35, 20, 10]
-
-# km-split pace values in seconds/km -> shows the uphill fade
-SPLIT_SECONDS = [358, 362, 370, 385, 400]
-SPLIT_LABELS = ["1KM", "2KM", "3KM", "4KM", "5KM"]
-
-
-def sec_to_pace(sec):
-    m, s = divmod(sec, 60)
-    return f"{m}:{s:02d}"
-
-
-def split_bar_width(sec):
-    lo, hi = min(SPLIT_SECONDS), max(SPLIT_SECONDS)
-    return round(40 + (sec - lo) / (hi - lo) * 55)
-
-
 LOCALES = {
     "ko": {
-        "dir": "", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"',
+        "dir": "", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"', "keep_all": True,
         "title": "RunNote — 러닝 후 한 줄 노트로 완성되는 AI 코칭",
-        "desc": "실시간 트래킹이 아닌 노트 기반 러닝 기록장. 워치로 뛰고 컨디션과 한 줄만 남기면, 기록이 쌓일수록 Claude AI 코칭이 정교해집니다.",
+        "desc": "실시간 트래킹이 아닌 노트 기반 러닝 기록장. 워치로 뛰고 컨디션과 한 줄만 남기면, 기록이 쌓일수록 AI 코칭이 정교해집니다.",
         "og_title": "RunNote — 나를 아는 AI 러닝 코치",
         "og_desc": "한 줄 노트가 쌓일수록 정교해지는 AI 코칭.",
-        "kicker_num": "러닝 노트 · AI 코칭",
-        "h1": "뛰고 나서 한 줄,<br>기록이 쌓일수록 <em>나를 아는 코치</em>가 됩니다",
-        "sub": "실시간 트래킹 앱이 아니에요. 워치로 뛰고 앱을 열면 기록은 자동으로 들어와 있고, 남기는 건 컨디션과 한 줄 노트뿐. 그 한 줄이 쌓일수록 Claude AI가 당신의 패턴을 더 정확히 짚어냅니다.",
-        "note": "출시 예정 · iPhone &amp; Apple Watch · 7일 무료 체험",
-        "badge_small": "다운로드는", "badge_aria": "App Store에서 다운로드",
-        "badge_soon": "곧 App Store에서 만나요",
-        "chips": [["5K", "km 오늘"], ["Z3", "심박존"], ["AI", "코칭 완료"]],
-        "marquee": ["HEALTHKIT 자동 동기화", "AI 코칭", "심박 5구간", "케이던스", "코치 노트", "러너 레벨", "신발 거리", "훈련 플랜"],
-        "demo": {
-            "stat_labels": ["거리", "시간", "평균 심박"],
-            "stat_values": ["5.2 km", "32:10", "155 bpm"],
-            "mood": "🙂",
-            "note": "막판에 오르막에서 페이스가 무너졌다",
-            "ai_label": "AI 코치",
-            "ai_lines": [
-                "최근 3번의 러닝에서 같은 패턴이 보여요. 오르막 전 케이던스를 5spm 올려보세요.",
-                "이번 주말 같은 코스, 다시 도전해볼까요?",
-            ],
-        },
-        "how_kicker": "사용 방법", "how_num": "01–03",
-        "how_h2": "뛰고, 한 줄 남기고, <em>코칭</em>을 받으세요.",
-        "steps": [
-            ["워치로 뛰기", "Apple Watch로 뛰기만 하면 끝. HealthKit이 거리·페이스·심박을 자동으로 가져옵니다."],
-            ["한 줄 노트", "컨디션 이모지 하나, 한 줄 메모. 아팠던 곳이 있으면 부위까지. 그게 전부예요."],
-            ["AI 코칭 받기", "쌓인 노트를 바탕으로 Claude가 패턴을 짚고, 다음 러닝을 위한 질문을 남깁니다."],
+        "badge_soon": "곧 App Store에서",
+        "p1_meta": ["RUN·NOTE", "AI Running Journal", "iPhone · Watch"],
+        "p1_h1": ["뛰고 나서,", "<em>한 줄.</em>"],
+        "p1_lede": "실시간 트래킹 아님 — 기록은 자동, 당신은 한 줄만",
+        "p2_note_value": "한 줄이면 끝",
+        "p3_h2": ["기록이 쌓일수록,", "<em>코치는 당신을 외웁니다.</em>"],
+        "p3_lede": "궁금한 건 물어보고, 부족한 건 다음 러닝에서 보완하고 —<br>그렇게 러닝은 점점 더 즐거워집니다.",
+        "p3_notes": [
+            ["RUN 01", '"왜 오르막만 오면 숨이 찰까?" — 물어보세요. 코치가 답합니다.'],
+            ["RUN 10", "오르막에서 페이스가 무너지는 패턴 — 다음 러닝은 케이던스로 보완해요."],
+            ["RUN 20", "오르막 페이스 유지 성공. 뛸수록 나아지고, 나아질수록 즐거워집니다."],
         ],
-        "value_kicker": "정교해지는 코칭", "value_num": "1 → 20 RUNS",
-        "value_h2": "노트가 <em>10줄</em>이 되면, 코칭이 달라집니다.",
-        "value_lede": "1회차는 누구에게나 하는 조언, 10회차는 당신의 오르막 페이스 패턴을 아는 조언. 기록이 쌓일수록 코칭 정밀도가 올라갑니다.",
-        "value_axis": "코칭 정밀도",
-        "chart_points": [["1회", 40], ["5회", 65], ["10회", 82], ["20회", 96]],
-        "notes": [
-            ["3주 전 관찰", "오르막에서 페이스가 무너지는 패턴이 반복됩니다."],
-            ["2주 전 관찰", "왼쪽 무릎 통증이 3주 연속 기록됐어요."],
-            ["이번 주 관찰", "주말 장거리 후 회복이 빠른 편이에요."],
+        "p3b_meta2": "매 러닝이 다음 러닝을 만듭니다",
+        "p3b_steps": [
+            ["뛴다.", "워치가 알아서 기록합니다"],
+            ["적는다.", "컨디션·통증·기분, 딱 한 줄"],
+            ["배운다.", "코치가 부족한 부분을 짚어줍니다"],
+            ["다시 뛴다.", "이번엔 보완해서 — 그래서 더 즐겁게"],
         ],
-        "shots_kicker": "화면", "shots_num": "SCREENS",
-        "shots_h2": "기록에서 <em>코칭</em>까지, 한눈에.",
-        "shots_caps": ["홈 · 오늘의 러닝", "러닝 상세 기록", "AI 코칭 카드", "히스토리 · 캘린더"],
-        "cal_head": "2026년 7월 · 12회 · 68km",
-        "cal_list": [["7월 28일", "5.2 km", "5:58/km"], ["7월 25일", "8.0 km", "6:20/km"], ["7월 21일", "3.1 km", "6:05/km"]],
-        "zone_legend": ["Z1", "Z2", "Z3", "Z4", "Z5"],
-        "coach_mock_lines": [
-            "이번 주 3번의 러닝 모두 오르막에서 페이스가 5~8% 떨어졌어요.",
-            "다음 러닝 전, 오르막 구간 케이던스를 5spm 올려보는 건 어떨까요?",
+        "p3b_loopmark": "그리고 다시 01로 — 반복할수록 코치는 정확해집니다",
+        "p3c_h2": ["궁금한 건", "<em>코치에게 물어보세요.</em>"],
+        "p3c_qs": [
+            ['"왜 5km만 넘으면 페이스가 떨어질까?"', "당신의 심박·케이던스 기록을 근거로 답합니다"],
+            ['"무릎이 좀 아픈데, 내일 뛰어도 돼?"', "통증 노트 3주 치를 기억하고 있는 코치의 답은 다릅니다"],
+            ['"장마철엔 어떻게 뛰어야 해?"', "날씨는 자동 기록 — 빗속 러닝 데이터도 코칭 재료가 됩니다"],
+            ['"다음 목표는 뭘로 잡을까?"', "지금 실력에서 반 발짝 앞 — 부담 없는 다음 목표를 제안합니다"],
         ],
-        "coach_mock_tag": "코치 노트 · 3주 연속 관찰",
-        "feat_kicker": "디테일", "feat_num": "06",
-        "feat_h2": "작은 기록장, <em>분명한 차별점</em>.",
-        "feats": [
-            ["HealthKit 자동 동기화", "워치로 뛰고 앱만 열면 거리·페이스·심박이 자동으로 들어와 있어요."],
-            ["러닝 당시 날씨 자동 기록", "WeatherKit이 그날의 기온과 습도를 기록에 남깁니다."],
-            ["러닝 다이내믹스 + 자세 점수", "수직 진폭·접지 시간·보폭·파워로 매기는 자세 점수."],
-            ["심박 5구간 · km 스플릿 · 고도", "존별 시간 분포와 구간별 페이스, 고도 변화까지 한눈에."],
-            ["통증 부위별 관리 가이드", "무릎, 발목… 부위별 원인과 스트레칭, 쉬어야 할 신호까지."],
-            ["코치 노트 (장기 기억)", "러닝을 거듭할수록 AI가 당신에 대해 기억하는 것들이 쌓입니다."],
-        ],
-        "final_h2": "이제, 뛰고 한 줄만 남기세요.",
-        "final_lede": "출시 후 7일 무료 체험 · iPhone &amp; Apple Watch",
+        "p4_idx": ["HealthKit 자동 동기화", "한 줄 노트 · 통증 부위", "심박 5구간 · 케이던스", "AI 코치", "코치 노트 — 장기 기억", "날씨 자동 기록"],
+        "p5_h2": ["오늘 뛰었다면,", "<em>한 줄 남기세요.</em>"],
+        "p5_note": "7-Day Free Trial · iPhone &amp; Apple Watch",
         "f_contact": "문의", "f_privacy": "개인정보 처리방침", "f_terms": "이용약관",
     },
     "en": {
-        "dir": "en/", "lang": "en", "font": None,
+        "dir": "en/", "lang": "en", "font": None, "keep_all": False,
         "title": "RunNote — A one-line running journal with AI coaching that knows you",
-        "desc": "Not a live-tracking app. Run with your Watch, log one line about how you felt, and Claude's coaching gets sharper with every entry.",
+        "desc": "Not a live-tracking app. Run with your Watch, log one line about how you felt, and the AI coaching gets sharper with every entry.",
         "og_title": "RunNote — An AI running coach that learns you",
         "og_desc": "Coaching that gets sharper with every one-line note.",
-        "kicker_num": "RUNNING JOURNAL",
-        "h1": "Run. Write one line.<br>Get a coach that <em>actually knows you</em>.",
-        "sub": "This isn't a live-tracking app. Run with your Watch, open RunNote, and your data's already there. All you add is how you felt — one line. The more you write, the sharper Claude's coaching gets.",
-        "note": "Coming soon · iPhone &amp; Apple Watch · 7-day free trial",
-        "badge_small": "Download on the", "badge_aria": "Download on the App Store",
-        "badge_soon": "Coming soon to the App Store",
-        "chips": [["5K", "km today"], ["Z3", "HR zone"], ["AI", "coached"]],
-        "marquee": ["HEALTHKIT SYNC", "AI COACHING", "HR ZONES", "CADENCE", "COACH NOTES", "RUNNER LEVELS", "SHOE MILEAGE", "TRAINING PLANS"],
-        "demo": {
-            "stat_labels": ["DISTANCE", "TIME", "AVG HR"],
-            "stat_values": ["5.2 km", "32:10", "155 bpm"],
-            "mood": "🙂",
-            "note": "Legs gave out on the last hill at parkrun again",
-            "ai_label": "AI COACH",
-            "ai_lines": [
-                "Same pattern the last 3 runs — you fade on climbs after 2 miles. Try lifting cadence 5 spm before the hill.",
-                "Want to hit that same hill again this Saturday?",
-            ],
-        },
-        "how_kicker": "HOW IT WORKS", "how_num": "01–03",
-        "how_h2": "Run, write one line, get <em>coached</em>.",
-        "steps": [
-            ["Run", "Just run with your Apple Watch. HealthKit pulls in distance, pace and heart rate automatically."],
-            ["Reflect", "One condition emoji, one line. Add where it hurt, if it did. That's it."],
-            ["Get coached", "Claude reads your history, spots the pattern, and leaves you a question for next time."],
+        "badge_soon": "Coming soon",
+        "p1_meta": ["RUN·NOTE", "AI Running Journal", "iPhone · Watch"],
+        "p1_h1": ["Run first,", "<em>then one line.</em>"],
+        "p1_lede": "Not live tracking — logging is automatic, you write one line",
+        "p2_note_value": "One line, done",
+        "p3_h2": ["The more you log,", "<em>the more your coach knows you.</em>"],
+        "p3_lede": "Ask what you're curious about, fix what's missing next run —<br>and running keeps getting more fun.",
+        "p3_notes": [
+            ["RUN 01", '"Why do I lose my breath on every climb?" — just ask. The coach answers.'],
+            ["RUN 10", "Pace fades on climbs, same pattern — next run, fix it with cadence."],
+            ["RUN 20", "Pace held on the climb. The more you run, the better it gets — and the more fun."],
         ],
-        "value_kicker": "SHARPER OVER TIME", "value_num": "1 → 20 RUNS",
-        "value_h2": "Ten entries in, the coaching <em>changes</em>.",
-        "value_lede": "Run one gets generic advice. Run ten gets advice that knows your hill-pace pattern. Coaching gets sharper the more you log.",
-        "value_axis": "Coaching precision",
-        "chart_points": [["RUN 1", 40], ["RUN 5", 65], ["RUN 10", 82], ["RUN 20", 96]],
-        "notes": [
-            ["Observed 3 weeks ago", "You keep fading on climbs — same pattern for 3 runs."],
-            ["Observed 2 weeks ago", "Left knee soreness logged 3 weeks running."],
-            ["Observed this week", "You recover fast after long weekend runs."],
+        "p3b_meta2": "Every run shapes the next one",
+        "p3b_steps": [
+            ["Run.", "Your Watch logs it automatically"],
+            ["Write.", "Condition, soreness, mood — one line"],
+            ["Learn.", "The coach points out what's missing"],
+            ["Run again.", "This time, fixed — so it's more fun"],
         ],
-        "shots_kicker": "SCREENS", "shots_num": "SCREENS",
-        "shots_h2": "From your log to <em>your coaching</em>, at a glance.",
-        "shots_caps": ["HOME · TODAY'S RUN", "RUN DETAIL", "AI COACHING CARD", "HISTORY · CALENDAR"],
-        "cal_head": "JULY 2026 · 12 RUNS · 68 KM",
-        "cal_list": [["Jul 28", "5.2 km", "5:58/km"], ["Jul 25", "8.0 km", "6:20/km"], ["Jul 21", "3.1 km", "6:05/km"]],
-        "zone_legend": ["Z1", "Z2", "Z3", "Z4", "Z5"],
-        "coach_mock_lines": [
-            "All three runs this week lost 5-8% pace on climbs.",
-            "Before your next run, try lifting cadence 5 spm on the uphill sections.",
+        "p3b_loopmark": "Then back to 01 — the more you repeat it, the sharper the coach gets",
+        "p3c_h2": ["Curious about", "<em>something? Ask your coach.</em>"],
+        "p3c_qs": [
+            ['"Why does my pace drop after 5km?"', "Answered from your own heart rate and cadence data"],
+            ['"My knee hurts a bit — okay to run tomorrow?"', "A coach that remembers 3 weeks of pain notes answers differently"],
+            ['"How should I run in the rainy season?"', "Weather is logged automatically — even rainy runs become coaching material"],
+            ['"What should my next goal be?"', "Half a step beyond where you are now — no-pressure next goals"],
         ],
-        "coach_mock_tag": "Coach note · observed 3 weeks running",
-        "feat_kicker": "DETAILS", "feat_num": "06",
-        "feat_h2": "Small journal. <em>Deliberate</em> differences.",
-        "feats": [
-            ["HealthKit auto-sync", "Run with your Watch, open the app — distance, pace and heart rate are already there."],
-            ["Weather, logged automatically", "WeatherKit tags every run with the temperature and humidity at the time."],
-            ["Running Dynamics + form score", "Vertical oscillation, ground contact time, stride length and power, scored."],
-            ["5 HR zones · km splits · elevation", "Zone time distribution, per-km pace, and elevation, all at a glance."],
-            ["Pain-area guide", "Knee, ankle, whatever hurts — causes, stretches, and when to actually rest."],
-            ["Coach notes (long-term memory)", "The more you run, the more the AI remembers about you."],
-        ],
-        "final_h2": "Run. Write one line. That's it.",
-        "final_lede": "7-day free trial at launch · iPhone &amp; Apple Watch",
+        "p4_idx": ["HealthKit auto-sync", "One-line notes · pain areas", "5 HR zones · cadence", "AI coach", "Coach notes — long-term memory", "Weather, logged automatically"],
+        "p5_h2": ["If you ran today,", "<em>leave one line.</em>"],
+        "p5_note": "7-Day Free Trial · iPhone &amp; Apple Watch",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
     },
     "ja": {
-        "dir": "ja/", "lang": "ja", "font": '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic"',
+        "dir": "ja/", "lang": "ja", "font": '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic"', "keep_all": False,
         "title": "RunNote — ひと言のノートで磨かれるAIランニングコーチ",
-        "desc": "リアルタイムトラッキングではなく、ノート型のランニング記録アプリ。Apple Watchで走ってひと言残すだけで、ClaudeのAIコーチングが記録とともに的確になります。",
+        "desc": "リアルタイムトラッキングではなく、ノート型のランニング記録アプリ。Apple Watchで走ってひと言残すだけで、AIコーチングが記録とともに的確になります。",
         "og_title": "RunNote — あなたを知るAIランニングコーチ",
         "og_desc": "ひと言のノートが積み重なるほど的確になるコーチング。",
-        "kicker_num": "ランニング日記",
-        "h1": "走って、ひと言書くだけ。<br>記録が増えるほど<br><em>あなたを知るコーチ</em>に。",
-        "sub": "リアルタイムのトラッキングアプリではありません。Apple Watchで走ってRunNoteを開けば、記録はもう入っています。書くのは体調とひと言だけ。積み重なるほどClaudeのコーチングが的確になります。",
-        "note": "近日公開 · iPhone &amp; Apple Watch · 7日間無料トライアル",
-        "badge_small": "ダウンロードは", "badge_aria": "App Store でダウンロード",
-        "badge_soon": "近日App Storeで公開",
-        "chips": [["5K", "本日の距離"], ["Z3", "心拍ゾーン"], ["AI", "コーチ済み"]],
-        "marquee": ["HEALTHKIT連携", "AIコーチング", "心拍5ゾーン", "ケイデンス", "コーチノート", "ランナーレベル", "シューズ距離", "トレーニング計画"],
-        "demo": {
-            "stat_labels": ["距離", "時間", "平均心拍"],
-            "stat_values": ["5.2 km", "32:10", "155 bpm"],
-            "mood": "🙂",
-            "note": "皇居ランの坂道で、また後半ペースが落ちた",
-            "ai_label": "AIコーチ",
-            "ai_lines": [
-                "直近3回のランで同じパターンが出ています。坂の前でケイデンスを5spm上げてみましょう。",
-                "今週末も同じコースで試してみますか？",
-            ],
-        },
-        "how_kicker": "使い方", "how_num": "01–03",
-        "how_h2": "走って、ひと言残して、<em>コーチングを受ける</em>。",
-        "steps": [
-            ["走る", "Apple Watchで走るだけ。HealthKitが距離・ペース・心拍を自動で取り込みます。"],
-            ["ひと言残す", "体調の絵文字ひとつと、ひと言メモ。痛みがあれば部位も。それだけです。"],
-            ["コーチングを受ける", "積み重なった記録からClaudeがパターンを見つけ、次のランへの問いを残します。"],
+        "badge_soon": "近日公開",
+        "p1_meta": ["RUN·NOTE", "AI Running Journal", "iPhone · Watch"],
+        "p1_h1": ["走って、", "<em>ひと言。</em>"],
+        "p1_lede": "リアルタイム計測ではありません — 記録は自動、あなたはひと言だけ",
+        "p2_note_value": "ひと言で完了",
+        "p3_h2": ["記録が増えるほど、", "<em>コーチはあなたを覚えます。</em>"],
+        "p3_lede": "気になることは聞いて、足りない部分は次のランで補う —<br>そうやってランニングはどんどん楽しくなります。",
+        "p3_notes": [
+            ["RUN 01", "「なぜ坂道だけで息が上がるんだろう?」— 聞いてみてください。コーチが答えます。"],
+            ["RUN 10", "坂道でペースが崩れる傾向 — 次のランはケイデンスで補いましょう。"],
+            ["RUN 20", "坂道ペース維持に成功。走るほど良くなり、良くなるほど楽しくなります。"],
         ],
-        "value_kicker": "積み重ねるほど的確に", "value_num": "1 → 20 RUNS",
-        "value_h2": "記録が<em>10回</em>を超えると、コーチングが変わります。",
-        "value_lede": "1回目は誰にでも当てはまる助言。10回目はあなたの坂道ペースの癖を知った助言。積み重ねるほどコーチングは的確になります。",
-        "value_axis": "コーチング精度",
-        "chart_points": [["1回目", 40], ["5回目", 65], ["10回目", 82], ["20回目", 96]],
-        "notes": [
-            ["3週間前の観察", "坂道で失速するパターンが3回連続で見られます。"],
-            ["2週間前の観察", "左膝の違和感が3週連続で記録されています。"],
-            ["今週の観察", "週末のロング走の翌週、回復が早い傾向です。"],
+        "p3b_meta2": "毎回のランが次のランを作ります",
+        "p3b_steps": [
+            ["走る。", "Watchが自動で記録します"],
+            ["書く。", "体調・痛み・気分をひと言で"],
+            ["学ぶ。", "コーチが足りない部分を指摘します"],
+            ["また走る。", "今度は補って — もっと楽しく"],
         ],
-        "shots_kicker": "画面", "shots_num": "SCREENS",
-        "shots_h2": "記録から<em>コーチング</em>まで、ひと目で。",
-        "shots_caps": ["ホーム・今日のラン", "ラン詳細記録", "AIコーチングカード", "履歴・カレンダー"],
-        "cal_head": "2026年7月 · 12回 · 68km",
-        "cal_list": [["7月28日", "5.2 km", "5:58/km"], ["7月25日", "8.0 km", "6:20/km"], ["7月21日", "3.1 km", "6:05/km"]],
-        "zone_legend": ["Z1", "Z2", "Z3", "Z4", "Z5"],
-        "coach_mock_lines": [
-            "今週の3回のランすべてで、坂道でペースが5〜8%落ちています。",
-            "次のランの前に、坂道区間のケイデンスを5spm上げてみませんか？",
+        "p3b_loopmark": "そしてまた01へ — 繰り返すほどコーチは正確になります",
+        "p3c_h2": ["気になることは", "<em>コーチに聞いてみましょう。</em>"],
+        "p3c_qs": [
+            ["「5kmを超えるとなぜペースが落ちるの?」", "あなたの心拍・ケイデンス記録をもとに答えます"],
+            ["「膝が少し痛いけど、明日走ってもいい?」", "3週間分の痛みノートを覚えているコーチの答えは違います"],
+            ["「梅雨の時期はどう走ればいい?」", "天気は自動記録 — 雨の日のランもコーチングの材料に"],
+            ["「次の目標は何にしよう?」", "今の実力から半歩先 — 無理のない次の目標を提案します"],
         ],
-        "coach_mock_tag": "コーチノート・3週連続の傾向",
-        "feat_kicker": "こだわり", "feat_num": "06",
-        "feat_h2": "小さな記録帳、<em>明確な違い</em>。",
-        "feats": [
-            ["HealthKit自動連携", "Watchで走ってアプリを開くだけ。距離・ペース・心拍はもう入っています。"],
-            ["その日の天気を自動記録", "WeatherKitがランニング当時の気温・湿度を記録に残します。"],
-            ["ランニングダイナミクス + フォームスコア", "上下動・接地時間・歩幅・パワーからフォームを採点。"],
-            ["心拍5ゾーン・kmスプリット・高度", "ゾーン別の時間配分、区間ペース、高度変化がひと目でわかります。"],
-            ["部位別 痛みガイド", "膝、足首… 部位ごとの原因・ストレッチ・休むべきサインまで。"],
-            ["コーチノート(長期記憶)", "走るほど、AIがあなたについて覚えていることが増えていきます。"],
-        ],
-        "final_h2": "走って、ひと言書くだけ。",
-        "final_lede": "公開時7日間無料トライアル · iPhone &amp; Apple Watch",
+        "p4_idx": ["HealthKit自動連携", "ひと言ノート・痛みの部位", "心拍5ゾーン・ケイデンス", "AIコーチ", "コーチノート — 長期記憶", "天気の自動記録"],
+        "p5_h2": ["今日走ったなら、", "<em>ひと言残しましょう。</em>"],
+        "p5_note": "7日間無料トライアル · iPhone &amp; Apple Watch",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
     },
     "zh": {
-        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC", "Microsoft JhengHei"',
+        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC", "Microsoft JhengHei"', "keep_all": False,
         "title": "RunNote — 用一句跑後筆記,打造懂你的 AI 教練",
-        "desc": "不是即時追蹤,而是以筆記為核心的跑步紀錄。用手錶跑完,只需留下狀態和一句話,記錄越多,Claude AI 教練就越精準。",
+        "desc": "不是即時追蹤,而是以筆記為核心的跑步紀錄。用手錶跑完,只需留下狀態和一句話,記錄越多,AI 教練就越精準。",
         "og_title": "RunNote — 懂你的 AI 跑步教練",
         "og_desc": "一句筆記累積越多,教練建議越精準。",
-        "kicker_num": "跑步筆記日誌",
-        "h1": "跑完寫一句,<br>記錄越多,就成為<em>懂你的教練</em>",
-        "sub": "這不是即時追蹤 App。用 Apple Watch 跑步後打開 App,記錄早已自動同步,你只需留下狀態和一句筆記。這一句話累積越多,Claude AI 就能越精準掌握你的模式。",
-        "note": "即將推出 · iPhone &amp; Apple Watch · 7 天免費試用",
-        "badge_small": "立即下載", "badge_aria": "前往 App Store 下載",
-        "badge_soon": "即將於 App Store 上架",
-        "chips": [["5K", "今日公里"], ["Z3", "心率區間"], ["AI", "教練完成"]],
-        "marquee": ["HEALTHKIT 自動同步", "AI 教練", "心率5區間", "步頻", "教練筆記", "跑者等級", "鞋子里程", "訓練計畫"],
-        "demo": {
-            "stat_labels": ["距離", "時間", "平均心率"],
-            "stat_values": ["5.2 km", "32:10", "155 bpm"],
-            "mood": "🙂",
-            "note": "最後在上坡配速崩潰了",
-            "ai_label": "AI 教練",
-            "ai_lines": [
-                "最近3次跑步都出現同樣模式。上坡前試著把步頻提高5spm。",
-                "這個週末要不要再挑戰一次同樣路線?",
-            ],
-        },
-        "how_kicker": "使用方法", "how_num": "01–03",
-        "how_h2": "跑步、留下一句話、接受<em>教練指導</em>。",
-        "steps": [
-            ["用手錶跑步", "只要戴著Apple Watch跑步就好。HealthKit會自動抓取距離、配速、心率。"],
-            ["寫一句筆記", "一個狀態表情符號,加一句話。如果哪裡不舒服,寫下部位。就這麼簡單。"],
-            ["接受AI教練指導", "根據累積的筆記,Claude會指出模式,並為下次跑步留下提問。"],
+        "badge_soon": "即將推出",
+        "p1_meta": ["RUN·NOTE", "AI Running Journal", "iPhone · Watch"],
+        "p1_h1": ["跑完之後,", "<em>寫一句。</em>"],
+        "p1_lede": "不是即時追蹤 — 記錄自動完成,你只需寫一句話",
+        "p2_note_value": "一句話就好",
+        "p3_h2": ["記錄越多,", "<em>教練就越了解你。</em>"],
+        "p3_lede": "有疑問就問,不足的下次跑步再補強 ——<br>跑步也就越來越有趣。",
+        "p3_notes": [
+            ["RUN 01", "「為什麼一到上坡就喘不過氣?」— 問問看,教練會回答。"],
+            ["RUN 10", "上坡配速崩潰的模式 — 下次跑步用步頻來補強。"],
+            ["RUN 20", "成功維持上坡配速。跑得越多越進步,越進步就越有趣。"],
         ],
-        "value_kicker": "越來越精準的教練", "value_num": "1 → 20 RUNS",
-        "value_h2": "筆記累積到<em>10篇</em>,教練建議就會不同。",
-        "value_lede": "第1次是給任何人的建議,第10次是了解你上坡配速模式的建議。記錄越多,教練精準度越高。",
-        "value_axis": "教練精準度",
-        "chart_points": [["第1次", 40], ["第5次", 65], ["第10次", 82], ["第20次", 96]],
-        "notes": [
-            ["3週前的觀察", "上坡配速崩潰的模式反覆出現。"],
-            ["2週前的觀察", "左膝疼痛已連續記錄3週。"],
-            ["本週觀察", "週末長跑後恢復速度較快。"],
+        "p3b_meta2": "每一次跑步,都造就下一次",
+        "p3b_steps": [
+            ["跑步。", "手錶自動幫你記錄"],
+            ["寫下。", "狀態、疼痛、心情,一句就好"],
+            ["學習。", "教練點出不足之處"],
+            ["再跑一次。", "這次補強了 — 更有趣"],
         ],
-        "shots_kicker": "畫面", "shots_num": "SCREENS",
-        "shots_h2": "從記錄到<em>教練指導</em>,一目了然。",
-        "shots_caps": ["首頁 · 今日跑步", "跑步詳細記錄", "AI 教練卡片", "歷史記錄 · 日曆"],
-        "cal_head": "2026年7月 · 12次 · 68公里",
-        "cal_list": [["7月28日", "5.2 km", "5:58/km"], ["7月25日", "8.0 km", "6:20/km"], ["7月21日", "3.1 km", "6:05/km"]],
-        "zone_legend": ["Z1", "Z2", "Z3", "Z4", "Z5"],
-        "coach_mock_lines": [
-            "本週3次跑步,上坡配速都掉了5~8%。",
-            "下次跑步前,試著把上坡路段的步頻提高5spm如何?",
+        "p3b_loopmark": "然後回到01 — 重複越多次,教練就越精準",
+        "p3c_h2": ["有疑問就", "<em>問教練吧。</em>"],
+        "p3c_qs": [
+            ["「為什麼一超過5km配速就掉?」", "根據你的心率、步頻記錄回答"],
+            ["「膝蓋有點痛,明天可以跑嗎?」", "記得3週疼痛筆記的教練,答案不一樣"],
+            ["「梅雨季該怎麼跑?」", "天氣自動記錄 — 雨中跑步的數據也是教練素材"],
+            ["「下一個目標該設多少?」", "從目前實力再進半步 — 提出沒有壓力的下一個目標"],
         ],
-        "coach_mock_tag": "教練筆記 · 連續3週觀察",
-        "feat_kicker": "細節", "feat_num": "06",
-        "feat_h2": "小小的記錄本,<em>明確的差異</em>。",
-        "feats": [
-            ["HealthKit 自動同步", "用手錶跑步後打開App,距離、配速、心率都已自動同步。"],
-            ["自動記錄跑步當時天氣", "WeatherKit會將當天的氣溫與濕度記錄下來。"],
-            ["跑步動態 + 姿勢評分", "以垂直振幅、觸地時間、步幅、功率評出的姿勢分數。"],
-            ["心率5區間 · 公里分段 · 高度", "區間時間分布、分段配速、高度變化,一目了然。"],
-            ["依部位管理的疼痛指南", "膝蓋、腳踝……各部位的原因、伸展方式,以及該休息的訊號。"],
-            ["教練筆記(長期記憶)", "跑得越多,AI對你的了解就累積得越多。"],
-        ],
-        "final_h2": "現在,跑完只需留下一句話。",
-        "final_lede": "上線後7天免費試用 · iPhone &amp; Apple Watch",
+        "p4_idx": ["HealthKit 自動同步", "一句筆記 · 疼痛部位", "心率5區間 · 步頻", "AI 教練", "教練筆記 — 長期記憶", "天氣自動記錄"],
+        "p5_h2": ["今天跑了嗎?", "<em>留下一句話。</em>"],
+        "p5_note": "7 天免費試用 · iPhone &amp; Apple Watch",
         "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
     },
 }
@@ -330,79 +189,200 @@ def lang_nav(cur_dir, rel):
     return "".join(out)
 
 
-def badge(loc, el_id):
-    return (f'<a class="store-badge" id="{el_id}" href="#" aria-label="{loc["badge_aria"]}">{APPLE_SVG}'
-            f'<span class="txt"><small>{loc["badge_small"]}</small><strong>App Store</strong></span></a>')
-
-
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
+POSTER_CSS = """
+:root{
+  --cols:12; --gutter:24px; --margin:64px; --baseline:8px;
+  --accent:#1E9B52; --ink:#141414; --paper:#F4F1E8; --paper2:#ECE8DB;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink);
+  font:16px/24px "Helvetica Neue", Helvetica, "Apple SD Gothic Neo", Pretendard, sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.grid{
+  display:grid; grid-template-columns:repeat(var(--cols),1fr);
+  column-gap:var(--gutter); max-width:1240px; margin-inline:auto;
+  padding-inline:var(--margin); position:relative;
+}
 
-def chart_svg(points, axis_label):
-    w, h = 500, 170
-    xs = [60 + i * ((w - 120) / (len(points) - 1)) for i in range(len(points))]
-    ys = [140 - (v / 100) * 120 for _, v in points]
-    poly = " ".join(f"{x:.1f},{y:.1f}" for x, y in zip(xs, ys))
-    circles = "".join(f'<circle class="pt" cx="{x:.1f}" cy="{y:.1f}" r="5"></circle>' for x, y in zip(xs, ys))
-    val_labels = "".join(
-        f'<text class="pt-label" x="{x:.1f}" y="{y-14:.1f}" text-anchor="middle">{v}%</text>'
-        for x, y, (_, v) in zip(xs, ys, points)
-    )
-    x_labels = "".join(
-        f'<text class="x-label" x="{x:.1f}" y="163" text-anchor="middle">{label}</text>'
-        for x, (label, _) in zip(xs, points)
-    )
-    return (f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{axis_label}">'
-            f'<polyline class="curve" points="{poly}"></polyline>{circles}{val_labels}{x_labels}</svg>')
+/* ── 포스터 공통 ── */
+.poster{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding-block:96px;position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
+.meta{font-size:15px;line-height:24px;letter-spacing:.12em;font-weight:700;text-transform:uppercase}
+.rule{height:8px;background:var(--accent)}
+.mono{font-family:"SF Mono", ui-monospace, Menlo, monospace}
+
+/* 언어 스위처 */
+.langnav{position:absolute;top:24px;right:64px;z-index:5;display:flex;gap:16px}
+.langnav a{font-size:13px;letter-spacing:.08em;font-weight:700;color:#00000088;text-decoration:none}
+.langnav a.cur{color:var(--ink);text-decoration:underline}
+
+/* P1 표지 */
+.p1 h1{font-size:clamp(64px,10vw,152px);line-height:.96;font-weight:800;letter-spacing:-.03em}
+.p1 h1 em{font-style:normal;color:var(--accent)}
+.p1 .top{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:120px;flex-wrap:wrap;gap:8px}
+.p1 .h1w{grid-column:1/12}
+.p1 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;margin-top:120px;flex-wrap:wrap;gap:16px}
+.p1 .foot .rule{width:200px}
+.p1 .lede-meta{font-size:18px;letter-spacing:.04em;text-transform:none;font-weight:700}
+.p1 .side{position:absolute;right:28px;top:50%;transform:rotate(90deg) translateX(-50%);transform-origin:right top;
+  font-size:14px;letter-spacing:.3em;font-weight:700;color:#00000055}
+
+/* P2 숫자 */
+.p2{background:var(--accent);color:#fff;border-bottom:none}
+.p2 .big{grid-column:1/-1;font-weight:800;letter-spacing:-.04em;
+  font-size:clamp(120px,24vw,340px);line-height:.9}
+.p2 .big small{font-size:.22em;font-weight:700;letter-spacing:0;vertical-align:.16em;margin-left:8px}
+.p2 .stats{grid-column:1/-1;display:grid;grid-template-columns:subgrid;margin-top:64px;
+  border-top:2px solid #ffffff66;padding-top:24px}
+.p2 .stat{grid-column:span 3}
+.p2 .stat b{display:block;font-size:40px;line-height:48px;font-weight:800}
+.p2 .stat span{font-size:15px;letter-spacing:.12em;font-weight:700;opacity:.8}
+.p2 .contour{position:absolute;inset:0;opacity:.12;pointer-events:none}
+.p2 .meta-row{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:56px}
+
+/* P3 코치 */
+.p3 .h2w{grid-column:1/9}
+.p3 h2{font-size:clamp(40px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.p3 h2 em{font-style:normal;background:linear-gradient(transparent 62%, color-mix(in srgb,var(--accent) 38%, transparent) 62%)}
+.p3 .lede{grid-column:1/8;font-size:19px;line-height:32px;font-weight:600;color:#000000B3;margin-top:8px}
+.p3 .notes{grid-column:1/-1;margin-top:80px;display:grid;grid-template-columns:subgrid}
+.p3 .note{grid-column:span 4;border-top:2px solid var(--ink);padding-top:16px}
+.p3 .note .meta{color:var(--accent)}
+.p3 .note p{margin-top:16px;font-size:20px;line-height:32px;font-weight:700}
+.p3 .note:nth-child(1) p{opacity:.35}
+.p3 .note:nth-child(2) p{opacity:.7}
+
+/* P3B 루프 */
+.p3b{background:var(--paper2)}
+.p3b .metah{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:88px;flex-wrap:wrap;gap:8px}
+.p3b .loop{grid-column:1/-1}
+.p3b .step{display:flex;align-items:baseline;gap:32px;border-top:2px solid var(--ink);padding:24px 0;
+  font-size:clamp(32px,5.6vw,76px);line-height:1.05;font-weight:800;letter-spacing:-.02em}
+.p3b .step .no{font-family:"SF Mono",ui-monospace,monospace;font-size:16px;font-weight:700;color:var(--accent)}
+.p3b .step .sub{margin-left:auto;font-size:17px;line-height:26px;font-weight:600;color:#00000099;letter-spacing:0;max-width:320px;text-align:right}
+.p3b .step:last-child{border-bottom:2px solid var(--ink)}
+.p3b .step:last-child strong{color:var(--accent)}
+.p3b .loopmark{grid-column:1/-1;margin-top:48px;display:flex;align-items:center;gap:16px}
+.p3b .loopmark svg{width:40px;height:40px;flex:none}
+.p3b .loopmark .meta{color:#00000099}
+
+/* P3C 질문 */
+.p3c .h2w{grid-column:1/-1;margin-bottom:72px}
+.p3c h2{font-size:clamp(40px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.p3c h2 em{font-style:normal;color:var(--accent)}
+.p3c .qs{grid-column:1/-1;display:grid;grid-template-columns:subgrid;row-gap:40px}
+.p3c .q{grid-column:span 6;border-left:8px solid var(--accent);padding-left:24px}
+.p3c .q p{font-size:clamp(22px,2.6vw,34px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.p3c .q span{display:block;margin-top:12px;font-size:17px;line-height:26px;font-weight:600;color:#00000099}
+
+/* P4 인덱스 + 실물 */
+.p4 .idx{grid-column:1/7}
+.p4 .idx h3{font-size:15px;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:40px}
+.p4 ol{list-style:none;counter-reset:n}
+.p4 li{counter-increment:n;display:flex;gap:24px;align-items:baseline;
+  border-top:1px solid #00000033;padding:16px 0;font-size:26px;line-height:38px;font-weight:800;letter-spacing:-.01em}
+.p4 li::before{content:counter(n,decimal-leading-zero);font-size:14px;font-weight:700;color:var(--accent);
+  font-family:"SF Mono",ui-monospace,monospace}
+.p4 .shot{grid-column:8/13;align-self:center}
+.p4 .shot img{width:100%;border-radius:24px;box-shadow:0 32px 64px -24px #00000040}
+.p4 .shot figcaption{margin-top:16px;font-size:14px;letter-spacing:.12em;font-weight:700;color:#00000088}
+
+/* P5 CTA */
+.p5{background:var(--ink);color:var(--paper);border-bottom:none;min-height:80vh}
+.p5 .h2w{grid-column:1/-1}
+.p5 h2{font-size:clamp(56px,10vw,136px);line-height:.98;font-weight:800;letter-spacing:-.03em}
+.p5 h2 em{font-style:normal;color:var(--accent)}
+.p5 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:96px;flex-wrap:wrap;gap:16px}
+.p5 .btn{display:inline-block;border:2px solid var(--paper);border-radius:999px;
+  padding:16px 40px;color:var(--paper);text-decoration:none;font-weight:800;font-size:16px}
+.p5 .btn:hover{background:var(--accent);border-color:var(--accent)}
+.p5 .btn.disabled{cursor:default}
+.p5 .langnav a{color:#ffffff88}
+.p5 .langnav a.cur{color:var(--paper)}
+
+/* ── 배경 패턴 (러닝 포스터) ── */
+.bg{position:absolute;inset:0;pointer-events:none}
+.p1 .bg path{stroke:var(--ink);opacity:.13}
+.p1 .bg .pin{fill:var(--accent);opacity:.9}
+.p3b .bg{opacity:.1}
+.p3b .bg path{stroke:var(--ink)}
+.p3c .bg{right:-4%;left:auto;width:46%;opacity:.07;display:flex;align-items:center;justify-content:flex-end}
+.p3c .bg span{font-size:clamp(400px,44vw,640px);font-weight:800;line-height:1;color:var(--ink)}
+.p5 .bg{opacity:.14}
+.p5 .bg path{stroke:var(--paper)}
+
+/* ── 모션 ── */
+.io{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.io.in{opacity:1;transform:none}
+.io.d1{transition-delay:.12s}.io.d2{transition-delay:.24s}.io.d3{transition-delay:.36s}
+.io.d4{transition-delay:.48s}.io.d5{transition-delay:.6s}.io.d6{transition-delay:.72s}
+.p1 h1 .line{display:block;overflow:hidden}
+.p1 h1 .line span{display:inline-block;transform:translateY(110%);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.p1.in h1 .line:nth-child(1) span{transform:none;transition-delay:.1s}
+.p1.in h1 .line:nth-child(2) span{transform:none;transition-delay:.28s}
+.p1 .rule{transform-origin:left;transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.7,.2,1) .6s}
+.p1.in .rule{transform:scaleX(1)}
+.p2 .contour path{stroke-dasharray:1600;stroke-dashoffset:1600;transition:stroke-dashoffset 2.4s ease}
+.p2.in .contour path{stroke-dashoffset:0}
+.p2.in .contour path:nth-child(2){transition-delay:.15s}
+.p2.in .contour path:nth-child(3){transition-delay:.3s}
+.p2.in .contour path:nth-child(4){transition-delay:.45s}
+.p2.in .contour path:nth-child(5){transition-delay:.6s}
+.p2 .big{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.2,.7,.2,1) .2s}
+.p2.in .big{clip-path:inset(0 0 0 0)}
+.p3 h2 em{background-size:0% 100%;background-repeat:no-repeat;transition:background-size .9s ease .5s}
+.p3.in h2 em{background-size:100% 100%}
+.p5 h2 em{position:relative}
+@media (prefers-reduced-motion: reduce){
+  .io,.p1 h1 .line span,.p1 .rule,.p2 .big,.p2 .contour path,.p3 h2 em{transition:none!important;transform:none!important;opacity:1!important;clip-path:none!important;stroke-dashoffset:0!important;background-size:100% 100%!important}
+}
+
+@media (max-width:760px){
+  :root{--margin:24px;--gutter:16px}
+  .langnav{position:static;justify-content:flex-end;margin-bottom:16px}
+  .p1 .h1w{grid-column:1/-1}
+  .p2 .stat{grid-column:span 6;margin-bottom:24px}
+  .p3 .h2w{grid-column:1/-1}
+  .p3 .lede{grid-column:1/-1}
+  .p3 .note{grid-column:1/-1;margin-bottom:24px}
+  .p3b .step{flex-wrap:wrap;gap:12px}
+  .p3b .step .sub{margin-left:0;text-align:left;max-width:none;flex-basis:100%}
+  .p3c .q{grid-column:1/-1}
+  .p4 .idx{grid-column:1/-1}
+  .p4 .shot{grid-column:1/-1;margin-top:48px}
+}
+"""
 
 
 def render(key):
     loc = LOCALES[key]
     rel = "../" if loc["dir"] else ""
     font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
+    word_break = "word-break:keep-all;" if loc.get("keep_all") else ""
 
-    chips = "".join(
-        f'<div class="chip c{i+1}"><span class="g">{g}</span>{label}</div>'
-        for i, (g, label) in enumerate(loc["chips"])
+    notes_html = "".join(
+        f'<div class="note io d{i*2+1}"><span class="meta">{tag}</span><p>{txt}</p></div>'
+        for i, (tag, txt) in enumerate(loc["p3_notes"])
     )
-    marquee = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
-
-    steps = "".join(
-        f'<div class="step"><span class="n">0{i+1}</span><span class="tag">STEP 0{i+1}</span><h3>{h}</h3><p>{p}</p></div>'
-        for i, (h, p) in enumerate(loc["steps"])
+    steps_html = "".join(
+        f'<div class="step io d{i+1}"><span class="no">0{i+1}</span><strong>{h}</strong><span class="sub">{sub}</span></div>'
+        for i, (h, sub) in enumerate(loc["p3b_steps"])
     )
-
-    d = loc["demo"]
-
-    notes = "".join(
-        f'<div class="note-card n{i+1}"><span class="tag">{tag}</span>{txt}</div>'
-        for i, (tag, txt) in enumerate(loc["notes"])
+    qs_html = "".join(
+        f'<div class="q io d{i+1}"><p>{p}</p><span>{s}</span></div>'
+        for i, (p, s) in enumerate(loc["p3c_qs"])
     )
-    chart = chart_svg(loc["chart_points"], loc["value_axis"])
-
-    cal_grid = "".join(f'<span class="{c}"></span>' for c in CAL_CELLS)
-    cal_list = "".join(
-        f'<div class="row2"><span class="d">{date}</span><span class="k">{dist}</span><span>{pace}</span></div>'
-        for date, dist, pace in loc["cal_list"]
+    idx_html = "".join(
+        f'<li class="io d{i+1}">{item}</li>' for i, item in enumerate(loc["p4_idx"])
     )
 
-    zone_bar = "".join(f'<span class="z{i+1}" style="width:{w}%"></span>' for i, w in enumerate(ZONE_WIDTHS))
-    zone_legend = "".join(f'<span><i class="z{i+1}"></i>{z}</span>' for i, z in enumerate(loc["zone_legend"]))
-    splits = "".join(
-        f'<div class="split-row"><span class="km">{lbl}</span><span class="bar" style="width:{split_bar_width(sec)}%"></span><span class="pace">{sec_to_pace(sec)}</span></div>'
-        for lbl, sec in zip(SPLIT_LABELS, SPLIT_SECONDS)
-    )
-
-    coach_mock_paras = "".join(f"<p>{line}</p>" for line in loc["coach_mock_lines"])
-
-    feats = "".join(f'<div class="feat"><h3>{h}</h3><p>{p}</p></div>' for h, p in loc["feats"])
-
-    shots = "".join(
-        f'<figure class="shot-card">'
-        f'<img src="{rel}assets/shot-{key}-{i:02d}.png" alt="{cap}" loading="lazy" width="294" height="640">'
-        f'<figcaption>{cap}</figcaption></figure>'
-        for i, cap in enumerate(loc["shots_caps"], start=1)
-    )
+    lang_nav_html = f'<div class="langnav">{lang_nav(loc["dir"], rel)}</div>'
+    btn_href = APP_STORE_URL if APP_STORE_URL else "#"
 
     html = f"""<!doctype html>
 <html lang="{loc['lang']}">
@@ -419,122 +399,174 @@ def render(key):
 {hreflang_block()}
 <link rel="icon" type="image/png" sizes="32x32" href="{rel}assets/icon-32.png">
 <link rel="apple-touch-icon" href="{rel}assets/icon-180.png">
-<link rel="stylesheet" href="{rel}assets/style.css">
+<style>
+{POSTER_CSS}
+body{{{word_break}}}
+</style>
 {font_override}
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a class="wordmark" href="{rel if rel else './'}"><span class="mark">RN.</span><span>RUN·NOTE</span></a>
-    <div class="lang">{lang_nav(loc['dir'], rel)}</div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="ghost">RN</div>
-  <div class="wrap">
-    <div>
-      <div class="kicker"><span>RUN · NOTE</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
-      <h1>{loc['h1']}</h1>
-      <p class="sub">{loc['sub']}</p>
-      <div class="cta">
-        {badge(loc, 'storeLink')}
-        <span class="note">{loc['note']}</span>
-      </div>
+<!-- P1 · 표지 포스터 -->
+<section class="poster p1">
+  {lang_nav_html}
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+    <path class="route" d="M-40 780 C 220 700, 300 830, 520 760 S 820 560, 960 480 S 1180 300, 1300 180 S 1420 80, 1480 40"
+      stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round"/>
+    <circle class="pin" cx="1300" cy="180" r="7"/>
+  </svg>
+  <div class="grid">
+    <div class="top">
+      <span class="meta io">{loc['p1_meta'][0]}</span>
+      <span class="meta io d2">{loc['p1_meta'][1]}</span>
+      <span class="meta io d4">{loc['p1_meta'][2]}</span>
     </div>
-    <div class="phone-col">
-      {chips}
-      <div class="phone">
-        <div class="screen">
-          <div class="app-area">
-            <img class="hero-shot" src="{rel}assets/hero-{key}.png" alt="" loading="eager" width="640" height="1293">
-            <img class="hero-part card" src="{rel}assets/hero-crops/{key}-card.png" alt="" loading="eager">
-            <img class="hero-part stat" src="{rel}assets/hero-crops/{key}-stat.png" alt="" loading="eager">
-            <img class="hero-part tab" src="{rel}assets/hero-crops/{key}-tab.png" alt="" loading="eager">
-          </div>
-        </div>
-      </div>
+    <div class="h1w">
+      <h1><span class="line"><span>{loc['p1_h1'][0]}</span></span><span class="line"><span>{loc['p1_h1'][1]}</span></span></h1>
+    </div>
+    <div class="foot">
+      <div class="rule"></div>
+      <span class="meta lede-meta io d3">{loc['p1_lede']}</span>
     </div>
   </div>
-</header>
-
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
-
-<section>
-  <div class="wrap">
-    <div class="kicker"><span>{loc['how_kicker']}</span><span class="rule"></span><span class="num">{loc['how_num']}</span></div>
-    <h2>{loc['how_h2']}</h2>
-    <div class="steps">{steps}</div>
-  </div>
+  <span class="side">RUNNING POSTER SERIES — 01</span>
 </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="kicker"><span>{loc['value_kicker']}</span><span class="rule"></span><span class="num">{loc['value_num']}</span></div>
-    <h2>{loc['value_h2']}</h2>
-    <p class="lede">{loc['value_lede']}</p>
-    <div class="value-wrap">
-      <div class="value-chart">
-        {chart}
-        <div class="value-legend"><span>{loc['value_axis']}</span></div>
-      </div>
-      <div class="note-stack">{notes}</div>
+<!-- P2 · 숫자 포스터 -->
+<section class="poster p2">
+  <svg class="contour" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#fff" stroke-width="1.5">
+      <path d="M-50 640 C 200 560, 340 700, 620 620 S 1000 500, 1260 590"/>
+      <path d="M-50 560 C 180 470, 380 620, 640 540 S 980 420, 1260 500"/>
+      <path d="M-50 480 C 160 390, 420 540, 660 460 S 960 340, 1260 410"/>
+      <path d="M-50 400 C 140 310, 460 460, 680 380 S 940 260, 1260 320"/>
+      <path d="M-50 320 C 120 230, 500 380, 700 300 S 920 180, 1260 230"/>
+    </g>
+  </svg>
+  <div class="grid">
+    <div class="meta-row io"><span class="meta">TODAY'S RUN</span><span class="meta">07 · 14 · TUE</span></div>
+    <div class="big">5.00<small>KM</small></div>
+    <div class="stats">
+      <div class="stat io d1"><span>PACE</span><b class="mono">5'43"</b></div>
+      <div class="stat io d2"><span>TIME</span><b class="mono">31:04</b></div>
+      <div class="stat io d3"><span>ZONE</span><b class="mono">Z3</b></div>
+      <div class="stat io d4"><span>NOTE</span><b>{loc['p2_note_value']}</b></div>
     </div>
   </div>
 </section>
 
-<section class="shots">
-  <div class="wrap">
-    <div class="kicker"><span>{loc['shots_kicker']}</span><span class="rule"></span><span class="num">{loc['shots_num']}</span></div>
-    <h2>{loc['shots_h2']}</h2>
-    <div class="row row-4">{shots}</div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="kicker"><span>{loc['feat_kicker']}</span><span class="rule"></span><span class="num">{loc['feat_num']}</span></div>
-    <h2>{loc['feat_h2']}</h2>
-    <div class="grid6">{feats}</div>
-  </div>
-</section>
-
-<section class="final">
-  <div class="wrap">
-    <h2>{loc['final_h2']}</h2>
-    <p class="lede">{loc['final_lede']}</p>
-    <div class="cta">{badge(loc, 'storeLink2')}</div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="brand"><span class="mark">RN.</span><strong>kkiruk studio</strong></div>
-    <div class="links">
-      <a href="mailto:kkirukstudio.help@gmail.com">{loc['f_contact']}</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">{loc['f_privacy']}</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">{loc['f_terms']}</a>
+<!-- P3 · 코치 포스터 -->
+<section class="poster p3">
+  <div class="grid">
+    <div class="h2w io">
+      <h2>{loc['p3_h2'][0]}<br>{loc['p3_h2'][1]}</h2>
     </div>
-    <div>© 2026 kkiruk studio</div>
+    <p class="lede io d2">{loc['p3_lede']}</p>
+    <div class="notes">
+      {notes_html}
+    </div>
   </div>
+</section>
+
+<!-- P3B · 루프 포스터 -->
+<section class="poster p3b">
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="2">
+    <path d="M-60 900 C 300 620, 900 620, 1500 880"/>
+    <path d="M-60 830 C 300 540, 900 540, 1500 810"/>
+    <path d="M-60 760 C 300 460, 900 460, 1500 740"/>
+    <path d="M-60 690 C 300 380, 900 380, 1500 670"/>
+  </svg>
+  <div class="grid">
+    <div class="metah io"><span class="meta">THE LOOP</span><span class="meta">{loc['p3b_meta2']}</span></div>
+    <div class="loop">
+      {steps_html}
+    </div>
+    <div class="loopmark io d5">
+      <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="3">
+        <path d="M33 20a13 13 0 1 1-4-9.4"/><path d="M29 4v7h7" stroke-linejoin="round"/>
+      </svg>
+      <span class="meta">{loc['p3b_loopmark']}</span>
+    </div>
+  </div>
+</section>
+
+<!-- P3C · 질문 포스터 -->
+<section class="poster p3c">
+  <div class="bg"><span>?</span></div>
+  <div class="grid">
+    <div class="h2w io">
+      <h2>{loc['p3c_h2'][0]}<br>{loc['p3c_h2'][1]}</h2>
+    </div>
+    <div class="qs">
+      {qs_html}
+    </div>
+  </div>
+</section>
+
+<!-- P4 · 인덱스 + 실물 -->
+<section class="poster p4">
+  <div class="grid">
+    <div class="idx">
+      <h3>INDEX — WHAT'S INSIDE</h3>
+      <ol>
+        {idx_html}
+      </ol>
+    </div>
+    <figure class="shot io d2">
+      <img src="{rel}assets/hero-{key}.png" alt="RunNote">
+      <figcaption class="io d4">ACTUAL APP — NO MOCKUP</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- P5 · CTA 포스터 -->
+<section class="poster p5">
+  {lang_nav_html}
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="2">
+    <path d="M-60 760 L 1500 640"/>
+    <path d="M-60 810 L 1500 690"/>
+    <path d="M-60 860 L 1500 740"/>
+    <path d="M-60 910 L 1500 790"/>
+  </svg>
+  <div class="grid">
+    <div class="h2w io">
+      <h2>{loc['p5_h2'][0]}<br>{loc['p5_h2'][1]}</h2>
+    </div>
+    <div class="foot io d2">
+      <a class="btn" id="storeLink" href="{btn_href}">{loc['badge_soon']}</a>
+      <span class="meta io d3">{loc['p5_note']}</span>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:48px 64px;font-size:13px;letter-spacing:.06em;color:#00000088;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;background:var(--ink);color:#ffffff88">
+  <span>© 2026 kkiruk studio</span>
+  <span style="display:flex;gap:20px">
+    <a href="mailto:kkirukstudio.help@gmail.com" style="color:inherit;text-decoration:none">{loc['f_contact']}</a>
+    <a href="https://kkiruk-studio.github.io/privacy-policy-app/" style="color:inherit;text-decoration:none">{loc['f_privacy']}</a>
+    <a href="https://kkiruk-studio.github.io/terms-of-service-app/" style="color:inherit;text-decoration:none">{loc['f_terms']}</a>
+  </span>
 </footer>
 
 <script>
-  // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
   const APP_STORE_URL = "{APP_STORE_URL}";
-  document.querySelectorAll(".store-badge").forEach((el) => {{
+  document.querySelectorAll("#storeLink").forEach((el) => {{
     if (APP_STORE_URL) {{
       el.href = APP_STORE_URL;
     }} else {{
       el.classList.add("disabled");
       el.removeAttribute("href");
       el.setAttribute("aria-disabled", "true");
-      const txt = el.querySelector(".txt");
-      if (txt) txt.innerHTML = "<strong>{loc['badge_soon']}</strong>";
     }}
   }});
-
+  const obs = new IntersectionObserver(es => es.forEach(e => {{
+    if (e.isIntersecting) {{ e.target.classList.add('in'); obs.unobserve(e.target); }}
+  }}), {{threshold: .25}});
+  document.querySelectorAll('.poster').forEach(p => obs.observe(p));
+  const obs2 = new IntersectionObserver(es => es.forEach(e => {{
+    if (e.isIntersecting) {{ e.target.classList.add('in'); obs2.unobserve(e.target); }}
+  }}), {{threshold: .3}});
+  document.querySelectorAll('.io').forEach(el => obs2.observe(el));
 </script>
 <script src="/ga.js"></script>
 </body>
