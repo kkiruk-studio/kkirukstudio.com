@@ -229,6 +229,11 @@ body{
 .p1 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;margin-top:120px;flex-wrap:wrap;gap:16px}
 .p1 .foot .rule{width:200px}
 .p1 .lede-meta{font-size:18px;letter-spacing:.04em;text-transform:none;font-weight:700}
+.p1 .fl{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.p1 .btn{display:inline-block;border:2px solid var(--ink);border-radius:999px;
+  padding:14px 36px;color:var(--ink);text-decoration:none;font-weight:800;font-size:16px}
+.p1 .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.p1 .btn.disabled{cursor:default}
 .p1 .side{position:absolute;right:28px;top:50%;transform:rotate(90deg) translateX(-50%);transform-origin:right top;
   font-size:14px;letter-spacing:.3em;font-weight:700;color:#00000055}
 
@@ -425,7 +430,10 @@ body{{{word_break}}}
       <h1><span class="line"><span>{loc['p1_h1'][0]}</span></span><span class="line"><span>{loc['p1_h1'][1]}</span></span></h1>
     </div>
     <div class="foot">
-      <div class="rule"></div>
+      <div class="fl">
+        <div class="rule"></div>
+        <a class="btn storeLink io d4" href="{btn_href}">{loc['badge_soon']}</a>
+      </div>
       <span class="meta lede-meta io d3">{loc['p1_lede']}</span>
     </div>
   </div>
@@ -533,7 +541,7 @@ body{{{word_break}}}
       <h2>{loc['p5_h2'][0]}<br>{loc['p5_h2'][1]}</h2>
     </div>
     <div class="foot io d2">
-      <a class="btn" id="storeLink" href="{btn_href}">{loc['badge_soon']}</a>
+      <a class="btn storeLink" href="{btn_href}">{loc['badge_soon']}</a>
       <span class="meta io d3">{loc['p5_note']}</span>
     </div>
   </div>
@@ -550,7 +558,7 @@ body{{{word_break}}}
 
 <script>
   const APP_STORE_URL = "{APP_STORE_URL}";
-  document.querySelectorAll("#storeLink").forEach((el) => {{
+  document.querySelectorAll(".storeLink").forEach((el) => {{
     if (APP_STORE_URL) {{
       el.href = APP_STORE_URL;
     }} else {{

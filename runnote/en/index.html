@@ -56,6 +56,11 @@ body{
 .p1 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;margin-top:120px;flex-wrap:wrap;gap:16px}
 .p1 .foot .rule{width:200px}
 .p1 .lede-meta{font-size:18px;letter-spacing:.04em;text-transform:none;font-weight:700}
+.p1 .fl{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.p1 .btn{display:inline-block;border:2px solid var(--ink);border-radius:999px;
+  padding:14px 36px;color:var(--ink);text-decoration:none;font-weight:800;font-size:16px}
+.p1 .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.p1 .btn.disabled{cursor:default}
 .p1 .side{position:absolute;right:28px;top:50%;transform:rotate(90deg) translateX(-50%);transform-origin:right top;
   font-size:14px;letter-spacing:.3em;font-weight:700;color:#00000055}
 
@@ -208,7 +213,10 @@ body{}
       <h1><span class="line"><span>Run first,</span></span><span class="line"><span><em>then one line.</em></span></span></h1>
     </div>
     <div class="foot">
-      <div class="rule"></div>
+      <div class="fl">
+        <div class="rule"></div>
+        <a class="btn storeLink io d4" href="#">Coming soon</a>
+      </div>
       <span class="meta lede-meta io d3">Not live tracking — logging is automatic, you write one line</span>
     </div>
   </div>
@@ -316,7 +324,7 @@ body{}
       <h2>If you ran today,<br><em>leave one line.</em></h2>
     </div>
     <div class="foot io d2">
-      <a class="btn" id="storeLink" href="#">Coming soon</a>
+      <a class="btn storeLink" href="#">Coming soon</a>
       <span class="meta io d3">7-Day Free Trial · iPhone &amp; Apple Watch</span>
     </div>
   </div>
@@ -333,7 +341,7 @@ body{}
 
 <script>
   const APP_STORE_URL = "";
-  document.querySelectorAll("#storeLink").forEach((el) => {
+  document.querySelectorAll(".storeLink").forEach((el) => {
     if (APP_STORE_URL) {
       el.href = APP_STORE_URL;
     } else {
