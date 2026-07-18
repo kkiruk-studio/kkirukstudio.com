@@ -45,13 +45,11 @@
       <div class="chip c1"><span class="g">5K</span>km 오늘</div><div class="chip c2"><span class="g">Z3</span>심박존</div><div class="chip c3"><span class="g">AI</span>코칭 완료</div>
       <div class="phone">
         <div class="screen">
-          <div class="demo-screen">
-            <div class="run-card" id="demoRun"><div class="stats"><div class="stat"><b>5.2 km</b><span>거리</span></div><div class="stat"><b>32:10</b><span>시간</span></div><div class="stat"><b>155 bpm</b><span>평균 심박</span></div></div></div>
-            <div class="retro-card" id="demoRetro"><span class="mood">🙂</span><div class="txt" id="demoRetroTxt"></div></div>
-            <div class="coach-block" id="demoCoach"><div class="lbl">AI 코치</div><p>최근 3번의 러닝에서 같은 패턴이 보여요. 오르막 전 케이던스를 5spm 올려보세요.</p><p>이번 주말 같은 코스, 다시 도전해볼까요?</p></div>
-          </div>
+          <img class="hero-shot" src="assets/hero-ko.png" alt="" loading="eager" width="640" height="1293">
+          <img class="hero-part card" src="assets/hero-crops/ko-card.png" alt="" loading="eager">
+          <img class="hero-part stat" src="assets/hero-crops/ko-stat.png" alt="" loading="eager">
+          <img class="hero-part tab" src="assets/hero-crops/ko-tab.png" alt="" loading="eager">
         </div>
-        <div class="island"></div>
       </div>
     </div>
   </div>
@@ -133,45 +131,6 @@
     }
   });
 
-  (function () {
-    const runCard = document.getElementById("demoRun");
-    const retroCard = document.getElementById("demoRetro");
-    const retroTxt = document.getElementById("demoRetroTxt");
-    const coachBlock = document.getElementById("demoCoach");
-    const note = '막판에 오르막에서 페이스가 무너졌다';
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduced) {
-      runCard.classList.add("show");
-      retroCard.classList.add("show", "done");
-      retroTxt.textContent = note;
-      coachBlock.classList.add("show");
-      return;
-    }
-
-    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-    (async function loop() {
-      for (;;) {
-        runCard.classList.remove("show");
-        retroCard.classList.remove("show", "done");
-        coachBlock.classList.remove("show");
-        retroTxt.textContent = "";
-        await sleep(500);
-        runCard.classList.add("show");
-        await sleep(900);
-        retroCard.classList.add("show");
-        await sleep(300);
-        for (const ch of note) {
-          retroTxt.textContent += ch;
-          await sleep(45);
-        }
-        retroCard.classList.add("done");
-        await sleep(700);
-        coachBlock.classList.add("show");
-        await sleep(4200);
-      }
-    })();
-  })();
 </script>
 <script src="/ga.js"></script>
 </body>

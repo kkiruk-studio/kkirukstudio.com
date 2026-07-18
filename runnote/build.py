@@ -373,11 +373,6 @@ def render(key):
     )
 
     d = loc["demo"]
-    demo_stats = "".join(
-        f'<div class="stat"><b>{val}</b><span>{lbl}</span></div>'
-        for lbl, val in zip(d["stat_labels"], d["stat_values"])
-    )
-    ai_paras = "".join(f"<p>{line}</p>" for line in d["ai_lines"])
 
     notes = "".join(
         f'<div class="note-card n{i+1}"><span class="tag">{tag}</span>{txt}</div>'
@@ -408,8 +403,6 @@ def render(key):
         f'<figcaption>{cap}</figcaption></figure>'
         for i, cap in enumerate(loc["shots_caps"], start=1)
     )
-
-    demo_note_json = repr(d["note"])
 
     html = f"""<!doctype html>
 <html lang="{loc['lang']}">
@@ -454,13 +447,11 @@ def render(key):
       {chips}
       <div class="phone">
         <div class="screen">
-          <div class="demo-screen">
-            <div class="run-card" id="demoRun"><div class="stats">{demo_stats}</div></div>
-            <div class="retro-card" id="demoRetro"><span class="mood">{d['mood']}</span><div class="txt" id="demoRetroTxt"></div></div>
-            <div class="coach-block" id="demoCoach"><div class="lbl">{d['ai_label']}</div>{ai_paras}</div>
-          </div>
+          <img class="hero-shot" src="{rel}assets/hero-{key}.png" alt="" loading="eager" width="640" height="1293">
+          <img class="hero-part card" src="{rel}assets/hero-crops/{key}-card.png" alt="" loading="eager">
+          <img class="hero-part stat" src="{rel}assets/hero-crops/{key}-stat.png" alt="" loading="eager">
+          <img class="hero-part tab" src="{rel}assets/hero-crops/{key}-tab.png" alt="" loading="eager">
         </div>
-        <div class="island"></div>
       </div>
     </div>
   </div>
@@ -542,45 +533,6 @@ def render(key):
     }}
   }});
 
-  (function () {{
-    const runCard = document.getElementById("demoRun");
-    const retroCard = document.getElementById("demoRetro");
-    const retroTxt = document.getElementById("demoRetroTxt");
-    const coachBlock = document.getElementById("demoCoach");
-    const note = {demo_note_json};
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduced) {{
-      runCard.classList.add("show");
-      retroCard.classList.add("show", "done");
-      retroTxt.textContent = note;
-      coachBlock.classList.add("show");
-      return;
-    }}
-
-    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-    (async function loop() {{
-      for (;;) {{
-        runCard.classList.remove("show");
-        retroCard.classList.remove("show", "done");
-        coachBlock.classList.remove("show");
-        retroTxt.textContent = "";
-        await sleep(500);
-        runCard.classList.add("show");
-        await sleep(900);
-        retroCard.classList.add("show");
-        await sleep(300);
-        for (const ch of note) {{
-          retroTxt.textContent += ch;
-          await sleep(45);
-        }}
-        retroCard.classList.add("done");
-        await sleep(700);
-        coachBlock.classList.add("show");
-        await sleep(4200);
-      }}
-    }})();
-  }})();
 </script>
 <script src="/ga.js"></script>
 </body>
