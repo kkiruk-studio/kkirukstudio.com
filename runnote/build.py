@@ -447,10 +447,12 @@ def render(key):
       {chips}
       <div class="phone">
         <div class="screen">
-          <img class="hero-shot" src="{rel}assets/hero-{key}.png" alt="" loading="eager" width="640" height="1293">
-          <img class="hero-part card" src="{rel}assets/hero-crops/{key}-card.png" alt="" loading="eager">
-          <img class="hero-part stat" src="{rel}assets/hero-crops/{key}-stat.png" alt="" loading="eager">
-          <img class="hero-part tab" src="{rel}assets/hero-crops/{key}-tab.png" alt="" loading="eager">
+          <div class="app-area">
+            <img class="hero-shot" src="{rel}assets/hero-{key}.png" alt="" loading="eager" width="640" height="1293">
+            <img class="hero-part card" src="{rel}assets/hero-crops/{key}-card.png" alt="" loading="eager">
+            <img class="hero-part stat" src="{rel}assets/hero-crops/{key}-stat.png" alt="" loading="eager">
+            <img class="hero-part tab" src="{rel}assets/hero-crops/{key}-tab.png" alt="" loading="eager">
+          </div>
         </div>
       </div>
     </div>

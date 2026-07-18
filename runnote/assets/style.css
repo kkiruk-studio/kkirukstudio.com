@@ -108,14 +108,21 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 /* ---------- phone mockup (shared) ---------- */
 .hero .phone-col { position: relative; align-self: end; }
 .phone {
-  position: relative; width: min(300px, 78vw); margin: 0 auto;
-  border-radius: 46px; padding: 11px; background: #101010;
-  box-shadow: 0 40px 80px rgba(15,50,25,.4), inset 0 0 0 2px rgba(255,255,255,.09);
+  position: relative; width: min(312px, 80vw); margin: 0 auto;
+  aspect-ratio: 1470 / 3000;
+  filter: drop-shadow(0 40px 60px rgba(15,50,25,.38));
+}
+.phone::after {
+  content: ""; position: absolute; inset: 0; z-index: 4;
+  background: url(iphone-frame.png) no-repeat center / contain;
+  pointer-events: none;
 }
 .phone .screen {
-  position: relative; aspect-ratio: 9 / 19.3; border-radius: 36px; overflow: hidden;
-  background: var(--bg); color: var(--ink);
+  position: absolute; left: 5.1%; top: 2.2%; width: 89.7%; height: 95.6%;
+  border-radius: 9% / 4.4%; overflow: hidden;
+  background: #fff; color: var(--ink);
 }
+.phone .app-area { position: absolute; left: 0; right: 0; top: 5.5%; bottom: 0; }
 .phone .island {
   position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
   width: 86px; height: 26px; border-radius: 14px; background: #030303; z-index: 5;
