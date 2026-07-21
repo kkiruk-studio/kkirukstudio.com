@@ -305,58 +305,67 @@ LOCALES = {
 }
 
 
+
+EXTRA = {'en': {'beyond_kicker': 'BEYOND THE CROWN', 'beyond_note': 'Six hidden grades wait past 2048 — up to 131072. Each new record reveals a quote no list will spoil.', 'museum_kicker': 'THE MUSEUM', 'museum_h2': 'Every theme hangs on a <em>masterpiece</em>.', 'museum_caps': [['Claude Monet', 'Impression, Sunrise · Beginnings'], ['Gustav Klimt', 'The Kiss · Love'], ['Wang Ximeng', 'A Thousand Li of Rivers and Mountains · Sun Tzu']], 'grid_hint': 'press g — the grid is real', 'crown_word': 'CROWN', 'soon': 'COMING SOON'}, 'ko': {'beyond_kicker': '왕관 너머', 'beyond_note': '2048 뒤에는 여섯 개의 숨은 등급이 131072까지 이어집니다. 신기록마다, 어떤 목록에도 없는 명언이 공개됩니다.', 'museum_kicker': '미술관', 'museum_h2': '모든 테마는 <em>명화 한 점</em> 위에 걸립니다.', 'museum_caps': [['클로드 모네', '인상, 해돋이 · 시작'], ['구스타프 클림트', '키스 · 사랑'], ['왕희맹', '천리강산도 · 손자']], 'grid_hint': 'g 키 — 그리드는 진짜입니다', 'crown_word': '왕관', 'soon': '곧 출시'}, 'ja': {'beyond_kicker': '王冠の先へ', 'beyond_note': '2048の先には、131072まで六つの隠しランクが続きます。新記録のたび、どのリストにもない名言が現れます。', 'museum_kicker': '美術館', 'museum_h2': 'すべてのテーマは<em>名画の上</em>に掛かる。', 'museum_caps': [['クロード・モネ', '印象・日の出 · 始まり'], ['グスタフ・クリムト', '接吻 · 愛'], ['王希孟', '千里江山図 · 孫子']], 'grid_hint': 'gキー — グリッドは本物', 'crown_word': '王冠', 'soon': '近日公開'}, 'zh-hans': {'beyond_kicker': '王冠之上', 'beyond_note': '2048之后还有六个隐藏等级，直至131072。每个新纪录，都会揭示一句任何列表都没有的名言。', 'museum_kicker': '美术馆', 'museum_h2': '每个主题都悬挂在<em>一幅名画</em>之上。', 'museum_caps': [['克劳德·莫奈', '印象·日出 · 开始'], ['古斯塔夫·克林姆特', '吻 · 爱'], ['王希孟', '千里江山图 · 孙子']], 'grid_hint': '按 g — 网格是真实的', 'crown_word': '王冠', 'soon': '即将上线'}, 'zh-hant': {'beyond_kicker': '王冠之上', 'beyond_note': '2048之後還有六個隱藏等級，直至131072。每個新紀錄，都會揭示一句任何列表都沒有的名言。', 'museum_kicker': '美術館', 'museum_h2': '每個主題都懸掛在<em>一幅名畫</em>之上。', 'museum_caps': [['克勞德·莫內', '印象·日出 · 開始'], ['古斯塔夫·克林姆特', '吻 · 愛'], ['王希孟', '千里江山圖 · 孫子']], 'grid_hint': '按 g — 網格是真實的', 'crown_word': '王冠', 'soon': '即將上線'}}
+
+BEYOND_TIERS = [("4096","✦"),("8192","✦"),("16384","⭐"),("32768","⭐"),("65536","⭐"),("131072","⭐")]
+
 def hreflang_block():
-    lines = [f'<link rel="alternate" hreflang="x-default" href="{BASE_URL}">']
-    for key, loc in LOCALES.items():
-        lines.append(f'<link rel="alternate" hreflang="{loc["lang"]}" href="{BASE_URL}{loc["dir"]}">')
-    return "\n".join(lines)
+    tags = [f'<link rel="alternate" hreflang="{l}" href="{BASE_URL}{d}">'
+            for d, l in [("", "en"), ("ko/", "ko"), ("ja/", "ja"), ("zh-hans/", "zh-Hans"), ("zh-hant/", "zh-Hant")]]
+    tags.append(f'<link rel="alternate" hreflang="x-default" href="{BASE_URL}">')
+    return "\n".join(tags)
 
-
-def lang_nav(cur_dir, rel):
+def lang_nav(active_dir, rel):
     out = []
     for d, label in LANG_LABELS:
-        cls = ' class="cur"' if d == cur_dir else ""
-        href = (rel + d) if d else (rel if rel else "./")
-        out.append(f'<a href="{href}"{cls}>{label}</a>')
-    return "".join(out)
+        href = f"{rel}{d}" if d else (rel if rel else "./")
+        cls = ' class="on"' if d == active_dir else ""
+        out.append(f'<a{cls} href="{href}">{label}</a>')
+    return '<nav class="langs">' + " ".join(out) + "</nav>"
 
-
-def badge(loc, el_id):
-    return (f'<a class="store-badge" id="{el_id}" href="#" aria-label="{loc["badge_aria"]}">{APPLE_SVG}'
-            f'<span class="txt"><small>{loc["badge_small"]}</small><strong>App Store</strong></span></a>')
-
+def board_html(loc):
+    """CSS 4×4 보드 — 사다리의 실제 로컬라이즈 명언으로 타일 구성 (스크린샷 대체)."""
+    lad = {t: (q, w) for t, q, w in loc["ladder"]}
+    # (tier, css클래스) 16칸 배치 — 왕관은 우중앙, 나머지는 실제 판처럼 산개
+    cells = [("2","t1"),("8","t2"),("","e"),("128","t3"),
+             ("","e"),("512","t4"),("2048","crown"),("2","t1"),
+             ("8","t2"),("","e"),("128","t3"),("","e"),
+             ("","e"),("2","t1"),("","e"),("512","t4")]
+    out = []
+    for tier, cls in cells:
+        if cls == "e":
+            out.append('<div class="cell empty"></div>')
+        else:
+            q = lad.get(tier, ("", ""))[0]
+            crown = f'<span class="cr">👑 2048</span>' if cls == "crown" else f'<span class="tn">{tier}</span>'
+            out.append(f'<div class="cell {cls}">{crown}<span class="q">{q}</span></div>')
+    return '<div class="board" role="img" aria-label="' + loc["hero_alt"] + '">' + "".join(out) + "</div>"
 
 def render(key):
-    loc = LOCALES[key]
+    loc = LOCALES[key]; ex = EXTRA[key]
     rel = "../" if loc["dir"] else ""
-    font_override = f'<style>body{{font-family:-apple-system,BlinkMacSystemFont,{loc["font"]},"Segoe UI",sans-serif}}</style>' if loc["font"] else ""
-    chips = "".join(
-        f'<div class="chip c{i+1}"><span class="g">{g}</span>{label}</div>'
-        for i, (g, label) in enumerate(loc["chips"])
-    )
-    marquee = "".join(f"<span>{m}</span>" for m in loc["marquee"] * 2)
     steps = "".join(
-        f'<div class="step"><span class="n">0{i+1}</span><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
-        for i, (tag, h, p) in enumerate(loc["steps"])
-    )
+        f'<div class="step g4"><span class="n">0{i+1}</span><h3>{h}</h3><p>{p}</p></div>'
+        for i, (tag, h, p) in enumerate(loc["steps"]))
     ladder = "".join(
-        f'<div class="ladder-row{" crown" if tier=="2048" else ""}"><span class="tier">{tier}</span><span class="quote">{q}</span><span class="who">{w}</span></div>'
-        for tier, q, w in loc["ladder"]
-    )
+        f'<div class="rung{" crown" if t=="2048" else ""}"><span class="tier">{t}</span><span class="rq">{q}</span><span class="who">{w}</span></div>'
+        for t, q, w in loc["ladder"])
+    beyond = "".join(
+        f'<div class="rung locked"><span class="tier">{mark} {t}</span><span class="rq">???</span><span class="who">—</span></div>'
+        for t, mark in BEYOND_TIERS)
     provs = "".join(
-        f'<div class="prov"><span class="big">{big}</span><h3>{h}</h3><p>{p}</p></div>'
-        for big, h, p in loc["provs"]
-    )
-    shot_files = ["board", "hero", "board2"]
-    shots = "".join(
-        f'<figure><div class="phone"><img src="{rel}assets/shot-{f}.png" alt="{cap}" loading="lazy"><div class="island"></div></div><figcaption>{cap}</figcaption></figure>'
-        for f, cap in zip(shot_files, loc["shots_caps"])
-    )
-    feats = "".join(f'<div class="feat"><h3>{h}</h3><p>{p}</p></div>' for h, p in loc["feats"])
-    ladder_json = json.dumps(loc["ladder"], ensure_ascii=False)
-
-    html = f"""<!doctype html>
-<html lang="{loc['lang']}">
+        f'<div class="num g3"><span class="big">{big}</span><span class="nh">{h}</span><p>{p}</p></div>'
+        for big, h, p in loc["provs"])
+    feats = "".join(
+        f'<div class="feat g4"><h3>{h}</h3><p>{p}</p></div>' for h, p in loc["feats"][:6])
+    art = "".join(
+        f'<figure class="art g4"><img src="{rel}assets/{img}" alt="{a} — {c}" loading="lazy"><figcaption><strong>{a}</strong><span>{c}</span></figcaption></figure>'
+        for (a, c), img in zip(ex["museum_caps"], ["impression-sunrise.jpg","the-kiss.jpg","thousand-li.jpg"]))
+    overlay = "<span></span>" * 12
+    lang_attr = loc["lang"]
+    html = f"""<!DOCTYPE html>
+<html lang="{lang_attr}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -371,144 +380,82 @@ def render(key):
 <link rel="icon" type="image/png" href="{rel}assets/icon-180.png">
 <link rel="apple-touch-icon" href="{rel}assets/icon-180.png">
 <link rel="stylesheet" href="{rel}assets/style.css">
-{font_override}
+<script defer src="/ga.js"></script>
 </head>
 <body>
+<div class="grid page">
+  <div class="grid-overlay" aria-hidden="true">{overlay}</div>
 
-<nav>
-  <div class="wrap">
+  <header class="row head">
     <a class="wordmark" href="{rel if rel else './'}"><img src="{rel}assets/icon-180.png" alt=""><span>QUOTE·2048</span></a>
-    <div class="lang">{lang_nav(loc['dir'], rel)}</div>
-  </div>
-</nav>
+    {lang_nav(loc['dir'], rel)}
+  </header>
 
-<header class="hero">
-  <div class="ghost">&#8220;</div>
-  <div class="wrap">
-    <div>
-      <div class="kicker"><span>QUOTE · 2048</span><span class="rule"></span><span class="num">{loc['kicker_num']}</span></div>
+  <section class="row hero">
+    <div class="hero-copy">
+      <p class="kicker">{loc['kicker_num']} <span class="rule"></span></p>
       <h1>{loc['h1']}</h1>
-      <div class="demo">
-        <div class="tile"><span class="badge" id="demoBadge">2</span><span class="q" id="demoQuote">{loc['ladder'][0][1]}</span></div>
-        <div class="meta"><span class="step" id="demoStep">TIER 2 / 2048</span><span class="author" id="demoAuthor">— {loc['ladder'][0][2]}</span></div>
-      </div>
       <p class="sub">{loc['sub']}</p>
-      <div class="cta">
-        {badge(loc, 'storeLink')}
-        <span class="note">{loc['note']}</span>
-      </div>
+      <p class="note">{loc['note']}</p>
+      <p class="soon">{ex['soon']}</p>
     </div>
-    <div class="phone-col">
-      {chips}
-      <div class="phone"><img src="{rel}assets/shot-hero.png" alt="{loc['hero_alt']}"><div class="island"></div></div>
+    <div class="hero-board">{board_html(loc)}</div>
+  </section>
+
+  <section class="row nums">{provs}</section>
+
+  <section class="row how">
+    <p class="kicker g12">{loc['how_kicker']} <span class="rule"></span></p>
+    <h2 class="g12">{loc['how_h2']}</h2>
+    {steps}
+  </section>
+
+  <section class="row lad">
+    <div class="lad-copy">
+      <p class="kicker">{loc['lad_kicker']} <span class="rule"></span></p>
+      <h2>{loc['lad_h2']}</h2>
+      <p class="lede">{loc['lad_lede']}</p>
+      <p class="kicker beyond-k">{ex['beyond_kicker']} <span class="rule"></span></p>
+      <p class="lede">{ex['beyond_note']}</p>
     </div>
-  </div>
-</header>
+    <div class="lad-list">{ladder}{beyond}</div>
+  </section>
 
-<div class="marquee" aria-hidden="true"><div class="track">{marquee}</div></div>
+  <section class="row museum">
+    <p class="kicker g12">{ex['museum_kicker']} <span class="rule"></span></p>
+    <h2 class="g12">{ex['museum_h2']}</h2>
+    {art}
+  </section>
 
-<section>
-  <div class="wrap">
-    <div class="kicker"><span>{loc['how_kicker']}</span><span class="rule"></span><span class="num">01–03</span></div>
-    <h2>{loc['how_h2']}</h2>
-    <div class="steps">{steps}</div>
-  </div>
-</section>
+  <section class="row featrow">
+    <p class="kicker g12">{loc['feat_kicker']} <span class="rule"></span></p>
+    {feats}
+  </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="kicker"><span>{loc['lad_kicker']}</span><span class="rule"></span><span class="num">{loc['lad_num']}</span></div>
-    <h2>{loc['lad_h2']}</h2>
-    <p class="lede">{loc['lad_lede']}</p>
-    <div class="ladder">{ladder}</div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="kicker"><span>{loc['cnt_kicker']}</span><span class="rule"></span><span class="num">{loc['cnt_num']}</span></div>
-    <h2>{loc['cnt_h2']}</h2>
-    <p class="lede">{loc['cnt_lede']}</p>
-    <div class="providers">{provs}</div>
-  </div>
-</section>
-
-<section class="shots">
-  <div class="wrap">
-    <div class="kicker"><span>{loc['shots_kicker']}</span><span class="rule"></span><span class="num">{loc['shots_num']}</span></div>
-    <h2>{loc['shots_h2']}</h2>
-    <div class="row">{shots}</div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="kicker"><span>{loc['feat_kicker']}</span><span class="rule"></span><span class="num">{loc['feat_num']}</span></div>
-    <h2>{loc['feat_h2']}</h2>
-    <div class="grid6">{feats}</div>
-  </div>
-</section>
-
-<section class="final">
-  <div class="wrap">
+  <section class="row final">
     <h2>{loc['final_h2']}</h2>
     <p class="lede">{loc['final_lede']}</p>
-    <div class="cta">{badge(loc, 'storeLink2')}</div>
-  </div>
-</section>
+    <p class="soon big-soon">{ex['soon']}</p>
+  </section>
 
-<footer>
-  <div class="wrap">
+  <footer class="row foot">
     <div class="brand"><img src="{rel}assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
-    <div class="links">
-      <a href="mailto:kkirukstudio.help@gmail.com">{loc['f_contact']}</a>
+    <nav class="legal">
       <a href="https://kkiruk-studio.github.io/privacy-policy-app/">{loc['f_privacy']}</a>
       <a href="https://kkiruk-studio.github.io/terms-of-service-app/">{loc['f_terms']}</a>
-    </div>
-    <div>© 2026 kkiruk studio</div>
-  </div>
-</footer>
-
-<script>
-  // After App Store approval, set the real URL here (e.g. https://apps.apple.com/app/id1234567890)
-  const APP_STORE_URL = "";
-  if (APP_STORE_URL) {{
-    document.getElementById("storeLink").href = APP_STORE_URL;
-    document.getElementById("storeLink2").href = APP_STORE_URL;
-  }}
-
-  const ladder = {ladder_json};
-  const bEl = document.getElementById("demoBadge");
-  const qEl = document.getElementById("demoQuote");
-  const sEl = document.getElementById("demoStep");
-  const aEl = document.getElementById("demoAuthor");
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {{
-    let i = 0;
-    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-    (async function loop() {{
-      for (;;) {{
-        const [tier, q, w] = ladder[i % ladder.length];
-        qEl.style.opacity = 0;
-        await sleep(360);
-        bEl.textContent = tier;
-        qEl.textContent = q;
-        sEl.textContent = "TIER " + tier + " / 2048";
-        aEl.textContent = "— " + w;
-        qEl.style.opacity = 1;
-        await sleep(2100);
-        i++;
-      }}
-    }})();
-  }}
-</script>
+      <a href="mailto:kkirukstudio@gmail.com">{loc['f_contact']}</a>
+    </nav>
+    <p class="hint">{ex['grid_hint']}</p>
+  </footer>
+</div>
+<script>addEventListener('keydown',e=>{{if(e.key==='g')document.body.classList.toggle('show-grid')}});</script>
 </body>
-</html>
-"""
-    out = ROOT / loc["dir"] / "index.html"
-    out.parent.mkdir(exist_ok=True)
-    out.write_text(html, encoding="utf-8")
-    print(f"wrote {out.relative_to(ROOT)} ({len(html)} bytes)")
+</html>"""
+    out_dir = ROOT / loc["dir"] if loc["dir"] else ROOT
+    out_dir.mkdir(exist_ok=True)
+    (out_dir / "index.html").write_text(html, encoding="utf-8")
+    print("wrote", (out_dir / "index.html").relative_to(ROOT), f"({len(html)} bytes)")
 
-
-for key in LOCALES:
-    render(key)
+if __name__ == "__main__":
+    for k in LOCALES:
+        render(k)
