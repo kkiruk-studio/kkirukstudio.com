@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>名言2048 — ことばを合わせて名言を育てるパズル</title>
-<meta name="description" content="知っている2048、でも数字ではなくことばが育ちます。同じ名言タイルを合わせ、56テーマ・952の検証済み名言を、ことわざから頂点の名言まで育てましょう。背景はパブリックドメインの名画。">
-<meta property="og:title" content="名言2048 — 静かなことばの2048">
-<meta property="og:description" content="同じ文を合わせると名言が育ちます。ことわざから頂点の名言まで。">
+<title>名言2048 — 名言で遊ぶ2048</title>
+<meta name="description" content="おなじみの2048 — ただしタイルはすべて名言。同じ文をふたつ合わせると、ひとつ上の名言が現れる。2048で王冠の名言に出会う。そして2048で終わりではない。">
+<meta property="og:title" content="名言2048 — 名言で遊ぶ2048">
+<meta property="og:description" content="おなじみの2048 — ただしタイルはすべて名言。同じ文をふたつ合わせると、ひとつ上の名言が現れる。2048で王冠の名言に出会う。そして2048で終わりではない。">
 <meta property="og:image" content="https://www.kkirukstudio.com/quote2048/assets/icon-512.png">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://www.kkirukstudio.com/quote2048/ja/">
@@ -22,71 +22,38 @@
 <script defer src="/ga.js"></script>
 </head>
 <body>
-<div class="grid page">
-  <div class="grid-overlay" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<header class="top">
+  <a class="mark" href="../"><img src="../assets/icon-180.png" alt=""><span>QUOTE·2048</span></a>
+  <nav class="langs"><a href="../">EN</a> <a href="../ko/">한국어</a> <a class=on href="../ja/">日本語</a> <a href="../zh-hans/">简体</a> <a href="../zh-hant/">繁體</a></nav>
+</header>
 
-  <header class="row head">
-    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>QUOTE·2048</span></a>
-    <nav class="langs"><a href="../">EN</a> <a href="../ko/">한국어</a> <a class="on" href="../ja/">日本語</a> <a href="../zh-hans/">简体</a> <a href="../zh-hant/">繁體</a></nav>
-  </header>
+<main>
+  <h1>名言で遊ぶ<br><em>2048。</em></h1>
+  <p class="sub">同じ文をふたつ合わせると、ひとつ上の名言が現れます。<br>2048で、王冠の名言に出会えます。</p>
 
-  <section class="row hero">
-    <div class="hero-copy">
-      <p class="kicker">テキストマージパズル <span class="rule"></span></p>
-      <h1>知っている2048、でも数字ではなく<em>ことばが育つ。</em></h1>
-      <p class="sub">同じ名言タイルを2つ合わせると、より大きな名言に。軽いことわざから始めて、2048の頂点の名言まで育てましょう。</p>
-      <p class="note">無料 · iPhone &amp; iPad · アカウント不要</p>
-      <p class="soon">近日公開</p>
-    </div>
-    <div class="hero-board"><div class="board" role="img" aria-label="名言2048のテーマ一覧 — テーマごとに名画が敷かれたグリッド"><div class="cell t1"><span class="tn">2</span><span class="q">始めは半ばなり</span></div><div class="cell t2"><span class="tn">8</span><span class="q">遅すぎることはない</span></div><div class="cell empty"></div><div class="cell t3"><span class="tn">128</span><span class="q">たたけよ、さらば開かれん</span></div><div class="cell empty"></div><div class="cell t4"><span class="tn">512</span><span class="q">光あれ</span></div><div class="cell crown"><span class="cr">👑 2048</span><span class="q">大木も小さな芽から育つ</span></div><div class="cell t1"><span class="tn">2</span><span class="q">始めは半ばなり</span></div><div class="cell t2"><span class="tn">8</span><span class="q">遅すぎることはない</span></div><div class="cell empty"></div><div class="cell t3"><span class="tn">128</span><span class="q">たたけよ、さらば開かれん</span></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell t1"><span class="tn">2</span><span class="q">始めは半ばなり</span></div><div class="cell empty"></div><div class="cell t4"><span class="tn">512</span><span class="q">光あれ</span></div></div></div>
-  </section>
+  <div class="stage" aria-hidden="true">
+    <div class="cell c1"></div><div class="cell c2"></div><div class="cell c3"></div><div class="cell c4"></div>
+    <div class="tile a">始まりは<br>半分の成功</div>
+    <div class="tile b">始まりは<br>半分の成功</div>
+    <div class="tile m">遅すぎることは<br>ない</div>
+  </div>
 
-  <section class="row nums"><div class="num g3"><span class="big">24</span><span class="nh">主題テーマ</span><p>はじまり・平穏・勇気・幸福など — すべて無料。</p></div><div class="num g3"><span class="big">32</span><span class="nh">作家コレクション</span><p>シェイクスピア・ニーチェ・トルストイ・孔子・ウルフ — Proの書架。</p></div><div class="num g3"><span class="big">952</span><span class="nh">検証済み名言</span><p>実際の著作から、5言語で、ラテン語・ドイツ語・漢文の原文も。</p></div><div class="num g3"><span class="big">56</span><span class="nh">名画の背景</span><p>モネ・ゴッホ・クリムト・北斎 — テーマごとに一枚。</p></div></section>
+  <blockquote class="crown">
+    <p>合抱の木も<br>毫末より生ず</p>
+    <cite>— 老子 · 「始まり」の王冠</cite>
+    <span class="badge">👑 2048</span>
+  </blockquote>
 
-  <section class="row how">
-    <p class="kicker g12">遊び方 <span class="rule"></span></p>
-    <h2 class="g12">合わせて。育てて。<em>名言を完成。</em></h2>
-    <div class="step g4"><span class="n">01</span><h3>スワイプで合成</h3><p>同じ名言タイル2つが1つに — おなじみの2048ルールそのまま。</p></div><div class="step g4"><span class="n">02</span><h3>育つことば</h3><p>合わせるたびに、ことばが一段上の名言へ格上げされます。</p></div><div class="step g4"><span class="n">03</span><h3>頂点へ</h3><p>2048タイルを作ると、そのテーマの頂点の名言が完成し、集まります。</p></div>
-  </section>
+  <p class="tease">そして、2048で終わりではありません。<span class="dots"> ✦ 4096 · ⭐ 131072</span></p>
 
-  <section class="row lad">
-    <div class="lad-copy">
-      <p class="kicker">名言のはしご <span class="rule"></span></p>
-      <h2>ひとつのテーマ、<em>11の名言</em>が昇る。</h2>
-      <p class="lede">どのテーマもはしご — 下には軽いことわざ、頂点には誰もが知る名言。これは「はじまり」テーマ。</p>
-      <p class="kicker beyond-k">王冠の先へ <span class="rule"></span></p>
-      <p class="lede">2048の先には、131072まで六つの隠しランクが続きます。新記録のたび、どのリストにもない名言が現れます。</p>
-    </div>
-    <div class="lad-list"><div class="rung"><span class="tier">2</span><span class="rq">始めは半ばなり</span><span class="who">ことわざ</span></div><div class="rung"><span class="tier">8</span><span class="rq">遅すぎることはない</span><span class="who">—</span></div><div class="rung"><span class="tier">128</span><span class="rq">たたけよ、さらば開かれん</span><span class="who">聖書</span></div><div class="rung"><span class="tier">512</span><span class="rq">光あれ</span><span class="who">創世記</span></div><div class="rung crown"><span class="tier">2048</span><span class="rq">大木も小さな芽から育つ</span><span class="who">老子</span></div><div class="rung locked"><span class="tier">✦ 4096</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">✦ 8192</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 16384</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 32768</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 65536</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 131072</span><span class="rq">???</span><span class="who">—</span></div></div>
-  </section>
+  <p class="soon">近日公開 · iOS</p>
+</main>
 
-  <section class="row museum">
-    <p class="kicker g12">美術館 <span class="rule"></span></p>
-    <h2 class="g12">すべてのテーマは<em>名画の上</em>に掛かる。</h2>
-    <figure class="art g4"><img src="../assets/impression-sunrise.jpg" alt="クロード・モネ — 印象・日の出 · 始まり" loading="lazy"><figcaption><strong>クロード・モネ</strong><span>印象・日の出 · 始まり</span></figcaption></figure><figure class="art g4"><img src="../assets/the-kiss.jpg" alt="グスタフ・クリムト — 接吻 · 愛" loading="lazy"><figcaption><strong>グスタフ・クリムト</strong><span>接吻 · 愛</span></figcaption></figure><figure class="art g4"><img src="../assets/thousand-li.jpg" alt="王希孟 — 千里江山図 · 孫子" loading="lazy"><figcaption><strong>王希孟</strong><span>千里江山図 · 孫子</span></figcaption></figure>
-  </section>
-
-  <section class="row featrow">
-    <p class="kicker g12">細部 <span class="rule"></span></p>
-    <div class="feat g4"><h3>偽の名言なし</h3><p>すべての文を出典と照合。ネット上の誤帰属はあえて外しました。</p></div><div class="feat g4"><h3>原語表記</h3><p>頂点の名言を元の言語で — ラテン語・ドイツ語・ロシア語・漢文。</p></div><div class="feat g4"><h3>マイテーマパック</h3><p>自分の言葉11個で自分だけのパックを作って遊べます。完成カードに名前が刻まれます。</p></div><div class="feat g4"><h3>集める名言のはしご</h3><p>テーマごとに到達した名言がはしごに積まれる — 静かな名言図鑑。</p></div><div class="feat g4"><h3>オフライン・ログイン不要</h3><p>すべて内蔵。アカウントもサーバーもなし。広告はありません。</p></div><div class="feat g4"><h3>静かな設計</h3><p>穏やかなテンポ、柔らかな色、クリア後の“誰の言葉?”クイズ。自分のペースで。</p></div>
-  </section>
-
-  <section class="row final">
-    <h2>今日、名言をひとつ育てよう。</h2>
-    <p class="lede">iPhone · iPad 無料。</p>
-    <p class="soon big-soon">近日公開</p>
-  </section>
-
-  <footer class="row foot">
-    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
-    <nav class="legal">
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">プライバシーポリシー</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">利用規約</a>
-      <a href="mailto:kkirukstudio@gmail.com">お問い合わせ</a>
-    </nav>
-    <p class="hint">gキー — グリッドは本物</p>
-  </footer>
-</div>
-<script>addEventListener('keydown',e=>{if(e.key==='g')document.body.classList.toggle('show-grid')});</script>
+<footer>
+  <span>© kkiruk studio</span>
+  <a href="https://kkiruk-studio.github.io/privacy-policy-app/">プライバシー</a>
+  <a href="https://kkiruk-studio.github.io/terms-of-service-app/">利用規約</a>
+  <a href="mailto:kkirukstudio@gmail.com">お問い合わせ</a>
+</footer>
 </body>
 </html>

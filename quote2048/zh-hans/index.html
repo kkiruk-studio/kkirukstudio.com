@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>名言2048 — 合并方块，收集名人名言</title>
-<meta name="description" content="你熟悉的2048，只是数字换成会成长的句子。合并相同的名言方块，把56个主题·952句经核实的名言从谚语一路养到巅峰名言，背景是公共领域名画。">
-<meta property="og:title" content="名言2048 — 安静的文字2048">
-<meta property="og:description" content="合并相同的句子，让智慧慢慢生长——从谚语到巅峰名言。">
+<title>名言2048 — 用名言玩的2048</title>
+<meta name="description" content="熟悉的2048 — 但每个方块都是一句名言。合并两句相同的话，出现更高一级的名言；抵达2048，遇见王冠名言。而2048并不是终点。">
+<meta property="og:title" content="名言2048 — 用名言玩的2048">
+<meta property="og:description" content="熟悉的2048 — 但每个方块都是一句名言。合并两句相同的话，出现更高一级的名言；抵达2048，遇见王冠名言。而2048并不是终点。">
 <meta property="og:image" content="https://www.kkirukstudio.com/quote2048/assets/icon-512.png">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://www.kkirukstudio.com/quote2048/zh-hans/">
@@ -22,71 +22,38 @@
 <script defer src="/ga.js"></script>
 </head>
 <body>
-<div class="grid page">
-  <div class="grid-overlay" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<header class="top">
+  <a class="mark" href="../"><img src="../assets/icon-180.png" alt=""><span>QUOTE·2048</span></a>
+  <nav class="langs"><a href="../">EN</a> <a href="../ko/">한국어</a> <a href="../ja/">日本語</a> <a class=on href="../zh-hans/">简体</a> <a href="../zh-hant/">繁體</a></nav>
+</header>
 
-  <header class="row head">
-    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>QUOTE·2048</span></a>
-    <nav class="langs"><a href="../">EN</a> <a href="../ko/">한국어</a> <a href="../ja/">日本語</a> <a class="on" href="../zh-hans/">简体</a> <a href="../zh-hant/">繁體</a></nav>
-  </header>
+<main>
+  <h1>用名言玩的<br><em>2048。</em></h1>
+  <p class="sub">合并两句相同的话，出现更高一级的名言。<br>抵达2048，遇见王冠名言。</p>
 
-  <section class="row hero">
-    <div class="hero-copy">
-      <p class="kicker">文字合并解谜 <span class="rule"></span></p>
-      <h1>你熟悉的2048，只是数字换成<em>会成长的句子。</em></h1>
-      <p class="sub">合并两个相同的名言方块，文字就成长为更高的名言。从一句谚语开始，养到2048的巅峰名言。</p>
-      <p class="note">免费 · iPhone &amp; iPad · 无需账号</p>
-      <p class="soon">即将上线</p>
-    </div>
-    <div class="hero-board"><div class="board" role="img" aria-label="名言2048主题一览 — 每个主题配一幅名画的网格"><div class="cell t1"><span class="tn">2</span><span class="q">好的开始是成功的一半</span></div><div class="cell t2"><span class="tn">8</span><span class="q">永远都不算晚</span></div><div class="cell empty"></div><div class="cell t3"><span class="tn">128</span><span class="q">叩门，就给你们开门</span></div><div class="cell empty"></div><div class="cell t4"><span class="tn">512</span><span class="q">要有光</span></div><div class="cell crown"><span class="cr">👑 2048</span><span class="q">大树也从小芽长成</span></div><div class="cell t1"><span class="tn">2</span><span class="q">好的开始是成功的一半</span></div><div class="cell t2"><span class="tn">8</span><span class="q">永远都不算晚</span></div><div class="cell empty"></div><div class="cell t3"><span class="tn">128</span><span class="q">叩门，就给你们开门</span></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell t1"><span class="tn">2</span><span class="q">好的开始是成功的一半</span></div><div class="cell empty"></div><div class="cell t4"><span class="tn">512</span><span class="q">要有光</span></div></div></div>
-  </section>
+  <div class="stage" aria-hidden="true">
+    <div class="cell c1"></div><div class="cell c2"></div><div class="cell c3"></div><div class="cell c4"></div>
+    <div class="tile a">好的开始<br>是成功的一半</div>
+    <div class="tile b">好的开始<br>是成功的一半</div>
+    <div class="tile m">一切都<br>不算晚</div>
+  </div>
 
-  <section class="row nums"><div class="num g3"><span class="big">24</span><span class="nh">主题合集</span><p>开始·平静·勇气·幸福等 — 全部免费。</p></div><div class="num g3"><span class="big">32</span><span class="nh">作家合集</span><p>莎士比亚·尼采·托尔斯泰·孔子·伍尔夫 — Pro 藏书架。</p></div><div class="num g3"><span class="big">952</span><span class="nh">核实的名言</span><p>取自原著，五种语言，附拉丁语·德语·文言文原文。</p></div><div class="num g3"><span class="big">56</span><span class="nh">名画背景</span><p>莫奈·梵高·克里姆特·葛饰北斋 — 每个主题一幅。</p></div></section>
+  <blockquote class="crown">
+    <p>合抱之木<br>生于毫末</p>
+    <cite>— 老子 · 「开始」的王冠</cite>
+    <span class="badge">👑 2048</span>
+  </blockquote>
 
-  <section class="row how">
-    <p class="kicker g12">怎么玩 <span class="rule"></span></p>
-    <h2 class="g12">合并。成长。<em>完成名言。</em></h2>
-    <div class="step g4"><span class="n">01</span><h3>滑动合并</h3><p>两个相同的名言方块合成一个 — 还是你熟悉的2048规则。</p></div><div class="step g4"><span class="n">02</span><h3>看它长大</h3><p>每次合并都把文字提升到更高一级的名言。</p></div><div class="step g4"><span class="n">03</span><h3>抵达巅峰</h3><p>合出2048方块，完成该主题的巅峰名言并收藏。</p></div>
-  </section>
+  <p class="tease">而且，2048并不是终点。<span class="dots"> ✦ 4096 · ⭐ 131072</span></p>
 
-  <section class="row lad">
-    <div class="lad-copy">
-      <p class="kicker">名言阶梯 <span class="rule"></span></p>
-      <h2>一个主题，<em>十一句名言</em>，拾级而上。</h2>
-      <p class="lede">每个主题都是一架阶梯 — 底部是轻巧的谚语，顶端是人人皆知的名言。这是「开始」主题。</p>
-      <p class="kicker beyond-k">王冠之上 <span class="rule"></span></p>
-      <p class="lede">2048之后还有六个隐藏等级，直至131072。每个新纪录，都会揭示一句任何列表都没有的名言。</p>
-    </div>
-    <div class="lad-list"><div class="rung"><span class="tier">2</span><span class="rq">好的开始是成功的一半</span><span class="who">谚语</span></div><div class="rung"><span class="tier">8</span><span class="rq">永远都不算晚</span><span class="who">—</span></div><div class="rung"><span class="tier">128</span><span class="rq">叩门，就给你们开门</span><span class="who">圣经</span></div><div class="rung"><span class="tier">512</span><span class="rq">要有光</span><span class="who">创世记</span></div><div class="rung crown"><span class="tier">2048</span><span class="rq">大树也从小芽长成</span><span class="who">老子</span></div><div class="rung locked"><span class="tier">✦ 4096</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">✦ 8192</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 16384</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 32768</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 65536</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 131072</span><span class="rq">???</span><span class="who">—</span></div></div>
-  </section>
+  <p class="soon">即将上线 · iOS</p>
+</main>
 
-  <section class="row museum">
-    <p class="kicker g12">美术馆 <span class="rule"></span></p>
-    <h2 class="g12">每个主题都悬挂在<em>一幅名画</em>之上。</h2>
-    <figure class="art g4"><img src="../assets/impression-sunrise.jpg" alt="克劳德·莫奈 — 印象·日出 · 开始" loading="lazy"><figcaption><strong>克劳德·莫奈</strong><span>印象·日出 · 开始</span></figcaption></figure><figure class="art g4"><img src="../assets/the-kiss.jpg" alt="古斯塔夫·克林姆特 — 吻 · 爱" loading="lazy"><figcaption><strong>古斯塔夫·克林姆特</strong><span>吻 · 爱</span></figcaption></figure><figure class="art g4"><img src="../assets/thousand-li.jpg" alt="王希孟 — 千里江山图 · 孙子" loading="lazy"><figcaption><strong>王希孟</strong><span>千里江山图 · 孙子</span></figcaption></figure>
-  </section>
-
-  <section class="row featrow">
-    <p class="kicker g12">细节 <span class="rule"></span></p>
-    <div class="feat g4"><h3>拒绝伪名言</h3><p>每句都核对出处。网络上的误传一律排除。</p></div><div class="feat g4"><h3>原文对照</h3><p>用原本的语言看巅峰名言 — 拉丁语·德语·俄语·文言文。</p></div><div class="feat g4"><h3>我的主题包</h3><p>写下11句自己的话（座右铭·家训·祝福）做成专属主题包，完成卡刻着你的名字。</p></div><div class="feat g4"><h3>可收集的名言阶梯</h3><p>每个主题都记录你抵达的名言 — 一部安静的名言图鉴。</p></div><div class="feat g4"><h3>离线·无需登录</h3><p>内容全部内置，没有账号也没有服务器。没有任何广告。</p></div><div class="feat g4"><h3>安静的设计</h3><p>从容的节奏、柔和的色彩、通关后的“这是谁说的?”小测验。</p></div>
-  </section>
-
-  <section class="row final">
-    <h2>今天，养大一句名言。</h2>
-    <p class="lede">iPhone · iPad 免费。</p>
-    <p class="soon big-soon">即将上线</p>
-  </section>
-
-  <footer class="row foot">
-    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
-    <nav class="legal">
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">隐私政策</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">服务条款</a>
-      <a href="mailto:kkirukstudio@gmail.com">联系我们</a>
-    </nav>
-    <p class="hint">按 g — 网格是真实的</p>
-  </footer>
-</div>
-<script>addEventListener('keydown',e=>{if(e.key==='g')document.body.classList.toggle('show-grid')});</script>
+<footer>
+  <span>© kkiruk studio</span>
+  <a href="https://kkiruk-studio.github.io/privacy-policy-app/">隐私政策</a>
+  <a href="https://kkiruk-studio.github.io/terms-of-service-app/">服务条款</a>
+  <a href="mailto:kkirukstudio@gmail.com">联系</a>
+</footer>
 </body>
 </html>

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quote 2048 — Merge tiles into famous quotes</title>
-<meta name="description" content="The 2048 you know, but sentences grow instead of numbers. Merge matching quote tiles up 56 themes and 952 verified quotes — from a humble proverb to a crown quote — set against public-domain masterpieces.">
-<meta property="og:title" content="Quote 2048 — A quiet text-merge puzzle">
-<meta property="og:description" content="Merge matching quotes and watch wisdom grow, from a proverb to a crown quote.">
+<title>Quote 2048 — 2048, played with quotes</title>
+<meta name="description" content="The classic 2048 — but every tile is a quote. Merge two matching lines and a greater quote takes their place. Reach 2048 to meet the crown quote. And 2048 isn't the end.">
+<meta property="og:title" content="Quote 2048 — 2048, played with quotes">
+<meta property="og:description" content="The classic 2048 — but every tile is a quote. Merge two matching lines and a greater quote takes their place. Reach 2048 to meet the crown quote. And 2048 isn't the end.">
 <meta property="og:image" content="https://www.kkirukstudio.com/quote2048/assets/icon-512.png">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://www.kkirukstudio.com/quote2048/">
@@ -22,71 +22,38 @@
 <script defer src="/ga.js"></script>
 </head>
 <body>
-<div class="grid page">
-  <div class="grid-overlay" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<header class="top">
+  <a class="mark" href="./"><img src="assets/icon-180.png" alt=""><span>QUOTE·2048</span></a>
+  <nav class="langs"><a class=on href="./">EN</a> <a href="ko/">한국어</a> <a href="ja/">日本語</a> <a href="zh-hans/">简体</a> <a href="zh-hant/">繁體</a></nav>
+</header>
 
-  <header class="row head">
-    <a class="wordmark" href="./"><img src="assets/icon-180.png" alt=""><span>QUOTE·2048</span></a>
-    <nav class="langs"><a class="on" href="./">EN</a> <a href="ko/">한국어</a> <a href="ja/">日本語</a> <a href="zh-hans/">简体</a> <a href="zh-hant/">繁體</a></nav>
-  </header>
+<main>
+  <h1>2048,<br>played with <em>quotes</em>.</h1>
+  <p class="sub">Merge two matching lines — a greater quote takes their place.<br>Reach 2048 to meet the crown quote.</p>
 
-  <section class="row hero">
-    <div class="hero-copy">
-      <p class="kicker">TEXT MERGE PUZZLE <span class="rule"></span></p>
-      <h1>The 2048 you know — but <em>sentences grow</em> instead of numbers.</h1>
-      <p class="sub">Merge two matching quote tiles and the words grow into a greater one. Climb from a humble proverb all the way to the crown quote at 2048.</p>
-      <p class="note">FREE · IPHONE &amp; IPAD · NO ACCOUNT</p>
-      <p class="soon">COMING SOON</p>
-    </div>
-    <div class="hero-board"><div class="board" role="img" aria-label="Quote 2048 theme browser — a grid of masterpiece paintings, one per theme"><div class="cell t1"><span class="tn">2</span><span class="q">Well begun is half done</span></div><div class="cell t2"><span class="tn">8</span><span class="q">It's never too late</span></div><div class="cell empty"></div><div class="cell t3"><span class="tn">128</span><span class="q">Knock, and it will be opened</span></div><div class="cell empty"></div><div class="cell t4"><span class="tn">512</span><span class="q">Let there be light</span></div><div class="cell crown"><span class="cr">👑 2048</span><span class="q">A great tree grows from a small sprout</span></div><div class="cell t1"><span class="tn">2</span><span class="q">Well begun is half done</span></div><div class="cell t2"><span class="tn">8</span><span class="q">It's never too late</span></div><div class="cell empty"></div><div class="cell t3"><span class="tn">128</span><span class="q">Knock, and it will be opened</span></div><div class="cell empty"></div><div class="cell empty"></div><div class="cell t1"><span class="tn">2</span><span class="q">Well begun is half done</span></div><div class="cell empty"></div><div class="cell t4"><span class="tn">512</span><span class="q">Let there be light</span></div></div></div>
-  </section>
+  <div class="stage" aria-hidden="true">
+    <div class="cell c1"></div><div class="cell c2"></div><div class="cell c3"></div><div class="cell c4"></div>
+    <div class="tile a">Well begun<br>is half done</div>
+    <div class="tile b">Well begun<br>is half done</div>
+    <div class="tile m">It's never<br>too late</div>
+  </div>
 
-  <section class="row nums"><div class="num g3"><span class="big">24</span><span class="nh">Topic themes</span><p>Beginnings, Calm, Courage, Happiness and more — all free.</p></div><div class="num g3"><span class="big">32</span><span class="nh">Author collections</span><p>Shakespeare, Nietzsche, Tolstoy, Confucius, Woolf — a Pro shelf.</p></div><div class="num g3"><span class="big">952</span><span class="nh">Verified quotes</span><p>From real works, in five languages, with originals in Latin, German, Classical Chinese.</p></div><div class="num g3"><span class="big">56</span><span class="nh">Masterpieces</span><p>Monet, van Gogh, Klimt, Hokusai — one painting behind every theme.</p></div></section>
+  <blockquote class="crown">
+    <p>A great tree grows<br>from a small sprout</p>
+    <cite>— Laozi · the crown of “Beginnings”</cite>
+    <span class="badge">👑 2048</span>
+  </blockquote>
 
-  <section class="row how">
-    <p class="kicker g12">HOW IT PLAYS <span class="rule"></span></p>
-    <h2 class="g12">Merge. Grow. <em>Complete the quote.</em></h2>
-    <div class="step g4"><span class="n">01</span><h3>Swipe to merge</h3><p>Two tiles with the same quote merge into one — pure 2048 rules you already know.</p></div><div class="step g4"><span class="n">02</span><h3>Watch it grow</h3><p>Each merge lifts the words to a greater quote, one tier up the ladder.</p></div><div class="step g4"><span class="n">03</span><h3>Reach the crown</h3><p>Hit the 2048 tile to complete the theme's crown quote and collect it.</p></div>
-  </section>
+  <p class="tease">And 2048 isn't the end.<span class="dots"> ✦ 4096 · ⭐ 131072</span></p>
 
-  <section class="row lad">
-    <div class="lad-copy">
-      <p class="kicker">THE LADDER <span class="rule"></span></p>
-      <h2>One theme, <em>eleven quotes</em>, climbing.</h2>
-      <p class="lede">Every theme is a ladder — a light proverb at the bottom, the icon quote at the crown. This is the Beginnings theme.</p>
-      <p class="kicker beyond-k">BEYOND THE CROWN <span class="rule"></span></p>
-      <p class="lede">Six hidden grades wait past 2048 — up to 131072. Each new record reveals a quote no list will spoil.</p>
-    </div>
-    <div class="lad-list"><div class="rung"><span class="tier">2</span><span class="rq">Well begun is half done</span><span class="who">Proverb</span></div><div class="rung"><span class="tier">8</span><span class="rq">It's never too late</span><span class="who">—</span></div><div class="rung"><span class="tier">128</span><span class="rq">Knock, and it will be opened</span><span class="who">Scripture</span></div><div class="rung"><span class="tier">512</span><span class="rq">Let there be light</span><span class="who">Genesis</span></div><div class="rung crown"><span class="tier">2048</span><span class="rq">A great tree grows from a small sprout</span><span class="who">Laozi</span></div><div class="rung locked"><span class="tier">✦ 4096</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">✦ 8192</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 16384</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 32768</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 65536</span><span class="rq">???</span><span class="who">—</span></div><div class="rung locked"><span class="tier">⭐ 131072</span><span class="rq">???</span><span class="who">—</span></div></div>
-  </section>
+  <p class="soon">COMING SOON · iOS</p>
+</main>
 
-  <section class="row museum">
-    <p class="kicker g12">THE MUSEUM <span class="rule"></span></p>
-    <h2 class="g12">Every theme hangs on a <em>masterpiece</em>.</h2>
-    <figure class="art g4"><img src="assets/impression-sunrise.jpg" alt="Claude Monet — Impression, Sunrise · Beginnings" loading="lazy"><figcaption><strong>Claude Monet</strong><span>Impression, Sunrise · Beginnings</span></figcaption></figure><figure class="art g4"><img src="assets/the-kiss.jpg" alt="Gustav Klimt — The Kiss · Love" loading="lazy"><figcaption><strong>Gustav Klimt</strong><span>The Kiss · Love</span></figcaption></figure><figure class="art g4"><img src="assets/thousand-li.jpg" alt="Wang Ximeng — A Thousand Li of Rivers and Mountains · Sun Tzu" loading="lazy"><figcaption><strong>Wang Ximeng</strong><span>A Thousand Li of Rivers and Mountains · Sun Tzu</span></figcaption></figure>
-  </section>
-
-  <section class="row featrow">
-    <p class="kicker g12">DETAILS <span class="rule"></span></p>
-    <div class="feat g4"><h3>No fake quotes</h3><p>Every line verified against its source. Internet misattributions were left out on purpose.</p></div><div class="feat g4"><h3>Original languages</h3><p>See the crown quote in its own tongue — Latin, German, Russian, Classical Chinese.</p></div><div class="feat g4"><h3>Your own theme pack</h3><p>Write 11 lines of your own — resolutions, mottos, cheers — and play them. Your name goes on the card.</p></div><div class="feat g4"><h3>A quote ladder to collect</h3><p>Every theme keeps a ladder of what you've reached — a quiet dogam of wisdom.</p></div><div class="feat g4"><h3>Offline, no login</h3><p>Everything is bundled. No account, no server. No ads, ever.</p></div><div class="feat g4"><h3>Quiet by design</h3><p>Calm pace, soft palettes, a “who said this?” quiz after each clear. Play at your own tempo.</p></div>
-  </section>
-
-  <section class="row final">
-    <h2>Grow a quote today.</h2>
-    <p class="lede">Free on iPhone &amp; iPad.</p>
-    <p class="soon big-soon">COMING SOON</p>
-  </section>
-
-  <footer class="row foot">
-    <div class="brand"><img src="assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
-    <nav class="legal">
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">Privacy Policy</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">Terms of Service</a>
-      <a href="mailto:kkirukstudio@gmail.com">Contact</a>
-    </nav>
-    <p class="hint">press g — the grid is real</p>
-  </footer>
-</div>
-<script>addEventListener('keydown',e=>{if(e.key==='g')document.body.classList.toggle('show-grid')});</script>
+<footer>
+  <span>© kkiruk studio</span>
+  <a href="https://kkiruk-studio.github.io/privacy-policy-app/">Privacy</a>
+  <a href="https://kkiruk-studio.github.io/terms-of-service-app/">Terms</a>
+  <a href="mailto:kkirukstudio@gmail.com">Contact</a>
+</footer>
 </body>
 </html>
