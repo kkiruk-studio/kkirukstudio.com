@@ -75,12 +75,27 @@ L = {
 
 import json as _json
 _QJ = _json.load(open(ROOT.parent.parent / "tools" / "quotes.json", encoding="utf-8"))
-_BEGIN = [t for t in _QJ["themes"] if t["id"] == "beginning"][0]["quotes"]
+_THEMES = {t["id"]: t["quotes"] for t in _QJ["themes"]}
 _LKEY = {"en": "en", "ko": "ko", "ja": "ja", "zh-Hans": "zh_hans", "zh-Hant": "zh_hant"}
+# 데모 사다리 = 베스트 앨범 (전부 실제 인게임 명언, 등급마다 최고 인지도)
+_DEMO_LADDER = [
+    ("beginning", 0),            # 2    시작이 반이다
+    ("beginning", 1),            # 4    천 리 길도 한 걸음부터
+    ("wisdom", 0),               # 8    아는 것이 힘이다
+    ("wisdom", 4),               # 16   너 자신을 알라
+    ("courage", 15),             # 32   나를 죽이지 못하는 것은
+    ("courage", 5),              # 64   죽고자 하면 살고
+    ("shakespeare", 10),         # 128  사느냐 죽느냐
+    ("confucius_disciples", 10), # 256  기소불욕
+    ("courage", 10),             # 512  열두 척
+    ("beginning", 10),           # 1024 큰 나무도
+    ("dickinson", 10),           # 2048 희망은 깃털 (아래 왕관 카드와 연결)
+]
 def demo_quotes(lang):
     key = _LKEY.get(lang, "en")
     out = {}
-    for i, q in enumerate(_BEGIN[:11]):
+    for i, (tid, qi) in enumerate(_DEMO_LADDER):
+        q = _THEMES[tid][qi]
         out[str(2 ** (i + 1))] = q.get(key) or q["en"]
     return out
 
