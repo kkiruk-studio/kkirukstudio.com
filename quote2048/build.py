@@ -14,20 +14,20 @@ L = {
     title="Quote 2048 — 2048, played with quotes",
     desc="The classic 2048 — but every tile is a quote. Merge two matching lines and a greater quote takes their place. Reach 2048 to meet the crown quote. And 2048 isn't the end.",
     h1="2048,<br>played with <em>quotes</em>.",
-    sub="Merge two matching lines — a greater quote takes their place.",
-    reveal="And when you make the 2048 tile —", tease="2048 isn't the end.",
+    sub="Merge two of the same line, and a deeper quote takes its place.",
+    reveal="Keep going, and this is what waits at the end.", tease="And honestly — there are quotes hidden beyond 2048. How far? That's a secret.",
     soon="COMING SOON · iOS",
     tile_a="Well begun<br>is half done", tile_b="Well begun<br>is half done",
     tile_m="A journey of a thousand<br>miles starts with one step",
     crown="Hope is the thing with feathers<br>that perches in the soul",
     crown_meta="— Emily Dickinson",
     f_privacy="Privacy", f_terms="Terms", f_contact="Contact"),
- "ko": dict(demo_tap="탭하여 플레이", demo_hint="스와이프 또는 방향키", demo_toast="여기서부터는 앱에서 — 곧 출시됩니다.", dir="ko/", lang="ko", fontlink="""<link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet">""", serif="\'MaruBuri\',Georgia,serif",
+ "ko": dict(demo_tap="탭하여 플레이", demo_hint="스와이프나 방향키로 움직여요", demo_toast="이다음은 앱에서 이어져요 — 곧 나와요.", dir="ko/", lang="ko", fontlink="""<link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet">""", serif="\'MaruBuri\',Georgia,serif",
     title="명언 2048 — 명언으로 하는 2048",
     desc="알던 그 2048 — 그런데 타일이 전부 명언입니다. 같은 문장 두 개를 합치면 한 단계 위의 명언이 나타나고, 2048에서 왕관 명언을 만납니다. 그리고 2048이 끝이 아닙니다.",
     h1="명언으로 하는<br><em>2048.</em>",
-    sub="같은 문장 두 개를 합치면, 한 단계 위의 명언이 나타납니다.",
-    reveal="그리고 2048 타일을 만들면 —", tease="2048이 끝이 아닙니다.",
+    sub="같은 문장 두 개를 합치면, 한 단계 위의 명언이 돼요.",
+    reveal="끝까지 가면, 이런 문장이 기다리고 있어요.", tease="사실 2048 너머에도 명언이 숨어 있어요. 어디까지 있는지는, 비밀이에요.",
     soon="곧 출시 · iOS",
     tile_a="시작이<br>반이다", tile_b="시작이<br>반이다",
     tile_m="천 리 길도<br>한 걸음부터",
@@ -39,7 +39,7 @@ L = {
     desc="おなじみの2048 — ただしタイルはすべて名言。同じ文をふたつ合わせると、ひとつ上の名言が現れる。2048で王冠の名言に出会う。そして2048で終わりではない。",
     h1="名言で遊ぶ<br><em>2048。</em>",
     sub="同じ文をふたつ合わせると、ひとつ上の名言が現れます。",
-    reveal="そして2048のタイルを作ると —", tease="2048で終わりではありません。",
+    reveal="最後までいくと、この文章が待っています。", tease="じつは2048の先にも名言が隠れています。どこまであるかは、内緒です。",
     soon="近日公開 · iOS",
     tile_a="始まりは<br>半分の成功", tile_b="始まりは<br>半分の成功",
     tile_m="千里の行も<br>足下に始まる",
@@ -51,7 +51,7 @@ L = {
     desc="熟悉的2048 — 但每个方块都是一句名言。合并两句相同的话，出现更高一级的名言；抵达2048，遇见王冠名言。而2048并不是终点。",
     h1="用名言玩的<br><em>2048。</em>",
     sub="合并两句相同的话，出现更高一级的名言。",
-    reveal="当你合成出2048方块时 —", tease="2048并不是终点。",
+    reveal="一直玩下去，最后等着你的是这句话。", tease="其实2048之后还藏着名言。藏到多远？这是个秘密。",
     soon="即将上线 · iOS",
     tile_a="好的开始<br>是成功的一半", tile_b="好的开始<br>是成功的一半",
     tile_m="千里之行<br>始于足下",
@@ -63,7 +63,7 @@ L = {
     desc="熟悉的2048 — 但每個方塊都是一句名言。合併兩句相同的話，出現更高一級的名言；抵達2048，遇見王冠名言。而2048並不是終點。",
     h1="用名言玩的<br><em>2048。</em>",
     sub="合併兩句相同的話，出現更高一級的名言。",
-    reveal="當你合成出2048方塊時 —", tease="2048並不是終點。",
+    reveal="一直玩下去，最後等著你的是這句話。", tease="其實2048之後還藏著名言。藏到多遠？這是個祕密。",
     soon="即將上線 · iOS",
     tile_a="好的開始<br>是成功的一半", tile_b="好的開始<br>是成功的一半",
     tile_m="千里之行<br>始於足下",
@@ -161,7 +161,7 @@ def render(key):
     <span class="badge">👑 2048</span>
   </blockquote>
 
-  <p class="tease">{o['tease']}<span class="dots"> ✦ 4096 · ⭐ 131072</span></p>
+  <p class="tease">{o['tease']}</p>
 
   <p class="soon">{o['soon']}</p>
 </main>
