@@ -10,7 +10,7 @@ BASE_URL = "https://www.kkirukstudio.com/quote2048/"
 LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh-hans/", "简体"), ("zh-hant/", "繁體")]
 
 L = {
- "en": dict(dir="", lang="en",
+ "en": dict(dir="", lang="en", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">""", serif="\'Instrument Serif\',Georgia,serif",
     title="Quote 2048 — 2048, played with quotes",
     desc="The classic 2048 — but every tile is a quote. Merge two matching lines and a greater quote takes their place. Reach 2048 to meet the crown quote. And 2048 isn't the end.",
     h1="2048,<br>played with <em>quotes</em>.",
@@ -19,10 +19,10 @@ L = {
     soon="COMING SOON · iOS",
     tile_a="Well begun<br>is half done", tile_b="Well begun<br>is half done",
     tile_m="A journey of a thousand<br>miles starts with one step",
-    crown="To be, or not to be,<br>that is the question",
-    crown_meta="— Shakespeare, Hamlet",
+    crown="Hope is the thing with feathers<br>that perches in the soul",
+    crown_meta="— Emily Dickinson",
     f_privacy="Privacy", f_terms="Terms", f_contact="Contact"),
- "ko": dict(dir="ko/", lang="ko",
+ "ko": dict(dir="ko/", lang="ko", fontlink="""<link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet">""", serif="\'MaruBuri\',Georgia,serif",
     title="명언 2048 — 명언으로 하는 2048",
     desc="알던 그 2048 — 그런데 타일이 전부 명언입니다. 같은 문장 두 개를 합치면 한 단계 위의 명언이 나타나고, 2048에서 왕관 명언을 만납니다. 그리고 2048이 끝이 아닙니다.",
     h1="명언으로 하는<br><em>2048.</em>",
@@ -31,10 +31,10 @@ L = {
     soon="곧 출시 · iOS",
     tile_a="시작이<br>반이다", tile_b="시작이<br>반이다",
     tile_m="천 리 길도<br>한 걸음부터",
-    crown="신에게는 아직 열두 척의<br>배가 있습니다",
-    crown_meta="— 이순신",
+    crown="희망은 깃털 달린 것,<br>영혼에 내려앉는다",
+    crown_meta="— 에밀리 디킨슨",
     f_privacy="개인정보", f_terms="이용약관", f_contact="문의"),
- "ja": dict(dir="ja/", lang="ja",
+ "ja": dict(dir="ja/", lang="ja", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif JP\',serif",
     title="名言2048 — 名言で遊ぶ2048",
     desc="おなじみの2048 — ただしタイルはすべて名言。同じ文をふたつ合わせると、ひとつ上の名言が現れる。2048で王冠の名言に出会う。そして2048で終わりではない。",
     h1="名言で遊ぶ<br><em>2048。</em>",
@@ -43,10 +43,10 @@ L = {
     soon="近日公開 · iOS",
     tile_a="始まりは<br>半分の成功", tile_b="始まりは<br>半分の成功",
     tile_m="千里の行も<br>足下に始まる",
-    crown="吾輩は猫である。<br>名前はまだ無い。",
-    crown_meta="— 夏目漱石",
+    crown="希望とは羽をもつもの、<br>魂にとまる",
+    crown_meta="— エミリー・ディキンソン",
     f_privacy="プライバシー", f_terms="利用規約", f_contact="お問い合わせ"),
- "zh-hans": dict(dir="zh-hans/", lang="zh-Hans",
+ "zh-hans": dict(dir="zh-hans/", lang="zh-Hans", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif SC\',serif",
     title="名言2048 — 用名言玩的2048",
     desc="熟悉的2048 — 但每个方块都是一句名言。合并两句相同的话，出现更高一级的名言；抵达2048，遇见王冠名言。而2048并不是终点。",
     h1="用名言玩的<br><em>2048。</em>",
@@ -55,10 +55,10 @@ L = {
     soon="即将上线 · iOS",
     tile_a="好的开始<br>是成功的一半", tile_b="好的开始<br>是成功的一半",
     tile_m="千里之行<br>始于足下",
-    crown="己所不欲<br>勿施于人",
-    crown_meta="— 孔子",
+    crown="希望是长着羽毛的东西，<br>栖息在灵魂里",
+    crown_meta="— 艾米莉·狄金森",
     f_privacy="隐私政策", f_terms="服务条款", f_contact="联系"),
- "zh-hant": dict(dir="zh-hant/", lang="zh-Hant",
+ "zh-hant": dict(dir="zh-hant/", lang="zh-Hant", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif TC\',serif",
     title="名言2048 — 用名言玩的2048",
     desc="熟悉的2048 — 但每個方塊都是一句名言。合併兩句相同的話，出現更高一級的名言；抵達2048，遇見王冠名言。而2048並不是終點。",
     h1="用名言玩的<br><em>2048。</em>",
@@ -67,8 +67,8 @@ L = {
     soon="即將上線 · iOS",
     tile_a="好的開始<br>是成功的一半", tile_b="好的開始<br>是成功的一半",
     tile_m="千里之行<br>始於足下",
-    crown="己所不欲<br>勿施於人",
-    crown_meta="— 孔子",
+    crown="希望是長著羽毛的東西，<br>棲息在靈魂裡",
+    crown_meta="— 艾米莉·狄金森",
     f_privacy="隱私政策", f_terms="服務條款", f_contact="聯絡"),
 }
 
@@ -101,7 +101,10 @@ def render(key):
 {hreflang()}
 <link rel="icon" type="image/png" href="{rel}assets/icon-180.png">
 <link rel="apple-touch-icon" href="{rel}assets/icon-180.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+{o.get("fontlink","")}
 <link rel="stylesheet" href="{rel}assets/style.css">
+<style>:root{{--serif:{o.get("serif","Georgia,serif")}}}</style>
 <script defer src="/ga.js"></script>
 </head>
 <body>
