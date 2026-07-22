@@ -43,15 +43,17 @@
   <script id="qdata" type="application/json">{"quotes": {"2": "良好開端是成功一半", "4": "千里之行，始於足下", "8": "知識就是力量", "16": "認識你自己", "32": "殺不死我的，使我更強大", "64": "必死則生，必生則死", "128": "生存還是毀滅", "256": "己所不欲勿施於人", "512": "今臣戰船尚有十二", "1024": "合抱之木，生於毫末", "2048": "希望是長著羽毛的東西，棲息在靈魂裡"}, "tap": "點按開始", "toast": "更遠的旅程在應用中 — 即將上線。"}</script>
   <script defer src="../assets/demo.js"></script>
 
-  <p class="reveal">一直玩下去，最後等著你的是這句話。</p>
+  <p class="reveal">在頂端，等著你的是這樣的句子。</p>
 
-  <blockquote class="crown">
-    <p>今臣戰船<br>尚有十二</p>
-    <cite>— 李舜臣</cite>
+  <blockquote class="crown" id="crown">
+    <p id="cq">今臣戰船<br>尚有十二</p>
+    <cite id="ca">— 李舜臣</cite>
     <span class="badge">👑 2048</span>
   </blockquote>
+  <script id="qrot" type="application/json">[{"q": "今臣戰船尚有十二", "a": "李舜臣"}, {"q": "生存還是毀滅", "a": "莎士比亞"}, {"q": "殺不死我的，使我更強大", "a": "尼采"}, {"q": "希望是長著羽毛的東西，棲息在靈魂裡", "a": "艾米莉·狄金森"}]</script>
 
-  <p class="tease">其實2048之後還藏著名言。藏到多遠？這是個祕密。</p>
+  <p class="tease">如果你有喜歡的作家，這裡很可能有他的合集。</p>
+  <div class="authors" aria-hidden="true"><div class="atrack">莎士比亞　·　柏拉圖　·　塞涅卡　·　維吉尼亞·吳爾芙　·　尼采　·　孔子　·　奧斯卡·王爾德　·　托爾斯泰　·　亞里士多德　·　馬可·奧勒留　·　佛陀　·　莊子　·　魯米　·　甘地　·　班傑明·富蘭克林　·　歌德　·　杜斯妥也夫斯基　·　卡夫卡　·　珍·奧斯汀　·　馬克·吐溫　·　梭羅　·　夏目漱石　·　塞內卡　·　愛比克泰德　·　馬基雅維利　·　孫子　·　艾米莉·狄金森　·　蒙田　·　拉羅什富科　·　葛拉西安　·　洪自誠　·　韓非　·　莎士比亞　·　柏拉圖　·　塞涅卡　·　維吉尼亞·吳爾芙　·　尼采　·　孔子　·　奧斯卡·王爾德　·　托爾斯泰　·　亞里士多德　·　馬可·奧勒留　·　佛陀　·　莊子　·　魯米　·　甘地　·　班傑明·富蘭克林　·　歌德　·　杜斯妥也夫斯基　·　卡夫卡　·　珍·奧斯汀　·　馬克·吐溫　·　梭羅　·　夏目漱石　·　塞內卡　·　愛比克泰德　·　馬基雅維利　·　孫子　·　艾米莉·狄金森　·　蒙田　·　拉羅什富科　·　葛拉西安　·　洪自誠　·　韓非</div></div>
 
   <p class="soon">即將上線 · iOS</p>
 </main>
@@ -62,5 +64,9 @@
   <a href="https://kkiruk-studio.github.io/terms-of-service-app/">服務條款</a>
   <a href="mailto:kkirukstudio@gmail.com">聯絡</a>
 </footer>
+<script>(function(){var el=document.getElementById('qrot');if(!el)return;var cards=JSON.parse(el.textContent);var i=0;
+var cq=document.getElementById('cq'),ca=document.getElementById('ca'),box=document.getElementById('crown');
+setInterval(function(){i=(i+1)%cards.length;box.classList.add('fade');
+setTimeout(function(){cq.innerHTML=cards[i].q;ca.textContent='— '+cards[i].a;box.classList.remove('fade');},350);},4200);})();</script>
 </body>
 </html>

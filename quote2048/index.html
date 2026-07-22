@@ -43,15 +43,17 @@
   <script id="qdata" type="application/json">{"quotes": {"2": "Well begun is half done", "4": "A journey of a thousand miles starts with one step", "8": "Knowledge is power", "16": "Know thyself", "32": "What does not kill me makes me stronger", "64": "Seek death and live; seek life and die", "128": "To be, or not to be, that is the question", "256": "Do not do to others what you don't want", "512": "I still have twelve ships", "1024": "A great tree grows from a small sprout", "2048": "Hope is the thing with feathers that perches in the soul"}, "tap": "Tap to play", "toast": "It goes much further in the app — coming soon on iOS."}</script>
   <script defer src="assets/demo.js"></script>
 
-  <p class="reveal">Keep going, and this is what waits at the end.</p>
+  <p class="reveal">At the summit, sentences like these are waiting.</p>
 
-  <blockquote class="crown">
-    <p>I still have<br>twelve ships</p>
-    <cite>— Yi Sun-sin</cite>
+  <blockquote class="crown" id="crown">
+    <p id="cq">I still have<br>twelve ships</p>
+    <cite id="ca">— Yi Sun-sin</cite>
     <span class="badge">👑 2048</span>
   </blockquote>
+  <script id="qrot" type="application/json">[{"q": "I still have twelve ships", "a": "Yi Sun-sin"}, {"q": "To be, or not to be, that is the question", "a": "Shakespeare"}, {"q": "What does not kill me makes me stronger", "a": "Nietzsche"}, {"q": "Hope is the thing with feathers that perches in the soul", "a": "Emily Dickinson"}]</script>
 
-  <p class="tease">And honestly — there are quotes hidden beyond 2048. How far? That's a secret.</p>
+  <p class="tease">If you have a favorite author, they're probably in here.</p>
+  <div class="authors" aria-hidden="true"><div class="atrack">Shakespeare　·　Plato　·　Seneca　·　Virginia Woolf　·　Nietzsche　·　Confucius　·　Oscar Wilde　·　Tolstoy　·　Aristotle　·　Marcus Aurelius　·　Buddha　·　Zhuangzi　·　Rumi　·　Gandhi　·　Benjamin Franklin　·　Goethe　·　Dostoevsky　·　Kafka　·　Jane Austen　·　Mark Twain　·　Thoreau　·　Soseki　·　Epictetus　·　Machiavelli　·　Sun Tzu　·　Emily Dickinson　·　Montaigne　·　La Rochefoucauld　·　Gracián　·　Hong Zicheng　·　Han Fei　·　Shakespeare　·　Plato　·　Seneca　·　Virginia Woolf　·　Nietzsche　·　Confucius　·　Oscar Wilde　·　Tolstoy　·　Aristotle　·　Marcus Aurelius　·　Buddha　·　Zhuangzi　·　Rumi　·　Gandhi　·　Benjamin Franklin　·　Goethe　·　Dostoevsky　·　Kafka　·　Jane Austen　·　Mark Twain　·　Thoreau　·　Soseki　·　Epictetus　·　Machiavelli　·　Sun Tzu　·　Emily Dickinson　·　Montaigne　·　La Rochefoucauld　·　Gracián　·　Hong Zicheng　·　Han Fei</div></div>
 
   <p class="soon">COMING SOON · iOS</p>
 </main>
@@ -62,5 +64,9 @@
   <a href="https://kkiruk-studio.github.io/terms-of-service-app/">Terms</a>
   <a href="mailto:kkirukstudio@gmail.com">Contact</a>
 </footer>
+<script>(function(){var el=document.getElementById('qrot');if(!el)return;var cards=JSON.parse(el.textContent);var i=0;
+var cq=document.getElementById('cq'),ca=document.getElementById('ca'),box=document.getElementById('crown');
+setInterval(function(){i=(i+1)%cards.length;box.classList.add('fade');
+setTimeout(function(){cq.innerHTML=cards[i].q;ca.textContent='— '+cards[i].a;box.classList.remove('fade');},350);},4200);})();</script>
 </body>
 </html>

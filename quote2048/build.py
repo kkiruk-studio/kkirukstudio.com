@@ -15,7 +15,7 @@ L = {
     desc="The classic 2048 — but every tile is a quote. Merge two matching lines and a greater quote takes their place. Reach 2048 to meet the crown quote. And 2048 isn't the end.",
     h1="2048,<br>played with <em>quotes</em>.",
     sub="Merge two of the same line, and a deeper quote takes its place.",
-    reveal="Keep going, and this is what waits at the end.", tease="And honestly — there are quotes hidden beyond 2048. How far? That's a secret.",
+    reveal="At the summit, sentences like these are waiting.", tease="If you have a favorite author, they're probably in here.",
     soon="COMING SOON · iOS",
     tile_a="Well begun<br>is half done", tile_b="Well begun<br>is half done",
     tile_m="A journey of a thousand<br>miles starts with one step",
@@ -27,7 +27,7 @@ L = {
     desc="알던 그 2048 — 그런데 타일이 전부 명언입니다. 같은 문장 두 개를 합치면 한 단계 위의 명언이 나타나고, 2048에서 왕관 명언을 만납니다. 그리고 2048이 끝이 아닙니다.",
     h1="명언으로 하는<br><em>2048.</em>",
     sub="같은 문장 두 개를 합치면, 한 단계 위의 명언이 돼요.",
-    reveal="끝까지 가면, 이런 문장이 기다리고 있어요.", tease="사실 2048 너머에도 명언이 숨어 있어요. 어디까지 있는지는, 비밀이에요.",
+    reveal="정상에는 이런 문장들이 있어요.", tease="좋아하는 작가가 있다면, 아마 그 사람의 팩이 있을 거예요.",
     soon="곧 출시 · iOS",
     tile_a="시작이<br>반이다", tile_b="시작이<br>반이다",
     tile_m="천 리 길도<br>한 걸음부터",
@@ -39,7 +39,7 @@ L = {
     desc="おなじみの2048 — ただしタイルはすべて名言。同じ文をふたつ合わせると、ひとつ上の名言が現れる。2048で王冠の名言に出会う。そして2048で終わりではない。",
     h1="名言で遊ぶ<br><em>2048。</em>",
     sub="同じ文をふたつ合わせると、ひとつ上の名言が現れます。",
-    reveal="最後までいくと、この文章が待っています。", tease="じつは2048の先にも名言が隠れています。どこまであるかは、内緒です。",
+    reveal="頂上では、こんな文章が待っています。", tease="好きな作家がいるなら、きっとその人のパックがあります。",
     soon="近日公開 · iOS",
     tile_a="始まりは<br>半分の成功", tile_b="始まりは<br>半分の成功",
     tile_m="千里の行も<br>足下に始まる",
@@ -51,7 +51,7 @@ L = {
     desc="熟悉的2048 — 但每个方块都是一句名言。合并两句相同的话，出现更高一级的名言；抵达2048，遇见王冠名言。而2048并不是终点。",
     h1="用名言玩的<br><em>2048。</em>",
     sub="合并两句相同的话，出现更高一级的名言。",
-    reveal="一直玩下去，最后等着你的是这句话。", tease="其实2048之后还藏着名言。藏到多远？这是个秘密。",
+    reveal="在顶端，等着你的是这样的句子。", tease="如果你有喜欢的作家，这里很可能有他的合集。",
     soon="即将上线 · iOS",
     tile_a="好的开始<br>是成功的一半", tile_b="好的开始<br>是成功的一半",
     tile_m="千里之行<br>始于足下",
@@ -63,7 +63,7 @@ L = {
     desc="熟悉的2048 — 但每個方塊都是一句名言。合併兩句相同的話，出現更高一級的名言；抵達2048，遇見王冠名言。而2048並不是終點。",
     h1="用名言玩的<br><em>2048。</em>",
     sub="合併兩句相同的話，出現更高一級的名言。",
-    reveal="一直玩下去，最後等著你的是這句話。", tease="其實2048之後還藏著名言。藏到多遠？這是個祕密。",
+    reveal="在頂端，等著你的是這樣的句子。", tease="如果你有喜歡的作家，這裡很可能有他的合集。",
     soon="即將上線 · iOS",
     tile_a="好的開始<br>是成功的一半", tile_b="好的開始<br>是成功的一半",
     tile_m="千里之行<br>始於足下",
@@ -97,6 +97,34 @@ def demo_quotes(lang):
     for i, (tid, qi) in enumerate(_DEMO_LADDER):
         q = _THEMES[tid][qi]
         out[str(2 ** (i + 1))] = q.get(key) or q["en"]
+    return out
+
+
+# 왕관 카드 로테이션 — 로케일 공통 좌표(전부 실제 상위 등급 문장), 표기만 로케일
+_ROTATION = [
+    ("courage", 10),      # 이순신 열두 척
+    ("shakespeare", 10),  # 사느냐 죽느냐
+    ("courage", 15),      # 니체 — 나를 죽이지 못하는 것은
+    ("dickinson", 10),    # 디킨슨 — 희망은 깃털
+]
+def rotation_cards(lang):
+    key = _LKEY.get(lang, "en")
+    akey = "author_" + ("zh_hans" if key == "zh_hans" else "zh_hant" if key == "zh_hant" else key)
+    cards = []
+    for tid, qi in _ROTATION:
+        q = _THEMES[tid][qi]
+        cards.append({"q": q.get(key) or q["en"], "a": q.get(akey) or q.get("author_en", "")})
+    return cards
+def author_names(lang):
+    key = "author_" + ("zh_hans" if lang == "zh-Hans" else "zh_hant" if lang == "zh-Hant" else _LKEY.get(lang, "en"))
+    seen, out = set(), []
+    for t in _QJ["themes"]:
+        if t["kind"] != "author":
+            continue
+        q = t["quotes"][10]
+        name = q.get(key) or q.get("author_en", "")
+        if name and name not in seen:
+            seen.add(name); out.append(name)
     return out
 
 def hreflang():
@@ -155,13 +183,15 @@ def render(key):
 
   <p class="reveal">{o['reveal']}</p>
 
-  <blockquote class="crown">
-    <p>{o['crown']}</p>
-    <cite>{o['crown_meta']}</cite>
+  <blockquote class="crown" id="crown">
+    <p id="cq">{o['crown']}</p>
+    <cite id="ca">{o['crown_meta']}</cite>
     <span class="badge">👑 2048</span>
   </blockquote>
+  <script id="qrot" type="application/json">{_json.dumps(rotation_cards(o["lang"]), ensure_ascii=False)}</script>
 
   <p class="tease">{o['tease']}</p>
+  <div class="authors" aria-hidden="true"><div class="atrack">{'　·　'.join(author_names(o["lang"]) * 2)}</div></div>
 
   <p class="soon">{o['soon']}</p>
 </main>
@@ -172,6 +202,10 @@ def render(key):
   <a href="https://kkiruk-studio.github.io/terms-of-service-app/">{o['f_terms']}</a>
   <a href="mailto:kkirukstudio@gmail.com">{o['f_contact']}</a>
 </footer>
+<script>(function(){{var el=document.getElementById('qrot');if(!el)return;var cards=JSON.parse(el.textContent);var i=0;
+var cq=document.getElementById('cq'),ca=document.getElementById('ca'),box=document.getElementById('crown');
+setInterval(function(){{i=(i+1)%cards.length;box.classList.add('fade');
+setTimeout(function(){{cq.innerHTML=cards[i].q;ca.textContent='— '+cards[i].a;box.classList.remove('fade');}},350);}},4200);}})();</script>
 </body>
 </html>"""
     out=ROOT/o["dir"] if o["dir"] else ROOT

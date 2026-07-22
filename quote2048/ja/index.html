@@ -43,15 +43,17 @@
   <script id="qdata" type="application/json">{"quotes": {"2": "始めが肝心", "4": "千里の行も足下に始まる", "8": "知は力なり", "16": "汝自身を知れ", "32": "私を殺さないものは、私をより強くする", "64": "必死則生、必生則死", "128": "生きるべきか死ぬべきか", "256": "己の欲せざる所人に施す勿れ", "512": "今、臣に戦船なお十二あり", "1024": "合抱の木も毫末より生ず", "2048": "希望とは羽をもつもの、魂にとまる"}, "tap": "タップしてプレイ", "toast": "この先はアプリで — 近日公開。"}</script>
   <script defer src="../assets/demo.js"></script>
 
-  <p class="reveal">最後までいくと、この文章が待っています。</p>
+  <p class="reveal">頂上では、こんな文章が待っています。</p>
 
-  <blockquote class="crown">
-    <p>今、臣に戦船<br>なお十二あり</p>
-    <cite>— 李舜臣</cite>
+  <blockquote class="crown" id="crown">
+    <p id="cq">今、臣に戦船<br>なお十二あり</p>
+    <cite id="ca">— 李舜臣</cite>
     <span class="badge">👑 2048</span>
   </blockquote>
+  <script id="qrot" type="application/json">[{"q": "今、臣に戦船なお十二あり", "a": "李舜臣"}, {"q": "生きるべきか死ぬべきか", "a": "シェイクスピア"}, {"q": "私を殺さないものは、私をより強くする", "a": "ニーチェ"}, {"q": "希望とは羽をもつもの、魂にとまる", "a": "エミリー・ディキンソン"}]</script>
 
-  <p class="tease">じつは2048の先にも名言が隠れています。どこまであるかは、内緒です。</p>
+  <p class="tease">好きな作家がいるなら、きっとその人のパックがあります。</p>
+  <div class="authors" aria-hidden="true"><div class="atrack">シェイクスピア　·　プラトン　·　セネカ　·　バージニア・ウルフ　·　ニーチェ　·　孔子　·　オスカー・ワイルド　·　トルストイ　·　アリストテレス　·　マルクス・アウレリウス　·　仏陀　·　荘子　·　ルーミー　·　ガンジー　·　ベンジャミン・フランクリン　·　ゲーテ　·　ドストエフスキー　·　カフカ　·　ジェイン・オースティン　·　マーク・トウェイン　·　ソロー　·　夏目漱石　·　エピクテトス　·　マキャヴェッリ　·　孫子　·　エミリー・ディキンソン　·　モンテーニュ　·　ラ・ロシュフコー　·　グラシアン　·　洪自誠　·　韓非　·　シェイクスピア　·　プラトン　·　セネカ　·　バージニア・ウルフ　·　ニーチェ　·　孔子　·　オスカー・ワイルド　·　トルストイ　·　アリストテレス　·　マルクス・アウレリウス　·　仏陀　·　荘子　·　ルーミー　·　ガンジー　·　ベンジャミン・フランクリン　·　ゲーテ　·　ドストエフスキー　·　カフカ　·　ジェイン・オースティン　·　マーク・トウェイン　·　ソロー　·　夏目漱石　·　エピクテトス　·　マキャヴェッリ　·　孫子　·　エミリー・ディキンソン　·　モンテーニュ　·　ラ・ロシュフコー　·　グラシアン　·　洪自誠　·　韓非</div></div>
 
   <p class="soon">近日公開 · iOS</p>
 </main>
@@ -62,5 +64,9 @@
   <a href="https://kkiruk-studio.github.io/terms-of-service-app/">利用規約</a>
   <a href="mailto:kkirukstudio@gmail.com">お問い合わせ</a>
 </footer>
+<script>(function(){var el=document.getElementById('qrot');if(!el)return;var cards=JSON.parse(el.textContent);var i=0;
+var cq=document.getElementById('cq'),ca=document.getElementById('ca'),box=document.getElementById('crown');
+setInterval(function(){i=(i+1)%cards.length;box.classList.add('fade');
+setTimeout(function(){cq.innerHTML=cards[i].q;ca.textContent='— '+cards[i].a;box.classList.remove('fade');},350);},4200);})();</script>
 </body>
 </html>

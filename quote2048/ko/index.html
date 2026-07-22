@@ -43,15 +43,17 @@
   <script id="qdata" type="application/json">{"quotes": {"2": "시작이 반이다", "4": "천 리 길도 한 걸음부터", "8": "아는 것이 힘이다", "16": "너 자신을 알라", "32": "나를 죽이지 못하는 것은 나를 더 강하게 만든다", "64": "죽고자 하면 살고 살고자 하면 죽는다", "128": "사느냐 죽느냐, 그것이 문제로다", "256": "내가 원치 않는 것을 남에게 말라", "512": "신에게는 아직 열두 척의 배가 있습니다", "1024": "큰 나무도 작은 싹에서 자란다", "2048": "희망은 깃털 달린 것, 영혼에 내려앉는다"}, "tap": "탭하여 플레이", "toast": "이다음은 앱에서 이어져요 — 곧 나와요."}</script>
   <script defer src="../assets/demo.js"></script>
 
-  <p class="reveal">끝까지 가면, 이런 문장이 기다리고 있어요.</p>
+  <p class="reveal">정상에는 이런 문장들이 있어요.</p>
 
-  <blockquote class="crown">
-    <p>신에게는 아직 열두 척의<br>배가 있습니다</p>
-    <cite>— 이순신</cite>
+  <blockquote class="crown" id="crown">
+    <p id="cq">신에게는 아직 열두 척의<br>배가 있습니다</p>
+    <cite id="ca">— 이순신</cite>
     <span class="badge">👑 2048</span>
   </blockquote>
+  <script id="qrot" type="application/json">[{"q": "신에게는 아직 열두 척의 배가 있습니다", "a": "이순신"}, {"q": "사느냐 죽느냐, 그것이 문제로다", "a": "셰익스피어"}, {"q": "나를 죽이지 못하는 것은 나를 더 강하게 만든다", "a": "니체"}, {"q": "희망은 깃털 달린 것, 영혼에 내려앉는다", "a": "에밀리 디킨슨"}]</script>
 
-  <p class="tease">사실 2048 너머에도 명언이 숨어 있어요. 어디까지 있는지는, 비밀이에요.</p>
+  <p class="tease">좋아하는 작가가 있다면, 아마 그 사람의 팩이 있을 거예요.</p>
+  <div class="authors" aria-hidden="true"><div class="atrack">셰익스피어　·　플라톤　·　세네카　·　버지니아 울프　·　니체　·　공자　·　오스카 와일드　·　톨스토이　·　아리스토텔레스　·　마르쿠스 아우렐리우스　·　부처　·　장자　·　루미　·　간디　·　벤저민 프랭클린　·　괴테　·　도스토옙스키　·　카프카　·　제인 오스틴　·　마크 트웨인　·　소로　·　나쓰메 소세키　·　에픽테토스　·　마키아벨리　·　손자　·　에밀리 디킨슨　·　몽테뉴　·　라 로슈푸코　·　그라시안　·　홍자성　·　한비　·　셰익스피어　·　플라톤　·　세네카　·　버지니아 울프　·　니체　·　공자　·　오스카 와일드　·　톨스토이　·　아리스토텔레스　·　마르쿠스 아우렐리우스　·　부처　·　장자　·　루미　·　간디　·　벤저민 프랭클린　·　괴테　·　도스토옙스키　·　카프카　·　제인 오스틴　·　마크 트웨인　·　소로　·　나쓰메 소세키　·　에픽테토스　·　마키아벨리　·　손자　·　에밀리 디킨슨　·　몽테뉴　·　라 로슈푸코　·　그라시안　·　홍자성　·　한비</div></div>
 
   <p class="soon">곧 출시 · iOS</p>
 </main>
@@ -62,5 +64,9 @@
   <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
   <a href="mailto:kkirukstudio@gmail.com">문의</a>
 </footer>
+<script>(function(){var el=document.getElementById('qrot');if(!el)return;var cards=JSON.parse(el.textContent);var i=0;
+var cq=document.getElementById('cq'),ca=document.getElementById('ca'),box=document.getElementById('crown');
+setInterval(function(){i=(i+1)%cards.length;box.classList.add('fade');
+setTimeout(function(){cq.innerHTML=cards[i].q;ca.textContent='— '+cards[i].a;box.classList.remove('fade');},350);},4200);})();</script>
 </body>
 </html>
