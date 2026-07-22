@@ -34,12 +34,14 @@
   <h1>명언으로 하는<br><em>2048.</em></h1>
   <p class="sub">같은 문장 두 개를 합치면, 한 단계 위의 명언이 나타납니다.</p>
 
-  <div class="stage" aria-hidden="true">
-    <div class="cell c1"></div><div class="cell c2"></div><div class="cell c3"></div><div class="cell c4"></div>
-    <div class="tile a">시작이<br>반이다</div>
-    <div class="tile b">시작이<br>반이다</div>
-    <div class="tile m">천 리 길도<br>한 걸음부터</div>
+  <div class="pwrap">
+    <div class="pboard" id="pboard">
+      <div class="pgrid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <p class="phint" id="phint">스와이프 또는 방향키</p>
   </div>
+  <script id="qdata" type="application/json">{"quotes": {"2": "시작이 반이다", "4": "천 리 길도 한 걸음부터", "8": "늦은 때는 없다", "16": "작심삼일도 시작은 시작", "32": "배우고 익히면 즐겁지 아니한가", "64": "준비된 자에게 행운이 따른다", "128": "두드리라 그리하면 열릴 것이다", "256": "하지 않은 일을 더 후회한다", "512": "태초에 빛이 있으라 하셨다", "1024": "이것은 시작의 끝일 뿐", "2048": "큰 나무도 작은 싹에서 자란다"}, "tap": "탭하여 플레이", "toast": "여기서부터는 앱에서 — 곧 출시됩니다."}</script>
+  <script defer src="../assets/demo.js"></script>
 
   <p class="reveal">그리고 2048 타일을 만들면 —</p>
 

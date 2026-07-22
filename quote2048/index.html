@@ -34,12 +34,14 @@
   <h1>2048,<br>played with <em>quotes</em>.</h1>
   <p class="sub">Merge two matching lines — a greater quote takes their place.</p>
 
-  <div class="stage" aria-hidden="true">
-    <div class="cell c1"></div><div class="cell c2"></div><div class="cell c3"></div><div class="cell c4"></div>
-    <div class="tile a">Well begun<br>is half done</div>
-    <div class="tile b">Well begun<br>is half done</div>
-    <div class="tile m">A journey of a thousand<br>miles starts with one step</div>
+  <div class="pwrap">
+    <div class="pboard" id="pboard">
+      <div class="pgrid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <p class="phint" id="phint">swipe or arrow keys</p>
   </div>
+  <script id="qdata" type="application/json">{"quotes": {"2": "Well begun is half done", "4": "A journey of a thousand miles starts with one step", "8": "There's no time like now", "16": "Even three days is still a start", "32": "Isn't learning and practice a joy", "64": "Fortune favors the prepared", "128": "Knock, and it will be opened", "256": "You regret what you never tried", "512": "Let there be light", "1024": "It is the end of the beginning", "2048": "A great tree grows from a small sprout"}, "tap": "Tap to play", "toast": "It goes much further in the app — coming soon on iOS."}</script>
+  <script defer src="assets/demo.js"></script>
 
   <p class="reveal">And when you make the 2048 tile —</p>
 

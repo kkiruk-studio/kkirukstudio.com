@@ -34,12 +34,14 @@
   <h1>名言で遊ぶ<br><em>2048。</em></h1>
   <p class="sub">同じ文をふたつ合わせると、ひとつ上の名言が現れます。</p>
 
-  <div class="stage" aria-hidden="true">
-    <div class="cell c1"></div><div class="cell c2"></div><div class="cell c3"></div><div class="cell c4"></div>
-    <div class="tile a">始まりは<br>半分の成功</div>
-    <div class="tile b">始まりは<br>半分の成功</div>
-    <div class="tile m">千里の行も<br>足下に始まる</div>
+  <div class="pwrap">
+    <div class="pboard" id="pboard">
+      <div class="pgrid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <p class="phint" id="phint">スワイプまたは矢印キー</p>
   </div>
+  <script id="qdata" type="application/json">{"quotes": {"2": "始めが肝心", "4": "千里の行も足下に始まる", "8": "遅すぎることはない", "16": "三日坊主も始まりの一つ", "32": "学びて時に習う、亦説ばしからずや", "64": "幸運は備えある者に", "128": "門をたたけ、そうすれば開かれる", "256": "やらなかった後悔の方が大きい", "512": "光あれ", "1024": "これは始まりの終わりに過ぎない", "2048": "合抱の木も毫末より生ず"}, "tap": "タップしてプレイ", "toast": "この先はアプリで — 近日公開。"}</script>
+  <script defer src="../assets/demo.js"></script>
 
   <p class="reveal">そして2048のタイルを作ると —</p>
 

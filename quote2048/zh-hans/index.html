@@ -34,12 +34,14 @@
   <h1>用名言玩的<br><em>2048。</em></h1>
   <p class="sub">合并两句相同的话，出现更高一级的名言。</p>
 
-  <div class="stage" aria-hidden="true">
-    <div class="cell c1"></div><div class="cell c2"></div><div class="cell c3"></div><div class="cell c4"></div>
-    <div class="tile a">好的开始<br>是成功的一半</div>
-    <div class="tile b">好的开始<br>是成功的一半</div>
-    <div class="tile m">千里之行<br>始于足下</div>
+  <div class="pwrap">
+    <div class="pboard" id="pboard">
+      <div class="pgrid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <p class="phint" id="phint">滑动或方向键</p>
   </div>
+  <script id="qdata" type="application/json">{"quotes": {"2": "良好开端是成功一半", "4": "千里之行，始于足下", "8": "永远不嫌晚", "16": "三分钟热度也是开始", "32": "学而时习之，不亦说乎", "64": "幸运偏爱有准备的人", "128": "叩门，就给你们开门", "256": "不做更让人后悔", "512": "要有光", "1024": "这只是开始的结束", "2048": "合抱之木，生于毫末"}, "tap": "点按开始", "toast": "更远的旅程在应用中 — 即将上线。"}</script>
+  <script defer src="../assets/demo.js"></script>
 
   <p class="reveal">当你合成出2048方块时 —</p>
 
