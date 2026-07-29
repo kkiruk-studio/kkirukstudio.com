@@ -91,7 +91,7 @@ LOCALES = {
         "shots_caps": ["Ridden lines fill in over real track geometry.",
                        "Every service, banded by division, with its bullet.",
                        "A stamp book that fills as you go."],
-        "feat_kicker": "DETAILS", "feat_num": "06", "feat_h2": "The parts that matter.",
+        "feat_kicker": "DETAILS", "feat_num": "06", "feat_h2": "What a full run needs.",
         "feats": [
             ("Two maps", "A real one, and a network view that strips everything away but the subway."),
             ("Five boroughs", "A heatmap that shows where you've actually been — and where you haven't."),
@@ -136,7 +136,7 @@ LOCALES = {
         "shots_caps": ["탄 노선이 실제 선로 위에 칠해집니다.",
                        "전 노선을 디비전별로, 각자의 불릿과 함께.",
                        "다닐수록 채워지는 스탬프북."],
-        "feat_kicker": "디테일", "feat_num": "06", "feat_h2": "중요한 부분들.",
+        "feat_kicker": "디테일", "feat_num": "06", "feat_h2": "완주까지 필요한 것들.",
         "feats": [
             ("지도 2종", "실제 지도와, 지하철만 남기고 전부 걷어낸 노선망 뷰."),
             ("5개 자치구", "어디를 실제로 다녔고 어디를 안 갔는지 보여주는 히트맵."),
@@ -180,7 +180,7 @@ LOCALES = {
         "shots_caps": ["乗った路線が実際の線路の上に塗られます。",
                        "全系統を区分ごとに、それぞれのブレットとともに。",
                        "乗るほど埋まるスタンプ帳。"],
-        "feat_kicker": "詳細", "feat_num": "06", "feat_h2": "大事なところ。",
+        "feat_kicker": "詳細", "feat_num": "06", "feat_h2": "完乗までに必要なもの。",
         "feats": [
             ("地図2種", "実際の地図と、地下鉄だけを残して他を取り払ったネットワーク表示。"),
             ("5行政区", "どこに実際に行き、どこに行っていないかを示すヒートマップ。"),
@@ -224,7 +224,7 @@ LOCALES = {
         "shots_caps": ["搭過的路線會填在實際軌道上。",
                        "全部路線依分區排列，各自帶著路線標誌。",
                        "越搭越滿的蓋章簿。"],
-        "feat_kicker": "細節", "feat_num": "06", "feat_h2": "重要的部分。",
+        "feat_kicker": "細節", "feat_num": "06", "feat_h2": "跑完全程需要的東西。",
         "feats": [
             ("兩種地圖", "真實地圖，以及只留下地鐵、其餘全部拿掉的路網檢視。"),
             ("五個行政區", "顯示你實際去過哪裡、還沒去哪裡的熱點圖。"),

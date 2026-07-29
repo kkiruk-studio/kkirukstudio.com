@@ -20,6 +20,12 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
+# `hub` / `more` are unused: the /rail/ hub was removed. The home
+# section already carries all three apps and links straight to each
+# landing, so the hub only added a hop between the reader and the app.
+# Restore the link line here (and rail/build.py) if the family grows
+# past what one section can hold.
+#
 # Per locale: the home file, the nav label, the section intro, and the
 # NYC card (the other two cards are moved verbatim from the Apps grid,
 # so their copy stays whatever it already was).
@@ -148,7 +154,6 @@ def build(name, c):
     <p class="sec-intro reveal">{c['intro']}</p>
     <div class="apps">
 {ordered}    </div>
-    <p class="sec-more reveal"><a href="{c['hub']}">{c['more']}</a></p>
   </div>
 </section>
 '''
