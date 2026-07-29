@@ -1,0 +1,205 @@
+/* NYC Subway Log — landing page.
+   Built from the app's own visual system: black signage field,
+   Helvetica, route bullets, MTA trunk colours. No external assets. */
+
+:root {
+  --ink: #ffffff;
+  --ink-2: rgba(255, 255, 255, .62);
+  --ink-3: rgba(255, 255, 255, .38);
+  --field: #000000;
+  --panel: #0e0e10;
+  --rule: rgba(255, 255, 255, .16);
+  --blue: #0062cf;
+  --orange: #eb6800;
+  --lime: #799534;
+  --brown: #8e5c33;
+  --gray: #7c858c;
+  --yellow: #f6bc26;
+  --red: #d82233;
+  --green: #009952;
+  --purple: #9a38a1;
+  --wrap: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--field);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, -apple-system,
+               BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+
+/* ── the stripe: nine trunks, edge to edge. Same object as the app
+      icon's rule and the in-app page header. ───────────────────── */
+.stripe { display: flex; height: 5px; width: 100%; }
+.stripe i { flex: 1; }
+.stripe i:nth-child(1) { background: var(--blue); }
+.stripe i:nth-child(2) { background: var(--orange); }
+.stripe i:nth-child(3) { background: var(--lime); }
+.stripe i:nth-child(4) { background: var(--brown); }
+.stripe i:nth-child(5) { background: var(--gray); }
+.stripe i:nth-child(6) { background: var(--yellow); }
+.stripe i:nth-child(7) { background: var(--red); }
+.stripe i:nth-child(8) { background: var(--green); }
+.stripe i:nth-child(9) { background: var(--purple); }
+
+/* ── nav ─────────────────────────────────────────────────────────── */
+nav { border-bottom: 1px solid var(--rule); }
+nav .wrap { display: flex; align-items: center; justify-content: space-between;
+            min-height: 64px; gap: 16px; }
+.wordmark { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.wordmark img { width: 28px; height: 28px; border-radius: 7px; }
+.wordmark span { font-weight: 700; letter-spacing: .06em; font-size: 13px; }
+.lang { display: flex; gap: 14px; flex-wrap: wrap; }
+.lang a { font-size: 12px; color: var(--ink-3); text-decoration: none; }
+.lang a.on, .lang a:hover { color: var(--ink); }
+
+/* ── kicker: mono caps + rule, the signage eyebrow ───────────────── */
+.kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.kicker span:first-child { font-size: 11px; letter-spacing: .18em; color: var(--ink-2);
+                           font-weight: 500; white-space: nowrap; }
+.kicker .rule { flex: 1; height: 1px; background: var(--rule); }
+.kicker .num { font-size: 11px; letter-spacing: .12em; color: var(--ink-3);
+               font-variant-numeric: tabular-nums; }
+
+/* ── hero ────────────────────────────────────────────────────────── */
+.hero { position: relative; overflow: hidden; padding: 72px 0 80px; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(40px, 6.2vw, 74px); line-height: 1.02; letter-spacing: -.03em;
+           font-weight: 700; margin: 0 0 26px; }
+.sub { color: var(--ink-2); font-size: 17px; max-width: 46ch; margin: 0 0 30px; }
+
+/* live strip: stations filling in along a line */
+.strip { margin: 0 0 28px; }
+.strip .rail { position: relative; height: 26px; display: flex; align-items: center; }
+.strip .rail::before { content: ""; position: absolute; left: 0; right: 0; height: 4px;
+                       background: rgba(255,255,255,.14); border-radius: 2px; }
+.strip .fill { position: absolute; left: 0; height: 4px; background: var(--purple);
+               border-radius: 2px; transition: width .45s ease; }
+.strip .dots { position: relative; display: flex; justify-content: space-between;
+               width: 100%; }
+.strip .dot { width: 13px; height: 13px; border-radius: 50%; background: var(--field);
+              border: 2.5px solid rgba(255,255,255,.28); transition: all .35s ease; }
+.strip .dot.on { border-color: var(--purple); background: var(--purple);
+                 box-shadow: 0 0 0 3px rgba(154,56,161,.28); }
+.strip .read { display: flex; align-items: baseline; gap: 10px; margin-top: 14px; }
+.strip .read b { font-size: 30px; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.strip .read span { font-size: 12px; letter-spacing: .14em; color: var(--ink-3); }
+
+/* ── route bullet ────────────────────────────────────────────────── */
+.bullet { display: inline-flex; align-items: center; justify-content: center;
+          width: 34px; height: 34px; border-radius: 50%; font-weight: 700;
+          font-size: 19px; color: #fff; flex: none; }
+.bullet.b-yellow { color: #000; }
+.b-blue { background: var(--blue); } .b-orange { background: var(--orange); }
+.b-lime { background: var(--lime); } .b-brown { background: var(--brown); }
+.b-gray { background: var(--gray); } .b-yellow { background: var(--yellow); }
+.b-red { background: var(--red); } .b-green { background: var(--green); }
+.b-purple { background: var(--purple); }
+
+/* ── cta ─────────────────────────────────────────────────────────── */
+.cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.badge { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #000;
+         padding: 13px 22px; border-radius: 10px; text-decoration: none; font-weight: 700;
+         font-size: 15px; }
+.badge svg { width: 18px; height: 18px; fill: currentColor; }
+.badge[aria-disabled="true"] { opacity: .55; }
+.cta .note { font-size: 12px; color: var(--ink-3); letter-spacing: .04em; }
+
+/* ── phone mockup ────────────────────────────────────────────────── */
+.phone-col { position: relative; display: flex; justify-content: center; }
+.phone { position: relative; width: 100%; max-width: 300px; border-radius: 42px;
+         border: 9px solid #1c1c1e; background: #000; overflow: hidden;
+         box-shadow: 0 30px 70px rgba(0,0,0,.7); }
+.phone img { width: 100%; }
+.island { position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+          width: 84px; height: 24px; border-radius: 14px; background: #000; }
+.chip { position: absolute; display: flex; align-items: center; gap: 8px; background: var(--panel);
+        border: 1px solid var(--rule); border-radius: 999px; padding: 8px 14px 8px 8px;
+        font-size: 12px; font-weight: 600; white-space: nowrap; z-index: 2; }
+.chip .bullet { width: 24px; height: 24px; font-size: 13px; }
+.c1 { top: 8%; left: -6%; } .c2 { top: 44%; right: -8%; } .c3 { bottom: 12%; left: -10%; }
+
+/* ── marquee: the bullets, running ───────────────────────────────── */
+.marquee { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+           overflow: hidden; padding: 16px 0; }
+.marquee .track { display: flex; gap: 14px; width: max-content;
+                  animation: slide 34s linear infinite; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ── sections ────────────────────────────────────────────────────── */
+section { padding: 84px 0; }
+section h2 { font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -.025em;
+             font-weight: 700; margin: 0 0 18px; }
+.lede { color: var(--ink-2); font-size: 16px; max-width: 62ch; margin: 0 0 40px; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.step { border-top: 1px solid var(--rule); padding-top: 20px; }
+.step .n { font-size: 12px; letter-spacing: .14em; color: var(--ink-3);
+           font-variant-numeric: tabular-nums; }
+.step .tag { display: block; font-size: 11px; letter-spacing: .16em; color: var(--ink-2);
+             margin: 10px 0 8px; }
+.step h3 { font-size: 21px; letter-spacing: -.01em; margin: 0 0 8px; }
+.step p { color: var(--ink-2); font-size: 14px; margin: 0; }
+
+/* trunk table — the colour system, stated plainly */
+.trunks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
+.trunk { display: flex; align-items: center; gap: 14px; padding: 15px 0;
+         border-bottom: 1px solid var(--rule); }
+.trunk .bullets { display: flex; gap: 6px; flex: none; }
+.trunk .bullets .bullet { width: 28px; height: 28px; font-size: 15px; }
+.trunk .name { font-weight: 600; font-size: 15px; }
+.trunk .div { margin-left: auto; font-size: 11px; letter-spacing: .14em; color: var(--ink-3); }
+
+.shots .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.shots figure { margin: 0; }
+.shots figcaption { margin-top: 16px; font-size: 13px; color: var(--ink-2); }
+.shots .phone { max-width: none; border-width: 8px; border-radius: 34px; }
+.shots .island { width: 70px; height: 20px; top: 10px; }
+
+.grid6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px 40px; }
+.feat { border-top: 1px solid var(--rule); padding-top: 18px; }
+.feat h3 { font-size: 17px; margin: 0 0 8px; letter-spacing: -.01em; }
+.feat p { color: var(--ink-2); font-size: 14px; margin: 0; }
+
+.final { text-align: center; border-top: 1px solid var(--rule); }
+.final .lede { margin-left: auto; margin-right: auto; }
+.final .cta { justify-content: center; }
+
+footer { background: var(--panel); border-top: 1px solid var(--rule); padding: 44px 0; }
+footer .wrap { display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
+               font-size: 13px; color: var(--ink-3); }
+footer .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+footer .brand img { width: 26px; height: 26px; border-radius: 7px; }
+footer .links { display: flex; gap: 20px; margin-left: auto; flex-wrap: wrap; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--ink); }
+.disclaimer { border-top: 1px solid var(--rule); margin-top: 26px; padding-top: 20px;
+              font-size: 12px; color: var(--ink-3); max-width: 76ch; }
+
+@media (max-width: 860px) {
+  .hero { padding: 48px 0 56px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 44px; }
+  .phone-col { order: 2; }
+  .chip { display: none; }
+  .steps, .shots .row, .grid6 { grid-template-columns: 1fr; }
+  .trunks { grid-template-columns: 1fr; }
+  section { padding: 60px 0; }
+  footer .links { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee .track { animation: none; }
+  .strip .fill, .strip .dot { transition: none; }
+}

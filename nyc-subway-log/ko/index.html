@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NYC Subway Log — 뉴욕 지하철 완주 기록</title>
+<meta name="description" content="뉴욕 지하철 답사 기록 앱. 25개 노선·475개 역 전부를 사진·메모와 함께 기록하고, MTA 공식 노선색으로 지도에 칠합니다.">
+<meta property="og:title" content="NYC Subway Log">
+<meta property="og:description" content="25개 노선, 475개 역, 스탬프북 하나.">
+<meta property="og:image" content="https://www.kkirukstudio.com/nyc-subway-log/assets/icon-512.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://www.kkirukstudio.com/nyc-subway-log/ko/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/nyc-subway-log/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/nyc-subway-log/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/nyc-subway-log/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/nyc-subway-log/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/nyc-subway-log/zh-hant/">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:"Helvetica Neue",Helvetica,Arial,-apple-system,"Apple SD Gothic Neo",sans-serif}</style>
+</head>
+<body>
+
+<div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>NYC SUBWAY LOG</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/" class="on">한국어</a><a href="../ja/">日本語</a><a href="../zh-hant/">繁體</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>NYC SUBWAY LOG</span><span class="rule"></span><span class="num">25개 노선 · 475개 역</span></div>
+      <h1>탄 역이<br>하나씩 채워집니다.</h1>
+      <div class="strip">
+        <div class="rail"><div class="fill" id="stripFill"></div><div class="dots" id="stripDots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>
+        <div class="read"><b id="stripCount">0</b><span>방문한 역</span></div>
+      </div>
+      <p class="sub">역을 체크하면 노선이 실제 노선색으로 칠해집니다. 예전에 탄 기록도 날짜를 골라 넣을 수 있습니다.</p>
+      <div class="cta">
+        <a class="badge" id="storeLink" href="#" aria-disabled="true"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span>App Store</span></a>
+        <span class="note">iPhone · iOS 18+</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="bullet b-purple">7</span>플러싱</div><div class="chip c2"><span class="bullet b-blue">A</span>8번가</div><div class="chip c3"><span class="bullet b-gray">L</span>커네이시</div>
+      <div class="phone"><img src="../assets/shot-1-map.png" alt="탄 노선이 칠해진 지도"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span class="bullet b-blue">A</span><span class="bullet b-blue">C</span><span class="bullet b-blue">E</span><span class="bullet b-orange">B</span><span class="bullet b-orange">D</span><span class="bullet b-orange">F</span><span class="bullet b-orange">M</span><span class="bullet b-lime">G</span><span class="bullet b-brown">J</span><span class="bullet b-brown">Z</span><span class="bullet b-gray">L</span><span class="bullet b-yellow">N</span><span class="bullet b-yellow">Q</span><span class="bullet b-yellow">R</span><span class="bullet b-yellow">W</span><span class="bullet b-gray">S</span><span class="bullet b-red">1</span><span class="bullet b-red">2</span><span class="bullet b-red">3</span><span class="bullet b-green">4</span><span class="bullet b-green">5</span><span class="bullet b-green">6</span><span class="bullet b-purple">7</span><span class="bullet b-blue">A</span><span class="bullet b-blue">C</span><span class="bullet b-blue">E</span><span class="bullet b-orange">B</span><span class="bullet b-orange">D</span><span class="bullet b-orange">F</span><span class="bullet b-orange">M</span><span class="bullet b-lime">G</span><span class="bullet b-brown">J</span><span class="bullet b-brown">Z</span><span class="bullet b-gray">L</span><span class="bullet b-yellow">N</span><span class="bullet b-yellow">Q</span><span class="bullet b-yellow">R</span><span class="bullet b-yellow">W</span><span class="bullet b-gray">S</span><span class="bullet b-red">1</span><span class="bullet b-red">2</span><span class="bullet b-red">3</span><span class="bullet b-green">4</span><span class="bullet b-green">5</span><span class="bullet b-green">6</span><span class="bullet b-purple">7</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>사용법</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>세 번 누르면, 그다음은 쌓입니다.</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">탑승</span><h3>지하철을 탄다</h3><p>체크인도 GPS 추적도 없습니다. 승강장에서든 한 달 뒤든 원할 때 기록하세요.</p></div><div class="step"><span class="n">02</span><span class="tag">기록</span><h3>역을 체크한다</h3><p>역마다 한 번 누르거나, 출발·도착역을 정해 그 사이를 한 번에 넣습니다.</p></div><div class="step"><span class="n">03</span><span class="tag">수집</span><h3>채워지는 걸 본다</h3><p>실제 선로 위에 노선색이 칠해집니다. 한 노선을 끝까지 타면 완주 카드가 나옵니다.</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>노선색 체계</span><span class="rule"></span><span class="num">10개 계통</span></div>
+    <h2>색은 우리가 고른 게 아닙니다.</h2>
+    <p class="lede">노선색·역명·선로 형상 모두 MTA 가 공개하는 GTFS 피드에서 그대로 가져왔습니다. 역 전광판을 움직이는 것과 같은 데이터입니다.</p>
+    <div class="trunks"><div class="trunk"><div class="bullets"><span class="bullet b-blue">A</span><span class="bullet b-blue">C</span><span class="bullet b-blue">E</span></div><span class="name">Eighth Avenue</span><span class="div">IND</span></div><div class="trunk"><div class="bullets"><span class="bullet b-orange">B</span><span class="bullet b-orange">D</span><span class="bullet b-orange">F</span><span class="bullet b-orange">M</span></div><span class="name">Sixth Avenue</span><span class="div">IND</span></div><div class="trunk"><div class="bullets"><span class="bullet b-lime">G</span></div><span class="name">Crosstown</span><span class="div">IND</span></div><div class="trunk"><div class="bullets"><span class="bullet b-brown">J</span><span class="bullet b-brown">Z</span></div><span class="name">Nassau Street</span><span class="div">BMT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-gray">L</span></div><span class="name">Canarsie</span><span class="div">BMT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-yellow">N</span><span class="bullet b-yellow">Q</span><span class="bullet b-yellow">R</span><span class="bullet b-yellow">W</span></div><span class="name">Broadway</span><span class="div">BMT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-gray">S</span></div><span class="name">Shuttles</span><span class="div">—</span></div><div class="trunk"><div class="bullets"><span class="bullet b-red">1</span><span class="bullet b-red">2</span><span class="bullet b-red">3</span></div><span class="name">Broadway–Seventh Av</span><span class="div">IRT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-green">4</span><span class="bullet b-green">5</span><span class="bullet b-green">6</span></div><span class="name">Lexington Avenue</span><span class="div">IRT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-purple">7</span></div><span class="name">Flushing</span><span class="div">IRT</span></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>앱 화면</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>담긴 것.</h2>
+    <div class="row"><figure><div class="phone"><img src="../assets/shot-1-map.png" alt="탄 노선이 실제 선로 위에 칠해집니다." loading="lazy"><div class="island"></div></div><figcaption>탄 노선이 실제 선로 위에 칠해집니다.</figcaption></figure><figure><div class="phone"><img src="../assets/shot-2-lines.png" alt="전 노선을 디비전별로, 각자의 불릿과 함께." loading="lazy"><div class="island"></div></div><figcaption>전 노선을 디비전별로, 각자의 불릿과 함께.</figcaption></figure><figure><div class="phone"><img src="../assets/shot-3-stamps.png" alt="다닐수록 채워지는 스탬프북." loading="lazy"><div class="island"></div></div><figcaption>다닐수록 채워지는 스탬프북.</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>디테일</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>중요한 부분들.</h2>
+    <div class="grid6"><div class="feat"><h3>지도 2종</h3><p>실제 지도와, 지하철만 남기고 전부 걷어낸 노선망 뷰.</p></div><div class="feat"><h3>5개 자치구</h3><p>어디를 실제로 다녔고 어디를 안 갔는지 보여주는 히트맵.</p></div><div class="feat"><h3>전 구간 완주</h3><p>한 노선을 끝까지 타면 그 노선이 그려진 카드를 받습니다.</p></div><div class="feat"><h3>사진·메모</h3><p>역 방문마다 붙일 수 있습니다. 사진은 기기 안에만 남습니다.</p></div><div class="feat"><h3>차량 도감</h3><p>R32 브라이트라이너부터 R211 까지. 탄 것과 본 것을 기록합니다.</p></div><div class="feat"><h3>iCloud 동기화</h3><p>전 사용자 무료. 기기를 바꿔도 기록이 남습니다.</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>475개 역. 실제로 몇 개나 가보셨나요?</h2>
+    <p class="lede">한 역부터 시작하세요. 7호선은 이미 즐겨찾기에 있습니다.</p>
+    <div class="cta"><a class="badge" id="storeLink2" href="#" aria-disabled="true"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span>App Store</span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="disclaimer">NYC Subway Log 는 독립 앱이며 MTA(Metropolitan Transportation Authority)와 제휴·후원 관계가 없습니다. 역·노선 데이터는 MTA 공개 GTFS 피드, 육지 실루엣은 NYC OpenData 를 사용합니다.</p></div>
+  <div class="wrap" style="margin-top:14px">© 2026 kkiruk studio</div>
+</footer>
+
+<script>
+  // Set this after App Store approval (e.g. https://apps.apple.com/app/id1234567890).
+  const APP_STORE_URL = "";
+  if (APP_STORE_URL) {
+    for (const id of ["storeLink", "storeLink2"]) {
+      const el = document.getElementById(id);
+      if (el) { el.href = APP_STORE_URL; el.removeAttribute("aria-disabled"); }
+    }
+  }
+
+  // Hero strip: stations fill in one by one, the way the line does in
+  // the app. Pauses for readers who asked for reduced motion.
+  (function () {
+    const dots = Array.from(document.querySelectorAll("#stripDots .dot"));
+    const fill = document.getElementById("stripFill");
+    const count = document.getElementById("stripCount");
+    if (!dots.length || !fill || !count) return;
+    const TOTAL = 475;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      dots.forEach(d => d.classList.add("on"));
+      fill.style.width = "100%";
+      count.textContent = TOTAL;
+      return;
+    }
+    let i = 0;
+    setInterval(function () {
+      if (i >= dots.length) {
+        i = 0;
+        dots.forEach(d => d.classList.remove("on"));
+        fill.style.width = "0%";
+        count.textContent = "0";
+        return;
+      }
+      dots[i].classList.add("on");
+      fill.style.width = (i / (dots.length - 1) * 100) + "%";
+      count.textContent = Math.round((i + 1) / dots.length * TOTAL);
+      i++;
+    }, 520);
+  })();
+</script>
+</body>
+</html>

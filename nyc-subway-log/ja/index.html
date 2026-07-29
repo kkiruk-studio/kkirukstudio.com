@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NYC Subway Log — ニューヨーク地下鉄 全駅記録</title>
+<meta name="description" content="ニューヨーク地下鉄の乗車記録アプリ。25系統・475駅すべてを写真とメモで残し、MTA公式の路線色で地図に塗ります。">
+<meta property="og:title" content="NYC Subway Log">
+<meta property="og:description" content="25系統、475駅、スタンプ帳ひとつ。">
+<meta property="og:image" content="https://www.kkirukstudio.com/nyc-subway-log/assets/icon-512.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://www.kkirukstudio.com/nyc-subway-log/ja/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/nyc-subway-log/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/nyc-subway-log/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/nyc-subway-log/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/nyc-subway-log/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/nyc-subway-log/zh-hant/">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:"Helvetica Neue",Helvetica,Arial,-apple-system,"Hiragino Sans",sans-serif}</style>
+</head>
+<body>
+
+<div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>NYC SUBWAY LOG</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/">한국어</a><a href="../ja/" class="on">日本語</a><a href="../zh-hant/">繁體</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>NYC SUBWAY LOG</span><span class="rule"></span><span class="num">25系統 · 475駅</span></div>
+      <h1>乗った駅が、<br>ひとつずつ埋まる。</h1>
+      <div class="strip">
+        <div class="rail"><div class="fill" id="stripFill"></div><div class="dots" id="stripDots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>
+        <div class="read"><b id="stripCount">0</b><span>記録した駅</span></div>
+      </div>
+      <p class="sub">駅を記録すると路線が実際の路線色で塗られます。昔乗った記録も日付を選んで残せます。</p>
+      <div class="cta">
+        <a class="badge" id="storeLink" href="#" aria-disabled="true"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span>App Store</span></a>
+        <span class="note">iPhone · iOS 18+</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="bullet b-purple">7</span>フラッシング</div><div class="chip c2"><span class="bullet b-blue">A</span>8番街</div><div class="chip c3"><span class="bullet b-gray">L</span>カナーシー</div>
+      <div class="phone"><img src="../assets/shot-1-map.png" alt="乗った路線が塗られた地図"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span class="bullet b-blue">A</span><span class="bullet b-blue">C</span><span class="bullet b-blue">E</span><span class="bullet b-orange">B</span><span class="bullet b-orange">D</span><span class="bullet b-orange">F</span><span class="bullet b-orange">M</span><span class="bullet b-lime">G</span><span class="bullet b-brown">J</span><span class="bullet b-brown">Z</span><span class="bullet b-gray">L</span><span class="bullet b-yellow">N</span><span class="bullet b-yellow">Q</span><span class="bullet b-yellow">R</span><span class="bullet b-yellow">W</span><span class="bullet b-gray">S</span><span class="bullet b-red">1</span><span class="bullet b-red">2</span><span class="bullet b-red">3</span><span class="bullet b-green">4</span><span class="bullet b-green">5</span><span class="bullet b-green">6</span><span class="bullet b-purple">7</span><span class="bullet b-blue">A</span><span class="bullet b-blue">C</span><span class="bullet b-blue">E</span><span class="bullet b-orange">B</span><span class="bullet b-orange">D</span><span class="bullet b-orange">F</span><span class="bullet b-orange">M</span><span class="bullet b-lime">G</span><span class="bullet b-brown">J</span><span class="bullet b-brown">Z</span><span class="bullet b-gray">L</span><span class="bullet b-yellow">N</span><span class="bullet b-yellow">Q</span><span class="bullet b-yellow">R</span><span class="bullet b-yellow">W</span><span class="bullet b-gray">S</span><span class="bullet b-red">1</span><span class="bullet b-red">2</span><span class="bullet b-red">3</span><span class="bullet b-green">4</span><span class="bullet b-green">5</span><span class="bullet b-green">6</span><span class="bullet b-purple">7</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>使い方</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>3タップ、あとは積み上がる。</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">乗る</span><h3>地下鉄に乗る</h3><p>チェックインもGPS追跡もありません。ホームでも1か月後でも、好きなときに記録できます。</p></div><div class="step"><span class="n">02</span><span class="tag">記録</span><h3>駅を記録する</h3><p>駅ごとに1タップ、または始点と終点を選んでその区間をまとめて登録。</p></div><div class="step"><span class="n">03</span><span class="tag">集める</span><h3>埋まっていく</h3><p>実際の線路の上が路線色で塗られます。1系統を乗り通すと記念カードが出ます。</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>路線色の体系</span><span class="rule"></span><span class="num">10系統</span></div>
+    <h2>色は私たちが選んだものではありません。</h2>
+    <p class="lede">路線色・駅名・線路形状はすべてMTAが公開するGTFSフィードそのままです。駅の発車標を動かしているのと同じデータです。</p>
+    <div class="trunks"><div class="trunk"><div class="bullets"><span class="bullet b-blue">A</span><span class="bullet b-blue">C</span><span class="bullet b-blue">E</span></div><span class="name">Eighth Avenue</span><span class="div">IND</span></div><div class="trunk"><div class="bullets"><span class="bullet b-orange">B</span><span class="bullet b-orange">D</span><span class="bullet b-orange">F</span><span class="bullet b-orange">M</span></div><span class="name">Sixth Avenue</span><span class="div">IND</span></div><div class="trunk"><div class="bullets"><span class="bullet b-lime">G</span></div><span class="name">Crosstown</span><span class="div">IND</span></div><div class="trunk"><div class="bullets"><span class="bullet b-brown">J</span><span class="bullet b-brown">Z</span></div><span class="name">Nassau Street</span><span class="div">BMT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-gray">L</span></div><span class="name">Canarsie</span><span class="div">BMT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-yellow">N</span><span class="bullet b-yellow">Q</span><span class="bullet b-yellow">R</span><span class="bullet b-yellow">W</span></div><span class="name">Broadway</span><span class="div">BMT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-gray">S</span></div><span class="name">Shuttles</span><span class="div">—</span></div><div class="trunk"><div class="bullets"><span class="bullet b-red">1</span><span class="bullet b-red">2</span><span class="bullet b-red">3</span></div><span class="name">Broadway–Seventh Av</span><span class="div">IRT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-green">4</span><span class="bullet b-green">5</span><span class="bullet b-green">6</span></div><span class="name">Lexington Avenue</span><span class="div">IRT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-purple">7</span></div><span class="name">Flushing</span><span class="div">IRT</span></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>アプリ画面</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>収録内容。</h2>
+    <div class="row"><figure><div class="phone"><img src="../assets/shot-1-map.png" alt="乗った路線が実際の線路の上に塗られます。" loading="lazy"><div class="island"></div></div><figcaption>乗った路線が実際の線路の上に塗られます。</figcaption></figure><figure><div class="phone"><img src="../assets/shot-2-lines.png" alt="全系統を区分ごとに、それぞれのブレットとともに。" loading="lazy"><div class="island"></div></div><figcaption>全系統を区分ごとに、それぞれのブレットとともに。</figcaption></figure><figure><div class="phone"><img src="../assets/shot-3-stamps.png" alt="乗るほど埋まるスタンプ帳。" loading="lazy"><div class="island"></div></div><figcaption>乗るほど埋まるスタンプ帳。</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>詳細</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>大事なところ。</h2>
+    <div class="grid6"><div class="feat"><h3>地図2種</h3><p>実際の地図と、地下鉄だけを残して他を取り払ったネットワーク表示。</p></div><div class="feat"><h3>5行政区</h3><p>どこに実際に行き、どこに行っていないかを示すヒートマップ。</p></div><div class="feat"><h3>全区間走破</h3><p>1系統を乗り通すと、その路線が描かれたカードがもらえます。</p></div><div class="feat"><h3>写真とメモ</h3><p>駅の記録ごとに添付できます。写真は端末内にのみ残ります。</p></div><div class="feat"><h3>車両図鑑</h3><p>R32ブライトライナーからR211まで。乗った車両と見た車両を記録。</p></div><div class="feat"><h3>iCloud同期</h3><p>全ユーザー無料。端末を替えても記録は残ります。</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>475駅。実際に何駅行きましたか？</h2>
+    <p class="lede">まず1駅から。7系統はすでにお気に入りに入っています。</p>
+    <div class="cta"><a class="badge" id="storeLink2" href="#" aria-disabled="true"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span>App Store</span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">お問い合わせ</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">プライバシー</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">利用規約</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="disclaimer">NYC Subway Log は独立したアプリであり、MTA（Metropolitan Transportation Authority）との提携・後援関係はありません。駅・路線データはMTA公開のGTFSフィード、陸地シルエットはNYC OpenDataを使用しています。</p></div>
+  <div class="wrap" style="margin-top:14px">© 2026 kkiruk studio</div>
+</footer>
+
+<script>
+  // Set this after App Store approval (e.g. https://apps.apple.com/app/id1234567890).
+  const APP_STORE_URL = "";
+  if (APP_STORE_URL) {
+    for (const id of ["storeLink", "storeLink2"]) {
+      const el = document.getElementById(id);
+      if (el) { el.href = APP_STORE_URL; el.removeAttribute("aria-disabled"); }
+    }
+  }
+
+  // Hero strip: stations fill in one by one, the way the line does in
+  // the app. Pauses for readers who asked for reduced motion.
+  (function () {
+    const dots = Array.from(document.querySelectorAll("#stripDots .dot"));
+    const fill = document.getElementById("stripFill");
+    const count = document.getElementById("stripCount");
+    if (!dots.length || !fill || !count) return;
+    const TOTAL = 475;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      dots.forEach(d => d.classList.add("on"));
+      fill.style.width = "100%";
+      count.textContent = TOTAL;
+      return;
+    }
+    let i = 0;
+    setInterval(function () {
+      if (i >= dots.length) {
+        i = 0;
+        dots.forEach(d => d.classList.remove("on"));
+        fill.style.width = "0%";
+        count.textContent = "0";
+        return;
+      }
+      dots[i].classList.add("on");
+      fill.style.width = (i / (dots.length - 1) * 100) + "%";
+      count.textContent = Math.round((i + 1) / dots.length * TOTAL);
+      i++;
+    }, 520);
+  })();
+</script>
+</body>
+</html>
