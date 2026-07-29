@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>레일로그 — 탄 노선이, 색으로 남는다</title>
+<meta name="description" content="역을 탭해 방문 체크. 탄 노선은 지도에서 실제 노선 색으로 칠해지고 스탬프북에 쌓입니다. 전국 17개 사업자·55개 노선, 완주하면 인장 카드가 등장합니다.">
+<meta property="og:title" content="레일로그 — 철도 답사 기록">
+<meta property="og:description" content="탄 노선이 지도에서 실제 색으로 칠해지고, 스탬프북에 쌓입니다.">
+<meta property="og:image" content="https://www.kkirukstudio.com/raillog/assets/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kkirukstudio.com/raillog/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/raillog/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/raillog/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/raillog/en/">
+<link rel="icon" type="image/png" href="assets/icon-180.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="assets/style.css">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo", "Pretendard","Segoe UI",sans-serif}</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="./"><img src="assets/icon-180.png" alt=""><span>RAILLOG</span></a>
+    <div class="progress-counter" id="progressCount">0 / 55</div>
+    <div class="lang"><a href="./" class="cur">한국어</a><a href="en/">EN</a></div>
+  </div>
+  <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+</nav>
+
+<div class="spine-wrap">
+
+<header class="hero stop passed" style="--stop-color:#0052A4">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">1호선</span>
+  <div class="ghost">RL</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>RAILLOG</span><span class="rule"></span><span class="num">철도 답사 기록</span></div>
+      <h1>탄 노선이,<br><em>색으로</em> 남는다.</h1>
+      <div class="demo-transit">
+        <div class="demo-head">
+          <span class="demo-dot" id="demoDot" style="background:#00A84D"></span>
+          <span class="demo-name" id="demoName" style="color:#00A84D">서울 2호선</span>
+          <span class="demo-count"><strong id="demoCount">43</strong> / <span id="demoTotal">43역</span></span>
+        </div>
+        <div class="demo-track" id="demoTrack" style="--lc:#00A84D"><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span></div>
+        <div class="demo-stamp shown" id="demoStamp">완주</div>
+      </div>
+      <p class="sub">역을 탭하면 방문 체크. 탄 노선은 지도에서 진짜 노선 색으로 칠해지고, 스탬프북에 쌓입니다. 전국 17개 사업자·55개 노선 — 1호선부터 KTX·SRT까지.</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="#" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a>
+        <span class="note">무료 · iPhone · 계정 불필요</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="g">17</span>개 사업자</div><div class="chip c2"><span class="g">55</span>개 노선</div><div class="chip c3"><span class="g">완주</span>인장 카드</div>
+      <div class="phone"><img src="assets/shot-ko-map.png" alt="레일로그 지도 화면 — 탄 노선이 실제 노선 색으로 칠해진 모습"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<section class="stop passed step-stop" style="--stop-color:#0052A4">
+  <span class="stop-dot" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="kicker"><span>기록</span><span class="rule"></span><span class="num">01</span></div>
+    <h2>역을 탭하는 순간, <em>지도가 색으로 채워진다</em>.</h2>
+    <div class="step"><h3>역을 탭해 방문 체크</h3><p>예전에 탔던 노선도 소급해서 기록할 수 있어요. 역마다 사진과 메모도 남깁니다.</p><div class="step-viz-card"><div class="step-viz strip-viz" style="--vc:#0052A4" aria-hidden="true"><span class="viz-st on"></span><span class="viz-seg on"></span><span class="viz-st on"></span><span class="viz-seg on"></span><span class="viz-st on"></span><span class="viz-seg on"></span><span class="viz-st on tap"></span><span class="viz-seg"></span><span class="viz-st"></span><span class="viz-seg"></span><span class="viz-st"></span></div></div></div>
+  </div>
+</section>
+<section class="stop passed step-stop" style="--stop-color:#00A84D">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">2호선</span>
+  <div class="wrap">
+    <div class="kicker"><span>지도</span><span class="rule"></span><span class="num">02</span></div>
+    
+    <div class="step"><h3>탄 노선이 실제 색으로</h3><p>탄 노선이 지도에서 진짜 노선 색으로 칠해집니다. 안 탄 노선만 보는 필터로 다음 답사도 계획하세요.</p><div class="step-viz-card"><div class="step-viz line-viz" aria-hidden="true">
+      <div class="line-row"><span class="line-cap">안 탄 노선</span><span class="line-bar"></span></div>
+      <div class="line-row on"><span class="line-cap" style="color:#00A84D">탄 노선</span><span class="line-bar" style="background:#00A84D"></span></div>
+    </div></div></div>
+  </div>
+</section>
+<section class="stop passed step-stop" style="--stop-color:#00A84D">
+  <span class="stop-dot" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="kicker"><span>수집</span><span class="rule"></span><span class="num">03</span></div>
+    
+    <div class="step"><h3>스탬프북에 쌓인다</h3><p>방문한 역이 스탬프로 쌓이고, 노선을 끝까지 타면 「전구간 완주」 인장 카드가 등장합니다.</p><div class="step-viz-card"><div class="step-viz stamp-viz" aria-hidden="true"><span class="mini-stamp filled"></span><span class="mini-stamp filled"></span><span class="mini-stamp filled"></span><span class="mini-stamp filled"></span><span class="mini-stamp"></span><span class="mini-stamp"></span></div></div></div>
+  </div>
+</section>
+
+<section class="stop passed" style="--stop-color:#D4003B;padding-top:0">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">신분당선</span>
+  <div class="wrap">
+    <div class="kicker"><span>전국 데이터</span><span class="rule"></span><span class="num">OSM 기반</span></div>
+    <h2>전국 철도를, <em>숫자</em>로.</h2>
+    <p class="lede">17개 사업자, 55개 노선, 1,191개 역 — 지하철부터 KTX·SRT까지 한 지도에서 답사합니다.</p>
+    <div class="stat-poster"><div class="stat"><div class="v">17</div><div class="l">사업자</div></div><div class="stat"><div class="v">55</div><div class="l">노선</div></div><div class="stat"><div class="v">1,191</div><div class="l">역</div></div></div>
+    <div class="line-chips"><span class="line-chip"><span class="sw" style="background:#0052A4"></span>1호선</span><span class="line-chip"><span class="sw" style="background:#00A84D"></span>2호선</span><span class="line-chip"><span class="sw" style="background:#EF7C1C"></span>3호선</span><span class="line-chip"><span class="sw" style="background:#00A5DE"></span>4호선</span><span class="line-chip"><span class="sw" style="background:#996CAC"></span>5호선</span><span class="line-chip"><span class="sw" style="background:#D4003B"></span>신분당선</span><span class="line-chip"><span class="sw" style="background:#0090D2"></span>공항철도</span><span class="line-chip"><span class="sw" style="background:#00498A"></span>KTX</span><span class="line-chip"><span class="sw" style="background:#762F90"></span>SRT</span><span class="line-chip"><span class="sw" style="background:#178C72"></span>경춘선</span><span class="line-chip"><span class="sw" style="background:#FABE00"></span>수인분당선</span></div>
+  </div>
+</section>
+
+<section class="stop passed shots" style="--stop-color:#0090D2">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">공항철도</span>
+  <div class="wrap">
+    <div class="kicker"><span>화면</span><span class="rule"></span><span class="num">IOS</span></div>
+    <h2>꾸미기보다 <em>답사 도구</em>로.</h2>
+    <div class="row"><figure><div class="phone"><img src="assets/shot-ko-map.png" alt="전국 철도를 한 지도에" decoding="async"><div class="island"></div></div><figcaption>전국 철도를 한 지도에</figcaption></figure><figure><div class="phone"><img src="assets/shot-ko-stamps.png" alt="탄 역이 스탬프가 된다" decoding="async"><div class="island"></div></div><figcaption>탄 역이 스탬프가 된다</figcaption></figure><figure><div class="phone"><img src="assets/shot-ko-complete.png" alt="전구간 완주 인장" decoding="async"><div class="island"></div></div><figcaption>전구간 완주 인장</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="stop passed" style="--stop-color:#00498A">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">KTX</span>
+  <div class="wrap">
+    <div class="kicker"><span>디테일</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>작은 디테일까지 <em>기록</em>.</h2>
+    <div class="grid6"><div class="feat"><h3>사진·메모 첨부</h3><p>역마다 사진과 메모를 남길 수 있어요.</p></div><div class="feat"><h3>GPS로 근처 역 찾기</h3><p>GPS로 근처 역을 찾아 그 자리에서 기록합니다.</p></div><div class="feat"><h3>방문일 소급 입력</h3><p>방문일은 자유롭게 선택 — 예전에 탔던 노선도 소급해서 기록.</p></div><div class="feat"><h3>9:16 스토리 공유 카드</h3><p>완주 카드를 9:16 비율로 인스타그램 스토리에 바로 공유.</p></div><div class="feat"><h3>iCloud 동기화 · 백업</h3><p>iCloud로 기기를 바꿔도 기록이 이어지고, JSON·CSV로 백업·내보내기.</p></div><div class="feat"><h3>계정 불필요 · 오프라인</h3><p>가입 없이 바로 시작하고, 오프라인에서도 기록할 수 있어요.</p></div></div>
+  </div>
+</section>
+
+<section class="stop passed" style="--stop-color:#00498A;padding-top:0">
+  <span class="stop-dot" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="kicker"><span>PRO</span><span class="rule"></span><span class="num">선택 사항</span></div>
+    <h2>무료로 시작해서, <em>필요할 때만</em> Pro.</h2>
+    <p class="lede">노선 열람 · 승차 기록 · 스탬프북 · iCloud 동기화는 모두 무료입니다.</p>
+    <div class="pricing"><div class="price-card"><div class="p">₩1,900</div><div class="t">월간</div></div><div class="price-card"><div class="p">₩9,900</div><div class="t">연간</div></div><div class="price-card"><div class="p">₩19,000</div><div class="t">평생</div></div></div>
+    <p class="pricing-note">Pro는 <strong>즐겨찾기 무제한, 상세 통계·17개 광역시도 히트맵, 워터마크 제거 공유 카드, PDF 스탬프북</strong>을 더합니다.</p>
+  </div>
+</section>
+
+<section class="stop passed stop-final final" style="--stop-color:#762F90">
+  <span class="stop-dot stop-dot-final" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">SRT</span>
+  <div class="wrap">
+    <div class="finish-stamp shown" id="finishStamp">완주</div>
+    <h2>탄 노선이, 색으로 남는다.</h2>
+    <p class="lede">iPhone 무료.</p>
+    <div class="cta"><a class="store-badge" id="storeLink2" href="#" aria-label="App Store에서 다운로드"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>다운로드는</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div class="brand"><img src="assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+      <div class="links">
+        <a href="mailto:kkirukstudio.help@gmail.com">문의</a>
+        <a href="https://kkiruk-studio.github.io/privacy-policy-app/">개인정보 처리방침</a>
+        <a href="https://kkiruk-studio.github.io/terms-of-service-app/">이용약관</a>
+      </div>
+      <div>© 2026 kkiruk studio</div>
+    </div>
+    <div class="data-note">노선·역 데이터는 OpenStreetMap 등 공개 데이터를 기반으로 합니다.</div>
+  </div>
+</footer>
+
+<script>
+  const APP_STORE_URL = "https://apps.apple.com/kr/app/id6794330967";
+  if (APP_STORE_URL) {
+    document.getElementById("storeLink").href = APP_STORE_URL;
+    document.getElementById("storeLink2").href = APP_STORE_URL;
+  }
+
+  const LINES = [["#00A84D", "서울 2호선", 43], ["#0052A4", "서울 1호선", 100], ["#D4003B", "신분당선", 16], ["#0090D2", "공항철도", 14]];
+  const UNIT = "역";
+  const DOTS = 9;
+
+  const dotEl = document.getElementById("demoDot");
+  const nameEl = document.getElementById("demoName");
+  const countEl = document.getElementById("demoCount");
+  const totalEl = document.getElementById("demoTotal");
+  const trackEl = document.getElementById("demoTrack");
+  const stampEl = document.getElementById("demoStamp");
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    function buildTrack() {
+      trackEl.innerHTML = "";
+      for (let i = 0; i < DOTS; i++) {
+        trackEl.appendChild(Object.assign(document.createElement("span"), { className: "station" }));
+        if (i < DOTS - 1) {
+          trackEl.appendChild(Object.assign(document.createElement("span"), { className: "segment" }));
+        }
+      }
+    }
+    buildTrack();
+    const stations = () => trackEl.querySelectorAll(".station");
+    const segments = () => trackEl.querySelectorAll(".segment");
+
+    function countUp(from, to) {
+      return new Promise((resolve) => {
+        const steps = Math.max(4, Math.min(10, Math.abs(to - from)));
+        const inc = (to - from) / steps;
+        let cur = from;
+        const t = setInterval(() => {
+          cur += inc;
+          const done = inc >= 0 ? cur >= to : cur <= to;
+          if (done) { cur = to; clearInterval(t); resolve(); }
+          countEl.textContent = Math.round(cur);
+        }, 45);
+      });
+    }
+
+    (async function loop() {
+      let li = 0;
+      for (;;) {
+        const [color, name, total] = LINES[li % LINES.length];
+        trackEl.style.setProperty("--lc", color);
+        dotEl.style.background = color;
+        nameEl.textContent = name;
+        nameEl.style.color = color;
+        totalEl.textContent = total + UNIT;
+        countEl.textContent = "0";
+        stations().forEach((s) => s.classList.remove("on"));
+        segments().forEach((s) => s.classList.remove("on"));
+        stampEl.classList.remove("shown");
+        stations()[0].classList.add("on");
+        await sleep(250);
+        let shown = 0;
+        for (let i = 0; i < DOTS - 1; i++) {
+          segments()[i].classList.add("on");
+          stations()[i + 1].classList.add("on");
+          const target = Math.round((total * (i + 1)) / (DOTS - 1));
+          await countUp(shown, target);
+          shown = target;
+          await sleep(160);
+        }
+        stampEl.classList.add("shown");
+        await sleep(1500);
+        li++;
+      }
+    })();
+  }
+
+  // ---- page spine: sticky progress bar + station-by-station line fill ----
+  (function () {
+    const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const stops = Array.from(document.querySelectorAll(".stop"));
+    const fillEl = document.getElementById("progressFill");
+    const countEl2 = document.getElementById("progressCount");
+    const finishEl = document.getElementById("finishStamp");
+    if (!stops.length || !fillEl || !countEl2) return;
+
+    if (!REDUCE) {
+      stops.forEach((s) => s.classList.remove("passed"));
+      if (finishEl) finishEl.classList.remove("shown");
+    }
+
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+      fillEl.style.width = (progress * 100).toFixed(2) + "%";
+      countEl2.textContent = Math.round(progress * 55) + " / 55";
+      if (!REDUCE) {
+        let currentColor = "";
+        stops.forEach((s) => {
+          const passed = s.getBoundingClientRect().top < window.innerHeight * 0.5;
+          s.classList.toggle("passed", passed);
+          if (passed) currentColor = s.style.getPropertyValue("--stop-color");
+        });
+        if (currentColor) fillEl.style.background = currentColor;
+        if (finishEl) finishEl.classList.toggle("shown", stops[stops.length - 1].classList.contains("passed"));
+      }
+    }
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  })();
+</script>
+</body>
+</html>
