@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鐵道乘車記錄應用程式 — Tetsulog · Raillog · NYC Subway Log — kkiruk studio</title>
+<meta name="description" content="用搭過的路線把地圖填滿的紀錄簿。日本、韓國、紐約 —— 同一套引擎，裝進各國的路網資料。">
+<link rel="icon" type="image/png" href="/icons/cats-cute.png">
+<meta property="og:title" content="鐵道乘車記錄應用程式 — Tetsulog · Raillog · NYC Subway Log">
+<meta property="og:description" content="用搭過的路線把地圖填滿的紀錄簿。日本、韓國、紐約 —— 同一套引擎，裝進各國的路網資料。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.kkirukstudio.com/rail/zh-hant.html">
+<meta property="og:image" content="https://www.kkirukstudio.com/og-image.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/rail/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/rail/en.html">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/rail/ja.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/rail/zh-hans.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/rail/zh-hant.html">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/rail/en.html">
+<link rel="canonical" href="https://www.kkirukstudio.com/rail/zh-hant.html">
+<link rel="stylesheet" href="/style.css?v=20260714a">
+<style>
+  .rail-hero { padding: 54px 0 8px; }
+  .rail-hero h1 { font-size: clamp(30px, 5.4vw, 46px); line-height: 1.18; letter-spacing: -.02em; }
+  .rail-hero .lead { margin-top: 16px; max-width: 54ch; color: var(--ink2); font-size: 15px; line-height: 1.75; }
+  .rail-how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  /* Same surface as .app-card. A hardcoded white card was unreadable
+     in the site's night themes (t-midnight/t-evening flip --ink light,
+     so light text landed on white). */
+  .rail-how .card { background: color-mix(in srgb, var(--ink) 5%, transparent);
+                     border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+                     border-radius: 18px; padding: 22px; }
+  .rail-how h3 { font-size: 15.5px; font-weight: 650; letter-spacing: -.01em; color: var(--ink); }
+  .rail-how p { font-size: 13.5px; color: var(--ink2); margin-top: 7px; line-height: 1.7; }
+  .rail-note { font-size: 12.5px; color: var(--ink2); margin-top: 18px; line-height: 1.7; }
+  @media (max-width: 760px) { .rail-how { grid-template-columns: 1fr; } }
+</style>
+<script src="/ga.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="wordmark" href="/">kkiruk studio</a>
+    <nav class="nav-right">
+      <a href="/">回首頁</a>
+      <select class="lang-sel" onchange="location.href=this.value" aria-label="Language">
+        <option value="/rail/">한국어</option>
+        <option value="/rail/en.html">English</option>
+        <option value="/rail/ja.html">日本語</option>
+        <option value="/rail/zh-hans.html">简体中文</option>
+        <option value="/rail/zh-hant.html" selected>繁體中文</option>
+      </select>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="rail-hero wrap">
+  <p class="sec-label reveal">Rail</p>
+  <h1 class="reveal">用搭過的路線<br>把地圖填滿</h1>
+  <p class="lead reveal">點擊車站即可記錄乘車，搭乘路線的顏色會在地圖上擴散。同一套引擎之上，裝進不同國家路網資料的三本紀錄簿。</p>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label reveal">三個國家</p>
+    <div class="apps">
+      <a class="app-card reveal" href="/tetsulog/en/">
+        <img src="/icons/tetsulog.png" alt="Tetsulog">
+        <div>
+          <h3>Tetsulog</h3>
+          <p class="en">日本鐵道乘車記錄<span class="plat"> · iOS</span></p>
+          <p>日本全國<b>163家公司·571條路線·10,096個車站</b>。</p>
+          <div class="links"><span>了解更多 →</span></div>
+        </div>
+      </a>
+      <a class="app-card reveal" href="/raillog/en/">
+        <img src="/icons/raillog.png" alt="Raillog">
+        <div>
+          <h3>Raillog</h3>
+          <p class="en">韓國鐵道乘車記錄<span class="plat"> · iOS</span></p>
+          <p>韓國全國<b>17家公司·55條路線·1,191個車站</b>。</p>
+          <div class="links"><span>了解更多 →</span></div>
+        </div>
+      </a>
+      <a class="app-card reveal" href="/nyc-subway-log/zh-hant/">
+        <img src="/icons/nyc-subway-log.png" alt="NYC Subway Log">
+        <div>
+          <h3>NYC Subway Log</h3>
+          <p class="en">紐約地鐵乘車記錄<span class="plat"> · iOS</span></p>
+          <p>紐約地鐵<b>25條路線·475個車站</b>。首個城市地鐵版本。</p>
+          <div class="links"><span>了解更多 →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label reveal">共同點</p>
+    <div class="rail-how">
+      <div class="card reveal">
+        <h3>地圖本身就是紀錄</h3>
+        <p>不是清單，而是依實際路線形狀繪製的折線。走到哪裡一目了然。</p>
+      </div>
+      <div class="card reveal">
+        <h3>搭完整條路線就有完乘卡</h3>
+        <p>完成一條路線即發放完乘卡，車站累積到蓋章簿中，還可匯出 PDF。</p>
+      </div>
+      <div class="card reveal">
+        <h3>免帳號，留在裝置裡</h3>
+        <p>沒有登入，也沒有伺服器。紀錄保存在裝置上，需要時僅透過你自己的 iCloud 同步。</p>
+      </div>
+    </div>
+    <p class="rail-note reveal">路線與車站資料來自各國公共資料，出處記載於應用程式的「資料來源」中。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <span>© 2026 kkiruk studio</span>
+    <nav class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">kkirukstudio.help@gmail.com</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/app.js?v=20260611"></script>
+</body>
+</html>

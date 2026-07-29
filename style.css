@@ -345,3 +345,8 @@ html.js .reveal.on { opacity: 1; transform: none; }
 /* 10주년 배지 */
 a.badge-10y { color: var(--ink); text-decoration: none; background: #FFE94A; border-color: var(--ink); font-weight: 700; }
 a.badge-10y:hover { transform: translateY(-1px); }
+
+/* 홈 섹션 하단의 허브 링크 (Rail 섹션 → /rail/). 홈 전용. */
+.sec-more { margin-top: 14px; font-size: 13.5px; }
+.sec-more a { color: var(--ink2); border-bottom: 1.5px solid var(--ink); padding-bottom: 1px; }
+.sec-more a:hover { color: var(--ink); }

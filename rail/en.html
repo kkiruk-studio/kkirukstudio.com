@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rail logging apps — Tetsulog, Raillog, NYC Subway Log — kkiruk studio</title>
+<meta name="description" content="A log that fills the map with the lines you've ridden. Japan, Korea, New York — one engine, a different country's network in each.">
+<link rel="icon" type="image/png" href="/icons/cats-cute.png">
+<meta property="og:title" content="Rail logging apps — Tetsulog, Raillog, NYC Subway Log">
+<meta property="og:description" content="A log that fills the map with the lines you've ridden. Japan, Korea, New York — one engine, a different country's network in each.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.kkirukstudio.com/rail/en.html">
+<meta property="og:image" content="https://www.kkirukstudio.com/og-image.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/rail/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/rail/en.html">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/rail/ja.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/rail/zh-hans.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/rail/zh-hant.html">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/rail/en.html">
+<link rel="canonical" href="https://www.kkirukstudio.com/rail/en.html">
+<link rel="stylesheet" href="/style.css?v=20260714a">
+<style>
+  .rail-hero { padding: 54px 0 8px; }
+  .rail-hero h1 { font-size: clamp(30px, 5.4vw, 46px); line-height: 1.18; letter-spacing: -.02em; }
+  .rail-hero .lead { margin-top: 16px; max-width: 54ch; color: var(--ink2); font-size: 15px; line-height: 1.75; }
+  .rail-how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  /* Same surface as .app-card. A hardcoded white card was unreadable
+     in the site's night themes (t-midnight/t-evening flip --ink light,
+     so light text landed on white). */
+  .rail-how .card { background: color-mix(in srgb, var(--ink) 5%, transparent);
+                     border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+                     border-radius: 18px; padding: 22px; }
+  .rail-how h3 { font-size: 15.5px; font-weight: 650; letter-spacing: -.01em; color: var(--ink); }
+  .rail-how p { font-size: 13.5px; color: var(--ink2); margin-top: 7px; line-height: 1.7; }
+  .rail-note { font-size: 12.5px; color: var(--ink2); margin-top: 18px; line-height: 1.7; }
+  @media (max-width: 760px) { .rail-how { grid-template-columns: 1fr; } }
+</style>
+<script src="/ga.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="wordmark" href="/">kkiruk studio</a>
+    <nav class="nav-right">
+      <a href="/">Home</a>
+      <select class="lang-sel" onchange="location.href=this.value" aria-label="Language">
+        <option value="/rail/">한국어</option>
+        <option value="/rail/en.html" selected>English</option>
+        <option value="/rail/ja.html">日本語</option>
+        <option value="/rail/zh-hans.html">简体中文</option>
+        <option value="/rail/zh-hant.html">繁體中文</option>
+      </select>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="rail-hero wrap">
+  <p class="sec-label reveal">Rail</p>
+  <h1 class="reveal">Fill the map with<br>the lines you've ridden</h1>
+  <p class="lead reveal">Tap a station to log the ride, and the line's color spreads across the map. Three logs built on one engine, each carrying a different country's network.</p>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label reveal">Three countries</p>
+    <div class="apps">
+      <a class="app-card reveal" href="/tetsulog/en/">
+        <img src="/icons/tetsulog.png" alt="Tetsulog">
+        <div>
+          <h3>Tetsulog</h3>
+          <p class="en">Japan Rail Trip Log<span class="plat"> · iOS</span></p>
+          <p><b>163 operators, 571 lines, 10,096 stations</b> across Japan — built around the 乗りつぶし tradition.</p>
+          <div class="links"><span>Learn more →</span></div>
+        </div>
+      </a>
+      <a class="app-card reveal" href="/raillog/en/">
+        <img src="/icons/raillog.png" alt="Raillog">
+        <div>
+          <h3>Raillog</h3>
+          <p class="en">Korea Rail Trip Log<span class="plat"> · iOS</span></p>
+          <p><b>17 operators, 55 lines, 1,191 stations</b> across Korea.</p>
+          <div class="links"><span>Learn more →</span></div>
+        </div>
+      </a>
+      <a class="app-card reveal" href="/nyc-subway-log/">
+        <img src="/icons/nyc-subway-log.png" alt="NYC Subway Log">
+        <div>
+          <h3>NYC Subway Log</h3>
+          <p class="en">New York Subway Log<span class="plat"> · iOS</span></p>
+          <p><b>25 services, 475 stations</b> — the first city edition, built on the Subway Challenge.</p>
+          <div class="links"><span>Learn more →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label reveal">What they share</p>
+    <div class="rail-how">
+      <div class="card reveal">
+        <h3>The map is the record</h3>
+        <p>Not a checklist — the actual track geometry fills in, so how far you've gotten reads at a glance.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Finish a line, get the card</h3>
+        <p>Complete a line and a completion card is issued; stations collect in a stamp book you can export as PDF.</p>
+      </div>
+      <div class="card reveal">
+        <h3>No account, on your device</h3>
+        <p>No login, no server. Records live on the device and sync only through your own iCloud if you want them to.</p>
+      </div>
+    </div>
+    <p class="rail-note reveal">Line and station data comes from each country's public datasets, credited in the app under Data Sources.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <span>© 2026 kkiruk studio</span>
+    <nav class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">kkirukstudio.help@gmail.com</a>
+      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
+      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/app.js?v=20260611"></script>
+</body>
+</html>
