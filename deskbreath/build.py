@@ -70,13 +70,13 @@ LOCALES = {
             ["Always up there", "Glance up mid-task and you can see whether you're on the in-breath or the out-breath."],
             ["Today's count", "Breaths and stretches for the day, without leaving what you were doing."],
         ],
-        "phone_h2": "On iPhone you feel it <em>instead of watching it</em>.",
+        "phone_h2": "On iPhone it tells you with <em>haptics</em>, not the screen.",
         "phone_caps": [
             ["One tap to start", "Tap the circle to begin or pause. Distinct haptics mark inhale, hold and exhale."],
             ["Your rhythm", "Presets, or your own seconds. Reminder intervals in five-minute steps."],
             ["What you actually did", "Skipped reminders don't count. Only the ones you marked as done."],
         ],
-        "plans_h2": "Free is enough. <em>Pro is once.</em>",
+        "plans_h2": "The basics are free. <em>Pro is one purchase.</em>",
         "plan_free_h": "Free", "plan_free_price": "Everything you need to start",
         "plan_free": [
             "The breathing circle, 4 in / 6 out",
@@ -120,13 +120,13 @@ LOCALES = {
             ["늘 거기 있어요", "일하다 한 번 올려다보면 지금 들숨인지 날숨인지 바로 보여요."],
             ["오늘 얼마나 했는지", "숨 고른 횟수랑 스트레칭 기록을 하던 자리에서 바로 봐요."],
         ],
-        "phone_h2": "iPhone에선 보지 않고 <em>손끝으로</em> 따라가요.",
+        "phone_h2": "iPhone에선 화면을 보지 않아도 <em>햅틱으로</em> 알려줘요.",
         "phone_caps": [
             ["탭 한 번으로", "호흡 원을 탭하면 시작하고 멈춰요. 들숨·멈춤·날숨이 각각 다른 햅틱으로 와요."],
             ["내 리듬대로", "프리셋을 쓰거나 초를 직접 정하고, 알림 주기는 5분 단위로 맞춰요."],
             ["진짜 한 것만", "건너뛴 건 안 세요. \"했어요\"를 누른 것만 오늘 기록에 남아요."],
         ],
-        "plans_h2": "무료로 충분하고, <em>Pro는 한 번</em>이에요.",
+        "plans_h2": "기본 기능은 무료, <em>Pro는 한 번 결제</em>.",
         "plan_free_h": "무료", "plan_free_price": "시작하는 데 필요한 건 다 있어요",
         "plan_free": [
             "호흡 원과 4초 들숨 · 6초 날숨",
@@ -170,13 +170,13 @@ LOCALES = {
             ["いつもそこに", "作業中にふと目を上げれば、いま吸うところか吐くところかがすぐ分かります。"],
             ["今日の回数", "呼吸とストレッチの記録を、作業していた場所でそのまま確認できます。"],
         ],
-        "phone_h2": "iPhone では見ずに<em>指先で</em>追えます。",
+        "phone_h2": "iPhone では画面を見なくても<em>触覚で</em>知らせます。",
         "phone_caps": [
             ["タップひとつで", "オーブをタップすれば開始と一時停止。吸う・止める・吐くが違う触覚で届きます。"],
             ["自分のリズムで", "プリセットでも、秒数の自由設定でも。通知の間隔は5分刻みです。"],
             ["やった分だけ", "飛ばした分は数えません。「やった」を押した分だけ今日の記録に残ります。"],
         ],
-        "plans_h2": "無料で十分、<em>Pro は一度きり</em>。",
+        "plans_h2": "基本機能は無料、<em>Pro は買い切り</em>。",
         "plan_free_h": "無料", "plan_free_price": "始めるのに必要なものは全部",
         "plan_free": [
             "呼吸オーブと 吸う4秒・吐く6秒",
@@ -220,13 +220,13 @@ LOCALES = {
             ["一直都在那裡", "工作到一半抬頭看一眼，就知道現在該吸還是該吐。"],
             ["今天做了多少", "呼吸與伸展的紀錄，就在你工作的地方直接看。"],
         ],
-        "phone_h2": "在 iPhone 上用<em>指尖</em>跟著走。",
+        "phone_h2": "在 iPhone 上不用看螢幕，用<em>震動</em>提醒。",
         "phone_caps": [
             ["輕點一下開始", "點一下呼吸圓就開始或暫停，吸氣、停頓、吐氣各有不同的震動。"],
             ["照你的節奏", "用預設或自訂秒數，提醒間隔以 5 分鐘為單位調整。"],
             ["只算真的做到的", "跳過的不計入，只有按下「完成」的才會留在今天的紀錄裡。"],
         ],
-        "plans_h2": "免費就夠用，<em>Pro 只付一次</em>。",
+        "plans_h2": "基本功能免費，<em>Pro 只付一次</em>。",
         "plan_free_h": "免費", "plan_free_price": "開始需要的都在這裡",
         "plan_free": [
             "呼吸圓與 吸氣 4 秒、吐氣 6 秒",
