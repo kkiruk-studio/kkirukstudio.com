@@ -16,7 +16,37 @@ MAC_URL = "https://apps.apple.com/app/id6786591689?platform=mac"
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
-LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh/", "繁體中文")]
+# (경로, 코드, 전체 라벨, 좁은 화면용 축약 라벨)
+LANG_LABELS = [
+    ("", "en", "EN", "EN"),
+    ("ko/", "ko", "한국어", "한"),
+    ("ja/", "ja", "日本語", "日"),
+    ("zh/", "zh", "繁體中文", "繁"),
+]
+
+# 루트(en)로 들어온 방문자만 브라우저 언어에 맞는 로케일로 한 번 보낸다.
+# 언어를 직접 고른 적이 있으면(localStorage) 그 선택이 항상 우선한다.
+DETECT_JS = """<script>
+(function(){
+  try {
+    var pref = localStorage.getItem("db_lang");
+    if (!pref) {
+      var langs = navigator.languages || [navigator.language || ""];
+      for (var i = 0; i < langs.length && !pref; i++) {
+        var l = String(langs[i]).toLowerCase();
+        if (l.indexOf("ko") === 0) pref = "ko";
+        else if (l.indexOf("ja") === 0) pref = "ja";
+        else if (l.indexOf("zh") === 0) pref = "zh";
+        else if (l.indexOf("en") === 0) pref = "en";
+      }
+    }
+    if (pref && pref !== "en") {
+      var base = location.pathname.replace(/[^\\/]*$/, "");
+      location.replace(base + pref + "/" + location.search + location.hash);
+    }
+  } catch (e) {}
+})();
+</script>"""
 
 LOCALES = {
     "en": {
@@ -231,10 +261,11 @@ def hreflang_block():
 
 def lang_nav(cur_dir, rel):
     out = []
-    for d, label in LANG_LABELS:
+    for d, code, label, abbr in LANG_LABELS:
         cls = ' class="cur"' if d == cur_dir else ""
         href = (rel + d) if d else (rel if rel else "./")
-        out.append(f'<a href="{href}"{cls}>{label}</a>')
+        out.append(f'<a href="{href}" data-lang="{code}"{cls}>'
+                   f'<span class="lg-full">{label}</span><span class="lg-abbr">{abbr}</span></a>')
     return "".join(out)
 
 
@@ -249,7 +280,8 @@ def badges(loc, suffix):
 def render(key):
     loc = LOCALES[key]
     rel = "../" if loc["dir"] else ""
-    font_override = (f'<style>body{{font-family:ui-rounded,"SF Pro Rounded",-apple-system,{loc["font"]},system-ui,sans-serif}}</style>'
+    detect = DETECT_JS if not loc["dir"] else ""
+    font_override =(f'<style>body{{font-family:ui-rounded,"SF Pro Rounded",-apple-system,{loc["font"]},system-ui,sans-serif}}</style>'
                      if loc["font"] else "")
 
     mac_shots = "".join(
@@ -274,6 +306,7 @@ def render(key):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{detect}
 <title>{loc['title']}</title>
 <meta name="description" content="{loc['desc']}">
 <meta property="og:title" content="{loc['og_title']}">
@@ -384,6 +417,13 @@ def render(key):
 </button>
 
 <script>
+  // 직접 고른 언어는 기억해서, 다음에 루트로 들어와도 자동 감지보다 우선한다.
+  document.querySelectorAll(".lang a").forEach(function (a) {{
+    a.addEventListener("click", function () {{
+      try {{ localStorage.setItem("db_lang", a.dataset.lang); }} catch (e) {{}}
+    }});
+  }});
+
   // 앱과 같은 리듬: 들숨 4초에 커지고, 날숨 6초에 작아진다.
   const labels = {orb_labels_json};
   const orb = document.getElementById("orb");

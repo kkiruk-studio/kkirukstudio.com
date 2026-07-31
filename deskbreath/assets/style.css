@@ -53,11 +53,13 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 .wordmark { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; }
 .wordmark img { width: 30px; height: 30px; border-radius: 8px; }
 .wordmark .l2 { color: var(--muted); font-weight: 500; }
-.lang { display: flex; gap: 4px; }
+.wordmark span { white-space: nowrap; }
+.lang { display: flex; gap: 4px; flex: 0 0 auto; }
 .lang a {
   text-decoration: none; color: var(--muted); font-size: 13.5px; font-weight: 500;
-  padding: 5px 11px; border-radius: 999px;
+  padding: 5px 11px; border-radius: 999px; white-space: nowrap;
 }
+.lg-abbr { display: none; }
 .lang a.cur { color: var(--ink); background: var(--card); box-shadow: var(--shadow); }
 
 /* ---------- 히어로 ---------- */
@@ -187,6 +189,15 @@ footer a:hover { color: var(--ink); }
 .f-links { display: flex; gap: 20px; flex-wrap: wrap; }
 
 /* ---------- 반응형 ---------- */
+/* 좁은 화면: 워드마크 두 번째 줄을 접고 언어 라벨을 한 글자로 줄여 한 줄에 유지한다 */
+@media (max-width: 720px) {
+  .wordmark .l2 { display: none; }
+  .lg-full { display: none; }
+  .lg-abbr { display: inline; }
+  .lang { gap: 2px; }
+  .lang a { padding: 5px 9px; }
+}
+
 @media (max-width: 860px) {
   .hero .wrap { grid-template-columns: 1fr; gap: 24px; }
   .orb-stage { min-height: 260px; order: -1; }

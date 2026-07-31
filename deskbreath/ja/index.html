@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>デスクブレス — 画面のすみで一緒に呼吸するオーブ</title>
 <meta name="description" content="メニューバーにオーブがひとつ。4秒吸って6秒吐くリズムをそばで数えます。できないときは飛ばせて、セッションは10時間で自動終了。iPhone と Mac、無料で始められてサブスクはありません。">
 <meta property="og:title" content="デスクブレス — デスクワーク向け呼吸タイマー">
@@ -19,7 +20,7 @@
 <link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/deskbreath/zh/">
 <link rel="icon" type="image/png" href="../assets/icon-180.png">
 <link rel="apple-touch-icon" href="../assets/icon-180.png">
-<link rel="stylesheet" href="../assets/style.css?v=a0a7d7c6">
+<link rel="stylesheet" href="../assets/style.css?v=438b7364">
 <style>body{font-family:ui-rounded,"SF Pro Rounded",-apple-system,"Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", "Yu Gothic",system-ui,sans-serif}</style>
 </head>
 <body>
@@ -30,7 +31,7 @@
       <img src="../assets/icon-180.png" alt="">
       <span>DeskBreath</span><span class="l2">呼吸タイマー</span>
     </a>
-    <div class="lang"><a href="../">EN</a><a href="../ko/">한국어</a><a href="../ja/" class="cur">日本語</a><a href="../zh/">繁體中文</a></div>
+    <div class="lang"><a href="../" data-lang="en"><span class="lg-full">EN</span><span class="lg-abbr">EN</span></a><a href="../ko/" data-lang="ko"><span class="lg-full">한국어</span><span class="lg-abbr">한</span></a><a href="../ja/" data-lang="ja" class="cur"><span class="lg-full">日本語</span><span class="lg-abbr">日</span></a><a href="../zh/" data-lang="zh"><span class="lg-full">繁體中文</span><span class="lg-abbr">繁</span></a></div>
   </div>
 </nav>
 
@@ -117,6 +118,13 @@
 </button>
 
 <script>
+  // 직접 고른 언어는 기억해서, 다음에 루트로 들어와도 자동 감지보다 우선한다.
+  document.querySelectorAll(".lang a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      try { localStorage.setItem("db_lang", a.dataset.lang); } catch (e) {}
+    });
+  });
+
   // 앱과 같은 리듬: 들숨 4초에 커지고, 날숨 6초에 작아진다.
   const labels = {"in": "吸う", "out": "吐く"};
   const orb = document.getElementById("orb");
