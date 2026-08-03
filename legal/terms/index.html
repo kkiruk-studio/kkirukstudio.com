@@ -1,11 +1,875 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=https://kkiruk-studio.github.io/terms-of-service-app/">
-<link rel="canonical" href="https://kkiruk-studio.github.io/terms-of-service-app/">
-<title>kkiruk studio</title>
-<script>location.replace("https://kkiruk-studio.github.io/terms-of-service-app/");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — kkiruk studio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a1a; padding: 2rem 1.25rem; }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #e5e5e5; flex-wrap: wrap; gap: 12px; }
+  .header h1 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+  .header p { font-size: 12px; color: #888; margin-top: 4px; }
+  .lang-btns { display: flex; gap: 8px; }
+  .lang-btns button, .app-tabs button { font-size: 12px; padding: 4px 14px; border-radius: 20px; border: 1px solid #ccc; background: transparent; color: #666; cursor: pointer; font-family: inherit; }
+  .lang-btns button.active, .app-tabs button.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .meta { font-size: 13px; color: #888; margin-bottom: 1.75rem; line-height: 1.7; }
+  .intro { font-size: 14px; color: #555; margin-bottom: 1.5rem; line-height: 1.7; }
+  .tab-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .app-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem; }
+  .section { border-left: 2px solid #e5e5e5; padding-left: 1rem; margin-bottom: 2rem; }
+  .section h2 { font-size: 15px; font-weight: 600; margin-bottom: 1rem; }
+  .section p { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 1rem; }
+  .section p:last-child { margin-bottom: 0; }
+  .section ul { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 1rem; padding-left: 1.2rem; }
+  .section li { margin-bottom: 4px; }
+  .app-block { margin-bottom: 1rem; }
+  .app-block:last-child { margin-bottom: 0; }
+  .sub-label { font-size: 13px; font-weight: 600; color: #888; margin-bottom: 6px; }
+  table { width: 100%; font-size: 13px; border-collapse: collapse; margin-bottom: 10px; }
+  td { padding: 8px 0; color: #555; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  td:first-child { width: 42%; font-weight: 500; color: #333; }
+  tr:last-child td { border-bottom: none; }
+  .note { font-size: 12px; color: #999; margin-top: 8px; line-height: 1.6; }
+  .note a { color: #0066cc; text-decoration: none; }
+  .email { color: #0066cc; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #111; color: #e5e5e5; }
+    .header { border-color: #333; }
+    .header h1 { color: #e5e5e5; }
+    .lang-btns button, .app-tabs button { border-color: #444; color: #aaa; background: transparent; }
+    .lang-btns button.active, .app-tabs button.active { background: #e5e5e5; color: #111; border-color: #e5e5e5; }
+    .section { border-color: #333; }
+    .section p, .section ul, .section li, td { color: #aaa; }
+    td:first-child { color: #ccc; }
+    td { border-color: #2a2a2a; }
+    .note { color: #666; }
+    .sub-label { color: #666; }
+    .tab-label { color: #666; }
+    .email { color: #7eb3f5; }
+  }
+</style>
 </head>
-<body><p><a href="https://kkiruk-studio.github.io/terms-of-service-app/">이동 / Redirecting…</a></p></body>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <p>kkiruk studio</p>
+      <h1>Terms of Service / 이용약관</h1>
+    </div>
+    <div class="lang-btns">
+      <button onclick="showLang('ko')">한국어</button>
+      <button class="active" onclick="showLang('en')">English</button>
+    </div>
+  </div>
+
+  <!-- 한국어 -->
+  <div id="lang-ko" style="display:none;">
+    <p class="meta">시행일: 2026년 7월 7일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
+    <p class="intro">kkiruk studio(이하 "당사")가 운영하는 아래 앱들의 이용약관입니다. 앱을 다운로드하거나 사용함으로써 본 약관에 동의하는 것으로 간주합니다.</p>
+    <p class="tab-label">앱별로 보기</p>
+    <div class="app-tabs">
+      <button class="active" data-filter="all" onclick="filterApp('all')">전체</button>
+      <button data-filter="pinclip" onclick="filterApp('pinclip')">Pinclip</button>
+      <button data-filter="thanyesterday" onclick="filterApp('thanyesterday')">어제보다</button>
+      <button data-filter="runnote" onclick="filterApp('runnote')">RunNote</button>
+      <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
+      <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
+      <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
+      <button data-filter="findlocal" onclick="filterApp('findlocal')">Local Link</button>
+      <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette</button>
+      <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
+      <button data-filter="quote2048" onclick="filterApp('quote2048')">Quote 2048</button>
+      <button data-filter="tetsulog" onclick="filterApp('tetsulog')">테츠로그</button>
+      <button data-filter="nycsubwaylog" onclick="filterApp('nycsubwaylog')">NYC Subway Log</button>
+      <button data-filter="everykeep" onclick="filterApp('everykeep')">everykeep</button>
+      <button data-filter="salarycharm" onclick="filterApp('salarycharm')">직장인 부적</button>
+      <button data-filter="deskbreath" onclick="filterApp('deskbreath')">DeskBreath</button>
+      <button data-filter="catscute" onclick="filterApp('catscute')">고양이는 정말 귀여워</button>
+      <button data-filter="catspop" onclick="filterApp('catspop')">고양이는 정말 팡팡</button>
+      <button data-filter="james" onclick="filterApp('james')">James 시리즈</button>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>서비스 개요</h2>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Pinclip</p>
+        <p>영상 북마크 및 정리 앱</p>
+      </div>
+      <div class="app-block" data-app="thanyesterday">
+        <p class="sub-label">어제보다 (Than Yesterday)</p>
+        <p>어제와 오늘의 체감 기온을 비교하는 날씨 앱</p>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">RunNote</p>
+        <p>러닝 기록 및 AI 코칭 앱</p>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Sidefeed</p>
+        <p>YouTube 관심 카테고리 기반 영상 발견 및 국가별 트렌딩 앱</p>
+      </div>
+      <div class="app-block" data-app="talkmemo">
+        <p class="sub-label">Talk Memo</p>
+        <p>Apple Watch에서 음성을 녹음하고 iPhone에서 자동으로 텍스트 메모로 변환하는 보이스 메모 앱</p>
+      </div>
+      <div class="app-block" data-app="honestcamera">
+        <p class="sub-label">Honest Camera</p>
+        <p>3세 이상 유아를 위한 단일 셔터 카메라 앱. 모드 전환·갤러리·설정 메뉴 없이 셔터 한 개로 촬영하고 사진은 사진 보관함에 자동 저장됩니다.</p>
+      </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">Local Link / 로컬링크</p>
+        <p>여행지 장소 이름을 발음·로마자·현지 문자 등 어떤 표기로 입력해도, 그 나라에서 실제로 쓰는 지도 앱(네이버·카카오·고덕·구글·애플)으로 바로 이동시키는 검색 유틸리티. 한국·중국·대만·일본·태국·베트남·홍콩·마카오 8개국 + 약 2,800개 장소·역·공항·터미널 별칭 내장.</p>
+      </div>
+      <div class="app-block" data-app="palette2048">
+        <p class="sub-label">Palette</p>
+        <p>매일 큐레이팅된 명화의 색을 팔레트로 즐기는 색 퍼즐 게임. 토요일은 미스터리 데이로 색만 보고 작품 제목을 맞춰봅니다.</p>
+      </div>
+      <div class="app-block" data-app="song2048">
+        <p class="sub-label">Song 2048: Album Art Puzzle</p>
+        <p>매일 유명 앨범 커버에서 추출한 색 팔레트로 즐기는 2048 퍼즐 게임. 퍼즐을 푼 뒤 Play 버튼으로 해당 앨범을 사용자가 선택한 스트리밍 서비스에서 바로 들을 수 있습니다.</p>
+      </div>
+      <div class="app-block" data-app="quote2048">
+        <p class="sub-label">Quote 2048</p>
+        <p>명언과 격언을 문장 타일로 병합하는 2048 퍼즐 게임. 순한 속담부터 왕관 명언까지, 테마별로 큐레이션된 퍼블릭 도메인 명언·명화를 배경으로 문장을 완성합니다.</p>
+      </div>
+      <div class="app-block" data-app="tetsulog">
+        <p class="sub-label">테츠로그 (鉄ログ / Tetsulog)</p>
+        <p>일본 전국 철도 노선·역을 시각화하고 방문 기록을 모으는 乗りつぶ(노리츠부) 트래커. JR 그룹 6사 + 도쿄메트로·도에이·한큐·한신·게이한·긴테쓰·난카이·메이테쓰·니시테쓰 등 37 회사 / 약 370 노선 / 7,000+ 역을 내장. 부분 구간 컬러링으로 진행률 시각화, 역 스탬프 수첩, 활동 기록 / 47도도부현 히트맵을 제공.</p>
+      </div>
+      <div class="app-block" data-app="nycsubwaylog">
+        <p class="sub-label">NYC Subway Log</p>
+        <p>뉴욕 지하철 완주(station bagging) 기록 앱. MTA 공개 GTFS 피드 기반으로 25개 서비스·475개 역 전체를 내장하며, 역마다 방문 체크·메모·사진을 남길 수 있습니다. 실제 선로 형상 위에 방문 구간을 노선색으로 칠해 진행률을 보여주고, 스탬프북·전 구간 완주 카드·5개 자치구 히트맵·차량 도감을 제공합니다. 본 앱은 독립 앱이며 MTA(Metropolitan Transportation Authority)와 제휴·후원 관계가 없습니다.</p>
+      </div>
+      <div class="app-block" data-app="everykeep">
+        <p class="sub-label">everykeep</p>
+        <p>가정 내 모든 물건의 교체·청소 주기, 보증 기간, 정품 등록을 한곳에서 기록하고 제때 알림으로 챙겨주는 관리 앱. 수명 게이지, 주간·월간 캘린더, 교체 이력, 영수증·보증서 사진 보관을 제공하며, 모든 데이터는 기기 내에만 저장됩니다.</p>
+      </div>
+      <div class="app-block" data-app="salarycharm">
+        <p class="sub-label">직장인 부적</p>
+        <p>매일 아침 사자성어 부적 한 장을 받아 지니거나 태우고, 동료에게도 이름을 적어 부적을 선물할 수 있는 앱. 받은 부적은 홈과 위젯에 표시되며 하루가 끝나면 태워 없어집니다.</p>
+      </div>
+      <div class="app-block" data-app="deskbreath">
+        <p class="sub-label">DeskBreath</p>
+        <p>업무 중 호흡을 깊게 하고 자세를 풀도록 부드럽게 알려주는 ambient 호흡·스트레칭 리마인더 (iOS·macOS). 업무 세션 중 작은 호흡 오브와 주기적 스트레칭 알림을 제공합니다.</p>
+      </div>
+      <div class="app-block" data-app="catscute">
+        <p class="sub-label">고양이는 정말 귀여워 (Cats are Cute)</p>
+        <p>고양이를 모으고 마을을 꾸미는 힐링 방치 시뮬레이션 게임 (iOS·Android)</p>
+      </div>
+      <div class="app-block" data-app="catspop">
+        <p class="sub-label">고양이는 정말 팡팡 (Cats are Cute: Pop Time!)</p>
+        <p>같은 고양이를 합쳐 더 큰 고양이로 진화시키는 머지 퍼즐 게임 (iOS·Android)</p>
+      </div>
+      <div class="app-block" data-app="james">
+        <p class="sub-label">James Spring · James Summer</p>
+        <p>완전 오프라인으로 동작하는 캐주얼 게임</p>
+      </div>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>서비스 이용</h2>
+      <p>당사 앱들은 다양한 수익 모델을 사용합니다. 일부 앱(Pinclip, 어제보다, Sidefeed, Palette, Song 2048, Quote 2048, 테츠로그)은 무료 기능과 유료(Pro) 기능을 제공하며, Talk Memo·Honest Camera와 같이 일회성 유료 앱은 한 번의 결제로 모든 기능을 제공합니다. 테츠로그는 추가로 평생 이용권(일회성 결제) 옵션을 함께 제공합니다. Song 2048과 Quote 2048의 Pro는 일회성 구매이며(구독 아님), Song 2048에는 추가로 사용자가 선택하는 보상형 광고와 게임 사이 빈도 제한이 있는 전면 광고가 포함됩니다. 결제는 모두 Apple ID를 통해 처리됩니다.</p>
+    </div>
+
+    <div class="section" data-app="pinclip thanyesterday sidefeed palette2048 tetsulog">
+      <h2>구독 및 결제</h2>
+      <div class="app-block" data-app="thanyesterday">
+        <p class="sub-label">구독 상품 (어제보다)</p>
+        <table>
+          <tr><td>월간 구독</td><td>$1.99/월</td></tr>
+          <tr><td>연간 구독</td><td>$14.99/년</td></tr>
+        </table>
+        <p class="note">Pro 혜택: 저장 지역 확장(무료 3개), 두 지역을 나란히 보는 미디엄 위젯, 아침·저녁 비교 알림(시각·요일 설정), 시간대별 메시지 커스터마이즈. 연간 구독 최초 구독 시 7일 무료 체험을 제공합니다. 무료 체험 기간 종료 24시간 전까지 해지하지 않으면 정기 결제로 자동 전환됩니다. 월간 구독은 무료 체험이 제공되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">구독 상품 (Pinclip Pro)</p>
+        <table>
+          <tr><td>월간 구독</td><td>$2.99/월</td></tr>
+          <tr><td>연간 구독</td><td>$24.99/년</td></tr>
+        </table>
+        <p class="note">Pro 혜택: 무제한 폴더, 무제한 저장, iCloud 동기화, 홈 화면 위젯. 연간 구독 최초 구독 시 7일 무료 체험을 제공합니다(월간 구독 제외). 무료 체험 기간 종료 24시간 전까지 해지하지 않으면 정기 결제로 자동 전환됩니다. 과거 판매된 Pinclip 평생이용권(Lifetime)은 해당 구매자에 한해 계속 유효합니다.</p>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">구독 상품 (Sidefeed Pro)</p>
+        <table>
+          <tr><td>월간 구독</td><td>₩7,900/월</td></tr>
+          <tr><td>연간 구독</td><td>₩55,000/년 (월 대비 약 42% 할인)</td></tr>
+        </table>
+        <p class="note">Pro 혜택: 전체 14개 카테고리 선택(무료 3개), 12개국 트렌딩 자유 전환(무료 1개국), 나중에 보기, iCloud를 통한 차단 목록·저장 영상 동기화. 무료 체험은 제공되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="palette2048">
+        <p class="sub-label">구독 상품 (Palette Pro)</p>
+        <table>
+          <tr><td>월간 구독</td><td>$2.99/월</td></tr>
+          <tr><td>연간 구독</td><td>$19.99/년</td></tr>
+        </table>
+        <p class="note">Pro 혜택: 4×4·5×5 보드 잠금 해제, 과거 명화 아카이브 무제한 접근. 최초 구독 시 1주일 무료 체험을 제공합니다. 무료 체험 기간 종료 24시간 전 해지하지 않으면 정기 결제로 자동 전환됩니다.</p>
+      </div>
+      <div class="app-block" data-app="tetsulog">
+        <p class="sub-label">구독·구매 상품 (테츠로그 Pro)</p>
+        <table>
+          <tr><td>월간 구독</td><td>¥300/월</td></tr>
+          <tr><td>연간 구독</td><td>¥2,400/년 (월간 대비 약 33% 할인)</td></tr>
+          <tr><td>평생 이용권 (一括)</td><td>¥4,800 (일회성)</td></tr>
+        </table>
+        <p class="note">Pro 혜택: 즐겨찾기 무제한(무료 최대 5개 노선), 회사별 진행 차트와 활동 캘린더, 47도도부현 히트맵, 공유 카드 워터마크 제거, PDF 御朱印帳 출력(향후 제공). 무료 체험은 제공되지 않습니다. iCloud 동기화는 무료·Pro 구분 없이 모든 사용자에게 기본 제공됩니다(기기 변경·분실 시에도 방문 기록 보존을 위해 과금 대상에서 제외).</p>
+      </div>
+      <div class="app-block" data-app="nycsubwaylog">
+        <p class="sub-label">구독·구매 상품 (NYC Subway Log Pro)</p>
+        <table>
+          <tr><td>월간 구독</td><td>US$1.99/월</td></tr>
+          <tr><td>연간 구독</td><td>US$9.99/년 (월간 대비 약 58% 할인)</td></tr>
+          <tr><td>평생 이용권</td><td>US$19.99 (일회성)</td></tr>
+        </table>
+        <p class="note">Pro 혜택: 즐겨찾기 무제한(무료 최대 5개 노선), 계통별 진행 차트와 활동 캘린더, 5개 자치구 히트맵, 공유 카드 워터마크 제거, PDF 스탬프북 출력. 무료 체험은 제공되지 않습니다. iCloud 동기화는 무료·Pro 구분 없이 모든 사용자에게 기본 제공됩니다(기기 변경·분실 시에도 방문 기록 보존을 위해 과금 대상에서 제외). 가격은 미국 스토어 기준이며 국가별로 Apple 이 정한 등가 가격이 적용됩니다.</p>
+      </div>
+      <div class="app-block" data-app="salarycharm">
+        <p class="sub-label">무제한 이용권 (직장인 부적)</p>
+        <table>
+          <tr><td>무제한 이용권 (일회성 구매)</td><td>₩2,200</td></tr>
+        </table>
+        <p class="note">직장인 부적의 무제한 이용권은 한 번의 결제로 영구 적용되는 일회성 비소모성(non-consumable) 구매이며, 구독이 아니므로 자동 갱신이나 반복 결제가 없습니다. 혜택: 오늘의 부적 '다시 뽑기' 무제한, 동료 부적 무제한 생성, 바탕화면 위젯. 무료 사용자는 오늘의 부적 '다시 뽑기'를 하루 1회, 동료 부적을 하루 1장까지 이용할 수 있습니다. 직장인 부적에는 광고가 없습니다.</p>
+      </div>
+      <p class="note">표시 가격은 기준 가격이며, 실제 결제 금액은 App Store에서 사용자의 지역 및 통화에 따라 표시되는 금액을 따릅니다.</p>
+      <p class="sub-label">결제 조건</p>
+      <ul>
+        <li>결제는 Apple ID 계정을 통해 iTunes 계정으로 청구됩니다.</li>
+        <li>결제 수단 및 카드 정보 등 결제 관련 개인정보는 Apple이 처리하며, 당사는 결제 정보를 수집·저장하지 않습니다.</li>
+        <li>구독은 현재 기간 종료 최소 24시간 전에 해지하지 않으면 자동 갱신됩니다.</li>
+        <li>갱신 요금은 현재 기간 종료 전 24시간 이내에 청구됩니다.</li>
+        <li>구독은 구매 후 App Store 계정 설정에서 관리 및 해지할 수 있으며, 해지 시 현재 기간 종료 시점까지 Pro 기능이 유지됩니다.</li>
+        <li>다른 기기에서 이미 구매한 구독은 앱 내 "구매 복원" 기능으로 복원할 수 있습니다.</li>
+        <li>무료 체험 기간이 제공되는 경우, 미사용분은 구독 구매 시 소멸됩니다.</li>
+      </ul>
+      <p class="sub-label">환불</p>
+      <p>환불은 Apple의 환불 정책에 따르며, 환불 요청은 Apple에 직접 제출해야 합니다(<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+      <p class="sub-label">구독 해지 시 Pro 기능 제한</p>
+      <p>구독이 만료되거나 해지되면 Pro 기능(무제한 폴더·저장, iCloud 동기화, 위젯 등) 이용이 중단됩니다. 이미 저장된 데이터는 유지되지만, 무료 플랜의 한도를 초과하는 범위에서는 새로운 생성·수정이 제한될 수 있습니다.</p>
+    </div>
+
+    <div class="section" data-app="talkmemo">
+      <h2>일회성 유료 (Talk Memo)</h2>
+      <table>
+        <tr><td>미국</td><td>US $3.99</td></tr>
+        <tr><td>대한민국</td><td>₩4,000</td></tr>
+        <tr><td>일본</td><td>¥400</td></tr>
+      </table>
+      <p>Talk Memo는 일회성 유료 앱으로 구독, 인앱 구매, 광고가 없습니다. 한 번의 결제로 모든 기능을 사용할 수 있습니다. 표시 가격은 기준 가격이며, 실제 결제 금액은 App Store에서 사용자의 지역 및 통화에 따라 표시되는 금액을 따릅니다.</p>
+      <p class="sub-label">결제 및 환불</p>
+      <p>결제는 Apple ID 계정을 통해 처리되며, 당사는 결제 정보를 수집·저장하지 않습니다. 환불은 Apple의 환불 정책에 따르며, 환불 요청은 Apple에 직접 제출해야 합니다(<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+    </div>
+
+    <div class="section" data-app="song2048">
+      <h2>일회성 구매 및 광고 (Song 2048)</h2>
+      <table>
+        <tr><td>Song Pro (일회성)</td><td>US $3.99</td></tr>
+      </table>
+      <p class="note">Pro 혜택: 광고 전면 제거(전면 광고·보상형 광고 모두), 지난 앨범 전체 아카이브 영구 잠금 해제, "Your Music"(원하는 앨범을 직접 검색하거나 현재 재생 중인 곡의 팔레트로 바로 플레이하는 기능) 이용. 구독이 아니며 자동 갱신·반복 결제가 없습니다. 표시 가격은 기준 가격이며, 실제 결제 금액은 App Store에서 사용자의 지역 및 통화에 따라 표시되는 금액을 따릅니다.</p>
+      <p class="sub-label">보상형 광고</p>
+      <p>무료 이용자는 하루 1회, 광고를 끝까지 시청하면 지난 앨범 1곡을 플레이할 수 있습니다. 게임 오버 후에도 광고 시청 시 한 번 이어하기가 가능합니다. 광고 시청은 전적으로 사용자의 선택이며, 광고 보상의 내용(횟수·범위)은 사전 고지 없이 변경되거나 중단될 수 있습니다. 오늘의 데일리 퍼즐은 광고 시청 없이 무료로 이용할 수 있습니다.</p>
+      <p class="sub-label">전면 광고</p>
+      <p>무료 이용자에게는 게임 사이사이에 빈도가 제한된 전면 광고가 표시될 수 있습니다. Song Pro를 구매하면 전면 광고를 포함한 모든 광고가 제거됩니다.</p>
+      <p class="sub-label">콘텐츠 고지</p>
+      <p>Song 2048은 음원을 재생하지 않으며, 커버에서 추출한 색 팔레트와 공개 메타데이터(앨범명, 아티스트명, 발매 연도)를 표시합니다. 앨범 커버 이미지는 Apple의 공개 iTunes Search API를 통해 Apple의 서버에서 실시간으로 불러와 검색·라이브러리 화면에 썸네일로 표시하며, 당사 서버에 저장·재배포하지 않습니다. 커버 이미지와 앨범·아티스트명의 권리는 각 권리자에게 있으며, 식별 및 해당 콘텐츠로의 연결 목적으로만 사용됩니다. 당사는 어떠한 아티스트·레이블과도 제휴·후원·보증 관계가 없습니다. Play 버튼은 사용자가 선택한 외부 스트리밍 서비스로 연결되며, 해당 서비스의 약관이 적용됩니다. 권리자께서 특정 콘텐츠의 표시 중단을 원하시는 경우 문의처로 요청해 주십시오.</p>
+      <p class="sub-label">결제 및 환불</p>
+      <p>결제는 Apple ID 계정을 통해 처리되며, 당사는 결제 정보를 수집·저장하지 않습니다. 다른 기기에서 이미 구매한 Pro는 앱 내 "구매 복원"으로 복원할 수 있습니다. 환불은 Apple의 환불 정책에 따르며, 환불 요청은 Apple에 직접 제출해야 합니다(<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+    </div>
+
+    <div class="section" data-app="quote2048">
+      <h2>일회성 구매 및 데이터 처리 (Quote 2048)</h2>
+      <table>
+        <tr><td>Quote Pro (일회성)</td><td>US $2.99</td></tr>
+      </table>
+      <p class="note">Pro 혜택: 프리미엄 작가 컬렉션 잠금 해제, 언두 무제한, 전체 아카이브 접근, 커스텀 테마 팩 무제한, 토요일 리플레이. 구독이 아니며 자동 갱신·반복 결제가 없습니다. 표시 가격은 기준 가격이며, 실제 결제 금액은 App Store에서 사용자의 지역 및 통화에 따라 표시되는 금액을 따릅니다.</p>
+      <p class="sub-label">로컬 저장 및 iCloud 동기화</p>
+      <p>게임 진행 상황(현재 보드 상태, 테마 클리어·진행 상황, 베스트 점수, 연속 플레이 일수, 내 테마 팩, 설정)은 기기 내 UserDefaults 에 저장되며, 같은 Apple ID 의 다른 기기로 자동 동기화하기 위해 Apple iCloud Key-Value Store 에도 저장됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버는 거치지 않습니다. iCloud 동기화는 iOS 설정에서 끌 수 있습니다.</p>
+      <p class="sub-label">콘텐츠 고지</p>
+      <p>Quote 2048에 수록된 명언·격언은 퍼블릭 도메인 출처를 기반으로 하며, 저자·출처를 표시합니다. 오귀속이 발견되는 경우 문의처로 알려주시면 확인 후 수정합니다.</p>
+      <p class="sub-label">결제 및 환불</p>
+      <p>결제는 Apple ID 계정을 통해 처리되며, 당사는 결제 정보를 수집·저장하지 않습니다. 다른 기기에서 이미 구매한 Pro는 앱 내 "구매 복원"으로 복원할 수 있습니다. 환불은 Apple의 환불 정책에 따르며, 환불 요청은 Apple에 직접 제출해야 합니다(<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+    </div>
+
+    <div class="section" data-app="findlocal">
+      <h2>무료 이용 (Local Link)</h2>
+      <p>Local Link는 광고·구독·인앱 구매 없이 모든 기능을 무료로 제공하는 앱입니다. 계정 등록도 필요하지 않습니다.</p>
+      <p class="sub-label">데이터 처리</p>
+      <p>입력한 검색어, 저장한 장소, 환경 설정은 기본적으로 기기 내에 저장됩니다. iCloud 동기화가 활성화되어 있으면 최근 검색어와 저장한 장소가 사용자의 Apple iCloud 계정 Key-Value Store 에도 저장되어 같은 Apple ID 기기 간 자동 동기화 및 신규 기기 설정 시 복원이 이루어집니다. 자세한 내용은 <a href="/legal/privacy/" target="_blank" class="email">개인정보 처리방침</a>을 참고하세요.</p>
+      <p class="sub-label">사용 지표 및 진단 정보</p>
+      <p>당사는 향후 앱 품질 개선, 오류 진단, 기능 사용 현황 파악을 위해 비식별 사용 지표와 진단 정보를 당사 서버 또는 당사가 이용하는 클라우드 인프라로 전송하는 기능을 추가할 수 있습니다. 이러한 정보는 서비스 개선과 안정성 확보 목적으로만 사용되며, 원칙적으로 검색어 원문, 저장한 장소명, 정확한 위치, 연락처, 결제 정보는 포함하지 않습니다. 지표 수집이 활성화되는 경우 수집 항목과 보관 방식은 개인정보 처리방침에 반영합니다.</p>
+      <p class="sub-label">제3자 지도 앱 책임 분리</p>
+      <p>Local Link는 사용자가 선택한 검색어를 iOS 시스템의 URL 스킴/딥링크를 통해 사용자가 선택한 지도 앱 또는 웹 지도 페이지로 전달하는 역할만 수행합니다. 각 지도 앱 또는 웹 서비스가 검색 결과를 어떻게 처리·표시하는지에 대한 책임은 해당 제공자에게 있으며, 당사는 이에 대해 책임지지 않습니다.</p>
+      <p class="sub-label">검색 결과 정확성</p>
+      <p>당사는 검색 별칭 사전과 추천 장소 데이터의 정확성을 위해 노력하지만, 모든 결과의 완전성·정확성·최신성을 보장하지 않습니다. 실제 위치 정보는 사용자가 선택한 지도 앱 또는 웹 서비스의 데이터를 따릅니다.</p>
+    </div>
+    <div class="section" data-app="everykeep">
+      <h2>무료 이용 (everykeep)</h2>
+      <p>everykeep은 광고·구독·인앱 구매 없이 모든 기능을 무료로 제공하는 앱입니다. 계정 등록도 필요하지 않습니다.</p>
+      <p class="sub-label">데이터 처리</p>
+      <p>이용자가 입력한 제품 정보와 첨부한 사진, 알림·환경 설정은 모두 기기 내(SwiftData 저장소·앱 컨테이너·UserDefaults)에만 저장됩니다. 당사 서버나 외부 서비스로 전송·동기화되지 않으며, 앱을 삭제하면 함께 제거됩니다. 자세한 내용은 <a href="/legal/privacy/" target="_blank" class="email">개인정보 처리방침</a>을 참고하세요.</p>
+      <p class="sub-label">알림</p>
+      <p>교체·청소·보증 리마인더는 기기 내 로컬 알림으로만 동작합니다. 알림 표시 시점은 iOS 시스템 일정에 따르며, 기기 설정·전원 상태에 따라 지연될 수 있습니다.</p>
+    </div>
+
+    <div class="section" data-app="salarycharm">
+      <h2>직장인 부적 데이터 처리</h2>
+      <p class="sub-label">로컬 저장</p>
+      <p>이용자가 입력한 이름/닉네임과 받은 부적, 설정값은 기기 내 저장소 및 앱 그룹 저장소(위젯 표시용)에만 저장됩니다. 당사 서버나 외부 서비스로 전송·동기화되지 않으며, 앱을 삭제하면 함께 제거됩니다.</p>
+      <p class="sub-label">결제</p>
+      <p>무제한 이용권은 Apple App Store를 통한 일회성 비소모성 구매(₩2,200)이며, 구독이 아니므로 자동 갱신이 없습니다. 결제·환불·구매 복원은 기기의 App Store 설정에서 할 수 있으며, 당사는 결제 정보를 수집하지 않습니다.</p>
+      <p class="sub-label">알림</p>
+      <p>사용자가 "부적 알림"을 켜면 선택한 요일의 지정 시각에 로컬 알림이 표시됩니다. 알림은 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
+    </div>
+
+    <div class="section" data-app="deskbreath">
+      <h2>DeskBreath 데이터 처리 · 결제</h2>
+      <p class="sub-label">로컬 저장</p>
+      <p>세션 통계(호흡·스트레칭 횟수, 연속일)와 설정값은 기기 내 저장소에만 저장됩니다. 당사 서버로 전송되지 않으며, 앱을 삭제하면 함께 제거됩니다. Pro 이용자가 iCloud 동기화를 켜면 설정·통계가 본인 iCloud 계정을 통해 기기 간에만 동기화됩니다.</p>
+      <p class="sub-label">유료 구매</p>
+      <p>DeskBreath Pro는 Apple App Store를 통한 일회성(비소모성) 인앱 구매입니다. 구독이 아니며 결제·복원·환불은 App Store 정책을 따릅니다. 당사는 결제 정보를 수집하지 않습니다.</p>
+      <p class="sub-label">알림</p>
+      <p>사용자가 권한을 허용하면 업무 세션 중 설정한 주기로 스트레칭 로컬 알림이 표시됩니다. 알림은 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
+    </div>
+
+    <div class="section" data-app="honestcamera">
+      <h2>일회성 유료 (Honest Camera)</h2>
+      <table>
+        <tr><td>미국</td><td>US $1.99</td></tr>
+      </table>
+      <p>Honest Camera는 일회성 유료 앱으로 구독, 인앱 구매, 광고가 없습니다. 한 번의 결제로 모든 기능을 사용할 수 있습니다. 표시 가격은 기준 가격이며, 실제 결제 금액은 App Store에서 사용자의 지역 및 통화에 따라 표시되는 금액을 따릅니다.</p>
+      <p class="sub-label">결제 및 환불</p>
+      <p>결제는 Apple ID 계정을 통해 처리되며, 당사는 결제 정보를 수집·저장하지 않습니다. 환불은 Apple의 환불 정책에 따르며, 환불 요청은 Apple에 직접 제출해야 합니다(<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+    </div>
+
+    <div class="section" data-app="honestcamera">
+      <h2>카메라·사진 권한 (Honest Camera)</h2>
+      <p>앱은 사진 촬영을 위해 카메라 접근 권한을 요청하고, 촬영한 사진을 사진 보관함에 저장하기 위해 사진 추가 권한을 요청합니다. 모든 처리는 사용자의 기기 내에서 이루어지며, 촬영된 이미지는 당사 서버나 외부 서비스로 전송되지 않습니다. 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+      <p class="sub-label">아동 사용에 관한 안내</p>
+      <p>Honest Camera는 3세 이상 유아의 직접 사용을 전제로 설계되었습니다. 앱 자체는 어떠한 개인정보도 수집·전송하지 않으며, 광고·인앱 결제·외부 SDK·계정 연동을 포함하지 않습니다. 보호자가 iOS의 "사용법 유도(Guided Access)" 기능을 사용해 카메라 앱 외부로의 이동을 차단하는 것을 권장합니다.</p>
+    </div>
+
+    <div class="section" data-app="pinclip">
+      <h2>Pinclip 데이터 처리</h2>
+      <p class="sub-label">URL 공유 및 메타데이터 수집</p>
+      <p>사용자가 iOS 공유 시트를 통해 Pinclip으로 URL을 전달하면, 앱은 해당 URL의 오픈그래프(OGP)/oEmbed 메타데이터(제목, 썸네일 이미지 URL 등)를 가져와 사용자의 기기에 저장합니다. 해당 요청은 원본 웹사이트(YouTube, TikTok 등) 또는 각 플랫폼의 공개 API로 직접 전송되며, 당사의 서버를 경유하지 않습니다.</p>
+      <p>사용자는 저장된 URL, 제목, 썸네일, 메모, 태그, 폴더 정보를 언제든지 수정 또는 삭제할 수 있습니다. 사용자는 저장하는 콘텐츠에 대한 법적 책임을 지며, 불법 콘텐츠 또는 제3자의 저작권·초상권·프라이버시 등을 침해하는 콘텐츠의 저장·공유 용도로 앱을 사용해서는 안 됩니다.</p>
+      <p class="sub-label">iCloud 동기화</p>
+      <p>Pro 구독자의 저장 데이터(폴더, 클립, 썸네일, 메모, 태그)는 사용자의 Apple iCloud 계정 내 private CloudKit 데이터베이스에 저장 및 동기화됩니다. 해당 데이터는 Apple의 인프라에서 암호화되어 전송·저장되며, 당사는 이에 접근할 수 없고 당사 서버로 전송되지 않습니다.</p>
+      <p>무료 플랜에서는 기기 내 로컬 저장소에만 데이터가 저장되며, 기기 간 동기화가 이루어지지 않습니다. iCloud 로그인 상태, 저장 공간, 네트워크 환경에 따라 동기화가 지연되거나 실패할 수 있으며, 이에 대한 구체적인 정책은 Apple의 iCloud 약관을 따릅니다.</p>
+      <p class="sub-label">폴더 공개 공유 링크</p>
+      <p>사용자가 폴더 메뉴의 "폴더 공유"를 통해 명시적으로 공유 링크를 생성하는 경우, 해당 폴더의 스냅샷이 당사 공유 서버(Cloudflare Workers, <code>pinclip.link</code>)로 업로드되어 공개 웹 페이지로 호스팅됩니다. 업로드되는 항목은 <strong>폴더명, 폴더 안의 영상 URL·제목·썸네일 URL·플랫폼명, 그리고 사용자가 선택적으로 입력한 닉네임</strong>이며, <strong>메모와 태그는 업로드되지 않습니다.</strong></p>
+      <p>생성된 공유 링크는 공개 URL이며, 링크를 아는 누구나 해당 폴더의 영상 목록과 썸네일을 웹페이지로 열람하거나 메신저·SNS에서 미리보기 카드로 볼 수 있습니다. 닉네임 사용 여부는 공유 시도 시점에 매번 선택할 수 있으며("이 닉네임으로 공유" 또는 "닉네임 없이 공유"), 닉네임을 사용하지 않으면 해당 회차의 공유 페이지에는 닉네임이 포함되지 않습니다. 닉네임 자체는 사용자의 기기에만 저장되며 공유를 실행할 때에만 전송됩니다.</p>
+      <p>공유된 스냅샷은 콘텐츠 해시(SHA-256)로 식별되어 동일한 내용의 폴더는 동일한 링크를 재사용하며, 별도의 만료 시간 없이 Cloudflare KV에 보관됩니다. 폴더 내용을 수정한 뒤 다시 공유하면 새 링크가 생성되며, 이전 링크는 그 시점의 스냅샷을 계속 노출합니다. 특정 공유 링크의 삭제를 원하시는 경우 해당 URL을 명시하여 문의처로 요청해 주십시오.</p>
+    </div>
+
+    <div class="section" data-app="thanyesterday">
+      <h2>위치 정보 (어제보다)</h2>
+      <p>앱은 날씨 데이터를 제공하기 위해 기기의 위치 정보를 사용합니다. 위치 정보는 서버에 저장되지 않으며, 날씨 API 요청 시에만 일시적으로 사용됩니다. 위치 접근 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+    </div>
+
+    <div class="section" data-app="sidefeed">
+      <h2>YouTube API 이용 (Sidefeed)</h2>
+      <p>"Powered by YouTube." Sidefeed는 YouTube Data API v3를 사용하여 공개된 동영상 메타데이터(제목, 썸네일, 채널명, 게시일, 길이 등)를 표시합니다.</p>
+      <p>Sidefeed는 이용자의 Google 계정 인증이나 개인 YouTube 데이터(좋아요·구독·시청 기록)에 대한 접근을 요청하지 않습니다. 당사 서버(Cloudflare Workers)가 중앙에서 YouTube API를 호출하여 국가별·카테고리별 인기 영상을 임시 캐싱하고, 앱은 서버 캐시만 조회합니다.</p>
+      <p>Sidefeed의 YouTube API 사용은 <a href="https://www.youtube.com/t/terms" target="_blank" class="email">YouTube 서비스 약관</a> 및 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>의 적용을 받습니다. 본 앱을 사용함으로써 이용자는 위 약관 및 방침에 동의하는 것으로 간주됩니다.</p>
+      <p>서버 캐시 데이터는 최대 48시간 내 자동 갱신·만료되며, YouTube Developer Policies가 허용하는 기간(30일)을 초과하여 보관되지 않습니다. YouTube에서 삭제·비공개 처리된 영상은 다음 캐시 갱신 주기에 반영됩니다.</p>
+    </div>
+
+    <div class="section" data-app="talkmemo">
+      <h2>음성 녹음 및 인식 (Talk Memo)</h2>
+      <p>Talk Memo는 Apple Watch 마이크를 통해 음성을 녹음하고, iPhone의 온디바이스 음성 인식(Apple Speech Recognition)을 사용하여 텍스트로 변환합니다. 녹음 및 변환은 모두 기기 내에서 처리되며, 변환된 텍스트 메모는 사용자의 iCloud 계정(iCloud Key-Value Store)을 통해 같은 Apple ID 의 다른 기기와 자동 동기화됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버는 거치지 않습니다. iCloud 동기화는 iOS 설정에서 끌 수 있습니다. 음성 인식의 정확성은 보장되지 않습니다.</p>
+      <p>사용자는 녹음 내용에 대한 법적 책임을 가지며, 제3자의 동의 없이 대화를 녹음하여 저장하는 등 관련 법령에 위반되는 용도로 사용해서는 안 됩니다.</p>
+    </div>
+
+    <div class="section" data-app="palette2048">
+      <h2>Palette 데이터 처리</h2>
+      <p class="sub-label">로컬 저장</p>
+      <p>게임 진행 상황(현재 보드 상태, 베스트 점수, 푼 미스터리 목록, 연속 플레이 일수, 설정 등)은 사용자의 기기 내 UserDefaults 에 저장됩니다.</p>
+      <p class="sub-label">iCloud 동기화</p>
+      <p>같은 Apple ID 의 다른 기기로 진행 상황을 자동 동기화하기 위해 위 데이터는 사용자의 Apple iCloud Key-Value Store 에도 저장됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버는 거치지 않습니다. iCloud 동기화는 iOS 설정에서 끌 수 있습니다.</p>
+      <p class="sub-label">알림</p>
+      <p>사용자가 설정에서 "매일 알림"을 켜면 매일 정해진 시각에 로컬 알림이 표시됩니다. 알림은 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
+    </div>
+
+    <div class="section" data-app="catscute catspop">
+      <h2>게임 데이터 및 클라우드 저장 (게임)</h2>
+      <p>게임 진행 데이터는 기본적으로 기기 내에 저장됩니다. iOS의 iCloud 또는 Android의 Google Play 게임 서비스에 로그인한 경우, 해당 플랫폼의 수동 클라우드 저장 기능으로 진행 데이터를 백업·복원할 수 있습니다. 클라우드 저장은 자동으로 이루어지지 않으며, 사용자가 게임 또는 플랫폼 화면에서 직접 저장을 실행하거나 확인해야 합니다.</p>
+      <p>당사는 별도의 서버를 운영하지 않으며, 클라우드 저장 기능은 각 플랫폼 사업자가 제공·관리합니다. 앱 삭제 또는 기기 변경 시, 이전에 수동 클라우드 저장을 완료한 경우에만 데이터가 복원될 수 있습니다. 사용자가 클라우드 저장을 수행하지 않았거나 기기 설정·계정 연결 해제·클라우드 서비스 오류 등으로 인한 데이터 손실에 대해서는 고의 또는 중대한 과실이 없는 한 당사는 책임을 지지 않습니다.</p>
+      <p>클라우드 저장에는 Apple ID 또는 Google 계정이 필요하며, 이는 각 플랫폼 운영사가 관리합니다. 당사는 사용자의 로그인 정보나 클라우드 데이터에 직접 접근하거나 저장하지 않습니다. 일부 게임은 랭킹 등 소셜 기능을 제공할 수 있으며, 이용 시 사용자 이름·점수 등 일부 정보가 다른 이용자에게 공개될 수 있습니다.</p>
+    </div>
+
+    <div class="section" data-app="catscute catspop">
+      <h2>가상 아이템 및 화폐 (게임)</h2>
+      <p>일부 게임에는 가상 아이템 또는 가상 화폐가 포함될 수 있으며, 사용자는 이를 서비스 내에서 사용하기 위한 제한적 라이선스만 가집니다. 가상 아이템 및 화폐는 현금 가치가 없으며 실제 화폐로 교환할 수 없습니다.</p>
+      <p>환불은 관련 소비자보호법 및 플랫폼 정책(App Store, Google Play)에 따라 처리됩니다. 미사용 구매는 법정 철회 기간 내 취소 가능할 수 있습니다. 당사는 운영상 필요한 경우 가상 아이템 또는 화폐를 수정·삭제할 수 있으나, 고의 또는 중대한 과실이 없는 한 이에 대한 책임을 지지 않습니다.</p>
+    </div>
+
+    <div class="section" data-app="catscute catspop">
+      <h2>광고 (게임)</h2>
+      <p>게임에는 이용자의 기기 식별자 및 동의 설정에 따라 개인화 광고가 표시될 수 있으며, 당사는 GDPR, CCPA, ATT 등 관련 법규를 준수합니다. 광고 관련 개인정보 처리는 개인정보 처리방침을 따릅니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>면책 조항</h2>
+      <p>날씨 데이터, 영상 메타데이터 등은 외부 API를 통해 제공되며, 정확성을 보장하지 않습니다. 앱에서 제공하는 정보에 기반한 판단으로 발생한 손해에 대해 당사는 책임을 지지 않습니다. 앱은 "있는 그대로(AS IS)" 제공되며, 서비스 중단이나 오류에 대한 보증을 하지 않습니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>지적 재산권</h2>
+      <p>앱의 디자인, 코드, 콘텐츠에 대한 모든 지적 재산권은 당사에 귀속됩니다. 사용자는 개인 용도로만 앱을 사용할 수 있으며, 역설계, 복제, 배포할 수 없습니다.</p>
+      <p>사용자가 앱 내에 저장·입력한 콘텐츠(URL, 메모, 태그, 녹음 등)에 대한 권리는 해당 사용자에게 귀속되며, 당사는 앱 기능 제공에 필요한 범위를 넘어 이를 이용하지 않습니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>이용 제한</h2>
+      <p>다음 행위는 금지됩니다:</p>
+      <ul>
+        <li>앱의 보안을 우회하거나 무력화하는 행위</li>
+        <li>앱을 이용한 불법 활동</li>
+        <li>서비스 운영을 방해하는 행위</li>
+      </ul>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>서비스 중단 및 종료</h2>
+      <p>당사는 안정적인 서비스 제공을 위해 노력하지만, 기술적 사유, 운영상 필요, 정책 변경, 제3자 서비스 변경·중단 등의 사유로 서비스의 전부 또는 일부를 일시적으로 중단하거나 영구적으로 종료할 수 있습니다.</p>
+      <p>중대한 중단 또는 종료가 예정된 경우 본 페이지 또는 앱 내 공지를 통해 사전에 안내합니다. 예정된 서비스 종료로 인해 기간제 유료 구독의 이용이 제한되는 경우, Apple의 환불 정책에 따라 환불을 요청할 수 있습니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>약관 변경</h2>
+      <p>본 약관은 변경될 수 있으며, 변경 시 본 페이지를 통해 공지합니다. 변경 후 앱을 계속 사용하면 변경된 약관에 동의한 것으로 간주합니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>준거법</h2>
+      <p>본 약관은 대한민국 법률에 따라 해석 및 적용됩니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>문의</h2>
+      <p><span class="email" id="email-ko-contact"></span></p>
+    </div>
+  </div>
+
+  <!-- English -->
+  <div id="lang-en">
+    <p class="meta">Effective: July 7, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
+    <p class="intro">These Terms of Service govern your use of the apps operated by kkiruk studio ("we"). By downloading or using our apps, you agree to these terms.</p>
+    <p class="tab-label">Filter by app</p>
+    <div class="app-tabs">
+      <button class="active" data-filter="all" onclick="filterApp('all')">All</button>
+      <button data-filter="pinclip" onclick="filterApp('pinclip')">Pinclip</button>
+      <button data-filter="thanyesterday" onclick="filterApp('thanyesterday')">ThanYesterday</button>
+      <button data-filter="runnote" onclick="filterApp('runnote')">RunNote</button>
+      <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
+      <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
+      <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
+      <button data-filter="findlocal" onclick="filterApp('findlocal')">Local Link</button>
+      <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette</button>
+      <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
+      <button data-filter="quote2048" onclick="filterApp('quote2048')">Quote 2048</button>
+      <button data-filter="tetsulog" onclick="filterApp('tetsulog')">Tetsulog</button>
+      <button data-filter="nycsubwaylog" onclick="filterApp('nycsubwaylog')">NYC Subway Log</button>
+      <button data-filter="everykeep" onclick="filterApp('everykeep')">everykeep</button>
+      <button data-filter="salarycharm" onclick="filterApp('salarycharm')">Salary Charm</button>
+      <button data-filter="deskbreath" onclick="filterApp('deskbreath')">DeskBreath</button>
+      <button data-filter="catscute" onclick="filterApp('catscute')">Cats are Cute</button>
+      <button data-filter="catspop" onclick="filterApp('catspop')">Cats are Cute: Pop Time!</button>
+      <button data-filter="james" onclick="filterApp('james')">James Series</button>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Services</h2>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Pinclip</p>
+        <p>A video bookmarking and organization app</p>
+      </div>
+      <div class="app-block" data-app="thanyesterday">
+        <p class="sub-label">ThanYesterday</p>
+        <p>A weather app that compares felt temperature between yesterday and today</p>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">RunNote</p>
+        <p>A running tracker with AI coaching</p>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Sidefeed</p>
+        <p>A YouTube video discovery app based on interest categories and country-specific trending</p>
+      </div>
+      <div class="app-block" data-app="talkmemo">
+        <p class="sub-label">Talk Memo</p>
+        <p>A voice memo app that records audio on Apple Watch and automatically converts it to text memos on iPhone</p>
+      </div>
+      <div class="app-block" data-app="honestcamera">
+        <p class="sub-label">Honest Camera</p>
+        <p>A single-shutter camera app for children ages 3 and up. No mode switches, no gallery, no settings menu — one button to take a photo, and photos save automatically to the Photos library.</p>
+      </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">Local Link / 로컬링크</p>
+        <p>A travel utility that takes any spelling — phonetic, Romanized, or native script — and routes the search to the right local map app for the destination country (Naver, KakaoMap, Amap, Google, or Apple). Covers 8 countries (Korea, China, Taiwan, Japan, Thailand, Vietnam, Hong Kong, Macau) with ~2,800 pre-registered places, stations, airports, and terminals.</p>
+      </div>
+      <div class="app-block" data-app="palette2048">
+        <p class="sub-label">Palette</p>
+        <p>A daily color puzzle where each day's board uses the color palette of a curated masterpiece. Saturday is Mystery Day — guess the painting from its colors alone.</p>
+      </div>
+      <div class="app-block" data-app="song2048">
+        <p class="sub-label">Song 2048: Album Art Puzzle</p>
+        <p>A 2048 puzzle game where each day's board uses a color palette extracted from a famous album cover. After playing, the Play button opens that album in your chosen streaming service.</p>
+      </div>
+      <div class="app-block" data-app="quote2048">
+        <p class="sub-label">Quote 2048</p>
+        <p>A 2048 puzzle game where you merge quote tiles instead of numbers — climbing from a humble proverb to a crown quote, set against public-domain quotes and paintings curated by theme.</p>
+      </div>
+      <div class="app-block" data-app="tetsulog">
+        <p class="sub-label">Tetsulog (鉄ログ)</p>
+        <p>A "norizubu" (乗りつぶし) tracker that visualizes Japan's rail network and lets riders log every station they visit. Ships with ~370 lines and 7,000+ stations covering the 6 JR group companies plus Tokyo Metro, Toei, Hankyu, Hanshin, Keihan, Kintetsu, Nankai, Meitetsu, Nishitetsu and other major operators (37 companies in total). Shows progress as partial-segment coloring on actual track geometry, plus a station stamp book, activity calendar, and 47-prefecture heatmap.</p>
+      </div>
+      <div class="app-block" data-app="nycsubwaylog">
+        <p class="sub-label">NYC Subway Log</p>
+        <p>A station-bagging tracker for the New York City Subway. Ships with all 25 services and 475 stations from the MTA's public GTFS feed, and lets riders mark each station visited with notes and photos. Progress is drawn as line-coloured segments over real track geometry, alongside a stamp book, line-completion cards, a five-borough heatmap, and a rolling-stock book. This is an independent app and is not affiliated with, endorsed by, or sponsored by the Metropolitan Transportation Authority.</p>
+      </div>
+      <div class="app-block" data-app="everykeep">
+        <p class="sub-label">everykeep</p>
+        <p>A home upkeep app that records replacement and cleaning cycles, warranty periods, and product registrations for every item in your home, and reminds you in time. It offers lifespan gauges, weekly and monthly calendars, replacement history, and storage for receipt and warranty photos. All data is stored only on your device.</p>
+      </div>
+      <div class="app-block" data-app="salarycharm">
+        <p class="sub-label">Salary Charm</p>
+        <p>A daily app where you receive one four-character-idiom charm each morning to keep or burn, and can gift a charm to a coworker by entering their name. A kept charm appears on the home screen and widget, and is burned away at the end of the day.</p>
+      </div>
+      <div class="app-block" data-app="deskbreath">
+        <p class="sub-label">DeskBreath</p>
+        <p>An ambient breathing and stretch reminder that gently nudges you to breathe deeper and move while working (iOS and macOS). It shows a small breathing orb during work sessions and periodic stretch reminders.</p>
+      </div>
+      <div class="app-block" data-app="catscute">
+        <p class="sub-label">Cats are Cute</p>
+        <p>A healing idle simulation game about collecting cats and decorating a village (iOS &amp; Android)</p>
+      </div>
+      <div class="app-block" data-app="catspop">
+        <p class="sub-label">Cats are Cute: Pop Time!</p>
+        <p>A merge puzzle game where matching cats combine into bigger cats (iOS &amp; Android)</p>
+      </div>
+      <div class="app-block" data-app="james">
+        <p class="sub-label">James Spring · James Summer</p>
+        <p>Casual games that run fully offline</p>
+      </div>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Use of Services</h2>
+      <p>Our apps use various revenue models. Some apps (Pinclip, ThanYesterday, Sidefeed, Palette, Song 2048, Quote 2048, Tetsulog) offer free features alongside paid (Pro) features, while others such as Talk Memo and Honest Camera are one-time paid apps where a single purchase unlocks all features. Tetsulog additionally offers a lifetime (one-time payment) unlock alongside its subscriptions. Song 2048's and Quote 2048's Pro are one-time purchases (not subscriptions); Song 2048's free version additionally includes optional user-initiated rewarded ads plus frequency-capped interstitial ads between games. All payments are processed through Apple ID.</p>
+    </div>
+
+    <div class="section" data-app="pinclip thanyesterday sidefeed palette2048 tetsulog">
+      <h2>Subscriptions and Payment</h2>
+      <div class="app-block" data-app="thanyesterday">
+        <p class="sub-label">Subscription Plans (ThanYesterday)</p>
+        <table>
+          <tr><td>Monthly</td><td>$1.99/month</td></tr>
+          <tr><td>Yearly</td><td>$14.99/year</td></tr>
+        </table>
+        <p class="note">Pro benefits: more saved locations (free plan: up to 3), a medium widget showing two locations side by side, morning/evening comparison notifications (configurable time and weekdays), and customizable time-period messages. A 7-day free trial is offered to new yearly subscribers; it converts to a paid subscription unless cancelled at least 24 hours before the trial ends. No free trial is offered on the monthly plan.</p>
+      </div>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Subscription Plans (Pinclip Pro)</p>
+        <table>
+          <tr><td>Monthly</td><td>$2.99/month</td></tr>
+          <tr><td>Yearly</td><td>$24.99/year</td></tr>
+        </table>
+        <p class="note">Pro benefits: unlimited folders, unlimited saves, iCloud sync, and home screen widgets. A 7-day free trial is offered on the yearly plan for new subscribers (monthly plan excluded); it converts to a paid subscription unless cancelled at least 24 hours before the trial ends. Previously purchased Pinclip lifetime unlocks remain valid for those buyers.</p>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Subscription Plans (Sidefeed Pro)</p>
+        <table>
+          <tr><td>Monthly</td><td>₩7,900/month</td></tr>
+          <tr><td>Yearly</td><td>₩55,000/year (save ~42% vs. monthly)</td></tr>
+        </table>
+        <p class="note">Pro benefits: all 14 interest categories (free plan: 3), unlimited switching across 12 trending countries (free plan: 1), Watch Later, and iCloud sync for your block list and saved videos. No free trial is offered.</p>
+      </div>
+      <div class="app-block" data-app="palette2048">
+        <p class="sub-label">Subscription Plans (Palette Pro)</p>
+        <table>
+          <tr><td>Monthly</td><td>$2.99/month</td></tr>
+          <tr><td>Yearly</td><td>$19.99/year</td></tr>
+        </table>
+        <p class="note">Pro benefits: 4×4 and 5×5 board unlock, unlimited access to the past-paintings archive. A 1-week free trial is offered to new subscribers; it converts to a paid subscription unless cancelled at least 24 hours before the trial ends.</p>
+      </div>
+      <div class="app-block" data-app="tetsulog">
+        <p class="sub-label">Subscription & Purchase (Tetsulog Pro)</p>
+        <table>
+          <tr><td>Monthly</td><td>¥300/month</td></tr>
+          <tr><td>Yearly</td><td>¥2,400/year (~33% off vs monthly)</td></tr>
+          <tr><td>Lifetime (one-time)</td><td>¥4,800</td></tr>
+        </table>
+        <p class="note">Pro benefits: unlimited favorites (free plan: up to 5 lines), per-operator progress charts and activity calendar, 47-prefecture heatmap, watermark-free share cards, PDF 御朱印帳 export (coming soon). No free trial is offered. iCloud sync is available to all users (both free and Pro) — visit records are considered essential data that must survive device changes or loss, and are therefore never gated.</p>
+      </div>
+      <div class="app-block" data-app="nycsubwaylog">
+        <p class="sub-label">Subscription &amp; Purchase (NYC Subway Log Pro)</p>
+        <table>
+          <tr><td>Monthly</td><td>US$1.99/month</td></tr>
+          <tr><td>Yearly</td><td>US$9.99/year (~58% off vs monthly)</td></tr>
+          <tr><td>Lifetime (one-time)</td><td>US$19.99</td></tr>
+        </table>
+        <p class="note">Pro benefits: unlimited favorites (free plan: up to 5 lines), per-trunk progress charts and activity calendar, five-borough heatmap, watermark-free share cards, PDF stamp book export. No free trial is offered. iCloud sync is available to all users (both free and Pro) — visit records are considered essential data that must survive device changes or loss, and are therefore never gated. Prices shown are US App Store prices; Apple's equivalent local pricing applies in other storefronts.</p>
+      </div>
+      <div class="app-block" data-app="salarycharm">
+        <p class="sub-label">Unlimited Unlock (Salary Charm)</p>
+        <table>
+          <tr><td>Unlimited Unlock (one-time purchase)</td><td>₩2,200</td></tr>
+        </table>
+        <p class="note">Salary Charm's Unlimited Unlock is a one-time, non-consumable purchase that applies permanently. It is not a subscription, so there is no auto-renewal or recurring billing. Benefits: unlimited "redraw" of your daily charm, unlimited coworker charms, and the home-screen widget. Free users can "redraw" their daily charm once per day and create one coworker charm per day. Salary Charm contains no ads.</p>
+      </div>
+      <p class="note">Listed prices are reference prices. The actual amount charged follows the price displayed in the App Store for your region and currency.</p>
+      <p class="sub-label">Payment Terms</p>
+      <ul>
+        <li>Payment is charged to your iTunes account through your Apple ID.</li>
+        <li>Payment method and card details are processed by Apple. We do not collect or store your payment information.</li>
+        <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period.</li>
+        <li>Renewal charges are billed within 24 hours before the end of the current period.</li>
+        <li>Subscriptions can be managed and cancelled in your App Store account settings. Pro features remain available until the end of the current period after cancellation.</li>
+        <li>Previously purchased subscriptions can be restored on other devices using the in-app "Restore Purchases" function.</li>
+        <li>Any unused portion of a free trial period is forfeited upon purchasing a subscription.</li>
+      </ul>
+      <p class="sub-label">Refunds</p>
+      <p>Refunds are subject to Apple's refund policy. Refund requests must be submitted directly to Apple (<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+      <p class="sub-label">Pro Feature Restrictions After Cancellation</p>
+      <p>When a subscription expires or is cancelled, access to Pro features (unlimited folders/saves, iCloud sync, widgets, etc.) ends. Existing saved data remains intact, but creating or modifying items beyond the free plan's limits may be restricted.</p>
+    </div>
+
+    <div class="section" data-app="talkmemo">
+      <h2>One-Time Purchase (Talk Memo)</h2>
+      <table>
+        <tr><td>United States</td><td>US $3.99</td></tr>
+        <tr><td>Korea</td><td>₩4,000</td></tr>
+        <tr><td>Japan</td><td>¥400</td></tr>
+      </table>
+      <p>Talk Memo is a one-time paid app with no subscriptions, in-app purchases, or advertisements. A single purchase unlocks all features. Listed prices are reference prices; the actual amount charged follows the price displayed in the App Store for your region and currency.</p>
+      <p class="sub-label">Payment and Refunds</p>
+      <p>Payment is charged through your Apple ID. We do not collect or store payment information. Refunds are subject to Apple's refund policy and must be submitted directly to Apple (<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+    </div>
+
+    <div class="section" data-app="song2048">
+      <h2>One-Time Purchase &amp; Ads (Song 2048)</h2>
+      <table>
+        <tr><td>Song Pro (one-time)</td><td>US $3.99</td></tr>
+      </table>
+      <p class="note">Pro benefits: removes all ads (both interstitial and rewarded), permanently unlocks the full past-album archive, and unlocks "Your Music" (search any album directly, or play the palette for whatever is currently playing on your streaming service). This is not a subscription — there is no auto-renewal and no recurring charge. Listed prices are reference prices; the actual amount charged follows the price displayed in the App Store for your region and currency.</p>
+      <p class="sub-label">Rewarded Ads</p>
+      <p>Free players may watch one rewarded ad per day to replay a single past album, and may watch a rewarded ad after a game over to continue that game once. Watching ads is always optional and user-initiated. The reward's scope and frequency may change or be discontinued without notice. The daily puzzle itself is free to play without watching any ad.</p>
+      <p class="sub-label">Interstitial Ads</p>
+      <p>Free players may see frequency-capped interstitial ads between games. Purchasing Song Pro removes all ads, including interstitials.</p>
+      <p class="sub-label">Content Notice</p>
+      <p>Song 2048 does not play audio. It shows color palettes derived from cover art together with public metadata (album title, artist name, release year). Album cover images are loaded in real time from Apple's servers via Apple's public iTunes Search API and shown as thumbnails on the search and library screens; we do not store or redistribute them on our servers. Cover images, album titles, and artist names remain the property of their respective owners and are used only for identification and to link to that content. We are not affiliated with, sponsored by, or endorsed by any artist or label. The Play button links out to the streaming service you choose, whose own terms apply. If a rights holder wishes to have specific content removed from display, please contact us.</p>
+      <p class="sub-label">Payment and Refunds</p>
+      <p>Payment is charged through your Apple ID. We do not collect or store payment information. A Pro purchase made on another device can be restored via "Restore Purchase" in the app. Refunds are subject to Apple's refund policy and must be submitted directly to Apple (<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+    </div>
+
+    <div class="section" data-app="quote2048">
+      <h2>One-Time Purchase &amp; Data Handling (Quote 2048)</h2>
+      <table>
+        <tr><td>Quote Pro (one-time)</td><td>US $2.99</td></tr>
+      </table>
+      <p class="note">Pro benefits: unlocks the premium author collection, unlimited undo, full archive access, unlimited custom theme packs, and Saturday replay. This is not a subscription — there is no auto-renewal and no recurring charge. Listed prices are reference prices; the actual amount charged follows the price displayed in the App Store for your region and currency.</p>
+      <p class="sub-label">Local Storage and iCloud Sync</p>
+      <p>Game progress (current board state, theme clear/progress status, best scores, daily-play streak, your custom theme packs, settings) is stored on your device in UserDefaults, and is also stored in your Apple iCloud Key-Value Store to sync automatically across devices signed in to the same Apple ID. Data lives on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync in iOS Settings.</p>
+      <p class="sub-label">Content Notice</p>
+      <p>Quotes and sayings included in Quote 2048 are drawn from public-domain sources, with author and source attribution shown. If you spot a misattribution, please let us know via the contact below and we will review and correct it.</p>
+      <p class="sub-label">Payment and Refunds</p>
+      <p>Payment is charged through your Apple ID. We do not collect or store payment information. A Pro purchase made on another device can be restored via "Restore Purchase" in the app. Refunds are subject to Apple's refund policy and must be submitted directly to Apple (<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+    </div>
+
+    <div class="section" data-app="findlocal">
+      <h2>Free Use (Local Link)</h2>
+      <p>Local Link is a free app with no advertising, no subscriptions, and no in-app purchases. No account registration is required.</p>
+      <p class="sub-label">Data Processing</p>
+      <p>Search queries, saved places, and preferences are stored on your device by default. When iCloud sync is enabled, recent searches and saved places are also stored in your Apple iCloud account's Key-Value Store, allowing automatic sync across devices on the same Apple ID and restoration on new device setup. See the <a href="/legal/privacy/" target="_blank" class="email">Privacy Policy</a> for details.</p>
+      <p class="sub-label">Usage Metrics and Diagnostics</p>
+      <p>In the future, we may add functionality that transmits non-identifying usage metrics and diagnostic information to servers operated by us or by our cloud infrastructure provider to improve app quality, diagnose errors, and understand feature usage. Such information is used only for service improvement and stability. By default, it does not include raw search queries, saved place names, precise location, contacts, or payment information. If metrics collection is enabled, the collected categories and retention practices will be reflected in the Privacy Policy.</p>
+      <p class="sub-label">Third-Party Map Services</p>
+      <p>Local Link's role is limited to passing your selected query through iOS URL schemes / deep links to the map app or web map page you choose. How each destination map app or web service processes and displays your search result is the responsibility of that provider, and we are not liable for it.</p>
+      <p class="sub-label">Search Result Accuracy</p>
+      <p>We make efforts to keep alias dictionaries and recommended place data accurate, but we do not guarantee completeness, accuracy, or timeliness of every result. Actual location information depends on the data provided by the map app or web service you choose.</p>
+    </div>
+    <div class="section" data-app="everykeep">
+      <h2>Free Use (everykeep)</h2>
+      <p>everykeep is a free app with no advertising, no subscriptions, and no in-app purchases. No account registration is required.</p>
+      <p class="sub-label">Data Processing</p>
+      <p>The product details you enter, the photos you attach, and your notification and preference settings are all stored only on your device (SwiftData store, app container, and UserDefaults). They are not transmitted or synced to our servers or any external service, and are removed when you uninstall the app. See the <a href="/legal/privacy/" target="_blank" class="email">Privacy Policy</a> for details.</p>
+      <p class="sub-label">Notifications</p>
+      <p>Replacement, cleaning, and warranty reminders run as on-device local notifications only. Their timing follows the iOS system schedule and may be delayed depending on device settings and power state.</p>
+    </div>
+
+    <div class="section" data-app="salarycharm">
+      <h2>Salary Charm Data Handling</h2>
+      <p class="sub-label">Local Storage</p>
+      <p>The name/nickname you enter, the charms you receive, and your settings are stored only in the on-device store and the app group container (used by the widget). They are not transmitted or synced to our servers or any external service, and are removed when you uninstall the app.</p>
+      <p class="sub-label">Payment</p>
+      <p>The Unlimited Unlock is a one-time, non-consumable purchase (₩2,200) through the Apple App Store. It is not a subscription, so there is no auto-renewal. Payment, refunds, and purchase restoration are managed in your device's App Store settings; we do not collect payment information.</p>
+      <p class="sub-label">Notifications</p>
+      <p>When you enable the "Charm Reminder," local notifications appear at the set time on the days you select. They are processed entirely on-device and are never transmitted to external servers.</p>
+    </div>
+
+    <div class="section" data-app="deskbreath">
+      <h2>DeskBreath Data Handling &amp; Payment</h2>
+      <p class="sub-label">Local Storage</p>
+      <p>Your session stats (breath and stretch counts, day streak) and settings are stored only on your device. They are not transmitted to our servers and are removed when you uninstall the app. If a Pro user turns on iCloud sync, settings and stats are synced only across that user's own devices through their iCloud account.</p>
+      <p class="sub-label">Purchase</p>
+      <p>DeskBreath Pro is a one-time (non-consumable) in-app purchase through the Apple App Store. It is not a subscription; payment, restore, and refunds follow App Store policy. We do not collect payment information.</p>
+      <p class="sub-label">Notifications</p>
+      <p>When you grant permission, stretch local notifications appear at your chosen interval during a work session. They are processed entirely on-device and are never transmitted to external servers.</p>
+    </div>
+
+    <div class="section" data-app="honestcamera">
+      <h2>One-Time Purchase (Honest Camera)</h2>
+      <table>
+        <tr><td>United States</td><td>US $1.99</td></tr>
+      </table>
+      <p>Honest Camera is a one-time paid app with no subscriptions, in-app purchases, or advertisements. A single purchase unlocks all features. Listed prices are reference prices; the actual amount charged follows the price displayed in the App Store for your region and currency.</p>
+      <p class="sub-label">Payment and Refunds</p>
+      <p>Payment is charged through your Apple ID. We do not collect or store payment information. Refunds are subject to Apple's refund policy and must be submitted directly to Apple (<a href="https://reportaproblem.apple.com" target="_blank" class="email">reportaproblem.apple.com</a>).</p>
+    </div>
+
+    <div class="section" data-app="honestcamera">
+      <h2>Camera and Photo Library Access (Honest Camera)</h2>
+      <p>The app requests camera access to take photos and Photo Library Add access to save those photos to your device's Photos library. All processing happens on-device; captured images are never transmitted to our servers or any external service. Permissions can be changed at any time in iOS Settings.</p>
+      <p class="sub-label">Note on Use by Children</p>
+      <p>Honest Camera is designed for direct use by children ages 3 and up. The app itself does not collect or transmit any personal information, contains no advertising, no in-app purchases, no third-party SDKs, and no account integrations. Parents are encouraged to use iOS "Guided Access" to lock the device into the camera app and prevent navigation outside it.</p>
+    </div>
+
+    <div class="section" data-app="pinclip">
+      <h2>Pinclip Data Handling</h2>
+      <p class="sub-label">URL Sharing and Metadata Fetching</p>
+      <p>When you share a URL to Pinclip through the iOS share sheet, the app fetches Open Graph (OGP) / oEmbed metadata for that URL — such as the title and thumbnail image URL — and stores it on your device. These requests are sent directly to the origin website (YouTube, TikTok, etc.) or to the respective platform's public API; they do not pass through our servers.</p>
+      <p>You can edit or delete saved URLs, titles, thumbnails, notes, tags, and folder data at any time. You are responsible for the content you save. The app must not be used to store or share unlawful content, or content that infringes the copyright, privacy, or other rights of third parties.</p>
+      <p class="sub-label">iCloud Sync</p>
+      <p>For Pro subscribers, saved data (folders, clips, thumbnails, notes, tags) is stored and synced via your Apple iCloud account in a private CloudKit database. This data is transmitted and stored encrypted within Apple's infrastructure; we have no access to it and it is not transmitted to our servers.</p>
+      <p>On the free plan, data is stored only in local device storage and is not synced across devices. Sync may be delayed or fail depending on your iCloud sign-in status, available storage, and network conditions; the specifics are governed by Apple's iCloud terms.</p>
+      <p class="sub-label">Public Folder Share Links</p>
+      <p>When you explicitly create a share link via the folder menu's "Share folder" action, a snapshot of that folder is uploaded to our share server (Cloudflare Workers at <code>pinclip.link</code>) and hosted as a public web page. The uploaded fields are <strong>the folder name, each saved video's URL, title, thumbnail URL, and platform name, and an optional nickname you provide</strong>. <strong>Notes and tags are not uploaded.</strong></p>
+      <p>The generated share URL is public — anyone with the link can view the folder's video list and thumbnails as a web page, or see a preview card when the link is posted to messengers or social networks. You can choose whether to include your nickname for each share ("Share with this name" or "Share without nickname"); when not included, the public page for that share does not contain a nickname. The nickname itself is stored only on your device and is transmitted only when you create a share.</p>
+      <p>Shared snapshots are identified by their content hash (SHA-256), so identical folder content reuses the same link, and snapshots are retained on Cloudflare KV without an explicit expiry. Modifying the folder and re-sharing produces a new link; the previous link continues to display the snapshot captured at that earlier point in time. If you wish to have a specific share link removed, contact us with the URL.</p>
+    </div>
+
+    <div class="section" data-app="thanyesterday">
+      <h2>Location Data (ThanYesterday)</h2>
+      <p>The app uses your device's location to provide weather data. Location data is not stored on any server and is used only temporarily for weather API requests. Location access can be changed at any time in iOS Settings.</p>
+    </div>
+
+    <div class="section" data-app="sidefeed">
+      <h2>YouTube API Usage (Sidefeed)</h2>
+      <p>"Powered by YouTube." Sidefeed uses the YouTube Data API v3 to display public video metadata (titles, thumbnails, channel names, publish dates, durations, etc.).</p>
+      <p>Sidefeed does not request Google account authentication or access to your personal YouTube data (liked videos, subscriptions, or watch history). Our server (Cloudflare Workers) centrally calls the YouTube API to fetch country- and category-level popular videos, temporarily caches them, and the app reads only from this server cache.</p>
+      <p>Sidefeed's use of the YouTube API is subject to the <a href="https://www.youtube.com/t/terms" target="_blank" class="email">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a>. By using the app, you agree to these terms and policies.</p>
+      <p>Server cache data is automatically refreshed and expired within at most 48 hours, and is not retained beyond the period permitted by YouTube's Developer Policies (30 days). Videos that are deleted or made private on YouTube are reflected in the next cache refresh cycle.</p>
+    </div>
+
+    <div class="section" data-app="talkmemo">
+      <h2>Voice Recording and Recognition (Talk Memo)</h2>
+      <p>Talk Memo records audio via the Apple Watch microphone and uses on-device speech recognition (Apple Speech Recognition) on iPhone to convert recordings to text. Recording and transcription are both processed on-device, and transcribed text memos are automatically synced across devices signed in to the same Apple ID through iCloud Key-Value Store. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings. Accuracy of speech recognition is not guaranteed.</p>
+      <p>Users are responsible for the content of their recordings. Using the app to record conversations without the consent of all parties involved, or any other use that violates applicable laws, is prohibited.</p>
+    </div>
+
+    <div class="section" data-app="palette2048">
+      <h2>Palette Data Handling</h2>
+      <p class="sub-label">Local storage</p>
+      <p>Game progress (current board state, best scores, solved-mystery list, daily-play streak, settings) is stored on your device in UserDefaults.</p>
+      <p class="sub-label">iCloud sync</p>
+      <p>To automatically sync progress across devices signed in to the same Apple ID, the data above is also stored in your Apple iCloud Key-Value Store. Data lives on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync in iOS Settings.</p>
+      <p class="sub-label">Notifications</p>
+      <p>If you enable "Daily Reminder" in Settings, a local notification appears at a fixed time each day. Notifications are delivered on-device only and are not sent to any external server.</p>
+    </div>
+
+    <div class="section" data-app="catscute catspop">
+      <h2>Game Data and Cloud Saves (Games)</h2>
+      <p>Our games primarily store gameplay data locally on your device. If you are logged into iCloud (iOS) or Google Play Games Services (Android), you may use their built-in manual cloud save feature to back up or restore your progress. Cloud saves are not created automatically — you must manually trigger or confirm the cloud save action inside the game or platform interface.</p>
+      <p>kkiruk studio does not operate its own servers; all cloud-save functions are handled by the respective platform providers. If you delete or reinstall the game, or change your device, your progress can only be restored if you had previously completed a manual cloud save. kkiruk studio is not responsible for data loss resulting from users not initiating a cloud save, device settings, account disconnection, or cloud service errors, except in cases of intentional or gross negligence.</p>
+      <p>Cloud synchronization requires your Apple ID or Google account, managed by their respective providers. kkiruk studio does not collect, store, or access your login credentials or cloud data directly. Some games may offer rankings or other social features; when used, certain information such as your user name and scores may be visible to other users.</p>
+    </div>
+
+    <div class="section" data-app="catscute catspop">
+      <h2>Virtual Goods and Currency (Games)</h2>
+      <p>Our games may include virtual items or currencies ("Virtual Goods," "Virtual Money"). You purchase only a limited license to use them within the Services. Virtual Goods and Virtual Money have no real-world monetary value and cannot be exchanged for cash.</p>
+      <p>Refunds may be provided in accordance with applicable consumer protection laws and platform policies (App Store, Google Play). Unused purchases may be eligible for withdrawal within the statutory period. We may modify, regulate, or remove Virtual Goods or Virtual Money where operationally necessary, without liability except in cases of intentional or gross negligence.</p>
+    </div>
+
+    <div class="section" data-app="catscute catspop">
+      <h2>Advertising (Games)</h2>
+      <p>Games may display personalized advertising depending on your device identifiers and consent settings. kkiruk studio complies with applicable regulations including GDPR, CCPA, and ATT. The handling of advertising-related personal data is governed by our Privacy Policy.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Disclaimer</h2>
+      <p>Weather data, video metadata, and similar information are provided through third-party APIs and accuracy is not guaranteed. We are not liable for any damages resulting from decisions made based on information provided by the apps. The apps are provided "AS IS" without warranties regarding service availability or errors.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Intellectual Property</h2>
+      <p>All intellectual property rights in the apps' design, code, and content belong to us. Users may only use the apps for personal purposes and may not reverse-engineer, copy, or distribute them.</p>
+      <p>Content that you create or save within the apps (URLs, notes, tags, recordings, etc.) remains your property. We do not use it beyond what is necessary to provide the app's features.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Prohibited Use</h2>
+      <p>The following activities are prohibited:</p>
+      <ul>
+        <li>Circumventing or disabling the app's security features</li>
+        <li>Using the app for illegal activities</li>
+        <li>Interfering with service operations</li>
+      </ul>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Service Interruption and Termination</h2>
+      <p>We strive to provide reliable service, but we may temporarily suspend or permanently discontinue all or part of the service due to technical reasons, operational needs, policy changes, or changes to or discontinuation of third-party services.</p>
+      <p>For significant planned interruptions or terminations, we will provide prior notice on this page or within the app. If a planned discontinuation affects your access to a time-based paid subscription, you may request a refund in accordance with Apple's refund policy.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Changes to Terms</h2>
+      <p>We may update these terms. Changes will be posted on this page. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Governing Law</h2>
+      <p>These terms are governed by the laws of the Republic of Korea.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Contact</h2>
+      <p><span class="email" id="email-en-contact"></span></p>
+    </div>
+  </div>
+
+</div>
+<script>
+var u = 'kkirukstudio.help';
+var d = 'gmail.com';
+var e = u + '@' + d;
+var ids = ['email-ko','email-ko-contact','email-en','email-en-contact'];
+ids.forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = e;
+});
+
+function showLang(lang) {
+  document.getElementById('lang-ko').style.display = lang === 'ko' ? 'block' : 'none';
+  document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
+  document.querySelectorAll('.lang-btns button').forEach(function(btn, i) {
+    btn.classList.toggle('active', (lang === 'ko' && i === 0) || (lang === 'en' && i === 1));
+  });
+}
+
+function filterApp(app) {
+  document.querySelectorAll('[data-app]').forEach(function(el) {
+    var apps = el.getAttribute('data-app').split(' ');
+    var show = app === 'all' || apps.indexOf('all') !== -1 || apps.indexOf(app) !== -1;
+    el.style.display = show ? '' : 'none';
+  });
+  document.querySelectorAll('.app-tabs button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === app);
+  });
+}
+</script>
+</body>
 </html>

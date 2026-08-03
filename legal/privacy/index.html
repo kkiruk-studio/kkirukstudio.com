@@ -1,11 +1,932 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=https://kkiruk-studio.github.io/privacy-policy-app/">
-<link rel="canonical" href="https://kkiruk-studio.github.io/privacy-policy-app/">
-<title>kkiruk studio</title>
-<script>location.replace("https://kkiruk-studio.github.io/privacy-policy-app/");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — kkiruk studio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a1a; padding: 2rem 1.25rem; }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #e5e5e5; flex-wrap: wrap; gap: 12px; }
+  .header h1 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+  .header p { font-size: 12px; color: #888; margin-top: 4px; }
+  .lang-btns { display: flex; gap: 8px; }
+  .lang-btns button, .app-tabs button { font-size: 12px; padding: 4px 14px; border-radius: 20px; border: 1px solid #ccc; background: transparent; color: #666; cursor: pointer; font-family: inherit; }
+  .lang-btns button.active, .app-tabs button.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .meta { font-size: 13px; color: #888; margin-bottom: 1.75rem; line-height: 1.7; }
+  .intro { font-size: 14px; color: #555; margin-bottom: 1.5rem; line-height: 1.7; }
+  .tab-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .app-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem; }
+  .section { border-left: 2px solid #e5e5e5; padding-left: 1rem; margin-bottom: 2rem; }
+  .section h2 { font-size: 15px; font-weight: 600; margin-bottom: 1rem; }
+  .section p { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 1rem; }
+  .section p:last-child { margin-bottom: 0; }
+  .section ul { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 1rem; padding-left: 1.2rem; }
+  .section li { margin-bottom: 4px; }
+  .app-block { margin-bottom: 1rem; }
+  .app-block:last-child { margin-bottom: 0; }
+  .sub-label { font-size: 13px; font-weight: 600; color: #888; margin-bottom: 6px; }
+  .warning-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; color: #92400e; line-height: 1.6; }
+  table { width: 100%; font-size: 13px; border-collapse: collapse; margin-bottom: 10px; }
+  td { padding: 8px 0; color: #555; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  td:first-child { width: 42%; font-weight: 500; color: #333; }
+  tr:last-child td { border-bottom: none; }
+  .note { font-size: 12px; color: #999; margin-top: 8px; line-height: 1.6; }
+  .note a { color: #0066cc; text-decoration: none; }
+  .email { color: #0066cc; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #111; color: #e5e5e5; }
+    .header { border-color: #333; }
+    .header h1 { color: #e5e5e5; }
+    .lang-btns button, .app-tabs button { border-color: #444; color: #aaa; background: transparent; }
+    .lang-btns button.active, .app-tabs button.active { background: #e5e5e5; color: #111; border-color: #e5e5e5; }
+    .section { border-color: #333; }
+    .section p, .section ul, .section li, td { color: #aaa; }
+    td:first-child { color: #ccc; }
+    td { border-color: #2a2a2a; }
+    .warning-box { background: #2a1f00; border-color: #7a5500; color: #f0b429; }
+    .note { color: #666; }
+    .sub-label { color: #666; }
+    .tab-label { color: #666; }
+    .email { color: #7eb3f5; }
+  }
+</style>
 </head>
-<body><p><a href="https://kkiruk-studio.github.io/privacy-policy-app/">이동 / Redirecting…</a></p></body>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <p>kkiruk studio</p>
+      <h1>Privacy Policy / 개인정보 처리방침</h1>
+    </div>
+    <div class="lang-btns">
+      <button onclick="showLang('ko')">한국어</button>
+      <button class="active" onclick="showLang('en')">English</button>
+    </div>
+  </div>
+
+  <!-- 한국어 -->
+  <div id="lang-ko" style="display:none;">
+    <p class="meta">시행일: 2026년 7월 21일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
+    <p class="intro">kkiruk studio(이하 "당사")는 아래 앱들을 운영하며, 이용자의 개인정보를 소중히 다룹니다. 본 방침은 아래 앱 모두에 적용됩니다.</p>
+    <p class="tab-label">앱별로 보기</p>
+    <div class="app-tabs">
+      <button class="active" data-filter="all" onclick="filterApp('all')">전체</button>
+      <button data-filter="pinclip" onclick="filterApp('pinclip')">Pinclip</button>
+      <button data-filter="thanyesterday" onclick="filterApp('thanyesterday')">어제보다</button>
+      <button data-filter="runnote" onclick="filterApp('runnote')">RunNote</button>
+      <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
+      <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
+      <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
+      <button data-filter="findlocal" onclick="filterApp('findlocal')">Local Link</button>
+      <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette</button>
+      <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
+      <button data-filter="quote2048" onclick="filterApp('quote2048')">Quote 2048</button>
+      <button data-filter="tetsulog" onclick="filterApp('tetsulog')">테츠로그</button>
+      <button data-filter="nycsubwaylog" onclick="filterApp('nycsubwaylog')">NYC Subway Log</button>
+      <button data-filter="catscute" onclick="filterApp('catscute')">고양이는 정말 귀여워</button>
+      <button data-filter="catspop" onclick="filterApp('catspop')">고양이는 정말 팡팡</button>
+      <button data-filter="james" onclick="filterApp('james')">James 시리즈</button>
+      <button data-filter="everykeep" onclick="filterApp('everykeep')">everykeep</button>
+      <button data-filter="salarycharm" onclick="filterApp('salarycharm')">직장인 부적</button>
+      <button data-filter="deskbreath" onclick="filterApp('deskbreath')">DeskBreath</button>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>수집하는 정보</h2>
+      <p class="sub-label">공통</p>
+      <p>당사는 개인 식별 정보를 수집하지 않습니다. 대부분의 앱은 광고·분석 SDK를 사용하지 않으며, 사용하는 앱·게임(Song 2048, 고양이는 정말 귀여워, 고양이는 정말 팡팡)은 아래 해당 항목에 그 내용을 명시합니다.</p>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Pinclip</p>
+        <p>사용자가 저장한 영상 URL, 제목, 썸네일, 메모, 태그, 폴더 정보를 기기 내에 저장합니다. Pinclip Pro 구독자의 경우 해당 데이터가 사용자의 Apple iCloud 계정 내 private CloudKit 데이터베이스에 동기화되며, 이는 Apple의 개인정보 보호방침을 따릅니다. URL 공유 시 가져오는 메타데이터(제목, 썸네일 URL)는 원본 플랫폼(YouTube, TikTok 등)의 공개 API로 직접 요청되며 당사의 서버를 경유하지 않습니다.</p>
+        <p>사용자가 폴더 메뉴의 "폴더 공유"를 명시적으로 실행하는 경우에 한해, 해당 폴더의 스냅샷(폴더명, 영상 URL·제목·썸네일 URL·플랫폼명, 선택적 닉네임)이 당사 공유 서버(Cloudflare Workers)로 업로드되어 공개 웹 페이지로 호스팅됩니다. <strong>메모와 태그는 업로드되지 않으며,</strong> 닉네임은 공유 시점마다 사용 여부를 선택할 수 있고, 사용자의 기기 내(UserDefaults)에 저장되어 자동 전송되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="thanyesterday">
+        <p class="sub-label">어제보다</p>
+        <p>현재 날씨 정보 제공을 위해 기기의 위치 정보(정밀 또는 대략적)를 사용합니다. 위치 정보는 Apple WeatherKit에 전달되며 기기 외부에 저장되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">RunNote</p>
+        <div class="warning-box">AI 코칭 기능 사용 시, 러닝 데이터(거리, 시간, 페이스, 심박수 등)와 사용자가 입력한 프로필(나이·체중·키·심박 정보·목표), 건강 특이사항, 통증 기록, 러닝 노트·메모가 Anthropic(Claude API)의 서버로 전송됩니다. 이 기능을 사용하기 전에 별도의 동의를 요청합니다.</div>
+        <p>러닝 기록(거리, 시간, 페이스, 경로 등) 및 건강 데이터(HealthKit — 심박수, 칼로리 등)를 수집합니다. AI 코칭 기능 제공 목적으로만 사용되며, 광고·마케팅·데이터 판매에 사용되지 않습니다. AI 코칭 기능을 사용하지 않는 경우 데이터는 기기 내에만 저장됩니다.</p>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Sidefeed</p>
+        <p>"Powered by YouTube." Sidefeed는 이용자의 Google 계정 인증을 요구하지 않으며, 개인 YouTube 데이터(좋아요·구독·시청 기록)에 접근하지 않습니다.</p>
+        <p>당사 서버(Cloudflare Workers)가 YouTube Data API v3를 호출하여 국가별·카테고리별 공개 인기 영상의 메타데이터(제목, 썸네일, 채널명, 길이 등)를 수집하고, Cloudflare Workers KV에 임시 캐싱합니다. 이 데이터에는 개별 이용자를 식별할 수 있는 정보가 포함되지 않습니다.</p>
+        <p>이용자가 선택한 관심 카테고리, 시청한 영상 기록, 국가 설정, 구독 상태는 기기 내 UserDefaults 및 SwiftData에만 저장되며 당사 서버로 전송되지 않습니다. 인앱 구독(Sidefeed Pro) 결제 및 영수증 검증은 Apple StoreKit을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
+        <p>Sidefeed의 YouTube API 사용은 <a href="https://www.youtube.com/t/terms" target="_blank" class="email">YouTube 서비스 약관</a> 및 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>의 적용을 받습니다.</p>
+      </div>
+      <div class="app-block" data-app="honestcamera">
+        <p class="sub-label">Honest Camera</p>
+        <p>당사는 Honest Camera 이용자로부터 어떠한 개인정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템이 모두 부재합니다.</p>
+        <p>앱은 카메라 권한과 사진 보관함 추가 권한만 사용합니다. 촬영된 이미지는 사용자 기기 내에서만 처리되어 사진 보관함에 저장되며, 당사 서버나 외부 서비스로 전송되지 않습니다. 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+        <p>온보딩 완료 여부 플래그는 기기 내 UserDefaults 에만 저장되며, 외부로 전송되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">Local Link / 로컬링크</p>
+        <p>당사는 Local Link 이용자로부터 이름, 이메일, 계정, 연락처, 정확한 위치와 같은 직접 식별 정보를 요구하지 않습니다. 광고 SDK, 외부 추적 SDK, 계정 시스템, 위치 권한은 사용하지 않습니다.</p>
+        <p>이용자가 입력한 검색어, 저장한 장소(쿼리·국가·도시), 마지막 선택한 여행 지역과 도시는 기기 내 UserDefaults 에 저장됩니다. 추가로 최근 검색어와 저장한 장소는 사용자의 Apple iCloud 계정 내 Key-Value Store 에도 자동으로 저장되어 같은 Apple ID 로 로그인된 다른 기기 또는 신규 기기 설정 시 복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
+        <p>검색 별칭 사전(약 2,800개 장소명)은 앱 번들에 포함되어 있어 검색 후보 생성에 인터넷 통신이 필요하지 않습니다.</p>
+        <p>향후 앱 품질 개선, 오류 진단, 기능 사용 현황 파악을 위해 당사 서버 또는 당사가 이용하는 클라우드 인프라로 비식별 사용 지표와 진단 정보를 전송할 수 있습니다. 이 정보에는 앱 버전, OS 버전, 기기 종류, 언어/지역 설정, 대략적인 시간대, 선택한 국가·도시, 사용한 기능, 화면 전환, 지도 앱 열기 성공/실패 여부, 오류 코드, 임의로 생성된 설치 식별자가 포함될 수 있습니다. 원칙적으로 검색어 원문, 저장한 장소명, 정확한 위치, 연락처, 결제 정보는 사용 지표로 수집하지 않습니다. 서버는 보안과 남용 방지를 위해 IP 주소와 요청 시각을 일시적으로 처리할 수 있으며, IP 주소는 개별 이용자 식별 목적이나 광고 목적으로 사용하지 않습니다.</p>
+        <p>지도 앱 실행은 iOS 시스템의 URL 스킴/딥링크를 통해 이루어집니다. 이용자가 후보를 선택해 지도 앱을 탭하면 검색어가 해당 지도 앱의 URL 스킴 파라미터로 전달되며, 그 이후 검색어 처리는 각 지도 앱 제공자의 개인정보 보호방침을 따릅니다. 지도 앱이 설치되어 있지 않을 경우 시스템 기본 브라우저로 웹 지도 페이지가 열릴 수 있습니다.</p>
+        <p class="sub-label">장소 요청 전송 (선택적, 사용자 명시적 행동)</p>
+        <p>이용자가 &lsquo;장소 요청&rsquo; 양식을 작성해 전송 버튼을 누를 때만, 이용자가 입력한 다음 정보가 당사가 운영하는 Google Apps Script 웹앱 엔드포인트(script.google.com)로 전송됩니다: 현재 검색어, 이용자가 입력한 요청 장소명/설명, 선택한 국가 및 도시, 이용자가 입력한 메모(선택), 앱 버전. 스팸 방지를 위한 고정 제출 토큰(개인정보가 아닌 앱 내 상수)도 함께 전송됩니다. 이 양식은 기기 식별자, 위치 정보, 계정 정보를 전송하지 않으며, 전송은 오직 이용자의 명시적 행동 후에만 이루어집니다. 전송된 정보는 검색 별칭 사전 개선 및 요청 처리 목적으로만 사용됩니다.</p>
+      </div>
+      <div class="app-block" data-app="talkmemo">
+        <p class="sub-label">Talk Memo</p>
+        <p>Apple Watch 마이크를 통해 녹음된 오디오, 온디바이스 음성 인식으로 생성된 텍스트 메모, 녹음 시각 타임스탬프를 수집합니다. 녹음과 텍스트 변환은 모두 기기 내에서 처리되며, Apple의 온디바이스 Speech Recognition을 사용합니다.</p>
+        <p class="sub-label">iCloud 동기화</p>
+        <p>텍스트 메모는 사용자의 iCloud 계정(iCloud Key-Value Store)을 통해 같은 Apple ID 로 로그인된 다른 기기와 자동으로 동기화됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버는 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
+        <p class="sub-label">Notion 연동 (선택적, 사용자 명시적 행동)</p>
+        <p>사용자가 설정에서 Notion API 키를 직접 입력하고 Notion으로 메모 보내기를 선택할 때만, 메모 텍스트가 Notion 서버(api.notion.com)로 직접 전송됩니다. API 키는 기기의 Keychain에만 저장되며 당사 서버로 전송되지 않습니다. 이 기능은 사용자의 명시적 행동(Notion 행 탭) 후에만 작동하며, 기본 설정에서는 비활성화되어 있습니다.</p>
+        <p class="sub-label">공유 시트 / 외부 앱 전달</p>
+        <p>사용자가 시스템 공유 시트, Bear, Obsidian 등 외부 앱으로 메모를 보낼 때, iOS 시스템을 통해 메모 텍스트가 해당 앱에 전달됩니다. 이는 사용자가 명시적으로 선택할 때만 발생하며, 당사는 이 과정에 관여하지 않습니다.</p>
+        <p class="sub-label">권한</p>
+        <p>마이크 권한(Apple Watch 및 iPhone), 음성 인식 권한, 알림 권한(새 메모 도착 알림용)을 사용자 동의 하에 사용합니다.</p>
+      </div>
+      <div class="app-block" data-app="palette2048">
+        <p class="sub-label">Palette</p>
+        <p>당사는 Palette 이용자로부터 어떠한 개인 식별 정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 모두 부재합니다.</p>
+        <p>게임 진행 상황(현재 보드 상태, 베스트 점수, 푼 미스터리 목록, 연속 플레이 일수, 보드 크기 설정, 첫 플레이 일자, 온보딩/약관 동의 플래그)은 기기 내 UserDefaults 에 저장됩니다. 추가로 같은 데이터는 사용자의 Apple iCloud 계정 내 Key-Value Store 에 저장되어 같은 Apple ID 로 로그인된 다른 기기 또는 신규 기기 설정 시 자동 동기화·복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
+        <p>인앱 구독(Palette Pro) 결제 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
+        <p class="sub-label">권한</p>
+        <p>알림 권한은 사용자가 설정에서 "매일 알림"을 켤 때만 요청됩니다. 알림은 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="song2048">
+        <p class="sub-label">Song 2048</p>
+        <p>당사는 Song 2048 이용자로부터 이름, 이메일, 계정, 연락처, 위치와 같은 직접 식별 정보를 요구하지 않습니다. 계정 시스템과 위치 권한이 없습니다.</p>
+        <p>게임 진행 상황(현재 보드 상태, 베스트 점수, 연속 플레이 일수, 선택한 스트리밍 서비스, 구매 상태, 온보딩/약관 동의 플래그)은 기기 내 UserDefaults 에 저장됩니다. 같은 데이터 일부는 사용자의 Apple iCloud 계정 내 Key-Value Store 에 저장되어 같은 Apple ID 로 로그인된 다른 기기에서 자동 동기화·복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
+        <p class="sub-label">앨범 커버 이미지</p>
+        <p>Song 2048은 오늘의 앨범과 아카이브·"Your Music" 검색 결과의 커버 이미지를 Apple의 공개 iTunes Search API를 통해 실시간으로 불러와 화면에 표시합니다. 이 과정에서 검색에 사용된 앨범·아티스트명만 Apple 서버로 전달되며, 이름·이메일 등 개인 식별 정보는 전송되지 않습니다. 커버 이미지 자체는 당사 서버에 저장되지 않고, URL만 기기 내에 캐시되어 다음 접속 시 로딩 속도를 높이는 데 사용됩니다.</p>
+        <p class="sub-label">광고 (AD(X) 미디에이션, AdMob 포함)</p>
+        <p>Song 2048의 무료 버전은 아카이브의 지난 앨범 1곡을 플레이하거나 게임 오버 후 이어하기를 위해 사용자가 직접 선택하는 보상형 광고, 그리고 게임 사이사이에 빈도가 제한된 전면 광고를 표시합니다. 광고는 Google AdMob을 포함해 여러 광고 네트워크를 함께 운영하는 AD(X) 미디에이션 SDK를 통해 게재됩니다. 광고 게재 과정에서 각 네트워크가 기기 광고 식별자 등 정보를 처리할 수 있으며, 이는 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a> 등 각 네트워크의 정책을 따릅니다. 앱 추적 투명성(ATT) 정책에 따라 사용자가 추적을 허용하지 않으면 맞춤형이 아닌 광고가 표시됩니다. Song Pro를 구매하면 모든 광고가 제거됩니다.</p>
+        <p class="sub-label">사용 통계 (Firebase Analytics)</p>
+        <p>앱 개선을 위해 비식별 사용 이벤트(예: 화면 조회, 기능 사용 횟수, 앱 버전, OS 버전, 기기 종류, 언어 설정)를 Google Firebase Analytics 로 수집할 수 있습니다. 이름·이메일 등 직접 식별 정보는 포함되지 않으며, 데이터를 판매하거나 마케팅 목적으로 사용하지 않습니다. 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>을 참고하세요.</p>
+        <p class="sub-label">외부 스트리밍 링크</p>
+        <p>Play 버튼은 오늘의 앨범을 사용자가 선택한 스트리밍 서비스(Apple Music, Spotify, YouTube Music)의 앱/웹 페이지로 여는 아웃바운드 링크입니다. 앱 안에서 음악이 재생되거나 해당 서비스 계정에 접근하지 않으며, 링크 이동 후의 데이터 처리는 각 서비스의 개인정보 보호방침을 따릅니다.</p>
+        <p>인앱 결제(Song Pro 일회성 구매) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
+        <p class="sub-label">권한</p>
+        <p>알림 권한은 사용자가 설정에서 "매일 알림"을 켤 때만 요청되며, 알림은 기기 내에서만 처리됩니다. "지금 재생 중인 음악" 기능을 사용하는 경우에만 선택적으로 Apple Music 라이브러리 접근 권한을 요청하며, 이 권한은 현재 재생 중인 곡의 메타데이터(제목·아티스트)를 읽어 팔레트를 생성하는 용도로만 온디바이스에서 사용되고 외부로 전송되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="quote2048">
+        <p class="sub-label">Quote 2048</p>
+        <p>당사는 Quote 2048 이용자로부터 어떠한 개인 식별 정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 모두 부재합니다.</p>
+        <p>게임 진행 상황(현재 보드 상태, 테마 클리어·진행 상황, 베스트 점수, 연속 플레이 일수, 내 테마 팩(사용자가 입력한 문장 — 기기에만 저장), 설정, 온보딩/약관 동의 플래그)은 기기 내 UserDefaults 에 저장됩니다. 추가로 같은 데이터는 사용자의 Apple iCloud 계정 내 Key-Value Store 에 저장되어 같은 Apple ID 로 로그인된 다른 기기 또는 신규 기기 설정 시 자동 동기화·복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
+        <p>인앱 결제(Quote Pro 일회성 구매) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
+        <p class="sub-label">권한</p>
+        <p>알림 권한은 사용자가 설정에서 알림을 켤 때만 요청됩니다. 알림은 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="tetsulog">
+        <p class="sub-label">테츠로그 (鉄ログ)</p>
+        <p>당사는 테츠로그 이용자로부터 광고·분석 SDK 및 외부 추적 도구를 사용하지 않으며, 별도의 계정 시스템도 두지 않습니다.</p>
+        <p>이용자가 앱에서 생성하는 데이터(방문 기록, 방문 일시, 메모, 즐겨찾기 노선, 완乗 상태, 사용자 추가 촬영지의 좌표·제목·메모, 회사·지역 순서 등 UI 환경설정, 온보딩 완료 플래그)는 기기 내 SwiftData 저장소 및 UserDefaults 에 저장됩니다. 같은 Apple ID 로 로그인된 다른 기기로 자동 동기화하기 위해 방문 기록·즐겨찾기·메모 등 핵심 데이터는 Apple iCloud 계정 내 private CloudKit 데이터베이스에도 저장됩니다. 동기화 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud &gt; 鉄ログ 에서 끌 수 있습니다.</p>
+        <p class="sub-label">사진</p>
+        <p>역 방문 기록이나 촬영지에 첨부하는 사진은 <strong>기기 내 로컬 저장소(앱 Documents 디렉토리)에만 저장</strong>되며, CloudKit 데이터베이스나 당사 서버로 전송되지 않습니다. 사진은 저장 시점에 2048px 장변 기준으로 다운스케일되어 JPEG로 저장됩니다. 사진 추가 시 사진 보관함 접근 권한(PHPickerViewController)을 사용자 동의 하에 요청합니다.</p>
+        <p class="sub-label">위치 정보</p>
+        <p>지도 탭의 "내 위치" / "근처 역" 기능을 사용자가 직접 탭할 때만 CoreLocation 으로 현재 위치를 요청합니다. 위치 정보는 카메라 이동·주변 역 검색 목적으로만 일시적으로 사용되며 기기 외부에 저장되거나 전송되지 않습니다. 위치 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+        <p class="sub-label">결제</p>
+        <p>인앱 결제(테츠로그 Pro 월간·연간 구독 및 평생 이용권) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집·저장하지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="nycsubwaylog">
+        <p class="sub-label">NYC Subway Log</p>
+        <p>당사는 NYC Subway Log 이용자로부터 광고·분석 SDK 및 외부 추적 도구를 사용하지 않으며, 별도의 계정 시스템도 두지 않습니다.</p>
+        <p>이용자가 앱에서 생성하는 데이터(역 방문 기록, 방문 일시, 메모, 즐겨찾기 노선, 전 구간 완주 상태, 수집한 차량 기록, 사용자 추가 촬영지의 좌표·제목·메모, 디비전 순서 등 UI 환경설정, 온보딩 완료 플래그)는 기기 내 SwiftData 저장소 및 UserDefaults 에 저장됩니다. 같은 Apple ID 로 로그인된 다른 기기로 자동 동기화하기 위해 방문 기록·즐겨찾기·메모 등 핵심 데이터는 Apple iCloud 계정 내 private CloudKit 데이터베이스에도 저장됩니다. 동기화 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud &gt; NYC Subway Log 에서 끌 수 있습니다.</p>
+        <p class="sub-label">노선·역 데이터</p>
+        <p>앱에 수록된 노선·역·선로 정보는 MTA(Metropolitan Transportation Authority)가 공개하는 GTFS static 피드와 NYC OpenData 의 공개 데이터를 앱 번들에 포함한 것입니다. 앱 실행 중 MTA 또는 뉴욕시 서버로 이용자 정보를 전송하지 않으며, 당사는 MTA 와 제휴 관계가 없습니다.</p>
+        <p class="sub-label">사진</p>
+        <p>역 방문 기록이나 촬영지에 첨부하는 사진은 <strong>기기 내 로컬 저장소(앱 Documents 디렉토리)에만 저장</strong>되며, CloudKit 데이터베이스나 당사 서버로 전송되지 않습니다. 사진은 저장 시점에 2048px 장변 기준으로 다운스케일되어 JPEG로 저장됩니다. 사진 추가 시 사진 보관함 접근 권한(PHPickerViewController)을 사용자 동의 하에 요청합니다.</p>
+        <p class="sub-label">위치 정보</p>
+        <p>지도 탭의 "내 위치" / "근처 역" 기능을 사용자가 직접 탭할 때만 CoreLocation 으로 현재 위치를 요청합니다. 위치 정보는 카메라 이동·주변 역 검색 목적으로만 일시적으로 사용되며 기기 외부에 저장되거나 전송되지 않습니다. 위치 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+        <p class="sub-label">지도 타일</p>
+        <p>완주 카드의 배경 지도는 OpenStreetMap 기반 CARTO 타일 서비스에서 이미지 타일을 내려받아 렌더링합니다. 이때 해당 카드가 다루는 노선 구간의 좌표 범위가 타일 요청에 포함되며, 이용자 식별 정보는 전송되지 않습니다.</p>
+        <p class="sub-label">결제</p>
+        <p>인앱 결제(NYC Subway Log Pro 월간·연간 구독 및 평생 이용권) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집·저장하지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="catscute catspop">
+        <p class="sub-label">고양이는 정말 귀여워 · 고양이는 정말 팡팡</p>
+        <p>광고 제공 및 서비스 분석을 위해 SDK·플랫폼을 통해 광고 식별자(ADID, IDFA), 기기 정보(모델명, OS 버전, 언어, 국가, 앱 버전 등), 로그 데이터(앱 실행 시간, 충돌 보고서, 오류 로그, 사용 통계 등)가 자동 수집됩니다.</p>
+        <p>iCloud 또는 Google Play 게임 서비스에 로그인해 수동 클라우드 저장을 사용하는 경우, 이용자가 직접 생성한 클라우드 저장 데이터와 플랫폼 연동 식별자(Apple ID 또는 Google 계정)는 각 플랫폼이 직접 관리하며 당사가 직접 수집하지 않습니다. 닉네임, 게임 설정, 구매 이력 등은 해당하는 경우에만 수집됩니다.</p>
+      </div>
+      <div class="app-block" data-app="james">
+        <p class="sub-label">James Spring · James Summer</p>
+        <p>James Spring 및 James Summer는 개인정보를 수집·저장·전송하지 않습니다. 광고, 분석 도구, 제3자 SDK가 포함되어 있지 않으며 완전히 오프라인으로 동작합니다.</p>
+      </div>
+      <div class="app-block" data-app="everykeep">
+        <p class="sub-label">everykeep</p>
+        <p>당사는 everykeep 이용자로부터 이름, 이메일, 계정, 위치와 같은 개인 식별 정보를 수집하지 않습니다. 광고 SDK, 분석 SDK, 외부 추적 도구, 계정 시스템, 당사 서버 연동이 모두 부재합니다.</p>
+        <p>이용자가 입력한 제품 정보(이름, 제조사, 모델명, 시리얼 넘버, 구매처, 구매일, 교체·청소 주기, 보증 만료일, 정품 등록 정보, 메모)와 첨부한 사진(대표 사진·영수증·보증서·시리얼 라벨)은 기기 내 SwiftData 저장소 및 앱 컨테이너에만 저장되며, 당사 서버나 iCloud로 전송·동기화되지 않습니다. 앱을 삭제하면 보유한 모든 데이터(제품 기록, 첨부 사진, 설정, 온보딩 완료 플래그)가 함께 제거됩니다.</p>
+        <p class="sub-label">권한</p>
+        <p>교체·청소·보증 리마인더를 위한 알림 권한과, 영수증·보증서 등 첨부 시 사진 보관함 접근 권한을 사용자 동의 하에 사용합니다. 알림은 모두 기기 내에서만 처리되며 외부로 전송되지 않습니다. 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+      </div>
+      <div class="app-block" data-app="salarycharm">
+        <p class="sub-label">직장인 부적</p>
+        <p>당사는 직장인 부적 이용자로부터 어떠한 개인 식별 정보도 수집·전송·저장하지 않습니다. 분석 SDK, 외부 추적 도구, 계정 시스템, 위치 권한이 모두 부재합니다.</p>
+        <p>이용자가 입력한 이름/닉네임과 받은 부적, 설정값(오늘의 부적·태움 상태·알림 설정 등)은 기기 내 저장소 및 앱 그룹 저장소(위젯 표시용)에만 저장되며, 당사 서버로 전송되지 않습니다. 앱을 삭제하면 함께 제거됩니다.</p>
+        <p>무제한 이용권(일회성 비소모성 구매) 결제 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
+        <p>직장인 부적에는 광고가 없으며, 광고 식별자 등을 처리하는 광고 SDK가 포함되어 있지 않습니다.</p>
+        <p class="sub-label">권한</p>
+        <p>알림 권한은 사용자가 설정에서 "부적 알림"을 켤 때만 요청됩니다. 알림은 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="deskbreath">
+        <p class="sub-label">DeskBreath</p>
+        <p>당사는 DeskBreath 이용자로부터 이름·이메일·계정·위치와 같은 개인 식별 정보를 수집하지 않습니다. 광고 SDK, 분석 SDK, 외부 추적 도구, 계정 시스템, 당사 서버 연동이 모두 부재합니다.</p>
+        <p>세션 통계(깊은 호흡·스트레칭 횟수, 연속 사용일)와 설정(호흡 리듬·색상·커스텀 오브 이미지·스트레칭 주기 등)은 기기 내 저장소(UserDefaults·앱 컨테이너)에만 저장됩니다. Pro 이용자가 iCloud 동기화를 켜면 설정·통계가 본인 iCloud 계정(Apple)을 통해 기기 간 동기화되며, 당사 서버로는 전송되지 않습니다. 앱을 삭제하면 보유한 데이터가 함께 제거됩니다.</p>
+        <p>인앱 구매(DeskBreath Pro, 일회성)와 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
+        <p class="sub-label">권한</p>
+        <p>스트레칭·호흡 리마인더를 위한 알림 권한과, 커스텀 오브 이미지 선택 시 사진 보관함 접근 권한을 사용자 동의 하에 사용합니다. 알림은 기기 내에서만 처리되며 외부로 전송되지 않습니다. 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>정보 이용 목적</h2>
+      <p>수집된 정보는 오직 앱 기능 제공 목적으로만 사용됩니다. 제3자에게 판매하거나 공유하지 않습니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>제3자 서비스</h2>
+      <table>
+        <tr data-app="thanyesterday"><td>Apple WeatherKit</td><td>어제보다 — 날씨 데이터</td></tr>
+        <tr data-app="pinclip"><td>Apple iCloud (CloudKit)</td><td>Pinclip — Pro 구독자 데이터 동기화</td></tr>
+        <tr data-app="pinclip"><td>Cloudflare Workers + KV</td><td>Pinclip — 폴더 공유 링크 호스팅 및 OGP 카드 렌더링 (사용자가 명시적으로 공유 시)</td></tr>
+        <tr data-app="runnote"><td>Apple HealthKit</td><td>RunNote — 건강 데이터</td></tr>
+        <tr data-app="runnote"><td>Anthropic (Claude API)</td><td>RunNote — AI 코칭 기능 (동의 후)</td></tr>
+        <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — 공개 영상 메타데이터 (서버 측 호출)</td></tr>
+        <tr data-app="sidefeed"><td>Cloudflare Workers + KV</td><td>Sidefeed — 공개 영상 데이터 서버 캐시</td></tr>
+        <tr data-app="sidefeed"><td>Apple StoreKit</td><td>Sidefeed — Pro 구독 결제·영수증 검증</td></tr>
+        <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — 온디바이스 음성 인식</td></tr>
+        <tr data-app="talkmemo"><td>Apple iCloud (Key-Value Store)</td><td>Talk Memo — 같은 Apple ID 기기 간 메모 동기화</td></tr>
+        <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Local Link — 같은 Apple ID 기기 간 최근 검색어·저장한 장소 동기화</td></tr>
+        <tr data-app="findlocal"><td>kkiruk studio server / cloud infrastructure</td><td>Local Link — 비식별 사용 지표·오류 진단 정보 처리(향후 기능 개선용)</td></tr>
+        <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
+        <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette — Pro 구독 결제·영수증 검증</td></tr>
+        <tr data-app="salarycharm"><td>Apple StoreKit</td><td>직장인 부적 — 무제한 이용권(일회성) 결제·영수증 검증</td></tr>
+        <tr data-app="deskbreath"><td>Apple StoreKit</td><td>DeskBreath — Pro 일회성 결제·영수증 검증</td></tr>
+        <tr data-app="deskbreath"><td>Apple iCloud (Key-Value Store)</td><td>DeskBreath — Pro 설정·통계 기기 간 동기화 (사용자가 켤 때)</td></tr>
+        <tr data-app="song2048"><td>Apple iCloud (Key-Value Store)</td><td>Song 2048 — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
+        <tr data-app="song2048"><td>Apple StoreKit</td><td>Song 2048 — Pro 일회성 구매 결제·영수증 검증</td></tr>
+        <tr data-app="song2048"><td>AD(X) 미디에이션 (Google AdMob 포함)</td><td>Song 2048 — 보상형·전면 광고 게재</td></tr>
+        <tr data-app="song2048"><td>Apple iTunes Search API</td><td>Song 2048 — 앨범 커버 이미지·메타데이터 실시간 조회</td></tr>
+        <tr data-app="song2048"><td>Google Firebase Analytics</td><td>Song 2048 — 비식별 사용 통계</td></tr>
+        <tr data-app="quote2048"><td>Apple iCloud (Key-Value Store)</td><td>Quote 2048 — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
+        <tr data-app="quote2048"><td>Apple StoreKit</td><td>Quote 2048 — Pro 일회성 구매 결제·영수증 검증</td></tr>
+        <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>테츠로그 — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
+        <tr data-app="tetsulog"><td>Apple Core Location</td><td>테츠로그 — "내 위치"/"근처 역" 탭 시 현재 위치 일시 조회</td></tr>
+        <tr data-app="tetsulog"><td>Apple StoreKit</td><td>테츠로그 — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
+        <tr data-app="nycsubwaylog"><td>Apple iCloud (CloudKit)</td><td>NYC Subway Log — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
+        <tr data-app="nycsubwaylog"><td>Apple Core Location</td><td>NYC Subway Log — "내 위치"/"근처 역" 탭 시 현재 위치 일시 조회</td></tr>
+        <tr data-app="nycsubwaylog"><td>Apple StoreKit</td><td>NYC Subway Log — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
+        <tr data-app="nycsubwaylog"><td>CARTO (OpenStreetMap)</td><td>NYC Subway Log — 완주 카드 배경 지도 타일</td></tr>
+        <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — 사용자 자체 API 키로 메모 직접 전송 (사용자 명시적 선택 시)</td></tr>
+        <tr data-app="catscute catspop"><td>Google LLC (Firebase, AdMob)</td><td>고양이는 정말 귀여워·팡팡 — 광고 제공 및 분석 (광고 식별자, 기기 정보, 사용 로그)</td></tr>
+        <tr data-app="catscute catspop"><td>Unity Technologies</td><td>고양이는 정말 귀여워·팡팡 — 게임 분석 및 성능 추적</td></tr>
+        <tr data-app="catscute catspop"><td>ADX Corporation</td><td>고양이는 정말 귀여워·팡팡 — 광고 운영·성과 분석·광고 네트워크 미디에이션</td></tr>
+        <tr data-app="catscute catspop"><td>Apple / Google (플랫폼 계정)</td><td>고양이는 정말 귀여워·팡팡 — 클라우드 저장·복원, 랭킹</td></tr>
+      </table>
+      <p class="note" data-app="talkmemo">Notion 연동은 기본적으로 비활성화되어 있으며, 사용자가 설정에서 자신의 Notion API 키를 입력해야만 사용할 수 있습니다. 메모는 사용자가 Notion 행을 탭할 때만 전송됩니다. 자세한 내용은 <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion 개인정보 보호방침</a>을 참고하세요.</p>
+      <p class="note" data-app="runnote">Anthropic API를 통해 전송된 데이터는 모델 학습에 사용되지 않으며 30일 이내 자동 삭제됩니다. 자세한 내용은 <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic 개인정보 보호방침</a>을 참고하세요.</p>
+      <p class="note" data-app="sidefeed">Sidefeed는 Google 계정 인증을 사용하지 않으며, YouTube API는 서버 측에서만 호출되어 공개 영상 메타데이터만 조회합니다. YouTube API 사용은 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 서비스 약관</a> 및 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 보호방침</a>의 적용을 받습니다.</p>
+      <p class="note" data-app="catscute catspop">ADX Corporation은 다수의 파트너 광고 네트워크를 운영합니다. 파트너 목록: <a href="https://assets.adxcorp.kr/privacy/partners" target="_blank">assets.adxcorp.kr/privacy/partners</a></p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>개인정보 국외 이전</h2>
+      <p>일부 기능 제공 과정에서 이용자의 개인정보가 아래와 같이 국외로 이전될 수 있습니다. 이전에 동의하지 않는 경우 해당 기능을 사용하지 않거나 해당 앱을 이용하지 않으실 수 있습니다.</p>
+      <p class="note">아래 수령자는 모두 미국 소재입니다. 미국에는 EU GDPR·한국 개인정보보호법·일본 개인정보보호법(APPI)과 같은 포괄적 연방 개인정보 보호법이 없으며, 분야별 연방법과 주(州)법으로 규율됩니다. 각 수령자는 자사 개인정보 보호방침 및 계약상 보호조치(표준계약조항 등)에 따라 데이터를 보호합니다.</p>
+      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 quote2048 tetsulog">
+        <p class="sub-label">Apple Inc. (미국)</p>
+        <ul>
+          <li>이전 항목: 위치 정보(어제보다·테츠로그), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Local Link·Palette·Quote 2048·테츠로그), 음성 인식 관련 데이터(Talk Memo)</li>
+          <li>이전 시점·방법: 해당 API 호출 시 네트워크(TLS) 전송</li>
+          <li>이전 목적: WeatherKit, HealthKit, iCloud(CloudKit·Key-Value Store), CoreLocation, Speech Recognition 기능 제공</li>
+          <li>보유·이용 기간: <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple 개인정보 보호방침</a>에 따름</li>
+          <li>거부 방법: iOS 설정에서 해당 권한을 해제하거나 iCloud 동기화를 비활성화</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">kkiruk studio server / cloud infrastructure (국가 미정)</p>
+        <ul>
+          <li>이전 항목: 비식별 사용 지표 및 진단 정보(앱 버전, OS 버전, 기기 종류, 언어/지역 설정, 대략적 시간대, 선택 국가·도시, 기능 이벤트, 오류 코드, 임의 설치 식별자 등)</li>
+          <li>이전 시점·방법: 향후 해당 기능이 활성화된 버전에서 앱 사용 중 TLS 전송</li>
+          <li>이전 목적: 앱 품질 개선, 오류 진단, 기능 사용 현황 분석, 보안 및 남용 방지</li>
+          <li>보유·이용 기간: 서비스 개선과 오류 분석에 필요한 기간 동안 보관 후 삭제 또는 집계 형태 보관</li>
+          <li>거부 방법: 향후 앱 내 설정 또는 iOS 설정에서 제공되는 범위에 따름. 해당 기능이 활성화되기 전에는 전송되지 않음.</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="talkmemo">
+        <p class="sub-label">Notion Labs, Inc. (미국)</p>
+        <ul>
+          <li>이전 항목: 메모 텍스트 (사용자가 Notion 으로 보내기를 명시적으로 선택할 때만)</li>
+          <li>이전 시점·방법: 사용자가 설정에서 Notion API 키를 입력하고 Notion 행을 탭할 때 Notion API(api.notion.com) 직접 호출</li>
+          <li>이전 목적: 사용자의 Notion 데이터베이스에 메모 페이지 생성</li>
+          <li>보유·이용 기간: <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank" class="email">Notion 개인정보 보호방침</a>에 따름</li>
+          <li>거부 방법: Notion 연동을 설정하지 않거나 사용하지 않음. 기본 설정에서는 비활성화됨.</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">Anthropic, PBC (미국)</p>
+        <ul>
+          <li>이전 항목: 러닝 데이터(거리, 시간, 페이스, 심박수·심박 구간, 케이던스, 고도, 구간 기록 등), 사용자 입력 프로필(나이, 체중, 키, 최대·안정시 심박수, 운동 수준, 목표), 건강 특이사항(부상·질환·복약 등 사용자가 입력한 내용), 통증 기록(부위·강도), 러닝 노트·메모 원문, AI가 축적한 코치 노트, 신발 정보</li>
+          <li>이전 시점·방법: RunNote의 AI 코칭 기능 사용 시(사전 동의 후) Claude API 호출, TLS 전송</li>
+          <li>이전 목적: AI 코칭 응답 생성</li>
+          <li>이전받는 자 연락처: privacy@anthropic.com</li>
+          <li>보유·이용 기간: <a href="https://www.anthropic.com/privacy" target="_blank" class="email">Anthropic 개인정보 보호방침</a>에 따라 API 처리 후 30일 이내 자동 삭제 (모델 학습에는 사용되지 않음)</li>
+          <li>거부 방법: AI 코칭 기능을 사용하지 않음 (기록·노트 등 다른 기능에는 영향 없음)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">Cloudflare, Inc. (미국)</p>
+        <ul>
+          <li>이전 항목: AI 코칭 요청 내용(위 Anthropic 이전 항목과 동일), 이용자 IP(네트워크 라우팅용)</li>
+          <li>이전 시점·방법: AI 코칭 기능 사용 시 당사 프록시 서버(Cloudflare Workers, 미국 리전)를 경유하여 TLS 전송</li>
+          <li>이전 목적: API 키 보호를 위한 중계(프록시) — 요청 내용을 저장하지 않고 Anthropic으로 전달</li>
+          <li>보유·이용 기간: 프록시는 요청 내용을 저장하지 않으며, 네트워크 처리 로그는 <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare 개인정보 보호방침</a>에 따름</li>
+          <li>거부 방법: AI 코칭 기능을 사용하지 않음</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Google LLC (미국)</p>
+        <ul>
+          <li>이전 항목: 공개 영상 메타데이터 조회 요청 (이용자 식별 정보 미포함)</li>
+          <li>이전 시점·방법: 당사 서버가 YouTube Data API v3를 호출할 때 (이용자 단말에서 직접 전송되지 않음)</li>
+          <li>이전 목적: 국가별·카테고리별 공개 인기 영상 메타데이터 조회</li>
+          <li>보유·이용 기간: <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>에 따름. 당사 서버 캐시는 최대 48시간 내 자동 만료.</li>
+          <li>거부 방법: 해당 없음 (개인 식별 정보가 전송되지 않음)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Cloudflare, Inc. (미국)</p>
+        <ul>
+          <li>이전 항목: 사용자가 명시적으로 공유한 폴더 스냅샷(폴더명, 영상 URL·제목·썸네일 URL·플랫폼명, 선택적 닉네임), 이용자 IP(엣지 네트워크 라우팅용)</li>
+          <li>이전 시점·방법: 사용자가 "폴더 공유"를 실행하여 공유 링크를 생성·열람할 때 TLS 전송</li>
+          <li>이전 목적: 폴더 공유 링크 호스팅, 공유 페이지의 OGP 카드 렌더링, 공유받은 사용자의 임포트용 JSON 제공</li>
+          <li>보유·이용 기간: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare 개인정보 보호방침</a>에 따름. 공유 스냅샷은 별도 만료 없이 보관되며, 삭제 요청은 문의처로 가능합니다.</li>
+          <li>거부 방법: 폴더 공유 기능을 사용하지 않음 (앱의 다른 기능에는 영향 없음)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Cloudflare, Inc. (미국)</p>
+        <ul>
+          <li>이전 항목: 공개 영상 메타데이터 캐시 (이용자 식별 불가), 이용자 IP(엣지 네트워크 라우팅용)</li>
+          <li>이전 시점·방법: 앱이 당사 서버 엔드포인트에 요청 시 TLS 전송</li>
+          <li>이전 목적: Cloudflare Workers 엣지 캐싱 및 서비스 제공</li>
+          <li>보유·이용 기간: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare 개인정보 보호방침</a>에 따름</li>
+          <li>거부 방법: 앱을 사용하지 않음</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="catscute catspop">
+        <p class="sub-label">Google LLC · Unity Technologies (미국)</p>
+        <ul>
+          <li>이전 항목: 광고 식별자(ADID/IDFA), 기기 정보, 사용·게임플레이 로그</li>
+          <li>이전 시점·방법: 게임 실행 및 광고 표시 시 SDK를 통한 네트워크(TLS) 전송</li>
+          <li>이전 목적: 광고 제공·효과 측정(Firebase·AdMob), 게임 분석·성능 추적(Unity)</li>
+          <li>보유·이용 기간: 각 사 개인정보 보호방침에 따름</li>
+          <li>거부 방법: 기기 설정의 앱 추적 투명성(ATT) 거부 또는 광고 ID 재설정·제한</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>데이터 보관 및 삭제</h2>
+      <p>기본적으로 기기 내 데이터는 앱을 삭제하면 함께 삭제됩니다. 다만 iCloud 동기화 데이터나 앱별로 명시된 서버 기반 기능·진단 정보는 각 앱별 조항의 보관 및 삭제 기준을 따릅니다.</p>
+      <p data-app="pinclip">Pinclip Pro의 iCloud 동기화 데이터는 사용자의 iCloud 계정에 저장되며, 앱을 삭제해도 iCloud에는 남을 수 있습니다. iOS 설정 &gt; Apple ID &gt; iCloud &gt; "Pinclip" 항목에서 직접 삭제할 수 있습니다.</p>
+      <p data-app="pinclip">폴더 공유 링크는 사용자가 명시적으로 "폴더 공유"를 실행할 때만 생성되며, 한 번 생성된 스냅샷은 별도 만료 없이 Cloudflare KV에 보관됩니다. 닉네임은 사용자의 기기 내 UserDefaults에 저장되어 앱 삭제 시 함께 제거됩니다. 특정 공유 링크의 삭제를 원하시는 경우 본 방침 하단 문의처로 해당 URL과 함께 요청해 주십시오.</p>
+      <p data-app="runnote">RunNote의 AI 코칭 기능으로 Anthropic에 전송된 데이터는 30일 이내 자동 삭제됩니다.</p>
+      <p data-app="sidefeed">Sidefeed는 이용자 계정·인증 정보를 저장하지 않습니다. 기기 내 저장된 관심 카테고리·시청 기록·국가 설정은 앱 삭제 시 함께 제거됩니다. 서버 캐시에는 이용자 식별 정보가 포함되지 않습니다.</p>
+      <p data-app="talkmemo">Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에 보관되며, iCloud 동기화가 켜져 있는 경우 사용자의 iCloud 계정에도 저장됩니다. 앱을 삭제해도 iCloud 데이터는 남을 수 있으며, iOS 설정 &gt; Apple ID &gt; iCloud &gt; 저장공간 관리에서 직접 삭제할 수 있습니다.</p>
+      <p data-app="honestcamera">Honest Camera는 사용자 데이터를 자체 서버에 저장하지 않습니다. 촬영된 사진은 iOS 사진 보관함에 저장되며, 이는 Apple Photos 프레임워크가 관리합니다. 앱을 삭제하면 앱이 보유하던 모든 설정(예: 온보딩 완료 플래그)이 함께 제거됩니다.</p>
+      <p data-app="findlocal">Local Link의 검색어·저장한 장소·환경 설정은 기기 내 UserDefaults 에 보관되며, 앱을 삭제하면 함께 제거됩니다. iCloud 동기화가 활성화된 상태에서는 최근 검색어와 저장한 장소가 사용자의 iCloud 계정에도 저장되며, 앱 삭제 후에도 iCloud 에 남을 수 있습니다. 향후 서버 기반 사용 지표가 활성화되는 경우 비식별 지표와 진단 로그는 서비스 개선과 오류 분석에 필요한 기간 동안 보관한 뒤 삭제하거나 집계 형태로 보관합니다. 원문 검색어와 저장한 장소명은 사용 지표로 수집하지 않는 것을 원칙으로 합니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>개인정보 안전성 확보 조치</h2>
+      <p>당사는 이용자의 개인정보를 안전하게 보호하기 위해 다음과 같은 기술적·관리적 조치를 취하고 있습니다.</p>
+      <ul>
+        <li>모든 네트워크 통신에 HTTPS(TLS)만 사용 (비암호화 HTTP 미사용)</li>
+        <li>인증 토큰 등 민감 정보는 iOS Keychain에 암호화 저장</li>
+        <li>음성 인식, 썸네일 캐싱 등 가능한 처리는 온디바이스에서 수행하여 외부 전송 최소화</li>
+        <li>메인 앱, Share Extension, 위젯은 iOS App Group 샌드박스 내에서만 데이터를 공유</li>
+        <li>광고·추적·외부 분석 SDK를 포함하지 않음</li>
+        <li>서비스 제공에 필요한 최소한의 정보만 수집·처리</li>
+        <li>외부 서비스로 전송이 필요한 경우 사전 동의(RunNote AI 코칭)를 받거나 필수 기능 제공에 한정</li>
+      </ul>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>아동 개인정보 보호</h2>
+      <p>당사는 이용자가 속한 지역의 법률에서 정한 최소 연령(예: 대한민국 만 14세, 미국 13세, EU 회원국별 13~16세) 미만의 아동에 대해서는 법정대리인의 동의 없이 개인정보를 수집하지 않습니다. 해당 연령 미만 아동이 법정대리인 동의 없이 개인정보를 제공한 사실이 확인되면 지체 없이 해당 정보를 삭제합니다.</p>
+      <p data-app="honestcamera"><strong>Honest Camera 특기 사항</strong>: 본 앱은 3세 이상 유아의 직접 사용을 전제로 설계되었으며, 의도적으로 어떠한 개인정보도 수집하지 않습니다. 광고, 인앱 결제, 외부 SDK, 계정 연동, 분석 도구가 모두 부재하므로 미국 COPPA, EU GDPR-K, 한국 정보통신망법 상 아동 개인정보 처리에 해당하는 행위가 발생하지 않습니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>EU 이용자 권리 (GDPR)</h2>
+      <p>EU/EEA 거주자는 아래 권리를 가집니다.</p>
+      <table>
+        <tr><td>열람권</td><td>당사가 보유한 본인 데이터 확인 요청</td></tr>
+        <tr><td>삭제권</td><td>데이터 삭제 요청 (앱 삭제 시 자동 삭제됨)</td></tr>
+        <tr><td>전송 제한권</td><td>특정 데이터 처리 중단 요청</td></tr>
+        <tr><td>이의 제기권</td><td>데이터 처리에 대한 이의 제기</td></tr>
+      </table>
+      <p class="note" data-app="runnote">RunNote의 AI 코칭 기능을 위한 Anthropic 데이터 전송은 이용자의 명시적 동의(Explicit Consent, GDPR 제6조 제1항 (a)호 및 제9조 제2항 (a)호)에 근거하며, 동의는 앱 설정에서 언제든지 철회할 수 있습니다.</p>
+      <p class="note" data-app="sidefeed">Sidefeed는 이용자 개인정보를 수집하지 않으므로, GDPR 상 처리 근거가 필요한 개인정보 처리 행위는 발생하지 않습니다.</p>
+      <p class="note">권리 행사 문의: <span class="email" id="email-ko-gdpr"></span></p>
+      <p class="note">EU/EEA 이용자는 거주 회원국의 개인정보 감독기관(Supervisory Authority)에 이의를 제기할 권리가 있습니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>캘리포니아 이용자 고지 (CCPA)</h2>
+      <p>당사는 캘리포니아 소비자 개인정보 보호법(CCPA) 및 CPRA 정의상 "사업자(business)"에 해당하지 않을 수 있으나, 정책상 지역에 관계없이 다음을 준수합니다.</p>
+      <ul>
+        <li>이용자의 개인정보를 판매(sell)하지 않습니다.</li>
+        <li>이용자의 개인정보를 행태 광고(cross-context behavioral advertising) 목적으로 제3자와 공유하지 않습니다.</li>
+        <li>이용자는 "판매/공유 거부(Do Not Sell or Share My Personal Information)" 요청 여부와 관계없이 동일한 보호를 받습니다.</li>
+      </ul>
+    </div>
+
+    <div class="section" data-app="runnote">
+      <h2>소비자 건강 데이터 고지 (미국 워싱턴주 MHMD 등)</h2>
+      <p>RunNote는 러닝 기록, 심박수 등 건강 데이터(HealthKit), 이용자가 입력한 건강 특이사항·통증 기록 등 "소비자 건강 데이터"를 처리합니다.</p>
+      <ul>
+        <li>수집 목적: 러닝 기록 관리 및 AI 코칭 제공 (그 외 목적으로 사용하지 않음)</li>
+        <li>공유: AI 코칭 기능 사용 시에만, 이용자의 사전 동의 후 Anthropic(미국)으로 전송됩니다. 이 외에 건강 데이터를 제3자와 공유하거나 판매하지 않습니다.</li>
+        <li>동의 철회: 앱 설정의 "AI 데이터 전송 동의 철회"에서 언제든지 철회할 수 있습니다.</li>
+        <li>열람·삭제: 모든 데이터는 기기 내에 저장되며 앱에서 직접 확인·삭제할 수 있습니다. Anthropic에 전송된 데이터는 30일 이내 자동 삭제되며, 추가 요청은 본 방침 하단 문의처로 연락해 주십시오.</li>
+      </ul>
+    </div>
+
+    <div class="section" data-app="sidefeed">
+      <h2>Sidefeed 데이터 삭제</h2>
+      <p>Sidefeed는 Google 계정 인증이나 개인 YouTube 데이터를 사용하지 않습니다. 기기 내에 저장된 모든 이용자 설정(관심 카테고리, 시청 기록, 국가 선택)은 앱을 삭제하면 함께 제거됩니다. 당사 서버에는 이용자를 식별할 수 있는 정보가 저장되지 않습니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>개인정보 보호 책임자</h2>
+      <p>당사는 이용자의 개인정보 보호 및 관련 문의 처리를 위해 아래와 같이 책임자를 지정하고 있습니다. 이용자는 개인정보 관련 문의, 불만 처리, 열람·정정·삭제·처리정지 요구 등을 아래 연락처로 요청할 수 있으며, 당사는 관련 법령에 따라 지체 없이 처리합니다.</p>
+      <ul>
+        <li>역할: 개인정보 보호 책임자 / 개인정보 열람청구 접수·처리 담당</li>
+        <li>소속: kkiruk studio 개발팀</li>
+        <li>연락처: <span class="email" id="email-ko-dpo"></span></li>
+      </ul>
+      <p class="note">이용자는 개인정보 침해 신고 및 상담을 위해 한국인터넷진흥원 개인정보침해신고센터(privacy.kisa.or.kr / 국번 없이 118), 개인정보 분쟁조정위원회(kopico.go.kr / 1833-6972), 대검찰청 사이버수사과(spo.go.kr / 국번 없이 1301) 등에 문의할 수 있습니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>방침 변경</h2>
+      <p>본 방침은 변경될 수 있으며, 변경 시 본 페이지를 통해 공지합니다.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>문의</h2>
+      <p><span class="email" id="email-ko-contact"></span></p>
+    </div>
+  </div>
+
+  <!-- English -->
+  <div id="lang-en">
+    <p class="meta">Effective: July 21, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
+    <p class="intro">kkiruk studio ("we") operates the apps listed below and is committed to protecting your privacy. This policy applies to all apps listed.</p>
+    <p class="tab-label">Filter by app</p>
+    <div class="app-tabs">
+      <button class="active" data-filter="all" onclick="filterApp('all')">All</button>
+      <button data-filter="pinclip" onclick="filterApp('pinclip')">Pinclip</button>
+      <button data-filter="thanyesterday" onclick="filterApp('thanyesterday')">ThanYesterday</button>
+      <button data-filter="runnote" onclick="filterApp('runnote')">RunNote</button>
+      <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
+      <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
+      <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
+      <button data-filter="findlocal" onclick="filterApp('findlocal')">Local Link</button>
+      <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette</button>
+      <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
+      <button data-filter="quote2048" onclick="filterApp('quote2048')">Quote 2048</button>
+      <button data-filter="tetsulog" onclick="filterApp('tetsulog')">Tetsulog</button>
+      <button data-filter="nycsubwaylog" onclick="filterApp('nycsubwaylog')">NYC Subway Log</button>
+      <button data-filter="catscute" onclick="filterApp('catscute')">Cats are Cute</button>
+      <button data-filter="catspop" onclick="filterApp('catspop')">Cats are Cute: Pop Time!</button>
+      <button data-filter="james" onclick="filterApp('james')">James Series</button>
+      <button data-filter="everykeep" onclick="filterApp('everykeep')">everykeep</button>
+      <button data-filter="salarycharm" onclick="filterApp('salarycharm')">Salary Charm</button>
+      <button data-filter="deskbreath" onclick="filterApp('deskbreath')">DeskBreath</button>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Information we collect</h2>
+      <p class="sub-label">All apps</p>
+      <p>We do not collect personally identifiable information. Most of our apps use no advertising or analytics SDKs; apps that do (Song 2048; the games Cats are Cute and Cats are Cute: Pop Time!) disclose this in their app section below.</p>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Pinclip</p>
+        <p>Video URLs, titles, thumbnails, notes, tags, and folder information you save are stored on your device. For Pinclip Pro subscribers, this data is synced to your Apple iCloud account's private CloudKit database, subject to Apple's Privacy Policy. Metadata (titles, thumbnail URLs) fetched when sharing a URL is requested directly from the origin platform's public API (YouTube, TikTok, etc.) and never passes through our servers.</p>
+        <p>When you explicitly trigger "Share folder" from the folder menu — and only then — a snapshot of that folder (folder name, video URLs, titles, thumbnail URLs, platform names, and an optional nickname) is uploaded to our share server (Cloudflare Workers) and hosted as a public web page. <strong>Notes and tags are not uploaded.</strong> You can choose whether to include your nickname for each share. The nickname itself is stored on your device (UserDefaults) and is not transmitted automatically.</p>
+      </div>
+      <div class="app-block" data-app="thanyesterday">
+        <p class="sub-label">ThanYesterday</p>
+        <p>Your device location (precise or approximate) is used to provide weather data via Apple WeatherKit. Location is not stored outside your device.</p>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">RunNote</p>
+        <div class="warning-box">When using AI coaching features, your running data (distance, duration, pace, heart rate, etc.) along with your user-entered profile (age, weight, height, heart-rate info, goals), health notes, pain records, and running notes/memos are sent to Anthropic's servers (Claude API). Your explicit consent will be requested before this feature is activated.</div>
+        <p>Running data (distance, time, pace, route) and health data via HealthKit (heart rate, calories, etc.) may be collected. This data is used solely to provide AI coaching and is never used for advertising, marketing, or data sales. If you do not use AI coaching, all data remains on-device only.</p>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Sidefeed</p>
+        <p>"Powered by YouTube." Sidefeed does not require Google account authentication and does not access your personal YouTube data (liked videos, subscriptions, or watch history).</p>
+        <p>Our server (Cloudflare Workers) calls the YouTube Data API v3 to fetch metadata (titles, thumbnails, channel names, durations, etc.) for public country- and category-level popular videos, and temporarily caches this data in Cloudflare Workers KV. This data does not contain any information that identifies individual users.</p>
+        <p>Your selected interest categories, watched-video history, country preferences, and subscription state are stored only on-device in UserDefaults and SwiftData, and are never transmitted to our servers. In-app subscription (Sidefeed Pro) purchases and receipt validation are handled entirely by Apple StoreKit; we do not collect any payment information.</p>
+        <p>Sidefeed's use of the YouTube API is subject to the <a href="https://www.youtube.com/t/terms" target="_blank" class="email">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a>.</p>
+      </div>
+      <div class="app-block" data-app="honestcamera">
+        <p class="sub-label">Honest Camera</p>
+        <p>We do not collect, transmit, or store any personal information from Honest Camera users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, and no account system.</p>
+        <p>The app uses only Camera and Photo Library Add permissions. Captured images are processed entirely on-device and saved to your Photos library; they are never transmitted to our servers or any external service. Permissions can be changed at any time in iOS Settings.</p>
+        <p>An onboarding-completion flag is stored only in on-device UserDefaults and is never transmitted externally.</p>
+      </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">Local Link / 로컬링크</p>
+        <p>We do not require directly identifying information such as your name, email address, account, contacts, or precise location to use Local Link. The app does not use advertising SDKs, third-party tracking SDKs, account systems, or location permissions.</p>
+        <p>Your search queries, saved places (query, country, city), and last-selected travel region and city are stored in on-device UserDefaults. Recent searches and saved places are additionally mirrored to your Apple iCloud account's Key-Value Store so they restore on other devices signed in to the same Apple ID, and on new device setup. Data is stored on Apple's iCloud infrastructure. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
+        <p>The place alias dictionary (approximately 2,800 place names) is bundled with the app, so generating search candidates does not require internet communication.</p>
+        <p>In the future, to improve app quality, diagnose errors, and understand feature usage, we may transmit non-identifying usage metrics and diagnostic information to servers operated by us or by our cloud infrastructure provider. This may include app version, OS version, device type, language/region setting, approximate time zone, selected country/city, feature events, screen transitions, map launch success/failure, error codes, and a randomly generated installation identifier. By default, we do not collect raw search queries, saved place names, precise location, contacts, or payment information as usage metrics. Servers may temporarily process IP addresses and request timestamps for security and abuse prevention; IP addresses are not used to identify individual users or for advertising.</p>
+        <p>Launching map apps uses iOS URL schemes / deep links. When you select a candidate and tap a map app, the query is passed as a URL scheme parameter to that map app. Further handling of the query is governed by each map app provider's privacy policy. If the map app is not installed, a web map page may open in the system browser.</p>
+        <p class="sub-label">Place Request Submission (optional, explicit user action)</p>
+        <p>Only when you fill in the &ldquo;place request&rdquo; form and tap the submit button, the following information you entered is sent to a Google Apps Script web app endpoint (script.google.com) operated by us: your current search query, the requested place name/description you typed, the selected country and city, an optional memo you typed, and the app version. A fixed submission token (an in-app constant for spam prevention, not personal data) is sent along with it. This form does not transmit device identifiers, location data, or account information, and submission occurs only after your explicit action. The submitted information is used solely to improve the place alias dictionary and to handle your request.</p>
+      </div>
+      <div class="app-block" data-app="talkmemo">
+        <p class="sub-label">Talk Memo</p>
+        <p>Audio recorded via the Apple Watch microphone, text memos generated by on-device speech recognition, and recording timestamps are collected. Recording and transcription are processed entirely on-device using Apple's on-device Speech Recognition.</p>
+        <p class="sub-label">iCloud Sync</p>
+        <p>Text memos are automatically synced across devices signed in to the same Apple ID through iCloud Key-Value Store. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
+        <p class="sub-label">Notion Integration (optional, explicit user action)</p>
+        <p>Only when you enter your Notion API key in Settings and explicitly tap to send a memo to Notion, the memo text is transmitted directly to Notion's servers (api.notion.com). The API key is stored only in your device's Keychain and is never transmitted to our servers. This feature requires explicit user action (tapping the Notion row) and is disabled by default.</p>
+        <p class="sub-label">Share Sheet / External Apps</p>
+        <p>When you send a memo via the system share sheet, Bear, Obsidian, or other external apps, the memo text is passed to those apps through the iOS system. This happens only when you explicitly choose to share, and we are not involved in that process.</p>
+        <p class="sub-label">Permissions</p>
+        <p>Microphone (Apple Watch and iPhone), Speech Recognition, and Notification (for new memo arrival alerts) permissions are used with your explicit consent.</p>
+      </div>
+      <div class="app-block" data-app="palette2048">
+        <p class="sub-label">Palette</p>
+        <p>We do not collect, transmit, or store any personally identifiable information from Palette users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, no account system, and does not request location permissions.</p>
+        <p>Game progress (current board state, best scores, solved-mystery list, daily-play streak, board-size preference, first-play date, onboarding/terms-acceptance flags) is stored on your device in UserDefaults. The same data is also mirrored to your Apple iCloud account's Key-Value Store so it syncs across devices signed in to the same Apple ID and restores on new device setup. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
+        <p>In-app subscription (Palette Pro) purchases and receipt validation are handled entirely by Apple StoreKit; we do not collect any payment information.</p>
+        <p class="sub-label">Permissions</p>
+        <p>Notification permission is requested only when you enable "Daily Reminder" in Settings. Notifications are delivered on-device only and are not transmitted to any external server.</p>
+      </div>
+      <div class="app-block" data-app="song2048">
+        <p class="sub-label">Song 2048</p>
+        <p>We do not ask Song 2048 users for any directly identifying information such as name, email, account, contacts, or location. There is no account system and no location permission.</p>
+        <p>Game progress (current board state, best scores, daily-play streak, chosen streaming service, purchase state, onboarding/terms-acceptance flags) is stored on your device in UserDefaults. Part of the same data is also mirrored to your Apple iCloud account's Key-Value Store so it syncs across devices signed in to the same Apple ID. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
+        <p class="sub-label">Album cover images</p>
+        <p>Song 2048 loads cover images for today's album and for archive/"Your Music" search results in real time from Apple's public iTunes Search API. Only the album/artist search term is sent to Apple's servers; no name, email, or other personal information is transmitted. Cover images are never stored on our servers — only their URLs are cached on-device to speed up future loads.</p>
+        <p class="sub-label">Ads (AD(X) mediation, incl. Google AdMob)</p>
+        <p>The free version of Song 2048 shows user-initiated rewarded ads (to replay one past album from the archive, or to continue once after a game over) and frequency-capped interstitial ads between games. Ads are served through the AD(X) mediation SDK, which routes requests to multiple ad networks including Google AdMob. To serve ads, these networks may process device information such as the advertising identifier, subject to the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a> and each network's own policy. Under Apple's App Tracking Transparency policy, if you do not allow tracking you will be served non-personalized ads. Purchasing Song Pro removes all ads.</p>
+        <p class="sub-label">Usage analytics (Firebase Analytics)</p>
+        <p>To improve the app we may collect non-identifying usage events (e.g., screen views, feature usage counts, app version, OS version, device model, language setting) via Google Firebase Analytics. No directly identifying information such as name or email is included, and the data is never sold or used for marketing. See the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a> for details.</p>
+        <p class="sub-label">Outbound streaming links</p>
+        <p>The Play button is an outbound link that opens the day's album in the streaming service you chose (Apple Music, Spotify, or YouTube Music). No music plays inside the app and we never access your accounts on those services; once you leave the app, data handling is governed by each service's own privacy policy.</p>
+        <p>The in-app purchase (Song Pro, one-time) and receipt validation are handled entirely by Apple StoreKit; we do not collect any payment information.</p>
+        <p class="sub-label">Permissions</p>
+        <p>Notification permission is requested only when you enable "Daily Reminder" in Settings; notifications are processed on-device only. Apple Music library access is requested only if you use the optional "Now Playing" feature, and is used solely to read the currently playing track's metadata (title/artist) on-device to generate its palette; this information is never transmitted off your device.</p>
+      </div>
+      <div class="app-block" data-app="quote2048">
+        <p class="sub-label">Quote 2048</p>
+        <p>We do not collect, transmit, or store any personally identifiable information from Quote 2048 users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, no account system, and does not request location permissions.</p>
+        <p>Game progress (current board state, theme clear/progress status, best scores, daily-play streak, your custom theme packs (sentences you enter — stored on-device only), settings, onboarding/terms-acceptance flags) is stored on your device in UserDefaults. The same data is also mirrored to your Apple iCloud account's Key-Value Store so it syncs across devices signed in to the same Apple ID and restores on new device setup. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
+        <p>In-app purchases (Quote Pro, one-time) and receipt validation are handled entirely by Apple StoreKit; we do not collect any payment information.</p>
+        <p class="sub-label">Permissions</p>
+        <p>Notification permission is requested only when you enable notifications in Settings. Notifications are delivered on-device only and are not transmitted to any external server.</p>
+      </div>
+      <div class="app-block" data-app="tetsulog">
+        <p class="sub-label">Tetsulog (鉄ログ)</p>
+        <p>We do not use advertising or analytics SDKs or any external tracking tools, and there is no separate account system in Tetsulog.</p>
+        <p>Data you create in the app (visit records, visit timestamps, notes, favorite lines, completion state, coordinates / title / note for user-added photo spots, region/operator ordering and other UI preferences, onboarding flag) is stored on your device in SwiftData and UserDefaults. To automatically sync across devices signed in to the same Apple ID, core data (visit records, favorites, notes, etc.) is also stored in your Apple iCloud account's private CloudKit database. Synced data lives on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud &gt; 鉄ログ.</p>
+        <p class="sub-label">Photos</p>
+        <p>Photos you attach to visit records or photo spots are <strong>stored only in local device storage</strong> (the app's Documents directory) and are never transmitted to CloudKit or our servers. Photos are downscaled to a 2048px long edge and stored as JPEG when saved. The Photo Library picker (PHPickerViewController) is used with your consent when you add a photo.</p>
+        <p class="sub-label">Location</p>
+        <p>Core Location is queried only when you explicitly tap the "My location" / "Nearby stations" buttons in the Map tab. Location data is used transiently for camera focus and nearby-station search and is never stored on-device or transmitted off-device. Location permission can be revoked at any time in iOS Settings.</p>
+        <p class="sub-label">Payments</p>
+        <p>In-app purchases (Tetsulog Pro monthly / yearly subscriptions and the lifetime unlock) and receipt validation are handled entirely by Apple StoreKit; we do not collect or store any payment information.</p>
+      </div>
+      <div class="app-block" data-app="nycsubwaylog">
+        <p class="sub-label">NYC Subway Log</p>
+        <p>We do not use advertising or analytics SDKs or any external tracking tools, and there is no separate account system in NYC Subway Log.</p>
+        <p>Data you create in the app (station visit records, visit timestamps, notes, favorite lines, line completion state, collected rolling-stock records, coordinates / title / note for user-added photo spots, division ordering and other UI preferences, onboarding flag) is stored on your device in SwiftData and UserDefaults. To automatically sync across devices signed in to the same Apple ID, core data (visit records, favorites, notes, etc.) is also stored in your Apple iCloud account's private CloudKit database. Synced data lives on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud &gt; NYC Subway Log.</p>
+        <p class="sub-label">Line and station data</p>
+        <p>Line, station, and track data shipped with the app comes from the Metropolitan Transportation Authority's public GTFS static feed and from NYC OpenData, bundled into the app. No user information is sent to MTA or City of New York servers while you use the app. We are not affiliated with, endorsed by, or sponsored by the MTA.</p>
+        <p class="sub-label">Photos</p>
+        <p>Photos you attach to visit records or photo spots are <strong>stored only in local device storage</strong> (the app's Documents directory) and are never transmitted to CloudKit or our servers. Photos are downscaled to a 2048px long edge and stored as JPEG when saved. The Photo Library picker (PHPickerViewController) is used with your consent when you add a photo.</p>
+        <p class="sub-label">Location</p>
+        <p>Core Location is queried only when you explicitly tap the "My location" / "Nearby stations" buttons in the Map tab. Location data is used transiently for camera focus and nearby-station search and is never stored on-device or transmitted off-device. Location permission can be revoked at any time in iOS Settings.</p>
+        <p class="sub-label">Map tiles</p>
+        <p>The map behind a line-completion card is rendered from raster tiles fetched from the OpenStreetMap-based CARTO tile service. Those requests carry the coordinate range of the line segment shown on the card; no user-identifying information is sent.</p>
+        <p class="sub-label">Payments</p>
+        <p>In-app purchases (NYC Subway Log Pro monthly / yearly subscriptions and the lifetime unlock) and receipt validation are handled entirely by Apple StoreKit; we do not collect or store any payment information.</p>
+      </div>
+      <div class="app-block" data-app="catscute catspop">
+        <p class="sub-label">Cats are Cute · Cats are Cute: Pop Time!</p>
+        <p>To serve ads and analyze the service, the following is collected automatically via SDKs and platforms: advertising identifiers (ADID, IDFA), device information (model, OS version, language, country, app version, etc.), and log data (app launch times, crash reports, error logs, usage statistics, etc.).</p>
+        <p>If you sign in to iCloud or Google Play Games Services and use manual cloud saves, the cloud save data you create and the platform account identifier (Apple ID or Google account) are managed directly by the platform and are not collected by us. Nickname, game settings, and purchase history are collected only where applicable.</p>
+      </div>
+      <div class="app-block" data-app="james">
+        <p class="sub-label">James Spring · James Summer</p>
+        <p>James Spring and James Summer do not collect, store, or transmit any personal information. They contain no ads, no analytics tools, and no third-party SDKs, and operate fully offline.</p>
+      </div>
+      <div class="app-block" data-app="everykeep">
+        <p class="sub-label">everykeep</p>
+        <p>We do not collect personally identifying information — such as name, email, account, or location — from everykeep users. There is no advertising SDK, no analytics SDK, no external tracking, no account system, and no integration with our servers.</p>
+        <p>The product details you enter (name, brand, model, serial number, store, purchase date, replacement/cleaning cycle, warranty end date, registration info, notes) and the photos you attach (main photo, receipt, warranty card, serial label) are stored only in the on-device SwiftData store and app container, and are never transmitted to our servers or synced to iCloud. When you uninstall the app, all data it holds (product records, attached photos, settings, the onboarding-completion flag) is removed.</p>
+        <p class="sub-label">Permissions</p>
+        <p>With your consent, the app uses notification permission for replacement, cleaning, and warranty reminders, and photo library access when you attach images such as receipts or warranty cards. All notifications are processed entirely on-device and are never transmitted externally. You can change permissions anytime in iOS Settings.</p>
+      </div>
+      <div class="app-block" data-app="salarycharm">
+        <p class="sub-label">Salary Charm</p>
+        <p>We do not collect, transmit, or store any personally identifying information from Salary Charm users. There is no analytics SDK, no external tracking, no account system, and no location permission.</p>
+        <p>The name/nickname you enter and the charms you receive, along with your settings (today's charm, burned state, notification preferences, and so on), are stored only in the on-device store and the app group container (used by the widget), and are never transmitted to our servers. They are removed when you uninstall the app.</p>
+        <p>Unlimited Unlock (a one-time, non-consumable purchase) payment and receipt validation are handled through Apple StoreKit; we do not collect any payment method information.</p>
+        <p>Salary Charm contains no ads and includes no advertising SDK that would process an advertising identifier or similar data.</p>
+        <p class="sub-label">Permissions</p>
+        <p>Notification permission is requested only when you enable the "Charm Reminder" in Settings. Notifications are processed entirely on-device and are never transmitted to external servers.</p>
+      </div>
+      <div class="app-block" data-app="deskbreath">
+        <p class="sub-label">DeskBreath</p>
+        <p>We do not collect personally identifying information — such as name, email, account, or location — from DeskBreath users. There is no advertising SDK, no analytics SDK, no external tracking, no account system, and no integration with our servers.</p>
+        <p>Your session stats (deep-breath and stretch counts, day streak) and settings (breathing rhythm, colors, custom orb image, stretch interval, and so on) are stored only on your device (UserDefaults and the app container). If a Pro user turns on iCloud sync, settings and stats are synced across that user's own devices through their iCloud account (Apple) and are never sent to our servers. All data is removed when you uninstall the app.</p>
+        <p>In-app purchase (DeskBreath Pro, one-time) and receipt validation are handled through Apple StoreKit; we do not collect any payment method information.</p>
+        <p class="sub-label">Permissions</p>
+        <p>With your consent we use notification permission for stretch and breathing reminders, and photo library access when you choose a custom orb image. Notifications are processed entirely on-device and are never transmitted externally. You can change these permissions anytime in iOS Settings.</p>
+      </div>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>How we use information</h2>
+      <p>Data is used solely to provide app functionality. We do not sell or share it with third parties.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Third-party services</h2>
+      <table>
+        <tr data-app="thanyesterday"><td>Apple WeatherKit</td><td>ThanYesterday — weather data</td></tr>
+        <tr data-app="pinclip"><td>Apple iCloud (CloudKit)</td><td>Pinclip — Pro subscriber data sync</td></tr>
+        <tr data-app="pinclip"><td>Cloudflare Workers + KV</td><td>Pinclip — public folder share link hosting and OGP card rendering (only when you explicitly share)</td></tr>
+        <tr data-app="runnote"><td>Apple HealthKit</td><td>RunNote — health data</td></tr>
+        <tr data-app="runnote"><td>Anthropic (Claude API)</td><td>RunNote — AI coaching (with consent)</td></tr>
+        <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — public video metadata (server-side calls)</td></tr>
+        <tr data-app="sidefeed"><td>Cloudflare Workers + KV</td><td>Sidefeed — server cache for public video data</td></tr>
+        <tr data-app="sidefeed"><td>Apple StoreKit</td><td>Sidefeed — Pro subscription payment &amp; receipt validation</td></tr>
+        <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — on-device speech-to-text</td></tr>
+        <tr data-app="talkmemo"><td>Apple iCloud (Key-Value Store)</td><td>Talk Memo — memo sync across devices on the same Apple ID</td></tr>
+        <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Local Link — recent searches & saved places sync across devices on the same Apple ID</td></tr>
+        <tr data-app="findlocal"><td>kkiruk studio server / cloud infrastructure</td><td>Local Link — non-identifying usage metrics and diagnostics for future app improvement</td></tr>
+        <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette — game progress sync across devices on the same Apple ID</td></tr>
+        <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette — Pro subscription payment &amp; receipt validation</td></tr>
+        <tr data-app="salarycharm"><td>Apple StoreKit</td><td>Salary Charm — Unlimited Unlock (one-time) payment &amp; receipt validation</td></tr>
+        <tr data-app="deskbreath"><td>Apple StoreKit</td><td>DeskBreath — Pro one-time payment &amp; receipt validation</td></tr>
+        <tr data-app="deskbreath"><td>Apple iCloud (Key-Value Store)</td><td>DeskBreath — Pro settings &amp; stats sync across your devices (when enabled)</td></tr>
+        <tr data-app="song2048"><td>Apple iCloud (Key-Value Store)</td><td>Song 2048 — game progress sync across devices on the same Apple ID</td></tr>
+        <tr data-app="song2048"><td>Apple StoreKit</td><td>Song 2048 — Pro one-time purchase &amp; receipt validation</td></tr>
+        <tr data-app="song2048"><td>AD(X) mediation (incl. Google AdMob)</td><td>Song 2048 — rewarded and interstitial ads</td></tr>
+        <tr data-app="song2048"><td>Apple iTunes Search API</td><td>Song 2048 — live album cover image &amp; metadata lookup</td></tr>
+        <tr data-app="song2048"><td>Google Firebase Analytics</td><td>Song 2048 — non-identifying usage analytics</td></tr>
+        <tr data-app="quote2048"><td>Apple iCloud (Key-Value Store)</td><td>Quote 2048 — game progress sync across devices on the same Apple ID</td></tr>
+        <tr data-app="quote2048"><td>Apple StoreKit</td><td>Quote 2048 — Pro one-time purchase &amp; receipt validation</td></tr>
+        <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>Tetsulog — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
+        <tr data-app="tetsulog"><td>Apple Core Location</td><td>Tetsulog — transient location lookup when you tap "My location" / "Nearby stations"</td></tr>
+        <tr data-app="tetsulog"><td>Apple StoreKit</td><td>Tetsulog — Pro subscription / lifetime purchase &amp; receipt validation</td></tr>
+        <tr data-app="nycsubwaylog"><td>Apple iCloud (CloudKit)</td><td>NYC Subway Log — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
+        <tr data-app="nycsubwaylog"><td>Apple Core Location</td><td>NYC Subway Log — transient location lookup when you tap "My location" / "Nearby stations"</td></tr>
+        <tr data-app="nycsubwaylog"><td>Apple StoreKit</td><td>NYC Subway Log — Pro subscription / lifetime unlock payments and receipt validation</td></tr>
+        <tr data-app="nycsubwaylog"><td>CARTO (OpenStreetMap)</td><td>NYC Subway Log — map tiles behind the line-completion card</td></tr>
+        <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — direct memo transfer using your own API key (only on explicit user action)</td></tr>
+        <tr data-app="catscute catspop"><td>Google LLC (Firebase, AdMob)</td><td>Cats are Cute / Pop Time! — ad serving and analytics (ad identifiers, device info, usage logs)</td></tr>
+        <tr data-app="catscute catspop"><td>Unity Technologies</td><td>Cats are Cute / Pop Time! — game analytics and performance tracking</td></tr>
+        <tr data-app="catscute catspop"><td>ADX Corporation</td><td>Cats are Cute / Pop Time! — ad operation, performance analysis, ad network mediation</td></tr>
+        <tr data-app="catscute catspop"><td>Apple / Google (platform accounts)</td><td>Cats are Cute / Pop Time! — cloud save/restore, rankings</td></tr>
+      </table>
+      <p class="note" data-app="talkmemo">Notion integration is disabled by default and requires you to enter your own Notion API key in Settings. Memos are sent only when you explicitly tap the Notion row. See <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion's Privacy Policy</a> for details.</p>
+      <p class="note" data-app="runnote">Data sent via Anthropic API is not used for model training and is automatically deleted within 30 days. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details.</p>
+      <p class="note" data-app="sidefeed">Sidefeed does not use Google account authentication. YouTube API calls are made server-side only and fetch public video metadata. Use of the YouTube API is subject to the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.</p>
+      <p class="note" data-app="catscute catspop">ADX Corporation operates multiple partner ad networks. Partner list: <a href="https://assets.adxcorp.kr/privacy/partners" target="_blank">assets.adxcorp.kr/privacy/partners</a></p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>International data transfers</h2>
+      <p>To provide certain features, your personal data may be transferred outside of your country as described below. If you do not wish to consent to a transfer, you may choose not to use the corresponding feature or app.</p>
+      <p class="note">All recipients below are located in the United States. The United States does not have a single comprehensive federal privacy law comparable to the EU GDPR, Korea's PIPA, or Japan's APPI; privacy is governed by sector-specific federal laws and state laws. Each recipient protects data under its own privacy policy and contractual safeguards (such as Standard Contractual Clauses).</p>
+      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 quote2048 tetsulog">
+        <p class="sub-label">Apple Inc. (United States)</p>
+        <ul>
+          <li>Data: location (ThanYesterday, Tetsulog), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Local Link · Palette · Quote 2048 · Tetsulog), speech recognition data (Talk Memo)</li>
+          <li>Timing &amp; method: transmitted over TLS when the relevant API is called</li>
+          <li>Purpose: providing WeatherKit, HealthKit, iCloud (CloudKit · Key-Value Store), Core Location, and Speech Recognition features</li>
+          <li>Retention: governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple Privacy Policy</a></li>
+          <li>Opt-out: revoke the relevant permission in iOS Settings, or disable iCloud sync</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">kkiruk studio server / cloud infrastructure (location to be determined)</p>
+        <ul>
+          <li>Data: non-identifying usage metrics and diagnostics (app version, OS version, device type, language/region setting, approximate time zone, selected country/city, feature events, error codes, random installation identifier, etc.)</li>
+          <li>Timing &amp; method: TLS transmission during app use in a future version where the feature is enabled</li>
+          <li>Purpose: app quality improvement, error diagnosis, feature usage analysis, security, and abuse prevention</li>
+          <li>Retention: retained only as long as necessary for service improvement and error analysis, then deleted or kept in aggregated form</li>
+          <li>Opt-out: subject to controls provided in future app settings or iOS settings. No such transmission occurs before the feature is enabled.</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="talkmemo">
+        <p class="sub-label">Notion Labs, Inc. (United States)</p>
+        <ul>
+          <li>Data: memo text (only when you explicitly choose to send it to Notion)</li>
+          <li>Timing &amp; method: when you enter your Notion API key in Settings and tap the Notion row, a direct call to the Notion API (api.notion.com) is made</li>
+          <li>Purpose: creating a memo page in your Notion database</li>
+          <li>Retention: governed by the <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank" class="email">Notion Privacy Policy</a></li>
+          <li>Opt-out: do not configure or use Notion integration. Disabled by default.</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">Anthropic, PBC (United States)</p>
+        <ul>
+          <li>Data: running data (distance, duration, pace, heart rate &amp; HR zones, cadence, elevation, splits), user-entered profile (age, weight, height, max/resting heart rate, fitness level, goals), health notes you enter (injuries, conditions, medication), pain records (area &amp; intensity), your running notes/memos, AI-accumulated coach notes, shoe info</li>
+          <li>Timing &amp; method: Claude API calls when using RunNote's AI coaching feature (after prior consent), over TLS</li>
+          <li>Purpose: generating AI coaching responses</li>
+          <li>Recipient contact: privacy@anthropic.com</li>
+          <li>Retention: per the <a href="https://www.anthropic.com/privacy" target="_blank" class="email">Anthropic Privacy Policy</a>, automatically deleted within 30 days after processing (not used for model training)</li>
+          <li>Opt-out: do not use the AI coaching feature (all other features such as records and notes remain available)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">Cloudflare, Inc. (United States)</p>
+        <ul>
+          <li>Data: AI coaching request content (same items as the Anthropic entry above), your IP address (for network routing)</li>
+          <li>Timing &amp; method: relayed through our proxy server (Cloudflare Workers, US region) over TLS when using AI coaching</li>
+          <li>Purpose: API-key-protecting relay (proxy) — forwards requests to Anthropic without storing their content</li>
+          <li>Retention: the proxy does not store request content; network processing logs are governed by the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare Privacy Policy</a></li>
+          <li>Opt-out: do not use the AI coaching feature</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Google LLC (United States)</p>
+        <ul>
+          <li>Data: public video metadata queries (no user-identifying information)</li>
+          <li>Timing &amp; method: when our server calls the YouTube Data API v3 (not sent directly from your device)</li>
+          <li>Purpose: retrieving public country- and category-level popular video metadata</li>
+          <li>Retention: governed by the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a>. Our server cache expires automatically within at most 48 hours.</li>
+          <li>Opt-out: not applicable (no personally identifying information is transmitted)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Cloudflare, Inc. (United States)</p>
+        <ul>
+          <li>Data: folder snapshots you explicitly share (folder name, video URLs, titles, thumbnail URLs, platform names, and an optional nickname), your IP address (for edge network routing)</li>
+          <li>Timing &amp; method: TLS transmission when you trigger "Share folder" to create a share link, and when share pages or import JSON are fetched</li>
+          <li>Purpose: hosting folder share links, rendering OGP cards on share pages, and serving JSON snapshots so recipients can import the folder into their own Pinclip library</li>
+          <li>Retention: governed by the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare Privacy Policy</a>. Shared snapshots are retained without an explicit expiry; deletion requests can be made via the contact email below.</li>
+          <li>Opt-out: do not use the folder share feature (other features of the app are unaffected)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Cloudflare, Inc. (United States)</p>
+        <ul>
+          <li>Data: public video metadata cache (no user-identifying content), your IP address (for edge network routing)</li>
+          <li>Timing &amp; method: TLS transmission when the app queries our server endpoint</li>
+          <li>Purpose: Cloudflare Workers edge caching and service delivery</li>
+          <li>Retention: governed by the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare Privacy Policy</a></li>
+          <li>Opt-out: do not use the app</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="catscute catspop">
+        <p class="sub-label">Google LLC · Unity Technologies (USA)</p>
+        <ul>
+          <li>Data transferred: advertising identifiers (ADID/IDFA), device information, usage and gameplay logs</li>
+          <li>When/how: network (TLS) transmission via SDKs while playing and when ads are displayed</li>
+          <li>Purpose: ad serving and measurement (Firebase, AdMob), game analytics and performance tracking (Unity)</li>
+          <li>Retention: per each company's privacy policy</li>
+          <li>Opt-out: decline App Tracking Transparency (ATT) or reset/limit your advertising ID in device settings</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Data retention &amp; deletion</h2>
+      <p>By default, on-device data is deleted when you uninstall the app. iCloud-synced data and any server-based features or diagnostics described for a specific app follow the retention and deletion terms for that app.</p>
+      <p data-app="pinclip">Pinclip Pro's iCloud-synced data is stored in your iCloud account and may remain in iCloud even after the app is deleted. You can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; "Pinclip".</p>
+      <p data-app="pinclip">Folder share links are created only when you explicitly trigger "Share folder", and the resulting snapshot is retained on Cloudflare KV without an explicit expiry. Your nickname is stored on-device in UserDefaults and is removed when you uninstall the app. To remove a specific share link, contact us via the email at the bottom of this policy with the URL.</p>
+      <p data-app="runnote">Data sent to Anthropic via RunNote's AI coaching feature is automatically deleted within 30 days.</p>
+      <p data-app="sidefeed">Sidefeed does not store user account or authentication data. On-device data (interest categories, watch history, country preferences) is removed when the app is uninstalled. Our server cache contains no user-identifying information.</p>
+      <p data-app="talkmemo">Talk Memo's recordings and text data are stored in App Group local storage; if iCloud sync is enabled, they are also stored in your iCloud account. iCloud data may persist after uninstall — you can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; Manage Storage.</p>
+      <p data-app="honestcamera">Honest Camera does not store user data on any external server. Captured photos are saved to the iOS Photos library and managed by Apple's Photos framework. When you uninstall the app, all in-app preferences (such as the onboarding-completion flag) are removed.</p>
+      <p data-app="findlocal">Local Link search queries, saved places, and preferences are kept in on-device UserDefaults and removed when you uninstall the app. When iCloud sync is enabled, recent searches and saved places are also stored in your iCloud account; iCloud data may persist after uninstall. If server-based usage metrics are enabled in a future version, non-identifying metrics and diagnostic logs will be retained only as long as necessary for service improvement and error analysis, or kept in aggregated form. By default, raw search queries and saved place names are not collected as usage metrics.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Security measures</h2>
+      <p>We apply the following technical and organizational measures to protect your personal data:</p>
+      <ul>
+        <li>All network traffic uses HTTPS (TLS); unencrypted HTTP is not used.</li>
+        <li>Sensitive data such as authentication tokens is stored encrypted in the iOS Keychain.</li>
+        <li>Processing is performed on-device whenever possible (speech recognition, thumbnail caching, etc.) to minimize external transmission.</li>
+        <li>The main app, Share Extension, and widgets share data only within the iOS App Group sandbox.</li>
+        <li>We do not include advertising, tracking, or third-party analytics SDKs.</li>
+        <li>We collect and process only the minimum data required to provide the service.</li>
+        <li>Transmissions to external services either require your prior consent (RunNote AI coaching) or are limited to essential feature delivery.</li>
+      </ul>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Children's privacy</h2>
+      <p>We do not knowingly collect personal information from children below the minimum age required by applicable local law (for example, age 14 in the Republic of Korea, age 13 in the United States, and between 13 and 16 in EU member states) without verified consent from a legal guardian. If we become aware that such a child has provided personal information without the required consent, we will delete it promptly.</p>
+      <p data-app="honestcamera"><strong>Honest Camera note</strong>: This app is intentionally designed for direct use by children ages 3 and up and deliberately collects no personal information. It contains no advertising, no in-app purchases, no third-party SDKs, no account integrations, and no analytics. As such, it does not engage in any processing of children's personal information that would fall under U.S. COPPA, EU GDPR-K, or applicable Korean information protection laws.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>EU User Rights (GDPR)</h2>
+      <p>If you are located in the EU/EEA, you have the following rights.</p>
+      <table>
+        <tr><td>Right of access</td><td>Request a copy of data we hold about you</td></tr>
+        <tr><td>Right to erasure</td><td>Request deletion of your data (automatically deleted when app is uninstalled)</td></tr>
+        <tr><td>Right to restriction</td><td>Request that we stop processing certain data</td></tr>
+        <tr><td>Right to object</td><td>Object to our processing of your data</td></tr>
+      </table>
+      <p class="note" data-app="runnote">Data transmitted to Anthropic for RunNote's AI coaching is based on your explicit consent (GDPR Art. 6(1)(a) and Art. 9(2)(a)), which you can withdraw at any time in the app's settings.</p>
+      <p class="note" data-app="sidefeed">Sidefeed does not collect personal data, so there is no personal data processing that requires a legal basis under GDPR.</p>
+      <p class="note">To exercise your rights, contact: <span class="email" id="email-en-gdpr"></span></p>
+      <p class="note">EU/EEA residents also have the right to lodge a complaint with the supervisory authority in their country of residence.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>California Notice (CCPA)</h2>
+      <p>We may not qualify as a "business" under the California Consumer Privacy Act (CCPA) / CPRA, but as a matter of policy, regardless of your location:</p>
+      <ul>
+        <li>We do not sell your personal information.</li>
+        <li>We do not share your personal information with third parties for cross-context behavioral advertising.</li>
+        <li>You receive the same protections whether or not you submit a "Do Not Sell or Share My Personal Information" request.</li>
+      </ul>
+    </div>
+
+    <div class="section" data-app="runnote">
+      <h2>Consumer Health Data Notice (Washington MHMD and similar laws)</h2>
+      <p>RunNote processes "consumer health data" such as running records, heart rate and other HealthKit data, and health notes and pain records you enter.</p>
+      <ul>
+        <li>Purpose of collection: managing your running records and providing AI coaching (not used for any other purpose)</li>
+        <li>Sharing: sent to Anthropic (United States) only when you use the AI coaching feature and only after your prior consent. We do not otherwise share or sell consumer health data.</li>
+        <li>Withdrawing consent: you can withdraw at any time via "Withdraw AI Data Consent" in the app's settings.</li>
+        <li>Access &amp; deletion: all data is stored on your device and can be viewed and deleted directly in the app. Data sent to Anthropic is automatically deleted within 30 days; for further requests, contact us via the email at the bottom of this policy.</li>
+      </ul>
+    </div>
+
+    <div class="section" data-app="sidefeed">
+      <h2>Sidefeed data deletion</h2>
+      <p>Sidefeed does not use Google account authentication and does not access personal YouTube data. All on-device preferences (interest categories, watch history, country selection) are removed when you uninstall the app. Our server does not store any user-identifying information.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Privacy Officer</h2>
+      <p>For privacy-related inquiries, complaints, or requests to exercise your data rights (access, correction, deletion, restriction of processing), please contact the representative below. We respond in accordance with applicable law.</p>
+      <ul>
+        <li>Role: Privacy Officer / Data subject access request contact</li>
+        <li>Team: kkiruk studio development team</li>
+        <li>Contact: <span class="email" id="email-en-dpo"></span></li>
+      </ul>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy. Changes will be posted on this page.</p>
+    </div>
+
+    <div class="section" data-app="all">
+      <h2>Contact</h2>
+      <p><span class="email" id="email-en-contact"></span></p>
+    </div>
+  </div>
+
+</div>
+<script>
+var u = 'kkirukstudio.help';
+var d = 'gmail.com';
+var e = u + '@' + d;
+var ids = ['email-ko','email-ko-gdpr','email-ko-dpo','email-ko-contact','email-en','email-en-gdpr','email-en-dpo','email-en-contact'];
+ids.forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = e;
+});
+
+function showLang(lang) {
+  document.getElementById('lang-ko').style.display = lang === 'ko' ? 'block' : 'none';
+  document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
+  document.querySelectorAll('.lang-btns button').forEach(function(btn, i) {
+    btn.classList.toggle('active', (lang === 'ko' && i === 0) || (lang === 'en' && i === 1));
+  });
+}
+
+function filterApp(app) {
+  document.querySelectorAll('[data-app]').forEach(function(el) {
+    var apps = el.getAttribute('data-app').split(' ');
+    var show = app === 'all' || apps.indexOf('all') !== -1 || apps.indexOf(app) !== -1;
+    el.style.display = show ? '' : 'none';
+  });
+  document.querySelectorAll('.app-tabs button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === app);
+  });
+}
+</script>
+</body>
 </html>
