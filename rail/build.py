@@ -243,8 +243,8 @@ PAGE = """<!DOCTYPE html>
     <span>© 2026 kkiruk studio</span>
     <nav class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">kkirukstudio.help@gmail.com</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">Privacy</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">Terms</a>
+      <a href="/legal/privacy/" target="_blank" rel="noopener">Privacy</a>
+      <a href="/legal/terms/" target="_blank" rel="noopener">Terms</a>
     </nav>
   </div>
 </footer>

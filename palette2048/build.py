@@ -306,8 +306,8 @@ TMPL='''<!DOCTYPE html>
     <a class="home-link" href="https://www.kkirukstudio.com/">© kkiruk studio</a>
     <nav class="links">
       <a href="mailto:kkirukstudio.help@gmail.com">{fc}</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">{fp}</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">{ft}</a>
+      <a href="/legal/privacy/" target="_blank" rel="noopener">{fp}</a>
+      <a href="/legal/terms/" target="_blank" rel="noopener">{ft}</a>
 {footlangs}
     </nav>
   </div>

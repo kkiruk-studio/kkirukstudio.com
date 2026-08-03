@@ -198,8 +198,8 @@ def render(key):
 
 <footer>
   <span>© kkiruk studio</span>
-  <a href="https://kkiruk-studio.github.io/privacy-policy-app/">{o['f_privacy']}</a>
-  <a href="https://kkiruk-studio.github.io/terms-of-service-app/">{o['f_terms']}</a>
+  <a href="/legal/privacy/">{o['f_privacy']}</a>
+  <a href="/legal/terms/">{o['f_terms']}</a>
   <a href="mailto:kkirukstudio@gmail.com">{o['f_contact']}</a>
 </footer>
 <script>(function(){{var el=document.getElementById('qrot');if(!el)return;var cards=JSON.parse(el.textContent);var i=0;

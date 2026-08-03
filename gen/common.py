@@ -183,8 +183,8 @@ def render_footer(app, lang, langs, s):
     <nav class="links">
       <a href="/">kkiruk studio</a>
       <a href="mailto:kkirukstudio.help@gmail.com">{s['f_contact']}</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/" target="_blank" rel="noopener">{s['f_privacy']}</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/" target="_blank" rel="noopener">{s['f_terms']}</a>
+      <a href="/legal/privacy/" target="_blank" rel="noopener">{s['f_privacy']}</a>
+      <a href="/legal/terms/" target="_blank" rel="noopener">{s['f_terms']}</a>
       {footer_langs}
     </nav>
   </div>

@@ -406,8 +406,8 @@ def render(key):
     <div>© 2026 kkiruk studio</div>
     <div class="f-links">
       <a href="mailto:kkirukstudio.help@gmail.com">{loc['f_contact']}</a>
-      <a href="https://kkiruk-studio.github.io/privacy-policy-app/">{loc['f_privacy']}</a>
-      <a href="https://kkiruk-studio.github.io/terms-of-service-app/">{loc['f_terms']}</a>
+      <a href="/legal/privacy/">{loc['f_privacy']}</a>
+      <a href="/legal/terms/">{loc['f_terms']}</a>
     </div>
   </div>
 </footer>

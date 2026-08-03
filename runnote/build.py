@@ -550,8 +550,8 @@ body{{{word_break}}}
   <span>© 2026 kkiruk studio</span>
   <span style="display:flex;gap:20px">
     <a href="mailto:kkirukstudio.help@gmail.com" style="color:inherit;text-decoration:none">{loc['f_contact']}</a>
-    <a href="https://kkiruk-studio.github.io/privacy-policy-app/" style="color:inherit;text-decoration:none">{loc['f_privacy']}</a>
-    <a href="https://kkiruk-studio.github.io/terms-of-service-app/" style="color:inherit;text-decoration:none">{loc['f_terms']}</a>
+    <a href="/legal/privacy/" style="color:inherit;text-decoration:none">{loc['f_privacy']}</a>
+    <a href="/legal/terms/" style="color:inherit;text-decoration:none">{loc['f_terms']}</a>
   </span>
 </footer>
 
