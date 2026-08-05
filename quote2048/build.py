@@ -165,7 +165,7 @@ def render(key):
 <link rel="apple-touch-icon" href="{rel}assets/icon-180.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 {o.get("fontlink","")}
-<link rel="stylesheet" href="{rel}assets/style.css">
+<link rel="stylesheet" href="{rel}assets/style.css?v=2">
 <style>:root{{--serif:{o.get("serif","Georgia,serif")}}}</style>
 <script defer src="/ga.js"></script>
 </head>
