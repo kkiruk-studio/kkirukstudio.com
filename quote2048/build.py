@@ -7,68 +7,74 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/quote2048/"
+APP_STORE_URL = "https://apps.apple.com/app/id6788598686"
 LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh-hans/", "简体"), ("zh-hant/", "繁體")]
 
 L = {
- "en": dict(demo_tap="Tap to play", demo_hint="swipe or arrow keys", demo_toast="It goes much further in the app — coming soon on iOS.", dir="", lang="en", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">""", serif="\'Instrument Serif\',Georgia,serif",
-    title="Quote 2048 — 2048, played with quotes",
-    desc="The classic 2048 — but every tile is a quote. Merge two matching lines and a greater quote takes their place. Reach 2048 to meet the crown quote. And 2048 isn't the end.",
-    h1="2048,<br>played with <em>quotes</em>.",
+ "en": dict(demo_tap="Tap to play", demo_hint="swipe or arrow keys", demo_toast="It goes much further in the app — free on the App Store.", dir="", lang="en", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">""", serif="\'Instrument Serif\',Georgia,serif",
+    title="Quote 2048 — merge tiles, collect quotes",
+    desc="The classic 2048 — but every tile is a quote. Merge two matching lines and a greater quote takes their place. The ones you love stay in your collection, and you can even build a pack of your own.",
+    h1="Merge tiles,<br>collect <em>quotes</em>.",
     sub="Merge two of the same line, and a deeper quote takes its place.",
     reveal="At the summit, sentences like these are waiting.", tease="If you have a favorite author, they're probably in here.",
-    soon="COMING SOON · iOS",
+    collect="Quotes you love stay in your collection — and you can build a pack of your own.",
+    cta="Download on the App Store", note="iOS · Free",
     tile_a="Well begun<br>is half done", tile_b="Well begun<br>is half done",
     tile_m="A journey of a thousand<br>miles starts with one step",
-    crown="I still have<br>twelve ships",
-    crown_meta="— Yi Sun-sin",
+    crown="Hope is the thing with feathers<br>that perches in the soul",
+    crown_meta="— Emily Dickinson",
     f_privacy="Privacy", f_terms="Terms", f_contact="Contact"),
- "ko": dict(demo_tap="탭하여 플레이", demo_hint="스와이프나 방향키로 움직여요", demo_toast="이다음은 앱에서 이어져요 — 곧 나와요.", dir="ko/", lang="ko", fontlink="""<link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet">""", serif="\'MaruBuri\',Georgia,serif",
-    title="명언 2048 — 명언으로 하는 2048",
-    desc="알던 그 2048 — 그런데 타일이 전부 명언입니다. 같은 문장 두 개를 합치면 한 단계 위의 명언이 나타나고, 2048에서 왕관 명언을 만납니다. 그리고 2048이 끝이 아닙니다.",
-    h1="명언으로 하는<br><em>2048.</em>",
+ "ko": dict(demo_tap="탭하여 플레이", demo_hint="스와이프나 방향키로 움직여요", demo_toast="이다음은 앱에서 이어져요 — App Store에서 무료.", dir="ko/", lang="ko", fontlink="""<link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet">""", serif="\'MaruBuri\',Georgia,serif",
+    title="명언 2048 — 명언을 모으는 2048",
+    desc="알던 그 2048 — 그런데 타일이 전부 명언입니다. 같은 문장 두 개를 합치면 한 단계 위의 명언이 나오고, 마음에 든 문장은 도감에 남습니다. 좋아하는 작가의 팩을 모으고, 나만의 팩도 만들 수 있어요.",
+    h1="명언을 모으는<br><em>2048.</em>",
     sub="같은 문장 두 개를 합치면, 한 단계 위의 명언이 돼요.",
     reveal="정상에는 이런 문장들이 있어요.", tease="좋아하는 작가가 있다면, 아마 그 사람의 팩이 있을 거예요.",
-    soon="곧 출시 · iOS",
+    collect="마음에 든 문장은 도감에 남아요. 나만의 팩을 만들 수도 있고요.",
+    cta="App Store에서 받기", note="iOS · 무료",
     tile_a="시작이<br>반이다", tile_b="시작이<br>반이다",
     tile_m="천 리 길도<br>한 걸음부터",
-    crown="신에게는 아직 열두 척의<br>배가 있습니다",
-    crown_meta="— 이순신",
+    crown="희망은 깃털 달린 것,<br>영혼에 내려앉는다",
+    crown_meta="— 에밀리 디킨슨",
     f_privacy="개인정보", f_terms="이용약관", f_contact="문의"),
- "ja": dict(demo_tap="タップしてプレイ", demo_hint="スワイプまたは矢印キー", demo_toast="この先はアプリで — 近日公開。", dir="ja/", lang="ja", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif JP\',serif",
-    title="名言2048 — 名言で遊ぶ2048",
-    desc="おなじみの2048 — ただしタイルはすべて名言。同じ文をふたつ合わせると、ひとつ上の名言が現れる。2048で王冠の名言に出会う。そして2048で終わりではない。",
-    h1="名言で遊ぶ<br><em>2048。</em>",
+ "ja": dict(demo_tap="タップしてプレイ", demo_hint="スワイプまたは矢印キー", demo_toast="この先はアプリで — App Storeで無料。", dir="ja/", lang="ja", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif JP\',serif",
+    title="名言2048 — 名言を集める2048",
+    desc="おなじみの2048 — ただしタイルはすべて名言。同じ文をふたつ合わせると、ひとつ上の名言が現れます。気に入った文章はコレクションに残り、自分だけのパックも作れます。",
+    h1="名言を集める<br><em>2048。</em>",
     sub="同じ文をふたつ合わせると、ひとつ上の名言が現れます。",
     reveal="頂上では、こんな文章が待っています。", tease="好きな作家がいるなら、きっとその人のパックがあります。",
-    soon="近日公開 · iOS",
+    collect="気に入った文章はコレクションに残ります。自分だけのパックも作れます。",
+    cta="App Storeで入手", note="iOS · 無料",
     tile_a="始まりは<br>半分の成功", tile_b="始まりは<br>半分の成功",
     tile_m="千里の行も<br>足下に始まる",
-    crown="今、臣に戦船<br>なお十二あり",
-    crown_meta="— 李舜臣",
+    crown="希望とは羽をもつもの、<br>魂にとまる",
+    crown_meta="— エミリー・ディキンソン",
     f_privacy="プライバシー", f_terms="利用規約", f_contact="お問い合わせ"),
- "zh-hans": dict(demo_tap="点按开始", demo_hint="滑动或方向键", demo_toast="更远的旅程在应用中 — 即将上线。", dir="zh-hans/", lang="zh-Hans", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif SC\',serif",
-    title="名言2048 — 用名言玩的2048",
-    desc="熟悉的2048 — 但每个方块都是一句名言。合并两句相同的话，出现更高一级的名言；抵达2048，遇见王冠名言。而2048并不是终点。",
-    h1="用名言玩的<br><em>2048。</em>",
+ "zh-hans": dict(demo_tap="点按开始", demo_hint="滑动或方向键", demo_toast="更远的旅程在应用中 — App Store 免费下载。", dir="zh-hans/", lang="zh-Hans", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif SC\',serif",
+    title="名言2048 — 收集名言的2048",
+    desc="熟悉的2048 — 但每个方块都是一句名言。合并两句相同的话，出现更高一级的名言；喜欢的句子会留在图鉴里，还能做一个自己的合集。",
+    h1="收集名言的<br><em>2048。</em>",
     sub="合并两句相同的话，出现更高一级的名言。",
     reveal="在顶端，等着你的是这样的句子。", tease="如果你有喜欢的作家，这里很可能有他的合集。",
-    soon="即将上线 · iOS",
+    collect="喜欢的句子会留在图鉴里，还能做一个自己的合集。",
+    cta="在 App Store 下载", note="iOS · 免费",
     tile_a="好的开始<br>是成功的一半", tile_b="好的开始<br>是成功的一半",
     tile_m="千里之行<br>始于足下",
-    crown="今臣战船<br>尚有十二",
-    crown_meta="— 李舜臣",
+    crown="希望是长着羽毛的东西，<br>栖息在灵魂里",
+    crown_meta="— 艾米莉·狄金森",
     f_privacy="隐私政策", f_terms="服务条款", f_contact="联系"),
- "zh-hant": dict(demo_tap="點按開始", demo_hint="滑動或方向鍵", demo_toast="更遠的旅程在應用中 — 即將上線。", dir="zh-hant/", lang="zh-Hant", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif TC\',serif",
-    title="名言2048 — 用名言玩的2048",
-    desc="熟悉的2048 — 但每個方塊都是一句名言。合併兩句相同的話，出現更高一級的名言；抵達2048，遇見王冠名言。而2048並不是終點。",
-    h1="用名言玩的<br><em>2048。</em>",
+ "zh-hant": dict(demo_tap="點按開始", demo_hint="滑動或方向鍵", demo_toast="更遠的旅程在應用中 — App Store 免費下載。", dir="zh-hant/", lang="zh-Hant", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif TC\',serif",
+    title="名言2048 — 收集名言的2048",
+    desc="熟悉的2048 — 但每個方塊都是一句名言。合併兩句相同的話，出現更高一級的名言；喜歡的句子會留在圖鑑裡，還能做一個自己的合集。",
+    h1="收集名言的<br><em>2048。</em>",
     sub="合併兩句相同的話，出現更高一級的名言。",
     reveal="在頂端，等著你的是這樣的句子。", tease="如果你有喜歡的作家，這裡很可能有他的合集。",
-    soon="即將上線 · iOS",
+    collect="喜歡的句子會留在圖鑑裡，還能做一個自己的合集。",
+    cta="在 App Store 下載", note="iOS · 免費",
     tile_a="好的開始<br>是成功的一半", tile_b="好的開始<br>是成功的一半",
     tile_m="千里之行<br>始於足下",
-    crown="今臣戰船<br>尚有十二",
-    crown_meta="— 李舜臣",
+    crown="希望是長著羽毛的東西，<br>棲息在靈魂裡",
+    crown_meta="— 艾米莉·狄金森",
     f_privacy="隱私政策", f_terms="服務條款", f_contact="聯絡"),
 }
 
@@ -101,11 +107,12 @@ def demo_quotes(lang):
 
 
 # 왕관 카드 로테이션 — 로케일 공통 좌표(전부 실제 상위 등급 문장), 표기만 로케일
+# 주 타겟(글귀·명언 애호가) 결에 맞춘 선정 — 첫 카드는 정적 crown 텍스트와 동일해야 함
 _ROTATION = [
-    ("courage", 10),      # 이순신 열두 척
-    ("shakespeare", 10),  # 사느냐 죽느냐
+    ("dickinson", 10),    # 디킨슨 — 희망은 깃털 (초기 카드)
+    ("wilde", 10),        # 와일드 — 시궁창에서도 별을
     ("courage", 15),      # 니체 — 나를 죽이지 못하는 것은
-    ("dickinson", 10),    # 디킨슨 — 희망은 깃털
+    ("woolf", 10),        # 울프 — 자기만의 방
 ]
 def rotation_cards(lang):
     key = _LKEY.get(lang, "en")
@@ -193,13 +200,16 @@ def render(key):
   <p class="tease">{o['tease']}</p>
   <div class="authors" aria-hidden="true"><div class="atrack">{'　·　'.join(author_names(o["lang"]) * 2)}</div></div>
 
-  <p class="soon">{o['soon']}</p>
+  <p class="tease collect">{o['collect']}</p>
+
+  <p class="cta"><a href="{APP_STORE_URL}">{o['cta']}</a></p>
+  <p class="note">{o['note']}</p>
 </main>
 
 <footer>
   <span>© kkiruk studio</span>
-  <a href="/legal/privacy/">{o['f_privacy']}</a>
-  <a href="/legal/terms/">{o['f_terms']}</a>
+  <a href="https://www.kkirukstudio.com/legal/privacy/">{o['f_privacy']}</a>
+  <a href="https://www.kkirukstudio.com/legal/terms/">{o['f_terms']}</a>
   <a href="mailto:kkirukstudio@gmail.com">{o['f_contact']}</a>
 </footer>
 <script>(function(){{var el=document.getElementById('qrot');if(!el)return;var cards=JSON.parse(el.textContent);var i=0;
