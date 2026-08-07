@@ -13,7 +13,7 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/runnote/"
-APP_STORE_URL = ""  # fill in after App Store approval, e.g. https://apps.apple.com/app/id0000000000
+APP_STORE_URL = "https://apps.apple.com/app/id6787010935"
 
 LANG_LABELS = [("", "한국어"), ("en/", "EN"), ("ja/", "日本語"), ("zh/", "繁體")]
 
@@ -24,7 +24,7 @@ LOCALES = {
         "desc": "실시간 트래킹이 아닌 노트 기반 러닝 기록장. 워치로 뛰고 컨디션과 한 줄만 남기면, 기록이 쌓일수록 AI 코칭이 정교해집니다.",
         "og_title": "RunNote — 나를 아는 AI 러닝 코치",
         "og_desc": "한 줄 노트가 쌓일수록 정교해지는 AI 코칭.",
-        "badge_soon": "곧 App Store에서",
+        "cta_store": "App Store에서 받기",
         "p1_meta": ["RUN·NOTE", "AI Running Journal", "iPhone · Watch"],
         "p1_h1": ["뛰고 나서,", "<em>한 줄.</em>"],
         "p1_lede": "AI 코치가 매 기록을 리뷰 — 부족한 건 다음 러닝에서 개선됩니다",
@@ -53,7 +53,7 @@ LOCALES = {
         ],
         "p4_idx": ["HealthKit 자동 동기화", "한 줄 노트 · 통증 부위", "심박 5구간 · 케이던스", "AI 코치", "코치 노트 — 장기 기억", "날씨 자동 기록"],
         "p5_h2": ["오늘 뛰었다면,", "<em>한 줄 남기세요.</em>"],
-        "p5_note": "7-Day Free Trial · iPhone &amp; Apple Watch",
+        "p5_note": "연간 플랜 7일 무료 체험 · iPhone &amp; Apple Watch",
         "f_contact": "문의", "f_privacy": "개인정보 처리방침", "f_terms": "이용약관",
     },
     "en": {
@@ -62,7 +62,7 @@ LOCALES = {
         "desc": "Not a live-tracking app. Run with your Watch, log one line about how you felt, and the AI coaching gets sharper with every entry.",
         "og_title": "RunNote — An AI running coach that learns you",
         "og_desc": "Coaching that gets sharper with every one-line note.",
-        "badge_soon": "Coming soon",
+        "cta_store": "Download on the App Store",
         "p1_meta": ["RUN·NOTE", "AI Running Journal", "iPhone · Watch"],
         "p1_h1": ["Run first,", "<em>then one line.</em>"],
         "p1_lede": "Your AI coach reviews every run — the next one gets better",
@@ -91,7 +91,7 @@ LOCALES = {
         ],
         "p4_idx": ["HealthKit auto-sync", "One-line notes · pain areas", "5 HR zones · cadence", "AI coach", "Coach notes — long-term memory", "Weather, logged automatically"],
         "p5_h2": ["If you ran today,", "<em>leave one line.</em>"],
-        "p5_note": "7-Day Free Trial · iPhone &amp; Apple Watch",
+        "p5_note": "7-day free trial on the annual plan · iPhone &amp; Apple Watch",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
     },
     "ja": {
@@ -100,7 +100,7 @@ LOCALES = {
         "desc": "リアルタイムトラッキングではなく、ノート型のランニング記録アプリ。Apple Watchで走ってひと言残すだけで、AIコーチングが記録とともに的確になります。",
         "og_title": "RunNote — あなたを知るAIランニングコーチ",
         "og_desc": "ひと言のノートが積み重なるほど的確になるコーチング。",
-        "badge_soon": "近日公開",
+        "cta_store": "App Storeでダウンロード",
         "p1_meta": ["RUN·NOTE", "AI Running Journal", "iPhone · Watch"],
         "p1_h1": ["走って、", "<em>ひと言。</em>"],
         "p1_lede": "AIコーチが毎回の記録をレビュー — 次のランはもっと良くなる",
@@ -129,7 +129,7 @@ LOCALES = {
         ],
         "p4_idx": ["HealthKit自動連携", "ひと言ノート・痛みの部位", "心拍5ゾーン・ケイデンス", "AIコーチ", "コーチノート — 長期記憶", "天気の自動記録"],
         "p5_h2": ["今日走ったなら、", "<em>ひと言残しましょう。</em>"],
-        "p5_note": "7日間無料トライアル · iPhone &amp; Apple Watch",
+        "p5_note": "年額プランは7日間無料トライアル · iPhone &amp; Apple Watch",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
     },
     "zh": {
@@ -138,7 +138,7 @@ LOCALES = {
         "desc": "不是即時追蹤,而是以筆記為核心的跑步紀錄。用手錶跑完,只需留下狀態和一句話,記錄越多,AI 教練就越精準。",
         "og_title": "RunNote — 懂你的 AI 跑步教練",
         "og_desc": "一句筆記累積越多,教練建議越精準。",
-        "badge_soon": "即將推出",
+        "cta_store": "在 App Store 下載",
         "p1_meta": ["RUN·NOTE", "AI Running Journal", "iPhone · Watch"],
         "p1_h1": ["跑完之後,", "<em>寫一句。</em>"],
         "p1_lede": "AI 教練回顧每一次紀錄 — 下一次跑得更好",
@@ -167,7 +167,7 @@ LOCALES = {
         ],
         "p4_idx": ["HealthKit 自動同步", "一句筆記 · 疼痛部位", "心率5區間 · 步頻", "AI 教練", "教練筆記 — 長期記憶", "天氣自動記錄"],
         "p5_h2": ["今天跑了嗎?", "<em>留下一句話。</em>"],
-        "p5_note": "7 天免費試用 · iPhone &amp; Apple Watch",
+        "p5_note": "年繳方案 7 天免費試用 · iPhone &amp; Apple Watch",
         "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
     },
 }
@@ -432,7 +432,7 @@ body{{{word_break}}}
     </div>
     <div class="rulew"><div class="rule"></div></div>
     <div class="foot">
-      <a class="btn storeLink io d4" href="{btn_href}">{loc['badge_soon']}</a>
+      <a class="btn storeLink io d4" href="{btn_href}">{loc['cta_store']}</a>
       <span class="meta lede-meta io d3">{loc['p1_lede']}</span>
     </div>
   </div>
@@ -540,7 +540,7 @@ body{{{word_break}}}
       <h2>{loc['p5_h2'][0]}<br>{loc['p5_h2'][1]}</h2>
     </div>
     <div class="foot io d2">
-      <a class="btn storeLink" href="{btn_href}">{loc['badge_soon']}</a>
+      <a class="btn storeLink" href="{btn_href}">{loc['cta_store']}</a>
       <span class="meta io d3">{loc['p5_note']}</span>
     </div>
   </div>
