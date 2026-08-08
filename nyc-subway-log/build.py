@@ -23,7 +23,7 @@ ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/nyc-subway-log/"
 
 # Filled in after App Store approval.
-APP_STORE_URL = ""
+APP_STORE_URL = "https://apps.apple.com/app/id6795853224"
 
 APPLE_SVG = ('<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 '
              '16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 '
@@ -102,6 +102,7 @@ LOCALES = {
         ],
         "final_h2": "475 stations. How many have you actually seen?",
         "final_lede": "Start with one. The 7 is already in your favorites.",
+        "cta_soon": "App Store", "cta_store": "Download on the App Store",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
         "disclaimer": ("NYC Subway Log is an independent app and is not affiliated with, endorsed by, "
                        "or sponsored by the Metropolitan Transportation Authority. Station and route "
@@ -147,6 +148,7 @@ LOCALES = {
         ],
         "final_h2": "475개 역. 실제로 몇 개나 가보셨나요?",
         "final_lede": "한 역부터 시작하세요. 7호선은 이미 즐겨찾기에 있습니다.",
+        "cta_soon": "App Store", "cta_store": "App Store에서 받기",
         "f_contact": "문의", "f_privacy": "개인정보", "f_terms": "이용약관",
         "disclaimer": ("NYC Subway Log 는 독립 앱이며 MTA(Metropolitan Transportation Authority)와 "
                        "제휴·후원 관계가 없습니다. 역·노선 데이터는 MTA 공개 GTFS 피드, 육지 실루엣은 "
@@ -191,6 +193,7 @@ LOCALES = {
         ],
         "final_h2": "475駅。実際に何駅行きましたか？",
         "final_lede": "まず1駅から。7系統はすでにお気に入りに入っています。",
+        "cta_soon": "App Store", "cta_store": "App Storeでダウンロード",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシー", "f_terms": "利用規約",
         "disclaimer": ("NYC Subway Log は独立したアプリであり、MTA（Metropolitan Transportation "
                        "Authority）との提携・後援関係はありません。駅・路線データはMTA公開のGTFSフィード、"
@@ -235,6 +238,7 @@ LOCALES = {
         ],
         "final_h2": "475 個車站。你實際去過幾個？",
         "final_lede": "從一站開始。7 號線已經在你的最愛裡。",
+        "cta_soon": "App Store", "cta_store": "在 App Store 下載",
         "f_contact": "聯絡", "f_privacy": "隱私權", "f_terms": "使用條款",
         "disclaimer": ("NYC Subway Log 為獨立應用程式，與 MTA（Metropolitan Transportation "
                        "Authority）無合作或贊助關係。車站與路線資料取自 MTA 公開的 GTFS 資料，"
@@ -266,7 +270,7 @@ def lang_nav(cur_dir, rel):
 def badge(loc, el_id):
     disabled = "" if APP_STORE_URL else ' aria-disabled="true"'
     href = APP_STORE_URL or "#"
-    label = "App Store" if not APP_STORE_URL else "Download on the App Store"
+    label = loc["cta_store"] if APP_STORE_URL else loc["cta_soon"]
     return f'<a class="badge" id="{el_id}" href="{href}"{disabled}>{APPLE_SVG}<span>{label}</span></a>'
 
 
