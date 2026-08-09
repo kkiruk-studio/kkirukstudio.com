@@ -9,10 +9,10 @@ import pathlib
 ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/tetsulog/"
 
-# Filled in after App Store approval (e.g. https://apps.apple.com/app/id1234567890).
 # While empty, the CTA renders as a disabled "coming soon" pill instead of a
-# real store badge.
-APP_STORE_URL = ""
+# real store badge. Filled 2026-08-10 — the app had been live for weeks while
+# this landing still said 近日公開 (same trap as RunNote's badge_soon).
+APP_STORE_URL = "https://apps.apple.com/app/id6787012765"
 
 LANG_LABELS = [("", "日本語"), ("ko/", "한국어"), ("en/", "EN"), ("zh/", "繁體中文")]
 
@@ -103,6 +103,7 @@ LOCALES = {
         "sub": "地図の駅をタップするだけで乗車を記録。乗った路線の色がそのまま地図に広がります。全国163社・571路線・10,096駅の乗りつぶしを、鉄ログでスタンプ帳のように記録しましょう。",
         "cta_note": "iPhone・iPad・一部無料",
         "badge_small": "近日公開",
+        "badge_live": "ダウンロード",
         "railmap_caption": "路線をタップで記録、色が広がり、スタンプが押される。",
         "how_kicker": "使い方", "how_num": "01–03",
         "how_h2": "駅をタップしてから、<em>スタンプが押される</em>まで。",
@@ -129,7 +130,7 @@ LOCALES = {
             ["iCloud同期", "記録はiCloudで同期。iPhoneでもiPadでも同じ帳面が開けます。無料でご利用いただけます。", False],
         ],
         "final_h2": "次の一駅から、<em>乗りつぶし</em>を記録しよう。",
-        "final_lede": "近日 App Store 公開予定。",
+        "final_lede": "App Store で配信中。",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
     },
     "ko": {
@@ -145,6 +146,7 @@ LOCALES = {
         "sub": "지도 위 역을 탭하기만 하면 탑승이 기록됩니다. 탄 노선의 색이 그대로 지도에 퍼져요. 일본 여행에서 탄 노선을, 전국 163개사·571개 노선·10,096개 역 규모로 테츠로그의 스탬프북에 기록하세요.",
         "cta_note": "iPhone·iPad · 일부 무료",
         "badge_small": "곧 출시",
+        "badge_live": "다운로드",
         "railmap_caption": "노선을 탭해 기록하면 색이 채워지고, 스탬프가 찍힙니다.",
         "how_kicker": "사용 방법", "how_num": "01–03",
         "how_h2": "역을 탭한 순간부터, <em>스탬프가 찍히기</em>까지.",
@@ -171,7 +173,7 @@ LOCALES = {
             ["iCloud 동기화", "기록은 iCloud로 동기화됩니다. 아이폰에서도 아이패드에서도 같은 기록을 볼 수 있어요. 무료로 제공됩니다.", False],
         ],
         "final_h2": "다음 한 정거장부터, <em>완주 기록</em>을 시작하세요.",
-        "final_lede": "App Store 출시 예정.",
+        "final_lede": "App Store에서 만나보세요.",
         "f_contact": "문의", "f_privacy": "개인정보 처리방침", "f_terms": "이용약관",
     },
     "en": {
@@ -187,6 +189,7 @@ LOCALES = {
         "sub": "Tap a station on the map and the ride is logged. The line's color spreads right across the map. Log your Japan rail trips — 163 operators, 571 lines, 10,096 stations — the way a stamp book fills, one page at a time.",
         "cta_note": "iPhone & iPad · Free, Pro available",
         "badge_small": "Coming soon",
+        "badge_live": "Download on the",
         "railmap_caption": "Tap a line to log it — color spreads, a stamp is pressed.",
         "how_kicker": "HOW IT WORKS", "how_num": "01–03",
         "how_h2": "From a tap on the map to <em>a stamp in the book</em>.",
@@ -213,7 +216,7 @@ LOCALES = {
             ["iCloud sync, free", "Your log syncs via iCloud across iPhone and iPad — free, no subscription required.", False],
         ],
         "final_h2": "Start logging your <em>next line</em> today.",
-        "final_lede": "Coming soon to the App Store.",
+        "final_lede": "Available on the App Store.",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
     },
     "zh": {
@@ -229,6 +232,7 @@ LOCALES = {
         "sub": "只要點一下地圖上的車站，就能記錄這趟乘車。搭過的路線顏色會直接在地圖上蔓延。把日本之旅搭過的路線，以全日本163家公司・571條路線・10,096個車站的規模，像集章帳一樣記錄在 Tetsulog 裡。",
         "cta_note": "iPhone・iPad・部分免費",
         "badge_small": "即將上架",
+        "badge_live": "下載",
         "railmap_caption": "點選路線記錄，顏色蔓延，印章蓋下。",
         "how_kicker": "使用方法", "how_num": "01–03",
         "how_h2": "從點一下車站，到<em>蓋下印章</em>為止。",
@@ -255,7 +259,7 @@ LOCALES = {
             ["iCloud 同步", "紀錄透過 iCloud 同步，iPhone 和 iPad 都能打開同一本帳簿。免費使用。", False],
         ],
         "final_h2": "從下一站開始，記錄你的<em>完乘之旅</em>。",
-        "final_lede": "即將在 App Store 上架。",
+        "final_lede": "已在 App Store 上架。",
         "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
     },
 }
@@ -286,7 +290,7 @@ def badge(loc, el_id):
     if APP_STORE_URL:
         apple_svg = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
         return (f'<a class="store-badge" id="{el_id}" href="{APP_STORE_URL}" aria-label="App Store">{apple_svg}'
-                f'<span class="txt"><small>Download on the</small><strong>App Store</strong></span></a>')
+                f'<span class="txt"><small>{loc['badge_live']}</small><strong>App Store</strong></span></a>')
     return (f'<span class="store-badge disabled" id="{el_id}" aria-disabled="true">'
             f'<span class="txt"><small>{loc["badge_small"]}</small><strong>App Store</strong></span></span>')
 
