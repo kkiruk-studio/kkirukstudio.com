@@ -101,9 +101,9 @@ LOCALES = {
     },
     "ko": {
         "dir": "ko/", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"', "shots": "ko",
-        "title": "데스크브레스 — 화면 한쪽에서 같이 숨 쉬는 호흡 원",
+        "title": "DeskBreath — 화면 한쪽에서 같이 숨 쉬는 호흡 원",
         "desc": "메뉴바 한 칸에 호흡 원 하나. 4초 들이쉬고 6초 내쉬는 리듬을 곁에서 세어줘요. 못 할 땐 건너뛰어도 되고, 세션은 10시간 뒤 알아서 끝나요. iPhone과 Mac, 무료로 시작하고 구독은 없어요.",
-        "og_title": "데스크브레스 — 업무용 호흡 타이머",
+        "og_title": "DeskBreath — 업무용 호흡 타이머",
         "og_desc": "화면 한쪽에서 같이 숨 쉬는 호흡 원. iPhone과 Mac, 무료로 시작하고 구독은 없어요.",
         "brand2": "호흡 타이머",
         "h1": "화면 한쪽에서<br>같이 <em>숨 쉬어요</em>.",
@@ -151,9 +151,9 @@ LOCALES = {
     },
     "ja": {
         "dir": "ja/", "lang": "ja", "font": '"Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", "Yu Gothic"', "shots": "ja",
-        "title": "デスクブレス — 画面のすみで一緒に呼吸するオーブ",
+        "title": "DeskBreath — 画面のすみで一緒に呼吸するオーブ",
         "desc": "メニューバーにオーブがひとつ。4秒吸って6秒吐くリズムをそばで数えます。できないときは飛ばせて、セッションは10時間で自動終了。iPhone と Mac、無料で始められてサブスクはありません。",
-        "og_title": "デスクブレス — デスクワーク向け呼吸タイマー",
+        "og_title": "DeskBreath — デスクワーク向け呼吸タイマー",
         "og_desc": "画面のすみで一緒に呼吸するオーブ。iPhone と Mac、無料で始められてサブスクなし。",
         "brand2": "呼吸タイマー",
         "h1": "画面のすみで<br>一緒に<em>呼吸します</em>。",

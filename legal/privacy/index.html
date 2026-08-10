@@ -69,7 +69,7 @@
 
   <!-- 한국어 -->
   <div id="lang-ko" style="display:none;">
-    <p class="meta">시행일: 2026년 7월 21일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
+    <p class="meta">시행일: 2026년 7월 29일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
     <p class="intro">kkiruk studio(이하 "당사")는 아래 앱들을 운영하며, 이용자의 개인정보를 소중히 다룹니다. 본 방침은 아래 앱 모두에 적용됩니다.</p>
     <p class="tab-label">앱별로 보기</p>
     <div class="app-tabs">
@@ -85,6 +85,7 @@
       <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
       <button data-filter="quote2048" onclick="filterApp('quote2048')">Quote 2048</button>
       <button data-filter="tetsulog" onclick="filterApp('tetsulog')">테츠로그</button>
+      <button data-filter="raillog" onclick="filterApp('raillog')">레일로그</button>
       <button data-filter="nycsubwaylog" onclick="filterApp('nycsubwaylog')">NYC Subway Log</button>
       <button data-filter="catscute" onclick="filterApp('catscute')">고양이는 정말 귀여워</button>
       <button data-filter="catspop" onclick="filterApp('catspop')">고양이는 정말 팡팡</button>
@@ -190,6 +191,21 @@
         <p class="sub-label">결제</p>
         <p>인앱 결제(테츠로그 Pro 월간·연간 구독 및 평생 이용권) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집·저장하지 않습니다.</p>
       </div>
+      <div class="app-block" data-app="raillog">
+        <p class="sub-label">레일로그 (Raillog)</p>
+        <p>당사는 레일로그 이용자로부터 이름·이메일·계정과 같은 개인 식별 정보를 수집하지 않습니다. 광고 SDK, 분석 SDK, 외부 추적 도구, 계정 시스템, 당사 서버 연동이 모두 부재합니다.</p>
+        <p>이용자가 앱에서 생성하는 데이터(역 방문 기록과 방문 일시, 메모, 승차 기록, 즐겨찾기 노선, 완주 상태, 차량 도감 기록, 사용자가 추가한 촬영지의 좌표·제목·메모, 정렬·표시 등 UI 환경설정, 온보딩 완료 플래그)는 기기 내 SwiftData 저장소 및 UserDefaults 에 저장됩니다. 같은 Apple ID 로 로그인된 다른 기기로 자동 동기화하기 위해 방문 기록·즐겨찾기·메모 등 핵심 데이터는 Apple iCloud 계정 내 private CloudKit 데이터베이스에도 저장됩니다. 동기화 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud &gt; 레일로그 에서 끌 수 있습니다.</p>
+        <p class="sub-label">사진</p>
+        <p>역 방문 기록이나 촬영지에 첨부하는 사진은 <strong>기기 내 로컬 저장소(앱 Documents 디렉토리)에만 저장</strong>되며, CloudKit 데이터베이스나 당사 서버로 전송되지 않습니다. 사진은 저장 시점에 장변 2048px 기준으로 다운스케일되어 JPEG로 저장됩니다. 사진 촬영·추가 시 카메라 및 사진 보관함 접근 권한을 사용자 동의 하에 요청합니다.</p>
+        <p class="sub-label">위치 정보</p>
+        <p>지도 화면에서 현재 위치 표시·주변 역 찾기 기능을 사용자가 사용할 때만 CoreLocation 으로 위치를 요청합니다. 위치 정보는 지도 이동·주변 역 검색 목적으로만 일시적으로 사용되며 기기 외부에 저장되거나 전송되지 않습니다. 백그라운드 위치 추적은 사용하지 않으며, 위치 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+        <p class="sub-label">지도 표시</p>
+        <p>앱 내 지도는 Apple 지도(MapKit)로 표시됩니다. 「전구간 완주」 카드의 배경 지도는 OpenStreetMap 기반 지도 타일(CARTO Positron)을 내려받아 만들며, 이때 이용자의 IP 주소와 요청한 타일 좌표가 타일 서버에 전달됩니다. 방문 기록이나 개인 식별 정보는 전송되지 않습니다.</p>
+        <p class="sub-label">백업·내보내기</p>
+        <p>JSON 백업 파일과 CSV 내보내기 파일은 기기 내에서 생성되며, 공유 시트를 통해 이용자가 직접 선택한 위치·앱으로만 전달됩니다. 당사 서버로는 전송되지 않습니다.</p>
+        <p class="sub-label">결제</p>
+        <p>인앱 결제(레일로그 Pro 월간·연간 구독 및 평생 이용권) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집·저장하지 않습니다.</p>
+      </div>
       <div class="app-block" data-app="nycsubwaylog">
         <p class="sub-label">NYC Subway Log</p>
         <p>당사는 NYC Subway Log 이용자로부터 광고·분석 SDK 및 외부 추적 도구를 사용하지 않으며, 별도의 계정 시스템도 두지 않습니다.</p>
@@ -275,6 +291,11 @@
         <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>테츠로그 — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
         <tr data-app="tetsulog"><td>Apple Core Location</td><td>테츠로그 — "내 위치"/"근처 역" 탭 시 현재 위치 일시 조회</td></tr>
         <tr data-app="tetsulog"><td>Apple StoreKit</td><td>테츠로그 — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
+        <tr data-app="raillog"><td>Apple iCloud (CloudKit)</td><td>레일로그 — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
+        <tr data-app="raillog"><td>Apple Core Location</td><td>레일로그 — 현재 위치 표시·주변 역 찾기 사용 시 위치 일시 조회</td></tr>
+        <tr data-app="raillog"><td>Apple MapKit</td><td>레일로그 — 앱 내 지도 화면 표시</td></tr>
+        <tr data-app="raillog"><td>CARTO (basemaps.cartocdn.com)</td><td>레일로그 — 「전구간 완주」 카드 배경용 OpenStreetMap 기반 지도 타일 제공 (IP 주소·타일 좌표 전달)</td></tr>
+        <tr data-app="raillog"><td>Apple StoreKit</td><td>레일로그 — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple iCloud (CloudKit)</td><td>NYC Subway Log — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple Core Location</td><td>NYC Subway Log — "내 위치"/"근처 역" 탭 시 현재 위치 일시 조회</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple StoreKit</td><td>NYC Subway Log — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
@@ -295,14 +316,24 @@
       <h2>개인정보 국외 이전</h2>
       <p>일부 기능 제공 과정에서 이용자의 개인정보가 아래와 같이 국외로 이전될 수 있습니다. 이전에 동의하지 않는 경우 해당 기능을 사용하지 않거나 해당 앱을 이용하지 않으실 수 있습니다.</p>
       <p class="note">아래 수령자는 모두 미국 소재입니다. 미국에는 EU GDPR·한국 개인정보보호법·일본 개인정보보호법(APPI)과 같은 포괄적 연방 개인정보 보호법이 없으며, 분야별 연방법과 주(州)법으로 규율됩니다. 각 수령자는 자사 개인정보 보호방침 및 계약상 보호조치(표준계약조항 등)에 따라 데이터를 보호합니다.</p>
-      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 quote2048 tetsulog">
+      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 quote2048 tetsulog raillog nycsubwaylog">
         <p class="sub-label">Apple Inc. (미국)</p>
         <ul>
-          <li>이전 항목: 위치 정보(어제보다·테츠로그), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Local Link·Palette·Quote 2048·테츠로그), 음성 인식 관련 데이터(Talk Memo)</li>
+          <li>이전 항목: 위치 정보(어제보다·테츠로그·레일로그·NYC Subway Log), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Local Link·Palette·Quote 2048·테츠로그·레일로그·NYC Subway Log), 음성 인식 관련 데이터(Talk Memo)</li>
           <li>이전 시점·방법: 해당 API 호출 시 네트워크(TLS) 전송</li>
           <li>이전 목적: WeatherKit, HealthKit, iCloud(CloudKit·Key-Value Store), CoreLocation, Speech Recognition 기능 제공</li>
           <li>보유·이용 기간: <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple 개인정보 보호방침</a>에 따름</li>
           <li>거부 방법: iOS 설정에서 해당 권한을 해제하거나 iCloud 동기화를 비활성화</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="raillog nycsubwaylog">
+        <p class="sub-label">CARTO (미국)</p>
+        <ul>
+          <li>이전 항목: IP 주소 및 요청한 지도 타일 좌표 등 통상적인 HTTP 요청 정보 (방문 기록·계정 정보는 포함되지 않음)</li>
+          <li>이전 시점·방법: 레일로그·NYC Subway Log 에서 완주 카드의 배경 지도를 생성할 때 네트워크(TLS) 전송</li>
+          <li>이전 목적: OpenStreetMap 기반 지도 타일 제공</li>
+          <li>보유·이용 기간: <a href="https://carto.com/privacy" target="_blank" class="email">CARTO 개인정보 보호방침</a>에 따름</li>
+          <li>거부 방법: 완주 카드 화면을 사용하지 않거나 기기의 네트워크 연결을 차단</li>
         </ul>
       </div>
       <div class="app-block" data-app="findlocal">
@@ -485,7 +516,7 @@
 
   <!-- English -->
   <div id="lang-en">
-    <p class="meta">Effective: July 21, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
+    <p class="meta">Effective: July 29, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
     <p class="intro">kkiruk studio ("we") operates the apps listed below and is committed to protecting your privacy. This policy applies to all apps listed.</p>
     <p class="tab-label">Filter by app</p>
     <div class="app-tabs">
@@ -501,6 +532,7 @@
       <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
       <button data-filter="quote2048" onclick="filterApp('quote2048')">Quote 2048</button>
       <button data-filter="tetsulog" onclick="filterApp('tetsulog')">Tetsulog</button>
+      <button data-filter="raillog" onclick="filterApp('raillog')">Raillog</button>
       <button data-filter="nycsubwaylog" onclick="filterApp('nycsubwaylog')">NYC Subway Log</button>
       <button data-filter="catscute" onclick="filterApp('catscute')">Cats are Cute</button>
       <button data-filter="catspop" onclick="filterApp('catspop')">Cats are Cute: Pop Time!</button>
@@ -606,6 +638,21 @@
         <p class="sub-label">Payments</p>
         <p>In-app purchases (Tetsulog Pro monthly / yearly subscriptions and the lifetime unlock) and receipt validation are handled entirely by Apple StoreKit; we do not collect or store any payment information.</p>
       </div>
+      <div class="app-block" data-app="raillog">
+        <p class="sub-label">Raillog (레일로그)</p>
+        <p>We do not collect personally identifying information such as your name, email address, or account from Raillog users. There are no advertising SDKs, analytics SDKs, external tracking tools, account system, or any connection to our own servers.</p>
+        <p>Data you create in the app (station visit records and visit dates, notes, ride records, favorite lines, completion status, rolling-stock catalog records, coordinates/titles/notes of photo spots you add, UI preferences such as sorting and display, and the onboarding completion flag) is stored in on-device SwiftData storage and UserDefaults. To sync automatically to your other devices signed in with the same Apple ID, core data such as visit records, favorites, and notes is also stored in a private CloudKit database within your Apple iCloud account. Synced data resides in Apple's iCloud infrastructure and never passes through our servers. You can turn off iCloud sync in iOS Settings &gt; Apple ID &gt; iCloud &gt; Raillog.</p>
+        <p class="sub-label">Photos</p>
+        <p>Photos attached to station visit records or photo spots are <strong>stored only in on-device local storage (the app's Documents directory)</strong> and are never sent to the CloudKit database or our servers. Photos are downscaled to a 2048px long edge and saved as JPEG at save time. Camera and photo library access are requested with your consent when you take or add a photo.</p>
+        <p class="sub-label">Location</p>
+        <p>Location is requested through Core Location only when you use the "my location" / nearby-station features on the map screen. It is used transiently to move the map and search for nearby stations, and is never stored or transmitted off your device. No background location tracking is used, and you can change the location permission at any time in iOS Settings.</p>
+        <p class="sub-label">Maps</p>
+        <p>Maps inside the app are rendered with Apple Maps (MapKit). The background map on a full-line completion card is built from OpenStreetMap-based map tiles (CARTO Positron); when it is generated, your IP address and the requested tile coordinates are sent to the tile server. No visit records or personally identifying information are transmitted.</p>
+        <p class="sub-label">Backup &amp; export</p>
+        <p>JSON backup files and CSV exports are generated on your device and are passed only to the destination or app you choose in the share sheet. They are never sent to our servers.</p>
+        <p class="sub-label">Payments</p>
+        <p>In-app purchases (Raillog Pro monthly / yearly subscriptions and the lifetime unlock) and receipt validation are handled entirely by Apple StoreKit; we do not collect or store any payment information.</p>
+      </div>
       <div class="app-block" data-app="nycsubwaylog">
         <p class="sub-label">NYC Subway Log</p>
         <p>We do not use advertising or analytics SDKs or any external tracking tools, and there is no separate account system in NYC Subway Log.</p>
@@ -691,6 +738,11 @@
         <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>Tetsulog — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
         <tr data-app="tetsulog"><td>Apple Core Location</td><td>Tetsulog — transient location lookup when you tap "My location" / "Nearby stations"</td></tr>
         <tr data-app="tetsulog"><td>Apple StoreKit</td><td>Tetsulog — Pro subscription / lifetime purchase &amp; receipt validation</td></tr>
+        <tr data-app="raillog"><td>Apple iCloud (CloudKit)</td><td>Raillog — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
+        <tr data-app="raillog"><td>Apple Core Location</td><td>Raillog — transient location lookup when you use "my location" / nearby stations</td></tr>
+        <tr data-app="raillog"><td>Apple MapKit</td><td>Raillog — rendering the in-app map screen</td></tr>
+        <tr data-app="raillog"><td>CARTO (basemaps.cartocdn.com)</td><td>Raillog — OpenStreetMap-based map tiles for full-line completion card backgrounds (IP address and tile coordinates are sent)</td></tr>
+        <tr data-app="raillog"><td>Apple StoreKit</td><td>Raillog — Pro subscription / lifetime purchase &amp; receipt validation</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple iCloud (CloudKit)</td><td>NYC Subway Log — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple Core Location</td><td>NYC Subway Log — transient location lookup when you tap "My location" / "Nearby stations"</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple StoreKit</td><td>NYC Subway Log — Pro subscription / lifetime unlock payments and receipt validation</td></tr>
@@ -711,14 +763,24 @@
       <h2>International data transfers</h2>
       <p>To provide certain features, your personal data may be transferred outside of your country as described below. If you do not wish to consent to a transfer, you may choose not to use the corresponding feature or app.</p>
       <p class="note">All recipients below are located in the United States. The United States does not have a single comprehensive federal privacy law comparable to the EU GDPR, Korea's PIPA, or Japan's APPI; privacy is governed by sector-specific federal laws and state laws. Each recipient protects data under its own privacy policy and contractual safeguards (such as Standard Contractual Clauses).</p>
-      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 quote2048 tetsulog">
+      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 quote2048 tetsulog raillog nycsubwaylog">
         <p class="sub-label">Apple Inc. (United States)</p>
         <ul>
-          <li>Data: location (ThanYesterday, Tetsulog), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Local Link · Palette · Quote 2048 · Tetsulog), speech recognition data (Talk Memo)</li>
+          <li>Data: location (ThanYesterday, Tetsulog, Raillog, NYC Subway Log), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Local Link · Palette · Quote 2048 · Tetsulog · Raillog · NYC Subway Log), speech recognition data (Talk Memo)</li>
           <li>Timing &amp; method: transmitted over TLS when the relevant API is called</li>
           <li>Purpose: providing WeatherKit, HealthKit, iCloud (CloudKit · Key-Value Store), Core Location, and Speech Recognition features</li>
           <li>Retention: governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple Privacy Policy</a></li>
           <li>Opt-out: revoke the relevant permission in iOS Settings, or disable iCloud sync</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="raillog nycsubwaylog">
+        <p class="sub-label">CARTO (United States)</p>
+        <ul>
+          <li>Data: IP address and requested map tile coordinates (ordinary HTTP request information; no visit records or account data)</li>
+          <li>Timing &amp; method: transmitted over TLS when Raillog or NYC Subway Log builds the background map of a line-completion card</li>
+          <li>Purpose: serving OpenStreetMap-based map tiles</li>
+          <li>Retention: governed by the <a href="https://carto.com/privacy" target="_blank" class="email">CARTO Privacy Policy</a></li>
+          <li>Opt-out: do not open the completion card screen, or disconnect the device from the network</li>
         </ul>
       </div>
       <div class="app-block" data-app="findlocal">
