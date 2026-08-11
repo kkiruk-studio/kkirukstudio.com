@@ -235,8 +235,6 @@ body{
   padding:14px 36px;color:var(--ink);text-decoration:none;font-weight:800;font-size:16px}
 .p1 .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 .p1 .btn.disabled{cursor:default}
-.p1 .side{position:absolute;right:28px;top:50%;transform:rotate(90deg) translateX(-50%);transform-origin:right top;
-  font-size:14px;letter-spacing:.3em;font-weight:700;color:#00000055}
 
 /* P2 숫자 */
 .p2{background:var(--accent);color:#fff;border-bottom:none}
@@ -296,7 +294,6 @@ body{
   font-family:"SF Mono",ui-monospace,monospace}
 .p4 .shot{grid-column:8/13;align-self:center}
 .p4 .shot img{width:100%;border-radius:24px;box-shadow:0 32px 64px -24px #00000040}
-.p4 .shot figcaption{margin-top:16px;font-size:14px;letter-spacing:.12em;font-weight:700;color:#00000088}
 
 /* P5 CTA */
 .p5{background:var(--ink);color:var(--paper);border-bottom:none;min-height:80vh}
@@ -350,7 +347,11 @@ body{
 
 @media (max-width:760px){
   :root{--margin:24px;--gutter:16px}
-  .langnav{position:static;justify-content:flex-end;margin-bottom:16px}
+  /* 언어 스위처·머리말·푸터는 본문과 같은 좌측 마진에 맞춘다 (플러시 레프트) */
+  .langnav{position:static;justify-content:flex-start;padding-inline:var(--margin);margin-bottom:24px}
+  .p1 .top{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:72px}
+  .site-footer{padding:40px var(--margin)!important;flex-direction:column;align-items:flex-start;gap:20px}
+  .site-footer .flinks{flex-wrap:wrap;gap:8px 20px}
   .p1 .h1w{grid-column:1/-1}
   .p2 .stat{grid-column:span 6;margin-bottom:24px}
   .p3 .h2w{grid-column:1/-1}
@@ -436,7 +437,6 @@ body{{{word_break}}}
       <span class="meta lede-meta io d3">{loc['p1_lede']}</span>
     </div>
   </div>
-  <span class="side">RUNNING POSTER SERIES — 01</span>
 </section>
 
 <!-- P2 · 숫자 포스터 -->
@@ -521,7 +521,6 @@ body{{{word_break}}}
     </div>
     <figure class="shot io d2">
       <img src="{rel}assets/hero-{key}.png" alt="RunNote">
-      <figcaption class="io d4">ACTUAL APP — NO MOCKUP</figcaption>
     </figure>
   </div>
 </section>
@@ -546,9 +545,9 @@ body{{{word_break}}}
   </div>
 </section>
 
-<footer style="padding:48px 64px;font-size:13px;letter-spacing:.06em;color:#00000088;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;background:var(--ink);color:#ffffff88">
-  <span>© 2026 kkiruk studio</span>
-  <span style="display:flex;gap:20px">
+<footer class="site-footer" style="padding:48px 64px;font-size:13px;letter-spacing:.06em;color:#00000088;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;background:var(--ink);color:#ffffff88">
+  <span class="fcopy">© 2026 kkiruk studio</span>
+  <span class="flinks" style="display:flex;gap:20px">
     <a href="mailto:kkirukstudio.help@gmail.com" style="color:inherit;text-decoration:none">{loc['f_contact']}</a>
     <a href="/legal/privacy/" style="color:inherit;text-decoration:none">{loc['f_privacy']}</a>
     <a href="/legal/terms/" style="color:inherit;text-decoration:none">{loc['f_terms']}</a>
