@@ -93,6 +93,7 @@
       <button data-filter="everykeep" onclick="filterApp('everykeep')">everykeep</button>
       <button data-filter="salarycharm" onclick="filterApp('salarycharm')">직장인 부적</button>
       <button data-filter="deskbreath" onclick="filterApp('deskbreath')">DeskBreath</button>
+      <button data-filter="offwork" onclick="filterApp('offwork')">Offwork</button>
     </div>
 
     <div class="section" data-app="all">
@@ -254,11 +255,19 @@
         <p class="sub-label">권한</p>
         <p>스트레칭·호흡 리마인더를 위한 알림 권한과, 커스텀 오브 이미지 선택 시 사진 보관함 접근 권한을 사용자 동의 하에 사용합니다. 알림은 기기 내에서만 처리되며 외부로 전송되지 않습니다. 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
       </div>
+      <div class="app-block" data-app="offwork">
+        <p class="sub-label">Offwork</p>
+        <p>Offwork는 자유 댓글 없이 객관식 반응으로만 참여하는 익명 직장인 커뮤니티입니다. 서비스 제공을 위해 Firebase Authentication이 발급한 내부 이용자 식별자와 생성 시각, 이용자가 작성한 게시물 본문·투표·신고·데이터 삭제 요청 기록을 처리·저장합니다. 게시물에는 공개 프로필, 이름, 이메일, 전화번호, 회사 정보가 표시되지 않습니다.</p>
+        <p>글 작성 시 회사명·실명 등 개인을 특정할 수 있는 정보를 적지 않도록 안내합니다. 이용자가 게시물 또는 신고 사유에 직접 입력한 내용은 이용자가 제공한 정보이므로, 개인 정보나 타인의 민감한 정보를 입력하지 않아야 합니다.</p>
+        <p>계정 보관을 위해 Apple 로그인을 연결할 수 있습니다. Offwork는 Apple 로그인에서 이름·이메일 권한을 요청하지 않으며, Apple credential을 기존 익명 식별자에 연결해 기기 변경 시 기록을 복구하는 데 사용합니다.</p>
+        <p>서비스 안정성·기능 개선을 위해 Firebase Analytics가 앱·기기 정보, 사용 이벤트 및 앱 인스턴스 식별자 등 비식별 사용 지표를 처리할 수 있습니다. 게시물 본문·투표 선택·신고 사유를 광고 타기팅 또는 분석 이벤트로 보내지 않습니다.</p>
+        <p>게시물과 반응은 서비스 운영 중 보관하며, 이용자는 앱의 계정 보관 화면에서 계정·데이터 삭제를 요청할 수 있습니다. 요청이 접수되면 관련 계정·게시물·반응의 삭제 절차를 진행합니다. 신고 및 법령상 보관이 필요한 최소 기록은 관련 법령과 분쟁 대응 목적에 따라 예외적으로 보관될 수 있습니다.</p>
+      </div>
     </div>
 
     <div class="section" data-app="all">
       <h2>정보 이용 목적</h2>
-      <p>수집된 정보는 오직 앱 기능 제공 목적으로만 사용됩니다. 제3자에게 판매하거나 공유하지 않습니다.</p>
+      <p>수집된 정보는 오직 앱 기능 제공과 안전·보안·오류 분석 목적으로만 사용됩니다. 아래에 고지한 서비스 제공업체 외의 제3자에게 판매하거나 광고 목적의 프로파일링을 위해 공유하지 않습니다.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -281,6 +290,7 @@
         <tr data-app="salarycharm"><td>Apple StoreKit</td><td>직장인 부적 — 무제한 이용권(일회성) 결제·영수증 검증</td></tr>
         <tr data-app="deskbreath"><td>Apple StoreKit</td><td>DeskBreath — Pro 일회성 결제·영수증 검증</td></tr>
         <tr data-app="deskbreath"><td>Apple iCloud (Key-Value Store)</td><td>DeskBreath — Pro 설정·통계 기기 간 동기화 (사용자가 켤 때)</td></tr>
+        <tr data-app="offwork"><td>Google Firebase (Authentication, Cloud Firestore, Analytics)</td><td>Offwork — 익명 인증·Apple credential 연결, 게시물·반응·신고·삭제 요청 저장, 서비스 사용 분석</td></tr>
         <tr data-app="song2048"><td>Apple iCloud (Key-Value Store)</td><td>Song 2048 — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
         <tr data-app="song2048"><td>Apple StoreKit</td><td>Song 2048 — Pro 일회성 구매 결제·영수증 검증</td></tr>
         <tr data-app="song2048"><td>AD(X) 미디에이션 (Google AdMob 포함)</td><td>Song 2048 — 보상형·전면 광고 게재</td></tr>
@@ -540,6 +550,7 @@
       <button data-filter="everykeep" onclick="filterApp('everykeep')">everykeep</button>
       <button data-filter="salarycharm" onclick="filterApp('salarycharm')">Salary Charm</button>
       <button data-filter="deskbreath" onclick="filterApp('deskbreath')">DeskBreath</button>
+      <button data-filter="offwork" onclick="filterApp('offwork')">Offwork</button>
     </div>
 
     <div class="section" data-app="all">
@@ -701,11 +712,19 @@
         <p class="sub-label">Permissions</p>
         <p>With your consent we use notification permission for stretch and breathing reminders, and photo library access when you choose a custom orb image. Notifications are processed entirely on-device and are never transmitted externally. You can change these permissions anytime in iOS Settings.</p>
       </div>
+      <div class="app-block" data-app="offwork">
+        <p class="sub-label">Offwork</p>
+        <p>Offwork is an anonymous workplace community where participation is limited to multiple-choice reactions; it does not provide free-form comments. To provide the service, we process and store an internal user identifier issued by Firebase Authentication and its creation time, as well as posts, votes, reports, and data-deletion requests you submit. The service does not display a public profile, name, email address, phone number, or employer information.</p>
+        <p>We ask you not to include company names, real names, or other information that can identify a person. Content in a post or report reason is information you choose to provide, so you must not submit personal information or sensitive information about another person.</p>
+        <p>You may link Sign in with Apple to preserve your account. Offwork does not request name or email scopes from Apple. The Apple credential is linked to the existing anonymous identifier so your records can be restored after changing devices.</p>
+        <p>For service stability and improvement, Firebase Analytics may process de-identified usage metrics such as app and device information, usage events, and an app-instance identifier. We do not send post bodies, vote selections, or report reasons as advertising-targeting or analytics events.</p>
+        <p>Posts and reactions are retained while the service operates. You can request account and data deletion from the Account Storage screen in the app. After a request is received, we begin the deletion process for related account, post, and reaction data. The minimum records needed for reports, legal obligations, or dispute handling may be retained as an exception.</p>
+      </div>
     </div>
 
     <div class="section" data-app="all">
       <h2>How we use information</h2>
-      <p>Data is used solely to provide app functionality. We do not sell or share it with third parties.</p>
+      <p>Data is used solely to provide app functionality, safety and security, and error analysis. We do not sell it or share it for advertising profiling, except with the service providers disclosed below.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -728,6 +747,7 @@
         <tr data-app="salarycharm"><td>Apple StoreKit</td><td>Salary Charm — Unlimited Unlock (one-time) payment &amp; receipt validation</td></tr>
         <tr data-app="deskbreath"><td>Apple StoreKit</td><td>DeskBreath — Pro one-time payment &amp; receipt validation</td></tr>
         <tr data-app="deskbreath"><td>Apple iCloud (Key-Value Store)</td><td>DeskBreath — Pro settings &amp; stats sync across your devices (when enabled)</td></tr>
+        <tr data-app="offwork"><td>Google Firebase (Authentication, Cloud Firestore, Analytics)</td><td>Offwork — anonymous authentication / Apple credential linking, storage for posts, votes, reports, and deletion requests, and service analytics</td></tr>
         <tr data-app="song2048"><td>Apple iCloud (Key-Value Store)</td><td>Song 2048 — game progress sync across devices on the same Apple ID</td></tr>
         <tr data-app="song2048"><td>Apple StoreKit</td><td>Song 2048 — Pro one-time purchase &amp; receipt validation</td></tr>
         <tr data-app="song2048"><td>AD(X) mediation (incl. Google AdMob)</td><td>Song 2048 — rewarded and interstitial ads</td></tr>
