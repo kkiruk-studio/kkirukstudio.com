@@ -2,6 +2,8 @@
 """Offwork 랜딩페이지 생성기. index.html 을 직접 고치지 말고 이 파일만 수정한 뒤 `python3 build.py` 실행."""
 from pathlib import Path
 
+# 배포 정본은 스튜디오 사이트 repo(~/kkirukstudio-site/offwork)다.
+# 이 폴더는 원본 소스이며, 수정 후 사이트 repo로 복사해 재생성·push 한다.
 BASE_URL = "https://www.kkirukstudio.com/offwork"
 APP_STORE_URL = ""  # 심사 승인 후 채운다
 CONTACT = "kkirukstudio.help@gmail.com"
@@ -11,11 +13,11 @@ TERMS = "https://www.kkirukstudio.com/legal/terms/"
 L = {
     "ko": {
         "lang": "ko", "dir": "", "other": ("en", "English", "en/"),
-        "title": "Offwork — 댓글 없는 익명 직장인 커뮤니티",
+        "title": "Offwork — 공감받는 직장인 커뮤니티",
         "desc": "자유 댓글이 없습니다. 내 이야기에는 내가 정한 선택지로만 답할 수 있어요. 퇴근하고 내려놓는 익명 직장인 커뮤니티.",
         "nav": ["어떻게 쓰나요", "화면", "안전"],
-        "hero_kicker": "OFFWORK · 익명 직장인 커뮤니티",
-        "h1": ["퇴근하고 내려놓는,", "익명 직장인", "커뮤니티"],
+        "hero_kicker": "OFFWORK · 공감받는 직장인 커뮤니티",
+        "h1": ["퇴근하고 내려놓는,", "공감받는 직장인", "커뮤니티"],
         "lead": "자유 댓글이 없습니다. 이야기를 쓸 때 반응 방식을 직접 고르면, 다른 사람은 그 선택지로만 답할 수 있어요. 악플이 생길 자리가 없습니다.",
         "cta_main": "App Store에서 곧 만나요", "cta_sub": "무엇이 다른지 보기",
         "demo_body": "팀장이 오늘 또 내가 만든 자료를 자기가 한 것처럼 보고했다. 이제 진짜 열심히 하고 싶지가 않다.",
@@ -46,16 +48,16 @@ L = {
                      ("투표는 비공개", "누가 어떤 선택을 했는지 글쓴이에게 보이지 않습니다.")],
         "final_h2": "오늘 회사, 어땠어요?",
         "final_p": "판단은 각자 하되, 혼자 삼키지는 않도록.",
-        "foot_tag": "댓글 없는 익명 직장인 커뮤니티",
+        "foot_tag": "공감받는 직장인 커뮤니티",
         "foot_links": [("문의", f"mailto:{CONTACT}"), ("개인정보 처리방침", PRIVACY), ("이용약관", TERMS), ("kkiruk studio", "https://www.kkirukstudio.com")],
         "note": "한국어 커뮤니티입니다. 앱 화면은 한국어·영어·일본어·번체 중국어를 지원합니다.",
     },
     "en": {
         "lang": "en", "dir": "en/", "other": ("ko", "한국어", ""),
-        "title": "Offwork — An anonymous work community without comments",
+        "title": "Offwork — A work community that gets you",
         "desc": "No free-form comments. People answer your story only with the options you choose. An anonymous community for people at work.",
         "nav": ["How it works", "Screens", "Safety"],
-        "hero_kicker": "OFFWORK · ANONYMOUS WORK COMMUNITY",
+        "hero_kicker": "OFFWORK · A WORK COMMUNITY THAT GETS YOU",
         "h1": ["Clock out,", "put it down.", "Anonymously."],
         "lead": "There are no free-form comments. You pick how people may react when you post, and that's the only way they can answer. Abusive replies have nowhere to live.",
         "cta_main": "Coming to the App Store", "cta_sub": "See what's different",
@@ -87,7 +89,7 @@ L = {
                      ("Private votes", "The author never sees who picked what.")],
         "final_h2": "How was work today?",
         "final_p": "Judge for yourself — just don't swallow it alone.",
-        "foot_tag": "An anonymous work community without comments",
+        "foot_tag": "A work community that gets you",
         "foot_links": [("Contact", f"mailto:{CONTACT}"), ("Privacy Policy", PRIVACY), ("Terms of Service", TERMS), ("kkiruk studio", "https://www.kkirukstudio.com")],
         "note": "Offwork is a Korean-language community. The app interface supports English, Japanese, Korean, and Traditional Chinese.",
     },
