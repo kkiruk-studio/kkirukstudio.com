@@ -28,15 +28,15 @@ L = {
         "demo_before": "선택하면 전체 결과를 볼 수 있어요", "demo_after": "총 88명 참여",
         "marquee": ["댓글 없음", "익명", "투표로만 반응", "가입 없이 바로", "공개 프로필 없음"],
         "steps_h2": "쓰고, 고르고, 확인합니다", "steps_sub": "글 하나를 올리는 데 30초. 반응은 탭 한 번.",
-        "steps": [("01", "반응 방식을 먼저 고른다", "그냥 들어줘 · 내가 예민한가? · 어떻게 할까? · 사람들이 어떻게 생각할까? 중 하나. 이 선택이 다른 사람이 답할 수 있는 유일한 방법이 됩니다."),
-                   ("02", "오늘 있었던 일을 쓴다", "회사명·실명 같은 개인 정보와 욕설, 외부 링크는 게시 전에 자동으로 걸러집니다."),
+        "steps": [("01", "오늘 기분부터 고른다", "좋았음 · 그럭저럭 · 지침 · 빡침 · 현타. 힘들었다면 이유(야근·상사·회의…)도 고를 수 있고, 고르는 즉시 오늘 사람들의 분포가 열립니다."),
+                   ("02", "오늘 있었던 일을 쓴다", "회사명·실명 같은 개인 정보와 욕설, 외부 링크는 게시 전에 자동으로 걸러집니다. 질문과 선택지를 직접 쓰는 유형도 있습니다."),
                    ("03", "투표하고 결과를 본다", "먼저 투표해야 전체 비율이 열립니다. 남의 의견에 휩쓸리기 전에 내 판단을 먼저 남겨요.")],
         "value_h2": "댓글창을 지웠습니다", "value_sub": "커뮤니티가 망가지는 자리를 아예 없앴어요.",
         "strike": "“그건 네가 잘못한 듯”",
         "value_h3": "긴 말 대신,\n네 개의 선택지",
         "value_p": "누구도 당신에게 문장을 쓸 수 없습니다. 남길 수 있는 건 당신이 정한 선택지 하나뿐이에요. 그래서 조언도, 비난도, 싸움도 쌓이지 않습니다.",
         "shots_h2": "화면", "shots_sub": "라디우스 없는 모더니스트 레이아웃. 읽는 데 방해되는 장식은 뺐습니다.",
-        "shots": [("오늘", "오늘의 기분을 고르고, 다른 사람들의 이야기에 반응합니다."),
+        "shots": [("오늘", "기분과 이유를 고르면 오늘 사람들의 분포가 열리고, 아래로 이야기가 이어집니다."),
                    ("이야기", "본문 전문과 투표 결과. 공유·차단·신고가 한 자리에."),
                    ("설정", "계정 보관 · 운영 정책 · 문의. 필요한 것만 남겼습니다.")],
         "details_h2": "안전하게 운영합니다", "details_sub": "익명이라고 아무 말이나 할 수 있는 곳은 아닙니다.",
@@ -69,15 +69,15 @@ L = {
         "demo_before": "Vote to see the full results", "demo_after": "88 people voted",
         "marquee": ["NO COMMENTS", "ANONYMOUS", "VOTES ONLY", "NO SIGN-UP", "NO PUBLIC PROFILE"],
         "steps_h2": "Write, choose, see", "steps_sub": "Thirty seconds to post. One tap to react.",
-        "steps": [("01", "Pick the reaction type first", "Just listen · Am I overreacting? · What should I do? · What do people think? Whatever you pick becomes the only way others can answer."),
-                   ("02", "Write what happened today", "Company names, real names, profanity, and external links are filtered out before the story is posted."),
+        "steps": [("01", "Start with today's mood", "Good · So-so · Drained · Fed up · Numb. If it was hard, pick why (overtime, boss, meetings…) — and today's distribution opens right away."),
+                   ("02", "Write what happened today", "Company names, real names, profanity, and external links are filtered out before the story is posted. You can also write your own question and options."),
                    ("03", "Vote, then see results", "The full breakdown opens only after you vote, so you form your own judgment before seeing the crowd's.")],
         "value_h2": "We deleted the comment box", "value_sub": "The place where communities usually rot is simply gone.",
         "strike": "“Sounds like your fault tbh”",
         "value_h3": "Four options\ninstead of a paragraph",
         "value_p": "Nobody can write a sentence at you. All anyone can leave is one option you chose yourself — so advice, blame, and arguments never pile up.",
         "shots_h2": "Screens", "shots_sub": "A modernist layout with zero corner radius. Nothing decorative gets between you and the words.",
-        "shots": [("Today", "Set today's mood and react to what other people left behind."),
+        "shots": [("Today", "Pick a mood and a reason, see today's distribution, then scroll into the stories."),
                    ("Story", "The full text and the vote breakdown. Share, block, and report in one place."),
                    ("Settings", "Account backup, community policy, contact. Only what's needed.")],
         "details_h2": "Anonymous, not lawless", "details_sub": "Being anonymous doesn't mean anything goes.",
@@ -111,7 +111,7 @@ def page(t):
         for n, h, d in t["steps"])
     shots = "\n".join(
         f'''        <figure class="shot"><img src="{asset}shot-{f}.png" alt="{c}" loading="lazy" width="900"><figcaption>{c} — {d}</figcaption></figure>'''
-        for (c, d), f in zip(t["shots"], ["feed", "detail", "settings"]))
+        for (c, d), f in zip(t["shots"], ["2", "3", "5"]))
     details = "\n".join(
         f'''        <article class="detail"><h4>{h}</h4><p>{d}</p></article>'''
         for h, d in t["details"])
