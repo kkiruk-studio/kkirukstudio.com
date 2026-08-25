@@ -48,6 +48,12 @@ APPS = {
 PUBLISHER = {"@type": "Organization", "name": "kkiruk studio",
              "url": "https://www.kkirukstudio.com/"}
 
+# 자기 build.py 가 이미 더 정확한 블록을 생성하는 앱 — 여기서 건드리면 오히려 후퇴한다.
+# deskbreath: 맥/iOS 양 플랫폼 앱이라 operatingSystem 에 macOS 가 반드시 들어가야 하고,
+#             featureList·검증된 offers·alternateName 까지 build.py 가 로케일별로 생성한다.
+#             이 스크립트가 덮으면 operatingSystem 이 "iOS" 로 되돌아간다 (2026-08-25).
+BUILD_OWNED = {"deskbreath"}
+
 
 def _meta(html, pattern):
     m = re.search(pattern, html, re.I)
@@ -96,6 +102,10 @@ def pages(d):
 def main(check_only=False):
     injected = missing = skipped = 0
     for d, (ios_id, play_id, cat) in APPS.items():
+        if d in BUILD_OWNED:
+            print(f"  ⏭  {d} — 자체 build.py 가 생성함(더 정확), 건너뜀")
+            skipped += 1
+            continue
         if not (ROOT / d).is_dir():
             print(f"  ⚠️  디렉토리 없음: {d}")
             continue
