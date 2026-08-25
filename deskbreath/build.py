@@ -50,7 +50,7 @@ DETECT_JS = """<script>
 
 LOCALES = {
     "en": {
-        "dir": "", "lang": "en", "font": None, "shots": "en",
+        "dir": "", "lang": "en", "font": None, "shots": "en", "og_locale": "en_US", "alt_name": [],
         "title": "DeskBreath — A breathing circle in the corner of your screen",
         "desc": "One circle in your menu bar, counting four seconds in and six seconds out while you keep working. Stretch reminders you can skip, and a session that ends itself after ten hours. iPhone and Mac, free to start, no subscription.",
         "og_title": "DeskBreath — Breathing timer for desk work",
@@ -100,7 +100,7 @@ LOCALES = {
         "req": "iOS 17+ · macOS 14+",
     },
     "ko": {
-        "dir": "ko/", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"', "shots": "ko",
+        "dir": "ko/", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"', "shots": "ko", "og_locale": "ko_KR", "alt_name": ["데스크브레스"],
         "title": "DeskBreath — 화면 한쪽에서 같이 숨 쉬는 호흡 원",
         "desc": "메뉴바 한 칸에 호흡 원 하나. 4초 들이쉬고 6초 내쉬는 리듬을 곁에서 세어줘요. 못 할 땐 건너뛰어도 되고, 세션은 10시간 뒤 알아서 끝나요. iPhone과 Mac, 무료로 시작하고 구독은 없어요.",
         "og_title": "DeskBreath — 업무용 호흡 타이머",
@@ -150,7 +150,7 @@ LOCALES = {
         "req": "iOS 17+ · macOS 14+",
     },
     "ja": {
-        "dir": "ja/", "lang": "ja", "font": '"Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", "Yu Gothic"', "shots": "ja",
+        "dir": "ja/", "lang": "ja", "font": '"Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", "Yu Gothic"', "shots": "ja", "og_locale": "ja_JP", "alt_name": ["デスクブレス"],
         "title": "DeskBreath — 画面のすみで一緒に呼吸するオーブ",
         "desc": "メニューバーにオーブがひとつ。4秒吸って6秒吐くリズムをそばで数えます。できないときは飛ばせて、セッションは10時間で自動終了。iPhone と Mac、無料で始められてサブスクはありません。",
         "og_title": "DeskBreath — デスクワーク向け呼吸タイマー",
@@ -200,7 +200,7 @@ LOCALES = {
         "req": "iOS 17+ · macOS 14+",
     },
     "zh": {
-        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC", "Heiti TC"', "shots": "en",
+        "dir": "zh/", "lang": "zh-Hant", "font": '"PingFang TC", "Heiti TC"', "shots": "en", "og_locale": "zh_TW", "alt_name": [],
         "title": "DeskBreath — 在螢幕角落陪你呼吸的圓",
         "desc": "選單列上一顆呼吸圓，替你數著吸氣 4 秒、吐氣 6 秒。忙的時候可以跳過，工作時段滿 10 小時會自動結束。iPhone 與 Mac，免費開始，沒有訂閱。",
         "og_title": "DeskBreath — 專為辦公設計的呼吸計時器",
@@ -259,6 +259,38 @@ def hreflang_block():
     return "\n".join(lines)
 
 
+def jsonld_block(loc):
+    """SoftwareApplication 구조화 데이터 — 검색·AI 추천의 입력.
+    Mac 이 주 무대인 앱이라 operatingSystem/downloadUrl 에 macOS 를 반드시 포함한다."""
+    data = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DeskBreath",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "macOS 14.0 or later, iOS 17.0 or later",
+        "url": f"{BASE_URL}{loc['dir']}",
+        "description": loc["desc"],
+        "image": f"{BASE_URL}assets/icon-180.png",
+        "inLanguage": loc["lang"],
+        "softwareVersion": "1.0.1",
+        "downloadUrl": MAC_URL,
+        "installUrl": IOS_URL,
+        "sameAs": [IOS_URL, MAC_URL],
+        "featureList": loc["plan_free"],
+        "isAccessibleForFree": True,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "publisher": {"@type": "Organization", "name": "kkiruk studio",
+                      "url": "https://www.kkirukstudio.com/"},
+    }
+    if loc["alt_name"]:
+        data["alternateName"] = loc["alt_name"]
+    body = json.dumps(data, ensure_ascii=False, indent=2)
+    # 사이트 공용 마커 — 전역 JSON-LD 주입 도구가 이 블록을 중복 추가하지 않고 교체하도록 유지
+    return ('<!-- jsonld:app:begin -->\n'
+            f'<script type="application/ld+json">\n{body}\n</script>\n'
+            '<!-- jsonld:app:end -->')
+
+
 def lang_nav(cur_dir, rel):
     out = []
     for d, code, label, abbr in LANG_LABELS:
@@ -313,6 +345,13 @@ def render(key):
 <meta property="og:description" content="{loc['og_desc']}">
 <meta property="og:image" content="{BASE_URL}assets/icon-180.png">
 <meta property="og:type" content="website">
+<meta property="og:url" content="{BASE_URL}{loc['dir']}">
+<meta property="og:site_name" content="DeskBreath">
+<meta property="og:locale" content="{loc['og_locale']}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{loc['og_title']}">
+<meta name="twitter:description" content="{loc['og_desc']}">
+<meta name="twitter:image" content="{BASE_URL}assets/icon-180.png">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#E8EAEE">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16181D">
 <link rel="canonical" href="{BASE_URL}{loc['dir']}">
@@ -321,6 +360,7 @@ def render(key):
 <link rel="apple-touch-icon" href="{rel}assets/icon-180.png">
 <link rel="stylesheet" href="{rel}assets/style.css?v={CSS_V}">
 {font_override}
+{jsonld_block(loc)}
 </head>
 <body>
 
