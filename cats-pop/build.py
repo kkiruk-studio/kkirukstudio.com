@@ -462,6 +462,9 @@ def render(key):
 </html>
 """
     out = ROOT / loc["file"]
+    # Preserve the approved Korean landing refinements on regeneration.
+    if key == "ko":
+        html = html.replace("</head>", "<link rel=\"stylesheet\" href=\"/landing-refinements.css?v=20260907\">\n<script defer src=\"/landing-refinements.js?v=20260907\"></script>\n</head>")
     out.write_text(html, encoding="utf-8")
     print(f"wrote {loc['file']} ({len(html)} bytes)")
 

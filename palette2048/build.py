@@ -333,5 +333,8 @@ for code,fname,_ in LANGS:
         footlangs=footlangs(code), steps=steps_html(d), feats=feats_html(d),
         shots=shots_html(d), marquee=marquee_html())
     html=TMPL.format(**params)
+    # Preserve the approved Korean landing refinements on regeneration.
+    if code == "ko":
+        html = html.replace("</head>", "<link rel=\"stylesheet\" href=\"/landing-refinements.css?v=20260907\">\n<script defer src=\"/landing-refinements.js?v=20260907\"></script>\n</head>")
     (ROOT/fname).write_text(html, encoding="utf-8")
     print("wrote", fname, len(html), "bytes")

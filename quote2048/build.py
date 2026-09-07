@@ -220,6 +220,9 @@ setTimeout(function(){{cq.innerHTML=cards[i].q;ca.textContent='— '+cards[i].a;
 </html>"""
     out=ROOT/o["dir"] if o["dir"] else ROOT
     out.mkdir(exist_ok=True)
+    # Preserve the approved Korean landing refinements on regeneration.
+    if key == "ko":
+        html = html.replace("</head>", "<link rel=\"stylesheet\" href=\"/landing-refinements.css?v=20260907\">\n<script defer src=\"/landing-refinements.js?v=20260907\"></script>\n</head>")
     (out/"index.html").write_text(html, encoding="utf-8")
     print("wrote", (out/"index.html").relative_to(ROOT))
 
