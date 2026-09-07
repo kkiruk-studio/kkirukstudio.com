@@ -137,7 +137,7 @@ LOCALES = {
         "shots_h2": "Built for logging, <em>not just looking</em>.",
         "shots_caps": ["All of Korea's rail on one map", "Every station, a stamp", "The Full Route seal"],
         "feat_kicker": "DETAILS", "feat_num": "06",
-        "feat_h2": "It logs <em>this much</em>.",
+        "feat_h2": "More ways to <em>keep track.</em>",
         "feats": [
             ["Photos & notes", "Attach a photo or note to any station you log."],
             ["48 train types", "From the KTX-Sancheon to the slow Mugunghwa — track what you rode and what you only saw."],

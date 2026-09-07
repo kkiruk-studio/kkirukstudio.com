@@ -21,7 +21,7 @@ LOCALES = {
     "en": {
         "file": "index.html", "lang": "en", "font": None,
         "title": "Honest Camera — A toddler camera with one yellow button",
-        "desc": "The simplest camera for kids ages 3 and up. One big yellow shutter, photos save straight to your library — no ads, no purchases, no settings, nothing to break.",
+        "desc": "A simple camera for kids ages 3 and up. One big yellow shutter, with photos saved straight to your library. No ads, in-app purchases or settings.",
         "og_title": "Honest Camera — My First Camera",
         "og_desc": "One yellow button. That's the whole app.",
         "kicker_num": "FOR AGES 3+",
@@ -38,11 +38,11 @@ LOCALES = {
         "steps": [
             ["TAP", "Press the yellow button", "There is exactly one button on screen. A click sound, a little flash, a happy buzz — your child knows the photo happened."],
             ["SAVED", "The photo saves itself", "No save button, no pop-up asking questions. Every photo goes straight into the family Photos library, full size."],
-            ["AGAIN", "Red X, shoot again", "The photo shows up big. Tap the red X and the camera is back. That's the entire app — we promise."],
+            ["AGAIN", "Red X, shoot again", "The photo shows up big. Tap the red X and the camera is back. You're ready to take the next photo."],
         ],
         "cut_kicker": "THE HONEST PART", "cut_num": "EXTRAS: ZERO",
         "cut_h2": "We didn't add features.<br>We <em>removed</em> them.",
-        "cut_lede": "A normal camera app has dozens of buttons — and every one of them is an accident waiting for a toddler's finger. Honest Camera works the other way around: everything risky is gone, and one yellow shutter remains.",
+        "cut_lede": "Handing a child your phone can mean keeping an eye on which buttons they press. Honest Camera removes the mode and settings buttons so they can focus on taking photos with one yellow shutter.",
         "cut_rows": [
             ["Mode switching", "gone", "NO ACCIDENTAL VIDEO", ""],
             ["Settings &amp; menus", "gone", "NOTHING TO BREAK", ""],
@@ -55,17 +55,17 @@ LOCALES = {
         "shots_h2": "Two screens. <em>That's everything.</em>",
         "shots_caps": ["ONE YELLOW SHUTTER", "TAP X TO SHOOT AGAIN", "WHAT THEY SAW IS WHAT YOU GET"],
         "feat_kicker": "DETAILS", "feat_num": "06",
-        "feat_h2": "Every choice, <em>parent-grade</em>.",
+        "feat_h2": "Made for <em>small hands.</em>",
         "feats": [
             ["Saves to your Photos library", "Photos don't get trapped inside the app — they land in the family library at full quality, the moment they're taken."],
             ["Paid once. That's it.", "No subscription, no coins, no “premium”. Inside the app there is nothing to buy and no ad to tap."],
-            ["Lock them in, gently", "Onboarding walks you through Apple's Guided Access — triple-click the side button and your child can't leave the camera."],
+            ["Keep the camera open with Guided Access", "Onboarding walks you through Apple's Guided Access — triple-click the side button and your child can't leave the camera."],
             ["Volume-button shutter? Removed on purpose.", "Toddlers can't tell the volume button from the power button — and the screen goes dark. So the only shutter is on the screen."],
             ["What they see is what you get", "No filters, no AI touch-ups, no stickers. The photo is exactly what your child saw. That's why it's called Honest."],
             ["iPhone &amp; iPad · 4 languages", "English, 한국어, 日本語, 繁體中文. Landscape works too — for lining up all the stuffed animals."],
         ],
         "final_h2": "Their first camera.",
-        "final_lede": "Hundreds of blurry masterpieces are coming. You'll love every one.",
+        "final_lede": "See which moments your child chooses to capture.",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
     },
     "ko": {
@@ -121,7 +121,7 @@ LOCALES = {
     "ja": {
         "file": "ja.html", "lang": "ja", "font": '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic"',
         "title": "Honest Camera — 黄色いボタンひとつだけの幼児カメラ",
-        "desc": "3歳から使えるいちばんシンプルなカメラ。大きな黄色いシャッターひとつ、撮ったらすぐ写真ライブラリへ保存 — 広告も課金も設定もありません。",
+        "desc": "3歳から使いやすいように、ボタンを減らしたカメラ。大きな黄色いシャッターで撮ると、そのまま写真ライブラリに保存されます。広告・アプリ内課金・設定はありません。",
         "og_title": "Honest Camera — はじめてのカメラ",
         "og_desc": "黄色いボタン、ひとつだけ。それがアプリのぜんぶ。",
         "kicker_num": "3さいから",
@@ -138,11 +138,11 @@ LOCALES = {
         "steps": [
             ["ポン", "黄色いボタンを押す", "画面のボタンはひとつだけ。カシャという音、ピカッと光る画面、手に伝わる振動 — 撮れたことが子どもにもすぐ分かります。"],
             ["保存", "写真はひとりでに保存", "保存ボタンも、確認のポップアップもありません。撮った瞬間、家族の写真ライブラリへそのまま入ります。"],
-            ["もう一回", "赤い×でまた撮る", "撮った写真が大きく表示されます。赤い×を押せばまたカメラに戻る。アプリはこれでぜんぶです — 本当に。"],
+            ["もう一回", "赤い×でまた撮る", "撮った写真が大きく表示されます。赤い×を押せばまたカメラに戻る。同じ操作で、次の写真も撮れます。"],
         ],
         "cut_kicker": "正直なわけ", "cut_num": "足したものゼロ",
         "cut_h2": "機能を足したのではなく、<br><em>引いた</em>カメラ。",
-        "cut_lede": "ふつうのカメラアプリにはボタンが何十個もあります。幼児の指には、そのすべてが事故のもと。Honest Camera は逆につくりました — 危ないものをぜんぶ取り除いて、黄色いシャッターだけを残しました。",
+        "cut_lede": "子どもにカメラを渡すと、別のボタンを押さないか気になりますよね。写真を撮ることに集中できるよう、モードや設定を省き、黄色いシャッターだけにしました。",
         "cut_rows": [
             ["モード切替", "なし", "まちがえて動画にならない", ""],
             ["設定・メニュー", "なし", "押して壊れるものがない", ""],
@@ -155,7 +155,7 @@ LOCALES = {
         "shots_h2": "画面はふたつ。<em>それでぜんぶ。</em>",
         "shots_caps": ["黄色いシャッターひとつ", "赤い×でもう一回", "見たままが撮れる"],
         "feat_kicker": "こだわり", "feat_num": "06",
-        "feat_h2": "ひとつひとつ、<em>親の目線</em>で。",
+        "feat_h2": "子どもが使いやすい<em>工夫。</em>",
         "feats": [
             ["写真ライブラリへ直行", "写真がアプリの中に閉じ込められません。撮った瞬間、家族の写真ライブラリへ元の画質のまま保存されます。"],
             ["買い切り、それだけ", "サブスクもコインも「プレミアム」もなし。アプリの中に買うものも、押してしまう広告もありません。"],
@@ -165,13 +165,13 @@ LOCALES = {
             ["iPhone · iPad · 4言語", "日本語 · English · 한국어 · 繁體中文。ぬいぐるみを並べて撮るときは横向きでもどうぞ。"],
         ],
         "final_h2": "はじめてのカメラに。",
-        "final_lede": "ぶれた傑作が何百枚もやってきます。きっとぜんぶ好きになります。",
+        "final_lede": "子どもがどんな瞬間を撮るのか、一緒に見てみませんか。",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
     },
     "zh-hant": {
         "file": "zh-hant.html", "lang": "zh-Hant", "font": '"PingFang TC", "Heiti TC"',
         "title": "Honest Camera — 只有一顆黃色按鈕的幼兒相機",
-        "desc": "3 歲就能用的最簡單相機。一顆大大的黃色快門，拍了直接存進照片圖庫 — 沒有廣告、沒有內購、沒有設定。",
+        "desc": "為3歲以上孩子設計的簡單相機。按下大大的黃色快門，照片就會存進圖庫。沒有廣告、App 內購買或設定選單。",
         "og_title": "Honest Camera — 第一台相機",
         "og_desc": "一顆黃色按鈕，就是整個 App。",
         "kicker_num": "3 歲以上",
@@ -188,11 +188,11 @@ LOCALES = {
         "steps": [
             ["按", "按下黃色按鈕", "畫面上只有一顆按鈕。喀嚓一聲、閃一下光、手上輕輕一震 — 孩子馬上知道拍到了。"],
             ["儲存", "照片自己存好", "沒有儲存按鈕，也沒有跳出來問東問西的視窗。按下的那一刻，照片就以原始畫質進到家人的照片圖庫。"],
-            ["再來", "紅色 × 再拍一張", "拍好的照片會放大顯示。按紅色 × 就回到相機。整個 App 就這樣 — 真的。"],
+            ["再來", "紅色 × 再拍一張", "拍好的照片會放大顯示。按紅色 × 就回到相機。接著就能繼續拍下一張。"],
         ],
         "cut_kicker": "誠實的理由", "cut_num": "什麼都沒加",
         "cut_h2": "不是加了功能，<br>是把功能<em>拿掉</em>的相機。",
-        "cut_lede": "一般相機 App 有幾十顆按鈕，對幼兒的手指來說每一顆都是意外。Honest Camera 反著做 — 把危險的全部拿掉，只留下一顆黃色快門。",
+        "cut_lede": "把手機交給孩子時，難免擔心他按到其他功能。Honest Camera 拿掉模式和設定按鈕，只留黃色快門，讓孩子專心拍照。",
         "cut_rows": [
             ["模式切換", "沒有", "不會誤拍成影片", ""],
             ["設定・選單", "沒有", "沒有東西可以弄壞", ""],
@@ -205,7 +205,7 @@ LOCALES = {
         "shots_h2": "兩個畫面，<em>就是全部。</em>",
         "shots_caps": ["一顆黃色快門", "紅色 × 再拍一張", "看到什麼拍到什麼"],
         "feat_kicker": "細節", "feat_num": "06",
-        "feat_h2": "每個決定，都是<em>家長標準</em>。",
+        "feat_h2": "讓孩子<em>容易上手。</em>",
         "feats": [
             ["直接存進照片圖庫", "照片不會被關在 App 裡。按下快門的那一刻，就以原始畫質存進家人的照片圖庫。"],
             ["買斷一次就好", "沒有訂閱、沒有代幣、沒有「進階版」。App 裡沒有東西可以買，也沒有廣告可以誤按。"],
@@ -215,7 +215,7 @@ LOCALES = {
             ["iPhone · iPad · 4 種語言", "繁體中文 · English · 한국어 · 日本語。把娃娃排排站拍照時，橫著拿也可以。"],
         ],
         "final_h2": "孩子的第一台相機。",
-        "final_lede": "幾百張晃到不行的傑作正在路上，你會每一張都捨不得刪。",
+        "final_lede": "一起看看，孩子想拍下哪些時刻。",
         "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "服務條款",
     },
 }

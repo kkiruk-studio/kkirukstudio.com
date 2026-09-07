@@ -36,7 +36,7 @@ LOCALES = {
         "hero_alt": "Newsmaker headline maker screen showing a breaking-news style card being created",
         "marquee": ["MEETING CANCELED", "PACKAGE ARRIVED", "CONCERT TICKETS", "NEW PR", "FINAL OFFER", "LUNCH DECIDED", "STOCK UP", "VACATION APPROVED"],
         "how_kicker": "HOW IT WORKS",
-        "how_h2": "From a normal sentence to a <em>front page</em> in three taps.",
+        "how_h2": "Make a <em>front-page headline</em> in three steps.",
         "steps": [
             ["HEADLINE", "Type one line", "Whatever happened today — big or small. That's your headline."],
             ["STYLE", "Pick a theme and font", "14 card themes from breaking-news red to newspaper broadsheet, 12 display fonts to match the mood."],
@@ -44,7 +44,7 @@ LOCALES = {
         ],
         "conv_kicker": "CONVERSION", "conv_num": "MUNDANE → BREAKING",
         "conv_h2": "Nothing happened. <em>Everything happened.</em>",
-        "conv_lede": "Newsmaker takes the smallest events of your day and gives them the full breaking-news treatment — red banner, bold type, all caps.",
+        "conv_lede": "A canceled meeting or a package arriving can be your next headline. Add a red banner and bold type to make it look like breaking news.",
         "conv_rows": [
             ["Meeting canceled", "BREAKING: Meeting canceled", "OFFICE · RELIEF"],
             ["Package arrived", "BREAKING: Package arrived early", "DELIVERY · WIN"],
@@ -64,10 +64,10 @@ LOCALES = {
         "shots_h2": "Built for <em>fast, funny front pages</em>.",
         "shots_caps": ["14 THEMES", "12 FONTS", "MY LIBRARY"],
         "feat_kicker": "DETAILS", "feat_num": "06",
-        "feat_h2": "One tap. <em>Every</em> tool.",
+        "feat_h2": "Tools for making <em>your own headlines.</em>",
         "feats": [
             ["14 card themes", "Breaking news, broadcast caption, tabloid, newspaper, magazine, emergency alert and more."],
-            ["12 display fonts", "Impact, handwriting, serif, bold rounded — every headline has a voice."],
+            ["12 display fonts", "Choose from impact, handwriting, serif and rounded fonts to suit your headline."],
             ["Cut-out photo sticker", "Auto background removal turns any photo into a sticker you can drop into the story."],
             ["Interest-based examples", "Student, office worker, fandom, gym, dating, pets, job hunting, gaming, stocks — ready-made lines to remix."],
             ["4 aspect ratios", "Square, feed 4:5, story 9:16, or widescreen 16:9 — export for wherever you're posting."],
@@ -176,7 +176,7 @@ LOCALES = {
         "hero_alt": "速報メーカーの見出し作成画面 — 速報スタイルのカードを作成している様子",
         "marquee": ["会議中止", "推しのカムバ", "バイト時給アップ", "内定獲得", "ベンチプレス自己ベスト", "ランチ即決", "株爆益", "有給承認"],
         "how_kicker": "使い方",
-        "how_h2": "普通の一文が<em>一面速報</em>になるまで、たった3タップ。",
+        "how_h2": "いつもの一言を<em>ニュースの見出し</em>にする3ステップ。",
         "steps": [
             ["見出し", "一言入力", "今日あったこと、大きくても小さくても一言でOK。それが見出しに。"],
             ["スタイル", "テーマとフォントを選ぶ", "速報レッドから新聞紙面風まで14種のカードテーマ、雰囲気に合わせた12種のフォント。"],
@@ -184,7 +184,7 @@ LOCALES = {
         ],
         "conv_kicker": "変換", "conv_num": "日常 → 速報",
         "conv_h2": "何もなかったのに、<em>全部速報だった</em>。",
-        "conv_lede": "速報メーカーは一日の小さな出来事を、赤い速報バナー・太字・全角キャップスで格上げします。",
+        "conv_lede": "会議の中止も、荷物の到着もニュースに。赤い速報バナーと太字の見出しで、日常の出来事をニュース画像にできます。",
         "conv_rows": [
             ["会議が急遽中止", "速報：会議が電撃中止", "会社 · 安堵"],
             ["荷物が1日早く到着", "速報：荷物が1日早く到着", "宅配 · 勝利"],
@@ -207,7 +207,7 @@ LOCALES = {
         "feat_h2": "タップひとつ、<em>全部そろう</em>。",
         "feats": [
             ["カードテーマ14種", "速報、放送字幕、バラエティ字幕、新聞、雑誌、緊急速報など状況別スタイル。"],
-            ["ディスプレイフォント12種", "インパクト、手書き、明朝、丸ゴシック — 見出しごとに違う声。"],
+            ["ディスプレイフォント12種", "インパクト、手書き、明朝、丸ゴシックなど、見出しの雰囲気に合わせて選べます。"],
             ["切り抜きフォトステッカー", "背景を自動で除去して、どんな写真もニュースの登場人物に。"],
             ["関心事別の例文", "学生・会社員・推し活・筋トレ・恋愛・ペット・就活・ゲーム・株まで、すぐ使える例文。"],
             ["4種のアスペクト比", "正方形、フィード4:5、ストーリー9:16、横長16:9 — 投稿先に合わせて書き出し。"],
@@ -254,7 +254,7 @@ LOCALES = {
         ],
         "conv_kicker": "轉換", "conv_num": "日常 → 快訊",
         "conv_h2": "什麼都沒發生，<em>卻都是快訊</em>。",
-        "conv_lede": "快訊製造機把一天中最微不足道的瞬間，升級成紅色橫幅、粗體大字、全大寫的正式快訊。",
+        "conv_lede": "會議取消、包裹送到，都能做成新聞。加上紅色快訊橫幅和粗體標題，把日常小事做成一張新聞圖。",
         "conv_rows": [
             ["會議臨時取消", "快訊：會議臨時取消", "上班 · 鬆一口氣"],
             ["包裹提早一天到", "快訊：包裹提早一天送達", "宅配 · 小確幸"],
@@ -277,7 +277,7 @@ LOCALES = {
         "feat_h2": "點一下，<em>工具全都有</em>。",
         "feats": [
             ["14 種卡片主題", "快訊、跑馬燈字幕、綜藝字幕、報紙、雜誌、緊急快訊等情境風格。"],
-            ["12 種顯示字型", "粗黑體、手寫、明體、圓體 — 每則標題都有自己的語氣。"],
+            ["12 種顯示字型", "粗黑體、手寫、明體、圓體，依照標題的氣氛挑選。"],
             ["去背照片貼圖", "自動去背，讓任何照片都能變成新聞裡的主角。"],
             ["興趣主題範例", "學生、上班族、追星、健身、戀愛、寵物、求職、遊戲、股票，現成句子直接套用。"],
             ["4 種長寬比", "正方形、動態消息 4:5、限時動態 9:16、橫式 16:9 — 依發佈平台輸出。"],

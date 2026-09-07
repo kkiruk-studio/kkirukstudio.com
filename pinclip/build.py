@@ -23,7 +23,7 @@ PLAT_GLYPH = {"yt": "▶", "tt": "♪", "ig": "✦", "any": "∞", "shorts": "�
 LOCALES = {
     "en": {
         "dir": "", "lang": "en", "font": None, "shots": "en",
-        "title": "Pinclip — Save Shorts, Reels & TikToks. Find them in 3 seconds.",
+        "title": "Pinclip — Save Shorts, Reels & TikToks and find them again",
         "desc": "Tap share on any short-form video and Pinclip saves it with the title and thumbnail filled in automatically. Folders, tags, widgets and iCloud sync keep your videos organized.",
         "og_title": "Pinclip — Short-form Video Bookmarks",
         "og_desc": "Save the videos you love, so you can find them again.",
@@ -47,7 +47,7 @@ LOCALES = {
             ["🗂️", "Put it in a folder", "Make folders like “Cooking” or “Workout” and drop videos in. Add tags and a little note, and you'll never forget why you saved something."],
         ],
         "conv_kicker": "Finding it again",
-        "conv_h2": "Can't remember the title? <em>Found in 3 seconds</em> anyway.",
+        "conv_h2": "Forgot the title? <em>Find it by folder or tag.</em>",
         "conv_lede": "“That pasta video from last week…” — you often can't remember the title or the channel. In Pinclip, you just open the folder or tap a tag, and there it is. Like this:",
         "conv_rows": [
             ["yt", "that pasta Short from Tuesday…", "Recipes · #pasta"],
@@ -153,7 +153,7 @@ LOCALES = {
     },
     "ja": {
         "dir": "ja/", "lang": "ja", "font": '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic"', "shots": "ja",
-        "title": "Pinclip — ショート・リールを保存、3秒で見つかる",
+        "title": "Pinclip — ショート・リールを保存して、あとから探せる",
         "desc": "動画の共有ボタンを押すだけで、タイトルとサムネイル付きで自動保存。フォルダ・タグ・ウィジェット・iCloud同期でショート動画をすっきり整理。",
         "og_title": "Pinclip — ショート動画の保存アプリ",
         "og_desc": "気に入った動画を、また見つけられるように保存しよう。",
@@ -177,7 +177,7 @@ LOCALES = {
             ["🗂️", "フォルダに入れて整理する", "「料理」「運動」のようにフォルダを作って動画を入れておきましょう。タグやメモを付けておけば、なぜ保存したかも忘れません。"],
         ],
         "conv_kicker": "見つけるとき",
-        "conv_h2": "タイトルを忘れても、<em>3秒で見つかる</em>。",
+        "conv_h2": "タイトルを忘れても、<em>フォルダやタグで探せます。</em>",
         "conv_lede": "「先週見たあのパスタの動画…」タイトルもチャンネルも思い出せないこと、ありますよね。Pinclip ならフォルダを開くか、タグをひとつ押すだけ。こんなふうに：",
         "conv_rows": [
             ["yt", "火曜に見たあのパスタ動画…", "レシピ · #パスタ"],
@@ -218,7 +218,7 @@ LOCALES = {
     },
     "zh-hans": {
         "dir": "zh-hans/", "lang": "zh-Hans", "font": '"PingFang SC", "Heiti SC"', "shots": "zh-Hans",
-        "title": "Pinclip — 收藏 Shorts、Reels 和 TikTok，3 秒找回",
+        "title": "Pinclip — 收藏 Shorts、Reels 和 TikTok，方便下次查找",
         "desc": "在视频上点分享按钮就能保存，标题和封面自动抓取。文件夹、标签、小组件和 iCloud 同步，让收藏井井有条。",
         "og_title": "Pinclip — 短视频收藏 App",
         "og_desc": "喜欢的视频存起来，随时找得到。",
@@ -242,7 +242,7 @@ LOCALES = {
             ["🗂️", "放进文件夹整理", "建几个像“做饭”“健身”这样的文件夹，把视频放进去。再加上标签和备注，连当初为什么收藏都不会忘。"],
         ],
         "conv_kicker": "找回的时候",
-        "conv_h2": "想不起标题？<em>3 秒也能找到</em>。",
+        "conv_h2": "想不起标题？<em>用文件夹和标签来找。</em>",
         "conv_lede": "“上周看的那条意面视频……”标题和频道都想不起来，太常见了。在 Pinclip 里，打开文件夹或点一下标签就出来了。像这样：",
         "conv_rows": [
             ["yt", "周二刷到的意面视频…", "食谱 · #意面"],
@@ -283,7 +283,7 @@ LOCALES = {
     },
     "zh-hant": {
         "dir": "zh-hant/", "lang": "zh-Hant", "font": '"PingFang TC", "Heiti TC"', "shots": "zh-Hant",
-        "title": "Pinclip — 收藏 Shorts、Reels 和 TikTok，3 秒找回",
+        "title": "Pinclip — 收藏 Shorts、Reels 和 TikTok，方便下次查找",
         "desc": "在影片上點分享按鈕就能儲存，標題與封面自動抓取。資料夾、標籤、小工具與 iCloud 同步，收藏井然有序。",
         "og_title": "Pinclip — 短影音收藏 App",
         "og_desc": "喜歡的影片存起來，隨時找得到。",
@@ -307,7 +307,7 @@ LOCALES = {
             ["🗂️", "放進資料夾整理", "建幾個像「做菜」「健身」這樣的資料夾，把影片放進去。再加上標籤和備註，連當初為什麼收藏都不會忘。"],
         ],
         "conv_kicker": "找回的時候",
-        "conv_h2": "想不起標題？<em>3 秒也找得到</em>。",
+        "conv_h2": "想不起標題？<em>用資料夾和標籤來找。</em>",
         "conv_lede": "「上週看的那支義大利麵影片……」標題和頻道都想不起來，太常見了。在 Pinclip 裡，打開資料夾或點一下標籤就出來了。像這樣：",
         "conv_rows": [
             ["yt", "週二滑到的義大利麵影片…", "食譜 · #義大利麵"],

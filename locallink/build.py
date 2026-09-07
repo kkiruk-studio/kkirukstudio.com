@@ -34,7 +34,7 @@ LOCALES = {
         "hero_alt": "Local Link map selection screen showing Naver Map, KakaoMap, Apple Maps and Google Maps options for 명동",
         "marquee": ["KOREA", "CHINA", "JAPAN", "TAIWAN", "THAILAND", "VIETNAM", "HONG KONG", "MACAU"],
         "how_kicker": "HOW IT WORKS",
-        "how_h2": "Three taps from <em>“how do I even spell that?”</em> to a pin on the map.",
+        "how_h2": "Search with the name you know. <em>Find it on a local map.</em>",
         "steps": [
             ["DESTINATION", "Pick where you're going", "Choose the country and city. Local Link prepares searches that match how places are written there."],
             ["SEARCH", "Type the name you know", "English, romanized, or local spelling — the app generates the local-script candidates that map services actually match."],
@@ -71,7 +71,7 @@ LOCALES = {
             ["5 languages", "English, 한국어, 日本語, 简体中文, 繁體中文 — UI and conversion both."],
             ["Copy &amp; large text", "Show the local script full-screen to a taxi driver, or copy it anywhere."],
         ],
-        "final_h2": "Stop guessing spellings.", "final_lede": "Free on iPhone and iPad.",
+        "final_h2": "Search without knowing the local spelling.", "final_lede": "Free on iPhone and iPad.",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
     },
     "ko": {
@@ -146,7 +146,7 @@ LOCALES = {
         "hero_alt": "ロコリンクの地図選択画面 — 명동を Naver Map や KakaoMap で開くボタン",
         "marquee": ["韓国", "中国", "台湾", "タイ", "ベトナム", "香港", "マカオ", "日本"],
         "how_kicker": "使い方",
-        "how_h2": "「どう綴るの？」から<em>地図のピンまで3タップ</em>。",
+        "how_h2": "知っている名前で検索して、<em>現地の地図で開こう。</em>",
         "steps": [
             ["目的地", "行き先を選ぶ", "国と都市を選ぶと、その地域の表記に合った検索を用意します。"],
             ["検索", "知っている名前で入力", "英語名でもローマ字でも — 現地の地図が実際に認識する現地文字の候補を生成します。"],
@@ -183,7 +183,7 @@ LOCALES = {
             ["5言語対応", "日本語 · English · 한국어 · 简体中文 · 繁體中文、UI も変換も。"],
             ["コピー・拡大表示", "現地の文字を全画面でタクシー運転手に見せたり、どこへでもコピー。"],
         ],
-        "final_h2": "綴りの悩みは、もう終わり。", "final_lede": "iPhone · iPad 無料。",
+        "final_h2": "現地での書き方を知らなくても、検索してみよう。", "final_lede": "iPhone · iPad 無料。",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシーポリシー", "f_terms": "利用規約",
     },
     "zh-hans": {
@@ -202,7 +202,7 @@ LOCALES = {
         "hero_alt": "当地链接的地图选择界面 — 用 Naver Map 或 KakaoMap 打开 명동",
         "marquee": ["韩国", "日本", "泰国", "越南", "中国香港", "中国澳门", "中国台湾"],
         "how_kicker": "使用方法",
-        "how_h2": "从“这个怎么拼？”到<em>地图大头针，只要三步</em>。",
+        "how_h2": "输入你知道的名称，<em>在当地地图中打开。</em>",
         "steps": [
             ["目的地", "选择旅行国家", "选好国家和城市，应用会按当地的写法准备搜索。"],
             ["搜索", "输入你知道的名字", "英文或罗马字都可以 — 自动生成当地地图真正能识别的当地文字候选。"],
@@ -239,7 +239,7 @@ LOCALES = {
             ["5 种语言", "简体中文 · English · 한국어 · 日本語 · 繁體中文，界面和转换都支持。"],
             ["复制 · 放大显示", "把当地文字全屏给出租车司机看，或复制到任何地方。"],
         ],
-        "final_h2": "别再纠结怎么拼了。", "final_lede": "iPhone · iPad 免费。",
+        "final_h2": "不知道当地怎么写，也可以试着搜一搜。", "final_lede": "iPhone · iPad 免费。",
         "f_contact": "联系我们", "f_privacy": "隐私政策", "f_terms": "服务条款",
     },
     "zh-hant": {
@@ -258,7 +258,7 @@ LOCALES = {
         "hero_alt": "在地連結的地圖選擇畫面 — 用 Naver Map 或 KakaoMap 開啟 명동",
         "marquee": ["韓國", "日本", "泰國", "越南", "香港", "澳門", "台灣"],
         "how_kicker": "使用方式",
-        "how_h2": "從「這要怎麼拼？」到<em>地圖大頭針，只要三步</em>。",
+        "how_h2": "輸入你知道的名稱，<em>在當地地圖中開啟。</em>",
         "steps": [
             ["目的地", "選擇旅遊國家", "選好國家和城市，App 會依當地的寫法準備搜尋。"],
             ["搜尋", "輸入你知道的名稱", "英文或羅馬拼音都可以 — 自動產生在地地圖真正能辨識的在地文字候選。"],
@@ -295,7 +295,7 @@ LOCALES = {
             ["5 種語言", "繁體中文 · English · 한국어 · 日本語 · 简体中文，介面和轉換都支援。"],
             ["複製 · 放大顯示", "把在地文字全螢幕給計程車司機看，或複製到任何地方。"],
         ],
-        "final_h2": "別再煩惱怎麼拼了。", "final_lede": "iPhone · iPad 免費。",
+        "final_h2": "不知道當地怎麼寫，也可以試著搜尋看看。", "final_lede": "iPhone · iPad 免費。",
         "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "服務條款",
     },
 }

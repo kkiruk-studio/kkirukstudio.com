@@ -63,7 +63,7 @@ LOCALES = {
         "orb_in": "Breathe in", "orb_out": "Breathe out",
         "rhythm_h2": "Four seconds in, <em>six seconds out</em>.",
         "rhythm_in": "<b>4s</b> in", "rhythm_out": "<b>6s</b> out",
-        "rhythm_lede": "A longer exhale is what settles you, so that's the default. Switch to box breathing or 4-7-8, or set the seconds yourself. Each phase change arrives as its own haptic, so you never have to watch the screen.",
+        "rhythm_lede": "The default rhythm is four seconds in and six seconds out. You can switch to box breathing or 4-7-8, or set your own timings. Different haptics mark each phase so you can follow along without watching the screen.",
         "mac_h2": "On a Mac it just <em>stays on your screen</em>.",
         "mac_caps": [
             ["Or floating on top", "Track it out of the corner of your eye. It follows you across desktops."],
@@ -163,7 +163,7 @@ LOCALES = {
         "orb_in": "吸う", "orb_out": "吐く",
         "rhythm_h2": "4秒吸って、<em>6秒吐く</em>。",
         "rhythm_in": "吸う <b>4秒</b>", "rhythm_out": "吐く <b>6秒</b>",
-        "rhythm_lede": "吐く息が長いほど体はゆるむので、これを基本にしました。ボックス呼吸や4-7-8に変えても、秒数を自分で決めても大丈夫です。切り替わるたびに触覚が変わるので、画面を見る必要はありません。",
+        "rhythm_lede": "基本は4秒吸って、6秒吐くリズムです。ボックス呼吸や4-7-8に切り替えたり、秒数を自分で決めたりできます。段階ごとに振動が変わるので、画面を見ずにリズムを確認できます。",
         "mac_h2": "Mac では<em>作業画面の上に</em>そのまま。",
         "mac_caps": [
             ["書類の上に浮かせても", "視界の端でリズムを追うだけ。デスクトップを移動しても最前面のままです。"],
@@ -213,7 +213,7 @@ LOCALES = {
         "orb_in": "吸氣", "orb_out": "吐氣",
         "rhythm_h2": "吸氣 4 秒，<em>吐氣 6 秒</em>。",
         "rhythm_in": "吸氣 <b>4 秒</b>", "rhythm_out": "吐氣 <b>6 秒</b>",
-        "rhythm_lede": "吐氣拉長身體才鬆得下來，所以預設是這個比例。你也可以改成箱式呼吸、4-7-8，或自己設定秒數。每次切換的震動都不一樣，不用一直盯著螢幕。",
+        "rhythm_lede": "預設節奏是吸氣4秒、吐氣6秒。也可以切換成箱式呼吸、4-7-8，或自行設定秒數。每個階段都有不同的震動，不看螢幕也能跟上節奏。",
         "mac_h2": "在 Mac 上，就<em>留在你的畫面上</em>。",
         "mac_caps": [
             ["也可以浮在文件上", "用眼角餘光跟著節奏就好，換到別的桌面也依然在最上層。"],
