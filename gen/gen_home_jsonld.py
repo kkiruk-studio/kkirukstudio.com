@@ -3,6 +3,8 @@
 import json
 import pathlib
 import re
+from html import unescape
+from urllib.parse import urljoin
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://www.kkirukstudio.com/"
@@ -13,7 +15,7 @@ PAGES = ("index.html", "en.html", "ja.html", "zh-hans.html", "zh-hant.html")
 
 def meta(html, pattern):
     match = re.search(pattern, html, re.I | re.S)
-    return match.group(1).strip() if match else None
+    return unescape(match.group(1).strip()) if match else None
 
 
 def graph(html):
@@ -26,8 +28,8 @@ def graph(html):
         "@type": "Organization",
         "@id": ORG_ID,
         "name": "kkiruk studio",
+        "alternateName": "끼룩 스튜디오",
         "url": SITE,
-        "logo": SITE + "icons/cats-cute.png",
         "foundingDate": "2016",
         "founder": {"@type": "Person", "name": "Sunghyuk Yoon"},
         "description": "An independent app and game studio in Seoul with more than 10 million downloads.",
@@ -60,6 +62,14 @@ def graph(html):
         "about": {"@id": ORG_ID},
         "publisher": {"@id": ORG_ID},
     }
+    links = re.findall(r'<a\s+class="app-card[^\"]*"\s+href="([^\"]+)"', html)
+    page['mainEntity'] = {
+        '@type': 'ItemList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i, 'url': urljoin(canonical, unescape(link))}
+            for i, link in enumerate(dict.fromkeys(links), 1)
+        ],
+    }
     return {"@context": "https://schema.org", "@graph": [organization, website, page]}
 
 
@@ -76,7 +86,8 @@ def main():
         ) + '</script>'
         match = scripts[0]
         html = html[:match.start()] + block + html[match.end():]
-        path.write_text(html, encoding="utf-8")
+        if path.read_text(encoding="utf-8") != html:
+            path.write_text(html, encoding="utf-8")
         updated += 1
     print(f"home JSON-LD — {updated}개 갱신")
 

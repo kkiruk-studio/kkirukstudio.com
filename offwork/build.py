@@ -260,3 +260,9 @@ root = Path(__file__).parent
 (root / "en").mkdir(exist_ok=True)
 (root / "en" / "index.html").write_text(page(L["en"]), encoding="utf-8")
 print("generated: index.html, en/index.html")
+
+# Preserve discovery metadata and visible product facts after regeneration.
+if __name__ == "__main__":
+    import runpy as _seo_runpy
+    from pathlib import Path as _SeoPath
+    _seo_runpy.run_path(str(_SeoPath(__file__).resolve().parent.parent / "gen" / "refresh_seo.py"), run_name="__main__")

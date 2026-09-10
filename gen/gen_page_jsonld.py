@@ -54,7 +54,6 @@ def block(html, page_type):
                 "@id": ORG_ID,
                 "name": "kkiruk studio",
                 "url": SITE,
-                "logo": SITE + "icons/cats-cute.png",
             },
             {
                 "@type": "WebSite",
@@ -78,7 +77,8 @@ def main():
         html = path.read_text(encoding="utf-8")
         html = re.sub(re.escape(BEGIN) + r".*?" + re.escape(END) + r"\n?", "", html, flags=re.S)
         html = html.replace("</head>", block(html, page_type) + "</head>", 1)
-        path.write_text(html, encoding="utf-8")
+        if path.read_text(encoding="utf-8") != html:
+            path.write_text(html, encoding="utf-8")
         updated += 1
     print(f"page JSON-LD — {updated}개 갱신")
 

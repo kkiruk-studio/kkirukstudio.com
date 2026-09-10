@@ -19,6 +19,8 @@ Usage:
   python3 gen/gen_jsonld.py --check  # 미주입 페이지만 보고 (파일 수정 안 함)
 """
 import json, pathlib, re, sys
+from html import unescape
+from urllib.parse import urljoin
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BEGIN, END = "<!-- jsonld:app:begin -->", "<!-- jsonld:app:end -->"
@@ -54,7 +56,6 @@ PUBLISHER = {
     "@id": ORG_ID,
     "name": "kkiruk studio",
     "url": SITE,
-    "logo": SITE + "icons/cats-cute.png",
 }
 
 # 자기 build.py 가 이미 더 정확한 블록을 생성하는 앱 — 여기서 건드리면 오히려 후퇴한다.
@@ -66,7 +67,7 @@ BUILD_OWNED = {"deskbreath"}
 
 def _meta(html, pattern):
     m = re.search(pattern, html, re.I)
-    return m.group(1).strip() if m else None
+    return unescape(m.group(1).strip()) if m else None
 
 
 def build(html, ios_id, play_id, category):
@@ -74,17 +75,19 @@ def build(html, ios_id, play_id, category):
     desc = _meta(html, r'<meta\s+name="description"\s+content="(.*?)"')
     canon = _meta(html, r'<link\s+rel="canonical"\s+href="(.*?)"')
     lang = _meta(html, r'<html\s+[^>]*lang="(.*?)"')
-    image = _meta(html, r'<meta\s+property="og:image"\s+content="(.*?)"')
+    image = _meta(html, r'<link\s+rel="icon"[^>]*href="(.*?)"')
     if not (title and canon):
         return None
     # "everykeep — 소모품 교체·관리 알림" → 앱 이름만
     name = re.split(r"\s+[—–|:]\s+", title)[0].strip()
     stores = [f"https://apps.apple.com/app/id{ios_id}"]
     os_list = ["iOS"]
+    if ios_id == "6764329223":
+        os_list.append("watchOS")
     if play_id:
         stores.append(f"https://play.google.com/store/apps/details?id={play_id}")
         os_list.append("Android")
-    app_id = canon + "#app"
+    app_id = SITE + "#app-" + ios_id
     page_id = canon + "#webpage"
     app = {
         "@type": "SoftwareApplication",
@@ -102,8 +105,8 @@ def build(html, ios_id, play_id, category):
         app["description"] = desc
     if lang:
         app["inLanguage"] = lang
-    if image and image.startswith("http"):
-        app["image"] = image
+    if image:
+        app["image"] = urljoin(canon, image)
     page = {
         "@type": "WebPage",
         "@id": page_id,
@@ -141,7 +144,7 @@ def build(html, ios_id, play_id, category):
 def pages(d):
     base = ROOT / d
     for p in sorted(list(base.glob("*.html")) + list(base.glob("*/index.html"))):
-        if "drafts" in p.parts:
+        if "drafts" in p.parts or p.name in {"og.html", "og-src.html"}:
             continue
         yield p
 
@@ -158,7 +161,7 @@ def main(check_only=False):
             continue
         for p in pages(d):
             html = p.read_text(encoding="utf-8")
-            if "http-equiv=\"refresh\"" in html or "location.replace(" in html:
+            if re.search(r'http-equiv=[\"\x27]refresh', html, re.I):
                 skipped += 1          # 리다이렉트 스텁
                 continue
             block = build(html, ios_id, play_id, cat)
@@ -179,7 +182,8 @@ def main(check_only=False):
                 skipped += 1
                 continue
             html = html.replace("</head>", block + "</head>", 1)
-            p.write_text(html, encoding="utf-8")
+            if p.read_text(encoding="utf-8") != html:
+                p.write_text(html, encoding="utf-8")
             injected += 1
     if check_only:
         print(f"\n미주입 {missing}개 · 대상외 {skipped}개")

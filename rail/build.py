@@ -290,3 +290,9 @@ def render(name, c):
 for name, conf in LOCALES.items():
     (ROOT / name).write_text(render(name, conf), encoding="utf-8")
     print(f"rail/{name}")
+
+# Preserve discovery metadata and visible product facts after regeneration.
+if __name__ == "__main__":
+    import runpy as _seo_runpy
+    from pathlib import Path as _SeoPath
+    _seo_runpy.run_path(str(_SeoPath(__file__).resolve().parent.parent / "gen" / "refresh_seo.py"), run_name="__main__")
