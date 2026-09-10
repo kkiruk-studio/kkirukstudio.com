@@ -22,7 +22,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 APP_DIRS = ["thanyesterday", "pinclip", "sidefeed", "talkmemo", "honestcamera",
             "cats-cute", "cats-pop", "locallink", "runnote", "deskbreath",
             "tetsulog", "raillog", "nyc-subway-log", "palette2048", "quote2048",
-            "salarycharm", "newsmaker", "everykeep"]
+            "salarycharm", "newsmaker", "everykeep", "cuttogether"]
 
 HOME = ["index.html", "en.html", "ja.html", "zh-hans.html", "zh-hant.html"]
 

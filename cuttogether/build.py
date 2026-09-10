@@ -11,7 +11,7 @@ ROOT = pathlib.Path(__file__).parent
 # Custom domain (www.kkirukstudio.com/cuttogether/) is not mapped yet, so
 # canonical/hreflang point at the live Pages URL until it is.
 BASE_URL = "https://www.kkirukstudio.com/cuttogether/"
-APP_STORE_URL = ""  # filled in once the app is approved
+APP_STORE_URL = "https://apps.apple.com/app/id6802893677"
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
@@ -27,7 +27,7 @@ LOCALES = {
         "kicker": "ON-DEVICE SCRAPBOOK POSTERS",
         "h1": "Bring your travel photos<br>together, <em>person by person</em>.",
         "lede": "CutTogether finds everyone in the photos you pick, cuts them out as stickers, and lays them onto a single scrapbook poster. The cut-outs are automatic; you choose where to place them.",
-        "badge_small": "Coming soon to the", "badge_big": "App Store",
+        "badge_small": "Download on the", "badge_big": "App Store",
         "note": "IPHONE &amp; IPAD · NO ACCOUNT · NOTHING LEAVES YOUR PHONE",
         "chips": ["Automatic cut-outs", "Die-cut sticker edges", "Masking tape", "PNG export"],
         "caption": "august 2026",
@@ -56,7 +56,7 @@ LOCALES = {
         "privacy_h2": "Your photos never leave the device.",
         "privacy_body": "There is no server. No sign-in. No third-party SDK of any kind. Photo analysis, background removal and rendering all happen on your iPhone, and the only photos the app can see are the ones you hand it in the system picker.",
         "final_h2": "Make a poster of the people you shared the trip with.",
-        "final_lede": "Coming to iPhone and iPad.",
+        "final_lede": "Available now for iPhone and iPad.",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
     },
     "ko": {
@@ -68,7 +68,7 @@ LOCALES = {
         "kicker": "온디바이스 스크랩북 포스터",
         "h1": "여행 사진 속<br><em>사람들</em>을 한 장에.",
         "lede": "고른 사진에서 인물을 전부 찾아 스티커처럼 오려내고, 한 장의 스크랩북 포스터에 올려줍니다. 인물은 자동으로 오려주니, 원하는 위치에 배치해 보세요.",
-        "badge_small": "곧 만나요", "badge_big": "App Store",
+        "badge_small": "다운로드하기", "badge_big": "App Store",
         "note": "iPHONE &amp; iPAD · 계정 없음 · 사진은 기기 밖으로 나가지 않음",
         "chips": ["자동 누끼", "다이컷 스티커 테두리", "마스킹테이프", "PNG 내보내기"],
         "caption": "2026년 8월",
@@ -97,7 +97,7 @@ LOCALES = {
         "privacy_h2": "사진은 이 기기를 떠나지 않습니다.",
         "privacy_body": "서버가 없습니다. 로그인도, 서드파티 SDK도 없습니다. 사진 분석·배경 제거·렌더링이 전부 iPhone 안에서 이루어지고, 앱이 볼 수 있는 사진은 시스템 선택 화면에서 직접 선택한 사진뿐입니다.",
         "final_h2": "함께한 사람들을 한 장에 모아보세요.",
-        "final_lede": "iPhone과 iPad에 곧 출시됩니다.",
+        "final_lede": "iPhone과 iPad에서 지금 만나보세요.",
         "f_contact": "문의", "f_privacy": "개인정보", "f_terms": "이용약관",
     },
     "ja": {
@@ -109,7 +109,7 @@ LOCALES = {
         "kicker": "オンデバイスのスクラップブック",
         "h1": "旅の写真から、<br>みんなを<em>1枚に。</em>",
         "lede": "選んだ写真から全員を見つけてステッカーのように切り抜き、1枚のスクラップブックポスターに並べます。切り抜きは自動でできるので、好きな位置に並べてみてください。",
-        "badge_small": "近日公開", "badge_big": "App Store",
+        "badge_small": "ダウンロード", "badge_big": "App Store",
         "note": "iPHONE ＆ iPAD · アカウント不要 · 写真は端末の外に出ません",
         "chips": ["自動切り抜き", "ダイカット風の枠", "マスキングテープ", "PNG 書き出し"],
         "caption": "2026年8月",
@@ -138,7 +138,7 @@ LOCALES = {
         "privacy_h2": "写真はこの端末から出ません。",
         "privacy_body": "サーバーはありません。ログインも、サードパーティ SDK もありません。写真の解析・背景除去・描画はすべて iPhone の中で行われ、アプリが見られるのはシステムのピッカーで渡した写真だけです。",
         "final_h2": "一緒に旅したみんなを、1枚のポスターに。",
-        "final_lede": "iPhone と iPad に近日公開。",
+        "final_lede": "iPhone と iPad で今すぐ使えます。",
         "f_contact": "お問い合わせ", "f_privacy": "プライバシー", "f_terms": "利用規約",
     },
     "zh-hant": {
@@ -150,7 +150,7 @@ LOCALES = {
         "kicker": "裝置端剪貼簿海報",
         "h1": "把旅行照片裡的<em>大家</em><br>拼成一張海報。",
         "lede": "從你挑的照片中找出每個人，像貼紙一樣剪下來，排進同一張剪貼簿海報。人物會自動去背，再依照喜好調整位置。",
-        "badge_small": "即將上架", "badge_big": "App Store",
+        "badge_small": "立即下載", "badge_big": "App Store",
         "note": "iPHONE ＆ iPAD · 免帳號 · 照片不會離開手機",
         "chips": ["自動去背", "模切貼紙外框", "紙膠帶", "PNG 匯出"],
         "caption": "2026年8月",
@@ -179,7 +179,7 @@ LOCALES = {
         "privacy_h2": "照片不會離開這台裝置。",
         "privacy_body": "沒有伺服器，不需登入，也沒有任何第三方 SDK。照片分析、去背與繪製全部在 iPhone 上完成，而 App 能看到的只有你在系統選擇器裡交給它的照片。",
         "final_h2": "把一起旅行的大家，拼成一張海報。",
-        "final_lede": "即將在 iPhone 與 iPad 上推出。",
+        "final_lede": "現已在 iPhone 與 iPad 上架。",
         "f_contact": "聯絡我們", "f_privacy": "隱私權", "f_terms": "服務條款",
     },
 }
