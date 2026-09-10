@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""앱 랜딩에 SoftwareApplication JSON-LD 주입 (멱등).
+"""앱 랜딩에 연결된 SoftwareApplication/WebPage JSON-LD 주입 (멱등).
 
 왜: 2026-08-10 진단에서 135 페이지 중 구조화 데이터가 0개로 확인됐다.
     웹 검색 리치결과 + AI 모델이 앱을 인용할 때의 근거 양쪽에 쓰인다.
@@ -43,10 +43,19 @@ APPS = {
     "salarycharm":    ("6785930647", None, "EntertainmentApplication"),
     "newsmaker":      ("6787015246", None, "EntertainmentApplication"),
     "everykeep":      ("6781988992", None, "UtilitiesApplication"),
+    "cuttogether":    ("6802893677", None, "MultimediaApplication"),
 }
 
-PUBLISHER = {"@type": "Organization", "name": "kkiruk studio",
-             "url": "https://www.kkirukstudio.com/"}
+SITE = "https://www.kkirukstudio.com/"
+ORG_ID = SITE + "#organization"
+WEBSITE_ID = SITE + "#website"
+PUBLISHER = {
+    "@type": "Organization",
+    "@id": ORG_ID,
+    "name": "kkiruk studio",
+    "url": SITE,
+    "logo": SITE + "icons/cats-cute.png",
+}
 
 # 자기 build.py 가 이미 더 정확한 블록을 생성하는 앱 — 여기서 건드리면 오히려 후퇴한다.
 # deskbreath: 맥/iOS 양 플랫폼 앱이라 operatingSystem 에 macOS 가 반드시 들어가야 하고,
@@ -64,6 +73,8 @@ def build(html, ios_id, play_id, category):
     title = _meta(html, r"<title>(.*?)</title>")
     desc = _meta(html, r'<meta\s+name="description"\s+content="(.*?)"')
     canon = _meta(html, r'<link\s+rel="canonical"\s+href="(.*?)"')
+    lang = _meta(html, r'<html\s+[^>]*lang="(.*?)"')
+    image = _meta(html, r'<meta\s+property="og:image"\s+content="(.*?)"')
     if not (title and canon):
         return None
     # "everykeep — 소모품 교체·관리 알림" → 앱 이름만
@@ -73,21 +84,57 @@ def build(html, ios_id, play_id, category):
     if play_id:
         stores.append(f"https://play.google.com/store/apps/details?id={play_id}")
         os_list.append("Android")
-    data = {
-        "@context": "https://schema.org",
+    app_id = canon + "#app"
+    page_id = canon + "#webpage"
+    app = {
         "@type": "SoftwareApplication",
+        "@id": app_id,
         "name": name,
         "url": canon,
         "applicationCategory": category,
         "operatingSystem": ", ".join(os_list),
-        "publisher": PUBLISHER,
+        "publisher": {"@id": ORG_ID},
         "sameAs": stores,
         "installUrl": stores[0],
+        "mainEntityOfPage": {"@id": page_id},
     }
     if desc:
-        data["description"] = desc
+        app["description"] = desc
+    if lang:
+        app["inLanguage"] = lang
+    if image and image.startswith("http"):
+        app["image"] = image
+    page = {
+        "@type": "WebPage",
+        "@id": page_id,
+        "url": canon,
+        "name": title,
+        "isPartOf": {"@id": WEBSITE_ID},
+        "about": {"@id": app_id},
+        "mainEntity": {"@id": app_id},
+        "publisher": {"@id": ORG_ID},
+    }
+    if desc:
+        page["description"] = desc
+    if lang:
+        page["inLanguage"] = lang
+    data = {
+        "@context": "https://schema.org",
+        "@graph": [
+            PUBLISHER,
+            {
+                "@type": "WebSite",
+                "@id": WEBSITE_ID,
+                "url": SITE,
+                "name": "kkiruk studio",
+                "publisher": {"@id": ORG_ID},
+            },
+            page,
+            app,
+        ],
+    }
     return (BEGIN + '\n<script type="application/ld+json">\n'
-            + json.dumps(data, ensure_ascii=False, indent=2)
+            + json.dumps(data, ensure_ascii=False, separators=(",", ":"))
             + "\n</script>\n" + END + "\n")
 
 

@@ -16,6 +16,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {"drafts", "gen", "icons", "shots", ".git", ".github"}
 SKIP_PARTS = {"assets", "legal", "raw"}
 SKIP_TOP = {"404.html"}
+SKIP_FILES = {"og.html", "og-src.html"}
 REDIRECT_DIRS = {"thanyesterday-ko", "talkmemo-ko", "pinclip-ko", "sidefeed-ko", "honestcamera-ko"}
 
 urls = {}
@@ -28,6 +29,8 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
         continue
     for fn in filenames:
         if not fn.endswith(".html"):
+            continue
+        if fn in SKIP_FILES:
             continue
         relf = os.path.join(rel, fn) if rel != "." else fn
         if relf in SKIP_TOP:
