@@ -70,7 +70,7 @@ LOCALES = {
         "feat_groups": [
             ["PRIVACY", [
                 ["On-device transcription", "Speech recognition runs on your iPhone. Your voice is never uploaded anywhere."],
-                ["No ads, no tracking", "Zero analytics, zero accounts. The app collects nothing."],
+                ["No ads, voice stays on device", "No accounts, no ads. Your voice and memos never leave your device — we only collect anonymous usage analytics to improve the app."],
                 ["Buy once, keep forever", "One purchase. No subscription, no locked tiers, no nagging."],
             ]],
             ["EVERYDAY", [
@@ -139,7 +139,7 @@ LOCALES = {
         "feat_groups": [
             ["프라이버시", [
                 ["기기 안에서 변환", "음성 인식이 iPhone 안에서 돌아가요. 목소리가 서버로 올라가지 않아요."],
-                ["광고·추적 없음", "분석도 계정도 없어요. 앱이 수집하는 데이터 0."],
+                ["광고 없음 · 음성은 기기 안에", "계정도 광고도 없어요. 음성과 메모는 기기를 떠나지 않고, 앱 개선용 익명 사용 통계만 수집해요."],
                 ["한 번 결제, 평생", "구독 없음, 잠금 해제 등급 없음, 결제 유도 없음."],
             ]],
             ["일상", [
@@ -208,7 +208,7 @@ LOCALES = {
         "feat_groups": [
             ["プライバシー", [
                 ["端末内で変換", "音声認識は iPhone の中で完結。声がサーバーに送られることはありません。"],
-                ["広告・トラッキングなし", "分析もアカウントも不要。アプリが集めるデータはゼロ。"],
+                ["広告なし・音声は端末内に", "アカウントも広告もありません。音声やメモは端末の外に出ず、アプリ改善のための匿名の利用状況データのみ収集します。"],
                 ["買い切り、ずっと使える", "サブスクなし、機能制限なし、課金の催促なし。"],
             ]],
             ["毎日のために", [
@@ -259,7 +259,7 @@ LOCALES = {
         'shots_caps': ['一键开始录音', '自动变成文字', '浅色 &amp; 深色'],
         'feat_label': '细节',
         'feat_h2': '小小的App，<em>用心</em>的取舍。',
-        'feat_groups': [['隐私', [['设备本地转写', '语音识别在你的 iPhone 上完成。你的声音不会被上传到任何地方。'], ['无广告，无追踪', '零数据分析，零账号注册。这个App什么都不收集。'], ['买断制，永久使用', '一次购买。没有订阅，没有功能限制，不会反复提醒你续费。']]], ['日常', [['iCloud 同步', '备忘录通过你自己的 iCloud 同步到 iPad——不经过我们的服务器。'], ['支持多种语言', '支持包括中文在内的多种语言识别，随时切换。'], ['随处可以开始', '动作按钮、表盘小组件、程序坞，或者对 Siri 说“开始录音”都可以。']]]],
+        'feat_groups': [['隐私', [['设备本地转写', '语音识别在你的 iPhone 上完成。你的声音不会被上传到任何地方。'], ['无广告，语音留在设备上', '没有账号，没有广告。你的语音和备忘不会离开设备，我们只收集匿名使用统计以改进应用。'], ['买断制，永久使用', '一次购买。没有订阅，没有功能限制，不会反复提醒你续费。']]], ['日常', [['iCloud 同步', '备忘录通过你自己的 iCloud 同步到 iPad——不经过我们的服务器。'], ['支持多种语言', '支持包括中文在内的多种语言识别，随时切换。'], ['随处可以开始', '动作按钮、表盘小组件、程序坞，或者对 Siri 说“开始录音”都可以。']]]],
         'final_cap': '轻点，开始',
         'final_h2': '有想法，就对着手表说下来。',
         'final_lede': 'Talk Memo，为 iPhone &amp; Apple Watch 而生。',
@@ -304,7 +304,7 @@ LOCALES = {
         'shots_caps': ['一鍵開始錄音', '自動轉成文字', '淺色 &amp; 深色'],
         'feat_label': '細節',
         'feat_h2': '小巧的 App，<em>用心</em>的選擇。',
-        'feat_groups': [['隱私', [['裝置端辨識', '語音辨識在你的 iPhone 上完成。你的聲音不會被上傳到任何地方。'], ['無廣告、無追蹤', '沒有分析工具，沒有帳號。這個 App 什麼都不收集。'], ['買斷制，永久使用', '只要付費一次。沒有訂閱、沒有分級鎖定、不會一直催你付錢。']]], ['日常', [['iCloud 同步', '筆記透過你自己的 iCloud 同步到 iPad——不經過我們的伺服器。'], ['支援多國語言', '支援包含中文在內的多種語言辨識，包括韓文與英文，隨時可切換。'], ['隨處都能啟動', '動作按鈕、錶面複雜功能、Dock，或說一句「嘿 Siri，開始錄音」。']]]],
+        'feat_groups': [['隱私', [['裝置端辨識', '語音辨識在你的 iPhone 上完成。你的聲音不會被上傳到任何地方。'], ['無廣告，語音留在裝置上', '沒有帳號，沒有廣告。你的語音和備忘不會離開裝置，我們只收集匿名使用統計以改善應用程式。'], ['買斷制，永久使用', '只要付費一次。沒有訂閱、沒有分級鎖定、不會一直催你付錢。']]], ['日常', [['iCloud 同步', '筆記透過你自己的 iCloud 同步到 iPad——不經過我們的伺服器。'], ['支援多國語言', '支援包含中文在內的多種語言辨識，包括韓文與英文，隨時可切換。'], ['隨處都能啟動', '動作按鈕、錶面複雜功能、Dock，或說一句「嘿 Siri，開始錄音」。']]]],
         'final_cap': '點一下就開始',
         'final_h2': '有想法，就對著手錶說下來。',
         'final_lede': 'Talk Memo，支援 iPhone &amp; Apple Watch。',
@@ -349,7 +349,7 @@ LOCALES = {
         'shots_caps': ['EIN TIPP ZUM AUFNEHMEN', 'TEXT, AUTOMATISCH', 'HELL &amp; DUNKEL'],
         'feat_label': 'DETAILS',
         'feat_h2': 'Kleine App. <em>Bewusste</em> Entscheidungen.',
-        'feat_groups': [['PRIVATSPHÄRE', [['Transkription auf dem Gerät', 'Die Spracherkennung läuft auf deinem iPhone. Deine Stimme wird niemals hochgeladen.'], ['Keine Werbung, kein Tracking', 'Null Analytics, keine Accounts. Die App sammelt nichts.'], ['Einmal zahlen, für immer behalten', 'Ein Kauf. Kein Abo, keine gesperrten Stufen, kein Nerven.']]], ['ALLTAG', [['iCloud-Synchronisierung', 'Memos folgen dir aufs iPad über deine eigene iCloud — nicht über unsere Server.'], ['Erkennt viele Sprachen', 'Deutsch, Englisch, Koreanisch, Japanisch, Chinesisch und mehr — jederzeit wechselbar.'], ['Startet von überall', 'Action Button, Komplikation, Dock oder „Hey Siri, starte die Aufnahme“.']]]],
+        'feat_groups': [['PRIVATSPHÄRE', [['Transkription auf dem Gerät', 'Die Spracherkennung läuft auf deinem iPhone. Deine Stimme wird niemals hochgeladen.'], ['Keine Werbung, Stimme bleibt auf dem Gerät', 'Keine Accounts, keine Werbung. Deine Stimme und Notizen verlassen nie dein Gerät — wir erfassen nur anonyme Nutzungsstatistiken zur Verbesserung der App.'], ['Einmal zahlen, für immer behalten', 'Ein Kauf. Kein Abo, keine gesperrten Stufen, kein Nerven.']]], ['ALLTAG', [['iCloud-Synchronisierung', 'Memos folgen dir aufs iPad über deine eigene iCloud — nicht über unsere Server.'], ['Erkennt viele Sprachen', 'Deutsch, Englisch, Koreanisch, Japanisch, Chinesisch und mehr — jederzeit wechselbar.'], ['Startet von überall', 'Action Button, Komplikation, Dock oder „Hey Siri, starte die Aufnahme“.']]]],
         'final_cap': 'TIPPEN ZUM STARTEN',
         'final_h2': "Eine Idee? Sprich sie direkt in deine Watch.",
         'final_lede': 'Talk Memo für iPhone &amp; Apple Watch.',
