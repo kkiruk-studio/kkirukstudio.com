@@ -94,6 +94,42 @@
     $("kicker").textContent = game.state === "done" ? S.result : (qt.kind === "author" ? S.todayAuthor : S.today);
     $("tname").textContent = qt.name;
     $("tmeta").textContent = qt.kind === "topic" ? S.kindTopic : (qt.pro ? S.kindPro : S.kindAuthor);
+    renderSide();
+  }
+
+  /* ── desktop side panel (≥1024px; display:none below) ── */
+  function renderSide() {
+    $("sKicker").textContent = qt.kind === "author" ? S.todayAuthor : S.today;
+    $("sName").textContent = qt.name;
+    $("sMeta").textContent = $("tmeta").textContent;
+    var ramp = $("sRamp");
+    if (!ramp.childNodes.length) {
+      for (var v = 2; v <= 2048; v *= 2) {
+        var i = document.createElement("i");
+        i.style.background = theme.tileHex(v);
+        ramp.appendChild(i);
+      }
+    }
+  }
+
+  /* ── desktop "scan to install" QR: never on iOS (it would point the phone at itself) ── */
+  var IOS = /iP(hone|od|ad)/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (!IOS) document.documentElement.classList.add("qr-ok");
+  // started from boot, once the play/result layout is final (no stray "side" view on a revisit)
+  function watchQR() {
+    if (IOS || !("IntersectionObserver" in window)) return;
+    var qrSeen = {};
+    var qrIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var pl = en.target.getAttribute("data-qr-placement");
+        if (!en.isIntersecting || qrSeen[pl]) return;
+        qrSeen[pl] = true;
+        qrIO.unobserve(en.target);
+        track("app_qr_view", { placement: pl });
+      });
+    }, { threshold: 0.6 });
+    Array.prototype.forEach.call(document.querySelectorAll(".qr[data-qr-placement]"), function (el) { qrIO.observe(el); });
   }
 
   function paintTile(el, value) {
@@ -266,6 +302,7 @@
     $("rBest").style.background = theme.tileHex(m);
     $("hint").textContent = S.done;
     $("result").hidden = false;
+    $("resultSide").hidden = false;
 
     var best = quoteFor(m), lv = levelOf(m);
     $("bestKicker").textContent = S.bestQuote + " · " + m + (lv >= 11 ? " 👑" : "");
@@ -549,6 +586,7 @@
     if (game.state === "done") showResult(true);
     else if (game.state === "won") showWin();
     else checkEnd();
+    watchQR();
   }).catch(function (err) {
     $("tname").textContent = S.loadErr || "Error";
     if (window.console) console.warn(err);

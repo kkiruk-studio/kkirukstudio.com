@@ -68,6 +68,7 @@
     catch (e) { dateStr = game.day; }
     $("dayLabel").textContent = "#" + game.num + " · " + dateStr;
     var pname = $("pname");
+    renderSide();
     if (mysteryActive()) {
       $("kicker").textContent = S.mystery;
       pname.textContent = "? ? ?"; // no link while hidden — the href itself would spoil the answer
@@ -89,6 +90,42 @@
       pname.appendChild(a);
       $("pmeta").textContent = painting.year ? painting.artist + ", " + painting.year : painting.artist;
     }
+  }
+
+  /* ── desktop side panel (≥1024px; display:none below) — same spoiler rule as the header ── */
+  function renderSide() {
+    var hidden = mysteryActive();
+    $("sKicker").textContent = hidden ? S.mystery : S.today;
+    $("sName").textContent = hidden ? "? ? ?" : painting.name;
+    $("sMeta").textContent = hidden ? S.mysteryNote : (painting.year ? painting.artist + ", " + painting.year : painting.artist);
+    var ramp = $("sRamp");
+    if (!ramp.childNodes.length) {
+      for (var v = 2; v <= 2048; v *= 2) {
+        var i = document.createElement("i");
+        i.style.background = theme.tileHex(v);
+        ramp.appendChild(i);
+      }
+    }
+  }
+
+  /* ── desktop "scan to install" QR: never on iOS (it would point the phone at itself) ── */
+  var IOS = /iP(hone|od|ad)/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (!IOS) document.documentElement.classList.add("qr-ok");
+  // started from boot, once the play/result layout is final (no stray "side" view on a revisit)
+  function watchQR() {
+    if (IOS || !("IntersectionObserver" in window)) return;
+    var qrSeen = {};
+    var qrIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var pl = en.target.getAttribute("data-qr-placement");
+        if (!en.isIntersecting || qrSeen[pl]) return;
+        qrSeen[pl] = true;
+        qrIO.unobserve(en.target);
+        track("app_qr_view", { placement: pl });
+      });
+    }, { threshold: 0.6 });
+    Array.prototype.forEach.call(document.querySelectorAll(".qr[data-qr-placement]"), function (el) { qrIO.observe(el); });
   }
 
   /* ── today's painting card (result screen) ── */
@@ -252,6 +289,7 @@
     if (m) $("rBest").style.background = theme.tileHex(m);
     $("hint").textContent = S.done;
     $("result").hidden = false;
+    $("resultSide").hidden = false;
     renderPaintingCard();
     startCountdown();
     if (revisit) track("already_played_view", { puzzle: game.num });
@@ -380,6 +418,7 @@
     if (game.state === "done") showResult(true);
     else if (game.state === "won") showWin();
     else checkEnd();
+    watchQR();
   }).catch(function (err) {
     $("pname").textContent = S.loadErr || "Error";
     if (window.console) console.warn(err);

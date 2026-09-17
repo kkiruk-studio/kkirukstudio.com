@@ -56,6 +56,8 @@ from html import escape
 from pathlib import Path
 
 sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "gen"))
+from qrsvg import qr_svg  # noqa: E402  (repo-local, dependency-free QR → SVG)
 
 # ─── Constants ────────────────────────────────────────────────────────────────
 PT = "118060110"                                   # App Store provider token (pt). Empty → omitted.
@@ -581,7 +583,10 @@ T = {
  more_x="Quote 2048 — today's quote puzzle",
  foot_c="Contact", foot_p="Privacy", foot_t="Terms",
  xk="Another daily puzzle", xname="Quote 2048", xdesc="Merge today's theme quotes up to the crown quote",
- xcta="Play today's puzzle →"),
+ xcta="Play today's puzzle →",
+ side_how=["Arrow keys or W A S D slide every tile.", "Two matching colors merge into the painting's next color.",
+           "One game a day — it ends when no move is left."],
+ qr_cap="Scan with your iPhone camera to install"),
 "ko": dict(
  brand="팔레트 2048",
  title="팔레트 2048 데일리 — 명화 색으로 푸는 무료 컬러 퍼즐 (색깔 2048)",
@@ -615,7 +620,10 @@ T = {
  more_x="명언 2048 — 오늘의 명언 퍼즐",
  foot_c="문의", foot_p="개인정보", foot_t="약관",
  xk="다른 데일리 퍼즐도 있어요", xname="명언 2048", xdesc="오늘의 테마 명언을 합쳐 왕관 명언까지",
- xcta="오늘의 퍼즐 하기 →"),
+ xcta="오늘의 퍼즐 하기 →",
+ side_how=["방향키나 W A S D로 모든 타일을 밀어요.", "같은 색 두 개가 만나면 그림의 다음 색으로 합쳐져요.",
+           "하루 한 판 — 더 움직일 수 없으면 끝나요."],
+ qr_cap="iPhone 카메라로 스캔해 설치"),
 "ja": dict(
  brand="パレット2048",
  title="パレット2048デイリー — 名画の色で遊ぶ無料カラーパズル（色の2048）",
@@ -649,7 +657,10 @@ T = {
  more_x="名言2048 — 今日の名言パズル",
  foot_c="お問い合わせ", foot_p="プライバシー", foot_t="規約",
  xk="別の日替わりパズルも", xname="名言2048", xdesc="今日のテーマの名言を合わせて王冠の名言まで",
- xcta="今日のパズルへ →"),
+ xcta="今日のパズルへ →",
+ side_how=["矢印キーか W A S D で全タイルを動かします。", "同じ色が2つぶつかると、絵の次の色に変わります。",
+           "1日1回 — 動かせなくなったら終了です。"],
+ qr_cap="iPhoneのカメラでスキャンしてインストール"),
 }
 
 
@@ -722,6 +733,22 @@ PLAY_TMPL = """<!DOCTYPE html>
     <span class="daylabel" id="dayLabel"></span>
     <span class="top-end"><a class="badge" href="{app_url}" data-cta="badge" target="_blank" rel="noopener">{apple}{badge}</a></span>
   </header>
+  <div class="desk">
+  <aside class="side side-l" id="sideL">
+    <div class="s-block">
+      <p class="s-kicker" id="sKicker">{today}</p>
+      <p class="s-name" id="sName"></p>
+      <p class="s-meta" id="sMeta"></p>
+      <div class="s-ramp" id="sRamp" aria-hidden="true"></div>
+      <p class="s-rampcap" aria-hidden="true"><span>2</span><span>2048</span></p>
+    </div>
+    <div class="s-block">
+      <p class="s-kicker">{how_t}</p>
+      <p class="s-keys" aria-hidden="true"><span class="kg"><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></span><span class="or">/</span><span class="kg"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></p>
+      <ul class="s-how">{side_how}</ul>
+    </div>
+  </aside>
+  <div class="col-main">
   <div class="head">
     <h1 class="kicker" id="kicker">{h1}</h1>
     <p class="pname" id="pname">{loading}</p>
@@ -748,6 +775,9 @@ PLAY_TMPL = """<!DOCTYPE html>
     </div>
     <button type="button" class="btn primary share" id="shareBtn">{share}</button>
     <p class="toast" id="toast" role="status"></p>
+  </section>
+  </div>
+  <section class="result r-side" id="resultSide" hidden>
     <div class="p-card" id="paintingCard" hidden>
       <div class="p-media" id="pMedia">
         <img id="pImg" alt="" loading="lazy" hidden>
@@ -764,8 +794,11 @@ PLAY_TMPL = """<!DOCTYPE html>
       </div>
     </div>
     <div class="r-app">
-      <p>{app_line}</p>
-      <a class="btn store" href="{app_url}" data-cta="result" target="_blank" rel="noopener">{apple}{app_btn}</a>
+      <div class="r-app-main">
+        <p>{app_line}</p>
+        <a class="btn store" href="{app_url}" data-cta="result" target="_blank" rel="noopener">{apple}{app_btn}</a>
+      </div>
+      <figure class="qr" data-qr-placement="result">{qr_svg}<figcaption>{qr_cap}</figcaption></figure>
     </div>
     <div class="x-promo">
       <p class="x-kicker">{xk}</p>
@@ -776,6 +809,22 @@ PLAY_TMPL = """<!DOCTYPE html>
     </div>
     <p class="r-next">{next} <b id="countdown">--:--:--</b></p>
   </section>
+  <aside class="side side-r" id="sideR">
+    <div class="s-block s-app">
+      <p class="s-kicker">{badge}</p>
+      <p class="s-line">{app_line}</p>
+      <a class="btn store" href="{app_url}" data-cta="side" target="_blank" rel="noopener">{apple}{app_btn}</a>
+      <figure class="qr" data-qr-placement="side">{qr_svg}<figcaption>{qr_cap}</figcaption></figure>
+    </div>
+    <div class="x-promo">
+      <p class="x-kicker">{xk}</p>
+      <a class="x-card" href="{quote_url}" data-xpromo="side" data-xtarget="quote">
+        <img src="/quote2048/assets/icon-180.png" alt="" width="28" height="28">
+        <span class="x-body"><b class="x-name">{xname}</b><i class="x-desc">{xdesc}</i><em class="x-cta">{xcta}</em></span>
+      </a>
+    </div>
+  </aside>
+  </div>
   <noscript><p class="hint">{noscript}</p></noscript>
 </div>
 
@@ -820,6 +869,7 @@ def build_play():
     hreflang += f'\n<link rel="alternate" hreflang="x-default" href="{play_url("en")}">'
     versions = dict(v_css=ver(HERE / "play.css"), v_js=ver(HERE / "play.js"),
                     v_core=ver(HERE / "core.js"), v_data=ver(HERE / "daily.json"))
+    qr = qr_svg(app_url(CT_PLAY), title="App Store — " + APP_NAME)
     for code, sub, _ in PLAY_LOCALES:
         d = T[code]
         ui = dict(d["ui"], appUrl=app_url(CT_PLAY))
@@ -841,6 +891,8 @@ def build_play():
             more_pal=d["more_pal"], more_land=d["more_land"], more_x=d["more_x"], app_name=APP_NAME,
             quote_url=quote_play_url(code), xk=d["xk"], xname=d["xname"], xdesc=d["xdesc"], xcta=d["xcta"],
             foot_c=d["foot_c"], foot_p=d["foot_p"], foot_t=d["foot_t"], langs=langs,
+            today=escape(d["ui"]["today"]), side_how="".join(f"<li>{escape(x)}</li>" for x in d["side_how"]),
+            qr_svg=qr, qr_cap=escape(d["qr_cap"]),
             ui=json.dumps(ui, ensure_ascii=False).replace("</", "<\\/"), **versions)
         save(HERE / sub / "index.html", html)
 

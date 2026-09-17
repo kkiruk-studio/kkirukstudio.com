@@ -35,6 +35,8 @@ from html import escape
 from pathlib import Path
 
 sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "gen"))
+from qrsvg import qr_svg  # noqa: E402  (repo-local, dependency-free QR → SVG)
 
 # ─── Constants ────────────────────────────────────────────────────────────────
 PT = "118060110"
@@ -225,6 +227,7 @@ T = {
  foot_c="Contact", foot_p="Privacy", foot_t="Terms",
  xk="Another daily puzzle", xname="Palette 2048", xdesc="Today's masterpiece colors, playable as a 2048 puzzle",
  xcta="Play today's puzzle →", x_foot="Palette 2048",
+ side_how=["Arrow keys or W A S D slide every tile.", "Matching quotes merge into the next, deeper quote.", "Click a tile to read the whole quote.", "Reach 2048 for the theme's crown quote."], qr_cap="Scan with your iPhone camera to install",
  # quote pages
  q_idx_title="Quotes by Theme and Author — 60 Collections | Quote 2048",
  q_idx_h1="Quotes by theme and author",
@@ -286,6 +289,7 @@ T = {
  foot_c="문의", foot_p="개인정보", foot_t="약관",
  xk="다른 데일리 퍼즐도 있어요", xname="팔레트 2048", xdesc="오늘의 명화 색으로 하는 2048",
  xcta="오늘의 퍼즐 하기 →", x_foot="팔레트 2048",
+ side_how=["방향키나 W A S D로 모든 타일을 밀어요.", "같은 명언 두 개가 만나면 다음 명언으로 합쳐져요.", "타일을 클릭하면 명언 전문을 볼 수 있어요.", "2048에 닿으면 테마의 왕관 명언이에요."], qr_cap="iPhone 카메라로 스캔해 설치",
  q_idx_title="주제별·작가별 명언 모음 60선 | 명언 2048",
  q_idx_h1="주제별·작가별 명언 모음",
  q_idx_desc="용기·시간·사랑 같은 주제 24개와 셰익스피어부터 세네카까지 작가 팩 36개, 모두 60개의 명언 모음. 모음마다 퍼블릭 도메인 명언 17개와 저자·원문을 함께 실었습니다.",
@@ -346,6 +350,7 @@ T = {
  foot_c="お問い合わせ", foot_p="プライバシー", foot_t="規約",
  xk="別の日替わりパズルも", xname="パレット2048", xdesc="今日の名画の色で遊ぶ2048",
  xcta="今日のパズルへ →", x_foot="パレット2048",
+ side_how=["矢印キーか W A S D で全タイルを動かします。", "同じ名言が2つぶつかると、次の名言に変わります。", "タイルをクリックすると名言の全文が読めます。", "2048でテーマの王冠の名言に到達。"], qr_cap="iPhoneのカメラでスキャンしてインストール",
  q_idx_title="テーマ別・作家別 名言集60 | 名言2048",
  q_idx_h1="テーマ別・作家別の名言集",
  q_idx_desc="勇気・時間・愛など24のテーマと、シェイクスピアからセネカまで36の作家パック、計60の名言集。それぞれにパブリックドメインの名言17と発言者・原文を収録。",
@@ -406,6 +411,7 @@ T = {
  foot_c="联系", foot_p="隐私政策", foot_t="服务条款",
  xk="还有另一个每日谜题", xname="Palette 2048", xdesc="用今天名画的颜色玩2048",
  xcta="玩今天的谜题 →", x_foot="Palette 2048",
+ side_how=["用方向键或 W A S D 滑动所有方块。", "两个相同的名言会合并成下一句更深的名言。", "点击方块可阅读完整名言。", "合成 2048 即得主题的王冠名言。"], qr_cap="用 iPhone 相机扫描即可安装",
  q_idx_title="按主题与作家分类的名言合集60组 | 名言2048",
  q_idx_h1="按主题与作家分类的名言合集",
  q_idx_desc="60组名言合集：勇气、时间、爱等24个主题，以及从莎士比亚到塞涅卡的36个作家合集，每组收录17句公有领域名言，附作者与原文。",
@@ -466,6 +472,7 @@ T = {
  foot_c="聯絡", foot_p="隱私權政策", foot_t="服務條款",
  xk="還有另一個每日謎題", xname="Palette 2048", xdesc="用今天名畫的顏色玩2048",
  xcta="玩今天的謎題 →", x_foot="Palette 2048",
+ side_how=["用方向鍵或 W A S D 滑動所有方塊。", "兩個相同的名言會合併成下一句更深的名言。", "點擊方塊可閱讀完整名言。", "合成 2048 即得主題的王冠名言。"], qr_cap="用 iPhone 相機掃描即可安裝",
  q_idx_title="依主題與作家分類的名言合集60組 | 名言2048",
  q_idx_h1="依主題與作家分類的名言合集",
  q_idx_desc="60組名言合集：勇氣、時間、愛等24個主題，以及從莎士比亞到塞內卡的36個作家合集，每組收錄17句公有領域名言，附作者與原文。",
@@ -584,6 +591,22 @@ PLAY_TMPL = """<!DOCTYPE html>
     <span class="daylabel" id="dayLabel"></span>
     <span class="top-end"><a class="badge" href="{app_url}" data-cta="badge" target="_blank" rel="noopener">{apple}{badge}</a></span>
   </header>
+  <div class="desk">
+  <aside class="side side-l" id="sideL">
+    <div class="s-block">
+      <p class="s-kicker" id="sKicker">{today}</p>
+      <p class="s-name" id="sName"></p>
+      <p class="s-meta" id="sMeta"></p>
+      <div class="s-ramp" id="sRamp" aria-hidden="true"></div>
+      <p class="s-rampcap" aria-hidden="true"><span>2</span><span>2048 👑</span></p>
+    </div>
+    <div class="s-block">
+      <p class="s-kicker">{how_t}</p>
+      <p class="s-keys" aria-hidden="true"><span class="kg"><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></span><span class="or">/</span><span class="kg"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></p>
+      <ul class="s-how">{side_how}</ul>
+    </div>
+  </aside>
+  <div class="col-main">
   <div class="head">
     <h1 class="kicker" id="kicker">{h1}</h1>
     <p class="tname" id="tname">{loading}</p>
@@ -614,6 +637,9 @@ PLAY_TMPL = """<!DOCTYPE html>
       <button type="button" class="btn ghost save" id="saveBtn" hidden>{save_img}</button>
     </div>
     <p class="toast" id="toast" role="status"></p>
+  </section>
+  </div>
+  <section class="result r-side" id="resultSide" hidden>
     <figure class="q-card" id="bestCard">
       <figcaption class="q-kicker" id="bestKicker"></figcaption>
       <blockquote id="bestText"></blockquote>
@@ -626,8 +652,11 @@ PLAY_TMPL = """<!DOCTYPE html>
       <a class="l-link" id="themeLink" href="{quotes_idx}"></a>
     </div>
     <div class="r-app" id="rApp">
-      <p id="appLine">{app_line}</p>
-      <a class="btn store" href="{app_url}" data-cta="result" target="_blank" rel="noopener">{apple}{app_btn}</a>
+      <div class="r-app-main">
+        <p id="appLine">{app_line}</p>
+        <a class="btn store" href="{app_url}" data-cta="result" target="_blank" rel="noopener">{apple}{app_btn}</a>
+      </div>
+      <figure class="qr" data-qr-placement="result">{qr_svg}<figcaption>{qr_cap}</figcaption></figure>
     </div>
     <div class="x-promo">
       <p class="x-kicker">{xk}</p>
@@ -638,6 +667,22 @@ PLAY_TMPL = """<!DOCTYPE html>
     </div>
     <p class="r-next">{next} <b id="countdown">--:--:--</b></p>
   </section>
+  <aside class="side side-r" id="sideR">
+    <div class="s-block s-app">
+      <p class="s-kicker">{badge}</p>
+      <p class="s-line">{app_line}</p>
+      <a class="btn store" href="{app_url}" data-cta="side" target="_blank" rel="noopener">{apple}{app_btn}</a>
+      <figure class="qr" data-qr-placement="side">{qr_svg}<figcaption>{qr_cap}</figcaption></figure>
+    </div>
+    <div class="x-promo">
+      <p class="x-kicker">{xk}</p>
+      <a class="x-card" href="{palette_url}" data-xpromo="side" data-xtarget="palette">
+        <img src="/palette2048/icon.png" alt="" width="28" height="28">
+        <span class="x-body"><b class="x-name">{xname}</b><i class="x-desc">{xdesc}</i><em class="x-cta">{xcta}</em></span>
+      </a>
+    </div>
+  </aside>
+  </div>
   <noscript><p class="hint">{noscript}</p></noscript>
 </div>
 <div class="sheet" id="sheet" hidden>
@@ -689,6 +734,7 @@ PLAY_TMPL = """<!DOCTYPE html>
 def build_play(themes, sched):
     versions = dict(v_css=ver(HERE / "play.css"), v_js=ver(HERE / "play.js"), v_core=ver(HERE / "core.js"))
     picks = [t for t in themes if t["kind"] == "topic"][:4] + [t for t in themes if t["kind"] == "author"][:4]
+    qr = qr_svg(app_url(CT_PLAY), title="App Store — " + APP_NAME)
     for code in LOC:
         d = T[code]
         ui = dict(d["ui"], appUrl=app_url(CT_PLAY), sched=sched, sub=LOC[code]["sub"], loc=code)
@@ -713,6 +759,8 @@ def build_play(themes, sched):
             more_land=d["more_land"], more_x=d["more_x"], app_name=APP_NAME,
             palette_url=palette_play_url(code), xk=d["xk"], xname=d["xname"], xdesc=d["xdesc"], xcta=d["xcta"],
             foot_c=d["foot_c"], foot_p=d["foot_p"], foot_t=d["foot_t"], langs=langs,
+            today=escape(d["ui"]["today"]), side_how="".join(f"<li>{escape(x)}</li>" for x in d["side_how"]),
+            qr_svg=qr, qr_cap=escape(d["qr_cap"]),
             ui=jdump(ui), **versions)
         save(HERE / LOC[code]["sub"] / "index.html", html)
 

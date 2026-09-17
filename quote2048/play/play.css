@@ -187,6 +187,70 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;-webki
 .foot a{text-decoration:none}
 .foot nav{display:flex;flex-wrap:wrap;gap:14px}
 
+/* ── desktop layout (≥1024px) + "scan to install" QR ──
+   Below 1024px the wrappers are display:contents and the side panels display:none, so the mobile
+   single column renders exactly as before. .qr is only shown where JS added .qr-ok (not iOS). */
+.desk,.col-main{display:contents}
+.side{display:none}
+.qr{display:none;align-items:center;gap:10px;flex:none;text-align:left}
+.qr svg{width:92px;height:92px;display:block;border-radius:6px;flex:none}
+.qr figcaption{font-size:11.5px;line-height:1.35;opacity:.8;max-width:112px}
+@media (min-width:1024px), (pointer:fine){
+  .qr-ok .qr{display:flex}
+  .qr-ok .r-app{display:flex;align-items:center;gap:14px;text-align:left}
+  .qr-ok .r-app-main{flex:1 1 auto;min-width:0}
+}
+.s-block{border-radius:14px;padding:14px;background:color-mix(in srgb, var(--g-ink) 6%, transparent);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--g-ink) 12%, transparent)}
+.s-kicker{font-size:10.5px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.s-name{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.25;margin-top:6px;overflow-wrap:anywhere}
+.s-meta{font-size:12.5px;opacity:.75;margin-top:2px}
+.s-ramp{display:flex;gap:3px;margin-top:12px}
+.s-ramp i{flex:1;height:18px;border-radius:4px;box-shadow:inset 0 0 0 .5px rgba(255,255,255,.08)}
+.s-rampcap{display:flex;justify-content:space-between;font-size:10.5px;opacity:.55;margin-top:3px;font-variant-numeric:tabular-nums}
+.s-keys{display:flex;flex-wrap:wrap;align-items:center;row-gap:4px;margin:10px 0 10px}
+.s-keys kbd{font:600 12px/1 var(--sans);min-width:23px;height:23px;padding:0 5px;display:inline-flex;align-items:center;
+  justify-content:center;border-radius:6px;box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--g-ink) 30%, transparent),
+  inset 0 -2px 0 color-mix(in srgb, var(--g-ink) 16%, transparent)}
+.s-keys .kg{display:inline-flex;gap:3px}
+.s-keys .or{opacity:.5;margin:0 3px;font-size:12px}
+.s-how{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:12.5px;line-height:1.4;opacity:.85}
+.s-how li{padding-left:12px;position:relative}
+.s-how li::before{content:"";position:absolute;left:0;top:.55em;width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.6}
+.s-app{background:color-mix(in srgb, var(--g-ink) 9%, transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--g-ink) 14%, transparent)}
+.s-line{font-size:12.5px;line-height:1.4;opacity:.9;margin:6px 0 10px}
+.s-app .btn{width:100%;min-height:40px;padding:8px 12px;gap:6px;background:var(--g-ink);color:var(--g-bg);font-size:13px;line-height:1.25}
+.s-app .qr{margin-top:12px}
+.s-app .qr svg{width:88px;height:88px}
+
+@media (min-width:1024px){
+  .stage{--bs:max(300px, min(100vh - 250px, 100vw - 580px, 640px));padding:6px 32px 20px}
+  @supports (height:100dvh){ .stage{--bs:max(300px, min(100dvh - 250px, 100vw - 580px, 640px))} }
+  .stage.done{--bs:max(260px, min(100vh - 300px, (100vw - 130px) / 2, 520px))}
+  @supports (height:100dvh){ .stage.done{--bs:max(260px, min(100dvh - 300px, (100vw - 130px) / 2, 520px))} }
+  .top{max-width:1200px}
+  .desk{display:grid;width:100%;max-width:1200px;grid-template-columns:minmax(240px, 1fr) auto minmax(240px, 1fr);
+    column-gap:28px;align-items:start}
+  .col-main{display:flex;flex-direction:column;align-items:center;grid-column:2;grid-row:1;min-width:0}
+  .side{display:flex;flex-direction:column;gap:14px;grid-row:1;width:100%;max-width:320px;margin-top:12px}
+  .side-l{grid-column:1;justify-self:end}
+  .side-r{grid-column:3;justify-self:start}
+  .side .x-kicker{text-align:left}
+  .stage.done .side{display:none}
+  .stage.done .desk{grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);column-gap:40px;max-width:1160px}
+  .stage.done .col-main{grid-column:1}
+  .stage.done .result{width:var(--bs)}
+  .stage.done .r-side{grid-column:2;grid-row:1;width:100%;max-width:560px;justify-self:start;margin-top:12px}
+  .stage.done .r-app .btn{padding:10px 14px}
+  .stage.done .r-app .qr figcaption{max-width:96px}
+  .head{width:var(--bs)}
+  .stage.done .r-side .q-card{order:1}
+  .stage.done .r-side .r-app{order:2}
+  .stage.done .r-side .ladder-box{order:3}
+  .stage.done .r-side .x-promo{order:4}
+  .stage.done .r-side .r-next{order:5}
+}
+
 @media (max-width:350px){.daylabel{display:none}}
 @media (prefers-reduced-motion:reduce){
   .tile{transition:none}
