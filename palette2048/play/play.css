@@ -1,13 +1,10 @@
-/* Palette daily (web). The game stage is colored by today's painting (set from JS);
-   only the page chrome below it follows prefers-color-scheme. System fonts only → no font swap shift. */
+/* Palette daily (web). The whole page is always black — the painting only colors the tiles
+   (set from JS), regardless of prefers-color-scheme. System fonts only → no font swap shift. */
 :root{
-  --g-bg:#1b1a1f; --g-panel:#29272f; --g-empty:#222127; --g-ink:#ece8e0;
-  --bg:#f6f4ef; --ink:#1d1b20; --ink2:#5d5862; --line:rgba(0,0,0,.1); --card:#fff;
+  --g-bg:#000; --g-panel:#141414; --g-empty:#1f1f1f; --g-ink:#ece8e0;
+  --bg:#000; --ink:#ece8e0; --ink2:#a39da8; --line:rgba(255,255,255,.14); --card:#141414;
   --serif:Georgia,"Times New Roman",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Apple SD Gothic Neo","Hiragino Sans","Noto Sans KR","Noto Sans JP",Arial,sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root{--bg:#121115;--ink:#ece8e0;--ink2:#a39da8;--line:rgba(255,255,255,.1);--card:#1c1b21}
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -32,7 +29,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;-webki
 @supports (height:100dvh){ .stage.done{--bs:min(92vw, 30dvh, 300px)} }
 
 .top{width:100%;max-width:480px;height:40px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.brand{display:flex;align-items:center;gap:8px;font-weight:750;font-size:15px;letter-spacing:.2px;text-decoration:none;flex:1 1 0}
+.brand{display:flex;align-items:center;gap:8px;font-weight:750;font-size:15px;letter-spacing:.2px;text-decoration:none;flex:1 1 0;white-space:nowrap}
 .brand img{width:24px;height:24px;border-radius:6px;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
 .daylabel{font-size:12.5px;font-variant-numeric:tabular-nums;opacity:.75;white-space:nowrap}
 .badge{margin-left:auto;display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:99px;
@@ -131,6 +128,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;-webki
 .foot a{text-decoration:none}
 .foot nav{display:flex;flex-wrap:wrap;gap:14px}
 
+@media (max-width:350px){.daylabel{display:none}}
 @media (prefers-reduced-motion:reduce){
   .tile,.stage,.board,.cells i{transition:none}
   .tile.new i,.tile.pop i,.overlay{animation:none}

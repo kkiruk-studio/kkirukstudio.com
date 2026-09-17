@@ -42,7 +42,7 @@ PT = "118060110"                                   # App Store provider token (p
 CT_PLAY = "palette_web_play"              # campaign token for the play page CTAs
 CT_PALETTE = "palette_web_palette"        # campaign token for palette pages
 APP_ID = "6767449110"
-APP_NAME = "Palette: Daily Art Puzzle"
+APP_NAME = "Palette 2048: Daily Art Puzzle"
 EPOCH = "2026-03-01"                      # puzzle #1 = first day of the app schedule
 SITE = "https://www.kkirukstudio.com"
 OG_IMAGE = SITE + "/palette2048/og.png"
@@ -270,11 +270,12 @@ LANDING = {"en": "/palette2048/", "ko": "/palette2048/ko.html", "ja": "/palette2
 
 T = {
 "en": dict(
- title="Palette Daily — Free Art Color Puzzle (2048 with Colors)",
+ brand="Palette 2048",
+ title="Palette 2048 Daily — Free Art Color Puzzle (2048 with Colors)",
  desc="Play today's daily color puzzle in your browser: a 2048 color game painted with a famous painting's color palette. Free, no sign-up, one art puzzle a day.",
- ogt="Palette Daily — today's art color puzzle",
+ ogt="Palette 2048 Daily — today's art color puzzle",
  h1="Daily art color puzzle", loading="Loading today's painting…",
- noscript="Palette needs JavaScript to play. You can still read how it works below.",
+ noscript="Palette 2048 needs JavaScript to play. You can still read how it works below.",
  badge="Get the app",
  ui=dict(today="Today's painting", mystery="Mystery Saturday", mysteryNote="The title is revealed when you finish.",
    score="Score", best="Best tile", hint="Swipe or use the arrow keys — merge matching colors",
@@ -289,20 +290,21 @@ T = {
    "Every move adds a new tile. Tiles have no numbers: read the board by color alone.",
    "When no move is left, the game ends. Share your board and come back tomorrow for a new masterpiece."],
  faq_t="FAQ", faq=[
-   ("What is Palette?", "Palette is a daily art puzzle: a 2048-style color game where the board is painted with the palette of a real masterpiece. Instead of numbers, tiles show colors — merge two tiles of the same color and they turn into the next color of the painting's palette."),
-   ("Is it free?", "Yes. Today's puzzle is free to play in your browser with no sign-up and no ads. The Palette app for iPhone and iPad is also free to download."),
+   ("What is Palette 2048?", "Palette 2048 is a daily art puzzle: a 2048-style color game where the board is painted with the palette of a real masterpiece. Instead of numbers, tiles show colors — merge two tiles of the same color and they turn into the next color of the painting's palette."),
+   ("Is it free?", "Yes. Today's puzzle is free to play in your browser with no sign-up and no ads. The Palette 2048 app for iPhone and iPad is also free to download."),
    ("How is it different from 2048?", "The rules are the same as 2048 — slide the tiles, merge equal pairs, aim for the 2048 tile — but there are no numbers. You follow the painting's color palette from its darkest shade to its lightest, so every day's board looks and plays differently."),
    ("When is there a new puzzle?", "A new painting and color palette arrive every day at midnight in your time zone. The web version has one game per day. On Saturdays the painting's title stays hidden until you finish."),
    ("What does the app add?", "The app adds the archive of past masterpieces, 3×3 and 5×5 boards, unlimited replays, one-step undo and the Saturday mystery quiz, where you guess the painting from its colors."),
  ],
- more_t="Explore", more_pal="Browse painting color palettes", more_land="About the Palette app",
+ more_t="Explore", more_pal="Browse painting color palettes", more_land="About the Palette 2048 app",
  foot_c="Contact", foot_p="Privacy", foot_t="Terms"),
 "ko": dict(
- title="Palette 데일리 — 명화 색으로 푸는 무료 컬러 퍼즐 (색깔 2048)",
+ brand="팔레트 2048",
+ title="팔레트 2048 데일리 — 명화 색으로 푸는 무료 컬러 퍼즐 (색깔 2048)",
  desc="브라우저에서 바로 하는 오늘의 명화 컬러 퍼즐. 숫자 대신 명화 팔레트의 색으로 합치는 2048 색깔 게임을 하루 한 판 무료로, 가입 없이 즐기세요.",
- ogt="Palette 데일리 — 오늘의 명화 컬러 퍼즐",
+ ogt="팔레트 2048 데일리 — 오늘의 명화 컬러 퍼즐",
  h1="매일 한 판, 명화 컬러 퍼즐", loading="오늘의 명화를 불러오는 중…",
- noscript="Palette를 플레이하려면 JavaScript가 필요합니다. 아래에서 방법은 읽어볼 수 있어요.",
+ noscript="팔레트 2048을 플레이하려면 JavaScript가 필요합니다. 아래에서 방법은 읽어볼 수 있어요.",
  badge="앱 받기",
  ui=dict(today="오늘의 명화", mystery="미스터리 토요일", mysteryNote="작품명은 게임이 끝나면 공개돼요.",
    score="점수", best="최고 타일", hint="스와이프나 방향키로 밀어 같은 색을 합치세요",
@@ -317,20 +319,21 @@ T = {
    "움직일 때마다 새 타일이 하나 생깁니다. 숫자는 없어요 — 색만 보고 판단하세요.",
    "더 움직일 수 없으면 게임이 끝납니다. 결과를 공유하고 내일 새 명화로 다시 만나요."],
  faq_t="자주 묻는 질문", faq=[
-   ("Palette는 어떤 게임인가요?", "Palette는 매일 한 점의 실제 명화 팔레트로 보드를 칠하는 2048 방식의 컬러 퍼즐입니다. 타일에는 숫자 대신 색이 있고, 같은 색 두 개를 합치면 그 그림 팔레트의 다음 색이 됩니다."),
-   ("무료인가요?", "네. 오늘의 퍼즐은 가입이나 광고 없이 브라우저에서 무료로 플레이할 수 있습니다. 아이폰·아이패드용 Palette 앱도 무료로 받을 수 있어요."),
+   ("팔레트 2048은 어떤 게임인가요?", "팔레트 2048은 매일 한 점의 실제 명화 팔레트로 보드를 칠하는 2048 방식의 컬러 퍼즐입니다. 타일에는 숫자 대신 색이 있고, 같은 색 두 개를 합치면 그 그림 팔레트의 다음 색이 됩니다."),
+   ("무료인가요?", "네. 오늘의 퍼즐은 가입이나 광고 없이 브라우저에서 무료로 플레이할 수 있습니다. 아이폰·아이패드용 팔레트 2048 앱도 무료로 받을 수 있어요."),
    ("2048과 무엇이 다른가요?", "규칙은 2048과 같습니다 — 타일을 밀고, 같은 것끼리 합쳐 2048 타일을 노립니다. 다만 숫자가 없고, 그림의 가장 어두운 색에서 가장 밝은 색으로 이어지는 팔레트를 따라가기 때문에 매일 보드의 색과 감각이 달라집니다."),
    ("새 퍼즐은 언제 나오나요?", "매일 사용자 시간대의 자정에 새 명화와 팔레트가 열립니다. 웹에서는 하루 한 판이며, 토요일에는 게임이 끝날 때까지 작품명이 숨겨집니다."),
    ("앱에서는 무엇을 더 할 수 있나요?", "앱에서는 지난 명화 아카이브, 3×3·5×5 보드, 무제한 플레이, 한 수 되돌리기, 색만 보고 작품을 맞히는 토요일 미스터리 퀴즈를 즐길 수 있습니다."),
  ],
- more_t="더 둘러보기", more_pal="명화 컬러 팔레트 모음 (영문)", more_land="Palette 앱 소개",
+ more_t="더 둘러보기", more_pal="명화 컬러 팔레트 모음 (영문)", more_land="팔레트 2048 앱 소개",
  foot_c="문의", foot_p="개인정보", foot_t="약관"),
 "ja": dict(
- title="Palette デイリー — 名画の色で遊ぶ無料カラーパズル（色の2048）",
+ brand="パレット2048",
+ title="パレット2048デイリー — 名画の色で遊ぶ無料カラーパズル（色の2048）",
  desc="ブラウザですぐ遊べる今日の名画カラーパズル。数字の代わりに名画パレットの色を合わせる2048系の色パズルを、1日1回・無料・登録なしで。",
- ogt="Palette デイリー — 今日の名画カラーパズル",
+ ogt="パレット2048デイリー — 今日の名画カラーパズル",
  h1="毎日1回、名画のカラーパズル", loading="今日の名画を読み込み中…",
- noscript="Palette をプレイするには JavaScript が必要です。遊び方は下で読めます。",
+ noscript="パレット2048をプレイするには JavaScript が必要です。遊び方は下で読めます。",
  badge="アプリ",
  ui=dict(today="今日の名画", mystery="ミステリー土曜日", mysteryNote="作品名はゲーム終了後に公開されます。",
    score="スコア", best="最高タイル", hint="スワイプか矢印キーで、同じ色を合わせよう",
@@ -345,13 +348,13 @@ T = {
    "動かすたびに新しいタイルが1つ出ます。数字はありません — 色だけで判断します。",
    "動かせなくなったら終了。結果をシェアして、明日の新しい名画でまた会いましょう。"],
  faq_t="よくある質問", faq=[
-   ("Palette とは？", "Palette は、実在の名画のパレットでボードを彩る 2048 風のカラーパズルです。タイルには数字の代わりに色があり、同じ色を2つ合わせると、その絵のパレットの次の色に変わります。"),
-   ("無料ですか？", "はい。今日のパズルは登録も広告もなく、ブラウザで無料で遊べます。iPhone・iPad 用の Palette アプリも無料でダウンロードできます。"),
+   ("パレット2048とは？", "パレット2048は、実在の名画のパレットでボードを彩る 2048 風のカラーパズルです。タイルには数字の代わりに色があり、同じ色を2つ合わせると、その絵のパレットの次の色に変わります。"),
+   ("無料ですか？", "はい。今日のパズルは登録も広告もなく、ブラウザで無料で遊べます。iPhone・iPad 用のパレット2048アプリも無料でダウンロードできます。"),
    ("2048 と何が違いますか？", "ルールは 2048 と同じです — タイルを滑らせ、同じもの同士を合わせて 2048 を目指します。ただし数字はなく、絵の最も暗い色から最も明るい色へと続くパレットをたどるので、毎日ボードの色と感覚が変わります。"),
    ("新しいパズルはいつ？", "毎日、お使いのタイムゾーンの午前0時に新しい名画とパレットが公開されます。Web 版は1日1回。土曜日はゲームが終わるまで作品名が隠されます。"),
    ("アプリでは何ができますか？", "アプリでは過去の名画アーカイブ、3×3・5×5 ボード、無制限プレイ、1手戻し、色だけで作品を当てる土曜日のミステリークイズが楽しめます。"),
  ],
- more_t="もっと見る", more_pal="名画のカラーパレット集（英語）", more_land="Palette アプリについて",
+ more_t="もっと見る", more_pal="名画のカラーパレット集（英語）", more_land="パレット2048アプリについて",
  foot_c="お問い合わせ", foot_p="プライバシー", foot_t="規約"),
 }
 
@@ -367,8 +370,8 @@ def play_jsonld(code, d):
                 "operatingSystem": "iOS", "applicationCategory": "GameApplication",
                 "installUrl": f"https://apps.apple.com/app/id{APP_ID}", "url": SITE + "/palette2048/",
                 "publisher": {"@id": org["@id"]}}
-    game = {"@type": ["VideoGame", "WebApplication"], "@id": url + "#game", "name": "Palette Daily",
-            "alternateName": "Palette — daily art color puzzle", "url": url, "description": d["desc"],
+    game = {"@type": ["VideoGame", "WebApplication"], "@id": url + "#game", "name": "Palette 2048 Daily",
+            "alternateName": "Palette 2048 — daily art color puzzle", "url": url, "description": d["desc"],
             "inLanguage": code, "applicationCategory": "Game", "operatingSystem": "Any",
             "browserRequirements": "Requires JavaScript", "gamePlatform": "Web browser",
             "genre": ["Puzzle", "Color puzzle"], "playMode": "SinglePlayer", "isAccessibleForFree": True,
@@ -398,8 +401,8 @@ PLAY_TMPL = """<!DOCTYPE html>
 <link rel="canonical" href="{url}">
 {hreflang}
 <meta name="apple-itunes-app" content="app-id={app_id}">
-<meta name="theme-color" content="#1b1a1f">
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="kkiruk studio">
 <meta property="og:title" content="{ogt}">
@@ -421,7 +424,7 @@ PLAY_TMPL = """<!DOCTYPE html>
 <body>
 <div class="stage" id="stage">
   <header class="top">
-    <a class="brand" href="{landing}"><img src="/palette2048/icon.png" alt="" width="24" height="24">Palette</a>
+    <a class="brand" href="{landing}"><img src="/palette2048/icon.png" alt="" width="24" height="24">{brand}</a>
     <span class="daylabel" id="dayLabel"></span>
     <span class="top-end"><a class="badge" href="{app_url}" data-cta="badge" target="_blank" rel="noopener">{apple}{badge}</a></span>
   </header>
@@ -510,7 +513,7 @@ def build_play():
             hreflang=hreflang, app_id=APP_ID, ogt=escape(d["ogt"]), og_image=OG_IMAGE,
             og_locale={"en": "en_US", "ko": "ko_KR", "ja": "ja_JP"}[code],
             jsonld=play_jsonld(code, d), landing=LANDING[code], app_url=escape(app_url(CT_PLAY)),
-            apple=APPLE_SVG, badge=d["badge"], h1=escape(d["h1"]), loading=escape(d["loading"]),
+            brand=escape(d["brand"]), apple=APPLE_SVG, badge=d["badge"], h1=escape(d["h1"]), loading=escape(d["loading"]),
             score=d["ui"]["score"], best=d["ui"]["best"], board_label=escape(d["ui"]["boardLabel"]),
             cells="<i></i>" * 16, hint=escape(d["ui"]["hint"]), share=d["ui"]["share"],
             app_line=escape(d["ui"]["appLine"]), app_btn=d["ui"]["appBtn"], next=d["ui"]["next"],
@@ -563,7 +566,7 @@ def describe(p, date, anchors, stops, levels):
            + (f", passing through {middle}" if middle else "") + f". It is {contrast} with {sat} tones, {temp}"
            + f" (lightness {stops[0][0]:.0f} to {stops[-1][0]:.0f} in CIE Lab).")
     tiles = [2 ** lv for lv in levels]
-    game = (f"Palette used this painting for the daily puzzle of {fmt_date(date)}. The tiles show no numbers: "
+    game = (f"Palette 2048 used this painting for the daily puzzle of {fmt_date(date)}. The tiles show no numbers: "
             f"the smallest tile is {names[0]}, and each merge steps along the palette. The six colors land exactly on "
             f"the {', '.join(str(t) for t in tiles[:-1])} and {tiles[-1]} tiles, with blended shades in between, "
             f"so the {tiles[-1]} tile is {names[-1]}.")
@@ -580,7 +583,7 @@ PAL_HEAD = """<!DOCTYPE html>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{url}">
 <meta name="apple-itunes-app" content="app-id={app_id}">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="kkiruk studio">
 <meta property="og:title" content="{title}">
@@ -599,7 +602,7 @@ PAL_HEAD = """<!DOCTYPE html>
 </head>
 <body>
 <header class="bar">
-  <a class="brand" href="/palette2048/"><img src="/palette2048/icon.png" alt="" width="24" height="24">Palette</a>
+  <a class="brand" href="/palette2048/"><img src="/palette2048/icon.png" alt="" width="24" height="24">Palette 2048</a>
   <nav><a href="/palette2048/palettes/">Palettes</a><a class="play" href="/palette2048/play/">Play today</a></nav>
 </header>
 <main class="wrap">
@@ -608,7 +611,7 @@ PAL_HEAD = """<!DOCTYPE html>
 PAL_FOOT = """</main>
 <footer class="foot">
   <a href="/">© kkiruk studio</a>
-  <nav><a href="/palette2048/">Palette app</a><a href="/palette2048/play/">Daily puzzle</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav>
+  <nav><a href="/palette2048/">Palette 2048 app</a><a href="/palette2048/play/">Daily puzzle</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav>
 </footer>
 {script}</body>
 </html>
@@ -678,7 +681,7 @@ def build_palette_pages(paintings, schedule, today):
                 "keywords": "painting color palette, " + ", ".join(names),
                 "publisher": {"@type": "Organization", "name": "kkiruk studio", "url": SITE + "/"},
                 "isPartOf": {"@type": "CollectionPage", "@id": idx_url, "name": "Painting color palettes"}}
-        bc = crumbs([("kkiruk studio", SITE + "/"), ("Palette", SITE + "/palette2048/"),
+        bc = crumbs([("kkiruk studio", SITE + "/"), ("Palette 2048", SITE + "/palette2048/"),
                      ("Painting color palettes", idx_url), (p["name"], url)])
         swatches = "".join(
             f'<li class="sw"><span class="chip" style="background:#{hexs(rgb)}"></span>'
@@ -690,7 +693,7 @@ def build_palette_pages(paintings, schedule, today):
         ramp_html = "".join(f'<li style="background:{h}"><span>{2 ** (i + 1)}</span></li>' for i, h in enumerate(ramp))
         rel = "".join(f'<li><a href="../{q["id"]}/">{strip(q)}<span>{escape(q["name"])}</span>'
                       f'<small>{escape(q["artist"])}</small></a></li>' for q in related_for(p, published))
-        body = f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="/palette2048/">Palette</a> › <a href="/palette2048/palettes/">Painting color palettes</a> › <span>{escape(p['name'])}</span></nav>
+        body = f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="/palette2048/">Palette 2048</a> › <a href="/palette2048/palettes/">Painting color palettes</a> › <span>{escape(p['name'])}</span></nav>
 <h1>{escape(h1)}</h1>
 <ul class="swatches">{swatches}</ul>
 <p class="copyall"><button type="button" class="copy" data-copy="{all_hex}">Copy all HEX codes</button></p>
@@ -739,18 +742,18 @@ def build_palette_pages(paintings, schedule, today):
                         + (f'<small>{escape(q["year"])}</small>' if q["year"] else "") + "</a></li>"
                         for q in sorted(groups[a], key=lambda q: q["name"]))
         blocks.append(f'<section class="artist"><h2>{escape(a)}</h2><ul class="related">{items}</ul></section>')
-    title = "Painting Color Palettes — HEX Codes from Famous Artworks | Palette"
+    title = "Painting Color Palettes — HEX Codes from Famous Artworks | Palette 2048"
     desc = (f"{len(published)} color palettes taken from famous paintings, grouped by artist, each with HEX and RGB "
-            "codes. Every palette was a daily color puzzle in the Palette art puzzle game.")
+            "codes. Every palette was a daily color puzzle in the Palette 2048 art puzzle game.")
     coll = {"@type": "CollectionPage", "@id": idx_url, "url": idx_url, "name": "Painting color palettes",
             "description": desc, "inLanguage": "en",
             "publisher": {"@type": "Organization", "name": "kkiruk studio", "url": SITE + "/"},
             "mainEntity": {"@type": "ItemList", "numberOfItems": len(published)}}
-    bc = crumbs([("kkiruk studio", SITE + "/"), ("Palette", SITE + "/palette2048/"),
+    bc = crumbs([("kkiruk studio", SITE + "/"), ("Palette 2048", SITE + "/palette2048/"),
                  ("Painting color palettes", idx_url)])
-    body = f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="/palette2048/">Palette</a> › <span>Painting color palettes</span></nav>
+    body = f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="/palette2048/">Palette 2048</a> › <span>Painting color palettes</span></nav>
 <h1>Painting Color Palettes</h1>
-<p class="lede">Six-color palettes taken from {len(published)} famous paintings, with HEX and RGB codes. Each one was the board of a daily color puzzle in Palette — a 2048-style art puzzle game where tiles show colors instead of numbers. A new palette is added here the day after its puzzle.</p>
+<p class="lede">Six-color palettes taken from {len(published)} famous paintings, with HEX and RGB codes. Each one was the board of a daily color puzzle in Palette 2048 — a 2048-style art puzzle game where tiles show colors instead of numbers. A new palette is added here the day after its puzzle.</p>
 <div class="cta"><a class="btn ghost" href="/palette2048/play/">Play today's free puzzle →</a>
 <a class="btn store" href="{escape(app_url(CT_PALETTE))}" data-cta="palette_index" target="_blank" rel="noopener">{APPLE_SVG}Get the app</a></div>
 <p class="artists">{len(order)} artists · {" · ".join(f'<a href="#a{i}">{escape(a)}</a>' for i, a in enumerate(order))}</p>

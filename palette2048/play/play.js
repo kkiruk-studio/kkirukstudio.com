@@ -60,13 +60,9 @@
 
   /* ── rendering ── */
   function applyTheme() {
-    var st = stage.style;
-    st.setProperty("--g-bg", theme.bg);
-    st.setProperty("--g-panel", theme.panel);
-    st.setProperty("--g-empty", theme.empty);
-    st.setProperty("--g-ink", theme.ink);
+    // Page is always black — only the tiles (paintTile) follow the painting's palette.
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme.bg);
+    if (meta) meta.setAttribute("content", "#000000");
   }
 
   function renderHead() {
@@ -227,7 +223,7 @@
     var lines = g.map(function (r) {
       return r.map(function (v) { return v ? C.nearestEmoji(theme.tileLab(v)) : "▫️"; }).join("");
     });
-    return "Palette #" + game.num + " " + game.day + "\n" + lines.join("\n") + "\n" +
+    return "Palette 2048 #" + game.num + " " + game.day + "\n" + lines.join("\n") + "\n" +
       (S.shareScore || "Score") + " " + game.score + "\n" + "kkirukstudio.com/palette2048/play/";
   }
   function toast(msg) { $("toast").textContent = msg; }
