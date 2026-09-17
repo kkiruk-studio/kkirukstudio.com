@@ -5,14 +5,29 @@ Outputs (edit this file / play.js / play.css / core.js / palettes.css, never the
   palette2048/play/index.html, play/ko/index.html, play/ja/index.html   — daily puzzle (en/ko/ja)
   palette2048/play/daily.json   — date → painting rows, from (build date − 2 days) to the app's
                                   SCHEDULE_CUTOFF; names lightly obfuscated like the app
-  palette2048/play/all.json     — the app's `all` rotation (only fetched after the cutoff)
+  palette2048/play/all.json     — rotation fallback for dates past that window (see below)
   palette2048/palettes/index.html, palettes/<painting-id>/index.html — English palette pages
   sitemap.xml                   — regenerated with gen/gen_sitemap.py (scans canonical URLs)
 
 Source of truth is the app repo (read-only): ~/Palette2048/tools/paintings.json + schedule.json,
-and SCHEDULE_CUTOFF from tools/generate_swift.py, so the web follows exactly the same daily
-schedule and fallback rotation as CuratedPaletteStore.dailyPalette(for:).
+and SCHEDULE_CUTOFF from tools/generate_swift.py.
 Override the repo location with PALETTE_REPO=/path.
+
+WEB VS APP SCHEDULE (since 2026-09-17): the web puzzle and the iOS app now run on two *separate*
+daily schedules so they never show the same painting on the same day — the web is a lighter, always-
+image daily puzzle, and the app's own daily + Saturday-mystery + 3×3/5×5 boards stay a reason to
+install. `WEB_SCHEDULE_START` = 2026-09-18 is the split point:
+  - dates <  WEB_SCHEDULE_START: web replays the app's own `tools/schedule.json` (dailyPalette(for:)
+    equivalent), exactly as before the split — this protects puzzles already played/shared.
+  - dates >= WEB_SCHEDULE_START: web uses its own `palette2048/play/web_schedule.json`, a fixed
+    (YYYY-MM-DD → painting id) map generated once by `--make-web-schedule` (see that function's
+    docstring for the constraints it satisfies against the app schedule). Regular `build.py` runs
+    only *read* this file — they never reshuffle it, so already-played/shared web dates stay stable.
+  `daily.json`/`all.json` are assembled by picking, per date, from whichever schedule applies
+  (see build_data()). Palette SEO pages are only generated for paintings that were actually served
+  on the web: the pre-split app schedule (frozen at APP_PUBLISH_CUTOFF, the last app-schedule day
+  the web served) unioned with whatever the web schedule has served up to the build date (see
+  build_palette_pages()).
 
 DAILY REBUILD: palette pages are generated for paintings whose scheduled date is on or before the
 build date (never for a date still in the future — no spoilers for upcoming puzzles). The result
@@ -21,6 +36,8 @@ Re-running this script every day therefore adds one new /palettes/<id>/ page per
 refreshes daily.json's window.
   python3 palette2048/play/build.py                 # build for today (local date)
   python3 palette2048/play/build.py --date 2026-09-20   # pretend the build date (testing)
+  python3 palette2048/play/build.py --make-web-schedule           # one-time: create web_schedule.json
+  python3 palette2048/play/build.py --make-web-schedule --force   # regenerate it (reshuffles!)
 """
 import argparse
 import base64
@@ -30,6 +47,7 @@ import importlib.util
 import json
 import math
 import os
+import random
 import re
 import shutil
 import subprocess
@@ -46,6 +64,10 @@ CT_PALETTE = "palette_web_palette"        # campaign token for palette pages
 APP_ID = "6767449110"
 APP_NAME = "Palette 2048: Daily Art Puzzle"
 EPOCH = "2026-03-01"                      # puzzle #1 = first day of the app schedule
+WEB_SCHEDULE_START = "2026-09-18"         # web diverges from the app schedule from this date on
+APP_PUBLISH_CUTOFF = "2026-09-17"         # last app-schedule day the web ever served (frozen forever)
+WEB_SCHEDULE_FILE_NAME = "web_schedule.json"
+WEB_SCHEDULE_SEED = 20260918              # fixed → deterministic shuffle, never change without --force
 SITE = "https://www.kkirukstudio.com"
 OG_IMAGE = SITE + "/palette2048/og.png"
 OBF_KEY = b"palette2048-2026-curator"     # same light XOR as the app (CuratedPalette.deobf)
@@ -56,6 +78,7 @@ P2048 = HERE.parent                               # palette2048
 ROOT = P2048.parent                               # site root
 PAL_DIR = P2048 / "palettes"
 REPO = Path(os.environ.get("PALETTE_REPO", Path.home() / "Palette2048"))
+WEB_SCHEDULE_FILE = HERE / WEB_SCHEDULE_FILE_NAME
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
@@ -281,6 +304,204 @@ def thumb_url(url, width=500):
     return url
 
 
+# ─── Web schedule (separate from the app's tools/schedule.json) ──────────────
+def app_id_for_date(date_iso, emitted, app_all, cutoff):
+    """The painting the *app* shows on date_iso — same rule as CuratedPaletteStore.dailyPalette(for:):
+    the explicit schedule up to `cutoff`, then a deterministic rotation through `app_all` (paintings.json
+    order) keyed on days elapsed since `cutoff`. Used only to keep the web schedule from colliding with
+    the app; not used by the web's own daily.json/all.json lookup."""
+    if date_iso <= cutoff:
+        return emitted.get(date_iso)
+    end = dt.date.fromisoformat(cutoff)
+    days_past = (dt.date.fromisoformat(date_iso) - end).days
+    if days_past >= 1 and app_all:
+        return app_all[(days_past - 1) % len(app_all)]["id"]
+    return app_all[0]["id"] if app_all else None
+
+
+def blocked_app_ids(date_iso, emitted, app_all, cutoff, window=30):
+    """App painting ids that must not be reused by the web on date_iso: the app's own painting for
+    that exact date, plus every date within `window` days either side (requirement: web puzzles stay
+    ±30 days clear of whatever the app is showing)."""
+    d = dt.date.fromisoformat(date_iso)
+    out = set()
+    for off in range(-window, window + 1):
+        pid = app_id_for_date((d + dt.timedelta(days=off)).isoformat(), emitted, app_all, cutoff)
+        if pid:
+            out.add(pid)
+    return out
+
+
+def historical_published_ids(schedule, cutoff=APP_PUBLISH_CUTOFF):
+    """Painting ids the web already served (via the app schedule) on or before `cutoff` — the last day
+    before the web/app schedules split. These keep their original date forever (existing shared results,
+    existing palette pages) and are deprioritized (pushed to the back) in the fresh web schedule."""
+    first = {}
+    for k, v in sorted(schedule.items()):
+        first.setdefault(v, k)
+    return {pid for pid, d in first.items() if d <= cutoff}
+
+
+def schedule_web(pool_ordered, emitted, app_all, cutoff, start_date):
+    """Greedily assign pool_ordered (one entry per day, in priority order) to consecutive dates from
+    start_date. Per date, picks the first still-unassigned candidate that satisfies, in order of
+    preference: (1) clear of the app's ±30-day window AND no same-artist repeat within the trailing 7
+    days; if none, relax to (2) clear of the app window AND just not the same artist as the previous
+    day; if none, relax to (3) clear of the app window only; (4) last resort, anything left. Returns
+    (date → id dict, relax-counter stats) — stats should show 0 at level (3)/(4) for a healthy pool."""
+    remaining = list(pool_ordered)
+    assigned = {}
+    stats = {"artist7_relaxed": 0, "consecutive_artist_relaxed": 0, "window30_relaxed": 0}
+    last_artist = None
+    trailing = []  # last 6 (date, artist) pairs
+    d = dt.date.fromisoformat(start_date)
+    for _ in range(len(pool_ordered)):
+        date_iso = d.isoformat()
+        blocked = blocked_app_ids(date_iso, emitted, app_all, cutoff)
+        trailing_artists = {a for _, a in trailing[-6:]}
+        idx = next((j for j, p in enumerate(remaining)
+                    if p["id"] not in blocked and p["artist"] != last_artist and p["artist"] not in trailing_artists), None)
+        if idx is None:
+            stats["artist7_relaxed"] += 1
+            idx = next((j for j, p in enumerate(remaining) if p["id"] not in blocked and p["artist"] != last_artist), None)
+        if idx is None:
+            stats["consecutive_artist_relaxed"] += 1
+            idx = next((j for j, p in enumerate(remaining) if p["id"] not in blocked), None)
+        if idx is None:
+            stats["window30_relaxed"] += 1
+            idx = 0
+        p = remaining.pop(idx)
+        assigned[date_iso] = p["id"]
+        last_artist = p["artist"]
+        trailing.append((date_iso, p["artist"]))
+        d += dt.timedelta(days=1)
+    return assigned, stats
+
+
+def repair_window_conflicts(assigned, by_id, emitted, app_all, cutoff):
+    """schedule_web() picks greedily and can back itself into a corner near the end of the pool, where
+    every still-unassigned painting collides with the app's ±30-day window on the only dates left
+    (`window30_relaxed` in its stats). Clean that up with simple pairwise swaps: for each date still
+    colliding, find another date whose painting isn't blocked here and vice versa (and whose swap
+    doesn't create a new consecutive-same-artist day on either side), and swap them. With only a
+    handful of collisions against ~350 other dates this always finds a fix in practice; if it can't for
+    some date, that date is left as-is (still reported by validate_web_schedule())."""
+    dates = sorted(assigned.keys())
+    pos = {d: i for i, d in enumerate(dates)}
+
+    def neighbor_artists(date_iso, skip):
+        i = pos[date_iso]
+        out = set()
+        for j in (i - 1, i + 1):
+            if 0 <= j < len(dates) and dates[j] != skip:
+                out.add(by_id[assigned[dates[j]]]["artist"])
+        return out
+
+    for date_iso in dates:
+        blocked = blocked_app_ids(date_iso, emitted, app_all, cutoff)
+        if assigned[date_iso] not in blocked:
+            continue
+        for d2 in dates:
+            if d2 == date_iso:
+                continue
+            a, b = assigned[date_iso], assigned[d2]
+            if b in blocked or a in blocked_app_ids(d2, emitted, app_all, cutoff):
+                continue
+            if by_id[b]["artist"] in neighbor_artists(date_iso, d2) or by_id[a]["artist"] in neighbor_artists(d2, date_iso):
+                continue
+            assigned[date_iso], assigned[d2] = b, a
+            break
+    return assigned
+
+
+def validate_web_schedule(assigned, pool, used_ids, emitted, app_all, cutoff, stats):
+    """Independent re-check of the constraints schedule_web() is supposed to satisfy (belt & suspenders —
+    doesn't trust schedule_web()'s own bookkeeping). Prints a report; returns nothing."""
+    by_id = {p["id"]: p for p in pool}
+    dates = sorted(assigned.keys())
+    ids = [assigned[d] for d in dates]
+    dup = len(ids) - len(set(ids))
+    same_day = window_conflicts = consecutive_artist = artist7 = 0
+    prev_artist = None
+    trailing = []
+    for date_iso in dates:
+        pid = assigned[date_iso]
+        artist = by_id[pid]["artist"]
+        app_today = app_id_for_date(date_iso, emitted, app_all, cutoff)
+        if app_today == pid:
+            same_day += 1
+        elif pid in blocked_app_ids(date_iso, emitted, app_all, cutoff):
+            window_conflicts += 1
+        if artist == prev_artist:
+            consecutive_artist += 1
+        if artist in {a for _, a in trailing[-6:]}:
+            artist7 += 1
+        trailing.append((date_iso, artist))
+        prev_artist = artist
+    pool_used = sum(1 for p in pool if p["id"] in used_ids)
+    print(f"web schedule: {len(dates)} days {dates[0]}..{dates[-1]} · pool {len(pool)} "
+          f"(fresh {len(pool) - pool_used}, previously-published {pool_used})")
+    print(f"  duplicate ids: {dup}")
+    print(f"  same-day app conflicts: {same_day}")
+    print(f"  ±30-day app window conflicts: {window_conflicts}")
+    print(f"  consecutive-day same-artist: {consecutive_artist}")
+    print(f"  same-artist within 7 days (best-effort): {artist7}")
+    print(f"  relax stats (schedule_web's own count): {stats}")
+
+
+def make_web_schedule(paintings, schedule, emitted, app_all, cutoff, force=False):
+    if WEB_SCHEDULE_FILE.exists() and not force:
+        print(f"{WEB_SCHEDULE_FILE} already exists — refusing to overwrite it (pass --force to reshuffle).")
+        sys.exit(1)
+    pool = sorted((p for p in paintings if image_ok(p)), key=lambda p: p["id"])
+    used_ids = historical_published_ids(schedule)
+    fresh = [p for p in pool if p["id"] not in used_ids]
+    reused = [p for p in pool if p["id"] in used_ids]
+    rng = random.Random(WEB_SCHEDULE_SEED)
+    rng.shuffle(fresh)
+    rng.shuffle(reused)
+    ordered = fresh + reused  # already-published-on-web paintings pushed to the back of the pool
+    assigned, stats = schedule_web(ordered, emitted, app_all, cutoff, WEB_SCHEDULE_START)
+    assigned = repair_window_conflicts(assigned, {p["id"]: p for p in pool}, emitted, app_all, cutoff)
+    period = len(ordered)
+    end_date = (dt.date.fromisoformat(WEB_SCHEDULE_START) + dt.timedelta(days=period - 1)).isoformat()
+    out = {
+        "meta": {
+            "start": WEB_SCHEDULE_START,
+            "period_days": period,
+            "end": end_date,
+            "seed": WEB_SCHEDULE_SEED,
+            "generated": dt.date.today().isoformat(),
+            "note": ("Web-only daily schedule for palette2048/play, independent of the app's "
+                     "tools/schedule.json (see build.py's module docstring). Generated once by "
+                     "`build.py --make-web-schedule` and frozen — regular builds only read it. Dates "
+                     "past `end` repeat this same period_days-day cycle: index = (date - start).days "
+                     "% period_days (see web_id_for_date() in build.py). A repeat may re-collide with "
+                     "the app's schedule on the same calendar date at that point — accepted, not "
+                     "corrected, since the app's own schedule.json doesn't reach that far either."),
+        },
+        "schedule": assigned,
+    }
+    save(WEB_SCHEDULE_FILE, json.dumps(out, ensure_ascii=False, indent=2) + "\n")
+    validate_web_schedule(assigned, pool, used_ids, emitted, app_all, cutoff, stats)
+
+
+def load_web_schedule():
+    if not WEB_SCHEDULE_FILE.exists():
+        sys.exit(f"{WEB_SCHEDULE_FILE} missing — run `python3 {Path(__file__).name} --make-web-schedule` once first.")
+    return json.loads(WEB_SCHEDULE_FILE.read_text(encoding="utf-8"))
+
+
+def web_id_for_date(ws, date_iso):
+    """Painting id the web schedule assigns to date_iso, cycling past `meta.end` through the same
+    period_days-day order (see the note in make_web_schedule())."""
+    start = dt.date.fromisoformat(ws["meta"]["start"])
+    period = ws["meta"]["period_days"]
+    idx = (dt.date.fromisoformat(date_iso) - start).days % period
+    cycled = (start + dt.timedelta(days=idx)).isoformat()
+    return ws["schedule"][cycled]
+
+
 def row(p):
     fl = p.get("flavor") or {}
     flavor = [obf(fl.get(loc, "")) for loc in FLAVOR_LOCALES]
@@ -289,12 +510,28 @@ def row(p):
             obf(p["url"]), 1 if image_ok(p) else 0, flavor]
 
 
-def build_data(emitted, app_all, cutoff, today):
-    by_id = {p["id"]: p for p in app_all}
+def build_data(paintings, emitted, app_all, ws, cutoff, today):
+    """daily.json covers the same window as before (build date − 2 days .. the app's SCHEDULE_CUTOFF)
+    but now picks each date's painting from whichever schedule applies: the app schedule (`emitted`)
+    for dates < WEB_SCHEDULE_START (unchanged from before the split), and the web schedule (`ws`) for
+    dates >= WEB_SCHEDULE_START. all.json is the rotation used once a requested date falls outside that
+    window (e.g. a device clock set far in the future): it's one full web_schedule.json period, rotated
+    to start the day right after daily.json's `end`, so the client-side modulo in core.js#pickFromAll
+    keeps serving fresh web-schedule dates seamlessly past the window (see core.js)."""
+    by_id = {p["id"]: p for p in paintings}
     start = (today - dt.timedelta(days=2)).isoformat()
-    days = {k: row(by_id[v]) for k, v in sorted(emitted.items()) if k >= start}
-    daily = {"v": 1, "epoch": EPOCH, "end": max(emitted), "count": len(app_all), "days": days}
-    allj = {"v": 1, "end": max(emitted), "rows": [row(p) for p in app_all]}
+    end = max(emitted)  # == SCHEDULE_CUTOFF; kept as the window boundary regardless of source
+    days = {}
+    for k in sorted(emitted.keys()):
+        if k < start:
+            continue
+        pid = emitted[k] if k < WEB_SCHEDULE_START else web_id_for_date(ws, k)
+        days[k] = row(by_id[pid])
+    daily = {"v": 1, "epoch": EPOCH, "end": end, "count": len(days), "days": days}
+    period = ws["meta"]["period_days"]
+    end_date = dt.date.fromisoformat(end)
+    rows = [row(by_id[web_id_for_date(ws, (end_date + dt.timedelta(days=1 + i)).isoformat())]) for i in range(period)]
+    allj = {"v": 1, "end": end, "rows": rows}
     dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":")) + "\n"
     save(HERE / "daily.json", dump(daily))
     save(HERE / "all.json", dump(allj))
@@ -318,7 +555,7 @@ T = {
    score="Score", best="Best tile", hint="Swipe or use the arrow keys — merge matching colors",
    won="You reached the 2048 color!", finish="Finish & share", keep="Keep going", over="No more moves",
    result="Today's result", share="Share result", copied="Copied — paste it anywhere",
-   shareFail="Couldn't copy. Select the text and copy it.", appLine="Past masterpieces archive · 3×3 & 5×5 boards · unlimited play — in the app",
+   shareFail="Couldn't copy. Select the text and copy it.", appLine="Another masterpiece is waiting in the app today — plus the past archive and 3×3 & 5×5 boards",
    appBtn="Download on the App Store", next="Next painting in", loadErr="Couldn't load today's puzzle. Please reload.",
    boardLabel="Puzzle board. Use arrow keys or swipe to move tiles.", shareScore="Score", done="Played today",
    pOriginal="See the original ↗", pPalette="This painting's colors & HEX →",
@@ -333,7 +570,7 @@ T = {
    ("Is it free?", "Yes. Today's puzzle is free to play in your browser with no sign-up and no ads. The Palette 2048 app for iPhone and iPad is also free to download."),
    ("How is it different from 2048?", "The rules are the same as 2048 — slide the tiles, merge equal pairs, aim for the 2048 tile — but there are no numbers. You follow the painting's color palette from its darkest shade to its lightest, so every day's board looks and plays differently."),
    ("When is there a new puzzle?", "A new painting and color palette arrive every day at midnight in your time zone. The web version has one game per day. On Saturdays the painting's title stays hidden until you finish."),
-   ("What does the app add?", "The app adds the archive of past masterpieces, 3×3 and 5×5 boards, unlimited replays, one-step undo and the Saturday mystery quiz, where you guess the painting from its colors."),
+   ("What does the app add?", "The app has its own separate daily puzzle — a different masterpiece from the web version, so you get two paintings a day. It also adds the archive of past masterpieces, 3×3 and 5×5 boards, unlimited replays, one-step undo and the Saturday mystery quiz, where you guess the painting from its colors."),
  ],
  more_t="Explore", more_pal="Browse painting color palettes", more_land="About the Palette 2048 app",
  foot_c="Contact", foot_p="Privacy", foot_t="Terms"),
@@ -349,7 +586,7 @@ T = {
    score="점수", best="최고 타일", hint="스와이프나 방향키로 밀어 같은 색을 합치세요",
    won="2048 색에 도달했어요!", finish="여기서 끝내고 공유", keep="계속하기", over="더 이상 움직일 수 없어요",
    result="오늘의 결과", share="결과 공유", copied="복사했어요 — 원하는 곳에 붙여넣기",
-   shareFail="복사하지 못했어요. 텍스트를 직접 복사해 주세요.", appLine="지난 명화 아카이브 · 3×3/5×5 · 무제한 플레이는 앱에서",
+   shareFail="복사하지 못했어요. 텍스트를 직접 복사해 주세요.", appLine="앱에서는 오늘 또 다른 명화가 기다려요 · 지난 명화 아카이브 · 3×3·5×5 보드",
    appBtn="App Store에서 다운로드", next="다음 명화까지", loadErr="오늘의 퍼즐을 불러오지 못했어요. 새로고침해 주세요.",
    boardLabel="퍼즐 보드. 방향키나 스와이프로 타일을 움직이세요.", shareScore="점수", done="오늘 완료",
    pOriginal="원본 작품 보기 ↗", pPalette="이 그림의 색상 팔레트 · HEX →",
@@ -364,7 +601,7 @@ T = {
    ("무료인가요?", "네. 오늘의 퍼즐은 가입이나 광고 없이 브라우저에서 무료로 플레이할 수 있습니다. 아이폰·아이패드용 팔레트 2048 앱도 무료로 받을 수 있어요."),
    ("2048과 무엇이 다른가요?", "규칙은 2048과 같습니다 — 타일을 밀고, 같은 것끼리 합쳐 2048 타일을 노립니다. 다만 숫자가 없고, 그림의 가장 어두운 색에서 가장 밝은 색으로 이어지는 팔레트를 따라가기 때문에 매일 보드의 색과 감각이 달라집니다."),
    ("새 퍼즐은 언제 나오나요?", "매일 사용자 시간대의 자정에 새 명화와 팔레트가 열립니다. 웹에서는 하루 한 판이며, 토요일에는 게임이 끝날 때까지 작품명이 숨겨집니다."),
-   ("앱에서는 무엇을 더 할 수 있나요?", "앱에서는 지난 명화 아카이브, 3×3·5×5 보드, 무제한 플레이, 한 수 되돌리기, 색만 보고 작품을 맞히는 토요일 미스터리 퀴즈를 즐길 수 있습니다."),
+   ("앱에서는 무엇을 더 할 수 있나요?", "앱에는 웹과는 다른, 앱만의 데일리 퍼즐이 따로 있어서 하루에 두 점의 명화를 즐길 수 있어요. 그 외에도 지난 명화 아카이브, 3×3·5×5 보드, 무제한 플레이, 한 수 되돌리기, 색만 보고 작품을 맞히는 토요일 미스터리 퀴즈를 즐길 수 있습니다."),
  ],
  more_t="더 둘러보기", more_pal="명화 컬러 팔레트 모음 (영문)", more_land="팔레트 2048 앱 소개",
  foot_c="문의", foot_p="개인정보", foot_t="약관"),
@@ -380,7 +617,7 @@ T = {
    score="スコア", best="最高タイル", hint="スワイプか矢印キーで、同じ色を合わせよう",
    won="2048の色に到達！", finish="ここで終えてシェア", keep="続ける", over="もう動かせません",
    result="今日の結果", share="結果をシェア", copied="コピーしました — 好きな場所に貼り付けて",
-   shareFail="コピーできませんでした。テキストを手動でコピーしてください。", appLine="過去の名画アーカイブ · 3×3/5×5 · 無制限プレイはアプリで",
+   shareFail="コピーできませんでした。テキストを手動でコピーしてください。", appLine="アプリでは今日も別の名画が待っています — 過去のアーカイブと3×3・5×5ボードも",
    appBtn="App Storeでダウンロード", next="次の名画まで", loadErr="今日のパズルを読み込めませんでした。再読み込みしてください。",
    boardLabel="パズルボード。矢印キーかスワイプでタイルを動かします。", shareScore="スコア", done="今日はプレイ済み",
    pOriginal="原画を見る ↗", pPalette="この絵の配色・HEX →",
@@ -395,7 +632,7 @@ T = {
    ("無料ですか？", "はい。今日のパズルは登録も広告もなく、ブラウザで無料で遊べます。iPhone・iPad 用のパレット2048アプリも無料でダウンロードできます。"),
    ("2048 と何が違いますか？", "ルールは 2048 と同じです — タイルを滑らせ、同じもの同士を合わせて 2048 を目指します。ただし数字はなく、絵の最も暗い色から最も明るい色へと続くパレットをたどるので、毎日ボードの色と感覚が変わります。"),
    ("新しいパズルはいつ？", "毎日、お使いのタイムゾーンの午前0時に新しい名画とパレットが公開されます。Web 版は1日1回。土曜日はゲームが終わるまで作品名が隠されます。"),
-   ("アプリでは何ができますか？", "アプリでは過去の名画アーカイブ、3×3・5×5 ボード、無制限プレイ、1手戻し、色だけで作品を当てる土曜日のミステリークイズが楽しめます。"),
+   ("アプリでは何ができますか？", "アプリにはWeb版とは別の、アプリ専用の日替わりパズルがあり、1日2点の名画を楽しめます。ほかにも過去の名画アーカイブ、3×3・5×5 ボード、無制限プレイ、1手戻し、色だけで作品を当てる土曜日のミステリークイズが楽しめます。"),
  ],
  more_t="もっと見る", more_pal="名画のカラーパレット集（英語）", more_land="パレット2048アプリについて",
  foot_c="お問い合わせ", foot_p="プライバシー", foot_t="規約"),
@@ -708,15 +945,36 @@ def strip(p, cls="strip"):
         f'<i style="background:#{hexs(rgb)}"></i>' for rgb, _ in palette_info(p)[0]) + "</span>"
 
 
-def build_palette_pages(paintings, schedule, today):
+def web_published_first_dates(ws, today_iso):
+    """id → earliest web-schedule date it was served, for every web-schedule date up to today_iso.
+    Walks the schedule day by day (cheap — at most ~a year of iterations) rather than trusting
+    ws['schedule']'s own dict order, since dates past meta['end'] must resolve via web_id_for_date()'s
+    cycling, not a direct key lookup."""
+    start = dt.date.fromisoformat(ws["meta"]["start"])
+    end = dt.date.fromisoformat(today_iso)
     first = {}
+    d = start
+    while d <= end:
+        iso = d.isoformat()
+        first.setdefault(web_id_for_date(ws, iso), iso)
+        d += dt.timedelta(days=1)
+    return first
+
+
+def build_palette_pages(paintings, schedule, ws, today):
+    # Published on the web = (a) the app schedule frozen at APP_PUBLISH_CUTOFF — the historical set the
+    # web served before the app/web schedules split, kept forever at its original date — union (b)
+    # whatever the web's own schedule has served from WEB_SCHEDULE_START up to the build date. An id
+    # already in (a) keeps its original (pre-split) date even if the web schedule also assigns it a
+    # later date somewhere (requirement: existing palette-page dates for ≤ APP_PUBLISH_CUTOFF don't move).
+    app_first = {}
     for k, v in sorted(schedule.items()):
-        first.setdefault(v, k)
-    published = []
-    for p in paintings:
-        date = first.get(p["id"])
-        if date and date <= today.isoformat():
-            published.append(dict(p, _date=date))
+        app_first.setdefault(v, k)
+    published_date = {pid: d for pid, d in app_first.items() if d <= APP_PUBLISH_CUTOFF}
+    if today.isoformat() >= WEB_SCHEDULE_START:
+        for pid, d in web_published_first_dates(ws, today.isoformat()).items():
+            published_date.setdefault(pid, d)
+    published = [dict(p, _date=published_date[p["id"]]) for p in paintings if p["id"] in published_date]
     v_css = ver(PAL_DIR / "palettes.css")
     v_js = ver(PAL_DIR / "palettes.js")
     idx_url = f"{SITE}/palette2048/palettes/"
@@ -835,13 +1093,21 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="build date YYYY-MM-DD (default: today)")
     ap.add_argument("--no-sitemap", action="store_true")
+    ap.add_argument("--make-web-schedule", action="store_true",
+                     help="one-time: generate palette2048/play/web_schedule.json and exit (no other output)")
+    ap.add_argument("--force", action="store_true",
+                     help="with --make-web-schedule, overwrite an existing web_schedule.json (reshuffles it)")
     args = ap.parse_args()
-    today = dt.date.fromisoformat(args.date) if args.date else dt.date.today()
     paintings, schedule, emitted, app_all, cutoff = load_app_data()
-    n_days = build_data(emitted, app_all, cutoff, today)
+    if args.make_web_schedule:
+        make_web_schedule(paintings, schedule, emitted, app_all, cutoff, force=args.force)
+        return
+    today = dt.date.fromisoformat(args.date) if args.date else dt.date.today()
+    ws = load_web_schedule()
+    n_days = build_data(paintings, emitted, app_all, ws, cutoff, today)
     build_play()
-    published = build_palette_pages(paintings, schedule, today)
-    print(f"daily.json: {n_days} days (cutoff {cutoff}) · all.json: {len(app_all)} rows")
+    published = build_palette_pages(paintings, schedule, ws, today)
+    print(f"daily.json: {n_days} days (cutoff {cutoff}) · all.json: {ws['meta']['period_days']} rows (web schedule)")
     print(f"play pages: {len(PLAY_LOCALES)} · palette pages: {len(published)} (+ index)")
     if not args.no_sitemap:
         subprocess.run([sys.executable, str(ROOT / "gen" / "gen_sitemap.py")], check=True)

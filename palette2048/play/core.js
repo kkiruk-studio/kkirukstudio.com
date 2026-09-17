@@ -264,6 +264,19 @@
   function keyToUTC(k) { var p = k.split("-"); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
   function daysBetween(a, b) { return Math.round((keyToUTC(b) - keyToUTC(a)) / 86400000); }
 
+  // Puzzle number for a day (daily.json's epoch is fixed regardless of which schedule — app's or
+  // web's own, see build.py — supplied that day's painting; the numbering stays one continuous count).
+  function puzzleNumber(epoch, dayKey) { return daysBetween(epoch, dayKey) + 1; }
+
+  // Fallback painting for a dayKey missing from daily.json's `days` window (device clock set past
+  // daily.json's `end`): rotate through all.json's `rows` (one full schedule period, already ordered
+  // to start the day right after `end` — see build.py#build_data), cycling forever via modulo.
+  function pickFromAll(all, dayKey) {
+    var past = daysBetween(all.end, dayKey);
+    var row = past >= 1 ? all.rows[(past - 1) % all.rows.length] : all.rows[0];
+    return unpack(row);
+  }
+
   // Light XOR+base64, same scheme/key as the app's CuratedPalette.deobf
   var OBF = "palette2048-2026-curator";
   function deobf(s) {
@@ -300,7 +313,8 @@
     SIZE: SIZE, fromHex: fromHex, toHex: toHex, fromRGB: fromRGB, deltaE: deltaE, makeTheme: makeTheme,
     hueLockedLerp: hueLockedLerp, anchorLevels: anchorLevels, nearestEmoji: nearestEmoji,
     move: move, spawn: spawn, canMove: canMove, toGrid: toGrid, fromGrid: fromGrid, maxValue: maxValue,
-    dayKey: dayKey, daysBetween: daysBetween, deobf: deobf, unpack: unpack, thumbURL: thumbURL
+    dayKey: dayKey, daysBetween: daysBetween, deobf: deobf, unpack: unpack, thumbURL: thumbURL,
+    puzzleNumber: puzzleNumber, pickFromAll: pickFromAll
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.PaletteCore = api;

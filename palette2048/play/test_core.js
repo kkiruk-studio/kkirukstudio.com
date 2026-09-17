@@ -70,6 +70,20 @@ test("daysBetween / puzzle number", () => {
   assert.strictEqual(C.daysBetween("2026-03-01", "2026-09-17") + 1, 201);
   assert.strictEqual(C.daysBetween("2027-02-28", "2027-03-01"), 1);
 });
+test("puzzleNumber matches daysBetween+1 and stays continuous across the web/app schedule split", () => {
+  assert.strictEqual(C.puzzleNumber("2026-03-01", "2026-09-17"), 201);
+  assert.strictEqual(C.puzzleNumber("2026-03-01", "2026-09-18"), 202); // first web-scheduled day
+});
+test("pickFromAll rotates through all.json's rows, wrapping forever from the day after `end`", () => {
+  const mkRow = (id) => [id, "", "", "", "000000 000000 000000 000000 000000 000000", "", "", 0, ["", "", ""]];
+  const all = { end: "2027-09-04", rows: ["a", "b", "c"].map(mkRow) };
+  assert.strictEqual(C.pickFromAll(all, "2027-09-05").id, "a"); // end+1 → rows[0]
+  assert.strictEqual(C.pickFromAll(all, "2027-09-06").id, "b"); // end+2 → rows[1]
+  assert.strictEqual(C.pickFromAll(all, "2027-09-07").id, "c"); // end+3 → rows[2]
+  assert.strictEqual(C.pickFromAll(all, "2027-09-08").id, "a"); // end+4 → wraps back to rows[0]
+  assert.strictEqual(C.pickFromAll(all, "2028-09-08").id, C.pickFromAll(all, "2027-09-08").id); // wraps forever
+  assert.strictEqual(C.pickFromAll(all, "2027-09-04").id, "a"); // dayKey === end (edge case): rows[0]
+});
 test("unpack decodes url, imageOk and per-locale flavor", () => {
   const KEY = "palette2048-2026-curator";
   const obf = (s) => Buffer.from([...Buffer.from(s, "utf8")].map((b, i) => b ^ KEY.charCodeAt(i % KEY.length))).toString("base64");

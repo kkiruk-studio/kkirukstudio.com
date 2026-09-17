@@ -48,13 +48,9 @@
   }
   function resolveToday(dayKey) {
     return getJSON("daily.json").then(function (d) {
-      var num = C.daysBetween(d.epoch, dayKey) + 1;
+      var num = C.puzzleNumber(d.epoch, dayKey);
       if (d.days[dayKey]) return { p: C.unpack(d.days[dayKey]), num: num };
-      return getJSON("all.json").then(function (a) {
-        var past = C.daysBetween(a.end, dayKey);
-        var row = past >= 1 ? a.rows[(past - 1) % a.rows.length] : a.rows[0];
-        return { p: C.unpack(row), num: num };
-      });
+      return getJSON("all.json").then(function (a) { return { p: C.pickFromAll(a, dayKey), num: num }; });
     });
   }
 
