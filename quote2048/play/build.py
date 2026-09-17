@@ -51,6 +51,15 @@ BUILD_MARK = "<!-- seo:build-owned quote2048/play/build.py -->"
 SCHEDULE_SEED = 20260918
 BOARD_IDS = ["board-dawn", "board-forest", "board-ocean", "board-ember", "board-lavender",
              "board-desert", "board-inkjade", "board-berry", "board-peacock", "board-charcoal"]
+# Quote pages (quote2048/quotes/) publish only the first quotes of each theme; the rest is app-only
+# content (2026-09-18 decision) — non-premium themes (24 topics + free author Shakespeare) show the
+# first 5 (levels 2–32), premium author packs show the first 3 (levels 2–8). Never slice past this.
+PUB_FREE = 5
+PUB_PRO = 3
+
+
+def pub_n(t):
+    return PUB_PRO if t["premium"] else PUB_FREE
 
 HERE = Path(__file__).resolve().parent            # quote2048/play
 Q2048 = HERE.parent                               # quote2048
@@ -208,7 +217,7 @@ T = {
    boardLabel="Puzzle board. Use arrow keys or swipe to move tiles. Tap a tile to read its quote.",
    done="Played today", bestQuote="Your best quote", collected="Quotes you collected",
    moreInApp="{n} more quotes up to 131072 continue in the app",
-   themePage="All 17 quotes of this theme →", close="Close", tile="Tile", crown="Crown quote",
+   themePage="This theme's quotes →", close="Close", tile="Tile", crown="Crown quote",
    cardScore="Score", locked="?"),
  how_t="How to play", how=[
    "Swipe on the board — or press the arrow keys or W A S D — to slide every tile.",
@@ -231,18 +240,19 @@ T = {
  # quote pages
  q_idx_title="Quotes by Theme and Author — 60 Collections | Quote 2048",
  q_idx_h1="Quotes by theme and author",
- q_idx_desc="60 quote collections — 24 themes such as courage, time and love, and 36 author packs from Shakespeare to Seneca — each with 17 public-domain quotes, authors and original languages.",
- q_idx_lede="Each collection holds 17 quotes, ordered from a short proverb to the crown quote. They are the tiles of Quote 2048, a 2048 puzzle where every tile is a quote.",
+ q_idx_desc="60 quote collections — 24 themes such as courage, time and love, and 36 author packs from Shakespeare to Seneca. Each one opens with its first public-domain quotes, with authors and original languages — the rest of the ladder continues in the app.",
+ q_idx_lede="Every collection opens with its first quotes, in the order they appear in Quote 2048: from a short proverb onward. The rest of the ladder — and the crown quote itself — unlocks in the app.",
  q_topics="Themes", q_authors="Author packs", q_crumb="Quotes",
- q_h1_topic="Quotes about {name} — 17 Timeless Lines", q_h1_author="{name} Quotes — 17 Timeless Lines",
- q_title_topic="{n} Quotes about {name} — Proverbs to Classics | Quote 2048",
- q_title_author="{name} Quotes — 17 Lines from the Original Works | Quote 2048",
- q_desc_topic="17 quotes about {lname} by {who}, from a short proverb to the crown quote — with authors and original languages.",
- q_desc_author="17 quotes by {who}, with original-language text where it exists — the {name} pack in Quote 2048.",
- q_lede_topic="17 quotes about {lname}, arranged the way they appear in Quote 2048: from the lightest line on the 2 tile to the crown quote on the 2048 tile, and on to 131072 in the app.",
- q_lede_author="17 quotes from {name}, arranged the way they appear in Quote 2048: from the lightest line on the 2 tile to the crown quote on the 2048 tile, and on to 131072 in the app.",
+ q_h1_topic="Quotes about {name}", q_h1_author="{name} Quotes",
+ q_title_topic="Quotes about {name} — Proverbs to Classics | Quote 2048",
+ q_title_author="{name} Quotes — Lines from the Original Works | Quote 2048",
+ q_desc_topic="The first {n} quotes about {lname} by {who}, from a short proverb onward — with authors and original languages. The rest of the ladder, up to the crown quote, continues in the app.",
+ q_desc_author="The first {n} quotes by {who}, with original-language text where it exists — the rest of the {name} pack continues in the app.",
+ q_lede_topic="The first {n} quotes about {lname}, arranged the way they appear in Quote 2048, starting from the lightest line on the 2 tile. The rest of the ladder, up to the crown quote on 2048 and on to 131072, is in the app.",
+ q_lede_author="The first {n} quotes from {name}, arranged the way they appear in Quote 2048, starting from the lightest line on the 2 tile. The rest of the ladder, up to the crown quote on 2048 and on to 131072, is in the app.",
  q_pd="All quotes come from public-domain works or traditional proverbs; attributions were checked against their sources.",
- q_orig="Original", q_copy="Copy", q_copied="Copied", q_crown="Crown quote", q_app_only="Levels 4096–131072 continue in the app.",
+ q_orig="Original", q_copy="Copy", q_copied="Copied", q_crown="Crown quote", q_locked="Locked",
+ q_app_only="The rest of this theme's ladder — up to the crown quote and on to 131072 — continues in the app.",
  q_play_h="Play these quotes as a 2048 puzzle", q_play_p="Merge matching quotes to climb this theme to its crown quote.",
  q_play_app="Play this pack in the app", q_play_web="Play today's free puzzle →",
  q_pro=" (Pro pack in the app)", q_rel="More {kind}", q_rel_topic="themes", q_rel_author="author packs",
@@ -270,7 +280,7 @@ T = {
    boardLabel="퍼즐 보드. 방향키나 스와이프로 타일을 움직이고, 타일을 탭하면 명언 전문을 볼 수 있어요.",
    done="오늘 완료", bestQuote="오늘 도달한 최고 명언", collected="모은 명언",
    moreInApp="131072까지 {n}개의 명언이 앱에서 이어져요",
-   themePage="이 테마의 명언 17개 전체 보기 →", close="닫기", tile="타일", crown="왕관 명언",
+   themePage="이 테마의 명언 보기 →", close="닫기", tile="타일", crown="왕관 명언",
    cardScore="점수", locked="?"),
  how_t="플레이 방법", how=[
    "보드를 스와이프하거나 방향키·W A S D 로 모든 타일을 한쪽으로 밉니다.",
@@ -292,18 +302,19 @@ T = {
  side_how=["방향키나 W A S D로 모든 타일을 밀어요.", "같은 명언 두 개가 만나면 다음 명언으로 합쳐져요.", "타일을 클릭하면 명언 전문을 볼 수 있어요.", "2048에 닿으면 테마의 왕관 명언이에요."], qr_cap="iPhone 카메라로 스캔해 설치",
  q_idx_title="주제별·작가별 명언 모음 60선 | 명언 2048",
  q_idx_h1="주제별·작가별 명언 모음",
- q_idx_desc="용기·시간·사랑 같은 주제 24개와 셰익스피어부터 세네카까지 작가 팩 36개, 모두 60개의 명언 모음. 모음마다 퍼블릭 도메인 명언 17개와 저자·원문을 함께 실었습니다.",
- q_idx_lede="모음마다 명언 17개를 짧은 속담부터 왕관 명언 순으로 담았습니다. 타일마다 명언이 적힌 2048 퍼즐, 명언 2048의 타일 그대로입니다.",
+ q_idx_desc="용기·시간·사랑 같은 주제 24개와 셰익스피어부터 세네카까지 작가 팩 36개, 모두 60개의 명언 모음. 모음마다 앞쪽 퍼블릭 도메인 명언을 저자·원문과 함께 소개하고, 나머지는 앱에서 이어집니다.",
+ q_idx_lede="모음마다 명언 2048에 나오는 순서대로 앞쪽 명언을 담았습니다. 짧은 속담에서 시작해 왕관 명언으로 이어지는 나머지와 왕관 명언 자체는 앱에서 만나보세요.",
  q_topics="주제", q_authors="작가 팩", q_crumb="명언 모음",
- q_h1_topic="{name}에 관한 명언 17선", q_h1_author="{name} 명언 17선",
- q_title_topic="{name}에 관한 명언 17선 — 속담부터 고전까지 | 명언 2048",
- q_title_author="{name} 명언 17선 — 원전에서 가려 뽑은 문장 | 명언 2048",
- q_desc_topic="{who}의 {name}에 관한 명언 17개. 짧은 속담부터 왕관 명언까지 저자와 원문을 함께 소개합니다.",
- q_desc_author="{who}의 명언 17개를 원문과 함께 모았습니다. 명언 2048의 「{name}」 팩 수록 문장.",
- q_lede_topic="{name}에 관한 명언 17개를 명언 2048에 나오는 순서대로 모았습니다. 2 타일의 가벼운 문장에서 2048 타일의 왕관 명언까지, 그리고 앱에서는 131072까지 이어집니다.",
- q_lede_author="{name}의 명언 17개를 명언 2048에 나오는 순서대로 모았습니다. 2 타일의 가벼운 문장에서 2048 타일의 왕관 명언까지, 그리고 앱에서는 131072까지 이어집니다.",
+ q_h1_topic="{name}에 관한 명언", q_h1_author="{name} 명언",
+ q_title_topic="{name}에 관한 명언 — 속담부터 고전까지 | 명언 2048",
+ q_title_author="{name} 명언 — 원전에서 가려 뽑은 문장 | 명언 2048",
+ q_desc_topic="{who}의 {name}에 관한 명언 중 앞 {n}개. 짧은 속담부터 시작해 저자·원문과 함께 소개하며, 왕관 명언까지 이어지는 나머지는 앱에서 모아 보세요.",
+ q_desc_author="{who}의 명언 중 앞 {n}개를 원문과 함께 소개합니다. 명언 2048의 「{name}」 팩, 나머지는 앱에서 이어집니다.",
+ q_lede_topic="{name}에 관한 명언 중 앞 {n}개를 명언 2048에 나오는 순서대로 담았습니다. 2 타일의 가벼운 문장부터 시작하며, 왕관 명언(2048)과 131072까지 이어지는 나머지는 앱에서 만나보세요.",
+ q_lede_author="{name}의 명언 중 앞 {n}개를 명언 2048에 나오는 순서대로 담았습니다. 2 타일의 가벼운 문장부터 시작하며, 왕관 명언(2048)과 131072까지 이어지는 나머지는 앱에서 만나보세요.",
  q_pd="모든 명언은 퍼블릭 도메인 저작물이나 전해 내려오는 속담에서 가져왔고, 저자 표기는 원전과 대조해 확인했습니다.",
- q_orig="원문", q_copy="복사", q_copied="복사됨", q_crown="왕관 명언", q_app_only="4096~131072 단계는 앱에서 이어집니다.",
+ q_orig="원문", q_copy="복사", q_copied="복사됨", q_crown="왕관 명언", q_locked="잠김",
+ q_app_only="이 테마의 나머지 명언은 왕관 명언(2048)과 131072까지 앱에서 이어집니다.",
  q_play_h="이 명언들로 2048 하기", q_play_p="같은 명언을 합쳐 이 테마의 왕관 명언까지 올라가 보세요.",
  q_play_app="앱에서 이 팩 플레이", q_play_web="오늘의 무료 퍼즐 하기 →",
  q_pro=" (앱에선 Pro 팩)", q_rel="다른 {kind}", q_rel_topic="주제", q_rel_author="작가 팩",
@@ -331,7 +342,7 @@ T = {
    boardLabel="パズルボード。矢印キーかスワイプでタイルを動かします。タイルをタップすると名言の全文が見られます。",
    done="今日はプレイ済み", bestQuote="今日たどり着いた最高の名言", collected="集めた名言",
    moreInApp="131072まであと{n}の名言がアプリで続きます",
-   themePage="このテーマの名言17を見る →", close="閉じる", tile="タイル", crown="王冠の名言",
+   themePage="このテーマの名言を見る →", close="閉じる", tile="タイル", crown="王冠の名言",
    cardScore="スコア", locked="?"),
  how_t="遊び方", how=[
    "ボードをスワイプ、または矢印キー・W A S D で、すべてのタイルを滑らせます。",
@@ -353,18 +364,19 @@ T = {
  side_how=["矢印キーか W A S D で全タイルを動かします。", "同じ名言が2つぶつかると、次の名言に変わります。", "タイルをクリックすると名言の全文が読めます。", "2048でテーマの王冠の名言に到達。"], qr_cap="iPhoneのカメラでスキャンしてインストール",
  q_idx_title="テーマ別・作家別 名言集60 | 名言2048",
  q_idx_h1="テーマ別・作家別の名言集",
- q_idx_desc="勇気・時間・愛など24のテーマと、シェイクスピアからセネカまで36の作家パック、計60の名言集。それぞれにパブリックドメインの名言17と発言者・原文を収録。",
- q_idx_lede="どの名言集も、短いことわざから王冠の名言まで17の言葉を順に並べています。タイルがすべて名言の2048パズル「名言2048」のタイルそのままです。",
+ q_idx_desc="勇気・時間・愛など24のテーマと、シェイクスピアからセネカまで36の作家パック、計60の名言集。それぞれ最初の名言をパブリックドメインの原文・発言者とともに紹介し、続きはアプリで。",
+ q_idx_lede="どの名言集も、名言2048に登場する順に最初の名言を並べています。短いことわざから王冠の名言へ続く残りと、王冠そのものはアプリで。",
  q_topics="テーマ", q_authors="作家パック", q_crumb="名言集",
- q_h1_topic="「{name}」の名言17選", q_h1_author="{name}の名言17選",
- q_title_topic="「{name}」の名言17選 — ことわざから古典まで | 名言2048",
- q_title_author="{name}の名言17選 — 原典から選んだ言葉 | 名言2048",
- q_desc_topic="{who}による「{name}」の名言17。短いことわざから王冠の名言まで、発言者と原文を添えて紹介します。",
- q_desc_author="{who}の名言17を原文とともに。名言2048の「{name}」パック収録。",
- q_lede_topic="「{name}」の名言17を、名言2048に登場する順に並べました。2のタイルの軽い言葉から2048のタイルの王冠の名言まで。アプリでは131072まで続きます。",
- q_lede_author="{name}の名言17を、名言2048に登場する順に並べました。2のタイルの軽い言葉から2048のタイルの王冠の名言まで。アプリでは131072まで続きます。",
+ q_h1_topic="「{name}」の名言", q_h1_author="{name}の名言",
+ q_title_topic="「{name}」の名言 — ことわざから古典まで | 名言2048",
+ q_title_author="{name}の名言 — 原典から選んだ言葉 | 名言2048",
+ q_desc_topic="{who}による「{name}」の名言のうち最初の{n}。短いことわざから始まり、発言者と原文を添えて紹介します。王冠の名言まで続く残りはアプリで。",
+ q_desc_author="{who}の名言のうち最初の{n}を原文とともに。名言2048の「{name}」パック、続きはアプリで。",
+ q_lede_topic="「{name}」の名言のうち最初の{n}を、名言2048に登場する順に並べました。2のタイルの軽い言葉から始まり、王冠の名言（2048）から131072まで続く残りはアプリで。",
+ q_lede_author="{name}の名言のうち最初の{n}を、名言2048に登場する順に並べました。2のタイルの軽い言葉から始まり、王冠の名言（2048）から131072まで続く残りはアプリで。",
  q_pd="すべての名言はパブリックドメインの著作または伝承のことわざから採り、発言者は原典と照合して確認しています。",
- q_orig="原文", q_copy="コピー", q_copied="コピー済み", q_crown="王冠の名言", q_app_only="4096〜131072の段階はアプリで続きます。",
+ q_orig="原文", q_copy="コピー", q_copied="コピー済み", q_crown="王冠の名言", q_locked="ロック",
+ q_app_only="このテーマの続きは、王冠の名言（2048）から131072まで、アプリで。",
  q_play_h="この名言で2048を遊ぶ", q_play_p="同じ名言を合わせて、このテーマの王冠の名言を目指そう。",
  q_play_app="アプリでこのパックを遊ぶ", q_play_web="今日の無料パズルへ →",
  q_pro="（アプリではPro）", q_rel="ほかの{kind}", q_rel_topic="テーマ", q_rel_author="作家パック",
@@ -392,7 +404,7 @@ T = {
    boardLabel="谜题棋盘。使用方向键或滑动移动方块，点按方块可查看名言全文。",
    done="今日已完成", bestQuote="今天抵达的最高名言", collected="收集到的名言",
    moreInApp="还有{n}句名言在应用中延续到131072",
-   themePage="查看本主题全部17句名言 →", close="关闭", tile="方块", crown="王冠名言",
+   themePage="查看本主题的名言 →", close="关闭", tile="方块", crown="王冠名言",
    cardScore="分数", locked="?"),
  how_t="玩法", how=[
    "在棋盘上滑动，或按方向键、W A S D，让所有方块朝一个方向移动。",
@@ -414,18 +426,19 @@ T = {
  side_how=["用方向键或 W A S D 滑动所有方块。", "两个相同的名言会合并成下一句更深的名言。", "点击方块可阅读完整名言。", "合成 2048 即得主题的王冠名言。"], qr_cap="用 iPhone 相机扫描即可安装",
  q_idx_title="按主题与作家分类的名言合集60组 | 名言2048",
  q_idx_h1="按主题与作家分类的名言合集",
- q_idx_desc="60组名言合集：勇气、时间、爱等24个主题，以及从莎士比亚到塞涅卡的36个作家合集，每组收录17句公有领域名言，附作者与原文。",
- q_idx_lede="每组合集收录17句名言，从简短的谚语排到王冠名言，正是名言2048——每个方块都是一句名言的2048游戏——中的方块。",
+ q_idx_desc="60组名言合集：勇气、时间、爱等24个主题，以及从莎士比亚到塞涅卡的36个作家合集。每组都以最初的公有领域名言开篇，附作者与原文，其余部分在应用中继续。",
+ q_idx_lede="每组合集按名言2048中出现的顺序，收录最初的几句名言，从简短谚语开始。通往王冠名言的其余部分，以及王冠名言本身，在应用中揭晓。",
  q_topics="主题", q_authors="作家合集", q_crumb="名言合集",
- q_h1_topic="关于{name}的名言17句", q_h1_author="{name}名言17句",
- q_title_topic="关于{name}的名言17句 — 从谚语到经典 | 名言2048",
- q_title_author="{name}名言17句 — 选自原典 | 名言2048",
- q_desc_topic="{who}等人关于{name}的名言17句，从简短谚语到王冠名言，附作者与原文。",
- q_desc_author="{who}的名言17句，附原文。收录于名言2048的「{name}」合集。",
- q_lede_topic="按名言2048中出现的顺序，收录关于{name}的名言17句：从2方块的轻巧句子，到2048方块的王冠名言，应用中还会延续到131072。",
- q_lede_author="按名言2048中出现的顺序，收录{name}的名言17句：从2方块的轻巧句子，到2048方块的王冠名言，应用中还会延续到131072。",
+ q_h1_topic="关于{name}的名言", q_h1_author="{name}名言",
+ q_title_topic="关于{name}的名言 — 从谚语到经典 | 名言2048",
+ q_title_author="{name}名言 — 选自原典 | 名言2048",
+ q_desc_topic="{who}等人关于{name}的名言中的前{n}句，从简短谚语开始，附作者与原文——通往王冠名言的其余部分在应用中继续。",
+ q_desc_author="{who}的名言中的前{n}句，附原文。名言2048的「{name}」合集，其余部分在应用中继续。",
+ q_lede_topic="按名言2048中出现的顺序，收录关于{name}的前{n}句名言：从2方块的轻巧句子开始。通往王冠名言（2048）乃至131072的其余部分，在应用中继续。",
+ q_lede_author="按名言2048中出现的顺序，收录{name}的前{n}句名言：从2方块的轻巧句子开始。通往王冠名言（2048）乃至131072的其余部分，在应用中继续。",
  q_pd="所有名言均出自公有领域作品或流传的谚语，作者署名已对照原典核实。",
- q_orig="原文", q_copy="复制", q_copied="已复制", q_crown="王冠名言", q_app_only="4096至131072级在应用中延续。",
+ q_orig="原文", q_copy="复制", q_copied="已复制", q_crown="王冠名言", q_locked="未解锁",
+ q_app_only="这个主题剩余的名言——直到王冠名言（2048）乃至131072——在应用中继续。",
  q_play_h="用这些名言玩2048", q_play_p="合并相同的名言，登上这个主题的王冠名言。",
  q_play_app="在应用中玩这个合集", q_play_web="玩今天的免费谜题 →",
  q_pro="（应用内为 Pro）", q_rel="更多{kind}", q_rel_topic="主题", q_rel_author="作家合集",
@@ -453,7 +466,7 @@ T = {
    boardLabel="謎題棋盤。使用方向鍵或滑動移動方塊，點按方塊可查看名言全文。",
    done="今日已完成", bestQuote="今天抵達的最高名言", collected="收集到的名言",
    moreInApp="還有{n}句名言在 App 中延續到 131072",
-   themePage="查看本主題全部17句名言 →", close="關閉", tile="方塊", crown="王冠名言",
+   themePage="查看本主題的名言 →", close="關閉", tile="方塊", crown="王冠名言",
    cardScore="分數", locked="?"),
  how_t="玩法", how=[
    "在棋盤上滑動，或按方向鍵、W A S D，讓所有方塊朝一個方向移動。",
@@ -475,18 +488,19 @@ T = {
  side_how=["用方向鍵或 W A S D 滑動所有方塊。", "兩個相同的名言會合併成下一句更深的名言。", "點擊方塊可閱讀完整名言。", "合成 2048 即得主題的王冠名言。"], qr_cap="用 iPhone 相機掃描即可安裝",
  q_idx_title="依主題與作家分類的名言合集60組 | 名言2048",
  q_idx_h1="依主題與作家分類的名言合集",
- q_idx_desc="60組名言合集：勇氣、時間、愛等24個主題，以及從莎士比亞到塞內卡的36個作家合集，每組收錄17句公有領域名言，附作者與原文。",
- q_idx_lede="每組合集收錄17句名言，從簡短的諺語排到王冠名言，正是名言2048——每個方塊都是一句名言的2048遊戲——中的方塊。",
+ q_idx_desc="60組名言合集：勇氣、時間、愛等24個主題，以及從莎士比亞到塞內卡的36個作家合集。每組都以最初的公有領域名言開篇，附作者與原文，其餘部分在 App 中繼續。",
+ q_idx_lede="每組合集按名言2048中出現的順序，收錄最初的幾句名言，從簡短諺語開始。通往王冠名言的其餘部分，以及王冠名言本身，在 App 中揭曉。",
  q_topics="主題", q_authors="作家合集", q_crumb="名言合集",
- q_h1_topic="關於{name}的名言17句", q_h1_author="{name}名言17句",
- q_title_topic="關於{name}的名言17句 — 從諺語到經典 | 名言2048",
- q_title_author="{name}名言17句 — 選自原典 | 名言2048",
- q_desc_topic="{who}等人關於{name}的名言17句，從簡短諺語到王冠名言，附作者與原文。",
- q_desc_author="{who}的名言17句，附原文。收錄於名言2048的「{name}」合集。",
- q_lede_topic="按名言2048中出現的順序，收錄關於{name}的名言17句：從2方塊的輕巧句子，到2048方塊的王冠名言，App 中還會延續到131072。",
- q_lede_author="按名言2048中出現的順序，收錄{name}的名言17句：從2方塊的輕巧句子，到2048方塊的王冠名言，App 中還會延續到131072。",
+ q_h1_topic="關於{name}的名言", q_h1_author="{name}名言",
+ q_title_topic="關於{name}的名言 — 從諺語到經典 | 名言2048",
+ q_title_author="{name}名言 — 選自原典 | 名言2048",
+ q_desc_topic="{who}等人關於{name}的名言中的前{n}句，從簡短諺語開始，附作者與原文——通往王冠名言的其餘部分在 App 中繼續。",
+ q_desc_author="{who}的名言中的前{n}句，附原文。名言2048的「{name}」合集，其餘部分在 App 中繼續。",
+ q_lede_topic="按名言2048中出現的順序，收錄關於{name}的前{n}句名言：從2方塊的輕巧句子開始。通往王冠名言（2048）乃至131072的其餘部分，在 App 中繼續。",
+ q_lede_author="按名言2048中出現的順序，收錄{name}的前{n}句名言：從2方塊的輕巧句子開始。通往王冠名言（2048）乃至131072的其餘部分，在 App 中繼續。",
  q_pd="所有名言均出自公有領域作品或流傳的諺語，作者署名已對照原典核實。",
- q_orig="原文", q_copy="複製", q_copied="已複製", q_crown="王冠名言", q_app_only="4096至131072級在 App 中延續。",
+ q_orig="原文", q_copy="複製", q_copied="已複製", q_crown="王冠名言", q_locked="未解鎖",
+ q_app_only="這個主題剩餘的名言——直到王冠名言（2048）乃至131072——在 App 中繼續。",
  q_play_h="用這些名言玩2048", q_play_p="合併相同的名言，登上這個主題的王冠名言。",
  q_play_app="在 App 中玩這個合集", q_play_web="玩今天的免費謎題 →",
  q_pro="（App 內為 Pro）", q_rel="更多{kind}", q_rel_topic="主題", q_rel_author="作家合集",
@@ -776,10 +790,14 @@ def lname(t, code):
     return n.lower() if code == "en" else n
 
 
-def who_for(t, code):
-    """Distinct real authors in the theme (proverbs/works excluded), most-quoted first."""
+def who_for(quotes, code):
+    """Distinct real authors among the given (public) quotes only (proverbs/works excluded), most-quoted first.
+
+    Callers must pass only public quotes — an author name is attribution text, and attribution of a
+    locked quote must not appear on the page any more than its body would.
+    """
     seen = {}
-    for q in t["quotes"]:
+    for q in quotes:
         if q["author_en"] in NOT_PERSON or q["author_en"] in WORKS:
             continue
         a = qauthor(q, code)
@@ -900,12 +918,14 @@ def build_quote_pages(themes):
             name = tname(t, code)
             h1 = h1_for(t, code)
             topic = t["kind"] == "topic"
-            who = who_for(t, code)
-            title = (d["q_title_topic"] if topic else d["q_title_author"]).format(name=name, n=17)
-            desc = (d["q_desc_topic"] if topic else d["q_desc_author"]).format(name=name, lname=lname(t, code), who=who)
-            lede = (d["q_lede_topic"] if topic else d["q_lede_author"]).format(name=name, lname=lname(t, code))
+            n_pub = pub_n(t)
+            pub_quotes = t["quotes"][:n_pub]
+            who = who_for(pub_quotes, code)
+            title = (d["q_title_topic"] if topic else d["q_title_author"]).format(name=name, n=n_pub)
+            desc = (d["q_desc_topic"] if topic else d["q_desc_author"]).format(name=name, lname=lname(t, code), who=who, n=n_pub)
+            lede = (d["q_lede_topic"] if topic else d["q_lede_author"]).format(name=name, lname=lname(t, code), n=n_pub)
             items = []
-            for i, q in enumerate(t["quotes"]):
+            for i, q in enumerate(pub_quotes):
                 lv = 2 ** (i + 1)
                 text, author = qtext(q, code), qauthor(q, code)
                 orig = original_for(q, code)
@@ -915,27 +935,39 @@ def build_quote_pages(themes):
                     label = d["langs"].get(lang, d["q_orig"]) if lang else d["q_orig"]
                     orig_html = (f'<p class="orig"><span>{escape(d["q_orig"])} · {escape(label)}</span>'
                                  f'<q lang="{escape(lang or "")}">{escape(orig)}</q></p>')
-                cls = "crown" if lv == 2048 else ("app" if lv > 2048 else "")
-                badge = f'<span class="lv">{lv}</span>' + (f'<span class="crown-tag">👑 {escape(d["q_crown"])}</span>' if lv == 2048 else "")
+                badge = f'<span class="lv">{lv}</span>'
                 copy = (f"「{text}」 — {author}" if code in ("ja", "zh-hant") else f"“{text}” — {author}")
                 items.append(
-                    f'<li class="{cls}" id="q{lv}"><div class="meta">{badge}</div>'
+                    f'<li id="q{lv}"><div class="meta">{badge}</div>'
                     f'<blockquote><p>{escape(text)}</p></blockquote>'
                     f'<p class="by">— {escape(author)}</p>{orig_html}'
                     f'<button type="button" class="copy" data-copy="{escape(copy)}">{escape(d["q_copy"])}</button></li>')
-                if lv == 2048:
-                    items.append(f'<li class="note">{escape(d["q_app_only"])}</li>')
+            # Locked ladder — level numbers only, never the locked quote's text/author/original. The
+            # crown (2048) chip is kept visually prominent to draw curiosity toward the app.
+            lock_chips = []
+            for i in range(n_pub, len(t["quotes"])):
+                lv = 2 ** (i + 1)
+                is_crown = lv == 2048
+                glyph = "👑" if is_crown else "🔒"
+                lock_chips.append(
+                    f'<li class="lock{" crown" if is_crown else ""}"><span class="lv">{lv}</span>'
+                    f'<span class="glyph" aria-hidden="true">{glyph}</span>'
+                    f'<span class="sr">{escape(d["q_locked"])}</span></li>')
+            locked_html = (
+                f'<div class="locked"><ul class="lock-grid">{"".join(lock_chips)}</ul>'
+                f'<p class="locked-note">{escape(d["q_app_only"])}</p>'
+                f'<a class="btn store sm" href="{escape(app_url(CT_QUOTES))}" data-cta="quotes_locked" target="_blank" rel="noopener">{APPLE_SVG}{escape(d["q_play_app"])}</a></div>')
             rel_items = "".join(
                 f'<li><a href="{rel(theme_url(x["id"], code))}">{escape(tname(x, code))}'
-                f'<small>{escape(qauthor(x["quotes"][10], code))}</small></a></li>' for x in related(t, themes))
+                f'<small>{escape(qauthor(x["quotes"][0], code))}</small></a></li>' for x in related(t, themes))
             rel_kind = d["q_rel_topic"] if topic else d["q_rel_author"]
             pro = d["q_pro"] if t["premium"] else ""
             coll = {"@type": "CollectionPage", "@id": url + "#page", "url": url, "name": h1, "description": desc,
                     "inLanguage": LOC[code]["hl"], "isPartOf": {"@id": WEBSITE["@id"]},
                     "publisher": {"@id": ORG["@id"]}, "about": {"@id": APP_NODE["@id"]},
-                    "mainEntity": {"@type": "ItemList", "numberOfItems": 17, "itemListOrder": "https://schema.org/ItemListOrderAscending",
+                    "mainEntity": {"@type": "ItemList", "numberOfItems": n_pub, "itemListOrder": "https://schema.org/ItemListOrderAscending",
                                    "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": quotation_node(q, code)}
-                                                       for i, q in enumerate(t["quotes"])]}}
+                                                       for i, q in enumerate(pub_quotes)]}}
             bc = crumbs([("kkiruk studio", SITE + "/"), (d["brand"], SITE + LANDING[code]),
                          (d["q_crumb"], idx_url(code)), (name, url)])
             jsonld = ld({"@context": "https://schema.org", "@graph": [ORG, WEBSITE, APP_NODE, coll, bc]})
@@ -946,6 +978,7 @@ def build_quote_pages(themes):
 <p class="lede">{escape(lede)}</p>
 <p class="pd">{escape(d['q_pd'])}</p>
 <ol class="quotes">{''.join(items)}</ol>
+{locked_html}
 <section class="cta">
 <h2>{escape(d['q_play_h'])}</h2>
 <p>{escape(d['q_play_p'])}</p>
@@ -967,7 +1000,7 @@ def build_quote_pages(themes):
         def block(kind, label):
             li = "".join(
                 f'<li><a href="{rel(theme_url(x["id"], code))}">{escape(tname(x, code))}'
-                f'<small>{escape(qtext(x["quotes"][10], code))}</small></a></li>'
+                f'<small>{escape(qtext(x["quotes"][0], code))}</small></a></li>'
                 for x in themes if x["kind"] == kind)
             return f'<section><h2 id="{kind}">{escape(label)}</h2><ul class="grid idx">{li}</ul></section>'
         url = idx_url(code)
