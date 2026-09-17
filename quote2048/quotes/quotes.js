@@ -18,6 +18,8 @@
   document.addEventListener("click", function (e) {
     var cta = e.target.closest && e.target.closest("[data-cta]");
     if (cta) track("app_cta_click", { placement: cta.getAttribute("data-cta") });
+    var x = e.target.closest && e.target.closest("[data-xpromo]");
+    if (x) track("cross_promo_click", { placement: x.getAttribute("data-xpromo"), target: x.getAttribute("data-xtarget") });
     var b = e.target.closest && e.target.closest("button.copy");
     if (!b) return;
     var text = b.getAttribute("data-copy"), label = b.textContent;

@@ -523,6 +523,8 @@
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("[data-cta]");
     if (a) track("app_cta_click", { placement: a.getAttribute("data-cta") });
+    var x = e.target.closest && e.target.closest("[data-xpromo]");
+    if (x) track("cross_promo_click", { placement: x.getAttribute("data-xpromo"), target: x.getAttribute("data-xtarget") });
   });
 
   var api = window.QuotePlay = { shareText: function () { return shareText(); }, imageReady: false,

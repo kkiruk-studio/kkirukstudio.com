@@ -541,6 +541,11 @@ def build_data(paintings, emitted, app_all, ws, cutoff, today):
 # ─── Play page (en / ko / ja) ────────────────────────────────────────────────
 PLAY_LOCALES = [("en", "", "English"), ("ko", "ko/", "한국어"), ("ja", "ja/", "日本語")]
 LANDING = {"en": "/palette2048/", "ko": "/palette2048/ko.html", "ja": "/palette2048/ja.html"}
+QUOTE_SUB = {"en": "", "ko": "ko/", "ja": "ja/"}   # cross-promo: same-locale Quote 2048 play page
+
+
+def quote_play_url(code):
+    return "/quote2048/play/" + QUOTE_SUB[code]
 
 T = {
 "en": dict(
@@ -573,7 +578,10 @@ T = {
    ("What does the app add?", "The app has its own separate daily puzzle — a different masterpiece from the web version, so you get two paintings a day. It also adds the archive of past masterpieces, 3×3 and 5×5 boards, unlimited replays, one-step undo and the Saturday mystery quiz, where you guess the painting from its colors."),
  ],
  more_t="Explore", more_pal="Browse painting color palettes", more_land="About the Palette 2048 app",
- foot_c="Contact", foot_p="Privacy", foot_t="Terms"),
+ more_x="Quote 2048 — today's quote puzzle",
+ foot_c="Contact", foot_p="Privacy", foot_t="Terms",
+ xk="Another daily puzzle", xname="Quote 2048", xdesc="Merge today's theme quotes up to the crown quote",
+ xcta="Play today's puzzle →"),
 "ko": dict(
  brand="팔레트 2048",
  title="팔레트 2048 데일리 — 명화 색으로 푸는 무료 컬러 퍼즐 (색깔 2048)",
@@ -604,7 +612,10 @@ T = {
    ("앱에서는 무엇을 더 할 수 있나요?", "앱에는 웹과는 다른, 앱만의 데일리 퍼즐이 따로 있어서 하루에 두 점의 명화를 즐길 수 있어요. 그 외에도 지난 명화 아카이브, 3×3·5×5 보드, 무제한 플레이, 한 수 되돌리기, 색만 보고 작품을 맞히는 토요일 미스터리 퀴즈를 즐길 수 있습니다."),
  ],
  more_t="더 둘러보기", more_pal="명화 컬러 팔레트 모음 (영문)", more_land="팔레트 2048 앱 소개",
- foot_c="문의", foot_p="개인정보", foot_t="약관"),
+ more_x="명언 2048 — 오늘의 명언 퍼즐",
+ foot_c="문의", foot_p="개인정보", foot_t="약관",
+ xk="다른 데일리 퍼즐도 있어요", xname="명언 2048", xdesc="오늘의 테마 명언을 합쳐 왕관 명언까지",
+ xcta="오늘의 퍼즐 하기 →"),
 "ja": dict(
  brand="パレット2048",
  title="パレット2048デイリー — 名画の色で遊ぶ無料カラーパズル（色の2048）",
@@ -635,7 +646,10 @@ T = {
    ("アプリでは何ができますか？", "アプリにはWeb版とは別の、アプリ専用の日替わりパズルがあり、1日2点の名画を楽しめます。ほかにも過去の名画アーカイブ、3×3・5×5 ボード、無制限プレイ、1手戻し、色だけで作品を当てる土曜日のミステリークイズが楽しめます。"),
  ],
  more_t="もっと見る", more_pal="名画のカラーパレット集（英語）", more_land="パレット2048アプリについて",
- foot_c="お問い合わせ", foot_p="プライバシー", foot_t="規約"),
+ more_x="名言2048 — 今日の名言パズル",
+ foot_c="お問い合わせ", foot_p="プライバシー", foot_t="規約",
+ xk="別の日替わりパズルも", xname="名言2048", xdesc="今日のテーマの名言を合わせて王冠の名言まで",
+ xcta="今日のパズルへ →"),
 }
 
 
@@ -753,6 +767,13 @@ PLAY_TMPL = """<!DOCTYPE html>
       <p>{app_line}</p>
       <a class="btn store" href="{app_url}" data-cta="result" target="_blank" rel="noopener">{apple}{app_btn}</a>
     </div>
+    <div class="x-promo">
+      <p class="x-kicker">{xk}</p>
+      <a class="x-card" href="{quote_url}" data-xpromo="result" data-xtarget="quote">
+        <img src="/quote2048/assets/icon-180.png" alt="" width="28" height="28">
+        <span class="x-body"><b class="x-name">{xname}</b><i class="x-desc">{xdesc}</i><em class="x-cta">{xcta}</em></span>
+      </a>
+    </div>
     <p class="r-next">{next} <b id="countdown">--:--:--</b></p>
   </section>
   <noscript><p class="hint">{noscript}</p></noscript>
@@ -771,6 +792,7 @@ PLAY_TMPL = """<!DOCTYPE html>
     <h2>{more_t}</h2>
     <ul class="more">
       <li><a href="/palette2048/palettes/">{more_pal}</a></li>
+      <li><a href="{quote_url}" data-xpromo="explore" data-xtarget="quote">{more_x}</a></li>
       <li><a href="{landing}">{more_land}</a></li>
       <li><a href="{app_url}" data-cta="info" target="_blank" rel="noopener">{app_name} — App Store</a></li>
     </ul>
@@ -816,7 +838,8 @@ def build_play():
             how="".join(f"<li>{escape(s)}</li>" for s in d["how"]),
             faq="".join(f"<details><summary><h3>{escape(q)}</h3></summary><p>{escape(a)}</p></details>"
                         for q, a in d["faq"]),
-            more_pal=d["more_pal"], more_land=d["more_land"], app_name=APP_NAME,
+            more_pal=d["more_pal"], more_land=d["more_land"], more_x=d["more_x"], app_name=APP_NAME,
+            quote_url=quote_play_url(code), xk=d["xk"], xname=d["xname"], xdesc=d["xdesc"], xcta=d["xcta"],
             foot_c=d["foot_c"], foot_p=d["foot_p"], foot_t=d["foot_t"], langs=langs,
             ui=json.dumps(ui, ensure_ascii=False).replace("</", "<\\/"), **versions)
         save(HERE / sub / "index.html", html)
@@ -906,7 +929,7 @@ PAL_HEAD = """<!DOCTYPE html>
 PAL_FOOT = """</main>
 <footer class="foot">
   <a href="/">© kkiruk studio</a>
-  <nav><a href="/palette2048/">Palette 2048 app</a><a href="/palette2048/play/">Daily puzzle</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav>
+  <nav><a href="/palette2048/">Palette 2048 app</a><a href="/palette2048/play/">Daily puzzle</a><a href="/quote2048/play/" data-xpromo="footer" data-xtarget="quote">Quote 2048</a><a href="/legal/privacy/">Privacy</a><a href="/legal/terms/">Terms</a></nav>
 </footer>
 {script}</body>
 </html>

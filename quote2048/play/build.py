@@ -64,6 +64,12 @@ LOCALES = [("en", "", "en", "en", "en_US", "English"),
            ("zh-hans", "zh-hans/", "zh_hans", "zh-Hans", "zh_CN", "简体中文"),
            ("zh-hant", "zh-hant/", "zh_hant", "zh-Hant", "zh_TW", "繁體中文")]
 LOC = {c: dict(sub=s, key=k, hl=h, og=o, label=l) for c, s, k, h, o, l in LOCALES}
+# cross-promo: same-locale Palette 2048 play page; Palette has no zh UI, so zh-hans/zh-hant fall back to en.
+PALETTE_SUB = {"en": "", "ko": "ko/", "ja": "ja/", "zh-hans": "", "zh-hant": ""}
+
+
+def palette_play_url(code):
+    return "/palette2048/play/" + PALETTE_SUB[code]
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
@@ -215,7 +221,10 @@ T = {
    ("What does the app add?", "The app lets you play any of the 60 themes whenever you like, including 36 author packs, and continue past 2048 up to 131072 — 17 quotes per theme. It also keeps a collection of the quotes you reach and lets you build your own quote pack."),
  ],
  more_t="Explore quotes", more_idx="All quote themes & author packs", more_land="About the Quote 2048 app",
+ more_x="Palette 2048 — today's art color puzzle",
  foot_c="Contact", foot_p="Privacy", foot_t="Terms",
+ xk="Another daily puzzle", xname="Palette 2048", xdesc="Today's masterpiece colors, playable as a 2048 puzzle",
+ xcta="Play today's puzzle →", x_foot="Palette 2048",
  # quote pages
  q_idx_title="Quotes by Theme and Author — 60 Collections | Quote 2048",
  q_idx_h1="Quotes by theme and author",
@@ -273,7 +282,10 @@ T = {
    ("앱에서는 무엇을 더 할 수 있나요?", "앱에서는 작가 팩 36개를 포함한 60개 테마를 언제든 골라 플레이하고, 2048 이후 131072까지 테마마다 17개의 명언을 모을 수 있습니다. 도달한 명언은 도감에 남고, 나만의 명언 팩도 만들 수 있어요."),
  ],
  more_t="명언 둘러보기", more_idx="주제별·작가별 명언 모음 전체", more_land="명언 2048 앱 소개",
+ more_x="팔레트 2048 — 오늘의 명화 컬러 퍼즐",
  foot_c="문의", foot_p="개인정보", foot_t="약관",
+ xk="다른 데일리 퍼즐도 있어요", xname="팔레트 2048", xdesc="오늘의 명화 색으로 하는 2048",
+ xcta="오늘의 퍼즐 하기 →", x_foot="팔레트 2048",
  q_idx_title="주제별·작가별 명언 모음 60선 | 명언 2048",
  q_idx_h1="주제별·작가별 명언 모음",
  q_idx_desc="용기·시간·사랑 같은 주제 24개와 셰익스피어부터 세네카까지 작가 팩 36개, 모두 60개의 명언 모음. 모음마다 퍼블릭 도메인 명언 17개와 저자·원문을 함께 실었습니다.",
@@ -330,7 +342,10 @@ T = {
    ("アプリでは何ができますか？", "アプリでは作家パック36を含む60テーマをいつでも選んで遊べ、2048の先の131072まで、テーマごとに17の名言を集められます。たどり着いた名言はコレクションに残り、自分だけの名言パックも作れます。"),
  ],
  more_t="名言を探す", more_idx="テーマ別・作家別の名言集", more_land="名言2048アプリについて",
+ more_x="パレット2048 — 今日の名画カラーパズル",
  foot_c="お問い合わせ", foot_p="プライバシー", foot_t="規約",
+ xk="別の日替わりパズルも", xname="パレット2048", xdesc="今日の名画の色で遊ぶ2048",
+ xcta="今日のパズルへ →", x_foot="パレット2048",
  q_idx_title="テーマ別・作家別 名言集60 | 名言2048",
  q_idx_h1="テーマ別・作家別の名言集",
  q_idx_desc="勇気・時間・愛など24のテーマと、シェイクスピアからセネカまで36の作家パック、計60の名言集。それぞれにパブリックドメインの名言17と発言者・原文を収録。",
@@ -387,7 +402,10 @@ T = {
    ("应用里还能做什么？", "在应用中可以随时选择包括36个作家合集在内的60个主题，并在2048之后继续到131072，每个主题收集17句名言。抵达的名言会留在图鉴里，还能制作自己的名言合集。"),
  ],
  more_t="浏览名言", more_idx="按主题与作家分类的名言合集", more_land="关于名言2048应用",
+ more_x="Palette 2048 — 用名画配色玩的每日谜题",
  foot_c="联系", foot_p="隐私政策", foot_t="服务条款",
+ xk="还有另一个每日谜题", xname="Palette 2048", xdesc="用今天名画的颜色玩2048",
+ xcta="玩今天的谜题 →", x_foot="Palette 2048",
  q_idx_title="按主题与作家分类的名言合集60组 | 名言2048",
  q_idx_h1="按主题与作家分类的名言合集",
  q_idx_desc="60组名言合集：勇气、时间、爱等24个主题，以及从莎士比亚到塞涅卡的36个作家合集，每组收录17句公有领域名言，附作者与原文。",
@@ -444,7 +462,10 @@ T = {
    ("App 裡還能做什麼？", "在 App 中可以隨時選擇包括36個作家合集在內的60個主題，並在2048之後繼續到131072，每個主題收集17句名言。抵達的名言會留在圖鑑裡，還能製作自己的名言合集。"),
  ],
  more_t="瀏覽名言", more_idx="依主題與作家分類的名言合集", more_land="關於名言2048 App",
+ more_x="Palette 2048 — 用名畫配色玩的每日謎題",
  foot_c="聯絡", foot_p="隱私權政策", foot_t="服務條款",
+ xk="還有另一個每日謎題", xname="Palette 2048", xdesc="用今天名畫的顏色玩2048",
+ xcta="玩今天的謎題 →", x_foot="Palette 2048",
  q_idx_title="依主題與作家分類的名言合集60組 | 名言2048",
  q_idx_h1="依主題與作家分類的名言合集",
  q_idx_desc="60組名言合集：勇氣、時間、愛等24個主題，以及從莎士比亞到塞內卡的36個作家合集，每組收錄17句公有領域名言，附作者與原文。",
@@ -608,6 +629,13 @@ PLAY_TMPL = """<!DOCTYPE html>
       <p id="appLine">{app_line}</p>
       <a class="btn store" href="{app_url}" data-cta="result" target="_blank" rel="noopener">{apple}{app_btn}</a>
     </div>
+    <div class="x-promo">
+      <p class="x-kicker">{xk}</p>
+      <a class="x-card" href="{palette_url}" data-xpromo="result" data-xtarget="palette">
+        <img src="/palette2048/icon.png" alt="" width="28" height="28">
+        <span class="x-body"><b class="x-name">{xname}</b><i class="x-desc">{xdesc}</i><em class="x-cta">{xcta}</em></span>
+      </a>
+    </div>
     <p class="r-next">{next} <b id="countdown">--:--:--</b></p>
   </section>
   <noscript><p class="hint">{noscript}</p></noscript>
@@ -635,6 +663,7 @@ PLAY_TMPL = """<!DOCTYPE html>
     <ul class="more">
       <li><a href="{quotes_idx}">{more_idx}</a></li>
 {theme_links}
+      <li><a href="{palette_url}" data-xpromo="explore" data-xtarget="palette">{more_x}</a></li>
       <li><a href="{landing}">{more_land}</a></li>
       <li><a href="{app_url}" data-cta="info" target="_blank" rel="noopener">{app_name} — App Store</a></li>
     </ul>
@@ -681,7 +710,8 @@ def build_play(themes, sched):
             faq="".join(f"<details><summary><h3>{escape(q)}</h3></summary><p>{escape(a)}</p></details>"
                         for q, a in d["faq"]),
             quotes_idx=rel(idx_url(code)), more_idx=d["more_idx"], theme_links=theme_links,
-            more_land=d["more_land"], app_name=APP_NAME,
+            more_land=d["more_land"], more_x=d["more_x"], app_name=APP_NAME,
+            palette_url=palette_play_url(code), xk=d["xk"], xname=d["xname"], xdesc=d["xdesc"], xcta=d["xcta"],
             foot_c=d["foot_c"], foot_p=d["foot_p"], foot_t=d["foot_t"], langs=langs,
             ui=jdump(ui), **versions)
         save(HERE / LOC[code]["sub"] / "index.html", html)
@@ -774,7 +804,7 @@ QHEAD = """<!DOCTYPE html>
 QFOOT = """</main>
 <footer class="foot">
   <a href="/">© kkiruk studio</a>
-  <nav><a href="{landing}">{brand}</a><a href="{play}">{play_lbl}</a><a href="/legal/privacy/">{foot_p}</a><a href="/legal/terms/">{foot_t}</a>
+  <nav><a href="{landing}">{brand}</a><a href="{play}">{play_lbl}</a><a href="{palette_url}" data-xpromo="footer" data-xtarget="palette">{x_foot}</a><a href="/legal/privacy/">{foot_p}</a><a href="/legal/terms/">{foot_t}</a>
 {langs}
   </nav>
 </footer>
@@ -796,7 +826,8 @@ def head_foot(code, title, desc, url, fn, jsonld, v):
                         idx=rel(idx_url(code)), crumb=escape(d["q_crumb"]), play=rel(play_url(code)),
                         play_lbl=escape(play_lbl))
     foot = QFOOT.format(landing=LANDING[code], brand=escape(d["brand"]), play=rel(play_url(code)),
-                        play_lbl=escape(play_lbl), foot_p=d["foot_p"], foot_t=d["foot_t"], langs=langs,
+                        play_lbl=escape(play_lbl), palette_url=palette_play_url(code), x_foot=escape(d["x_foot"]),
+                        foot_p=d["foot_p"], foot_t=d["foot_t"], langs=langs,
                         qi18n=jdump({"copied": d["q_copied"]}), v_js=v["js"])
     return head, foot
 
