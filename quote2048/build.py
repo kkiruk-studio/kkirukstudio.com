@@ -11,7 +11,7 @@ APP_STORE_URL = "https://apps.apple.com/app/id6788598686"
 LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh-hans/", "简体"), ("zh-hant/", "繁體")]
 
 L = {
- "en": dict(demo_tap="Tap to play", demo_hint="swipe or arrow keys", demo_toast="It goes much further in the app — free on the App Store.", dir="", lang="en", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">""", serif="\'Instrument Serif\',Georgia,serif",
+ "en": dict(play_web="Play today's quote puzzle free in your browser", demo_tap="Tap to play", demo_hint="swipe or arrow keys", demo_toast="It goes much further in the app — free on the App Store.", dir="", lang="en", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">""", serif="\'Instrument Serif\',Georgia,serif",
     title="Quote 2048 — merge tiles, collect quotes",
     desc="The classic 2048 — but every tile is a quote. Merge two matching lines and a greater quote takes their place. The ones you love stay in your collection, and you can even build a pack of your own.",
     h1="Merge tiles,<br>collect <em>quotes</em>.",
@@ -24,7 +24,7 @@ L = {
     crown="Hope is the thing with feathers<br>that perches in the soul",
     crown_meta="— Emily Dickinson",
     f_privacy="Privacy", f_terms="Terms", f_contact="Contact"),
- "ko": dict(demo_tap="탭하여 플레이", demo_hint="스와이프나 방향키로 움직여요", demo_toast="이다음은 앱에서 이어져요 — App Store에서 무료.", dir="ko/", lang="ko", fontlink="""<link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet">""", serif="\'MaruBuri\',Georgia,serif",
+ "ko": dict(play_web="브라우저에서 오늘의 퍼즐 무료로 하기", demo_tap="탭하여 플레이", demo_hint="스와이프나 방향키로 움직여요", demo_toast="이다음은 앱에서 이어져요 — App Store에서 무료.", dir="ko/", lang="ko", fontlink="""<link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet">""", serif="\'MaruBuri\',Georgia,serif",
     title="명언 2048 — 명언을 모으는 2048",
     desc="알던 그 2048 — 그런데 타일이 전부 명언입니다. 같은 문장 두 개를 합치면 한 단계 위의 명언이 나오고, 마음에 든 문장은 도감에 남습니다. 좋아하는 작가의 팩을 모으고, 나만의 팩도 만들 수 있어요.",
     h1="명언을 모으는<br><em>2048.</em>",
@@ -37,7 +37,7 @@ L = {
     crown="희망은 깃털 달린 것,<br>영혼에 내려앉는다",
     crown_meta="— 에밀리 디킨슨",
     f_privacy="개인정보", f_terms="이용약관", f_contact="문의"),
- "ja": dict(demo_tap="タップしてプレイ", demo_hint="スワイプまたは矢印キー", demo_toast="この先はアプリで — App Storeで無料。", dir="ja/", lang="ja", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif JP\',serif",
+ "ja": dict(play_web="ブラウザで今日のパズルを無料で遊ぶ", demo_tap="タップしてプレイ", demo_hint="スワイプまたは矢印キー", demo_toast="この先はアプリで — App Storeで無料。", dir="ja/", lang="ja", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif JP\',serif",
     title="名言2048 — 名言を集める2048",
     desc="おなじみの2048 — ただしタイルはすべて名言。同じ文をふたつ合わせると、ひとつ上の名言が現れます。気に入った文章はコレクションに残り、自分だけのパックも作れます。",
     h1="名言を集める<br><em>2048。</em>",
@@ -50,7 +50,7 @@ L = {
     crown="希望とは羽をもつもの、<br>魂にとまる",
     crown_meta="— エミリー・ディキンソン",
     f_privacy="プライバシー", f_terms="利用規約", f_contact="お問い合わせ"),
- "zh-hans": dict(demo_tap="点按开始", demo_hint="滑动或方向键", demo_toast="更远的旅程在应用中 — App Store 免费下载。", dir="zh-hans/", lang="zh-Hans", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif SC\',serif",
+ "zh-hans": dict(play_web="在浏览器免费玩今日名言谜题", demo_tap="点按开始", demo_hint="滑动或方向键", demo_toast="更远的旅程在应用中 — App Store 免费下载。", dir="zh-hans/", lang="zh-Hans", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif SC\',serif",
     title="名言2048 — 收集名言的2048",
     desc="熟悉的2048 — 但每个方块都是一句名言。合并两句相同的话，出现更高一级的名言；喜欢的句子会留在图鉴里，还能做一个自己的合集。",
     h1="收集名言的<br><em>2048。</em>",
@@ -63,7 +63,7 @@ L = {
     crown="希望是长着羽毛的东西，<br>栖息在灵魂里",
     crown_meta="— 艾米莉·狄金森",
     f_privacy="隐私政策", f_terms="服务条款", f_contact="联系"),
- "zh-hant": dict(demo_tap="點按開始", demo_hint="滑動或方向鍵", demo_toast="更遠的旅程在應用中 — App Store 免費下載。", dir="zh-hant/", lang="zh-Hant", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif TC\',serif",
+ "zh-hant": dict(play_web="在瀏覽器免費玩今日名言謎題", demo_tap="點按開始", demo_hint="滑動或方向鍵", demo_toast="更遠的旅程在應用中 — App Store 免費下載。", dir="zh-hant/", lang="zh-Hant", fontlink="""<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">""", serif="\'Noto Serif TC\',serif",
     title="名言2048 — 收集名言的2048",
     desc="熟悉的2048 — 但每個方塊都是一句名言。合併兩句相同的話，出現更高一級的名言；喜歡的句子會留在圖鑑裡，還能做一個自己的合集。",
     h1="收集名言的<br><em>2048。</em>",
@@ -80,7 +80,12 @@ L = {
 
 
 import json as _json
-_QJ = _json.load(open(ROOT.parent.parent / "tools" / "quotes.json", encoding="utf-8"))
+# quotes.json lives in the app repo (the old ROOT.parent.parent path dates from ~/Quote2048/LandingPage)
+import os as _os
+_QPATH = ROOT.parent.parent / "tools" / "quotes.json"
+if not _QPATH.exists():
+    _QPATH = pathlib.Path(_os.environ.get("QUOTE_REPO", pathlib.Path.home() / "Quote2048")) / "tools" / "quotes.json"
+_QJ = _json.load(open(_QPATH, encoding="utf-8"))
 _THEMES = {t["id"]: t["quotes"] for t in _QJ["themes"]}
 _LKEY = {"en": "en", "ko": "ko", "ja": "ja", "zh-Hans": "zh_hans", "zh-Hant": "zh_hant"}
 # 데모 사다리 = 베스트 앨범 (전부 실제 인게임 명언, 등급마다 최고 인지도)
@@ -165,7 +170,7 @@ def render(key):
 <link rel="apple-touch-icon" href="{rel}assets/icon-180.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 {o.get("fontlink","")}
-<link rel="stylesheet" href="{rel}assets/style.css?v=2">
+<link rel="stylesheet" href="{rel}assets/style.css?v=3">
 <style>:root{{--serif:{o.get("serif","Georgia,serif")}}}</style>
 <script defer src="/ga.js"></script>
 </head>
@@ -178,6 +183,7 @@ def render(key):
 <main>
   <h1>{o['h1']}</h1>
   <p class="sub">{o['sub']}</p>
+  <a class="play-web" href="/quote2048/play/{o['dir']}"><span class="pw-dot" aria-hidden="true"></span>{o['play_web']}<span aria-hidden="true"> →</span></a>
 
   <div class="pwrap">
     <div class="pboard" id="pboard">
