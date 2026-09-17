@@ -71,16 +71,73 @@
     try { dateStr = new Date(+p[0], +p[1] - 1, +p[2]).toLocaleDateString(LANG, { month: "short", day: "numeric" }); }
     catch (e) { dateStr = game.day; }
     $("dayLabel").textContent = "#" + game.num + " · " + dateStr;
+    var pname = $("pname");
     if (mysteryActive()) {
       $("kicker").textContent = S.mystery;
-      $("pname").textContent = "? ? ?";
+      pname.textContent = "? ? ?"; // no link while hidden — the href itself would spoil the answer
       $("pmeta").textContent = S.mysteryNote;
     } else {
       $("kicker").textContent = game.state === "done" ? S.result : S.today;
-      $("pname").textContent = painting.name;
+      pname.textContent = "";
+      var a = document.createElement("a");
+      a.href = painting.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.appendChild(document.createTextNode(painting.name));
+      var ext = document.createElement("span");
+      ext.className = "ext";
+      ext.setAttribute("aria-hidden", "true");
+      ext.textContent = " ↗";
+      a.appendChild(ext);
+      a.addEventListener("click", function () { track("painting_link_click", { target: "original", placement: "header" }); });
+      pname.appendChild(a);
       $("pmeta").textContent = painting.year ? painting.artist + ", " + painting.year : painting.artist;
     }
   }
+
+  /* ── today's painting card (result screen) ── */
+  function renderPaintingCard() {
+    var card = $("paintingCard"), img = $("pImg"), sw = $("pSwatches"), media = $("pMedia"),
+        credit = $("pCredit"), note = $("pCopyNote");
+    card.hidden = false;
+    $("pCardName").textContent = painting.name;
+    $("pCardMeta").textContent = painting.year ? painting.artist + ", " + painting.year : painting.artist;
+    var flavor = painting.flavor && (painting.flavor[LANG] || painting.flavor.en);
+    var flavorEl = $("pFlavor");
+    if (flavor) { flavorEl.textContent = flavor; flavorEl.hidden = false; } else { flavorEl.hidden = true; }
+
+    media.hidden = false;
+    if (painting.imageOk) {
+      sw.hidden = true; sw.textContent = "";
+      note.hidden = true;
+      img.alt = painting.name + ", " + painting.artist;
+      // img must stay un-hidden (laid out) for loading="lazy" to ever fire its network request —
+      // a display:none image never loads. The aspect-ratio box + empty-tile background double as
+      // the loading placeholder, so there's nothing to see until the bytes arrive.
+      img.hidden = false; credit.hidden = false;
+      var viewed = false;
+      img.onload = function () { if (!viewed) { viewed = true; track("painting_image_view", { id: painting.id }); } };
+      img.onerror = function () { media.hidden = true; credit.hidden = true; };
+      img.src = C.thumbURL(painting.url, 500);
+    } else {
+      img.hidden = true; credit.hidden = true;
+      sw.hidden = false; sw.textContent = "";
+      theme.stops.forEach(function (st) {
+        var i = document.createElement("i");
+        i.style.background = C.toHex(st);
+        sw.appendChild(i);
+      });
+      note.hidden = false; note.textContent = S.pCopyNote || "";
+    }
+
+    var orig = $("pOriginal"), pal = $("pPalette");
+    orig.href = painting.url;
+    orig.textContent = S.pOriginal || "";
+    pal.href = "/palette2048/palettes/" + painting.id + "/";
+    pal.textContent = S.pPalette || "";
+  }
+  $("pOriginal").addEventListener("click", function () { track("painting_link_click", { target: "original", placement: "result" }); });
+  $("pPalette").addEventListener("click", function () { track("painting_link_click", { target: "palette", placement: "result" }); });
 
   function paintTile(el, value) {
     var hex = theme.tileHex(value);
@@ -199,6 +256,7 @@
     if (m) $("rBest").style.background = theme.tileHex(m);
     $("hint").textContent = S.done;
     $("result").hidden = false;
+    renderPaintingCard();
     startCountdown();
     if (revisit) track("already_played_view", { puzzle: game.num });
   }

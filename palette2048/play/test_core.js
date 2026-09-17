@@ -70,6 +70,35 @@ test("daysBetween / puzzle number", () => {
   assert.strictEqual(C.daysBetween("2026-03-01", "2026-09-17") + 1, 201);
   assert.strictEqual(C.daysBetween("2027-02-28", "2027-03-01"), 1);
 });
+test("unpack decodes url, imageOk and per-locale flavor", () => {
+  const KEY = "palette2048-2026-curator";
+  const obf = (s) => Buffer.from([...Buffer.from(s, "utf8")].map((b, i) => b ^ KEY.charCodeAt(i % KEY.length))).toString("base64");
+  const row = ["mona-lisa", obf("Mona Lisa"), obf("Leonardo da Vinci"), "1503",
+    "000000 111111 222222 333333 444444 555555", "",
+    obf("https://upload.wikimedia.org/wikipedia/commons/0/00/x.jpg"), 1,
+    [obf("She smiles."), obf("그녀가 웃는다."), obf("彼女は微笑む。")]];
+  const p = C.unpack(row);
+  assert.strictEqual(p.name, "Mona Lisa");
+  assert.strictEqual(p.url, "https://upload.wikimedia.org/wikipedia/commons/0/00/x.jpg");
+  assert.strictEqual(p.imageOk, true);
+  assert.deepStrictEqual(p.flavor, { en: "She smiles.", ko: "그녀가 웃는다.", ja: "彼女は微笑む。" });
+  const row2 = row.slice(); row2[7] = 0;
+  assert.strictEqual(C.unpack(row2).imageOk, false);
+});
+test("thumbURL downsizes Commons images, leaves others untouched", () => {
+  assert.strictEqual(
+    C.thumbURL("https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Water_Lilies.jpg/960px-Water_Lilies.jpg", 500),
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Water_Lilies.jpg/500px-Water_Lilies.jpg");
+  assert.strictEqual(
+    C.thumbURL("https://upload.wikimedia.org/wikipedia/commons/b/bb/Venere_di_Urbino.jpg", 500),
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Venere_di_Urbino.jpg/500px-Venere_di_Urbino.jpg");
+  assert.strictEqual(
+    C.thumbURL("https://upload.wikimedia.org/wikipedia/commons/4/46/Last_Supper.jpg?utm_source=en.wikipedia.org", 500),
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Last_Supper.jpg/500px-Last_Supper.jpg");
+  assert.strictEqual(
+    C.thumbURL("https://www.moma.org/collection/works/79802", 500),
+    "https://www.moma.org/collection/works/79802");
+});
 test("nearest emoji", () => {
   assert.strictEqual(C.nearestEmoji(C.fromHex("#D02030")), "🟥");
   assert.strictEqual(C.nearestEmoji(C.fromHex("#1E5FC0")), "🟦");

@@ -20,6 +20,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .crumbs{font-size:13px;color:var(--ink2);margin:8px 0 14px}
 .crumbs a{text-decoration:none}
 h1{font-family:var(--serif);font-size:clamp(26px,5vw,40px);line-height:1.15;letter-spacing:-.01em;margin-bottom:20px}
+.hero{width:100%;max-width:640px;border-radius:14px;overflow:hidden;background:var(--card);
+  border:1px solid var(--line);margin-bottom:20px}
+.hero-img{aspect-ratio:4/3;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero figcaption{font-size:11px;color:var(--ink2);text-align:right;padding:4px 10px}
 h2{font-family:var(--serif);font-size:22px;margin:36px 0 12px}
 p{margin:10px 0;max-width:68ch}
 .lede{color:var(--ink2);font-size:17px}

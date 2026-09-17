@@ -273,17 +273,34 @@
     for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i) ^ OBF.charCodeAt(i % OBF.length);
     return new TextDecoder().decode(bytes);
   }
-  // Compact row → painting. Row: [id, nameObf, artistObf, year, "hex hex hex hex hex hex", bg|""]
+  // Compact row → painting. Row: [id, nameObf, artistObf, year, "hex hex hex hex hex hex", bg|"",
+  // urlObf, imageOk(0/1), [flavorEnObf, flavorKoObf, flavorJaObf]]
   function unpack(row) {
     return { id: row[0], name: deobf(row[1]), artist: deobf(row[2]), year: row[3],
-      colors: row[4].split(" ").map(function (h) { return "#" + h; }), bg: row[5] ? "#" + row[5] : null };
+      colors: row[4].split(" ").map(function (h) { return "#" + h; }), bg: row[5] ? "#" + row[5] : null,
+      url: deobf(row[6]), imageOk: !!row[7],
+      flavor: { en: deobf(row[8][0]), ko: deobf(row[8][1]), ja: deobf(row[8][2]) } };
+  }
+
+  // Downsize a Wikimedia Commons image URL to one of the widths the thumbnail service accepts
+  // (20/40/60/120/250/330/500/960/1280/1920/3840px — arbitrary widths return HTTP 400). Works for
+  // both /thumb/.../NNNpx-name URLs and bare (un-thumbnailed) Commons file URLs. Anything else
+  // (non-Commons url) is returned unchanged.
+  function thumbURL(url, width) {
+    width = width || 500;
+    var clean = url.split("?")[0];
+    var m = clean.match(/^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/thumb\/[^/]+\/[^/]+\/[^/]+)\/\d+px-([^/]+)$/);
+    if (m) return m[1] + "/" + width + "px-" + m[2];
+    m = clean.match(/^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons)\/([0-9a-f])\/([0-9a-f]{2})\/([^/]+)$/);
+    if (m) return m[1] + "/thumb/" + m[2] + "/" + m[3] + "/" + m[4] + "/" + width + "px-" + m[4];
+    return url;
   }
 
   var api = {
     SIZE: SIZE, fromHex: fromHex, toHex: toHex, fromRGB: fromRGB, deltaE: deltaE, makeTheme: makeTheme,
     hueLockedLerp: hueLockedLerp, anchorLevels: anchorLevels, nearestEmoji: nearestEmoji,
     move: move, spawn: spawn, canMove: canMove, toGrid: toGrid, fromGrid: fromGrid, maxValue: maxValue,
-    dayKey: dayKey, daysBetween: daysBetween, deobf: deobf, unpack: unpack
+    dayKey: dayKey, daysBetween: daysBetween, deobf: deobf, unpack: unpack, thumbURL: thumbURL
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.PaletteCore = api;

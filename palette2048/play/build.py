@@ -14,9 +14,11 @@ and SCHEDULE_CUTOFF from tools/generate_swift.py, so the web follows exactly the
 schedule and fallback rotation as CuratedPaletteStore.dailyPalette(for:).
 Override the repo location with PALETTE_REPO=/path.
 
-DAILY REBUILD: palette pages are generated only for paintings whose scheduled date is strictly
-before the build date (no spoilers for upcoming puzzles). Re-running this script every day
-therefore adds one new /palettes/<id>/ page per day and refreshes daily.json's window.
+DAILY REBUILD: palette pages are generated for paintings whose scheduled date is on or before the
+build date (never for a date still in the future — no spoilers for upcoming puzzles). The result
+screen of play/index.html links to today's own /palettes/<id>/ page, so today's date is included.
+Re-running this script every day therefore adds one new /palettes/<id>/ page per day (today's) and
+refreshes daily.json's window.
   python3 palette2048/play/build.py                 # build for today (local date)
   python3 palette2048/play/build.py --date 2026-09-20   # pretend the build date (testing)
 """
@@ -245,11 +247,46 @@ def hexs(rgb):
 
 
 ANCHORS = ("startRGB", "midRGB", "endRGB", "highlightRGB", "accent1RGB", "accent2RGB")
+FLAVOR_LOCALES = ("en", "ko", "ja")     # play.js only ships these 3 locales
+
+# Paintings whose `url` is a Wikimedia Commons *photo* but not a faithful, safe-to-display image of
+# the artwork itself — e.g. a photo of street graffiti after a still-in-copyright painting, not the
+# gallery original. Curated by hand; `image_ok()` below is the one thing that decides whether the
+# result card / palette page show the picture or fall back to a color-swatch strip.
+IMAGE_UNSAFE_IDS = {
+    "ofili-no-woman-no-cry",  # Commons file is a photo of a Sylhet graffito, not Ofili's Tate painting
+}
+
+
+def image_ok(p):
+    """True only for a genuine, freely-licensed Commons image of the artwork. `url` on Wikimedia
+    Commons (/wikipedia/commons/...) is public-domain/CC; /wikipedia/en/... (and other single-project
+    wikis) hosts *non-free, fair-use* thumbnails — not safe to show on a commercial site — and
+    non-Wikimedia urls (museum pages etc.) aren't direct images at all."""
+    return p["url"].startswith("https://upload.wikimedia.org/wikipedia/commons/") and p["id"] not in IMAGE_UNSAFE_IDS
+
+
+def thumb_url(url, width=500):
+    """Downsize a Commons image url to one of the thumbnail service's accepted widths (arbitrary
+    widths 400 error — see https://www.mediawiki.org/wiki/Common_thumbnail_sizes). Mirrors
+    core.js#thumbURL; keep both in sync."""
+    clean = url.split("?")[0]
+    m = re.match(r'^(https://upload\.wikimedia\.org/wikipedia/commons/thumb/[^/]+/[^/]+/[^/]+)/\d+px-([^/]+)$', clean)
+    if m:
+        return f"{m.group(1)}/{width}px-{m.group(2)}"
+    m = re.match(r'^(https://upload\.wikimedia\.org/wikipedia/commons)/([0-9a-f])/([0-9a-f]{2})/([^/]+)$', clean)
+    if m:
+        base, a, ab, fname = m.groups()
+        return f"{base}/thumb/{a}/{ab}/{fname}/{width}px-{fname}"
+    return url
 
 
 def row(p):
+    fl = p.get("flavor") or {}
+    flavor = [obf(fl.get(loc, "")) for loc in FLAVOR_LOCALES]
     return [p["id"], obf(p["name"]), obf(p["artist"]), p["year"],
-            " ".join(hexs(p[k]) for k in ANCHORS), hexs(p["bgColorRGB"]) if p.get("bgColorRGB") else ""]
+            " ".join(hexs(p[k]) for k in ANCHORS), hexs(p["bgColorRGB"]) if p.get("bgColorRGB") else "",
+            obf(p["url"]), 1 if image_ok(p) else 0, flavor]
 
 
 def build_data(emitted, app_all, cutoff, today):
@@ -283,7 +320,9 @@ T = {
    result="Today's result", share="Share result", copied="Copied — paste it anywhere",
    shareFail="Couldn't copy. Select the text and copy it.", appLine="Past masterpieces archive · 3×3 & 5×5 boards · unlimited play — in the app",
    appBtn="Download on the App Store", next="Next painting in", loadErr="Couldn't load today's puzzle. Please reload.",
-   boardLabel="Puzzle board. Use arrow keys or swipe to move tiles.", shareScore="Score", done="Played today"),
+   boardLabel="Puzzle board. Use arrow keys or swipe to move tiles.", shareScore="Score", done="Played today",
+   pOriginal="See the original ↗", pPalette="This painting's colors & HEX →",
+   pCopyNote="This artwork is still under copyright, so you can view it on the original site."),
  how_t="How to play", how=[
    "Swipe on the board — or press the arrow keys or W A S D — to slide every tile.",
    "Two tiles of the same color merge into the next color of today's painting palette.",
@@ -312,7 +351,9 @@ T = {
    result="오늘의 결과", share="결과 공유", copied="복사했어요 — 원하는 곳에 붙여넣기",
    shareFail="복사하지 못했어요. 텍스트를 직접 복사해 주세요.", appLine="지난 명화 아카이브 · 3×3/5×5 · 무제한 플레이는 앱에서",
    appBtn="App Store에서 다운로드", next="다음 명화까지", loadErr="오늘의 퍼즐을 불러오지 못했어요. 새로고침해 주세요.",
-   boardLabel="퍼즐 보드. 방향키나 스와이프로 타일을 움직이세요.", shareScore="점수", done="오늘 완료"),
+   boardLabel="퍼즐 보드. 방향키나 스와이프로 타일을 움직이세요.", shareScore="점수", done="오늘 완료",
+   pOriginal="원본 작품 보기 ↗", pPalette="이 그림의 색상 팔레트 · HEX →",
+   pCopyNote="저작권 보호 작품이라 원본 사이트에서 볼 수 있어요."),
  how_t="플레이 방법", how=[
    "보드를 스와이프하거나 방향키·W A S D 로 모든 타일을 한쪽으로 밉니다.",
    "같은 색 타일 두 개가 만나면 오늘 명화 팔레트의 다음 색으로 합쳐집니다.",
@@ -341,7 +382,9 @@ T = {
    result="今日の結果", share="結果をシェア", copied="コピーしました — 好きな場所に貼り付けて",
    shareFail="コピーできませんでした。テキストを手動でコピーしてください。", appLine="過去の名画アーカイブ · 3×3/5×5 · 無制限プレイはアプリで",
    appBtn="App Storeでダウンロード", next="次の名画まで", loadErr="今日のパズルを読み込めませんでした。再読み込みしてください。",
-   boardLabel="パズルボード。矢印キーかスワイプでタイルを動かします。", shareScore="スコア", done="今日はプレイ済み"),
+   boardLabel="パズルボード。矢印キーかスワイプでタイルを動かします。", shareScore="スコア", done="今日はプレイ済み",
+   pOriginal="原画を見る ↗", pPalette="この絵の配色・HEX →",
+   pCopyNote="著作権保護のため、原本サイトでご覧いただけます。"),
  how_t="遊び方", how=[
    "ボードをスワイプ、または矢印キー・W A S D で、すべてのタイルを滑らせます。",
    "同じ色のタイルが2つぶつかると、今日の名画パレットの次の色になります。",
@@ -454,6 +497,21 @@ PLAY_TMPL = """<!DOCTYPE html>
     </div>
     <button type="button" class="btn primary share" id="shareBtn">{share}</button>
     <p class="toast" id="toast" role="status"></p>
+    <div class="p-card" id="paintingCard" hidden>
+      <div class="p-media" id="pMedia">
+        <img id="pImg" alt="" loading="lazy" hidden>
+        <span class="p-swatches" id="pSwatches" hidden></span>
+      </div>
+      <p class="p-credit" id="pCredit" hidden>Wikimedia Commons</p>
+      <p class="p-copyNote" id="pCopyNote" hidden></p>
+      <h3 id="pCardName"></h3>
+      <p class="p-meta2" id="pCardMeta"></p>
+      <p class="p-flavor" id="pFlavor" hidden></p>
+      <div class="p-cta">
+        <a class="btn ghost" id="pOriginal" target="_blank" rel="noopener"></a>
+        <a class="btn ghost" id="pPalette"></a>
+      </div>
+    </div>
     <div class="r-app">
       <p>{app_line}</p>
       <a class="btn store" href="{app_url}" data-cta="result" target="_blank" rel="noopener">{apple}{app_btn}</a>
@@ -657,7 +715,7 @@ def build_palette_pages(paintings, schedule, today):
     published = []
     for p in paintings:
         date = first.get(p["id"])
-        if date and date < today.isoformat():
+        if date and date <= today.isoformat():
             published.append(dict(p, _date=date))
     v_css = ver(PAL_DIR / "palettes.css")
     v_js = ver(PAL_DIR / "palettes.js")
@@ -676,6 +734,8 @@ def build_palette_pages(paintings, schedule, today):
                     "url": p["url"]}
         if p["year"]:
             painting["dateCreated"] = p["year"]
+        if image_ok(p):
+            painting["image"] = thumb_url(p["url"], 960)
         work = {"@type": "CreativeWork", "@id": url + "#palette", "name": f"{p['name']} color palette",
                 "url": url, "description": desc, "inLanguage": "en", "about": painting,
                 "keywords": "painting color palette, " + ", ".join(names),
@@ -693,9 +753,13 @@ def build_palette_pages(paintings, schedule, today):
         ramp_html = "".join(f'<li style="background:{h}"><span>{2 ** (i + 1)}</span></li>' for i, h in enumerate(ramp))
         rel = "".join(f'<li><a href="../{q["id"]}/">{strip(q)}<span>{escape(q["name"])}</span>'
                       f'<small>{escape(q["artist"])}</small></a></li>' for q in related_for(p, published))
+        hero = (f'<figure class="hero"><div class="hero-img"><img src="{escape(thumb_url(p["url"], 960))}" '
+                f'alt="{escape(p["name"])}, {escape(p["artist"])}" loading="lazy" width="960" height="720"></div>'
+                f'<figcaption>Wikimedia Commons</figcaption></figure>\n'
+                if image_ok(p) else "")
         body = f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="/palette2048/">Palette 2048</a> › <a href="/palette2048/palettes/">Painting color palettes</a> › <span>{escape(p['name'])}</span></nav>
 <h1>{escape(h1)}</h1>
-<ul class="swatches">{swatches}</ul>
+{hero}<ul class="swatches">{swatches}</ul>
 <p class="copyall"><button type="button" class="copy" data-copy="{all_hex}">Copy all HEX codes</button></p>
 <section class="about">
 <h2>About this palette</h2>

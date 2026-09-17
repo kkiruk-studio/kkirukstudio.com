@@ -27,8 +27,8 @@
 <meta name="twitter:image" content="https://www.kkirukstudio.com/palette2048/og.png">
 <link rel="icon" type="image/png" href="/palette2048/icon.png">
 <link rel="apple-touch-icon" href="/palette2048/icon-180.png">
-<link rel="preload" href="/palette2048/play/daily.json?v=ebb03e53" as="fetch" crossorigin>
-<link rel="stylesheet" href="/palette2048/play/play.css?v=28e5391d">
+<link rel="preload" href="/palette2048/play/daily.json?v=a863bea6" as="fetch" crossorigin>
+<link rel="stylesheet" href="/palette2048/play/play.css?v=6b185451">
 <script src="/ga.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.kkirukstudio.com/#organization","name":"kkiruk studio","url":"https://www.kkirukstudio.com/"},{"@type":"WebSite","@id":"https://www.kkirukstudio.com/#website","url":"https://www.kkirukstudio.com/","name":"kkiruk studio","publisher":{"@id":"https://www.kkirukstudio.com/#organization"}},{"@type":"WebPage","@id":"https://www.kkirukstudio.com/palette2048/play/ja/#webpage","url":"https://www.kkirukstudio.com/palette2048/play/ja/","name":"パレット2048デイリー — 名画の色で遊ぶ無料カラーパズル（色の2048）","description":"ブラウザですぐ遊べる今日の名画カラーパズル。数字の代わりに名画パレットの色を合わせる2048系の色パズルを、1日1回・無料・登録なしで。","inLanguage":"ja","isPartOf":{"@id":"https://www.kkirukstudio.com/#website"},"mainEntity":{"@id":"https://www.kkirukstudio.com/palette2048/play/ja/#game"},"publisher":{"@id":"https://www.kkirukstudio.com/#organization"}},{"@type":["VideoGame","WebApplication"],"@id":"https://www.kkirukstudio.com/palette2048/play/ja/#game","name":"Palette 2048 Daily","alternateName":"Palette 2048 — daily art color puzzle","url":"https://www.kkirukstudio.com/palette2048/play/ja/","description":"ブラウザですぐ遊べる今日の名画カラーパズル。数字の代わりに名画パレットの色を合わせる2048系の色パズルを、1日1回・無料・登録なしで。","inLanguage":"ja","applicationCategory":"Game","operatingSystem":"Any","browserRequirements":"Requires JavaScript","gamePlatform":"Web browser","genre":["Puzzle","Color puzzle"],"playMode":"SinglePlayer","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://www.kkirukstudio.com/palette2048/og.png","publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"author":{"@id":"https://www.kkirukstudio.com/#organization"},"isBasedOn":{"@id":"https://www.kkirukstudio.com/#app-6767449110"},"keywords":"daily color puzzle, art puzzle game, 2048 color game, painting color palette"},{"@type":"MobileApplication","@id":"https://www.kkirukstudio.com/#app-6767449110","name":"Palette 2048: Daily Art Puzzle","operatingSystem":"iOS","applicationCategory":"GameApplication","installUrl":"https://apps.apple.com/app/id6767449110","url":"https://www.kkirukstudio.com/palette2048/","publisher":{"@id":"https://www.kkirukstudio.com/#organization"}},{"@type":"FAQPage","@id":"https://www.kkirukstudio.com/palette2048/play/ja/#faq","inLanguage":"ja","mainEntity":[{"@type":"Question","name":"パレット2048とは？","acceptedAnswer":{"@type":"Answer","text":"パレット2048は、実在の名画のパレットでボードを彩る 2048 風のカラーパズルです。タイルには数字の代わりに色があり、同じ色を2つ合わせると、その絵のパレットの次の色に変わります。"}},{"@type":"Question","name":"無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい。今日のパズルは登録も広告もなく、ブラウザで無料で遊べます。iPhone・iPad 用のパレット2048アプリも無料でダウンロードできます。"}},{"@type":"Question","name":"2048 と何が違いますか？","acceptedAnswer":{"@type":"Answer","text":"ルールは 2048 と同じです — タイルを滑らせ、同じもの同士を合わせて 2048 を目指します。ただし数字はなく、絵の最も暗い色から最も明るい色へと続くパレットをたどるので、毎日ボードの色と感覚が変わります。"}},{"@type":"Question","name":"新しいパズルはいつ？","acceptedAnswer":{"@type":"Answer","text":"毎日、お使いのタイムゾーンの午前0時に新しい名画とパレットが公開されます。Web 版は1日1回。土曜日はゲームが終わるまで作品名が隠されます。"}},{"@type":"Question","name":"アプリでは何ができますか？","acceptedAnswer":{"@type":"Answer","text":"アプリでは過去の名画アーカイブ、3×3・5×5 ボード、無制限プレイ、1手戻し、色だけで作品を当てる土曜日のミステリークイズが楽しめます。"}}]}]}</script>
 </head>
@@ -65,6 +65,21 @@
     </div>
     <button type="button" class="btn primary share" id="shareBtn">結果をシェア</button>
     <p class="toast" id="toast" role="status"></p>
+    <div class="p-card" id="paintingCard" hidden>
+      <div class="p-media" id="pMedia">
+        <img id="pImg" alt="" loading="lazy" hidden>
+        <span class="p-swatches" id="pSwatches" hidden></span>
+      </div>
+      <p class="p-credit" id="pCredit" hidden>Wikimedia Commons</p>
+      <p class="p-copyNote" id="pCopyNote" hidden></p>
+      <h3 id="pCardName"></h3>
+      <p class="p-meta2" id="pCardMeta"></p>
+      <p class="p-flavor" id="pFlavor" hidden></p>
+      <div class="p-cta">
+        <a class="btn ghost" id="pOriginal" target="_blank" rel="noopener"></a>
+        <a class="btn ghost" id="pPalette"></a>
+      </div>
+    </div>
     <div class="r-app">
       <p>過去の名画アーカイブ · 3×3/5×5 · 無制限プレイはアプリで</p>
       <a class="btn store" href="https://apps.apple.com/app/id6767449110?ct=palette_web_play&amp;pt=118060110&amp;mt=8" data-cta="result" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>App Storeでダウンロード</a>
@@ -102,8 +117,8 @@
     <a href="/palette2048/play/ko/" hreflang="ko" lang="ko">한국어</a>
   </nav>
 </footer>
-<script id="i18n" type="application/json">{"today": "今日の名画", "mystery": "ミステリー土曜日", "mysteryNote": "作品名はゲーム終了後に公開されます。", "score": "スコア", "best": "最高タイル", "hint": "スワイプか矢印キーで、同じ色を合わせよう", "won": "2048の色に到達！", "finish": "ここで終えてシェア", "keep": "続ける", "over": "もう動かせません", "result": "今日の結果", "share": "結果をシェア", "copied": "コピーしました — 好きな場所に貼り付けて", "shareFail": "コピーできませんでした。テキストを手動でコピーしてください。", "appLine": "過去の名画アーカイブ · 3×3/5×5 · 無制限プレイはアプリで", "appBtn": "App Storeでダウンロード", "next": "次の名画まで", "loadErr": "今日のパズルを読み込めませんでした。再読み込みしてください。", "boardLabel": "パズルボード。矢印キーかスワイプでタイルを動かします。", "shareScore": "スコア", "done": "今日はプレイ済み", "appUrl": "https://apps.apple.com/app/id6767449110?ct=palette_web_play&pt=118060110&mt=8"}</script>
-<script src="/palette2048/play/core.js?v=6a3201ba"></script>
-<script src="/palette2048/play/play.js?v=2f288213"></script>
+<script id="i18n" type="application/json">{"today": "今日の名画", "mystery": "ミステリー土曜日", "mysteryNote": "作品名はゲーム終了後に公開されます。", "score": "スコア", "best": "最高タイル", "hint": "スワイプか矢印キーで、同じ色を合わせよう", "won": "2048の色に到達！", "finish": "ここで終えてシェア", "keep": "続ける", "over": "もう動かせません", "result": "今日の結果", "share": "結果をシェア", "copied": "コピーしました — 好きな場所に貼り付けて", "shareFail": "コピーできませんでした。テキストを手動でコピーしてください。", "appLine": "過去の名画アーカイブ · 3×3/5×5 · 無制限プレイはアプリで", "appBtn": "App Storeでダウンロード", "next": "次の名画まで", "loadErr": "今日のパズルを読み込めませんでした。再読み込みしてください。", "boardLabel": "パズルボード。矢印キーかスワイプでタイルを動かします。", "shareScore": "スコア", "done": "今日はプレイ済み", "pOriginal": "原画を見る ↗", "pPalette": "この絵の配色・HEX →", "pCopyNote": "著作権保護のため、原本サイトでご覧いただけます。", "appUrl": "https://apps.apple.com/app/id6767449110?ct=palette_web_play&pt=118060110&mt=8"}</script>
+<script src="/palette2048/play/core.js?v=8aa320fa"></script>
+<script src="/palette2048/play/play.js?v=cd7ca150"></script>
 </body>
 </html>
