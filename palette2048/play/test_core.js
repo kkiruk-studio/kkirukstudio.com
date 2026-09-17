@@ -1,0 +1,79 @@
+// node palette2048/play/test_core.js — engine + color sanity tests for core.js
+"use strict";
+const assert = require("assert");
+const C = require("./core.js");
+
+const row = (vals, dir = "left") => {
+  const res = C.move(C.fromGrid([vals, [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]), dir);
+  return res ? { line: C.toGrid(res.tiles)[0], gained: res.gained } : null;
+};
+let n = 0;
+const test = (name, fn) => { fn(); n++; console.log("ok -", name); };
+
+test("[2,2,2,2] → [4,4,0,0]", () => {
+  const r = row([2, 2, 2, 2]);
+  assert.deepStrictEqual(r.line, [4, 4, 0, 0]);
+  assert.strictEqual(r.gained, 8);
+});
+test("[2,2,4,0] → [4,4,0,0] (no chain merge)", () => assert.deepStrictEqual(row([2, 2, 4, 0]).line, [4, 4, 0, 0]));
+test("[4,4,8,8] → [8,16,0,0]", () => assert.deepStrictEqual(row([4, 4, 8, 8]).line, [8, 16, 0, 0]));
+test("[2,0,0,2] → [4,0,0,0]", () => assert.deepStrictEqual(row([2, 0, 0, 2]).line, [4, 0, 0, 0]));
+test("[2,2,2,0] right → [0,0,2,4] (merge from the leading edge)", () =>
+  assert.deepStrictEqual(row([2, 2, 2, 0], "right").line, [0, 0, 2, 4]));
+test("[2,4,8,16] left → no move (null)", () => assert.strictEqual(row([2, 4, 8, 16]), null));
+test("column up/down", () => {
+  const g = [[2, 0, 0, 0], [2, 0, 0, 0], [4, 0, 0, 0], [4, 0, 0, 0]];
+  assert.deepStrictEqual(C.toGrid(C.move(C.fromGrid(g), "up").tiles).map((r) => r[0]), [4, 8, 0, 0]);
+  assert.deepStrictEqual(C.toGrid(C.move(C.fromGrid(g), "down").tiles).map((r) => r[0]), [0, 0, 4, 8]);
+});
+test("no move → no spawn (caller spawns only on a real move)", () => {
+  const tiles = C.fromGrid([[2, 4, 8, 16], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]);
+  const before = tiles.length;
+  const res = C.move(tiles, "left");
+  if (res) C.spawn(tiles);
+  assert.strictEqual(res, null);
+  assert.strictEqual(tiles.length, before);
+});
+test("merge keeps the leading tile id, reports absorbed id", () => {
+  const tiles = C.fromGrid([[2, 2, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]);
+  const res = C.move(tiles, "left");
+  assert.strictEqual(res.tiles[0].id, tiles[0].id);
+  assert.strictEqual(res.merged[0].id, tiles[1].id);
+  assert.strictEqual(res.merged[0].into, tiles[0].id);
+});
+test("canMove", () => {
+  assert.strictEqual(C.canMove(C.fromGrid([[2, 4, 2, 4], [4, 2, 4, 2], [2, 4, 2, 4], [4, 2, 4, 8]])), false);
+  assert.strictEqual(C.canMove(C.fromGrid([[2, 4, 2, 4], [4, 2, 4, 2], [2, 4, 2, 4], [4, 2, 8, 8]])), true);
+  assert.strictEqual(C.canMove(C.fromGrid([[2, 4, 2, 4], [4, 2, 4, 2], [2, 4, 2, 4], [4, 2, 4, 0]])), true);
+  assert.strictEqual(C.canMove(C.fromGrid([[2, 4, 2, 4], [4, 2, 4, 2], [2, 4, 2, 8], [4, 2, 4, 8]])), true);
+});
+test("spawn: 2 at 90%, 4 at 10%, only on empty cells", () => {
+  let fours = 0;
+  const N = 20000;
+  for (let i = 0; i < N; i++) {
+    const tiles = C.fromGrid([[2, 2, 2, 2], [2, 2, 2, 2], [2, 2, 2, 2], [2, 2, 2, 0]]);
+    const t = C.spawn(tiles);
+    assert.deepStrictEqual([t.row, t.col], [3, 3]);
+    if (t.value === 4) fours++;
+  }
+  assert.ok(Math.abs(fours / N - 0.1) < 0.012, `4-rate ${fours / N}`);
+  assert.strictEqual(C.spawn(C.fromGrid([[2, 4, 2, 4], [4, 2, 4, 2], [2, 4, 2, 4], [4, 2, 4, 8]])), null);
+});
+test("Lab round trip", () => {
+  for (const h of ["#000000", "#FFFFFF", "#16377A", "#D8D391", "#B9000C"]) assert.strictEqual(C.toHex(C.fromHex(h)), h);
+});
+test("deobf matches the app key", () => {
+  const b64 = Buffer.from([..."Mona Lisa"].map((ch, i) => ch.charCodeAt(0) ^ "palette2048-2026-curator".charCodeAt(i))).toString("base64");
+  assert.strictEqual(C.deobf(b64), "Mona Lisa");
+});
+test("daysBetween / puzzle number", () => {
+  assert.strictEqual(C.daysBetween("2026-03-01", "2026-09-17") + 1, 201);
+  assert.strictEqual(C.daysBetween("2027-02-28", "2027-03-01"), 1);
+});
+test("nearest emoji", () => {
+  assert.strictEqual(C.nearestEmoji(C.fromHex("#D02030")), "🟥");
+  assert.strictEqual(C.nearestEmoji(C.fromHex("#1E5FC0")), "🟦");
+  assert.strictEqual(C.nearestEmoji(C.fromHex("#FAFAFA")), "⬜");
+  assert.strictEqual(C.nearestEmoji(C.fromHex("#101010")), "⬛");
+});
+console.log(`\n${n} tests passed`);

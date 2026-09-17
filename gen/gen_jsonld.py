@@ -146,6 +146,10 @@ def pages(d):
     for p in sorted(list(base.glob("*.html")) + list(base.glob("*/index.html"))):
         if "drafts" in p.parts or p.name in {"og.html", "og-src.html"}:
             continue
+        # 자체 생성기가 구조화 데이터를 소유하는 하위 페이지 (예: palette2048/play/build.py 의
+        # 웹 퍼즐·팔레트 페이지) — 앱 랜딩용 SoftwareApplication/product-facts 주입 대상 아님.
+        if "<!-- seo:build-owned" in p.read_text(encoding="utf-8")[:2000]:
+            continue
         yield p
 
 

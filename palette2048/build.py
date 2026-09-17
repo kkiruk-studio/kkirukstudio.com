@@ -164,6 +164,15 @@ L = {
  fc="聯絡", fp="隱私", ft="條款"),
 }
 
+# Browser daily puzzle (palette2048/play/build.py) — one prominent link from the hero.
+PLAY_WEB = {
+    "en": ("play/", "Play today's puzzle free in your browser"),
+    "ko": ("play/ko/", "브라우저에서 오늘의 퍼즐 무료로 해보기"),
+    "ja": ("play/ja/", "ブラウザで今日のパズルを無料で遊ぶ"),
+    "zh-Hans": ("play/", "在浏览器中免费玩今日拼图（英文）"),
+    "zh-Hant": ("play/", "在瀏覽器中免費玩今日拼圖（英文）"),
+}
+
 def langsel(cur):
     short={'en':'EN','ko':'한국어','ja':'日本語','zh-Hans':'简体中文','zh-Hant':'繁體中文'}
     return "\n".join(f'        <option value="{f}"{" selected" if c==cur else ""}>{short[c]}</option>' for c,f,_ in LANGS)
@@ -228,6 +237,7 @@ TMPL='''<!DOCTYPE html>
       {store_btn}
       <span class="rating"><span class="stars">★★★★★</span>{rating}</span>
     </div>
+    <a class="play-web" href="{play_href}"><span class="pw-dot" aria-hidden="true"></span>{play_web}<span aria-hidden="true"> →</span></a>
     <p class="hero-foot">{hfoot}</p>
   </div>
   <div class="board-col">
@@ -329,6 +339,7 @@ for code,fname,_ in LANGS:
         nav_cta = f'<a class="nav-cta" href="{APP}" target="_blank" rel="noopener">App Store</a>'
         store_btn = f'<a class="appstore-btn" href="{APP}" target="_blank" rel="noopener">{SVG}{d["cta"]}</a>'
     params.update(nav_cta=nav_cta, store_btn=store_btn)
+    params.update(play_href=PLAY_WEB[code][0], play_web=PLAY_WEB[code][1])
     params.update(svg=SVG, app=APP, hreflang=hreflang(), langsel=langsel(code),
         footlangs=footlangs(code), steps=steps_html(d), feats=feats_html(d),
         shots=shots_html(d), marquee=marquee_html())
