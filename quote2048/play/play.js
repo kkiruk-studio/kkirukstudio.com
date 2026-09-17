@@ -9,7 +9,7 @@
   var LANG = document.documentElement.lang || "en";
   var LOC = S.loc || "en";
   var STORE_KEY = "quote.web.v1";
-  var DATA = "/quote2048/play/data/";
+  var DATA = "/quote2048/play/d/";
   var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var SLIDE_MS = reduceMotion ? 0 : 90;
   var CJK_QUOTES = LOC === "ja" || LOC === "zh-hant";
@@ -45,11 +45,16 @@
   function puzzleLabel() { return game.preview ? S.preview : "#" + game.num; }
 
   /* ── data ── */
+  // S.sched's day entries hold an opaque per-locale filename (build.py hashes locale+theme id), not
+  // the theme id itself — pick.theme is that filename token; the real theme id only appears once the
+  // fetched body is decrypted below. The body itself is XOR+base64 obfuscated (see core.js#deobf).
   function resolveToday(dayKey) {
     pick = C.scheduleFor(S.sched, dayKey);
-    return fetch(DATA + LOC + "/" + pick.theme + ".json", { credentials: "same-origin" }).then(function (r) {
+    return fetch(DATA + pick.theme, { credentials: "same-origin" }).then(function (r) {
       if (!r.ok) throw new Error(pick.theme + " " + r.status);
-      return r.json();
+      return r.text();
+    }).then(function (body) {
+      return JSON.parse(C.deobf(body.trim()));
     });
   }
 

@@ -3,7 +3,12 @@
 
 Outputs (edit this file / play.js / play.css / core.js / ../quotes/quotes.css|js, never the generated HTML):
   quote2048/play/index.html, play/{ko,ja,zh-hans,zh-hant}/index.html   — daily puzzle (5 locales)
-  quote2048/play/data/<locale>/<theme-id>.json   — one theme's 17 quotes in one locale (~1–2 KB)
+  quote2048/play/d/<opaque>.json   — one theme's 17 quotes in one locale (~1–2 KB), XOR+base64
+    obfuscated body under an opaque filename (sha256 of a salt + locale + theme id, first 16 hex
+    chars) — see OBF_KEY / FILE_SALT / opaque_name() below. Address-guessing and text search across
+    other days' data is the threat model, not a real secret (it's a static site — see 2026-09-18
+    decision); "continue past 2048" on the web stays unobfuscated (17 quotes ship as before), only
+    *other days'* data is hidden. Each locale's play page embeds only that locale's opaque filenames.
   quote2048/quotes/index.html (+ <locale>/)      — theme index (topics / author packs)
   quote2048/quotes/<theme-id>/index.html (+ <locale>/) — 60 themes × 5 locales
   sitemap.xml                                     — regenerated with gen/gen_sitemap.py
@@ -25,10 +30,12 @@ quotes.json, the templates or the assets change:
   python3 quote2048/play/build.py
 """
 import argparse
+import base64
 import hashlib
 import json
 import os
 import random
+import shutil
 import subprocess
 import sys
 from html import escape
@@ -49,6 +56,10 @@ SITE = "https://www.kkirukstudio.com"
 OG_IMAGE = SITE + "/quote2048/assets/icon-512.png"
 BUILD_MARK = "<!-- seo:build-owned quote2048/play/build.py -->"
 SCHEDULE_SEED = 20260918
+# Soft obfuscation for play/d/*.json (2026-09-18 decision): stop address-guessing/text-search of other
+# days' quotes on the static site, not a real secret. Own key/salt — distinct from Palette 2048's.
+OBF_KEY = b"quote2048-2026-riddle"        # XOR key for data file bodies (must match core.js's OBF)
+FILE_SALT = "quote2048-2026-files"        # salt for opaque filenames (sha256, first 16 hex chars)
 BOARD_IDS = ["board-dawn", "board-forest", "board-ocean", "board-ember", "board-lavender",
              "board-desert", "board-inkjade", "board-berry", "board-peacock", "board-charcoal"]
 # Quote pages (quote2048/quotes/) publish only the first quotes of each theme; the rest is app-only
@@ -106,6 +117,18 @@ def save(path, text):
 
 def ver(path):
     return hashlib.sha1(path.read_bytes()).hexdigest()[:8]
+
+
+def obf(s):
+    """Light XOR+base64, same scheme as Palette 2048's obf() (own key — see OBF_KEY)."""
+    raw = s.encode("utf-8")
+    return base64.b64encode(bytes(b ^ OBF_KEY[i % len(OBF_KEY)] for i, b in enumerate(raw))).decode("ascii")
+
+
+def opaque_name(locale, theme_id):
+    """Filename that hides which locale+theme it is: sha256(salt|locale|id) → 16 hex chars + .json."""
+    h = hashlib.sha256(f"{FILE_SALT}|{locale}|{theme_id}".encode("utf-8")).hexdigest()[:16]
+    return f"{h}.json"
 
 
 def ld(obj):
@@ -184,14 +207,35 @@ def load_schedule(themes):
 
 
 def build_data(themes):
+    """Writes play/d/<opaque>.json (XOR+base64-obfuscated body, filename hides locale+theme id — see
+    OBF_KEY/FILE_SALT) and returns (count, filemap) where filemap[locale][theme_id] = opaque filename,
+    used to build each locale's own day→filename schedule (never the plaintext theme id)."""
     n = 0
+    filemap = {code: {} for code in LOC}
+    keep = set()
     for t in themes:
         for code in LOC:
             obj = {"id": t["id"], "kind": t["kind"], "pro": 1 if t["premium"] else 0, "name": tname(t, code),
                    "q": [[qtext(q, code), qauthor(q, code)] for q in t["quotes"]]}
-            save(HERE / "data" / code / f"{t['id']}.json", json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + "\n")
+            fname = opaque_name(code, t["id"])
+            filemap[code][t["id"]] = fname
+            body = obf(json.dumps(obj, ensure_ascii=False, separators=(",", ":")))
+            save(HERE / "d" / fname, body + "\n")
+            keep.add(fname)
             n += 1
-    return n
+    d_dir = HERE / "d"
+    for p in d_dir.iterdir():
+        if p.name not in keep:
+            p.unlink()
+    old_data = HERE / "data"
+    if old_data.exists():
+        shutil.rmtree(old_data)
+    return n, filemap
+
+
+def sched_for_locale(sched, code, filemap):
+    """Per-locale schedule for the play page: day→[opaque filename, board id] — never the theme id."""
+    return {"epoch": sched["epoch"], "days": [[filemap[code][tid], board] for tid, board in sched["days"]]}
 
 
 # ─── Copy ─────────────────────────────────────────────────────────────────────
@@ -745,13 +789,14 @@ PLAY_TMPL = """<!DOCTYPE html>
 """
 
 
-def build_play(themes, sched):
+def build_play(themes, sched, filemap):
     versions = dict(v_css=ver(HERE / "play.css"), v_js=ver(HERE / "play.js"), v_core=ver(HERE / "core.js"))
     picks = [t for t in themes if t["kind"] == "topic"][:4] + [t for t in themes if t["kind"] == "author"][:4]
     qr = qr_svg(app_url(CT_PLAY), title="App Store — " + APP_NAME)
     for code in LOC:
         d = T[code]
-        ui = dict(d["ui"], appUrl=app_url(CT_PLAY), sched=sched, sub=LOC[code]["sub"], loc=code)
+        loc_sched = sched_for_locale(sched, code, filemap)
+        ui = dict(d["ui"], appUrl=app_url(CT_PLAY), sched=loc_sched, sub=LOC[code]["sub"], loc=code)
         langs = "\n".join(f'    <a href="/quote2048/play/{LOC[c]["sub"]}" hreflang="{LOC[c]["hl"]}" lang="{LOC[c]["hl"]}">{LOC[c]["label"]}</a>'
                           for c in LOC if c != code)
         theme_links = "\n".join(f'      <li><a href="{rel(theme_url(t["id"], code))}">{escape(h1_for(t, code))}</a></li>'
@@ -1037,8 +1082,8 @@ def main():
         make_schedule(themes, args.force)
         return
     sched = load_schedule(themes)
-    n_data = build_data(themes)
-    build_play(themes, sched)
+    n_data, filemap = build_data(themes)
+    build_play(themes, sched, filemap)
     n_pages = build_quote_pages(themes)
     print(f"data files: {n_data} · play pages: {len(LOC)} · quote pages: {n_pages} (+ {len(LOC)} indexes)")
     if not args.no_sitemap:

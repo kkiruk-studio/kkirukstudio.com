@@ -104,6 +104,32 @@ test("daysBetween", () => {
   assert.strictEqual(C.daysBetween("2026-10-31", "2026-11-02"), 2);
 });
 
+/* ── data obfuscation (build.py's play/d/<opaque>.json) ── */
+test("deobf: round-trips a built data file against quotes.json (filename hides locale+theme id)", () => {
+  // Mirrors build.py's opaque_name() — sha256(FILE_SALT|locale|id) → first 16 hex chars + ".json".
+  // A visitor's browser never computes this itself (each locale's play page already embeds its own
+  // opaque filenames in S.sched); this replica exists only so the test can find the right file.
+  const crypto = require("crypto");
+  const FILE_SALT = "quote2048-2026-files"; // must match build.py's FILE_SALT
+  const opaqueName = (locale, tid) =>
+    crypto.createHash("sha256").update(`${FILE_SALT}|${locale}|${tid}`, "utf8").digest("hex").slice(0, 16) + ".json";
+
+  const qj = JSON.parse(fs.readFileSync(require("os").homedir() + "/Quote2048/tools/quotes.json", "utf8"));
+  const theme = qj.themes.find((t) => t.id === "courage");
+  const fname = opaqueName("en", "courage");
+  const body = fs.readFileSync(path.join(__dirname, "d", fname), "utf8").trim();
+  const obj = JSON.parse(C.deobf(body));
+  assert.strictEqual(obj.id, "courage");
+  assert.strictEqual(obj.kind, "topic");
+  assert.strictEqual(obj.q.length, 17, "all 17 levels ship (continue-past-2048 stays unobfuscated)");
+  theme.quotes.forEach((q, i) => {
+    assert.strictEqual(obj.q[i][0], q.en, `quote ${i} text`);
+    assert.strictEqual(obj.q[i][1], q.author_en, `quote ${i} author`);
+  });
+  // opaque filenames differ per locale for the same theme (locale folded into the hash)
+  assert.notStrictEqual(opaqueName("ko", "courage"), fname);
+});
+
 /* ── colors ── */
 test("Lab round trip", () => {
   for (const h of ["#000000", "#FFFFFF", "#16294A", "#F2E3C4", "#B23A38"]) assert.strictEqual(C.toHex(C.fromHex(h)), h);

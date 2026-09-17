@@ -283,6 +283,19 @@
     return { num: off + 1, idx: idx, preview: off < 0, theme: sched.days[idx][0], board: sched.days[idx][1] };
   }
 
+  /* ───────────── Data deobfuscation (light XOR+base64, same scheme/key style as Palette 2048's
+     CuratedPalette.deobf — own key so the two apps don't share one). Soft obfuscation only: a static
+     site can't fully block a determined reader, this just stops address-guessing and plain-text
+     search/crawling of other days' quotes. build.py's OBF_KEY must match this string. */
+  var OBF = "quote2048-2026-riddle";
+  function deobf(s) {
+    if (!s) return "";
+    var bin = (typeof atob === "function") ? atob(s) : Buffer.from(s, "base64").toString("binary");
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i) ^ OBF.charCodeAt(i % OBF.length);
+    return new TextDecoder().decode(bytes);
+  }
+
   /* ───────────── Tile font fitting (GameBoardView.swift · TileFontSizing) ─────────────
      measure(text, size) → rendered width in px of `text` in the tile font at `size`.
      lineHeight = font line height ÷ size. Returns the largest whole-px size (stepping down from
@@ -345,7 +358,7 @@
     fromHex: fromHex, toHex: toHex, fromRGB: fromRGB, deltaE: deltaE, makeTheme: makeTheme, tamedChroma: tamedChroma,
     nearestEmoji: nearestEmoji, move: move, spawn: spawn, canMove: canMove, toGrid: toGrid, fromGrid: fromGrid,
     maxValue: maxValue, quoteIndex: quoteIndex, dayKey: dayKey, daysBetween: daysBetween, scheduleFor: scheduleFor,
-    fitFont: fitFont, isWrappable: isWrappable
+    deobf: deobf, fitFont: fitFont, isWrappable: isWrappable
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.QuoteCore = api;
