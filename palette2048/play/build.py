@@ -38,7 +38,7 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 
 # ─── Constants ────────────────────────────────────────────────────────────────
-PT = ""                                   # App Store provider token (pt). Empty → omitted.
+PT = "118060110"                                   # App Store provider token (pt). Empty → omitted.
 CT_PLAY = "palette_web_play"              # campaign token for the play page CTAs
 CT_PALETTE = "palette_web_palette"        # campaign token for palette pages
 APP_ID = "6767449110"
