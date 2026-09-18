@@ -18,6 +18,25 @@
   .intro { font-size: 14px; color: #555; margin-bottom: 1.5rem; line-height: 1.7; }
   .tab-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
   .app-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem; }
+
+  /* ── 앱별 구분 강화 (2026-09-18) — privacy 와 동일한 이유·규칙 ── */
+  .app-tabs { position: sticky; top: 0; z-index: 20; background: #fff; padding: 8px 0; }
+  .app-block { margin-bottom: 1rem; border: 1px solid #e8e8e8; border-radius: 10px; padding: 12px 14px; background: #fcfcfc; }
+  .app-block > .sub-label { font-size: 13px; font-weight: 700; color: #1a1a1a; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 1px solid #eee; letter-spacing: -0.1px; }
+  .app-block .sub-label::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #1a1a1a; margin-right: 7px; vertical-align: middle; }
+  .scope-banner { display: none; border: 1px solid #1a1a1a; border-radius: 10px; padding: 11px 14px; margin-bottom: 1.5rem; font-size: 13px; line-height: 1.6; color: #1a1a1a; background: #f6f6f6; }
+  .scope-banner.on { display: block; }
+  .scope-banner b { font-weight: 700; }
+  .scope-banner a { color: #1a1a1a; text-decoration: underline; margin-left: 6px; }
+  @media (prefers-color-scheme: dark) {
+    .app-tabs { background: #111; }
+    .app-block { border-color: #333; background: #161616; }
+    .app-block > .sub-label { color: #e5e5e5; border-bottom-color: #2a2a2a; }
+    .app-block .sub-label::before { background: #e5e5e5; }
+    .scope-banner { border-color: #e5e5e5; background: #1c1c1c; color: #e5e5e5; }
+    .scope-banner a { color: #e5e5e5; }
+  }
+
   .section { border-left: 2px solid #e5e5e5; padding-left: 1rem; margin-bottom: 2rem; }
   .section h2 { font-size: 15px; font-weight: 600; margin-bottom: 1rem; }
   .section p { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 1rem; }
@@ -94,6 +113,7 @@
       <button data-filter="catspop" onclick="filterApp('catspop')">고양이는 정말 팡팡</button>
       <button data-filter="james" onclick="filterApp('james')">James 시리즈</button>
     </div>
+    <div class="scope-banner" data-lang="ko"></div>
 
     <div class="section" data-app="all">
       <h2>서비스 개요</h2>
@@ -520,6 +540,7 @@
       <button data-filter="catspop" onclick="filterApp('catspop')">Cats are Cute: Pop Time!</button>
       <button data-filter="james" onclick="filterApp('james')">James Series</button>
     </div>
+    <div class="scope-banner" data-lang="en"></div>
 
     <div class="section" data-app="all">
       <h2>Services</h2>
@@ -937,15 +958,46 @@ function showLang(lang) {
 }
 
 function filterApp(app) {
-  document.querySelectorAll('[data-app]').forEach(function(el) {
-    var apps = el.getAttribute('data-app').split(' ');
-    var show = app === 'all' || apps.indexOf('all') !== -1 || apps.indexOf(app) !== -1;
-    el.style.display = show ? '' : 'none';
-  });
-  document.querySelectorAll('.app-tabs button').forEach(function(btn) {
-    btn.classList.toggle('active', btn.dataset.filter === app);
-  });
-}
+    document.querySelectorAll('[data-app]').forEach(function(el) {
+      var apps = el.getAttribute('data-app').split(' ');
+      var show = app === 'all' || apps.indexOf('all') !== -1 || apps.indexOf(app) !== -1;
+      el.style.display = show ? '' : 'none';
+    });
+    document.querySelectorAll('.app-tabs button').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.filter === app);
+    });
+    /* 어떤 앱을 보고 있는지 본문 위에 분명히 알린다. 이게 없으면 '전체'와
+       구분이 안 돼서 다른 앱의 고지를 자기 앱 것으로 읽는다. */
+    document.querySelectorAll('.scope-banner').forEach(function(el) {
+      var lang = el.dataset.lang;
+      if (app === 'all') { el.classList.remove('on'); el.innerHTML = ''; return; }
+      var btn = el.closest('div[id^="lang-"]').querySelector('.app-tabs button[data-filter="' + app + '"]');
+      var name = btn ? btn.textContent : app;
+      el.innerHTML = lang === 'ko'
+        ? '아래 내용은 <b>' + name + '</b> 에만 해당합니다. 다른 앱의 항목은 숨겨져 있습니다.<a href="#" onclick="filterApp(\'all\');return false;">전체 보기</a>'
+        : 'The sections below apply to <b>' + name + '</b> only. Other apps are hidden.<a href="#" onclick="filterApp(\'all\');return false;">Show all</a>';
+      el.classList.add('on');
+    });
+    /* 주소를 바꿔 두면 이 상태 그대로 공유·재방문할 수 있다 */
+    try {
+      var u = new URL(window.location.href);
+      if (app === 'all') u.searchParams.delete('app'); else u.searchParams.set('app', app);
+      history.replaceState(null, '', u);
+    } catch (e) {}
+  }
+
+  /* 앱에서 ?app=<id> 로 들어오면 그 앱만 보여준다.
+     이게 없어서 어느 앱에서 열든 20개 앱 고지가 전부 펼쳐져 있었다. */
+  (function () {
+    var m = /[?&]app=([^&#]+)/.exec(window.location.search);
+    if (!m) return;
+    var app = decodeURIComponent(m[1]);
+    var run = function () {
+      if (document.querySelector('.app-tabs button[data-filter="' + app + '"]')) filterApp(app);
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+    else run();
+  })();
 </script>
 </body>
 </html>
