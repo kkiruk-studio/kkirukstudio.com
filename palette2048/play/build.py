@@ -272,7 +272,7 @@ def hexs(rgb):
 
 
 ANCHORS = ("startRGB", "midRGB", "endRGB", "highlightRGB", "accent1RGB", "accent2RGB")
-FLAVOR_LOCALES = ("en", "ko", "ja")     # play.js only ships these 3 locales
+FLAVOR_LOCALES = ("en", "ko", "ja", "zh-Hant", "zh-Hans")   # 순서 = core.js unpack() 의 row[8] 인덱스
 
 # Paintings whose `url` is a Wikimedia Commons *photo* but not a faithful, safe-to-display image of
 # the artwork itself — e.g. a photo of street graffiti after a still-in-copyright painting, not the
@@ -540,10 +540,16 @@ def build_data(paintings, emitted, app_all, ws, cutoff, today):
     return len(days)
 
 
-# ─── Play page (en / ko / ja) ────────────────────────────────────────────────
-PLAY_LOCALES = [("en", "", "English"), ("ko", "ko/", "한국어"), ("ja", "ja/", "日本語")]
-LANDING = {"en": "/palette2048/", "ko": "/palette2048/ko.html", "ja": "/palette2048/ja.html"}
-QUOTE_SUB = {"en": "", "ko": "ko/", "ja": "ja/"}   # cross-promo: same-locale Quote 2048 play page
+# ─── Play page (en / ko / ja / zh-hant / zh-hans) ────────────────────────────
+PLAY_LOCALES = [("en", "", "English"), ("ko", "ko/", "한국어"), ("ja", "ja/", "日本語"),
+                ("zh-hant", "zh-hant/", "繁體中文"), ("zh-hans", "zh-hans/", "简体中文")]
+# 디렉터리 이름은 소문자(zh-hant), HTML lang·hreflang·flavor 키는 BCP-47 표기(zh-Hant).
+# core.js 의 painting.flavor 조회가 document.documentElement.lang 을 그대로 쓰므로 둘이 맞아야 한다.
+HTML_LANG = {"en": "en", "ko": "ko", "ja": "ja", "zh-hant": "zh-Hant", "zh-hans": "zh-Hans"}
+LANDING = {"en": "/palette2048/", "ko": "/palette2048/ko.html", "ja": "/palette2048/ja.html",
+           "zh-hant": "/palette2048/zh-hant.html", "zh-hans": "/palette2048/zh-hans.html"}
+QUOTE_SUB = {"en": "", "ko": "ko/", "ja": "ja/",
+             "zh-hant": "zh-hant/", "zh-hans": "zh-hans/"}   # cross-promo: same-locale Quote 2048 play page
 
 
 def quote_play_url(code):
@@ -661,6 +667,80 @@ T = {
  side_how=["矢印キーか W A S D で全タイルを動かします。", "同じ色が2つぶつかると、絵の次の色に変わります。",
            "1日1回 — 動かせなくなったら終了です。"],
  qr_cap="iPhoneのカメラでスキャンしてインストール"),
+"zh-hant": dict(
+ brand="調色盤2048",
+ title="調色盤2048 每日 — 免費名畫配色益智遊戲（用顏色玩的 2048）",
+ desc="在瀏覽器裡玩今天的名畫配色謎題：用真實名畫色盤取代數字的 2048 類色彩遊戲。免費、免註冊，每天一幅。",
+ ogt="調色盤2048 每日 — 今天的名畫配色謎題",
+ h1="每日一幅，用顏色玩的名畫謎題", loading="正在載入今天的名畫…",
+ noscript="調色盤2048 需要 JavaScript 才能遊玩。你仍可在下方閱讀玩法。",
+ badge="下載 App",
+ ui=dict(today="今天的名畫", mystery="神秘星期六", mysteryNote="畫作名稱會在你完成後揭曉。",
+   score="分數", best="最高方塊", hint="滑動或使用方向鍵 — 合併相同的顏色",
+   won="你抵達了 2048 的顏色！", finish="結束並分享", keep="繼續玩", over="沒有可移動的步數了",
+   result="今天的成績", share="分享成績", copied="已複製 — 可貼到任何地方",
+   shareFail="無法複製，請手動選取文字後複製。", appLine="App 裡今天還有另一幅名畫等你 — 另有歷史典藏與 3×3、5×5 棋盤",
+   appBtn="在 App Store 下載", next="距離下一幅名畫", loadErr="無法載入今天的謎題，請重新整理。",
+   boardLabel="謎題棋盤。使用方向鍵或滑動來移動方塊。", shareScore="分數", done="今天已玩過",
+   pOriginal="查看原作 ↗", pPalette="這幅畫的配色與 HEX →",
+   pCopyNote="這件作品仍受著作權保護，請至原始網站瀏覽。"),
+ how_t="玩法", how=[
+   "在棋盤上滑動，或按方向鍵、W A S D，讓所有方塊一起移動。",
+   "兩個相同顏色的方塊會合併成今天名畫色盤中的下一個顏色。",
+   "每移動一次就會出現一個新方塊。方塊上沒有數字 — 只能靠顏色判讀。",
+   "當無法再移動時遊戲結束。分享你的棋盤，明天再來看新的名畫。"],
+ faq_t="常見問題", faq=[
+   ("調色盤2048 是什麼？", "調色盤2048 是每日名畫謎題：一款 2048 風格的色彩遊戲，棋盤用真實名畫的色盤上色。方塊上顯示的不是數字而是顏色，合併兩個相同的顏色，就會變成這幅畫色盤中的下一個顏色。"),
+   ("免費嗎？", "是的。今天的謎題可在瀏覽器免費遊玩，免註冊、無廣告。iPhone 與 iPad 版的調色盤2048 App 也可免費下載。"),
+   ("和 2048 有什麼不同？", "規則與 2048 相同 — 滑動方塊、合併相同的一對、目標是 2048 方塊 — 但沒有數字。你跟著畫作的色盤，從最深的色調走到最淺的，所以每天的棋盤看起來和玩起來都不一樣。"),
+   ("什麼時候會有新謎題？", "每天在你所在時區的午夜，會有新的名畫與色盤。網頁版每天一局。星期六的畫作名稱會保密到你完成為止。"),
+   ("App 多了什麼？", "App 有自己獨立的每日謎題 — 與網頁版不同的名畫，等於一天兩幅。此外還有歷史名畫典藏、3×3 與 5×5 棋盤、無限重玩、回上一步，以及只靠顏色猜畫作的星期六神秘測驗。"),
+ ],
+ more_t="探索", more_pal="瀏覽名畫配色（英文）", more_land="關於調色盤2048 App",
+ more_x="名言2048 — 今天的名言謎題",
+ foot_c="聯絡我們", foot_p="隱私權", foot_t="條款",
+ xk="另一個每日謎題", xname="名言2048", xdesc="合併今天主題的名言，直到皇冠名言",
+ xcta="玩今天的謎題 →",
+ side_how=["方向鍵或 W A S D 可移動所有方塊。", "兩個相同的顏色會合併成畫作的下一個顏色。",
+           "一天一局 — 無法再移動時結束。"],
+ qr_cap="用 iPhone 相機掃描即可安裝"),
+"zh-hans": dict(
+ brand="调色板2048",
+ title="调色板2048 每日 — 免费名画配色益智游戏（用颜色玩的 2048）",
+ desc="在浏览器里玩今天的名画配色谜题：用真实名画色板取代数字的 2048 类色彩游戏。免费、免注册，每天一幅。",
+ ogt="调色板2048 每日 — 今天的名画配色谜题",
+ h1="每日一幅，用颜色玩的名画谜题", loading="正在载入今天的名画…",
+ noscript="调色板2048 需要 JavaScript 才能游玩。你仍可在下方阅读玩法。",
+ badge="下载 App",
+ ui=dict(today="今天的名画", mystery="神秘星期六", mysteryNote="画作名称会在你完成后揭晓。",
+   score="分数", best="最高方块", hint="滑动或使用方向键 — 合并相同的颜色",
+   won="你抵达了 2048 的颜色！", finish="结束并分享", keep="继续玩", over="没有可移动的步数了",
+   result="今天的成绩", share="分享成绩", copied="已复制 — 可粘贴到任何地方",
+   shareFail="无法复制，请手动选取文字后复制。", appLine="App 里今天还有另一幅名画等你 — 另有历史典藏与 3×3、5×5 棋盘",
+   appBtn="在 App Store 下载", next="距离下一幅名画", loadErr="无法载入今天的谜题，请刷新页面。",
+   boardLabel="谜题棋盘。使用方向键或滑动来移动方块。", shareScore="分数", done="今天已玩过",
+   pOriginal="查看原作 ↗", pPalette="这幅画的配色与 HEX →",
+   pCopyNote="这件作品仍受著作权保护，请至原始网站浏览。"),
+ how_t="玩法", how=[
+   "在棋盘上滑动，或按方向键、W A S D，让所有方块一起移动。",
+   "两个相同颜色的方块会合并成今天名画色板中的下一个颜色。",
+   "每移动一次就会出现一个新方块。方块上没有数字 — 只能靠颜色判读。",
+   "当无法再移动时游戏结束。分享你的棋盘，明天再来看新的名画。"],
+ faq_t="常见问题", faq=[
+   ("调色板2048 是什么？", "调色板2048 是每日名画谜题：一款 2048 风格的色彩游戏，棋盘用真实名画的色板上色。方块上显示的不是数字而是颜色，合并两个相同的颜色，就会变成这幅画色板中的下一个颜色。"),
+   ("免费吗？", "是的。今天的谜题可在浏览器免费游玩，免注册、无广告。iPhone 与 iPad 版的调色板2048 App 也可免费下载。"),
+   ("和 2048 有什么不同？", "规则与 2048 相同 — 滑动方块、合并相同的一对、目标是 2048 方块 — 但没有数字。你跟着画作的色板，从最深的色调走到最浅的，所以每天的棋盘看起来和玩起来都不一样。"),
+   ("什么时候会有新谜题？", "每天在你所在时区的午夜，会有新的名画与色板。网页版每天一局。星期六的画作名称会保密到你完成为止。"),
+   ("App 多了什么？", "App 有自己独立的每日谜题 — 与网页版不同的名画，等于一天两幅。此外还有历史名画典藏、3×3 与 5×5 棋盘、无限重玩、回上一步，以及只靠颜色猜画作的星期六神秘测验。"),
+ ],
+ more_t="探索", more_pal="浏览名画配色（英文）", more_land="关于调色板2048 App",
+ more_x="名言2048 — 今天的名言谜题",
+ foot_c="联系我们", foot_p="隐私政策", foot_t="条款",
+ xk="另一个每日谜题", xname="名言2048", xdesc="合并今天主题的名言，直到皇冠名言",
+ xcta="玩今天的谜题 →",
+ side_how=["方向键或 W A S D 可移动所有方块。", "两个相同的颜色会合并成画作的下一个颜色。",
+           "一天一局 — 无法再移动时结束。"],
+ qr_cap="用 iPhone 相机扫描即可安装"),
 }
 
 
@@ -670,6 +750,7 @@ def play_url(code):
 
 def play_jsonld(code, d):
     url = play_url(code)
+    code = HTML_LANG[code]          # inLanguage 는 BCP-47 표기로
     org = {"@type": "Organization", "@id": SITE + "/#organization", "name": "kkiruk studio", "url": SITE + "/"}
     app_node = {"@type": "MobileApplication", "@id": SITE + f"/#app-{APP_ID}", "name": APP_NAME,
                 "operatingSystem": "iOS", "applicationCategory": "GameApplication",
@@ -865,7 +946,7 @@ PLAY_TMPL = """<!DOCTYPE html>
 
 
 def build_play():
-    hreflang = "\n".join(f'<link rel="alternate" hreflang="{c}" href="{play_url(c)}">' for c, _, _ in PLAY_LOCALES)
+    hreflang = "\n".join(f'<link rel="alternate" hreflang="{HTML_LANG[c]}" href="{play_url(c)}">' for c, _, _ in PLAY_LOCALES)
     hreflang += f'\n<link rel="alternate" hreflang="x-default" href="{play_url("en")}">'
     versions = dict(v_css=ver(HERE / "play.css"), v_js=ver(HERE / "play.js"),
                     v_core=ver(HERE / "core.js"), v_data=ver(HERE / "daily.json"))
@@ -873,12 +954,13 @@ def build_play():
     for code, sub, _ in PLAY_LOCALES:
         d = T[code]
         ui = dict(d["ui"], appUrl=app_url(CT_PLAY))
-        langs = "\n".join(f'    <a href="/palette2048/play/{p}" hreflang="{c}" lang="{c}">{n}</a>'
+        langs = "\n".join(f'    <a href="/palette2048/play/{p}" hreflang="{HTML_LANG[c]}" lang="{HTML_LANG[c]}">{n}</a>'
                           for c, p, n in PLAY_LOCALES if c != code)
         html = PLAY_TMPL.format(
-            lang=code, mark=BUILD_MARK, title=escape(d["title"]), desc=escape(d["desc"]), url=play_url(code),
+            lang=HTML_LANG[code], mark=BUILD_MARK, title=escape(d["title"]), desc=escape(d["desc"]), url=play_url(code),
             hreflang=hreflang, app_id=APP_ID, ogt=escape(d["ogt"]), og_image=OG_IMAGE,
-            og_locale={"en": "en_US", "ko": "ko_KR", "ja": "ja_JP"}[code],
+            og_locale={"en": "en_US", "ko": "ko_KR", "ja": "ja_JP",
+                       "zh-hant": "zh_TW", "zh-hans": "zh_CN"}[code],
             jsonld=play_jsonld(code, d), landing=LANDING[code], app_url=escape(app_url(CT_PLAY)),
             brand=escape(d["brand"]), apple=APPLE_SVG, badge=d["badge"], h1=escape(d["h1"]), loading=escape(d["loading"]),
             score=d["ui"]["score"], best=d["ui"]["best"], board_label=escape(d["ui"]["boardLabel"]),

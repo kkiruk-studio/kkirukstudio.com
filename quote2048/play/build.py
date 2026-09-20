@@ -86,8 +86,8 @@ LOCALES = [("en", "", "en", "en", "en_US", "English"),
            ("zh-hans", "zh-hans/", "zh_hans", "zh-Hans", "zh_CN", "简体中文"),
            ("zh-hant", "zh-hant/", "zh_hant", "zh-Hant", "zh_TW", "繁體中文")]
 LOC = {c: dict(sub=s, key=k, hl=h, og=o, label=l) for c, s, k, h, o, l in LOCALES}
-# cross-promo: same-locale Palette 2048 play page; Palette has no zh UI, so zh-hans/zh-hant fall back to en.
-PALETTE_SUB = {"en": "", "ko": "ko/", "ja": "ja/", "zh-hans": "", "zh-hant": ""}
+# cross-promo: same-locale Palette 2048 play page (Palette 도 2026-09-20 부터 zh 2종 제공).
+PALETTE_SUB = {"en": "", "ko": "ko/", "ja": "ja/", "zh-hans": "zh-hans/", "zh-hant": "zh-hant/"}
 
 
 def palette_play_url(code):

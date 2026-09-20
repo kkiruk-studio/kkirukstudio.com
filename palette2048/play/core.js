@@ -287,12 +287,15 @@
     return new TextDecoder().decode(bytes);
   }
   // Compact row → painting. Row: [id, nameObf, artistObf, year, "hex hex hex hex hex hex", bg|"",
-  // urlObf, imageOk(0/1), [flavorEnObf, flavorKoObf, flavorJaObf]]
+  // urlObf, imageOk(0/1), [flavorEnObf, flavorKoObf, flavorJaObf, flavorZhHantObf, flavorZhHansObf]]
+  // 인덱스 순서는 build.py 의 FLAVOR_LOCALES 와 짝이다. 구버전 daily.json 이 캐시돼 3개만 올 수 있어 길이를 확인한다.
   function unpack(row) {
     return { id: row[0], name: deobf(row[1]), artist: deobf(row[2]), year: row[3],
       colors: row[4].split(" ").map(function (h) { return "#" + h; }), bg: row[5] ? "#" + row[5] : null,
       url: deobf(row[6]), imageOk: !!row[7],
-      flavor: { en: deobf(row[8][0]), ko: deobf(row[8][1]), ja: deobf(row[8][2]) } };
+      flavor: { en: deobf(row[8][0]), ko: deobf(row[8][1]), ja: deobf(row[8][2]),
+                "zh-Hant": row[8].length > 3 ? deobf(row[8][3]) : "",
+                "zh-Hans": row[8].length > 4 ? deobf(row[8][4]) : "" } };
   }
 
   // Downsize a Wikimedia Commons image URL to one of the widths the thumbnail service accepts
