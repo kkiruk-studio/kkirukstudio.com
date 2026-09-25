@@ -91,7 +91,7 @@
 
   <!-- 한국어 -->
   <div id="lang-ko" style="display:none;">
-    <p class="meta">시행일: 2026년 9월 24일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
+    <p class="meta">시행일: 2026년 9월 25일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
     <p class="intro">kkiruk studio(이하 "당사")는 아래 앱들을 운영하며, 이용자의 개인정보를 소중히 다룹니다. 본 방침은 아래 앱 모두에 적용됩니다.</p>
     <p class="tab-label">앱별로 보기</p>
     <div class="app-tabs">
@@ -245,7 +245,7 @@
       </div>
       <div class="app-block" data-app="nycsubwaylog">
         <p class="sub-label">NYC Subway Log</p>
-        <p>당사는 NYC Subway Log 이용자로부터 광고·분석 SDK 및 외부 추적 도구를 사용하지 않으며, 별도의 계정 시스템도 두지 않습니다.</p>
+        <p>당사는 NYC Subway Log 에 광고 SDK 및 외부 추적 도구를 사용하지 않으며, 별도의 계정 시스템도 두지 않습니다.</p>
         <p>이용자가 앱에서 생성하는 데이터(역 방문 기록, 방문 일시, 메모, 즐겨찾기 노선, 전 구간 완주 상태, 수집한 차량 기록, 사용자 추가 촬영지의 좌표·제목·메모, 디비전 순서 등 UI 환경설정, 온보딩 완료 플래그)는 기기 내 SwiftData 저장소 및 UserDefaults 에 저장됩니다. 같은 Apple ID 로 로그인된 다른 기기로 자동 동기화하기 위해 방문 기록·즐겨찾기·메모 등 핵심 데이터는 Apple iCloud 계정 내 private CloudKit 데이터베이스에도 저장됩니다. 동기화 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud &gt; NYC Subway Log 에서 끌 수 있습니다.</p>
         <p class="sub-label">노선·역 데이터</p>
         <p>앱에 수록된 노선·역·선로 정보는 MTA(Metropolitan Transportation Authority)가 공개하는 GTFS static 피드와 NYC OpenData 의 공개 데이터를 앱 번들에 포함한 것입니다. 앱 실행 중 MTA 또는 뉴욕시 서버로 이용자 정보를 전송하지 않으며, 당사는 MTA 와 제휴 관계가 없습니다.</p>
@@ -253,8 +253,11 @@
         <p>역 방문 기록이나 촬영지에 첨부하는 사진은 <strong>기기 내 로컬 저장소(앱 Documents 디렉토리)에만 저장</strong>되며, CloudKit 데이터베이스나 당사 서버로 전송되지 않습니다. 사진은 저장 시점에 2048px 장변 기준으로 다운스케일되어 JPEG로 저장됩니다. 사진 추가 시 사진 보관함 접근 권한(PHPickerViewController)을 사용자 동의 하에 요청합니다.</p>
         <p class="sub-label">위치 정보</p>
         <p>지도 탭의 "내 위치" / "근처 역" 기능을 사용자가 직접 탭할 때만 CoreLocation 으로 현재 위치를 요청합니다. 위치 정보는 카메라 이동·주변 역 검색 목적으로만 일시적으로 사용되며 기기 외부에 저장되거나 전송되지 않습니다. 위치 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
-        <p class="sub-label">지도 타일</p>
-        <p>완주 카드의 배경 지도는 OpenStreetMap 기반 CARTO 타일 서비스에서 이미지 타일을 내려받아 렌더링합니다. 이때 해당 카드가 다루는 노선 구간의 좌표 범위가 타일 요청에 포함되며, 이용자 식별 정보는 전송되지 않습니다.</p>
+        <p class="sub-label">지도 및 Cab View(베타)</p>
+        <p>앱 내 지도는 Apple 지도(MapKit)로 표시됩니다. 완주 카드의 배경 지도는 OpenStreetMap 기반 지도 타일(CARTO)을 내려받아 만들며, 이때 이용자의 IP 주소와 요청한 타일 좌표가 타일 서버에 전달됩니다.</p>
+        <p>「Cab View」(베타) 기능은 Mapbox, Inc. 의 위성 사진·지형 타일을 내려받아 표시합니다. 이때 이용자의 IP 주소와 요청한 지도 영역(비행하는 구간의 좌표 범위)이 Mapbox 서버에 전달됩니다. 방문 기록·메모·개인 식별 정보는 전송되지 않습니다. Mapbox SDK 에 포함된 텔레메트리(위치·기기 정보 수집)는 <strong>기본적으로 꺼져 있습니다</strong>. 자세한 내용은 <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox 개인정보 보호방침</a>을 참고하세요.</p>
+        <p class="sub-label">사용 통계 (Firebase Analytics)</p>
+        <p>앱 개선을 위해 비식별 사용 이벤트(예: 화면 조회, 기능 사용 횟수, 앱 버전, OS 버전, 기기 종류, 언어 설정), Firebase 가 발급하는 기기 식별자(앱 인스턴스 ID), Pro 구매 여부를 Google Firebase Analytics 로 수집할 수 있습니다. 이름·이메일 등 직접 식별 정보는 포함되지 않으며, 광고 식별자(IDFA)는 사용하지 않고 이용자를 추적하지 않으며, 데이터를 판매하거나 마케팅 목적으로 사용하지 않습니다. 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>을 참고하세요.</p>
         <p class="sub-label">결제</p>
         <p>인앱 결제(NYC Subway Log Pro 월간·연간 구독 및 평생 이용권) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집·저장하지 않습니다.</p>
       </div>
@@ -351,7 +354,10 @@
         <tr data-app="nycsubwaylog"><td>Apple iCloud (CloudKit)</td><td>NYC Subway Log — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple Core Location</td><td>NYC Subway Log — "내 위치"/"근처 역" 탭 시 현재 위치 일시 조회</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple StoreKit</td><td>NYC Subway Log — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
+        <tr data-app="nycsubwaylog"><td>Apple MapKit</td><td>NYC Subway Log — 앱 내 지도 화면 표시</td></tr>
         <tr data-app="nycsubwaylog"><td>CARTO (OpenStreetMap)</td><td>NYC Subway Log — 완주 카드 배경 지도 타일</td></tr>
+        <tr data-app="nycsubwaylog"><td>Mapbox, Inc.</td><td>NYC Subway Log — 「Cab View」(베타)의 위성 사진·지형 타일 제공 (IP 주소·요청 지도 영역 전달, 텔레메트리 기본 꺼짐)</td></tr>
+        <tr data-app="nycsubwaylog"><td>Google Firebase Analytics</td><td>NYC Subway Log — 비식별 사용 통계 (IDFA 미사용)</td></tr>
         <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — 사용자 자체 API 키로 메모 직접 전송 (사용자 명시적 선택 시)</td></tr>
         <tr data-app="catscute catspop"><td>Google LLC (Firebase, AdMob)</td><td>고양이는 정말 귀여워·팡팡 — 광고 제공 및 분석 (광고 식별자, 기기 정보, 사용 로그)</td></tr>
         <tr data-app="catscute catspop"><td>Unity Technologies</td><td>고양이는 정말 귀여워·팡팡 — 게임 분석 및 성능 추적</td></tr>
@@ -569,7 +575,7 @@
 
   <!-- English -->
   <div id="lang-en">
-    <p class="meta">Effective: September 24, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
+    <p class="meta">Effective: September 25, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
     <p class="intro">kkiruk studio ("we") operates the apps listed below and is committed to protecting your privacy. This policy applies to all apps listed.</p>
     <p class="tab-label">Filter by app</p>
     <div class="app-tabs">
@@ -723,7 +729,7 @@
       </div>
       <div class="app-block" data-app="nycsubwaylog">
         <p class="sub-label">NYC Subway Log</p>
-        <p>We do not use advertising or analytics SDKs or any external tracking tools, and there is no separate account system in NYC Subway Log.</p>
+        <p>We do not use advertising SDKs or any external tracking tools, and there is no separate account system in NYC Subway Log.</p>
         <p>Data you create in the app (station visit records, visit timestamps, notes, favorite lines, line completion state, collected rolling-stock records, coordinates / title / note for user-added photo spots, division ordering and other UI preferences, onboarding flag) is stored on your device in SwiftData and UserDefaults. To automatically sync across devices signed in to the same Apple ID, core data (visit records, favorites, notes, etc.) is also stored in your Apple iCloud account's private CloudKit database. Synced data lives on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud &gt; NYC Subway Log.</p>
         <p class="sub-label">Line and station data</p>
         <p>Line, station, and track data shipped with the app comes from the Metropolitan Transportation Authority's public GTFS static feed and from NYC OpenData, bundled into the app. No user information is sent to MTA or City of New York servers while you use the app. We are not affiliated with, endorsed by, or sponsored by the MTA.</p>
@@ -731,8 +737,11 @@
         <p>Photos you attach to visit records or photo spots are <strong>stored only in local device storage</strong> (the app's Documents directory) and are never transmitted to CloudKit or our servers. Photos are downscaled to a 2048px long edge and stored as JPEG when saved. The Photo Library picker (PHPickerViewController) is used with your consent when you add a photo.</p>
         <p class="sub-label">Location</p>
         <p>Core Location is queried only when you explicitly tap the "My location" / "Nearby stations" buttons in the Map tab. Location data is used transiently for camera focus and nearby-station search and is never stored on-device or transmitted off-device. Location permission can be revoked at any time in iOS Settings.</p>
-        <p class="sub-label">Map tiles</p>
-        <p>The map behind a line-completion card is rendered from raster tiles fetched from the OpenStreetMap-based CARTO tile service. Those requests carry the coordinate range of the line segment shown on the card; no user-identifying information is sent.</p>
+        <p class="sub-label">Maps and Cab View (beta)</p>
+        <p>The in-app map is rendered with Apple Maps (MapKit). The background of the line-completion card is built from OpenStreetMap-based map tiles (CARTO); your IP address and the requested tile coordinates are sent to the tile server.</p>
+        <p>The "Cab View" (beta) feature downloads satellite imagery and terrain tiles from Mapbox, Inc. Your IP address and the requested map area (the coordinate range of the section being flown) are sent to Mapbox servers. Visit records, notes and personal identifiers are never transmitted. The telemetry built into the Mapbox SDK (location and device information) is <strong>turned off by default</strong>. See the <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox Privacy Policy</a> for details.</p>
+        <p class="sub-label">Usage analytics (Firebase Analytics)</p>
+        <p>To improve the app we may collect non-identifying usage events (e.g., screen views, feature usage counts, app version, OS version, device model, language setting), a device identifier issued by Firebase (the app instance ID), and Pro purchase status via Google Firebase Analytics. No directly identifying information such as name or email is included, the advertising identifier (IDFA) is not used, we do not track you, and the data is never sold or used for marketing. See the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a> for details.</p>
         <p class="sub-label">Payments</p>
         <p>In-app purchases (NYC Subway Log Pro monthly / yearly subscriptions and the lifetime unlock) and receipt validation are handled entirely by Apple StoreKit; we do not collect or store any payment information.</p>
       </div>
@@ -829,7 +838,10 @@
         <tr data-app="nycsubwaylog"><td>Apple iCloud (CloudKit)</td><td>NYC Subway Log — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple Core Location</td><td>NYC Subway Log — transient location lookup when you tap "My location" / "Nearby stations"</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple StoreKit</td><td>NYC Subway Log — Pro subscription / lifetime unlock payments and receipt validation</td></tr>
+        <tr data-app="nycsubwaylog"><td>Apple MapKit</td><td>NYC Subway Log — rendering the in-app map screen</td></tr>
         <tr data-app="nycsubwaylog"><td>CARTO (OpenStreetMap)</td><td>NYC Subway Log — map tiles behind the line-completion card</td></tr>
+        <tr data-app="nycsubwaylog"><td>Mapbox, Inc.</td><td>NYC Subway Log — satellite imagery and terrain tiles for "Cab View" (beta) (IP address and requested map area are sent; telemetry off by default)</td></tr>
+        <tr data-app="nycsubwaylog"><td>Google Firebase Analytics</td><td>NYC Subway Log — non-identifying usage analytics (no IDFA)</td></tr>
         <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — direct memo transfer using your own API key (only on explicit user action)</td></tr>
         <tr data-app="catscute catspop"><td>Google LLC (Firebase, AdMob)</td><td>Cats are Cute / Pop Time! — ad serving and analytics (ad identifiers, device info, usage logs)</td></tr>
         <tr data-app="catscute catspop"><td>Unity Technologies</td><td>Cats are Cute / Pop Time! — game analytics and performance tracking</td></tr>
