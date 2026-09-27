@@ -91,7 +91,7 @@
 
   <!-- 한국어 -->
   <div id="lang-ko" style="display:none;">
-    <p class="meta">시행일: 2026년 9월 25일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
+    <p class="meta">시행일: 2026년 9월 27일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
     <p class="intro">kkiruk studio(이하 "당사")는 아래 앱들을 운영하며, 이용자의 개인정보를 소중히 다룹니다. 본 방침은 아래 앱 모두에 적용됩니다.</p>
     <p class="tab-label">앱별로 보기</p>
     <div class="app-tabs">
@@ -222,7 +222,7 @@
         <p>지도 탭의 "내 위치" / "근처 역" 기능을 사용자가 직접 탭할 때만 CoreLocation 으로 현재 위치를 요청합니다. 위치 정보는 카메라 이동·주변 역 검색 목적으로만 일시적으로 사용되며 기기 외부에 저장되거나 전송되지 않습니다. 위치 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
         <p class="sub-label">지도 및 3D 상공 비행(베타)</p>
         <p>앱 내 지도는 Apple 지도(MapKit)로 표시됩니다. 「전구간 완주」 카드의 배경 지도는 OpenStreetMap 기반 지도 타일(CARTO Positron)을 내려받아 만들며, 이때 이용자의 IP 주소와 요청한 타일 좌표가 타일 서버에 전달됩니다.</p>
-        <p>「3D 상공 비행」(베타) 기능은 Mapbox, Inc. 의 위성 사진·지형 타일을 내려받아 표시합니다. 이때 이용자의 IP 주소와 요청한 지도 영역(비행하는 노선 구간의 좌표 범위)이 Mapbox 서버에 전달됩니다. 방문 기록·메모·개인 식별 정보는 전송되지 않습니다. Mapbox SDK 에 포함된 텔레메트리(위치·기기 정보 수집)는 <strong>기본적으로 꺼져 있으며</strong>, 이용자가 비행 화면의 ⓘ 메뉴에서 직접 켤 수 있습니다. 자세한 내용은 <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox 개인정보 보호방침</a>을 참고하세요.</p>
+        <p>「3D 상공 비행」(베타) 기능은 Mapbox, Inc. 의 위성 사진·지형 타일을 내려받아 표시합니다. 이때 이용자의 IP 주소와 요청한 지도 영역(비행하는 노선 구간의 좌표 범위)이 Mapbox 서버에 전달됩니다. 방문 기록·메모·개인 식별 정보는 전송되지 않습니다. Mapbox SDK 에 포함된 텔레메트리(위치·기기 정보 수집)는 <strong>기본적으로 꺼져 있으며</strong>, 이용자가 비행 화면의 ⓘ 메뉴에서 직접 켤 수 있습니다. 자세한 내용은 <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox 개인정보 보호방침</a>을 참고하세요. 前面展望 동영상을 「비디오 저장」할 때는 사진 보관함에 추가하는 권한만 요청합니다.</p>
         <p class="sub-label">사용 통계 (Firebase Analytics)</p>
         <p>앱 개선을 위해 비식별 사용 이벤트(예: 화면 조회, 기능 사용 횟수, 앱 버전, OS 버전, 기기 종류, 언어 설정)를 Google Firebase Analytics 로 수집할 수 있습니다. 이름·이메일 등 직접 식별 정보는 포함되지 않으며, 광고 식별자(IDFA)는 사용하지 않고, 데이터를 판매하거나 마케팅 목적으로 사용하지 않습니다. 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>을 참고하세요.</p>
         <p class="sub-label">결제</p>
@@ -230,14 +230,17 @@
       </div>
       <div class="app-block" data-app="raillog">
         <p class="sub-label">레일로그 (Raillog)</p>
-        <p>당사는 레일로그 이용자로부터 이름·이메일·계정과 같은 개인 식별 정보를 수집하지 않습니다. 광고 SDK, 분석 SDK, 외부 추적 도구, 계정 시스템, 당사 서버 연동이 모두 부재합니다.</p>
+        <p>당사는 레일로그 이용자로부터 이름·이메일·계정과 같은 개인 식별 정보를 수집하지 않습니다. 광고 SDK, 외부 추적 도구, 계정 시스템, 당사 서버 연동이 모두 부재합니다.</p>
         <p>이용자가 앱에서 생성하는 데이터(역 방문 기록과 방문 일시, 메모, 승차 기록, 즐겨찾기 노선, 완주 상태, 차량 도감 기록, 사용자가 추가한 촬영지의 좌표·제목·메모, 정렬·표시 등 UI 환경설정, 온보딩 완료 플래그)는 기기 내 SwiftData 저장소 및 UserDefaults 에 저장됩니다. 같은 Apple ID 로 로그인된 다른 기기로 자동 동기화하기 위해 방문 기록·즐겨찾기·메모 등 핵심 데이터는 Apple iCloud 계정 내 private CloudKit 데이터베이스에도 저장됩니다. 동기화 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud &gt; 레일로그 에서 끌 수 있습니다.</p>
         <p class="sub-label">사진</p>
         <p>역 방문 기록이나 촬영지에 첨부하는 사진은 <strong>기기 내 로컬 저장소(앱 Documents 디렉토리)에만 저장</strong>되며, CloudKit 데이터베이스나 당사 서버로 전송되지 않습니다. 사진은 저장 시점에 장변 2048px 기준으로 다운스케일되어 JPEG로 저장됩니다. 사진 촬영·추가 시 카메라 및 사진 보관함 접근 권한을 사용자 동의 하에 요청합니다.</p>
         <p class="sub-label">위치 정보</p>
         <p>지도 화면에서 현재 위치 표시·주변 역 찾기 기능을 사용자가 사용할 때만 CoreLocation 으로 위치를 요청합니다. 위치 정보는 지도 이동·주변 역 검색 목적으로만 일시적으로 사용되며 기기 외부에 저장되거나 전송되지 않습니다. 백그라운드 위치 추적은 사용하지 않으며, 위치 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
-        <p class="sub-label">지도 표시</p>
+        <p class="sub-label">지도 및 전면 전망(베타)</p>
         <p>앱 내 지도는 Apple 지도(MapKit)로 표시됩니다. 「전구간 완주」 카드의 배경 지도는 OpenStreetMap 기반 지도 타일(CARTO Positron)을 내려받아 만들며, 이때 이용자의 IP 주소와 요청한 타일 좌표가 타일 서버에 전달됩니다. 방문 기록이나 개인 식별 정보는 전송되지 않습니다.</p>
+        <p>「전면 전망」(베타) 기능은 Mapbox, Inc. 의 위성 사진·지형 타일을 내려받아 표시합니다. 이때 이용자의 IP 주소와 요청한 지도 영역(비행하는 구간의 좌표 범위)이 Mapbox 서버에 전달됩니다. 방문 기록·메모·개인 식별 정보는 전송되지 않습니다. Mapbox SDK 에 포함된 텔레메트리(위치·기기 정보 수집)는 <strong>기본적으로 꺼져 있습니다</strong>. 자세한 내용은 <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox 개인정보 보호방침</a>을 참고하세요. 전면 전망 동영상을 「비디오 저장」할 때는 사진 보관함에 추가하는 권한만 요청합니다.</p>
+        <p class="sub-label">사용 통계 (Firebase Analytics)</p>
+        <p>앱 개선을 위해 비식별 사용 이벤트(예: 화면 조회, 기능 사용 횟수, 앱 버전, OS 버전, 기기 종류, 언어 설정), Firebase 가 발급하는 기기 식별자(앱 인스턴스 ID), Pro 구매 여부를 Google Firebase Analytics 로 수집할 수 있습니다. 이름·이메일 등 직접 식별 정보는 포함되지 않으며, 광고 식별자(IDFA)는 사용하지 않고 이용자를 추적하지 않으며, 데이터를 판매하거나 마케팅 목적으로 사용하지 않습니다. 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>을 참고하세요.</p>
         <p class="sub-label">백업·내보내기</p>
         <p>JSON 백업 파일과 CSV 내보내기 파일은 기기 내에서 생성되며, 공유 시트를 통해 이용자가 직접 선택한 위치·앱으로만 전달됩니다. 당사 서버로는 전송되지 않습니다.</p>
         <p class="sub-label">결제</p>
@@ -255,7 +258,7 @@
         <p>지도 탭의 "내 위치" / "근처 역" 기능을 사용자가 직접 탭할 때만 CoreLocation 으로 현재 위치를 요청합니다. 위치 정보는 카메라 이동·주변 역 검색 목적으로만 일시적으로 사용되며 기기 외부에 저장되거나 전송되지 않습니다. 위치 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
         <p class="sub-label">지도 및 Cab View(베타)</p>
         <p>앱 내 지도는 Apple 지도(MapKit)로 표시됩니다. 완주 카드의 배경 지도는 OpenStreetMap 기반 지도 타일(CARTO)을 내려받아 만들며, 이때 이용자의 IP 주소와 요청한 타일 좌표가 타일 서버에 전달됩니다.</p>
-        <p>「Cab View」(베타) 기능은 Mapbox, Inc. 의 위성 사진·지형 타일을 내려받아 표시합니다. 이때 이용자의 IP 주소와 요청한 지도 영역(비행하는 구간의 좌표 범위)이 Mapbox 서버에 전달됩니다. 방문 기록·메모·개인 식별 정보는 전송되지 않습니다. Mapbox SDK 에 포함된 텔레메트리(위치·기기 정보 수집)는 <strong>기본적으로 꺼져 있습니다</strong>. 자세한 내용은 <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox 개인정보 보호방침</a>을 참고하세요.</p>
+        <p>「Cab View」(베타) 기능은 Mapbox, Inc. 의 위성 사진·지형 타일을 내려받아 표시합니다. 이때 이용자의 IP 주소와 요청한 지도 영역(비행하는 구간의 좌표 범위)이 Mapbox 서버에 전달됩니다. 방문 기록·메모·개인 식별 정보는 전송되지 않습니다. Mapbox SDK 에 포함된 텔레메트리(위치·기기 정보 수집)는 <strong>기본적으로 꺼져 있습니다</strong>. 자세한 내용은 <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox 개인정보 보호방침</a>을 참고하세요. Cab View 동영상을 「비디오 저장」할 때는 사진 보관함에 추가하는 권한만 요청합니다.</p>
         <p class="sub-label">사용 통계 (Firebase Analytics)</p>
         <p>앱 개선을 위해 비식별 사용 이벤트(예: 화면 조회, 기능 사용 횟수, 앱 버전, OS 버전, 기기 종류, 언어 설정), Firebase 가 발급하는 기기 식별자(앱 인스턴스 ID), Pro 구매 여부를 Google Firebase Analytics 로 수집할 수 있습니다. 이름·이메일 등 직접 식별 정보는 포함되지 않으며, 광고 식별자(IDFA)는 사용하지 않고 이용자를 추적하지 않으며, 데이터를 판매하거나 마케팅 목적으로 사용하지 않습니다. 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>을 참고하세요.</p>
         <p class="sub-label">결제</p>
@@ -351,6 +354,8 @@
         <tr data-app="raillog"><td>Apple MapKit</td><td>레일로그 — 앱 내 지도 화면 표시</td></tr>
         <tr data-app="raillog"><td>CARTO (basemaps.cartocdn.com)</td><td>레일로그 — 「전구간 완주」 카드 배경용 OpenStreetMap 기반 지도 타일 제공 (IP 주소·타일 좌표 전달)</td></tr>
         <tr data-app="raillog"><td>Apple StoreKit</td><td>레일로그 — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
+        <tr data-app="raillog"><td>Mapbox, Inc.</td><td>레일로그 — 「전면 전망」(베타)의 위성 사진·지형 타일 제공 (IP 주소·요청 지도 영역 전달, 텔레메트리 기본 꺼짐)</td></tr>
+        <tr data-app="raillog"><td>Google Firebase Analytics</td><td>레일로그 — 비식별 사용 통계 (IDFA 미사용)</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple iCloud (CloudKit)</td><td>NYC Subway Log — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple Core Location</td><td>NYC Subway Log — "내 위치"/"근처 역" 탭 시 현재 위치 일시 조회</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple StoreKit</td><td>NYC Subway Log — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
@@ -575,7 +580,7 @@
 
   <!-- English -->
   <div id="lang-en">
-    <p class="meta">Effective: September 25, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
+    <p class="meta">Effective: September 27, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
     <p class="intro">kkiruk studio ("we") operates the apps listed below and is committed to protecting your privacy. This policy applies to all apps listed.</p>
     <p class="tab-label">Filter by app</p>
     <div class="app-tabs">
@@ -706,7 +711,7 @@
         <p>Core Location is queried only when you explicitly tap the "My location" / "Nearby stations" buttons in the Map tab. Location data is used transiently for camera focus and nearby-station search and is never stored on-device or transmitted off-device. Location permission can be revoked at any time in iOS Settings.</p>
         <p class="sub-label">Maps and 3D flyover (beta)</p>
         <p>The in-app map is rendered with Apple Maps (MapKit). The background of the full-line completion card is built from OpenStreetMap-based map tiles (CARTO Positron); your IP address and the requested tile coordinates are sent to the tile server.</p>
-        <p>The "3D flyover" (beta) feature downloads satellite imagery and terrain tiles from Mapbox, Inc. Your IP address and the requested map area (the coordinate range of the line section being flown) are sent to Mapbox servers. Visit records, notes and personal identifiers are never transmitted. The telemetry built into the Mapbox SDK (location and device information) is <strong>turned off by default</strong>; you can enable it yourself from the ⓘ menu on the flyover screen. See the <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox Privacy Policy</a> for details.</p>
+        <p>The "3D flyover" (beta) feature downloads satellite imagery and terrain tiles from Mapbox, Inc. Your IP address and the requested map area (the coordinate range of the line section being flown) are sent to Mapbox servers. Visit records, notes and personal identifiers are never transmitted. The telemetry built into the Mapbox SDK (location and device information) is <strong>turned off by default</strong>; you can enable it yourself from the ⓘ menu on the flyover screen. See the <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox Privacy Policy</a> for details. When you save a 前面展望 / Cab View video with "Save Video", the app asks only for permission to add to your photo library.</p>
         <p class="sub-label">Usage analytics (Firebase Analytics)</p>
         <p>To improve the app we may collect non-identifying usage events (e.g., screen views, feature usage counts, app version, OS version, device model, language setting) via Google Firebase Analytics. No directly identifying information such as name or email is included, the advertising identifier (IDFA) is not used, and the data is never sold or used for marketing. See the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a> for details.</p>
         <p class="sub-label">Payments</p>
@@ -714,14 +719,17 @@
       </div>
       <div class="app-block" data-app="raillog">
         <p class="sub-label">Raillog (레일로그)</p>
-        <p>We do not collect personally identifying information such as your name, email address, or account from Raillog users. There are no advertising SDKs, analytics SDKs, external tracking tools, account system, or any connection to our own servers.</p>
+        <p>We do not collect personally identifying information such as your name, email address, or account from Raillog users. There are no advertising SDKs, external tracking tools, account system, or any connection to our own servers.</p>
         <p>Data you create in the app (station visit records and visit dates, notes, ride records, favorite lines, completion status, rolling-stock catalog records, coordinates/titles/notes of photo spots you add, UI preferences such as sorting and display, and the onboarding completion flag) is stored in on-device SwiftData storage and UserDefaults. To sync automatically to your other devices signed in with the same Apple ID, core data such as visit records, favorites, and notes is also stored in a private CloudKit database within your Apple iCloud account. Synced data resides in Apple's iCloud infrastructure and never passes through our servers. You can turn off iCloud sync in iOS Settings &gt; Apple ID &gt; iCloud &gt; Raillog.</p>
         <p class="sub-label">Photos</p>
         <p>Photos attached to station visit records or photo spots are <strong>stored only in on-device local storage (the app's Documents directory)</strong> and are never sent to the CloudKit database or our servers. Photos are downscaled to a 2048px long edge and saved as JPEG at save time. Camera and photo library access are requested with your consent when you take or add a photo.</p>
         <p class="sub-label">Location</p>
         <p>Location is requested through Core Location only when you use the "my location" / nearby-station features on the map screen. It is used transiently to move the map and search for nearby stations, and is never stored or transmitted off your device. No background location tracking is used, and you can change the location permission at any time in iOS Settings.</p>
-        <p class="sub-label">Maps</p>
+        <p class="sub-label">Maps and Cab View (beta)</p>
         <p>Maps inside the app are rendered with Apple Maps (MapKit). The background map on a full-line completion card is built from OpenStreetMap-based map tiles (CARTO Positron); when it is generated, your IP address and the requested tile coordinates are sent to the tile server. No visit records or personally identifying information are transmitted.</p>
+        <p>The 「전면 전망」 / Cab View (beta) feature downloads satellite imagery and terrain tiles from Mapbox, Inc. Your IP address and the requested map area (the coordinate range of the section being flown) are sent to Mapbox servers. Visit records, notes and personal identifiers are never transmitted. The telemetry built into the Mapbox SDK (location and device information) is <strong>turned off by default</strong>. See the <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox Privacy Policy</a> for details. When you save a Cab View video with "Save Video", the app asks only for permission to add to your photo library.</p>
+        <p class="sub-label">Usage analytics (Firebase Analytics)</p>
+        <p>To improve the app we may collect non-identifying usage events (e.g., screen views, feature usage counts, app version, OS version, device model, language setting), a device identifier issued by Firebase (the app instance ID), and Pro purchase status via Google Firebase Analytics. No directly identifying information such as name or email is included, the advertising identifier (IDFA) is not used, we do not track you, and the data is never sold or used for marketing. See the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a> for details.</p>
         <p class="sub-label">Backup &amp; export</p>
         <p>JSON backup files and CSV exports are generated on your device and are passed only to the destination or app you choose in the share sheet. They are never sent to our servers.</p>
         <p class="sub-label">Payments</p>
@@ -739,7 +747,7 @@
         <p>Core Location is queried only when you explicitly tap the "My location" / "Nearby stations" buttons in the Map tab. Location data is used transiently for camera focus and nearby-station search and is never stored on-device or transmitted off-device. Location permission can be revoked at any time in iOS Settings.</p>
         <p class="sub-label">Maps and Cab View (beta)</p>
         <p>The in-app map is rendered with Apple Maps (MapKit). The background of the line-completion card is built from OpenStreetMap-based map tiles (CARTO); your IP address and the requested tile coordinates are sent to the tile server.</p>
-        <p>The "Cab View" (beta) feature downloads satellite imagery and terrain tiles from Mapbox, Inc. Your IP address and the requested map area (the coordinate range of the section being flown) are sent to Mapbox servers. Visit records, notes and personal identifiers are never transmitted. The telemetry built into the Mapbox SDK (location and device information) is <strong>turned off by default</strong>. See the <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox Privacy Policy</a> for details.</p>
+        <p>The "Cab View" (beta) feature downloads satellite imagery and terrain tiles from Mapbox, Inc. Your IP address and the requested map area (the coordinate range of the section being flown) are sent to Mapbox servers. Visit records, notes and personal identifiers are never transmitted. The telemetry built into the Mapbox SDK (location and device information) is <strong>turned off by default</strong>. See the <a href="https://www.mapbox.com/legal/privacy" target="_blank" class="email">Mapbox Privacy Policy</a> for details. When you save a Cab View video with "Save Video", the app asks only for permission to add to your photo library.</p>
         <p class="sub-label">Usage analytics (Firebase Analytics)</p>
         <p>To improve the app we may collect non-identifying usage events (e.g., screen views, feature usage counts, app version, OS version, device model, language setting), a device identifier issued by Firebase (the app instance ID), and Pro purchase status via Google Firebase Analytics. No directly identifying information such as name or email is included, the advertising identifier (IDFA) is not used, we do not track you, and the data is never sold or used for marketing. See the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a> for details.</p>
         <p class="sub-label">Payments</p>
@@ -835,6 +843,8 @@
         <tr data-app="raillog"><td>Apple MapKit</td><td>Raillog — rendering the in-app map screen</td></tr>
         <tr data-app="raillog"><td>CARTO (basemaps.cartocdn.com)</td><td>Raillog — OpenStreetMap-based map tiles for full-line completion card backgrounds (IP address and tile coordinates are sent)</td></tr>
         <tr data-app="raillog"><td>Apple StoreKit</td><td>Raillog — Pro subscription / lifetime purchase &amp; receipt validation</td></tr>
+        <tr data-app="raillog"><td>Mapbox, Inc.</td><td>Raillog — satellite imagery and terrain tiles for Cab View (beta) (IP address and requested map area are sent; telemetry off by default)</td></tr>
+        <tr data-app="raillog"><td>Google Firebase Analytics</td><td>Raillog — non-identifying usage analytics (no IDFA)</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple iCloud (CloudKit)</td><td>NYC Subway Log — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple Core Location</td><td>NYC Subway Log — transient location lookup when you tap "My location" / "Nearby stations"</td></tr>
         <tr data-app="nycsubwaylog"><td>Apple StoreKit</td><td>NYC Subway Log — Pro subscription / lifetime unlock payments and receipt validation</td></tr>
