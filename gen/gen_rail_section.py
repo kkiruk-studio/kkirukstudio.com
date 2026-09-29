@@ -44,7 +44,7 @@ LOCALES = {
                  "<b>25개 노선·475개 역</b> 완주 기록 앱.",
         nyc_link="자세히 보기 →",
         tw_href="/taiwan-rail-log/ko/",
-        tw_title="鐵道誌",
+        tw_title="鐵道誌 (철도지)",
         tw_alt="鐵道誌 아이콘",
         tw_sub="Taiwan Rail Log · 대만 철도 승차 기록",
         tw_body="대만 臺鐵·고속철도·MRT·阿里山 삼림철도 "
@@ -103,7 +103,7 @@ LOCALES = {
                  "<b>25条线路·475个车站</b>的乘车记录应用。",
         nyc_link="了解更多 →",
         tw_href="/taiwan-rail-log/",
-        tw_title="鐵道誌",
+        tw_title="鐵道誌 (铁道志)",
         tw_alt="鐵道誌 图标",
         tw_sub="台湾铁道乘车记录",
         tw_body="涵盖台铁、高铁、捷运与阿里山林铁"
