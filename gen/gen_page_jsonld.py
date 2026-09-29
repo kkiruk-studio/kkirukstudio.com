@@ -18,6 +18,11 @@ PAGES = {
     "jixian-mao/index.html": "CollectionPage",
     "offwork/index.html": "WebPage",
     "offwork/en/index.html": "WebPage",
+    # 鐵道誌 — pre-launch (no App Store id yet). Move to gen_jsonld APPS on launch.
+    "taiwan-rail-log/index.html": "WebPage",
+    "taiwan-rail-log/en/index.html": "WebPage",
+    "taiwan-rail-log/ja/index.html": "WebPage",
+    "taiwan-rail-log/ko/index.html": "WebPage",
 }
 
 
