@@ -34,7 +34,7 @@ LOCALES = {
         nav="Rail",
         shared='역을 탭하면 탑승이 기록되고, 탄 노선의 색이 지도 위에 퍼져요. ',
         label="Rail",
-        intro="탄 노선을 지도에 채워가는 기록장 — 일본, 한국, 뉴욕. 가는 곳마다 하나씩 있어요.",
+        intro="탄 노선을 지도에 채워가는 기록장 — 일본, 한국, 뉴욕, 대만. 가는 곳마다 하나씩 있어요.",
         more="철도 앱 세 가지 한눈에 보기 →",
         hub="/rail/",
         nyc_href="/nyc-subway-log/ko/",
@@ -43,13 +43,19 @@ LOCALES = {
         nyc_body="뉴욕 지하철 "
                  "<b>25개 노선·475개 역</b> 완주 기록 앱.",
         nyc_link="자세히 보기 →",
+        tw_href="/taiwan-rail-log/ko/",
+        tw_title="鐵道誌",
+        tw_alt="鐵道誌 아이콘",
+        tw_sub="Taiwan Rail Log · 대만 철도 승차 기록",
+        tw_body="대만 臺鐵·고속철도·MRT·阿里山 삼림철도 "
+                "<b>39개 노선·589개 역</b> 완주 기록 앱.",
     ),
     "en.html": dict(
         nav="Rail",
         shared="Tap a station to log the ride — the line's color spreads across the map. ",
         label="Rail",
         intro="A log that fills the map with the lines you've ridden — one for Japan, "
-              "one for Korea, one for New York.",
+              "one for Korea, one for New York, one for Taiwan.",
         more="See all three rail apps →",
         hub="/rail/en.html",
         nyc_href="/nyc-subway-log/",
@@ -57,12 +63,18 @@ LOCALES = {
         nyc_sub="New York Subway Log",
         nyc_body="A New York City subway log covering <b>25 services and 475 stations</b>.",
         nyc_link="Learn more →",
+        tw_href="/taiwan-rail-log/en/",
+        tw_title="Taiwan Rail Log",
+        tw_alt="Taiwan Rail Log icon",
+        tw_sub="鐵道誌 · Train, MRT &amp; HSR Stamp Book",
+        tw_body="A Taiwan rail log covering <b>39 lines and 589 stations</b> — "
+                "TRA, High Speed Rail, the MRT and the Alishan Forest Railway.",
     ),
     "ja.html": dict(
         nav="Rail",
         shared='駅をタップするだけで乗車を記録。乗った路線の色が地図に広がります。',
         label="Rail",
-        intro="乗った路線で地図を埋めていく記録帳 — 日本、韓国、ニューヨーク。行く先ごとに一冊ずつ。",
+        intro="乗った路線で地図を埋めていく記録帳 — 日本、韓国、ニューヨーク、台湾。行く先ごとに一冊ずつ。",
         more="鉄道アプリ3本をまとめて見る →",
         hub="/rail/ja.html",
         nyc_href="/nyc-subway-log/ja/",
@@ -70,12 +82,18 @@ LOCALES = {
         nyc_sub="New York Subway Log",
         nyc_body="ニューヨーク地下鉄<b>25路線・475駅</b>の完乗記録アプリ。",
         nyc_link="くわしく見る →",
+        tw_href="/taiwan-rail-log/ja/",
+        tw_title="鐵道誌",
+        tw_alt="鐵道誌 アイコン",
+        tw_sub="Taiwan Rail Log · 台湾鉄道の記録",
+        tw_body="台鐵・高鐵・MRT・阿里山林業鉄道まで、台湾の"
+                "<b>39路線・589駅</b>の乗りつぶし記録アプリ。",
     ),
     "zh-hans.html": dict(
         nav="Rail",
         shared='点击车站即可记录乘车，乘坐路线的颜色会在地图上扩散。',
         label="Rail",
-        intro="用搭过的线路把地图填满的记录本 —— 日本、韩国、纽约，去到哪里就有哪里的一本。",
+        intro="用搭过的线路把地图填满的记录本 —— 日本、韩国、纽约、台湾，去到哪里就有哪里的一本。",
         more="一次看完三款铁道应用 →",
         hub="/rail/zh-hans.html",
         nyc_href="/nyc-subway-log/",
@@ -84,12 +102,18 @@ LOCALES = {
         nyc_body="涵盖纽约地铁"
                  "<b>25条线路·475个车站</b>的乘车记录应用。",
         nyc_link="了解更多 →",
+        tw_href="/taiwan-rail-log/",
+        tw_title="鐵道誌",
+        tw_alt="鐵道誌 图标",
+        tw_sub="台湾铁道乘车记录",
+        tw_body="涵盖台铁、高铁、捷运与阿里山林铁"
+                "<b>39条线路·589个车站</b>的乘车记录应用。",
     ),
     "zh-hant.html": dict(
         nav="Rail",
         shared='點擊車站即可記錄乘車，搭乘路線的顏色會在地圖上擴散。',
         label="Rail",
-        intro="用搭過的路線把地圖填滿的紀錄簿 —— 日本、韓國、紐約，去到哪裡就有哪裡的一本。",
+        intro="用搭過的路線把地圖填滿的紀錄簿 —— 日本、韓國、紐約、台灣，去到哪裡就有哪裡的一本。",
         more="一次看完三款鐵道應用程式 →",
         hub="/rail/zh-hant.html",
         nyc_href="/nyc-subway-log/zh-hant/",
@@ -98,6 +122,12 @@ LOCALES = {
         nyc_body="涵蓋紐約地鐵"
                  "<b>25條路線·475個車站</b>的乘車記錄應用程式。",
         nyc_link="了解更多 →",
+        tw_href="/taiwan-rail-log/",
+        tw_title="鐵道誌",
+        tw_alt="鐵道誌 圖示",
+        tw_sub="台灣鐵道乘車紀錄",
+        tw_body="涵蓋臺鐵、高鐵、捷運與阿里山林鐵"
+                "<b>39條路線·589個車站</b>的完乘紀錄應用程式。",
     ),
 }
 
@@ -123,6 +153,20 @@ def nyc_card(c):
 '''
 
 
+def tw_card(c):
+    return f'''
+      <a class="app-card reveal" href="{c['tw_href']}">
+        <img src="/icons/taiwan-rail-log.png" alt="{c['tw_alt']}">
+        <div>
+          <h3>{c['tw_title']}</h3>
+          <p class="en">{c['tw_sub']}<span class="plat"> · iOS</span></p>
+          <p>{c['tw_body']}</p>
+          <div class="links"><span>{c['nyc_link']}</span></div>
+        </div>
+      </a>
+'''
+
+
 def build(name, c):
     path = ROOT / name
     s = path.read_text(encoding="utf-8")
@@ -134,17 +178,17 @@ def build(name, c):
         sys.exit(f"{name}: 철도 카드 2개를 찾지 못함 ({len(cards)}개)")
 
     s = re.sub(r'\n<!-- ── 철도 ── -->\n<section id="rail">.*?</section>\n',
-               "\n", s, flags=re.S)
+               "", s, flags=re.S)
     s = CARD_RE.sub("\n", s)
 
-    # Japan first, then Korea, then New York: the order they were built,
+    # Japan first, then Korea, then New York, then Taiwan: the order they were built,
     # which is also the order the family grew.
     # Side by side the shared opening sentence read three times over.
     # The section intro says it once; the cards keep only what differs.
     cards = [x.replace(c["shared"], "") for x in cards]
     tetsu = next(x for x in cards if "tetsulog" in x)
     rail = next(x for x in cards if "raillog" in x)
-    ordered = "".join(x.strip("\n") + "\n" for x in (tetsu, rail)) + nyc_card(c)
+    ordered = "".join(x.strip("\n") + "\n" for x in (tetsu, rail)) + nyc_card(c) + tw_card(c).lstrip("\n")
 
     section = f'''
 <!-- ── 철도 ── -->
@@ -174,7 +218,7 @@ def build(name, c):
         s = s[:j] + f'\n      <a href="#rail">{c["nav"]}</a>' + s[j:]
 
     path.write_text(s, encoding="utf-8")
-    print(f"{name}: 카드 3장 · 섹션 삽입")
+    print(f"{name}: 카드 4장 · 섹션 삽입")
 
 
 for name, conf in LOCALES.items():

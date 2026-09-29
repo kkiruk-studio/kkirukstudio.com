@@ -40,6 +40,7 @@ APPS = {
     "tetsulog":       ("6787012765", None, "TravelApplication"),
     "raillog":        ("6794330967", None, "TravelApplication"),
     "nyc-subway-log": ("6795853224", None, "TravelApplication"),
+    "taiwan-rail-log": ("6816993501", None, "TravelApplication"),
     "palette2048":    ("6767449110", None, "GameApplication"),
     "quote2048":      ("6788598686", None, "GameApplication"),
     "salarycharm":    ("6785930647", None, "EntertainmentApplication"),

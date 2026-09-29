@@ -33,7 +33,7 @@ BASE_URL = "https://www.kkirukstudio.com/taiwan-rail-log/"
 # disabled "coming soon" pill and the final lede uses `final_soon`.
 # (gen/check_stale.py flags an empty value on purpose — fill it on launch day,
 # then register the slug in check_stale APP_DIRS and gen_jsonld APPS.)
-APP_STORE_URL = ""
+APP_STORE_URL = "https://apps.apple.com/app/id6816993501"
 
 APPLE_SVG = ('<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 '
              '16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 '

@@ -27,6 +27,7 @@ SUMMARIES = {
  'tetsulog': ('테츠로그', '일본 철도역 방문과 탑승 기록을 지도에 남기는 철도 여행 기록 앱입니다.', 'Tetsulog records visits to Japanese railway stations and tracks the lines you have ridden on a map.'),
  'raillog': ('레일로그', '한국 철도역 방문과 탑승 노선을 지도와 스탬프북에 기록하는 철도 여행 앱입니다.', 'Raillog records visits to Korean railway stations and the lines you have ridden, using a map and stamp book.'),
  'nyc-subway-log': ('NYC Subway Log', '뉴욕 지하철역 방문과 탑승 기록을 남기는 지하철 여행 앱입니다.', 'NYC Subway Log tracks the New York subway stations you have visited and the lines you have ridden.'),
+ 'taiwan-rail-log': ('鐵道誌', '대만의 臺鐵·고속철도·MRT·阿里山 삼림철도 역 방문과 탑승 노선을 지도와 스탬프북에 기록하는 철도 여행 앱입니다.', 'Taiwan Rail Log records the stations you have visited and the lines you have ridden across Taiwan Railway, High Speed Rail, the MRT systems and the Alishan Forest Railway, on a map and stamp book.'),
  'palette2048': ('Palette 2048', '숫자 대신 색을 합치며 명화의 색을 즐기는 2048 퍼즐 게임입니다.', 'Palette 2048 is a puzzle game that replaces numbers with colors inspired by works of art.'),
  'quote2048': ('명언 2048', '2048 타일을 합치며 명언과 작가 컬렉션을 모으는 문장 수집 퍼즐 게임입니다.', 'Quote 2048 combines the 2048 tile puzzle with collecting quotations and author collections.'),
  'salarycharm': ('직장인 부적', '출근길과 회사생활에 웃음과 응원을 전하는 부적을 받는 앱입니다.', 'Salary Charm offers playful charms and encouragement for everyday working life.'),
