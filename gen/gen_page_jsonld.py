@@ -18,6 +18,11 @@ PAGES = {
     "jixian-mao/index.html": "CollectionPage",
     "offwork/index.html": "WebPage",
     "offwork/en/index.html": "WebPage",
+    # CapBox — pre-launch (App Store id6816986062 not public yet). Move to gen_jsonld APPS on launch.
+    "capbox/index.html": "WebPage",
+    "capbox/ko/index.html": "WebPage",
+    "capbox/ja/index.html": "WebPage",
+    "capbox/zh-hant/index.html": "WebPage",
 }
 
 
