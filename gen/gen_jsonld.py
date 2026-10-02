@@ -47,6 +47,7 @@ APPS = {
     "newsmaker":      ("6787015246", None, "EntertainmentApplication"),
     "everykeep":      ("6781988992", None, "UtilitiesApplication"),
     "cuttogether":    ("6802893677", None, "MultimediaApplication"),
+    "capbox":         ("6816986062", None, "UtilitiesApplication"),
 }
 
 SITE = "https://www.kkirukstudio.com/"

@@ -15,7 +15,7 @@ BASE_URL = "https://www.kkirukstudio.com/capbox/"
 # lede uses `final_soon`. (gen/check_stale.py in the site repo flags an empty
 # value on purpose — fill it on launch day, then register the slug in
 # check_stale APP_DIRS, gen_jsonld APPS and refresh_seo SUMMARIES.)
-APP_STORE_URL = ""
+APP_STORE_URL = "https://apps.apple.com/app/id6816986062"
 
 LANG_LABELS = [("ko/", "한국어"), ("", "EN"), ("ja/", "日本語"), ("zh-hant/", "繁體中文")]
 

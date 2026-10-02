@@ -34,6 +34,7 @@ SUMMARIES = {
  'newsmaker': ('속보메이커', '헤드라인에 테마와 폰트를 입혀 공유용 속보 짤 이미지를 만드는 앱입니다.', 'NewsMaker turns a headline into a shareable breaking-news meme with themes and fonts.'),
  'everykeep': ('everykeep', '필터 교체, 청소 주기, 보증기간 등 잊기 쉬운 물건 관리 일정을 기록하고 알림을 받는 앱입니다.', 'everykeep tracks home maintenance such as filter replacements, cleaning cycles and warranties, and reminds you when upkeep is due.'),
  'cuttogether': ('CutTogether', '사진 속 사람을 iPhone 안에서 오려내 한 장의 스크랩북 포스터로 모으는 사진 콜라주 앱입니다. 계정이나 사진 업로드가 필요하지 않습니다.', 'CutTogether cuts people out of photos on your iPhone and gathers them into a scrapbook poster, without an account or photo uploads.'),
+ 'capbox': ('CapBox', '스크린샷을 한 장씩 넘기며 폴더로 정리하고, 필요 없는 건 휴지통으로 지우며, 사진 속 글자로 검색하는 iPhone 앱입니다. 모든 처리는 기기 안에서 이루어지며 무료이고 인앱결제가 없습니다.', 'CapBox is an iPhone app that sorts screenshots into folders one swipe at a time, clears the ones you do not need to the trash, and searches the text inside your photos. Everything runs on-device, it is free and has no in-app purchases.'),
 }
 LABELS = {
  'ko': ('앱 안내', '지원 환경', '공식 다운로드', '제작'),
