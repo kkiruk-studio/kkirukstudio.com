@@ -33,7 +33,7 @@ APPLE_SVG = ('<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.
              '-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 '
              '19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>')
 
-LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh-hant/", "繁體")]
+LANG_LABELS = [("", "EN"), ("ko/", "한국어"), ("ja/", "日本語"), ("zh-hant/", "繁體"), ("zh-hans/", "简体")]
 
 # The ten trunks, in MTA bullet order. (bullets, colour class, name)
 TRUNKS = [
@@ -243,6 +243,51 @@ LOCALES = {
         "disclaimer": ("NYC Subway Log 為獨立應用程式，與 MTA（Metropolitan Transportation "
                        "Authority）無合作或贊助關係。車站與路線資料取自 MTA 公開的 GTFS 資料，"
                        "陸地輪廓取自 NYC OpenData。"),
+    },
+    "zh-hans": {
+        "lang": "zh-Hans", "dir": "zh-hans/", "font": '"PingFang SC"',
+        "title": "NYC Subway Log — 纽约地铁全站记录",
+        "desc": ("纽约地铁乘坐记录应用程序。收录全部25条路线・475个车站，可加照片与笔记，"
+                 "并以 MTA 官方路线色绘制地图。"),
+        "og_title": "NYC Subway Log",
+        "og_desc": "25条路线、475个车站、一本盖章簿。",
+        "kicker_num": "25条路线 · 475个车站",
+        "h1": "搭过的车站，<br>一个一个填满。",
+        "sub": ("记录车站后，路线会以实际路线色填满。以前搭过的记录也能选日期补上。"),
+        "strip_label": "已记录车站",
+        "note": "iPhone · iOS 18+",
+        "hero_alt": "填满搭过路线的地图",
+        "chips": [("7", "purple", "法拉盛"), ("A", "blue", "第八大道"), ("L", "gray", "卡纳西")],
+        "how_kicker": "使用方式", "how_h2": "这样记录去过的车站。",
+        "steps": [
+            ("乘坐", "搭上地铁", "不需打卡，不追 GPS。在月台上或一个月后，想记录时再记录。"),
+            ("记录", "标记车站", "每站点一下，或选好起讫站一次登录整段。"),
+            ("收集", "看它填满", "实际轨道上会被路线色填满。搭完整条路线就会产生纪念卡。"),
+        ],
+        "trunk_kicker": "路线色体系", "trunk_num": "10 条干线",
+        "trunk_h2": "采用 MTA 官方路线配色。",
+        "trunk_lede": ("路线色、站名与轨道形状全部直接取自 MTA 公开的 GTFS 数据，"
+                       "与驱动车站到站显示器的是同一份数据。"),
+        "shots_kicker": "应用画面", "shots_num": "01–03", "shots_h2": "内容。",
+        "shots_caps": ["搭过的路线会填在实际轨道上。",
+                       "全部路线依分区排列，各自带着路线标志。",
+                       "越搭越满的盖章簿。"],
+        "feat_kicker": "细节", "feat_num": "06", "feat_h2": "跑完全程需要的东西。",
+        "feats": [
+            ("两种地图", "真实地图，以及只留下地铁、其余全部拿掉的路网查看。"),
+            ("五个行政区", "显示你实际去过哪里、还没去哪里的热点图。"),
+            ("全线完乘", "搭完一条路线，就会得到印有该路线的卡片。"),
+            ("照片与笔记", "每次车站记录都能附加。照片只留在你的设备上。"),
+            ("车辆图鉴", "从 R32 Brightliner 到 R211。记录搭过与看过的车辆。"),
+            ("iCloud 同步", "所有用户免费。换手机记录也不会消失。"),
+        ],
+        "final_h2": "475 个车站。你实际去过几个？",
+        "final_lede": "从一站开始。7 号线已经在你的最爱里。",
+        "cta_soon": "App Store", "cta_store": "在 App Store 下载",
+        "f_contact": "联系", "f_privacy": "隐私权", "f_terms": "使用条款",
+        "disclaimer": ("NYC Subway Log 为独立应用程序，与 MTA（Metropolitan Transportation "
+                       "Authority）无合作或赞助关系。车站与路线数据取自 MTA 公开的 GTFS 数据，"
+                       "陆地轮廓取自 NYC OpenData。"),
     },
 }
 

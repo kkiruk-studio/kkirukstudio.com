@@ -15,7 +15,7 @@ ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/runnote/"
 APP_STORE_URL = "https://apps.apple.com/app/id6787010935"
 
-LANG_LABELS = [("", "한국어"), ("en/", "EN"), ("ja/", "日本語"), ("zh/", "繁體")]
+LANG_LABELS = [("", "한국어"), ("en/", "EN"), ("ja/", "日本語"), ("zh/", "繁體"), ("zh-hans/", "简体")]
 
 LOCALES = {
     "ko": {
@@ -169,6 +169,44 @@ LOCALES = {
         "p5_h2": ["今天跑了嗎?", "<em>留下一句話。</em>"],
         "p5_note": "年繳方案 7 天免費試用 · iPhone &amp; Apple Watch",
         "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
+    },
+    "zh-hans": {
+        "dir": "zh-hans/", "lang": "zh-Hans", "shots": "zh", "font": '"PingFang SC", "Microsoft YaHei"', "keep_all": False,
+        "title": "RunNote — 跑后笔记与 AI 教练",
+        "desc": "在手表的跑步记录中，补上当天状态和一句笔记。不是实时追踪，而是在跑后回顾记录，参考 AI 教练的建议。",
+        "og_title": "RunNote — 参考跑步记录的 AI 教练",
+        "og_desc": "根据跑步记录和笔记，参考 AI 的反馈。",
+        "cta_store": "在 App Store 下载",
+        "p1_meta": ["RUN·NOTE", "AI Running Journal", "iPhone · Watch"],
+        "p1_h1": ["跑完之后,", "<em>写一句。</em>"],
+        "p1_lede": "AI 教练回顾每次记录，提供下次跑步可参考的建议",
+        "p2_note_value": "一句话就好",
+        "p3_h2": ["回顾跑步记录，", "<em>准备下一次跑步。</em>"],
+        "p3_lede": "回顾跑步记录，有疑问就提出来。<br>把反馈当作规划下次跑步的参考。",
+        "p3_notes": [
+            ["RUN 01", "「为什么一到上坡就喘不过气?」— 问问看,教练会回答。"],
+            ["RUN 10", "上坡配速崩溃的模式 — 下次跑步用步频来补强。"],
+            ["RUN 20", "对照过去的记录，看看上坡配速有什么变化。"],
+        ],
+        "p3b_meta2": "每一次跑步,都造就下一次",
+        "p3b_steps": [
+            ["跑步。", "手表自动帮你记录"],
+            ["写下。", "状态、疼痛、心情,一句就好"],
+            ["学习。", "教练点出不足之处"],
+            ["再跑一次。", "这次补强了 — 更有趣"],
+        ],
+        "p3b_loopmark": "再回到01 — 新记录也会成为下次建议的参考",
+        "p3c_h2": ["有疑问就", "<em>问教练吧。</em>"],
+        "p3c_qs": [
+            ["「为什么一超过5km配速就掉?」", "根据你的心率、步频记录回答"],
+            ["「上周的身体状况如何？」", "也会参考之前记下的身体状态和疼痛记录"],
+            ["「梅雨季该怎么跑?」", "天气自动记录 — 雨中跑步的数据也是教练素材"],
+            ["「下一个目标该设多少?」", "从目前实力再进半步 — 提出没有压力的下一个目标"],
+        ],
+        "p4_idx": ["HealthKit 自动同步", "一句笔记 · 疼痛部位", "心率5区间 · 步频", "AI 教练", "教练笔记 — 长期记忆", "天气自动记录"],
+        "p5_h2": ["今天跑了吗?", "<em>留下一句话。</em>"],
+        "p5_note": "年缴方案 7 天免费试用 · iPhone &amp; Apple Watch",
+        "f_contact": "联系我们", "f_privacy": "隐私权政策", "f_terms": "使用条款",
     },
 }
 
@@ -520,7 +558,7 @@ body{{{word_break}}}
       </ol>
     </div>
     <figure class="shot io d2">
-      <img src="{rel}assets/hero-{key}.png" alt="RunNote">
+      <img src="{rel}assets/hero-{loc.get("shots", key)}.png" alt="RunNote">
     </figure>
   </div>
 </section>

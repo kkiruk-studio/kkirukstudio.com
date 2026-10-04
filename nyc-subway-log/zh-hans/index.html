@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NYC Subway Log — 纽约地铁全站记录</title>
+<meta name="description" content="纽约地铁乘坐记录应用程序。收录全部25条路线・475个车站，可加照片与笔记，并以 MTA 官方路线色绘制地图。">
+<meta property="og:title" content="NYC Subway Log">
+<meta property="og:description" content="25条路线、475个车站、一本盖章簿。">
+<meta property="og:image" content="https://www.kkirukstudio.com/nyc-subway-log/assets/icon-512.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://www.kkirukstudio.com/nyc-subway-log/zh-hans/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/nyc-subway-log/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/nyc-subway-log/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/nyc-subway-log/ko/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/nyc-subway-log/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/nyc-subway-log/zh-hant/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/nyc-subway-log/zh-hans/">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:"Helvetica Neue",Helvetica,Arial,-apple-system,"PingFang SC",sans-serif}</style>
+<link rel="stylesheet" href="/product-facts.css">
+<!-- jsonld:app:begin -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.kkirukstudio.com/#organization","name":"kkiruk studio","url":"https://www.kkirukstudio.com/"},{"@type":"WebSite","@id":"https://www.kkirukstudio.com/#website","url":"https://www.kkirukstudio.com/","name":"kkiruk studio","publisher":{"@id":"https://www.kkirukstudio.com/#organization"}},{"@type":"WebPage","@id":"https://www.kkirukstudio.com/nyc-subway-log/zh-hans/#webpage","url":"https://www.kkirukstudio.com/nyc-subway-log/zh-hans/","name":"NYC Subway Log — 纽约地铁全站记录","isPartOf":{"@id":"https://www.kkirukstudio.com/#website"},"about":{"@id":"https://www.kkirukstudio.com/#app-6795853224"},"mainEntity":{"@id":"https://www.kkirukstudio.com/#app-6795853224"},"publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"description":"纽约地铁乘坐记录应用程序。收录全部25条路线・475个车站，可加照片与笔记，并以 MTA 官方路线色绘制地图。","inLanguage":"zh-Hans"},{"@type":"SoftwareApplication","@id":"https://www.kkirukstudio.com/#app-6795853224","name":"NYC Subway Log","url":"https://www.kkirukstudio.com/nyc-subway-log/zh-hans/","applicationCategory":"TravelApplication","operatingSystem":"iOS","publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"sameAs":["https://apps.apple.com/app/id6795853224"],"installUrl":"https://apps.apple.com/app/id6795853224","mainEntityOfPage":{"@id":"https://www.kkirukstudio.com/nyc-subway-log/zh-hans/#webpage"},"description":"纽约地铁乘坐记录应用程序。收录全部25条路线・475个车站，可加照片与笔记，并以 MTA 官方路线色绘制地图。","inLanguage":"zh-Hans","image":"https://www.kkirukstudio.com/nyc-subway-log/assets/icon-180.png"}]}
+</script>
+<!-- jsonld:app:end -->
+</head>
+<body>
+
+<div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>NYC SUBWAY LOG</span></a>
+    <div class="lang"><a href="../">EN</a><a href="../ko/">한국어</a><a href="../ja/">日本語</a><a href="../zh-hant/">繁體</a><a href="../zh-hans/" class="on">简体</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>NYC SUBWAY LOG</span><span class="rule"></span><span class="num">25条路线 · 475个车站</span></div>
+      <h1>搭过的车站，<br>一个一个填满。</h1>
+      <div class="strip">
+        <div class="rail"><div class="fill" id="stripFill"></div><div class="dots" id="stripDots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>
+        <div class="read"><b id="stripCount">0</b><span>已记录车站</span></div>
+      </div>
+      <p class="sub">记录车站后，路线会以实际路线色填满。以前搭过的记录也能选日期补上。</p>
+      <div class="cta">
+        <a class="badge" id="storeLink" href="https://apps.apple.com/app/id6795853224"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span>在 App Store 下载</span></a>
+        <span class="note">iPhone · iOS 18+</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="bullet b-purple">7</span>法拉盛</div><div class="chip c2"><span class="bullet b-blue">A</span>第八大道</div><div class="chip c3"><span class="bullet b-gray">L</span>卡纳西</div>
+      <div class="phone"><img src="../assets/shot-1-map.png" alt="填满搭过路线的地图"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span class="bullet b-blue">A</span><span class="bullet b-blue">C</span><span class="bullet b-blue">E</span><span class="bullet b-orange">B</span><span class="bullet b-orange">D</span><span class="bullet b-orange">F</span><span class="bullet b-orange">M</span><span class="bullet b-lime">G</span><span class="bullet b-brown">J</span><span class="bullet b-brown">Z</span><span class="bullet b-gray">L</span><span class="bullet b-yellow">N</span><span class="bullet b-yellow">Q</span><span class="bullet b-yellow">R</span><span class="bullet b-yellow">W</span><span class="bullet b-gray">S</span><span class="bullet b-red">1</span><span class="bullet b-red">2</span><span class="bullet b-red">3</span><span class="bullet b-green">4</span><span class="bullet b-green">5</span><span class="bullet b-green">6</span><span class="bullet b-purple">7</span><span class="bullet b-blue">A</span><span class="bullet b-blue">C</span><span class="bullet b-blue">E</span><span class="bullet b-orange">B</span><span class="bullet b-orange">D</span><span class="bullet b-orange">F</span><span class="bullet b-orange">M</span><span class="bullet b-lime">G</span><span class="bullet b-brown">J</span><span class="bullet b-brown">Z</span><span class="bullet b-gray">L</span><span class="bullet b-yellow">N</span><span class="bullet b-yellow">Q</span><span class="bullet b-yellow">R</span><span class="bullet b-yellow">W</span><span class="bullet b-gray">S</span><span class="bullet b-red">1</span><span class="bullet b-red">2</span><span class="bullet b-red">3</span><span class="bullet b-green">4</span><span class="bullet b-green">5</span><span class="bullet b-green">6</span><span class="bullet b-purple">7</span></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>使用方式</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>这样记录去过的车站。</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><span class="tag">乘坐</span><h3>搭上地铁</h3><p>不需打卡，不追 GPS。在月台上或一个月后，想记录时再记录。</p></div><div class="step"><span class="n">02</span><span class="tag">记录</span><h3>标记车站</h3><p>每站点一下，或选好起讫站一次登录整段。</p></div><div class="step"><span class="n">03</span><span class="tag">收集</span><h3>看它填满</h3><p>实际轨道上会被路线色填满。搭完整条路线就会产生纪念卡。</p></div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker"><span>路线色体系</span><span class="rule"></span><span class="num">10 条干线</span></div>
+    <h2>采用 MTA 官方路线配色。</h2>
+    <p class="lede">路线色、站名与轨道形状全部直接取自 MTA 公开的 GTFS 数据，与驱动车站到站显示器的是同一份数据。</p>
+    <div class="trunks"><div class="trunk"><div class="bullets"><span class="bullet b-blue">A</span><span class="bullet b-blue">C</span><span class="bullet b-blue">E</span></div><span class="name">Eighth Avenue</span><span class="div">IND</span></div><div class="trunk"><div class="bullets"><span class="bullet b-orange">B</span><span class="bullet b-orange">D</span><span class="bullet b-orange">F</span><span class="bullet b-orange">M</span></div><span class="name">Sixth Avenue</span><span class="div">IND</span></div><div class="trunk"><div class="bullets"><span class="bullet b-lime">G</span></div><span class="name">Crosstown</span><span class="div">IND</span></div><div class="trunk"><div class="bullets"><span class="bullet b-brown">J</span><span class="bullet b-brown">Z</span></div><span class="name">Nassau Street</span><span class="div">BMT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-gray">L</span></div><span class="name">Canarsie</span><span class="div">BMT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-yellow">N</span><span class="bullet b-yellow">Q</span><span class="bullet b-yellow">R</span><span class="bullet b-yellow">W</span></div><span class="name">Broadway</span><span class="div">BMT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-gray">S</span></div><span class="name">Shuttles</span><span class="div">—</span></div><div class="trunk"><div class="bullets"><span class="bullet b-red">1</span><span class="bullet b-red">2</span><span class="bullet b-red">3</span></div><span class="name">Broadway–Seventh Av</span><span class="div">IRT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-green">4</span><span class="bullet b-green">5</span><span class="bullet b-green">6</span></div><span class="name">Lexington Avenue</span><span class="div">IRT</span></div><div class="trunk"><div class="bullets"><span class="bullet b-purple">7</span></div><span class="name">Flushing</span><span class="div">IRT</span></div></div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="kicker"><span>应用画面</span><span class="rule"></span><span class="num">01–03</span></div>
+    <h2>内容。</h2>
+    <div class="row"><figure><div class="phone"><img src="../assets/shot-1-map.png" alt="搭过的路线会填在实际轨道上。" loading="lazy"><div class="island"></div></div><figcaption>搭过的路线会填在实际轨道上。</figcaption></figure><figure><div class="phone"><img src="../assets/shot-2-lines.png" alt="全部路线依分区排列，各自带着路线标志。" loading="lazy"><div class="island"></div></div><figcaption>全部路线依分区排列，各自带着路线标志。</figcaption></figure><figure><div class="phone"><img src="../assets/shot-3-stamps.png" alt="越搭越满的盖章簿。" loading="lazy"><div class="island"></div></div><figcaption>越搭越满的盖章簿。</figcaption></figure></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker"><span>细节</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>跑完全程需要的东西。</h2>
+    <div class="grid6"><div class="feat"><h3>两种地图</h3><p>真实地图，以及只留下地铁、其余全部拿掉的路网查看。</p></div><div class="feat"><h3>五个行政区</h3><p>显示你实际去过哪里、还没去哪里的热点图。</p></div><div class="feat"><h3>全线完乘</h3><p>搭完一条路线，就会得到印有该路线的卡片。</p></div><div class="feat"><h3>照片与笔记</h3><p>每次车站记录都能附加。照片只留在你的设备上。</p></div><div class="feat"><h3>车辆图鉴</h3><p>从 R32 Brightliner 到 R211。记录搭过与看过的车辆。</p></div><div class="feat"><h3>iCloud 同步</h3><p>所有用户免费。换手机记录也不会消失。</p></div></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>475 个车站。你实际去过几个？</h2>
+    <p class="lede">从一站开始。7 号线已经在你的最爱里。</p>
+    <div class="cta"><a class="badge" id="storeLink2" href="https://apps.apple.com/app/id6795853224"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span>在 App Store 下载</span></a></div>
+  </div>
+</section>
+
+<!-- product-facts:begin -->
+<section class="product-facts" aria-labelledby="product-facts-heading">
+<h2 id="product-facts-heading">NYC Subway Log · 应用介绍</h2>
+<p>纽约地铁乘坐记录应用程序。收录全部25条路线・475个车站，可加照片与笔记，并以 MTA 官方路线色绘制地图。</p>
+<dl><div><dt>支持平台</dt><dd>iOS</dd></div>
+<div><dt>官方下载</dt><dd><a href="https://apps.apple.com/app/id6795853224">App Store</a></dd></div>
+<div><dt>开发者</dt><dd><a href="/">kkiruk studio · 끼룩 스튜디오</a></dd></div></dl>
+</section>
+<!-- product-facts:end -->
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+    <div class="links">
+      <a href="mailto:kkirukstudio.help@gmail.com">联系</a>
+      <a href="/legal/privacy/">隐私权</a>
+      <a href="/legal/terms/">使用条款</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="disclaimer">NYC Subway Log 为独立应用程序，与 MTA（Metropolitan Transportation Authority）无合作或赞助关系。车站与路线数据取自 MTA 公开的 GTFS 数据，陆地轮廓取自 NYC OpenData。</p></div>
+  <div class="wrap" style="margin-top:14px">© 2026 kkiruk studio</div>
+</footer>
+
+<script>
+  // Set this after App Store approval (e.g. https://apps.apple.com/app/id1234567890).
+  const APP_STORE_URL = "https://apps.apple.com/app/id6795853224";
+  if (APP_STORE_URL) {
+    for (const id of ["storeLink", "storeLink2"]) {
+      const el = document.getElementById(id);
+      if (el) { el.href = APP_STORE_URL; el.removeAttribute("aria-disabled"); }
+    }
+  }
+
+  // Hero strip: stations fill in one by one, the way the line does in
+  // the app. Pauses for readers who asked for reduced motion.
+  (function () {
+    const dots = Array.from(document.querySelectorAll("#stripDots .dot"));
+    const fill = document.getElementById("stripFill");
+    const count = document.getElementById("stripCount");
+    if (!dots.length || !fill || !count) return;
+    const TOTAL = 475;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      dots.forEach(d => d.classList.add("on"));
+      fill.style.width = "100%";
+      count.textContent = TOTAL;
+      return;
+    }
+    let i = 0;
+    setInterval(function () {
+      if (i >= dots.length) {
+        i = 0;
+        dots.forEach(d => d.classList.remove("on"));
+        fill.style.width = "0%";
+        count.textContent = "0";
+        return;
+      }
+      dots[i].classList.add("on");
+      fill.style.width = (i / (dots.length - 1) * 100) + "%";
+      count.textContent = Math.round((i + 1) / dots.length * TOTAL);
+      i++;
+    }, 520);
+  })();
+</script>
+</body>
+</html>

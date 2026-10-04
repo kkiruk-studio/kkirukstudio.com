@@ -14,7 +14,7 @@ BASE_URL = "https://www.kkirukstudio.com/tetsulog/"
 # this landing still said 近日公開 (same trap as RunNote's badge_soon).
 APP_STORE_URL = "https://apps.apple.com/app/id6787012765"
 
-LANG_LABELS = [("", "日本語"), ("ko/", "한국어"), ("en/", "EN"), ("zh/", "繁體中文")]
+LANG_LABELS = [("", "日本語"), ("ko/", "한국어"), ("en/", "EN"), ("zh/", "繁體中文"), ("zh-hans/", "简体中文")]
 
 # Shared marquee content across all locales: real Japanese line names plus the
 # three otaku-culture words that anchor the app's concept, regardless of UI
@@ -261,6 +261,49 @@ LOCALES = {
         "final_h2": "從下一站開始，記錄你的<em>完乘之旅</em>。",
         "final_lede": "已在 App Store 上架。",
         "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
+    },
+    "zh-hans": {
+        "dir": "zh-hans/", "lang": "zh-Hans", "font": '"PingFang SC"',
+        "title": "Tetsulog 鉄ログ — 搭过的车站，直接变成地图",
+        "desc": "点一下车站就能记录乘车。搭过的路线颜色会在地图上蔓延，完乘时盖下朱红印章。收录全日本163家公司、571条路线、9,706个车站的铁道乘车记录 App。",
+        "og_title": "Tetsulog 鉄ログ — 日本铁道乘车记录",
+        "og_desc": "搭过的车站，直接变成地图。全日本163家公司・571条路线・9,706个车站。",
+        "brand": "Tetsulog",
+        "kicker_word": "集章帐",
+        "kicker_num": "全日本 9,706 站",
+        "h1": "搭过的车站，<br>直接<em>变成地图</em>。",
+        "sub": "只要点一下地图上的车站，就能记录这趟乘车。搭过的路线颜色会直接在地图上蔓延。把日本之旅搭过的路线，以全日本163家公司・571条路线・9,706个车站的规模，像集章帐一样记录在 Tetsulog 里。",
+        "cta_note": "iPhone・iPad・部分免费",
+        "badge_small": "即将上架",
+        "badge_live": "下载",
+        "railmap_caption": "点击路线记录，颜色蔓延，印章盖下。",
+        "how_kicker": "使用方法", "how_num": "01–03",
+        "how_h2": "从点一下车站，到<em>盖下印章</em>为止。",
+        "steps": [
+            ["记录", "点一下车站来记录", "只要点地图上的车站即可。乘车日期与区间都由 Tetsulog 记下。"],
+            ["上色", "地图染上颜色", "搭过的路线颜色会在地图上蔓延。未乘坐的区间保持灰色，搭过多少一目了然。"],
+            ["收集", "印章慢慢累积", "完乘一条路线，就会盖下朱红色的「完乘」印章。帐簿的页面一点一点被填满。"],
+        ],
+        "value_kicker": "全日本数据", "value_num": "JR・私铁・第三部门",
+        "value_h2": "全日本<em>163家公司・571条路线・9,706个车站</em>，一个 App 全收录。",
+        "value_lede": "JR 集团、大型私铁、地方私铁、第三部门铁道的路线数据全部内置。不论是山手线一圈，还是全日本完乘，Tetsulog 都会替你记下来。",
+        "stats": [["163", "铁道公司"], ["571", "路线"], ["9,706", "车站"]],
+        "shots_kicker": "画面", "shots_num": "IOS",
+        "shots_h2": "边旅行边记下的<em>乘坐记录。</em>",
+        "shots_caps": ["地图本身就是乘车记录", "依公司整理的车站集章帐", "完乘瞬间送达的纪念卡"],
+        "feat_kicker": "坚持", "feat_num": "06",
+        "feat_h2": "为记录的人准备的<em>贴心设计</em>。",
+        "feats": [
+            ["过去的乘车也 OK", "以前搭过的记录也能事后补登。就算今天才开始，过去的完乘记录一样有效。", False],
+            ["整段区间一次输入", "只要选择起点与终点，区间内的车站就能一次全部标记为已乘坐。", False],
+            ["完乘纪念卡", "完乘一条路线，就会自动生成朱印风的纪念卡，也能直接分享到社区。", False],
+            ["47都道府县热度地图", "以地图深浅呈现各都道府县的乘车率，旅行的足迹用颜色一看就懂。", True],
+            ["PDF 御朱印帐", "可将集章帐导出成 PDF，打印或留存都方便。", True],
+            ["记录留在你手上", "通过 iCloud 同步，随时可导出 JSON 备份与 CSV。换机或搬到其他工具，记录都是你的。免费。", False],
+        ],
+        "final_h2": "从下一站开始，记录你的<em>完乘之旅</em>。",
+        "final_lede": "已在 App Store 上架。",
+        "f_contact": "联系我们", "f_privacy": "隐私权政策", "f_terms": "使用条款",
     },
 }
 

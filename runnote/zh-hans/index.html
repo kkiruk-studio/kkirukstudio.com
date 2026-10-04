@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RunNote — 跑后笔记与 AI 教练</title>
+<meta name="description" content="在手表的跑步记录中，补上当天状态和一句笔记。不是实时追踪，而是在跑后回顾记录，参考 AI 教练的建议。">
+<meta property="og:title" content="RunNote — 参考跑步记录的 AI 教练">
+<meta property="og:description" content="根据跑步记录和笔记，参考 AI 的反馈。">
+<meta property="og:image" content="https://www.kkirukstudio.com/runnote/assets/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kkirukstudio.com/runnote/zh-hans/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/runnote/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/runnote/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/runnote/en/">
+<link rel="alternate" hreflang="ja" href="https://www.kkirukstudio.com/runnote/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/runnote/zh/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/runnote/zh-hans/">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<style>
+
+:root{
+  --cols:12; --gutter:24px; --margin:64px; --baseline:8px;
+  --accent:#1E9B52; --ink:#141414; --paper:#F4F1E8; --paper2:#ECE8DB;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink);
+  font:16px/24px "Helvetica Neue", Helvetica, "Apple SD Gothic Neo", Pretendard, sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.grid{
+  display:grid; grid-template-columns:repeat(var(--cols),1fr);
+  column-gap:var(--gutter); max-width:1240px; margin-inline:auto;
+  padding-inline:var(--margin); position:relative;
+}
+
+/* ── 포스터 공통 ── */
+.poster{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding-block:96px;position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
+.meta{font-size:15px;line-height:24px;letter-spacing:.12em;font-weight:700;text-transform:uppercase}
+.rule{height:8px;background:var(--accent)}
+.mono{font-family:"SF Mono", ui-monospace, Menlo, monospace}
+
+/* 언어 스위처 */
+.langnav{position:absolute;top:24px;right:64px;z-index:5;display:flex;gap:16px}
+.langnav a{font-size:13px;letter-spacing:.08em;font-weight:700;color:#00000088;text-decoration:none}
+.langnav a.cur{color:var(--ink);text-decoration:underline}
+
+/* P1 표지 */
+.p1 h1{font-size:clamp(64px,10vw,152px);line-height:.96;font-weight:800;letter-spacing:-.03em}
+.p1 h1 em{font-style:normal;color:var(--accent)}
+.p1 .top{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:120px;flex-wrap:wrap;gap:8px}
+.p1 .h1w{grid-column:1/12}
+.p1 .rulew{grid-column:1/-1;margin-top:120px}
+.p1 .rulew .rule{width:200px}
+.p1 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:32px;flex-wrap:wrap;gap:16px}
+.p1 .lede-meta{font-size:18px;letter-spacing:.04em;text-transform:none;font-weight:700}
+.p1 .fl{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.p1 .btn{display:inline-block;border:2px solid var(--ink);border-radius:999px;
+  padding:14px 36px;color:var(--ink);text-decoration:none;font-weight:800;font-size:16px}
+.p1 .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.p1 .btn.disabled{cursor:default}
+
+/* P2 숫자 */
+.p2{background:var(--accent);color:#fff;border-bottom:none}
+.p2 .big{grid-column:1/-1;font-weight:800;letter-spacing:-.04em;
+  font-size:clamp(120px,24vw,340px);line-height:.9}
+.p2 .big small{font-size:.22em;font-weight:700;letter-spacing:0;vertical-align:.16em;margin-left:8px}
+.p2 .stats{grid-column:1/-1;display:grid;grid-template-columns:subgrid;margin-top:64px;
+  border-top:2px solid #ffffff66;padding-top:24px}
+.p2 .stat{grid-column:span 3}
+.p2 .stat b{display:block;font-size:40px;line-height:48px;font-weight:800}
+.p2 .stat span{font-size:15px;letter-spacing:.12em;font-weight:700;opacity:.8}
+.p2 .contour{position:absolute;inset:0;opacity:.12;pointer-events:none}
+.p2 .meta-row{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:56px}
+
+/* P3 코치 */
+.p3 .h2w{grid-column:1/9}
+.p3 h2{font-size:clamp(40px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.p3 h2 em{font-style:normal;background:linear-gradient(transparent 62%, color-mix(in srgb,var(--accent) 38%, transparent) 62%)}
+.p3 .lede{grid-column:1/8;font-size:19px;line-height:32px;font-weight:600;color:#000000B3;margin-top:8px}
+.p3 .notes{grid-column:1/-1;margin-top:80px;display:grid;grid-template-columns:subgrid}
+.p3 .note{grid-column:span 4;border-top:2px solid var(--ink);padding-top:16px}
+.p3 .note .meta{color:var(--accent)}
+.p3 .note p{margin-top:16px;font-size:20px;line-height:32px;font-weight:700}
+.p3 .note:nth-child(1) p{opacity:.35}
+.p3 .note:nth-child(2) p{opacity:.7}
+
+/* P3B 루프 */
+.p3b{background:var(--paper2)}
+.p3b .metah{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:88px;flex-wrap:wrap;gap:8px}
+.p3b .loop{grid-column:1/-1}
+.p3b .step{display:flex;align-items:baseline;gap:32px;border-top:2px solid var(--ink);padding:24px 0;
+  font-size:clamp(32px,5.6vw,76px);line-height:1.05;font-weight:800;letter-spacing:-.02em}
+.p3b .step .no{font-family:"SF Mono",ui-monospace,monospace;font-size:16px;font-weight:700;color:var(--accent)}
+.p3b .step .sub{margin-left:auto;font-size:17px;line-height:26px;font-weight:600;color:#00000099;letter-spacing:0;max-width:320px;text-align:right}
+.p3b .step:last-child{border-bottom:2px solid var(--ink)}
+.p3b .step:last-child strong{color:var(--accent)}
+.p3b .loopmark{grid-column:1/-1;margin-top:48px;display:flex;align-items:center;gap:16px}
+.p3b .loopmark svg{width:40px;height:40px;flex:none}
+.p3b .loopmark .meta{color:#00000099}
+
+/* P3C 질문 */
+.p3c .h2w{grid-column:1/-1;margin-bottom:72px}
+.p3c h2{font-size:clamp(40px,6.4vw,88px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.p3c h2 em{font-style:normal;color:var(--accent)}
+.p3c .qs{grid-column:1/-1;display:grid;grid-template-columns:subgrid;row-gap:40px}
+.p3c .q{grid-column:span 6;border-left:8px solid var(--accent);padding-left:24px}
+.p3c .q p{font-size:clamp(22px,2.6vw,34px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.p3c .q span{display:block;margin-top:12px;font-size:17px;line-height:26px;font-weight:600;color:#00000099}
+
+/* P4 인덱스 + 실물 */
+.p4 .idx{grid-column:1/7}
+.p4 .idx h3{font-size:15px;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:40px}
+.p4 ol{list-style:none;counter-reset:n}
+.p4 li{counter-increment:n;display:flex;gap:24px;align-items:baseline;
+  border-top:1px solid #00000033;padding:16px 0;font-size:26px;line-height:38px;font-weight:800;letter-spacing:-.01em}
+.p4 li::before{content:counter(n,decimal-leading-zero);font-size:14px;font-weight:700;color:var(--accent);
+  font-family:"SF Mono",ui-monospace,monospace}
+.p4 .shot{grid-column:8/13;align-self:center}
+.p4 .shot img{width:100%;border-radius:24px;box-shadow:0 32px 64px -24px #00000040}
+
+/* P5 CTA */
+.p5{background:var(--ink);color:var(--paper);border-bottom:none;min-height:80vh}
+.p5 .h2w{grid-column:1/-1}
+.p5 h2{font-size:clamp(56px,10vw,136px);line-height:.98;font-weight:800;letter-spacing:-.03em}
+.p5 h2 em{font-style:normal;color:var(--accent)}
+.p5 .foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:96px;flex-wrap:wrap;gap:16px}
+.p5 .btn{display:inline-block;border:2px solid var(--paper);border-radius:999px;
+  padding:16px 40px;color:var(--paper);text-decoration:none;font-weight:800;font-size:16px}
+.p5 .btn:hover{background:var(--accent);border-color:var(--accent)}
+.p5 .btn.disabled{cursor:default}
+.p5 .langnav a{color:#ffffff88}
+.p5 .langnav a.cur{color:var(--paper)}
+
+/* ── 배경 패턴 (러닝 포스터) ── */
+.bg{position:absolute;inset:0;pointer-events:none}
+.p1 .bg path{stroke:var(--ink);opacity:.13}
+.p1 .bg .pin{fill:var(--accent);opacity:.9}
+.p3b .bg{opacity:.1}
+.p3b .bg path{stroke:var(--ink)}
+.p3c .bg{right:-4%;left:auto;width:46%;opacity:.07;display:flex;align-items:center;justify-content:flex-end}
+.p3c .bg span{font-size:clamp(400px,44vw,640px);font-weight:800;line-height:1;color:var(--ink)}
+.p5 .bg{opacity:.14}
+.p5 .bg path{stroke:var(--paper)}
+
+/* ── 모션 ── */
+.io{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.io.in{opacity:1;transform:none}
+.io.d1{transition-delay:.12s}.io.d2{transition-delay:.24s}.io.d3{transition-delay:.36s}
+.io.d4{transition-delay:.48s}.io.d5{transition-delay:.6s}.io.d6{transition-delay:.72s}
+.p1 h1 .line{display:block;overflow:hidden}
+.p1 h1 .line span{display:inline-block;transform:translateY(110%);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.p1.in h1 .line:nth-child(1) span{transform:none;transition-delay:.1s}
+.p1.in h1 .line:nth-child(2) span{transform:none;transition-delay:.28s}
+.p1 .rule{transform-origin:left;transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.7,.2,1) .6s}
+.p1.in .rule{transform:scaleX(1)}
+.p2 .contour path{stroke-dasharray:1600;stroke-dashoffset:1600;transition:stroke-dashoffset 2.4s ease}
+.p2.in .contour path{stroke-dashoffset:0}
+.p2.in .contour path:nth-child(2){transition-delay:.15s}
+.p2.in .contour path:nth-child(3){transition-delay:.3s}
+.p2.in .contour path:nth-child(4){transition-delay:.45s}
+.p2.in .contour path:nth-child(5){transition-delay:.6s}
+.p2 .big{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.2,.7,.2,1) .2s}
+.p2.in .big{clip-path:inset(0 0 0 0)}
+.p3 h2 em{background-size:0% 100%;background-repeat:no-repeat;transition:background-size .9s ease .5s}
+.p3.in h2 em{background-size:100% 100%}
+.p5 h2 em{position:relative}
+@media (prefers-reduced-motion: reduce){
+  .io,.p1 h1 .line span,.p1 .rule,.p2 .big,.p2 .contour path,.p3 h2 em{transition:none!important;transform:none!important;opacity:1!important;clip-path:none!important;stroke-dashoffset:0!important;background-size:100% 100%!important}
+}
+
+@media (max-width:760px){
+  :root{--margin:24px;--gutter:16px}
+  /* 언어 스위처·머리말·푸터는 본문과 같은 좌측 마진에 맞춘다 (플러시 레프트) */
+  .langnav{position:static;justify-content:flex-start;padding-inline:var(--margin);margin-bottom:24px}
+  .p1 .top{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:72px}
+  .site-footer{padding:40px var(--margin)!important;flex-direction:column;align-items:flex-start;gap:20px}
+  .site-footer .flinks{flex-wrap:wrap;gap:8px 20px}
+  .p1 .h1w{grid-column:1/-1}
+  .p2 .stat{grid-column:span 6;margin-bottom:24px}
+  .p3 .h2w{grid-column:1/-1}
+  .p3 .lede{grid-column:1/-1}
+  .p3 .note{grid-column:1/-1;margin-bottom:24px}
+  .p3b .step{flex-wrap:wrap;gap:12px}
+  .p3b .step .sub{margin-left:0;text-align:left;max-width:none;flex-basis:100%}
+  .p3c .q{grid-column:1/-1}
+  .p4 .idx{grid-column:1/-1}
+  .p4 .shot{grid-column:1/-1;margin-top:48px}
+}
+
+body{}
+</style>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC", "Microsoft YaHei","Segoe UI",sans-serif}</style>
+<link rel="stylesheet" href="/product-facts.css">
+<!-- jsonld:app:begin -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.kkirukstudio.com/#organization","name":"kkiruk studio","url":"https://www.kkirukstudio.com/"},{"@type":"WebSite","@id":"https://www.kkirukstudio.com/#website","url":"https://www.kkirukstudio.com/","name":"kkiruk studio","publisher":{"@id":"https://www.kkirukstudio.com/#organization"}},{"@type":"WebPage","@id":"https://www.kkirukstudio.com/runnote/zh-hans/#webpage","url":"https://www.kkirukstudio.com/runnote/zh-hans/","name":"RunNote — 跑后笔记与 AI 教练","isPartOf":{"@id":"https://www.kkirukstudio.com/#website"},"about":{"@id":"https://www.kkirukstudio.com/#app-6787010935"},"mainEntity":{"@id":"https://www.kkirukstudio.com/#app-6787010935"},"publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"description":"在手表的跑步记录中，补上当天状态和一句笔记。不是实时追踪，而是在跑后回顾记录，参考 AI 教练的建议。","inLanguage":"zh-Hans"},{"@type":"SoftwareApplication","@id":"https://www.kkirukstudio.com/#app-6787010935","name":"RunNote","url":"https://www.kkirukstudio.com/runnote/zh-hans/","applicationCategory":"HealthApplication","operatingSystem":"iOS","publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"sameAs":["https://apps.apple.com/app/id6787010935"],"installUrl":"https://apps.apple.com/app/id6787010935","mainEntityOfPage":{"@id":"https://www.kkirukstudio.com/runnote/zh-hans/#webpage"},"description":"在手表的跑步记录中，补上当天状态和一句笔记。不是实时追踪，而是在跑后回顾记录，参考 AI 教练的建议。","inLanguage":"zh-Hans","image":"https://www.kkirukstudio.com/runnote/assets/icon-32.png"}]}
+</script>
+<!-- jsonld:app:end -->
+</head>
+<body>
+
+<!-- P1 · 표지 포스터 -->
+<section class="poster p1">
+  <div class="langnav"><a href="../">한국어</a><a href="../en/">EN</a><a href="../ja/">日本語</a><a href="../zh/">繁體</a><a href="../zh-hans/" class="cur">简体</a></div>
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+    <path class="route" d="M-40 780 C 220 700, 300 830, 520 760 S 820 560, 960 480 S 1180 300, 1300 180 S 1420 80, 1480 40"
+      stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round"/>
+    <circle class="pin" cx="1300" cy="180" r="7"/>
+  </svg>
+  <div class="grid">
+    <div class="top">
+      <span class="meta io">RUN·NOTE</span>
+      <span class="meta io d2">AI Running Journal</span>
+      <span class="meta io d4">iPhone · Watch</span>
+    </div>
+    <div class="h1w">
+      <h1><span class="line"><span>跑完之后,</span></span><span class="line"><span><em>写一句。</em></span></span></h1>
+    </div>
+    <div class="rulew"><div class="rule"></div></div>
+    <div class="foot">
+      <a class="btn storeLink io d4" href="https://apps.apple.com/app/id6787010935">在 App Store 下载</a>
+      <span class="meta lede-meta io d3">AI 教练回顾每次记录，提供下次跑步可参考的建议</span>
+    </div>
+  </div>
+</section>
+
+<!-- P2 · 숫자 포스터 -->
+<section class="poster p2">
+  <svg class="contour" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#fff" stroke-width="1.5">
+      <path d="M-50 640 C 200 560, 340 700, 620 620 S 1000 500, 1260 590"/>
+      <path d="M-50 560 C 180 470, 380 620, 640 540 S 980 420, 1260 500"/>
+      <path d="M-50 480 C 160 390, 420 540, 660 460 S 960 340, 1260 410"/>
+      <path d="M-50 400 C 140 310, 460 460, 680 380 S 940 260, 1260 320"/>
+      <path d="M-50 320 C 120 230, 500 380, 700 300 S 920 180, 1260 230"/>
+    </g>
+  </svg>
+  <div class="grid">
+    <div class="meta-row io"><span class="meta">TODAY'S RUN</span><span class="meta">07 · 14 · TUE</span></div>
+    <div class="big">5.00<small>KM</small></div>
+    <div class="stats">
+      <div class="stat io d1"><span>PACE</span><b class="mono">5'43"</b></div>
+      <div class="stat io d2"><span>TIME</span><b class="mono">31:04</b></div>
+      <div class="stat io d3"><span>ZONE</span><b class="mono">Z3</b></div>
+      <div class="stat io d4"><span>NOTE</span><b>一句话就好</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- P3 · 코치 포스터 -->
+<section class="poster p3">
+  <div class="grid">
+    <div class="h2w io">
+      <h2>回顾跑步记录，<br><em>准备下一次跑步。</em></h2>
+    </div>
+    <p class="lede io d2">回顾跑步记录，有疑问就提出来。<br>把反馈当作规划下次跑步的参考。</p>
+    <div class="notes">
+      <div class="note io d1"><span class="meta">RUN 01</span><p>「为什么一到上坡就喘不过气?」— 问问看,教练会回答。</p></div><div class="note io d3"><span class="meta">RUN 10</span><p>上坡配速崩溃的模式 — 下次跑步用步频来补强。</p></div><div class="note io d5"><span class="meta">RUN 20</span><p>对照过去的记录，看看上坡配速有什么变化。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- P3B · 루프 포스터 -->
+<section class="poster p3b">
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="2">
+    <path d="M-60 900 C 300 620, 900 620, 1500 880"/>
+    <path d="M-60 830 C 300 540, 900 540, 1500 810"/>
+    <path d="M-60 760 C 300 460, 900 460, 1500 740"/>
+    <path d="M-60 690 C 300 380, 900 380, 1500 670"/>
+  </svg>
+  <div class="grid">
+    <div class="metah io"><span class="meta">THE LOOP</span><span class="meta">每一次跑步,都造就下一次</span></div>
+    <div class="loop">
+      <div class="step io d1"><span class="no">01</span><strong>跑步。</strong><span class="sub">手表自动帮你记录</span></div><div class="step io d2"><span class="no">02</span><strong>写下。</strong><span class="sub">状态、疼痛、心情,一句就好</span></div><div class="step io d3"><span class="no">03</span><strong>学习。</strong><span class="sub">教练点出不足之处</span></div><div class="step io d4"><span class="no">04</span><strong>再跑一次。</strong><span class="sub">这次补强了 — 更有趣</span></div>
+    </div>
+    <div class="loopmark io d5">
+      <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="3">
+        <path d="M33 20a13 13 0 1 1-4-9.4"/><path d="M29 4v7h7" stroke-linejoin="round"/>
+      </svg>
+      <span class="meta">再回到01 — 新记录也会成为下次建议的参考</span>
+    </div>
+  </div>
+</section>
+
+<!-- P3C · 질문 포스터 -->
+<section class="poster p3c">
+  <div class="bg"><span>?</span></div>
+  <div class="grid">
+    <div class="h2w io">
+      <h2>有疑问就<br><em>问教练吧。</em></h2>
+    </div>
+    <div class="qs">
+      <div class="q io d1"><p>「为什么一超过5km配速就掉?」</p><span>根据你的心率、步频记录回答</span></div><div class="q io d2"><p>「上周的身体状况如何？」</p><span>也会参考之前记下的身体状态和疼痛记录</span></div><div class="q io d3"><p>「梅雨季该怎么跑?」</p><span>天气自动记录 — 雨中跑步的数据也是教练素材</span></div><div class="q io d4"><p>「下一个目标该设多少?」</p><span>从目前实力再进半步 — 提出没有压力的下一个目标</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- P4 · 인덱스 + 실물 -->
+<section class="poster p4">
+  <div class="grid">
+    <div class="idx">
+      <h3>INDEX — WHAT'S INSIDE</h3>
+      <ol>
+        <li class="io d1">HealthKit 自动同步</li><li class="io d2">一句笔记 · 疼痛部位</li><li class="io d3">心率5区间 · 步频</li><li class="io d4">AI 教练</li><li class="io d5">教练笔记 — 长期记忆</li><li class="io d6">天气自动记录</li>
+      </ol>
+    </div>
+    <figure class="shot io d2">
+      <img src="../assets/hero-zh.png" alt="RunNote">
+    </figure>
+  </div>
+</section>
+
+<!-- P5 · CTA 포스터 -->
+<section class="poster p5">
+  <div class="langnav"><a href="../">한국어</a><a href="../en/">EN</a><a href="../ja/">日本語</a><a href="../zh/">繁體</a><a href="../zh-hans/" class="cur">简体</a></div>
+  <svg class="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="2">
+    <path d="M-60 760 L 1500 640"/>
+    <path d="M-60 810 L 1500 690"/>
+    <path d="M-60 860 L 1500 740"/>
+    <path d="M-60 910 L 1500 790"/>
+  </svg>
+  <div class="grid">
+    <div class="h2w io">
+      <h2>今天跑了吗?<br><em>留下一句话。</em></h2>
+    </div>
+    <div class="foot io d2">
+      <a class="btn storeLink" href="https://apps.apple.com/app/id6787010935">在 App Store 下载</a>
+      <span class="meta io d3">年缴方案 7 天免费试用 · iPhone &amp; Apple Watch</span>
+    </div>
+  </div>
+</section>
+
+<!-- product-facts:begin -->
+<section class="product-facts" aria-labelledby="product-facts-heading">
+<h2 id="product-facts-heading">RunNote · 应用介绍</h2>
+<p>在手表的跑步记录中，补上当天状态和一句笔记。不是实时追踪，而是在跑后回顾记录，参考 AI 教练的建议。</p>
+<dl><div><dt>支持平台</dt><dd>iOS</dd></div>
+<div><dt>官方下载</dt><dd><a href="https://apps.apple.com/app/id6787010935">App Store</a></dd></div>
+<div><dt>开发者</dt><dd><a href="/">kkiruk studio · 끼룩 스튜디오</a></dd></div></dl>
+</section>
+<!-- product-facts:end -->
+<footer class="site-footer" style="padding:48px 64px;font-size:13px;letter-spacing:.06em;color:#00000088;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;background:var(--ink);color:#ffffff88">
+  <span class="fcopy">© 2026 kkiruk studio</span>
+  <span class="flinks" style="display:flex;gap:20px">
+    <a href="mailto:kkirukstudio.help@gmail.com" style="color:inherit;text-decoration:none">联系我们</a>
+    <a href="/legal/privacy/" style="color:inherit;text-decoration:none">隐私权政策</a>
+    <a href="/legal/terms/" style="color:inherit;text-decoration:none">使用条款</a>
+  </span>
+</footer>
+
+<script>
+  const APP_STORE_URL = "https://apps.apple.com/app/id6787010935";
+  document.querySelectorAll(".storeLink").forEach((el) => {
+    if (APP_STORE_URL) {
+      el.href = APP_STORE_URL;
+    } else {
+      el.classList.add("disabled");
+      el.removeAttribute("href");
+      el.setAttribute("aria-disabled", "true");
+    }
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  }), {threshold: .25});
+  document.querySelectorAll('.poster').forEach(p => obs.observe(p));
+  const obs2 = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs2.unobserve(e.target); }
+  }), {threshold: .3});
+  document.querySelectorAll('.io').forEach(el => obs2.observe(el));
+</script>
+<script src="/ga.js"></script>
+</body>
+</html>
