@@ -13,7 +13,7 @@
         var l = String(langs[i]).toLowerCase();
         if (l.indexOf("ko") === 0) pref = "ko";
         else if (l.indexOf("ja") === 0) pref = "ja";
-        else if (l.indexOf("zh") === 0) pref = "zh";
+        else if (l.indexOf("zh") === 0) pref = (l.indexOf("hant") < 0 && (l.indexOf("hans") > -1 || /^zh-(cn|sg|my)/.test(l))) ? "zh-hans" : "zh";
         else if (l.indexOf("en") === 0) pref = "en";
       }
     }
@@ -50,6 +50,7 @@
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="stylesheet" href="assets/style.css?v=438b7364">
 
+<link rel="stylesheet" href="/product-facts.css">
 <!-- jsonld:app:begin -->
 <script type="application/ld+json">
 {
@@ -92,7 +93,6 @@
 }
 </script>
 <!-- jsonld:app:end -->
-<link rel="stylesheet" href="/product-facts.css">
 </head>
 <body>
 

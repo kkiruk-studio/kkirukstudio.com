@@ -62,7 +62,7 @@ LOCALES = {
             ["Keep the camera open with Guided Access", "Onboarding walks you through Apple's Guided Access — triple-click the side button and your child can't leave the camera."],
             ["Volume-button shutter? Removed on purpose.", "Toddlers can't tell the volume button from the power button — and the screen goes dark. So the only shutter is on the screen."],
             ["What they see is what you get", "No filters, no AI touch-ups, no stickers. The photo is exactly what your child saw. That's why it's called Honest."],
-            ["iPhone &amp; iPad · 4 languages", "English, 한국어, 日本語, 繁體中文. Landscape works too — for lining up all the stuffed animals."],
+            ["iPhone &amp; iPad · 5 languages", "English, 한국어, 日本語, 繁體中文, 简体中文. Landscape works too — for lining up all the stuffed animals."],
         ],
         "final_h2": "Their first camera.",
         "final_lede": "See which moments your child chooses to capture.",
@@ -112,7 +112,7 @@ LOCALES = {
             ["앱에서 못 나가게 잠그기", "전원 버튼을 세 번 누르면 아이폰이 이 앱에 고정돼요(사용법 유도). 켜는 방법은 온보딩에서 차근차근 알려드려요."],
             ["볼륨 버튼 셔터까지 일부러 뺐어요", "아이들은 볼륨 버튼이랑 전원 버튼을 헷갈려서 화면을 꺼버리거든요. 그래서 셔터는 화면에만 뒀어요."],
             ["본 대로 찍혀요", "필터도 AI 보정도 스티커도 없어요. 아이 눈에 보인 그대로가 사진이 돼요. 이름이 Honest인 이유예요."],
-            ["iPhone · iPad · 4개 언어", "한국어 · English · 日本語 · 繁體中文. 인형 친구들 줄 세워 찍을 땐 가로로 돌려서 찍어도 돼요."],
+            ["iPhone · iPad · 5개 언어", "한국어 · English · 日本語 · 繁體中文 · 简体中文. 인형 친구들 줄 세워 찍을 땐 가로로 돌려서 찍어도 돼요."],
         ],
         "final_h2": "아이의 첫 카메라.",
         "final_lede": "아이가 어떤 순간을 찍는지 함께 구경해 보세요.",
@@ -162,7 +162,7 @@ LOCALES = {
             ["カメラから出られないように", "Apple の「アクセスガイド」(サイドボタン3回) でこのアプリにロックする方法を、オンボーディングで順番にご案内します。"],
             ["音量ボタンのシャッターも、あえて削除", "幼児は音量ボタンと電源ボタンを区別できず、画面が消えてしまいます。だからシャッターは画面の中だけ。"],
             ["見たままが写真になる", "フィルターも AI 補正もステッカーもなし。子どもの目に見えたままが写真になります。だから名前が Honest。"],
-            ["iPhone · iPad · 4言語", "日本語 · English · 한국어 · 繁體中文。ぬいぐるみを並べて撮るときは横向きでもどうぞ。"],
+            ["iPhone · iPad · 5言語", "日本語 · English · 한국어 · 繁體中文 · 简体中文。ぬいぐるみを並べて撮るときは横向きでもどうぞ。"],
         ],
         "final_h2": "はじめてのカメラに。",
         "final_lede": "子どもがどんな瞬間を撮るのか、一緒に見てみませんか。",
@@ -212,7 +212,7 @@ LOCALES = {
             ["把孩子留在相機裡", "新手引導會一步步教你用 Apple 的「引導使用模式」(側邊按鈕按三下)，孩子就離不開相機畫面。"],
             ["音量鍵快門？故意拿掉的", "幼兒分不清音量鍵和電源鍵，一按螢幕就黑了。所以快門只在螢幕上。"],
             ["看到什麼，拍到什麼", "沒有濾鏡、沒有 AI 修圖、沒有貼紙。孩子眼裡的世界原原本本變成照片。所以才叫 Honest。"],
-            ["iPhone · iPad · 4 種語言", "繁體中文 · English · 한국어 · 日本語。把娃娃排排站拍照時，橫著拿也可以。"],
+            ["iPhone · iPad · 5 種語言", "繁體中文 · 簡體中文 · English · 한국어 · 日本語。把娃娃排排站拍照時，橫著拿也可以。"],
         ],
         "final_h2": "孩子的第一台相機。",
         "final_lede": "一起看看，孩子想拍下哪些時刻。",
@@ -262,7 +262,7 @@ LOCALES = {
             ["把孩子留在相机里", "新手引导会一步步教你用 Apple 的「引导使用模式」(侧边按钮按三下)，孩子就离不开相机画面。"],
             ["音量键快门？故意拿掉的", "幼儿分不清音量键和电源键，一按屏幕就黑了。所以快门只在屏幕上。"],
             ["看到什么，拍到什么", "没有滤镜、没有 AI 修图、没有贴纸。孩子眼里的世界原原本本变成照片。所以才叫 Honest。"],
-            ["iPhone · iPad · 4 种语言", "繁体中文 · English · 한국어 · 日本语。把娃娃排排站拍照时，横着拿也可以。"],
+            ["iPhone · iPad · 5 种语言", "简体中文 · 繁体中文 · English · 한국어 · 日本语。把娃娃排排站拍照时，横着拿也可以。"],
         ],
         "final_h2": "孩子的第一台相机。",
         "final_lede": "一起看看，孩子想拍下哪些时刻。",
@@ -342,7 +342,7 @@ def render(key):
 <meta name="description" content="{loc['desc']}">
 <meta property="og:title" content="{loc['og_title']}">
 <meta property="og:description" content="{loc['og_desc']}">
-<meta property="og:image" content="https://www.kkirukstudio.com/og-image.png">
+<meta property="og:image" content="https://www.kkirukstudio.com/honestcamera/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="{canonical}">
@@ -351,7 +351,7 @@ def render(key):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{loc['og_title']}">
 <meta name="twitter:description" content="{loc['og_desc']}">
-<meta name="twitter:image" content="https://www.kkirukstudio.com/og-image.png">
+<meta name="twitter:image" content="https://www.kkirukstudio.com/honestcamera/og.png">
 <link rel="canonical" href="{canonical}">
 {hreflang_block()}
 <link rel="icon" type="image/png" href="assets/icon-180.png">

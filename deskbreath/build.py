@@ -37,7 +37,7 @@ DETECT_JS = """<script>
         var l = String(langs[i]).toLowerCase();
         if (l.indexOf("ko") === 0) pref = "ko";
         else if (l.indexOf("ja") === 0) pref = "ja";
-        else if (l.indexOf("zh") === 0) pref = "zh";
+        else if (l.indexOf("zh") === 0) pref = (l.indexOf("hant") < 0 && (l.indexOf("hans") > -1 || /^zh-(cn|sg|my)/.test(l))) ? "zh-hans" : "zh";
         else if (l.indexOf("en") === 0) pref = "en";
       }
     }

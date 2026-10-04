@@ -278,8 +278,9 @@ REDIRECT_SCRIPT = """<script>
   try{
     if(localStorage.getItem('ek_lang')) return;            // already chose/auto-routed before
     var n=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();
-    var d=n.indexOf('ko')===0?'ko/':n.indexOf('ja')===0?'ja/':(n.indexOf('zh-hant')===0||n.indexOf('zh-tw')===0||n.indexOf('zh-hk')===0)?'zh/':null;
-    if(d){ localStorage.setItem('ek_lang', d==='ko/'?'ko':d==='ja/'?'ja':'zh'); location.replace(d); }
+    var hans=n.indexOf('zh')===0&&(n.indexOf('hans')>-1||/^zh-(cn|sg|my)/.test(n))&&n.indexOf('hant')<0;
+    var d=n.indexOf('ko')===0?'ko/':n.indexOf('ja')===0?'ja/':hans?'zh-hans/':n.indexOf('zh')===0?'zh/':null;
+    if(d){ localStorage.setItem('ek_lang', d==='ko/'?'ko':d==='ja/'?'ja':d==='zh-hans/'?'zh-hans':'zh'); location.replace(d); }
     else { localStorage.setItem('ek_lang','en'); }
   }catch(e){}
 })();
