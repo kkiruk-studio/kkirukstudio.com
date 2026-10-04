@@ -11,7 +11,7 @@ ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/raillog/"
 APP_STORE_URL = "https://apps.apple.com/app/id6794330967"
 DOTS = 9  # stations drawn in the hero transit-line demo (per line cycle)
-PROGRESS_TOTAL = 55  # denominator shown in the top progress counter (matches "55 lines")
+PROGRESS_TOTAL = 75  # denominator shown in the top progress counter (matches "75 lines")
 
 # One page-spine "stop" per major section, in document order:
 # hero, step-01, step-02, step-03, stats, shots, feats, pro, final.
@@ -34,15 +34,15 @@ LOCALES = {
     "ko": {
         "dir": "", "lang": "ko", "font": '"Apple SD Gothic Neo", "Pretendard"', "shots": "ko",
         "title": "레일로그 — 탄 노선이, 색으로 남는다",
-        "desc": "역을 탭해 방문 체크. 탄 노선은 지도에서 실제 노선 색으로 칠해지고 스탬프북에 쌓입니다. 전국 17개 사업자·55개 노선, 완주하면 인장 카드가 등장합니다.",
+        "desc": "역을 탭해 방문 체크. 탄 노선은 지도에서 실제 노선 색으로 칠해지고 스탬프북에 쌓입니다. 전국 16개 사업자·75개 노선, 완주하면 인장 카드가 등장합니다.",
         "og_title": "레일로그 — 철도 답사 기록",
         "og_desc": "탄 노선이 지도에서 실제 색으로 칠해지고, 스탬프북에 쌓입니다.",
         "kicker_num": "철도 답사 기록",
         "h1": "탄 노선이,<br><em>색으로</em> 남는다.",
-        "sub": "역을 탭하면 방문 체크. 탄 노선은 지도에서 진짜 노선 색으로 칠해지고, 스탬프북에 쌓입니다. 전국 17개 사업자·55개 노선 — 1호선부터 KTX·SRT까지.",
+        "sub": "역을 탭하면 방문 체크. 탄 노선은 지도에서 진짜 노선 색으로 칠해지고, 스탬프북에 쌓입니다. 전국 16개 사업자·75개 노선 — 1호선부터 KTX·SRT까지.",
         "badge_small": "다운로드는", "note": "무료 · iPhone · 계정 불필요",
         "badge_aria": "App Store에서 다운로드",
-        "hero_chips": [["17", "개 사업자"], ["55", "개 노선"], ["완주", "인장 카드"]],
+        "hero_chips": [["16", "개 사업자"], ["75", "개 노선"], ["완주", "인장 카드"]],
         "hero_alt": "레일로그 지도 화면 — 탄 노선이 실제 노선 색으로 칠해진 모습",
         "spine_lines": [
             (LINE_HEXES["1"], "1호선"), (LINE_HEXES["2"], "2호선"),
@@ -57,10 +57,10 @@ LOCALES = {
             ["지도", "탄 노선이 실제 색으로", "탄 노선이 지도에서 진짜 노선 색으로 칠해집니다. 안 탄 노선만 보는 필터로 다음 답사도 계획하세요."],
             ["수집", "스탬프북에 쌓인다", "방문한 역이 스탬프로 쌓이고, 노선을 끝까지 타면 「전구간 완주」 인장 카드가 등장합니다."],
         ],
-        "value_kicker": "수록 범위", "value_num": "1,191개 역",
+        "value_kicker": "수록 범위", "value_num": "1,622개 역",
         "value_h2": "전국 철도를 <em>한눈에.</em>",
-        "value_lede": "17개 사업자, 55개 노선, 1,191개 역 — 지하철부터 KTX·SRT까지 한 지도에서 답사합니다.",
-        "stats": [["17", "사업자"], ["55", "노선"], ["1,191", "역"]],
+        "value_lede": "16개 사업자, 75개 노선, 1,622개 역 — 지하철부터 KTX·SRT까지 한 지도에서 답사합니다.",
+        "stats": [["16", "사업자"], ["75", "노선"], ["1,622", "역"]],
         "line_chips": [
             ["1호선", LINE_HEXES["1"]], ["2호선", LINE_HEXES["2"]], ["3호선", LINE_HEXES["3"]],
             ["4호선", LINE_HEXES["4"]], ["5호선", LINE_HEXES["5"]], ["신분당선", LINE_HEXES["sinbundang"]],
@@ -85,7 +85,7 @@ LOCALES = {
         "pro_lede": "노선 열람 · 승차 기록 · 스탬프북 · iCloud 동기화는 모두 무료입니다.",
         "prices": [["₩1,900", "월간"], ["₩9,900", "연간"], ["₩19,000", "평생"]],
         "pro_note": "Pro는 <strong>즐겨찾기 무제한, 상세 통계·17개 광역시도 히트맵, 워터마크 제거 공유 카드, PDF 스탬프북</strong>을 더합니다.",
-        "final_h2": "1,191개 역.", "final_lede": "지금까지 몇 개나 타보셨나요? iPhone 무료.",
+        "final_h2": "1,622개 역.", "final_lede": "지금까지 몇 개나 타보셨나요? iPhone 무료.",
         "f_contact": "문의", "f_privacy": "개인정보 처리방침", "f_terms": "이용약관",
         "data_note": "노선·역 데이터는 OpenStreetMap 등 공개 데이터를 기반으로 합니다.",
         "lines": [
@@ -100,15 +100,15 @@ LOCALES = {
     "en": {
         "dir": "en/", "lang": "en", "font": None, "shots": "en",
         "title": "Raillog — Every Line You Ride, In Color",
-        "desc": "Tap a station to log it. Ridden lines turn their real color on the map and stack up as stamps in your book. Covers all 17 operators and 55 lines across Korea's rail network.",
+        "desc": "Tap a station to log it. Ridden lines turn their real color on the map and stack up as stamps in your book. Covers all 16 operators and 75 lines across Korea's rail network.",
         "og_title": "Raillog — Korean Rail Ride Log",
         "og_desc": "Ridden lines painted in their real color. Every station, a stamp.",
         "kicker_num": "RIDE LOG",
         "h1": "Every line you ride,<br>painted in <em>its color</em>.",
-        "sub": "Tap a station to log it. Ridden lines turn their real color on the map, and every stop becomes a stamp in your book. Built for Korea's rail network — 17 operators, 55 lines, from the Seoul subway to the KTX and SRT.",
+        "sub": "Tap a station to log it. Ridden lines turn their real color on the map, and every stop becomes a stamp in your book. Built for Korea's rail network — 16 operators, 75 lines, from the Seoul subway to the KTX and SRT.",
         "badge_small": "Download on the", "note": "FREE · IPHONE · NO ACCOUNT",
         "badge_aria": "Download on the App Store",
-        "hero_chips": [["17", "operators"], ["55", "lines"], ["★", "Full Route seal"]],
+        "hero_chips": [["16", "operators"], ["75", "lines"], ["★", "Full Route seal"]],
         "hero_alt": "Raillog map screen showing ridden lines painted in their real line colors",
         "spine_lines": [
             (LINE_HEXES["1"], "LINE 1"), (LINE_HEXES["2"], "LINE 2"),
@@ -123,10 +123,10 @@ LOCALES = {
             ["MAP", "Ridden lines, real colors", "Every line you've ridden gets painted in its real color. Filter to unridden lines to plan your next trip."],
             ["COLLECT", "Stamps stack up", "Every station you visit becomes a stamp. Finish a line end-to-end and a Full Route seal card appears."],
         ],
-        "value_kicker": "COVERAGE", "value_num": "1,191 STATIONS",
+        "value_kicker": "COVERAGE", "value_num": "1,622 STATIONS",
         "value_h2": "Korea's rail network, <em>by the numbers</em>.",
-        "value_lede": "17 operators, 55 lines, 1,191 stations — from the subway to the KTX and SRT, all logged on one map.",
-        "stats": [["17", "OPERATORS"], ["55", "LINES"], ["1,191", "STATIONS"]],
+        "value_lede": "16 operators, 75 lines, 1,622 stations — from the subway to the KTX and SRT, all logged on one map.",
+        "stats": [["16", "OPERATORS"], ["75", "LINES"], ["1,622", "STATIONS"]],
         "line_chips": [
             ["Line 1", LINE_HEXES["1"]], ["Line 2", LINE_HEXES["2"]], ["Line 3", LINE_HEXES["3"]],
             ["Line 4", LINE_HEXES["4"]], ["Line 5", LINE_HEXES["5"]], ["Sinbundang", LINE_HEXES["sinbundang"]],
@@ -151,7 +151,7 @@ LOCALES = {
         "pro_lede": "Browsing lines, logging rides, the stamp book, and iCloud sync are all free.",
         "prices": [["₩1,900", "MONTHLY"], ["₩9,900", "YEARLY"], ["₩19,000", "LIFETIME"]],
         "pro_note": "Pro adds <strong>unlimited favorite lines, detailed stats with a 17-province heatmap, watermark-free share cards, and a printable PDF stamp book</strong>. Priced in Korean won (KRW), the currency of the Korea App Store.",
-        "final_h2": "1,191 stations.", "final_lede": "How many have you actually ridden? Free on iPhone.",
+        "final_h2": "1,622 stations.", "final_lede": "How many have you actually ridden? Free on iPhone.",
         "f_contact": "Contact", "f_privacy": "Privacy", "f_terms": "Terms",
         "data_note": "Line and station data are based on open data such as OpenStreetMap.",
         "lines": [
@@ -166,15 +166,15 @@ LOCALES = {
     "zh-hant": {
         "dir": "zh-hant/", "lang": "zh-Hant", "font": '"PingFang TC", "Heiti TC", "Microsoft JhengHei"', "shots": "zh-hant",
         "title": "Raillog — 搭過的路線，以顏色留下",
-        "desc": "點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。",
+        "desc": "點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 16 家營運商、75 條路線，完乘後會出現印章卡。",
         "og_title": "Raillog — 韓國鐵路乘車紀錄",
         "og_desc": "搭過的路線在地圖上塗上實際的顏色，並累積在印章簿裡。",
         "kicker_num": "鐵路乘車紀錄",
         "h1": "搭過的路線，<br>以<em>顏色</em>留下。",
-        "sub": "點一下車站即可標記造訪。搭過的路線會在地圖上塗上真正的路線色，並累積在印章簿裡。涵蓋韓國全國 17 家營運商、55 條路線 — 從 1 號線到 KTX、SRT。",
+        "sub": "點一下車站即可標記造訪。搭過的路線會在地圖上塗上真正的路線色，並累積在印章簿裡。涵蓋韓國全國 16 家營運商、75 條路線 — 從 1 號線到 KTX、SRT。",
         "badge_small": "前往下載", "note": "免費 · iPhone · 免註冊帳號",
         "badge_aria": "在 App Store 下載",
-        "hero_chips": [["17", "家營運商"], ["55", "條路線"], ["完乘", "印章卡"]],
+        "hero_chips": [["16", "家營運商"], ["75", "條路線"], ["完乘", "印章卡"]],
         "hero_alt": "Raillog 地圖畫面 — 搭過的路線塗上實際的路線色",
         "spine_lines": [
             (LINE_HEXES["1"], "1號線"), (LINE_HEXES["2"], "2號線"),
@@ -189,10 +189,10 @@ LOCALES = {
             ["地圖", "搭過的路線呈現實際顏色", "搭過的路線會在地圖上塗上真正的路線色。用「僅顯示未搭」篩選，規劃下一趟行程。"],
             ["蒐集", "累積在印章簿裡", "造訪過的車站會化為印章累積，完整搭完一條路線，就會出現「全線完乘」印章卡。"],
         ],
-        "value_kicker": "收錄範圍", "value_num": "1,191 站",
+        "value_kicker": "收錄範圍", "value_num": "1,622 站",
         "value_h2": "韓國全國鐵路，<em>一覽無遺</em>。",
-        "value_lede": "17 家營運商、55 條路線、1,191 個車站 — 從地鐵到 KTX、SRT，都能在同一張地圖上記錄。",
-        "stats": [["17", "營運商"], ["55", "路線"], ["1,191", "車站"]],
+        "value_lede": "16 家營運商、75 條路線、1,622 個車站 — 從地鐵到 KTX、SRT，都能在同一張地圖上記錄。",
+        "stats": [["16", "營運商"], ["75", "路線"], ["1,622", "車站"]],
         "line_chips": [
             ["1號線", LINE_HEXES["1"]], ["2號線", LINE_HEXES["2"]], ["3號線", LINE_HEXES["3"]],
             ["4號線", LINE_HEXES["4"]], ["5號線", LINE_HEXES["5"]], ["新盆唐線", LINE_HEXES["sinbundang"]],
@@ -217,7 +217,7 @@ LOCALES = {
         "pro_lede": "瀏覽路線・乘車紀錄・印章簿・iCloud 同步全部免費。",
         "prices": [["₩1,900", "月費"], ["₩9,900", "年費"], ["₩19,000", "買斷"]],
         "pro_note": "Pro 會加上<strong>收藏路線無上限、詳細統計與 17 個廣域自治體熱區圖、移除浮水印的分享卡片、PDF 印章簿</strong>。",
-        "final_h2": "1,191 個車站。", "final_lede": "到目前為止，你搭過幾個呢？iPhone 免費使用。",
+        "final_h2": "1,622 個車站。", "final_lede": "到目前為止，你搭過幾個呢？iPhone 免費使用。",
         "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
         "data_note": "路線與車站資料以 OpenStreetMap 等公開資料為基礎。",
         "lines": [
@@ -232,15 +232,15 @@ LOCALES = {
     "zh-hans": {
         "dir": "zh-hans/", "lang": "zh-Hans", "font": '"PingFang SC", "Heiti SC", "Microsoft YaHei"', "shots": "zh-hant",
         "title": "Raillog — 搭过的路线，以颜色留下",
-        "desc": "点一下车站即可标记造访。搭过的路线会在地图上涂上实际的路线色，并累积在印章簿里。收录韩国 17 家营运商、55 条路线，完乘后会出现印章卡。",
+        "desc": "点一下车站即可标记造访。搭过的路线会在地图上涂上实际的路线色，并累积在印章簿里。收录韩国 16 家营运商、75 条路线，完乘后会出现印章卡。",
         "og_title": "Raillog — 韩国铁路乘车记录",
         "og_desc": "搭过的路线在地图上涂上实际的颜色，并累积在印章簿里。",
         "kicker_num": "铁路乘车记录",
         "h1": "搭过的路线，<br>以<em>颜色</em>留下。",
-        "sub": "点一下车站即可标记造访。搭过的路线会在地图上涂上真正的路线色，并累积在印章簿里。涵盖韩国全国 17 家营运商、55 条路线 — 从 1 号线到 KTX、SRT。",
+        "sub": "点一下车站即可标记造访。搭过的路线会在地图上涂上真正的路线色，并累积在印章簿里。涵盖韩国全国 16 家营运商、75 条路线 — 从 1 号线到 KTX、SRT。",
         "badge_small": "前往下载", "note": "免费 · iPhone · 免注册账号",
         "badge_aria": "在 App Store 下载",
-        "hero_chips": [["17", "家营运商"], ["55", "条路线"], ["完乘", "印章卡"]],
+        "hero_chips": [["16", "家营运商"], ["75", "条路线"], ["完乘", "印章卡"]],
         "hero_alt": "Raillog 地图画面 — 搭过的路线涂上实际的路线色",
         "spine_lines": [
             (LINE_HEXES["1"], "1号线"), (LINE_HEXES["2"], "2号线"),
@@ -255,10 +255,10 @@ LOCALES = {
             ["地图", "搭过的路线呈现实际颜色", "搭过的路线会在地图上涂上真正的路线色。用「仅显示未搭」筛选，规划下一趟行程。"],
             ["搜集", "累积在印章簿里", "造访过的车站会化为印章累积，完整搭完一条路线，就会出现「全线完乘」印章卡。"],
         ],
-        "value_kicker": "收录范围", "value_num": "1,191 站",
+        "value_kicker": "收录范围", "value_num": "1,622 站",
         "value_h2": "韩国全国铁路，<em>一览无遗</em>。",
-        "value_lede": "17 家营运商、55 条路线、1,191 个车站 — 从地铁到 KTX、SRT，都能在同一张地图上记录。",
-        "stats": [["17", "营运商"], ["55", "路线"], ["1,191", "车站"]],
+        "value_lede": "16 家营运商、75 条路线、1,622 个车站 — 从地铁到 KTX、SRT，都能在同一张地图上记录。",
+        "stats": [["16", "营运商"], ["75", "路线"], ["1,622", "车站"]],
         "line_chips": [
             ["1号线", LINE_HEXES["1"]], ["2号线", LINE_HEXES["2"]], ["3号线", LINE_HEXES["3"]],
             ["4号线", LINE_HEXES["4"]], ["5号线", LINE_HEXES["5"]], ["新盆唐线", LINE_HEXES["sinbundang"]],
@@ -283,7 +283,7 @@ LOCALES = {
         "pro_lede": "浏览路线・乘车记录・印章簿・iCloud 同步全部免费。",
         "prices": [["₩1,900", "月费"], ["₩9,900", "年费"], ["₩19,000", "买断"]],
         "pro_note": "Pro 会加上<strong>收藏路线无上限、详细统计与 17 个广域自治体热区图、移除水印的分享卡片、PDF 印章簿</strong>。",
-        "final_h2": "1,191 个车站。", "final_lede": "到目前为止，你搭过几个呢？iPhone 免费使用。",
+        "final_h2": "1,622 个车站。", "final_lede": "到目前为止，你搭过几个呢？iPhone 免费使用。",
         "f_contact": "联系我们", "f_privacy": "隐私权政策", "f_terms": "使用条款",
         "data_note": "路线与车站数据以 OpenStreetMap 等公开数据为基础。",
         "lines": [

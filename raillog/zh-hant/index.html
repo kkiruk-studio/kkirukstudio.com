@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raillog — 搭過的路線，以顏色留下</title>
-<meta name="description" content="點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。">
+<meta name="description" content="點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 16 家營運商、75 條路線，完乘後會出現印章卡。">
 <meta property="og:title" content="Raillog — 韓國鐵路乘車紀錄">
 <meta property="og:description" content="搭過的路線在地圖上塗上實際的顏色，並累積在印章簿裡。">
 <meta property="og:image" content="https://www.kkirukstudio.com/raillog/assets/icon-512.png">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/product-facts.css">
 <!-- jsonld:app:begin -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.kkirukstudio.com/#organization","name":"kkiruk studio","url":"https://www.kkirukstudio.com/"},{"@type":"WebSite","@id":"https://www.kkirukstudio.com/#website","url":"https://www.kkirukstudio.com/","name":"kkiruk studio","publisher":{"@id":"https://www.kkirukstudio.com/#organization"}},{"@type":"WebPage","@id":"https://www.kkirukstudio.com/raillog/zh-hant/#webpage","url":"https://www.kkirukstudio.com/raillog/zh-hant/","name":"Raillog — 搭過的路線，以顏色留下","isPartOf":{"@id":"https://www.kkirukstudio.com/#website"},"about":{"@id":"https://www.kkirukstudio.com/#app-6794330967"},"mainEntity":{"@id":"https://www.kkirukstudio.com/#app-6794330967"},"publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"description":"點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。","inLanguage":"zh-Hant"},{"@type":"SoftwareApplication","@id":"https://www.kkirukstudio.com/#app-6794330967","name":"Raillog","url":"https://www.kkirukstudio.com/raillog/zh-hant/","applicationCategory":"TravelApplication","operatingSystem":"iOS","publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"sameAs":["https://apps.apple.com/app/id6794330967"],"installUrl":"https://apps.apple.com/app/id6794330967","mainEntityOfPage":{"@id":"https://www.kkirukstudio.com/raillog/zh-hant/#webpage"},"description":"點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。","inLanguage":"zh-Hant","image":"https://www.kkirukstudio.com/raillog/assets/icon-180.png"}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.kkirukstudio.com/#organization","name":"kkiruk studio","url":"https://www.kkirukstudio.com/"},{"@type":"WebSite","@id":"https://www.kkirukstudio.com/#website","url":"https://www.kkirukstudio.com/","name":"kkiruk studio","publisher":{"@id":"https://www.kkirukstudio.com/#organization"}},{"@type":"WebPage","@id":"https://www.kkirukstudio.com/raillog/zh-hant/#webpage","url":"https://www.kkirukstudio.com/raillog/zh-hant/","name":"Raillog — 搭過的路線，以顏色留下","isPartOf":{"@id":"https://www.kkirukstudio.com/#website"},"about":{"@id":"https://www.kkirukstudio.com/#app-6794330967"},"mainEntity":{"@id":"https://www.kkirukstudio.com/#app-6794330967"},"publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"description":"點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 16 家營運商、75 條路線，完乘後會出現印章卡。","inLanguage":"zh-Hant"},{"@type":"SoftwareApplication","@id":"https://www.kkirukstudio.com/#app-6794330967","name":"Raillog","url":"https://www.kkirukstudio.com/raillog/zh-hant/","applicationCategory":"TravelApplication","operatingSystem":"iOS","publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"sameAs":["https://apps.apple.com/app/id6794330967"],"installUrl":"https://apps.apple.com/app/id6794330967","mainEntityOfPage":{"@id":"https://www.kkirukstudio.com/raillog/zh-hant/#webpage"},"description":"點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 16 家營運商、75 條路線，完乘後會出現印章卡。","inLanguage":"zh-Hant","image":"https://www.kkirukstudio.com/raillog/assets/icon-180.png"}]}
 </script>
 <!-- jsonld:app:end -->
 </head>
@@ -31,7 +31,7 @@
 <nav>
   <div class="wrap">
     <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>RAILLOG</span></a>
-    <div class="progress-counter" id="progressCount">0 / 55</div>
+    <div class="progress-counter" id="progressCount">0 / 75</div>
     <div class="lang"><a href="../">한국어</a><a href="../en/">EN</a><a href="../zh-hant/" class="cur">繁體中文</a><a href="../zh-hans/">简体中文</a></div>
   </div>
   <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
@@ -55,14 +55,14 @@
         <div class="demo-track" id="demoTrack" style="--lc:#00A84D"><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span></div>
         <div class="demo-stamp shown" id="demoStamp">完乘</div>
       </div>
-      <p class="sub">點一下車站即可標記造訪。搭過的路線會在地圖上塗上真正的路線色，並累積在印章簿裡。涵蓋韓國全國 17 家營運商、55 條路線 — 從 1 號線到 KTX、SRT。</p>
+      <p class="sub">點一下車站即可標記造訪。搭過的路線會在地圖上塗上真正的路線色，並累積在印章簿裡。涵蓋韓國全國 16 家營運商、75 條路線 — 從 1 號線到 KTX、SRT。</p>
       <div class="cta">
         <a class="store-badge" id="storeLink" href="#" aria-label="在 App Store 下載"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>前往下載</small><strong>App Store</strong></span></a>
         <span class="note">免費 · iPhone · 免註冊帳號</span>
       </div>
     </div>
     <div class="phone-col">
-      <div class="chip c1"><span class="g">17</span>家營運商</div><div class="chip c2"><span class="g">55</span>條路線</div><div class="chip c3"><span class="g">完乘</span>印章卡</div>
+      <div class="chip c1"><span class="g">16</span>家營運商</div><div class="chip c2"><span class="g">75</span>條路線</div><div class="chip c3"><span class="g">完乘</span>印章卡</div>
       <div class="phone"><img src="../assets/shot-zh-hant-map.png" alt="Raillog 地圖畫面 — 搭過的路線塗上實際的路線色"><div class="island"></div></div>
     </div>
   </div>
@@ -99,10 +99,10 @@
 <section class="stop passed" style="--stop-color:#D4003B;padding-top:0">
   <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">新盆唐線</span>
   <div class="wrap">
-    <div class="kicker"><span>收錄範圍</span><span class="rule"></span><span class="num">1,191 站</span></div>
+    <div class="kicker"><span>收錄範圍</span><span class="rule"></span><span class="num">1,622 站</span></div>
     <h2>韓國全國鐵路，<em>一覽無遺</em>。</h2>
-    <p class="lede">17 家營運商、55 條路線、1,191 個車站 — 從地鐵到 KTX、SRT，都能在同一張地圖上記錄。</p>
-    <div class="stat-poster"><div class="stat"><div class="v">17</div><div class="l">營運商</div></div><div class="stat"><div class="v">55</div><div class="l">路線</div></div><div class="stat"><div class="v">1,191</div><div class="l">車站</div></div></div>
+    <p class="lede">16 家營運商、75 條路線、1,622 個車站 — 從地鐵到 KTX、SRT，都能在同一張地圖上記錄。</p>
+    <div class="stat-poster"><div class="stat"><div class="v">16</div><div class="l">營運商</div></div><div class="stat"><div class="v">75</div><div class="l">路線</div></div><div class="stat"><div class="v">1,622</div><div class="l">車站</div></div></div>
     <div class="line-chips"><span class="line-chip"><span class="sw" style="background:#0052A4"></span>1號線</span><span class="line-chip"><span class="sw" style="background:#00A84D"></span>2號線</span><span class="line-chip"><span class="sw" style="background:#EF7C1C"></span>3號線</span><span class="line-chip"><span class="sw" style="background:#00A5DE"></span>4號線</span><span class="line-chip"><span class="sw" style="background:#996CAC"></span>5號線</span><span class="line-chip"><span class="sw" style="background:#D4003B"></span>新盆唐線</span><span class="line-chip"><span class="sw" style="background:#0090D2"></span>機場鐵路</span><span class="line-chip"><span class="sw" style="background:#00498A"></span>KTX</span><span class="line-chip"><span class="sw" style="background:#762F90"></span>SRT</span><span class="line-chip"><span class="sw" style="background:#178C72"></span>京春線</span><span class="line-chip"><span class="sw" style="background:#FABE00"></span>水仁盆唐線</span></div>
   </div>
 </section>
@@ -140,7 +140,7 @@
   <span class="stop-dot stop-dot-final" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">SRT</span>
   <div class="wrap">
     <div class="finish-stamp shown" id="finishStamp">完乘</div>
-    <h2>1,191 個車站。</h2>
+    <h2>1,622 個車站。</h2>
     <p class="lede">到目前為止，你搭過幾個呢？iPhone 免費使用。</p>
     <div class="cta"><a class="store-badge" id="storeLink2" href="#" aria-label="在 App Store 下載"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>前往下載</small><strong>App Store</strong></span></a></div>
   </div>
@@ -151,7 +151,7 @@
 <!-- product-facts:begin -->
 <section class="product-facts" aria-labelledby="product-facts-heading">
 <h2 id="product-facts-heading">Raillog · 應用程式介紹</h2>
-<p>點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。</p>
+<p>點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 16 家營運商、75 條路線，完乘後會出現印章卡。</p>
 <dl><div><dt>支援平台</dt><dd>iOS</dd></div>
 <div><dt>官方下載</dt><dd><a href="https://apps.apple.com/app/id6794330967">App Store</a></dd></div>
 <div><dt>開發者</dt><dd><a href="/">kkiruk studio · 끼룩 스튜디오</a></dd></div></dl>
@@ -271,7 +271,7 @@
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
       fillEl.style.width = (progress * 100).toFixed(2) + "%";
-      countEl2.textContent = Math.round(progress * 55) + " / 55";
+      countEl2.textContent = Math.round(progress * 75) + " / 75";
       if (!REDUCE) {
         let currentColor = "";
         stops.forEach((s) => {
