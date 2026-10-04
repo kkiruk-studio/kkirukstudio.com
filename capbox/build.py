@@ -65,7 +65,7 @@ LOCALES = {
         "feat_h2": "작은 앱, <em>분명한 선택</em>.",
         "feats": [
             ["휴지통에 모았다가 한 번에", "정리하다 필요 없는 캡처는 휴지통으로. 모아서 확인하고 한 번에 비워요. 잘못 넣은 건 복원할 수 있어요."],
-            ["사진 속 텍스트 검색", "캡처 안의 글자를 기기에서 인식해 둡니다. 폴더 안 사진은 물론 아직 정리 안 한 스크린샷도 글자로 찾아요. 한국어·영어·일본어·중국어(번체)."],
+            ["사진 속 텍스트 검색", "캡처 안의 글자를 기기에서 인식해 둡니다. 폴더 안 사진은 물론 아직 정리 안 한 스크린샷도 글자로 찾아요. 한국어·영어·일본어·중국어(번체·간체)."],
             ["기존 앨범 가져오기", "사진 앱에 이미 만들어 둔 앨범을 CapBox 폴더로 가져와 이어서 정리할 수 있어요."],
             ["한 장씩, 또는 여러 장씩", "카드를 한 장씩 넘기며 정리할 수도, 여러 장을 골라 한 번에 폴더로 보낼 수도 있습니다."],
             ["연도별 · 해상도별 통계", "스크린샷이 해마다 몇 장씩 쌓였는지, 어떤 해상도가 많은지 한눈에 봅니다."],
@@ -118,7 +118,7 @@ LOCALES = {
         "feat_h2": "Small app. <em>Deliberate</em> choices.",
         "feats": [
             ["Trash first, empty once", "Screenshots you don't need go to the trash. Review them, then delete the whole pile in one go — or restore the ones you tossed by mistake."],
-            ["Search the text in your photos", "CapBox reads the text in your captures on device, so you can find a shot by what it said — in folders and in unsorted screenshots alike. Korean, English, Japanese, Traditional Chinese."],
+            ["Search the text in your photos", "CapBox reads the text in your captures on device, so you can find a shot by what it said — in folders and in unsorted screenshots alike. Korean, English, Japanese, Traditional Chinese, Simplified Chinese."],
             ["Import existing albums", "Already made albums in Photos? Bring them in as CapBox folders and keep going."],
             ["Swipe one, or select a batch", "Flip through one card at a time, or multi-select a pile and send it to a folder at once."],
             ["Year & resolution stats", "See how many screenshots piled up each year and which resolutions dominate your library."],
@@ -171,7 +171,7 @@ LOCALES = {
         "feat_h2": "小さなアプリ、<em>明確な選択</em>。",
         "feats": [
             ["ゴミ箱にまとめて一括削除", "不要なスクショはゴミ箱へ。確認してから、まとめて一度に削除できます。間違えて入れたものは復元も可能。"],
-            ["写真の中の文字で検索", "キャプチャ内の文字を端末内で認識。フォルダ内の写真も未整理のスクショも、書いてあった文字で探せます。日本語・韓国語・英語・繁体字中国語に対応。"],
+            ["写真の中の文字で検索", "キャプチャ内の文字を端末内で認識。フォルダ内の写真も未整理のスクショも、書いてあった文字で探せます。日本語・韓国語・英語・繁体字中国語・簡体字中国語に対応。"],
             ["既存アルバムの取り込み", "写真アプリで作ってあるアルバムを、CapBoxのフォルダとして取り込んで続きから整理できます。"],
             ["1枚ずつ、またはまとめて", "カードを1枚ずつめくって整理も、複数選択して一括でフォルダへ送ることもできます。"],
             ["年別・解像度別の統計", "年ごとに何枚たまったか、どの解像度が多いかがひと目でわかります。"],
@@ -224,7 +224,7 @@ LOCALES = {
         "feat_h2": "小小的 App，<em>明確的選擇</em>。",
         "feats": [
             ["先進垃圾桶，再一次清空", "不需要的截圖先丟進垃圾桶，確認後一次全部刪除。放錯的也能復原。"],
-            ["搜尋照片中的文字", "在裝置上辨識截圖裡的文字。不論是資料夾裡的照片，還是還沒整理的截圖，都能用文字找到。支援繁體中文、英文、日文、韓文。"],
+            ["搜尋照片中的文字", "在裝置上辨識截圖裡的文字。不論是資料夾裡的照片，還是還沒整理的截圖，都能用文字找到。支援繁體中文、簡體中文、英文、日文、韓文。"],
             ["匯入原有相簿", "在「照片」App 已經建好的相簿，可以匯入成 CapBox 資料夾，接著整理。"],
             ["一張張滑，或一次多張", "一張一張翻著整理，或多選一整批，一次送進資料夾。"],
             ["年度・解析度統計", "每年累積了幾張截圖、哪種解析度最多，一目了然。"],
@@ -277,7 +277,7 @@ LOCALES = {
         "feat_h2": "小小的 App，<em>明确的选择</em>。",
         "feats": [
             ["先进垃圾桶，再一次清空", "不需要的截屏先丢进垃圾桶，确认后一次全部删除。放错的也能复原。"],
-            ["搜索照片中的文字", "在设备上识别截屏里的文字。不论是文件夹里的照片，还是还没整理的截屏，都能用文字找到。支持繁体中文、英文、日文、韩文。"],
+            ["搜索照片中的文字", "在设备上识别截屏里的文字。不论是文件夹里的照片，还是还没整理的截屏，都能用文字找到。支持简体中文、繁体中文、英文、日文、韩文。"],
             ["导入原有相册", "在「照片」App 已经建好的相册，可以导入成 CapBox 文件夹，接着整理。"],
             ["一张张滑，或一次多张", "一张一张翻着整理，或多选一整批，一次送进文件夹。"],
             ["年度・分辨率统计", "每年累积了几张截屏、哪种分辨率最多，一目了然。"],

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raillog — 搭過的路線，以顏色留下</title>
+<meta name="description" content="點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。">
+<meta property="og:title" content="Raillog — 韓國鐵路乘車紀錄">
+<meta property="og:description" content="搭過的路線在地圖上塗上實際的顏色，並累積在印章簿裡。">
+<meta property="og:image" content="https://www.kkirukstudio.com/raillog/assets/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kkirukstudio.com/raillog/zh-hant/">
+<link rel="alternate" hreflang="x-default" href="https://www.kkirukstudio.com/raillog/">
+<link rel="alternate" hreflang="ko" href="https://www.kkirukstudio.com/raillog/">
+<link rel="alternate" hreflang="en" href="https://www.kkirukstudio.com/raillog/en/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.kkirukstudio.com/raillog/zh-hant/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.kkirukstudio.com/raillog/zh-hans/">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC", "Heiti TC", "Microsoft JhengHei","Segoe UI",sans-serif}</style>
+<link rel="stylesheet" href="/product-facts.css">
+<!-- jsonld:app:begin -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.kkirukstudio.com/#organization","name":"kkiruk studio","url":"https://www.kkirukstudio.com/"},{"@type":"WebSite","@id":"https://www.kkirukstudio.com/#website","url":"https://www.kkirukstudio.com/","name":"kkiruk studio","publisher":{"@id":"https://www.kkirukstudio.com/#organization"}},{"@type":"WebPage","@id":"https://www.kkirukstudio.com/raillog/zh-hant/#webpage","url":"https://www.kkirukstudio.com/raillog/zh-hant/","name":"Raillog — 搭過的路線，以顏色留下","isPartOf":{"@id":"https://www.kkirukstudio.com/#website"},"about":{"@id":"https://www.kkirukstudio.com/#app-6794330967"},"mainEntity":{"@id":"https://www.kkirukstudio.com/#app-6794330967"},"publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"description":"點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。","inLanguage":"zh-Hant"},{"@type":"SoftwareApplication","@id":"https://www.kkirukstudio.com/#app-6794330967","name":"Raillog","url":"https://www.kkirukstudio.com/raillog/zh-hant/","applicationCategory":"TravelApplication","operatingSystem":"iOS","publisher":{"@id":"https://www.kkirukstudio.com/#organization"},"sameAs":["https://apps.apple.com/app/id6794330967"],"installUrl":"https://apps.apple.com/app/id6794330967","mainEntityOfPage":{"@id":"https://www.kkirukstudio.com/raillog/zh-hant/#webpage"},"description":"點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。","inLanguage":"zh-Hant","image":"https://www.kkirukstudio.com/raillog/assets/icon-180.png"}]}
+</script>
+<!-- jsonld:app:end -->
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="wordmark" href="../"><img src="../assets/icon-180.png" alt=""><span>RAILLOG</span></a>
+    <div class="progress-counter" id="progressCount">0 / 55</div>
+    <div class="lang"><a href="../">한국어</a><a href="../en/">EN</a><a href="../zh-hant/" class="cur">繁體中文</a><a href="../zh-hans/">简体中文</a></div>
+  </div>
+  <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+</nav>
+
+<div class="spine-wrap">
+
+<header class="hero stop passed" style="--stop-color:#0052A4">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">1號線</span>
+  <div class="ghost">RL</div>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span>RAILLOG</span><span class="rule"></span><span class="num">鐵路乘車紀錄</span></div>
+      <h1>搭過的路線，<br>以<em>顏色</em>留下。</h1>
+      <div class="demo-transit">
+        <div class="demo-head">
+          <span class="demo-dot" id="demoDot" style="background:#00A84D"></span>
+          <span class="demo-name" id="demoName" style="color:#00A84D">首爾 2 號線</span>
+          <span class="demo-count"><strong id="demoCount">43</strong> / <span id="demoTotal">43站</span></span>
+        </div>
+        <div class="demo-track" id="demoTrack" style="--lc:#00A84D"><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span><span class="segment on"></span><span class="station on"></span></div>
+        <div class="demo-stamp shown" id="demoStamp">完乘</div>
+      </div>
+      <p class="sub">點一下車站即可標記造訪。搭過的路線會在地圖上塗上真正的路線色，並累積在印章簿裡。涵蓋韓國全國 17 家營運商、55 條路線 — 從 1 號線到 KTX、SRT。</p>
+      <div class="cta">
+        <a class="store-badge" id="storeLink" href="#" aria-label="在 App Store 下載"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>前往下載</small><strong>App Store</strong></span></a>
+        <span class="note">免費 · iPhone · 免註冊帳號</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="chip c1"><span class="g">17</span>家營運商</div><div class="chip c2"><span class="g">55</span>條路線</div><div class="chip c3"><span class="g">完乘</span>印章卡</div>
+      <div class="phone"><img src="../assets/shot-zh-hant-map.png" alt="Raillog 地圖畫面 — 搭過的路線塗上實際的路線色"><div class="island"></div></div>
+    </div>
+  </div>
+</header>
+
+<section class="stop passed step-stop" style="--stop-color:#0052A4">
+  <span class="stop-dot" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="kicker"><span>紀錄</span><span class="rule"></span><span class="num">01</span></div>
+    <h2>點下車站的瞬間，<em>地圖就被顏色填滿</em>。</h2>
+    <div class="step"><h3>點一下車站標記造訪</h3><p>以前搭過的路線也能回溯記錄。每個車站都能留下照片與筆記。</p><div class="step-viz-card"><div class="step-viz strip-viz" style="--vc:#0052A4" aria-hidden="true"><span class="viz-st on"></span><span class="viz-seg on"></span><span class="viz-st on"></span><span class="viz-seg on"></span><span class="viz-st on"></span><span class="viz-seg on"></span><span class="viz-st on tap"></span><span class="viz-seg"></span><span class="viz-st"></span><span class="viz-seg"></span><span class="viz-st"></span></div></div></div>
+  </div>
+</section>
+<section class="stop passed step-stop" style="--stop-color:#00A84D">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">2號線</span>
+  <div class="wrap">
+    <div class="kicker"><span>地圖</span><span class="rule"></span><span class="num">02</span></div>
+    
+    <div class="step"><h3>搭過的路線呈現實際顏色</h3><p>搭過的路線會在地圖上塗上真正的路線色。用「僅顯示未搭」篩選，規劃下一趟行程。</p><div class="step-viz-card"><div class="step-viz line-viz" aria-hidden="true">
+      <div class="line-row"><span class="line-cap">未搭路線</span><span class="line-bar"></span></div>
+      <div class="line-row on"><span class="line-cap" style="color:#00A84D">已搭路線</span><span class="line-bar" style="background:#00A84D"></span></div>
+    </div></div></div>
+  </div>
+</section>
+<section class="stop passed step-stop" style="--stop-color:#00A84D">
+  <span class="stop-dot" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="kicker"><span>蒐集</span><span class="rule"></span><span class="num">03</span></div>
+    
+    <div class="step"><h3>累積在印章簿裡</h3><p>造訪過的車站會化為印章累積，完整搭完一條路線，就會出現「全線完乘」印章卡。</p><div class="step-viz-card"><div class="step-viz stamp-viz" aria-hidden="true"><span class="mini-stamp filled"></span><span class="mini-stamp filled"></span><span class="mini-stamp filled"></span><span class="mini-stamp filled"></span><span class="mini-stamp"></span><span class="mini-stamp"></span></div></div></div>
+  </div>
+</section>
+
+<section class="stop passed" style="--stop-color:#D4003B;padding-top:0">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">新盆唐線</span>
+  <div class="wrap">
+    <div class="kicker"><span>收錄範圍</span><span class="rule"></span><span class="num">1,191 站</span></div>
+    <h2>韓國全國鐵路，<em>一覽無遺</em>。</h2>
+    <p class="lede">17 家營運商、55 條路線、1,191 個車站 — 從地鐵到 KTX、SRT，都能在同一張地圖上記錄。</p>
+    <div class="stat-poster"><div class="stat"><div class="v">17</div><div class="l">營運商</div></div><div class="stat"><div class="v">55</div><div class="l">路線</div></div><div class="stat"><div class="v">1,191</div><div class="l">車站</div></div></div>
+    <div class="line-chips"><span class="line-chip"><span class="sw" style="background:#0052A4"></span>1號線</span><span class="line-chip"><span class="sw" style="background:#00A84D"></span>2號線</span><span class="line-chip"><span class="sw" style="background:#EF7C1C"></span>3號線</span><span class="line-chip"><span class="sw" style="background:#00A5DE"></span>4號線</span><span class="line-chip"><span class="sw" style="background:#996CAC"></span>5號線</span><span class="line-chip"><span class="sw" style="background:#D4003B"></span>新盆唐線</span><span class="line-chip"><span class="sw" style="background:#0090D2"></span>機場鐵路</span><span class="line-chip"><span class="sw" style="background:#00498A"></span>KTX</span><span class="line-chip"><span class="sw" style="background:#762F90"></span>SRT</span><span class="line-chip"><span class="sw" style="background:#178C72"></span>京春線</span><span class="line-chip"><span class="sw" style="background:#FABE00"></span>水仁盆唐線</span></div>
+  </div>
+</section>
+
+<section class="stop passed shots" style="--stop-color:#0090D2">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">機場鐵路</span>
+  <div class="wrap">
+    <div class="kicker"><span>畫面</span><span class="rule"></span><span class="num">IOS</span></div>
+    <h2>重點不在裝飾，而是<em>記錄工具</em>。</h2>
+    <div class="row"><figure><div class="phone"><img src="../assets/shot-zh-hant-map.png" alt="韓國鐵路盡收一圖" decoding="async"><div class="island"></div></div><figcaption>韓國鐵路盡收一圖</figcaption></figure><figure><div class="phone"><img src="../assets/shot-zh-hant-stamps.png" alt="搭過的車站化為印章" decoding="async"><div class="island"></div></div><figcaption>搭過的車站化為印章</figcaption></figure><figure><div class="phone"><img src="../assets/shot-zh-hant-complete.png" alt="全線完乘印章" decoding="async"><div class="island"></div></div><figcaption>全線完乘印章</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="stop passed" style="--stop-color:#00498A">
+  <span class="stop-dot" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">KTX</span>
+  <div class="wrap">
+    <div class="kicker"><span>細節</span><span class="rule"></span><span class="num">06</span></div>
+    <h2>這些也都能<em>記錄</em>。</h2>
+    <div class="grid6"><div class="feat"><h3>照片與筆記</h3><p>每個車站都能留下照片與筆記。</p></div><div class="feat"><h3>車輛圖鑑 48 種</h3><p>從 KTX-山川到無窮花號。搭過的車輛與看過的車輛分開蒐集。</p></div><div class="feat"><h3>20 年前的紀錄也行</h3><p>造訪日期可自由選擇。從很久以前搭過的路線開始補齊吧。</p></div><div class="feat"><h3>9:16 限時動態分享卡</h3><p>把完乘卡片以 9:16 比例直接分享到 Instagram 限時動態。</p></div><div class="feat"><h3>iCloud 同步・備份</h3><p>透過 iCloud，換裝置紀錄也能延續，並可用 JSON、CSV 備份・匯出。</p></div><div class="feat"><h3>免註冊・可離線</h3><p>不用註冊就能開始，離線時也能記錄。</p></div></div>
+  </div>
+</section>
+
+<section class="stop passed" style="--stop-color:#00498A;padding-top:0">
+  <span class="stop-dot" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="kicker"><span>PRO</span><span class="rule"></span><span class="num">選用</span></div>
+    <h2>免費開始，<em>需要時才用</em> Pro。</h2>
+    <p class="lede">瀏覽路線・乘車紀錄・印章簿・iCloud 同步全部免費。</p>
+    <div class="pricing"><div class="price-card"><div class="p">₩1,900</div><div class="t">月費</div></div><div class="price-card"><div class="p">₩9,900</div><div class="t">年費</div></div><div class="price-card"><div class="p">₩19,000</div><div class="t">買斷</div></div></div>
+    <p class="pricing-note">Pro 會加上<strong>收藏路線無上限、詳細統計與 17 個廣域自治體熱區圖、移除浮水印的分享卡片、PDF 印章簿</strong>。</p>
+  </div>
+</section>
+
+<section class="stop passed stop-final final" style="--stop-color:#762F90">
+  <span class="stop-dot stop-dot-final" aria-hidden="true"></span><span class="stop-label" aria-hidden="true">SRT</span>
+  <div class="wrap">
+    <div class="finish-stamp shown" id="finishStamp">完乘</div>
+    <h2>1,191 個車站。</h2>
+    <p class="lede">到目前為止，你搭過幾個呢？iPhone 免費使用。</p>
+    <div class="cta"><a class="store-badge" id="storeLink2" href="#" aria-label="在 App Store 下載"><svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="txt"><small>前往下載</small><strong>App Store</strong></span></a></div>
+  </div>
+</section>
+
+</div>
+
+<!-- product-facts:begin -->
+<section class="product-facts" aria-labelledby="product-facts-heading">
+<h2 id="product-facts-heading">Raillog · 應用程式介紹</h2>
+<p>點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。</p>
+<dl><div><dt>支援平台</dt><dd>iOS</dd></div>
+<div><dt>官方下載</dt><dd><a href="https://apps.apple.com/app/id6794330967">App Store</a></dd></div>
+<div><dt>開發者</dt><dd><a href="/">kkiruk studio · 끼룩 스튜디오</a></dd></div></dl>
+</section>
+<!-- product-facts:end -->
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div class="brand"><img src="../assets/icon-180.png" alt=""><strong>kkiruk studio</strong></div>
+      <div class="links">
+        <a href="mailto:kkirukstudio.help@gmail.com">聯絡我們</a>
+        <a href="/legal/privacy/">隱私權政策</a>
+        <a href="/legal/terms/">使用條款</a>
+      </div>
+      <div>© 2026 kkiruk studio</div>
+    </div>
+    <div class="data-note">路線與車站資料以 OpenStreetMap 等公開資料為基礎。</div>
+  </div>
+</footer>
+
+<script>
+  const APP_STORE_URL = "https://apps.apple.com/app/id6794330967";
+  if (APP_STORE_URL) {
+    document.getElementById("storeLink").href = APP_STORE_URL;
+    document.getElementById("storeLink2").href = APP_STORE_URL;
+  }
+
+  const LINES = [["#00A84D", "首爾 2 號線", 43], ["#0052A4", "首爾 1 號線", 100], ["#D4003B", "新盆唐線", 16], ["#0090D2", "機場鐵路", 14]];
+  const UNIT = "站";
+  const DOTS = 9;
+
+  const dotEl = document.getElementById("demoDot");
+  const nameEl = document.getElementById("demoName");
+  const countEl = document.getElementById("demoCount");
+  const totalEl = document.getElementById("demoTotal");
+  const trackEl = document.getElementById("demoTrack");
+  const stampEl = document.getElementById("demoStamp");
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    function buildTrack() {
+      trackEl.innerHTML = "";
+      for (let i = 0; i < DOTS; i++) {
+        trackEl.appendChild(Object.assign(document.createElement("span"), { className: "station" }));
+        if (i < DOTS - 1) {
+          trackEl.appendChild(Object.assign(document.createElement("span"), { className: "segment" }));
+        }
+      }
+    }
+    buildTrack();
+    const stations = () => trackEl.querySelectorAll(".station");
+    const segments = () => trackEl.querySelectorAll(".segment");
+
+    function countUp(from, to) {
+      return new Promise((resolve) => {
+        const steps = Math.max(4, Math.min(10, Math.abs(to - from)));
+        const inc = (to - from) / steps;
+        let cur = from;
+        const t = setInterval(() => {
+          cur += inc;
+          const done = inc >= 0 ? cur >= to : cur <= to;
+          if (done) { cur = to; clearInterval(t); resolve(); }
+          countEl.textContent = Math.round(cur);
+        }, 45);
+      });
+    }
+
+    (async function loop() {
+      let li = 0;
+      for (;;) {
+        const [color, name, total] = LINES[li % LINES.length];
+        trackEl.style.setProperty("--lc", color);
+        dotEl.style.background = color;
+        nameEl.textContent = name;
+        nameEl.style.color = color;
+        totalEl.textContent = total + UNIT;
+        countEl.textContent = "0";
+        stations().forEach((s) => s.classList.remove("on"));
+        segments().forEach((s) => s.classList.remove("on"));
+        stampEl.classList.remove("shown");
+        stations()[0].classList.add("on");
+        await sleep(250);
+        let shown = 0;
+        for (let i = 0; i < DOTS - 1; i++) {
+          segments()[i].classList.add("on");
+          stations()[i + 1].classList.add("on");
+          const target = Math.round((total * (i + 1)) / (DOTS - 1));
+          await countUp(shown, target);
+          shown = target;
+          await sleep(160);
+        }
+        stampEl.classList.add("shown");
+        await sleep(1500);
+        li++;
+      }
+    })();
+  }
+
+  // ---- page spine: sticky progress bar + station-by-station line fill ----
+  (function () {
+    const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const stops = Array.from(document.querySelectorAll(".stop"));
+    const fillEl = document.getElementById("progressFill");
+    const countEl2 = document.getElementById("progressCount");
+    const finishEl = document.getElementById("finishStamp");
+    if (!stops.length || !fillEl || !countEl2) return;
+
+    if (!REDUCE) {
+      stops.forEach((s) => s.classList.remove("passed"));
+      if (finishEl) finishEl.classList.remove("shown");
+    }
+
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+      fillEl.style.width = (progress * 100).toFixed(2) + "%";
+      countEl2.textContent = Math.round(progress * 55) + " / 55";
+      if (!REDUCE) {
+        let currentColor = "";
+        stops.forEach((s) => {
+          const passed = s.getBoundingClientRect().top < window.innerHeight * 0.5;
+          s.classList.toggle("passed", passed);
+          if (passed) currentColor = s.style.getPropertyValue("--stop-color");
+        });
+        if (currentColor) fillEl.style.background = currentColor;
+        if (finishEl) finishEl.classList.toggle("shown", stops[stops.length - 1].classList.contains("passed"));
+      }
+    }
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  })();
+</script>
+</body>
+</html>

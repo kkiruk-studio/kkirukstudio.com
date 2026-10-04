@@ -2,14 +2,14 @@
 """Generate index.html for every locale from one template.
 
 Usage: python3 build.py
-Output: ./index.html (ko), ./en/index.html
+Output: ./index.html (ko), ./en/index.html, ./zh-hant/index.html, ./zh-hans/index.html
 """
 import json
 import pathlib
 
 ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/raillog/"
-APP_STORE_URL = "https://apps.apple.com/kr/app/id6794330967"
+APP_STORE_URL = "https://apps.apple.com/app/id6794330967"
 DOTS = 9  # stations drawn in the hero transit-line demo (per line cycle)
 PROGRESS_TOTAL = 55  # denominator shown in the top progress counter (matches "55 lines")
 
@@ -21,7 +21,7 @@ STOP_LINE_IDX = [0, 0, 1, 1, 2, 3, 4, 4, 5]
 
 APPLE_SVG = '<svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>'
 
-LANG_LABELS = [("", "한국어"), ("en/", "EN")]
+LANG_LABELS = [("", "한국어"), ("en/", "EN"), ("zh-hant/", "繁體中文"), ("zh-hans/", "简体中文")]
 
 # Real Korean rail line colors, reused across the palette chips and the hero demo.
 LINE_HEXES = {
@@ -162,6 +162,138 @@ LOCALES = {
         ],
         "unit": " stations",
         "stamp_html": "FULL<br>ROUTE",
+    },
+    "zh-hant": {
+        "dir": "zh-hant/", "lang": "zh-Hant", "font": '"PingFang TC", "Heiti TC", "Microsoft JhengHei"', "shots": "zh-hant",
+        "title": "Raillog — 搭過的路線，以顏色留下",
+        "desc": "點一下車站即可標記造訪。搭過的路線會在地圖上塗上實際的路線色，並累積在印章簿裡。收錄韓國 17 家營運商、55 條路線，完乘後會出現印章卡。",
+        "og_title": "Raillog — 韓國鐵路乘車紀錄",
+        "og_desc": "搭過的路線在地圖上塗上實際的顏色，並累積在印章簿裡。",
+        "kicker_num": "鐵路乘車紀錄",
+        "h1": "搭過的路線，<br>以<em>顏色</em>留下。",
+        "sub": "點一下車站即可標記造訪。搭過的路線會在地圖上塗上真正的路線色，並累積在印章簿裡。涵蓋韓國全國 17 家營運商、55 條路線 — 從 1 號線到 KTX、SRT。",
+        "badge_small": "前往下載", "note": "免費 · iPhone · 免註冊帳號",
+        "badge_aria": "在 App Store 下載",
+        "hero_chips": [["17", "家營運商"], ["55", "條路線"], ["完乘", "印章卡"]],
+        "hero_alt": "Raillog 地圖畫面 — 搭過的路線塗上實際的路線色",
+        "spine_lines": [
+            (LINE_HEXES["1"], "1號線"), (LINE_HEXES["2"], "2號線"),
+            (LINE_HEXES["sinbundang"], "新盆唐線"), (LINE_HEXES["arex"], "機場鐵路"),
+            (LINE_HEXES["ktx"], "KTX"), (LINE_HEXES["srt"], "SRT"),
+        ],
+        "how_kicker": "使用方式",
+        "how_h2": "點下車站的瞬間，<em>地圖就被顏色填滿</em>。",
+        "step2_unridden": "未搭路線", "step2_ridden": "已搭路線",
+        "steps": [
+            ["紀錄", "點一下車站標記造訪", "以前搭過的路線也能回溯記錄。每個車站都能留下照片與筆記。"],
+            ["地圖", "搭過的路線呈現實際顏色", "搭過的路線會在地圖上塗上真正的路線色。用「僅顯示未搭」篩選，規劃下一趟行程。"],
+            ["蒐集", "累積在印章簿裡", "造訪過的車站會化為印章累積，完整搭完一條路線，就會出現「全線完乘」印章卡。"],
+        ],
+        "value_kicker": "收錄範圍", "value_num": "1,191 站",
+        "value_h2": "韓國全國鐵路，<em>一覽無遺</em>。",
+        "value_lede": "17 家營運商、55 條路線、1,191 個車站 — 從地鐵到 KTX、SRT，都能在同一張地圖上記錄。",
+        "stats": [["17", "營運商"], ["55", "路線"], ["1,191", "車站"]],
+        "line_chips": [
+            ["1號線", LINE_HEXES["1"]], ["2號線", LINE_HEXES["2"]], ["3號線", LINE_HEXES["3"]],
+            ["4號線", LINE_HEXES["4"]], ["5號線", LINE_HEXES["5"]], ["新盆唐線", LINE_HEXES["sinbundang"]],
+            ["機場鐵路", LINE_HEXES["arex"]], ["KTX", LINE_HEXES["ktx"]], ["SRT", LINE_HEXES["srt"]],
+            ["京春線", LINE_HEXES["gyeongchun"]], ["水仁盆唐線", LINE_HEXES["suinbundang"]],
+        ],
+        "shots_kicker": "畫面", "shots_num": "IOS",
+        "shots_h2": "重點不在裝飾，而是<em>記錄工具</em>。",
+        "shots_caps": ["韓國鐵路盡收一圖", "搭過的車站化為印章", "全線完乘印章"],
+        "feat_kicker": "細節", "feat_num": "06",
+        "feat_h2": "這些也都能<em>記錄</em>。",
+        "feats": [
+            ["照片與筆記", "每個車站都能留下照片與筆記。"],
+            ["車輛圖鑑 48 種", "從 KTX-山川到無窮花號。搭過的車輛與看過的車輛分開蒐集。"],
+            ["20 年前的紀錄也行", "造訪日期可自由選擇。從很久以前搭過的路線開始補齊吧。"],
+            ["9:16 限時動態分享卡", "把完乘卡片以 9:16 比例直接分享到 Instagram 限時動態。"],
+            ["iCloud 同步・備份", "透過 iCloud，換裝置紀錄也能延續，並可用 JSON、CSV 備份・匯出。"],
+            ["免註冊・可離線", "不用註冊就能開始，離線時也能記錄。"],
+        ],
+        "pro_kicker": "PRO", "pro_num": "選用",
+        "pro_h2": "免費開始，<em>需要時才用</em> Pro。",
+        "pro_lede": "瀏覽路線・乘車紀錄・印章簿・iCloud 同步全部免費。",
+        "prices": [["₩1,900", "月費"], ["₩9,900", "年費"], ["₩19,000", "買斷"]],
+        "pro_note": "Pro 會加上<strong>收藏路線無上限、詳細統計與 17 個廣域自治體熱區圖、移除浮水印的分享卡片、PDF 印章簿</strong>。",
+        "final_h2": "1,191 個車站。", "final_lede": "到目前為止，你搭過幾個呢？iPhone 免費使用。",
+        "f_contact": "聯絡我們", "f_privacy": "隱私權政策", "f_terms": "使用條款",
+        "data_note": "路線與車站資料以 OpenStreetMap 等公開資料為基礎。",
+        "lines": [
+            [LINE_HEXES["2"], "首爾 2 號線", 43],
+            [LINE_HEXES["1"], "首爾 1 號線", 100],
+            [LINE_HEXES["sinbundang"], "新盆唐線", 16],
+            [LINE_HEXES["arex"], "機場鐵路", 14],
+        ],
+        "unit": "站",
+        "stamp_html": "完乘",
+    },
+    "zh-hans": {
+        "dir": "zh-hans/", "lang": "zh-Hans", "font": '"PingFang SC", "Heiti SC", "Microsoft YaHei"', "shots": "zh-hant",
+        "title": "Raillog — 搭过的路线，以颜色留下",
+        "desc": "点一下车站即可标记造访。搭过的路线会在地图上涂上实际的路线色，并累积在印章簿里。收录韩国 17 家营运商、55 条路线，完乘后会出现印章卡。",
+        "og_title": "Raillog — 韩国铁路乘车记录",
+        "og_desc": "搭过的路线在地图上涂上实际的颜色，并累积在印章簿里。",
+        "kicker_num": "铁路乘车记录",
+        "h1": "搭过的路线，<br>以<em>颜色</em>留下。",
+        "sub": "点一下车站即可标记造访。搭过的路线会在地图上涂上真正的路线色，并累积在印章簿里。涵盖韩国全国 17 家营运商、55 条路线 — 从 1 号线到 KTX、SRT。",
+        "badge_small": "前往下载", "note": "免费 · iPhone · 免注册账号",
+        "badge_aria": "在 App Store 下载",
+        "hero_chips": [["17", "家营运商"], ["55", "条路线"], ["完乘", "印章卡"]],
+        "hero_alt": "Raillog 地图画面 — 搭过的路线涂上实际的路线色",
+        "spine_lines": [
+            (LINE_HEXES["1"], "1号线"), (LINE_HEXES["2"], "2号线"),
+            (LINE_HEXES["sinbundang"], "新盆唐线"), (LINE_HEXES["arex"], "机场铁路"),
+            (LINE_HEXES["ktx"], "KTX"), (LINE_HEXES["srt"], "SRT"),
+        ],
+        "how_kicker": "使用方式",
+        "how_h2": "点下车站的瞬间，<em>地图就被颜色填满</em>。",
+        "step2_unridden": "未搭路线", "step2_ridden": "已搭路线",
+        "steps": [
+            ["记录", "点一下车站标记造访", "以前搭过的路线也能回溯记录。每个车站都能留下照片与笔记。"],
+            ["地图", "搭过的路线呈现实际颜色", "搭过的路线会在地图上涂上真正的路线色。用「仅显示未搭」筛选，规划下一趟行程。"],
+            ["搜集", "累积在印章簿里", "造访过的车站会化为印章累积，完整搭完一条路线，就会出现「全线完乘」印章卡。"],
+        ],
+        "value_kicker": "收录范围", "value_num": "1,191 站",
+        "value_h2": "韩国全国铁路，<em>一览无遗</em>。",
+        "value_lede": "17 家营运商、55 条路线、1,191 个车站 — 从地铁到 KTX、SRT，都能在同一张地图上记录。",
+        "stats": [["17", "营运商"], ["55", "路线"], ["1,191", "车站"]],
+        "line_chips": [
+            ["1号线", LINE_HEXES["1"]], ["2号线", LINE_HEXES["2"]], ["3号线", LINE_HEXES["3"]],
+            ["4号线", LINE_HEXES["4"]], ["5号线", LINE_HEXES["5"]], ["新盆唐线", LINE_HEXES["sinbundang"]],
+            ["机场铁路", LINE_HEXES["arex"]], ["KTX", LINE_HEXES["ktx"]], ["SRT", LINE_HEXES["srt"]],
+            ["京春线", LINE_HEXES["gyeongchun"]], ["水仁盆唐线", LINE_HEXES["suinbundang"]],
+        ],
+        "shots_kicker": "画面", "shots_num": "IOS",
+        "shots_h2": "重点不在装饰，而是<em>记录工具</em>。",
+        "shots_caps": ["韩国铁路尽收一图", "搭过的车站化为印章", "全线完乘印章"],
+        "feat_kicker": "细节", "feat_num": "06",
+        "feat_h2": "这些也都能<em>记录</em>。",
+        "feats": [
+            ["照片与笔记", "每个车站都能留下照片与笔记。"],
+            ["车辆图鉴 48 种", "从 KTX-山川到无穷花号。搭过的车辆与看过的车辆分开搜集。"],
+            ["20 年前的记录也行", "造访日期可自由选择。从很久以前搭过的路线开始补齐吧。"],
+            ["9:16 限时动态分享卡", "把完乘卡片以 9:16 比例直接分享到 Instagram 限时动态。"],
+            ["iCloud 同步・备份", "通过 iCloud，换设备记录也能延续，并可用 JSON、CSV 备份・导出。"],
+            ["免注册・可离线", "不用注册就能开始，离线时也能记录。"],
+        ],
+        "pro_kicker": "PRO", "pro_num": "选用",
+        "pro_h2": "免费开始，<em>需要时才用</em> Pro。",
+        "pro_lede": "浏览路线・乘车记录・印章簿・iCloud 同步全部免费。",
+        "prices": [["₩1,900", "月费"], ["₩9,900", "年费"], ["₩19,000", "买断"]],
+        "pro_note": "Pro 会加上<strong>收藏路线无上限、详细统计与 17 个广域自治体热区图、移除水印的分享卡片、PDF 印章簿</strong>。",
+        "final_h2": "1,191 个车站。", "final_lede": "到目前为止，你搭过几个呢？iPhone 免费使用。",
+        "f_contact": "联系我们", "f_privacy": "隐私权政策", "f_terms": "使用条款",
+        "data_note": "路线与车站数据以 OpenStreetMap 等公开数据为基础。",
+        "lines": [
+            [LINE_HEXES["2"], "首尔 2 号线", 43],
+            [LINE_HEXES["1"], "首尔 1 号线", 100],
+            [LINE_HEXES["sinbundang"], "新盆唐线", 16],
+            [LINE_HEXES["arex"], "机场铁路", 14],
+        ],
+        "unit": "站",
+        "stamp_html": "完乘",
     },
 }
 
