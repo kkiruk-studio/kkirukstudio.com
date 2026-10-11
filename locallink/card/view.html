@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Directions Card · Local Link</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Directions to this place in Korea, in your language — open it in Naver Map or KakaoMap for walking directions.">
+<meta property="og:title" content="Directions card · Local Link">
+<meta property="og:description" content="Google gets you to the station. Open the last walk in Naver Map or KakaoMap — in your language.">
+<meta property="og:image" content="https://www.kkirukstudio.com/locallink/og.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="kkiruk studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151413" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="card.css">
+<script src="/ga.js"></script>
+<style>
+  main { padding: 18px 0 8px; }
+  .notice {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--accent-soft); border-left: 3px solid var(--accent);
+    border-radius: 0 12px 12px 0; padding: 12px 14px; font-size: 14px; font-weight: 600;
+    word-break: keep-all; overflow-wrap: anywhere;
+  }
+  .notice b { color: var(--accent); font-family: var(--mono); font-size: 12px; flex: none; padding-top: 2px; }
+  .place { padding: 26px 0 18px; }
+  .place .ko {
+    font-size: clamp(34px, 11vw, 52px); font-weight: 900; line-height: 1.12;
+    letter-spacing: -.015em; word-break: keep-all; overflow-wrap: anywhere; margin-top: 14px;
+  }
+  .place .local { margin-top: 6px; font-size: 19px; font-weight: 700; color: var(--ink2); overflow-wrap: anywhere; }
+  .addr {
+    display: flex; align-items: center; gap: 10px; justify-content: space-between;
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 12px 0;
+  }
+  .addr .txt { font-size: 16px; font-weight: 600; overflow-wrap: anywhere; min-width: 0; }
+  .addr .lbl { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .22em; color: var(--ink2); font-weight: 700; text-transform: uppercase; }
+  .addr .btn { flex: none; }
+  .maps { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+  .map-big {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+    text-decoration: none; border-radius: 16px; padding: 14px 14px 13px; color: #fff; min-height: 92px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  }
+  .map-big .g { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: rgba(255,255,255,.22); font-weight: 900; font-size: 15px; margin-bottom: 6px; }
+  .map-big strong { font-size: 17px; font-weight: 800; line-height: 1.2; }
+  .map-big small { font-size: 12px; font-weight: 600; opacity: .9; }
+  .map-big.naver { background: #03a94d; }
+  .map-big.kakao { background: #fee500; color: #191600; }
+  .map-big.kakao .g { background: rgba(0,0,0,.08); }
+  .map-small { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; align-items: center; }
+  .map-small span { font-size: 12px; color: var(--ink2); margin-right: 2px; }
+  .taxi { width: 100%; margin-top: 16px; min-height: 52px; font-size: 16px; }
+  .hint { margin-top: 22px; }
+  .hint p { margin-top: 8px; font-size: 17px; font-weight: 600; word-break: keep-all; overflow-wrap: anywhere; }
+  .ig { margin-top: 18px; display: inline-flex; }
+  .cta { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink2); }
+  .cta a { color: var(--accent); font-weight: 700; text-decoration: none; }
+  .missing { padding: 60px 0; text-align: center; color: var(--ink2); }
+
+  /* taxi full screen */
+  .sheet {
+    position: fixed; inset: 0; z-index: 100; background: #fff; color: #111;
+    display: flex; flex-direction: column; padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+    overflow-y: auto;
+  }
+  .sheet[hidden] { display: none; }
+  .sheet .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .sheet .top .say { font-size: 14px; font-weight: 700; color: #6a6a6a; }
+  .sheet .close { border: 0; background: #111; color: #fff; border-radius: 99px; padding: 10px 18px; font-weight: 800; min-height: 44px; }
+  .sheet .body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 24px 0; }
+  .sheet .ask { font-size: clamp(22px, 6.5vw, 34px); font-weight: 800; color: #e00b41; }
+  .sheet .n { font-size: clamp(44px, 15vw, 96px); font-weight: 900; line-height: 1.08; word-break: keep-all; overflow-wrap: anywhere; }
+  .sheet .a { font-size: clamp(26px, 8vw, 52px); font-weight: 800; line-height: 1.25; word-break: keep-all; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="wordmark" href="/locallink/"><img src="../assets/icon-180.png" alt=""><span>LOCAL·LINK</span></a>
+    <div class="langs" id="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="en">EN</button><button type="button" data-lang="ko">한국어</button><button type="button" data-lang="ja">日本語</button><button type="button" data-lang="zh-Hans">简体</button><button type="button" data-lang="zh-Hant">繁體</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="main">
+  <div id="card">
+    <p class="notice"><b>!</b><span data-i="notice"></span></p>
+
+    <div class="place">
+      <div class="kicker"><span data-i="kicker"></span><span class="rule"></span><span class="num">KOREA</span></div>
+      <h1 class="ko" id="nameKo" lang="ko"></h1>
+      <p class="local" id="nameLocal"></p>
+    </div>
+
+    <div class="addr" id="addrRow">
+      <div class="txt"><span class="lbl" data-i="address"></span><span id="addr" lang="ko"></span></div>
+      <button type="button" class="btn small" id="copyAddr" data-i="copy"></button>
+    </div>
+
+    <div class="maps">
+      <a class="map-big naver" id="naver" href="#"><span class="g">N</span><strong data-i="naver"></strong><small id="naverSub"></small></a>
+      <a class="map-big kakao" id="kakao" href="#"><span class="g">K</span><strong data-i="kakao"></strong><small id="kakaoSub"></small></a>
+    </div>
+    <div class="map-small">
+      <span data-i="others"></span>
+      <a class="btn small" id="google" href="#">Google Maps</a>
+      <a class="btn small" id="apple" href="#">Apple Maps</a>
+    </div>
+
+    <button type="button" class="btn primary taxi" id="taxiBtn" data-i="taxi"></button>
+
+    <div class="hint" id="hintBox" hidden>
+      <div class="kicker"><span data-i="hint"></span><span class="rule"></span></div>
+      <p id="hint" lang="ko"></p>
+    </div>
+
+    <a class="btn small ig" id="ig" href="#" hidden rel="noopener" target="_blank"></a>
+  </div>
+
+  <p class="missing" id="missing" hidden data-i="missing"></p>
+
+  <p class="cta"><span data-i="cta"></span> <a href="https://apps.apple.com/app/id6767477190" id="ctaLink"></a></p>
+</main>
+
+<footer class="foot">
+  <div class="wrap">© 2026 <a href="/">kkiruk studio</a> · <a href="/legal/privacy/">Privacy</a></div>
+</footer>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetName" hidden>
+  <div class="top"><span class="say" data-i="taxiSay"></span><button type="button" class="close" id="sheetClose" data-i="close"></button></div>
+  <div class="body" lang="ko">
+    <p class="ask">이곳으로 가 주세요</p>
+    <p class="n" id="sheetName"></p>
+    <p class="a" id="sheetAddr"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var MAX = 200;
+  var APPNAME = "https://www.kkirukstudio.com/locallink/card/"; // Naver: web pages pass their URL as appname
+  var LANGS = ["en", "ko", "ja", "zh-Hans", "zh-Hant"];
+
+  var T = {
+    en: {
+      notice: "In Korea, Google Maps has no walking directions. Use the Naver Map or KakaoMap buttons below.",
+      kicker: "DIRECTIONS", address: "Address", copy: "Copy", copied: "Copied",
+      naver: "Naver Map", kakao: "KakaoMap", walk: "Walking route", search: "Search this place",
+      others: "Other maps", taxi: "Show to taxi driver", taxiSay: "Show this screen to the driver", close: "Close",
+      hint: "How to get here", ig: "Instagram",
+      cta: "Want to find other places like this?", ctaLink: "Local Link app →",
+      missing: "This card is missing a place name.", title: "Directions"
+    },
+    ko: {
+      notice: "한국에서는 구글맵에 도보 길안내가 없어요. 아래 버튼으로 네이버·카카오 지도를 여세요.",
+      kicker: "찾아오는 길", address: "주소", copy: "복사", copied: "복사됨",
+      naver: "네이버 지도", kakao: "카카오맵", walk: "도보 길찾기", search: "이 장소 검색",
+      others: "다른 지도", taxi: "택시 기사에게 보여주기", taxiSay: "기사님께 이 화면을 보여 주세요", close: "닫기",
+      hint: "찾아오는 힌트", ig: "인스타그램",
+      cta: "다른 곳도 이렇게 찾고 싶다면", ctaLink: "Local Link 앱 →",
+      missing: "카드에 가게 이름이 없습니다.", title: "찾아오는 길"
+    },
+    ja: {
+      notice: "韓国ではGoogleマップの徒歩ナビが使えません。下のボタンからNAVERマップかカカオマップを開いてください。",
+      kicker: "アクセス", address: "住所", copy: "コピー", copied: "コピーしました",
+      naver: "NAVERマップ", kakao: "カカオマップ", walk: "徒歩ルート", search: "この場所を検索",
+      others: "ほかの地図", taxi: "タクシー運転手に見せる", taxiSay: "この画面を運転手に見せてください", close: "閉じる",
+      hint: "行き方のヒント", ig: "Instagram",
+      cta: "ほかの場所もこうして探すなら", ctaLink: "Local Link アプリ →",
+      missing: "このカードには店名がありません。", title: "アクセス"
+    },
+    "zh-Hans": {
+      notice: "在韩国，谷歌地图没有步行导航。请用下方按钮打开 Naver 地图或 Kakao 地图。",
+      kicker: "到店路线", address: "地址", copy: "复制", copied: "已复制",
+      naver: "Naver 地图", kakao: "Kakao 地图", walk: "步行路线", search: "搜索此地点",
+      others: "其他地图", taxi: "出示给出租车司机", taxiSay: "请把此画面给司机看", close: "关闭",
+      hint: "怎么走", ig: "Instagram",
+      cta: "想这样找到更多地方？", ctaLink: "Local Link 应用 →",
+      missing: "此卡片缺少店名。", title: "到店路线"
+    },
+    "zh-Hant": {
+      notice: "在韓國，Google 地圖沒有步行導航。請用下方按鈕開啟 Naver 地圖或 Kakao 地圖。",
+      kicker: "到店路線", address: "地址", copy: "複製", copied: "已複製",
+      naver: "Naver 地圖", kakao: "Kakao 地圖", walk: "步行路線", search: "搜尋此地點",
+      others: "其他地圖", taxi: "出示給計程車司機", taxiSay: "請把此畫面給司機看", close: "關閉",
+      hint: "怎麼走", ig: "Instagram",
+      cta: "想這樣找到更多地方？", ctaLink: "Local Link App →",
+      missing: "此卡片缺少店名。", title: "到店路線"
+    }
+  };
+
+  // RFC 3986: percent-encode everything except unreserved (A-Z a-z 0-9 - . _ ~)
+  function enc(s) {
+    return encodeURIComponent(s).replace(/[!'()*]/g, function (c) {
+      return "%" + c.charCodeAt(0).toString(16).toUpperCase();
+    });
+  }
+  function clean(v) {
+    if (v == null) return "";
+    v = String(v).replace(/[\u0000-\u001f\u007f]/g, " ").trim();
+    return v.length > MAX ? v.slice(0, MAX) : v;
+  }
+  function num(v, lim) {
+    if (!/^-?\d{1,3}(\.\d+)?$/.test(v || "")) return null;
+    var x = parseFloat(v);
+    return isFinite(x) && Math.abs(x) <= lim ? x : null;
+  }
+
+  var q = new URLSearchParams(location.search);
+  var P = {
+    n: clean(q.get("n")), e: clean(q.get("e")), j: clean(q.get("j")),
+    s: clean(q.get("s")), t: clean(q.get("t")), a: clean(q.get("a")),
+    h: clean(q.get("h")), ig: clean(q.get("ig")).replace(/^@/, "")
+  };
+  var lat = num(q.get("lat"), 90), lng = num(q.get("lng"), 180);
+  var hasGeo = lat !== null && lng !== null;
+  if (!/^[A-Za-z0-9._]{1,30}$/.test(P.ig)) P.ig = "";
+
+  function detectLang() {
+    var forced = q.get("lang");
+    if (forced && LANGS.indexOf(forced) >= 0) return forced;
+    var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+    for (var i = 0; i < list.length; i++) {
+      var l = String(list[i]).toLowerCase();
+      if (l.indexOf("ko") === 0) return "ko";
+      if (l.indexOf("ja") === 0) return "ja";
+      if (l.indexOf("zh") === 0) return /hant|-tw|-hk|-mo/.test(l) ? "zh-Hant" : "zh-Hans";
+      if (l.indexOf("en") === 0) return "en";
+    }
+    return "en";
+  }
+  function localName(lang) {
+    if (lang === "en") return P.e;
+    if (lang === "ja") return P.j || P.e;
+    if (lang === "zh-Hans") return P.s || P.t || P.e;
+    if (lang === "zh-Hant") return P.t || P.s || P.e;
+    return P.e; // ko: show the English name as a secondary line, if any
+  }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var lang;
+
+  function setLang(l) {
+    lang = l;
+    var t = T[l];
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-i]").forEach(function (el) {
+      var k = el.getAttribute("data-i");
+      if (t[k] != null) el.textContent = t[k];
+    });
+    document.querySelectorAll("#langs button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false");
+    });
+    var ln = localName(l);
+    $("nameLocal").textContent = ln && ln !== P.n ? ln : "";
+    $("nameLocal").hidden = !$("nameLocal").textContent;
+    $("naverSub").textContent = hasGeo ? t.walk : t.search;
+    $("kakaoSub").textContent = hasGeo ? t.walk : t.search;
+    $("ctaLink").textContent = t.ctaLink;
+    if (P.ig) $("ig").textContent = t.ig + " @" + P.ig;
+    document.title = P.n ? P.n + " · " + t.title : "Local Link · " + t.title;
+  }
+
+  // ---- map links ----
+  var nameQ = enc(P.n), geo = hasGeo ? lat + "," + lng : "";
+  var links = hasGeo ? {
+    naver: { app: "nmap://route/walk?dlat=" + lat + "&dlng=" + lng + "&dname=" + nameQ + "&appname=" + enc(APPNAME),
+             web: "https://map.naver.com/p/search/" + nameQ },
+    kakao: { app: "kakaomap://route?ep=" + geo + "&by=FOOT",
+             web: "https://map.kakao.com/link/to/" + nameQ + "," + geo },
+    google: "https://www.google.com/maps/dir/?api=1&destination=" + geo + "&travelmode=walking",
+    apple: "https://maps.apple.com/?daddr=" + geo + "&dirflg=w"
+  } : {
+    naver: { app: "nmap://search?query=" + nameQ + "&appname=" + enc(APPNAME),
+             web: "https://map.naver.com/p/search/" + nameQ },
+    kakao: { app: "kakaomap://search?q=" + nameQ,
+             web: "https://map.kakao.com/link/search/" + nameQ },
+    google: "https://www.google.com/maps/search/?api=1&query=" + enc((P.n + " " + P.a).trim()),
+    apple: "https://maps.apple.com/?q=" + enc((P.n + " " + P.a).trim())
+  };
+
+  var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  // Try the app scheme; if the page is still visible after 1.5s, the app isn't installed → web.
+  function openApp(app, web) {
+    if (!isMobile) { location.href = web; return; }
+    var left = false;
+    function gone() { left = true; }
+    document.addEventListener("visibilitychange", function () { if (document.hidden) gone(); }, { once: true });
+    window.addEventListener("pagehide", gone, { once: true });
+    window.addEventListener("blur", gone, { once: true });
+    setTimeout(function () { if (!left && !document.hidden) location.href = web; }, 1500);
+    location.href = app;
+  }
+  ["naver", "kakao"].forEach(function (k) {
+    var a = $(k);
+    a.href = links[k].web;
+    a.addEventListener("click", function (ev) { ev.preventDefault(); openApp(links[k].app, links[k].web); });
+  });
+  $("google").href = links.google;
+  $("apple").href = links.apple;
+
+  // ---- render ----
+  if (!P.n) {
+    $("card").hidden = true;
+    $("missing").hidden = false;
+  }
+  $("nameKo").textContent = P.n;
+  $("addr").textContent = P.a;
+  $("addrRow").hidden = !P.a;
+  $("hint").textContent = P.h;
+  $("hintBox").hidden = !P.h;
+  if (P.ig) { $("ig").hidden = false; $("ig").href = "https://www.instagram.com/" + P.ig + "/"; }
+  $("sheetName").textContent = P.n;
+  $("sheetAddr").textContent = P.a;
+
+  function copy(text, btn) {
+    function done() {
+      btn.textContent = T[lang].copied;
+      setTimeout(function () { btn.textContent = T[lang].copy; }, 1600);
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else fallback();
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  }
+  $("copyAddr").addEventListener("click", function () { copy(P.a, this); });
+
+  var lastFocus = null;
+  $("taxiBtn").addEventListener("click", function () {
+    lastFocus = this; $("sheet").hidden = false; $("sheetClose").focus();
+  });
+  function closeSheet() { $("sheet").hidden = true; if (lastFocus) lastFocus.focus(); }
+  $("sheetClose").addEventListener("click", closeSheet);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !$("sheet").hidden) closeSheet(); });
+
+  $("langs").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-lang]");
+    if (b) setLang(b.getAttribute("data-lang"));
+  });
+  setLang(detectLang());
+})();
+</script>
+</body>
+</html>

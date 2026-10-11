@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>찾아오는 길 카드 · Local Link</title>
+<meta name="description" content="외국인 손님용 찾아오는 길 카드를 무료로 만드세요. 가게 이름·주소·구글맵 링크를 넣으면 5개 언어로 보이는 카드 링크와 QR이 나오고, 손님은 네이버·카카오 지도로 도보 길안내를 바로 엽니다.">
+<link rel="canonical" href="https://www.kkirukstudio.com/locallink/card/">
+<meta property="og:title" content="찾아오는 길 카드 — 외국인 손님을 문 앞까지 · Local Link">
+<meta property="og:description" content="구글맵은 한국에서 도보 길안내가 없습니다. 5개 언어 안내 카드와 QR을 무료로 만들어 창문·명함·인스타에 붙이세요.">
+<meta property="og:image" content="https://www.kkirukstudio.com/locallink/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.kkirukstudio.com/locallink/card/">
+<meta property="og:site_name" content="kkiruk studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151413" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="../assets/icon-180.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="card.css">
+<script src="/ga.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" integrity="sha512-ZDSPMa/JM1D+7kdg2x3BsruQ6T/JpJo3jWDWkCZsP+5yVyp1KfESqLI+7RqB5k24F7p2cV7i2YHh/890y6P6Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style id="pageSize">@page { size: 105mm 148mm; margin: 0; }</style>
+<style>
+  .hero { padding: 34px 0 26px; }
+  .hero h1 { margin-top: 16px; font-size: clamp(30px, 8.5vw, 44px); line-height: 1.16; font-weight: 900; letter-spacing: -.015em; word-break: keep-all; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero .lede { margin-top: 14px; color: var(--ink2); font-size: 16px; word-break: keep-all; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .badges span { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .12em; border: 1px solid var(--rule); border-radius: 99px; padding: 4px 10px; color: var(--ink2); background: var(--surface); }
+
+  .panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; padding: 18px 16px; margin-top: 18px; }
+  .panel > .kicker { margin-bottom: 14px; }
+  .field { display: block; margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+  .field .l { display: block; font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+  .field .l .req { color: var(--accent); font-weight: 800; margin-left: 2px; }
+  .field .l .opt { color: var(--ink2); font-weight: 600; font-size: 12px; margin-left: 4px; }
+  .field .help { display: block; font-size: 12.5px; color: var(--ink2); margin-top: 6px; word-break: keep-all; }
+  input[type=text], input[type=url], input[type=number], textarea, select {
+    width: 100%; font: inherit; font-size: 16px; color: var(--ink);
+    background: var(--field); border: 1px solid var(--rule); border-radius: 12px; padding: 11px 12px; min-height: 46px;
+  }
+  textarea { resize: vertical; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  details { border-top: 1px dashed var(--rule); padding-top: 12px; margin-bottom: 16px; }
+  details summary { cursor: pointer; font-size: 14px; font-weight: 800; color: var(--ink); list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: "+ "; color: var(--accent); }
+  details[open] summary::before { content: "− "; }
+  details .inner { padding-top: 12px; }
+  .status { display: block; margin-top: 8px; font-size: 13px; font-weight: 700; word-break: keep-all; }
+  .status.ok { color: #0a8a43; }
+  .status.warn { color: #b25e00; }
+  @media (prefers-color-scheme: dark) { .status.ok { color: #4cd38a; } .status.warn { color: #ffb057; } }
+
+  .out-empty { color: var(--ink2); font-size: 14px; }
+  .urlbox { display: flex; gap: 8px; align-items: stretch; }
+  .urlbox textarea { font-family: var(--mono); font-size: 12px; min-height: 64px; height: 64px; word-break: break-all; }
+  .urlbox .btn { flex: none; }
+  .qrwrap { display: grid; grid-template-columns: 148px 1fr; gap: 16px; align-items: center; margin-top: 18px; }
+  .qr { background: #fff; border-radius: 12px; padding: 6px; border: 1px solid var(--rule); aspect-ratio: 1; }
+  .qr svg { display: block; width: 100%; height: 100%; }
+  .qrside { display: flex; flex-direction: column; gap: 8px; align-items: stretch; min-width: 0; }
+  .printrow { display: flex; flex-direction: column; gap: 8px; }
+  .qrside .note { font-size: 12.5px; color: var(--ink2); word-break: keep-all; }
+  .warnline { margin-top: 10px; font-size: 13px; font-weight: 700; color: #b25e00; word-break: keep-all; }
+  @media (prefers-color-scheme: dark) { .warnline { color: #ffb057; } }
+
+  .preview-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 22px 0 10px; }
+  .preview-head select { width: auto; min-height: 36px; padding: 4px 10px; font-size: 13px; }
+  .phone { border-radius: 30px; padding: 8px; background: #101010; max-width: 380px; margin: 0 auto; }
+  .phone iframe { display: block; width: 100%; height: 640px; border: 0; border-radius: 23px; background: var(--bg); }
+
+  .where { margin-top: 10px; padding-left: 0; list-style: none; display: grid; gap: 8px; }
+  .where li { border-top: 1px solid var(--rule); padding-top: 8px; font-size: 14px; word-break: keep-all; }
+  .where li b { display: inline-block; min-width: 6.5em; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+  /* print card (hidden on screen) */
+  .print-card { display: none; }
+  @media print {
+    html, body { background: #fff !important; color: #000 !important; }
+    body > *:not(.print-card) { display: none !important; }
+    .print-card {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      width: 105mm; height: 148mm; padding: 9mm; gap: 3mm; color: #000; overflow: hidden;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .print-card .pk { font-family: var(--mono); font-size: 7pt; font-weight: 700; letter-spacing: .3em; color: #e00b41; }
+    .print-card .pqr { width: 62mm; height: 62mm; }
+    .print-card .pqr svg { width: 100%; height: 100%; }
+    .print-card .pn { font-size: 24pt; font-weight: 900; line-height: 1.1; word-break: keep-all; }
+    .print-card .pe { font-size: 11pt; font-weight: 700; color: #444; }
+    .print-card .ps { font-size: 10.5pt; font-weight: 800; }
+    .print-card .pl { font-size: 8pt; color: #444; }
+    .print-card .pu { font-family: var(--mono); font-size: 7.5pt; color: #444; }
+    body.biz .print-card {
+      width: 90mm; height: 50mm; padding: 4mm 5mm; display: grid; grid-template-columns: 38mm 1fr;
+      grid-template-rows: auto; align-items: center; justify-items: start; text-align: left; gap: 0 4mm;
+    }
+    body.biz .print-card .pqr { width: 38mm; height: 38mm; grid-row: 1 / span 6; }
+    body.biz .print-card .pn { font-size: 15pt; }
+    body.biz .print-card .pe { font-size: 8pt; }
+    body.biz .print-card .ps { font-size: 7.5pt; }
+    body.biz .print-card .pl { font-size: 6pt; }
+    body.biz .print-card .pu { font-size: 6pt; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="wordmark" href="/locallink/"><img src="../assets/icon-180.png" alt=""><span>LOCAL·LINK</span></a>
+    <div class="langs" id="uiLang" role="group" aria-label="Language">
+      <button type="button" data-ui="ko" aria-pressed="true">한국어</button><button type="button" data-ui="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <header class="hero">
+    <div class="kicker"><span data-t="kicker">사장님용 무료 도구</span><span class="rule"></span><span class="num">5 LANGUAGES</span></div>
+    <h1 data-t="h1">외국인 손님을 <em>문 앞까지</em>.<br>찾아오는 길 카드</h1>
+    <p class="lede" data-t="lede">구글맵은 한국에서 도보 길안내를 하지 않아요. 외국인 손님은 역까지는 오지만, 마지막 몇백 미터는 한글 이름·주소로 네이버·카카오 지도를 열어야 합니다. 가게 정보를 넣으면 5개 언어로 보이는 안내 카드 링크와 QR이 바로 만들어져요.</p>
+    <div class="badges"><span data-t="b1">무료</span><span data-t="b2">가입 없음</span><span data-t="b3">서버 저장 없음</span><span>EN · 日本語 · 简体 · 繁體 · 한국어</span></div>
+  </header>
+
+  <form class="panel" id="form" autocomplete="off" onsubmit="return false">
+    <div class="kicker"><span data-t="k1">01 · 가게 정보</span><span class="rule"></span></div>
+
+    <label class="field"><span class="l"><span data-t="fName">가게 이름 (한글)</span><span class="req">*</span></span>
+      <input type="text" id="n" maxlength="200" required data-tp="pName" placeholder="예: 명동교자"></label>
+
+    <label class="field"><span class="l"><span data-t="fEn">영문 이름</span><span class="opt" data-t="opt">선택</span></span>
+      <input type="text" id="e" maxlength="200" placeholder="Myeongdong Kyoja" lang="en"></label>
+
+    <details>
+      <summary data-t="fCjk">일본어 · 중국어 이름 (선택)</summary>
+      <div class="inner">
+        <label class="field"><span class="l">日本語</span><input type="text" id="j" maxlength="200" placeholder="明洞餃子" lang="ja"></label>
+        <label class="field"><span class="l">简体中文</span><input type="text" id="s" maxlength="200" placeholder="明洞饺子" lang="zh-Hans"></label>
+        <label class="field"><span class="l">繁體中文</span><input type="text" id="t" maxlength="200" placeholder="明洞餃子" lang="zh-Hant"></label>
+        <span class="help" data-t="cjkHelp">비워 두면 해당 언어 손님에게는 영문 이름이 보여요.</span>
+      </div>
+    </details>
+
+    <label class="field"><span class="l"><span data-t="fAddr">도로명 주소 (한글)</span><span class="req">*</span></span>
+      <input type="text" id="a" maxlength="200" required data-tp="pAddr" placeholder="예: 서울 중구 명동10길 29"></label>
+
+    <label class="field"><span class="l"><span data-t="fG">구글맵 링크</span><span class="opt" data-t="opt">선택</span></span>
+      <input type="url" id="g" inputmode="url" data-tp="pG" placeholder="구글맵에서 가게 링크를 붙여 넣기">
+      <span class="help" data-t="gHelp">링크에서 위치(좌표)를 찾아 손님 휴대폰에 도보 길찾기를 바로 열어 줘요. 좌표가 없어도 카드는 만들어지고, 그때는 지도 검색으로 열려요.</span>
+      <span class="status" id="gStatus" aria-live="polite"></span></label>
+
+    <details id="geoDetails">
+      <summary data-t="fGeo">위도 · 경도 직접 입력 (선택)</summary>
+      <div class="inner">
+        <div class="row2">
+          <label class="field"><span class="l" data-t="lat">위도</span><input type="text" id="lat" inputmode="decimal" placeholder="37.5627"></label>
+          <label class="field"><span class="l" data-t="lng">경도</span><input type="text" id="lng" inputmode="decimal" placeholder="126.9856"></label>
+        </div>
+        <span class="help" data-t="geoHelp">직접 입력한 값이 구글맵 링크보다 우선해요.</span>
+      </div>
+    </details>
+
+    <label class="field"><span class="l"><span data-t="fHint">찾아오는 힌트 한 줄</span><span class="opt" data-t="opt">선택</span></span>
+      <input type="text" id="h" maxlength="200" data-tp="pHint" placeholder="예: 명동역 8번 출구에서 도보 3분">
+      <span class="help" data-t="hintHelp">입력한 그대로 보여요. 외국어로 쓰고 싶다면 영어로 적는 게 가장 많이 읽혀요.</span></label>
+
+    <label class="field"><span class="l"><span data-t="fIg">인스타그램 아이디</span><span class="opt" data-t="opt">선택</span></span>
+      <input type="text" id="ig" maxlength="31" placeholder="@myeongdongkyoja" autocapitalize="off" spellcheck="false"></label>
+  </form>
+
+  <section class="panel" id="out" aria-live="polite">
+    <div class="kicker"><span data-t="k2">02 · 카드 링크와 QR</span><span class="rule"></span></div>
+    <p class="out-empty" id="outEmpty" data-t="empty">가게 이름과 주소를 넣으면 카드가 바로 만들어져요.</p>
+    <div id="outBody" hidden>
+      <div class="urlbox">
+        <textarea id="url" readonly rows="3" aria-label="Card URL"></textarea>
+        <button type="button" class="btn primary" id="copyUrl" data-t="copy">복사</button>
+      </div>
+      <div class="qrwrap">
+        <div class="qr" id="qr" role="img" aria-label="QR"></div>
+        <div class="qrside">
+          <button type="button" class="btn" id="dlSvg" data-t="dl">QR 다운로드 (SVG)</button>
+          <div class="printrow">
+            <select id="printSize" aria-label="Print size">
+              <option value="a6" data-t="szA6">A6 (창문·카운터)</option>
+              <option value="biz" data-t="szBiz">명함 크기</option>
+            </select>
+            <button type="button" class="btn" id="printBtn" data-t="print">인쇄용</button>
+          </div>
+          <p class="note" data-t="qrNote">SVG는 크게 키워도 깨지지 않아요.</p>
+        </div>
+      </div>
+      <p class="warnline" id="qrWarn" hidden></p>
+
+      <div class="preview-head">
+        <div class="kicker" style="flex:1"><span data-t="k3">03 · 손님 화면 미리보기</span><span class="rule"></span></div>
+        <select id="pvLang" aria-label="Preview language">
+          <option value="en">EN</option><option value="ja">日本語</option><option value="zh-Hans">简体</option><option value="zh-Hant">繁體</option><option value="ko">한국어</option>
+        </select>
+      </div>
+      <div class="phone"><iframe id="preview" title="Card preview" loading="lazy"></iframe></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="kicker"><span data-t="k4">어디에 붙이나요</span><span class="rule"></span></div>
+    <ul class="where">
+      <li><b data-t="w1a">창문·입구</b> <span data-t="w1b">A6로 인쇄해 문이나 메뉴판 옆에. 가게 앞에서 헤매는 손님이 바로 스캔해요.</span></li>
+      <li><b data-t="w2a">명함·영수증</b> <span data-t="w2b">명함 크기로 인쇄하거나 QR만 넣어 다음 방문 때도 쓰게.</span></li>
+      <li><b data-t="w3a">인스타 바이오</b> <span data-t="w3b">카드 링크를 프로필 링크에. 해외 팔로워가 저장해 두고 찾아와요.</span></li>
+      <li><b data-t="w4a">구글 프로필</b> <span data-t="w4b">구글 비즈니스 프로필의 웹사이트·게시물에 카드 링크를 넣으세요.</span></li>
+    </ul>
+    <p class="help" style="margin-top:12px;font-size:12.5px;color:var(--ink2)" data-t="privacy">카드 내용은 모두 링크 안에 들어 있어요. 저희 서버에 저장되지 않으니, 정보를 바꾸려면 카드를 새로 만들어 QR을 교체하세요.</p>
+  </section>
+
+  <section class="panel">
+    <div class="kicker"><span>LOCAL · LINK</span><span class="rule"></span></div>
+    <p style="font-size:14px;word-break:keep-all" data-t="about">이 도구는 여행자용 지도 검색 앱 Local Link가 만들었어요. 손님이 아는 이름으로 한국 장소를 찾아 네이버·카카오 지도로 열어 주는 앱입니다.</p>
+    <div class="links">
+      <a class="btn small" href="https://apps.apple.com/app/id6767477190" data-t="lApp">Local Link 앱 (App Store)</a>
+      <a class="btn small" href="/locallink/places/" data-t="lPlaces">장소 페이지 둘러보기</a>
+      <a class="btn small" href="/locallink/ko/" data-t="lAbout">Local Link 소개</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">© 2026 <a href="/">kkiruk studio</a> · <a href="/legal/privacy/">Privacy</a> · <a href="mailto:kkirukstudio.help@gmail.com">Contact</a></div>
+</footer>
+
+<div class="print-card" id="printCard" aria-hidden="true">
+  <div class="pk">LOCAL · LINK</div>
+  <div class="pqr" id="pQr"></div>
+  <div class="pn" id="pName" lang="ko"></div>
+  <div class="pe" id="pEn"></div>
+  <div class="ps">Scan for directions in your language</div>
+  <div class="pl">道案内 · 路线指南 · 路線指南 · 길 안내</div>
+  <div class="pu">kkirukstudio.com/locallink</div>
+</div>
+
+<script>
+/*PARSE-BEGIN*/
+// Extracts coordinates from a pasted Google Maps URL.
+// Returns {lat, lng}, {short: true} for maps.app.goo.gl / goo.gl/maps links, or null.
+function parseGoogleMapsCoords(raw) {
+  var s = String(raw || "").trim();
+  if (!s) return null;
+  if (/(^|\/\/)(maps\.app\.goo\.gl|goo\.gl\/maps)\//i.test(s)) return { short: true };
+  try { s = decodeURIComponent(s.replace(/\+/g, " ")); } catch (e) { /* keep raw */ }
+  var N = "(-?\\d{1,3}(?:\\.\\d+)?)";
+  var pats = [
+    new RegExp("!3d" + N + "!4d" + N),                                               // place pin (most precise)
+    new RegExp("[?&](?:q|query|ll|destination|daddr|center)=(?:loc:)?" + N + "\\s*,\\s*" + N), // q=lat,lng
+    new RegExp("@" + N + "," + N)                                                    // viewport @lat,lng
+  ];
+  for (var i = 0; i < pats.length; i++) {
+    var m = s.match(pats[i]);
+    if (m) {
+      var lat = parseFloat(m[1]), lng = parseFloat(m[2]);
+      if (isFinite(lat) && isFinite(lng) && Math.abs(lat) <= 90 && Math.abs(lng) <= 180) return { lat: lat, lng: lng };
+    }
+  }
+  return null;
+}
+/*PARSE-END*/
+
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+
+  var EN = {
+    kicker: "Free tool for shop owners", h1: "Bring foreign guests <em>to your door</em>.<br>Directions Card",
+    lede: "In Korea, Google Maps has no walking directions. Visitors reach the station, but the last few hundred meters need Naver Map or KakaoMap with the Korean name and address. Enter your shop details to get a 5-language directions card link and QR code.",
+    b1: "Free", b2: "No sign-up", b3: "Nothing stored on a server",
+    k1: "01 · Shop details", fName: "Shop name (Korean)", fEn: "English name", opt: "optional",
+    fCjk: "Japanese · Chinese names (optional)", cjkHelp: "If left empty, those guests see the English name.",
+    fAddr: "Road address (Korean)", fG: "Google Maps link",
+    gHelp: "We read the location from the link so guests get walking directions in one tap. Without coordinates the card still works and opens a map search instead.",
+    fGeo: "Enter latitude · longitude (optional)", lat: "Latitude", lng: "Longitude", geoHelp: "Values entered here take priority over the Google Maps link.",
+    fHint: "One-line hint", hintHelp: "Shown exactly as written. English reaches the most visitors.", fIg: "Instagram handle",
+    k2: "02 · Card link & QR", empty: "Enter the shop name and address to create the card.",
+    copy: "Copy", copied: "Copied", dl: "Download QR (SVG)", szA6: "A6 (window · counter)", szBiz: "Business card", print: "Print",
+    qrNote: "SVG stays sharp at any size.", k3: "03 · Guest preview",
+    k4: "Where to put it", w1a: "Window", w1b: "Print A6 and place it by the door or menu.",
+    w2a: "Cards · receipts", w2b: "Print business-card size or add the QR to receipts.",
+    w3a: "Instagram bio", w3b: "Put the card link in your profile link.",
+    w4a: "Google profile", w4b: "Add the card link to your Google Business Profile website or posts.",
+    privacy: "Everything on the card lives inside the link — nothing is stored on our server. To change details, make a new card and replace the QR.",
+    about: "Made by Local Link, a travel map search app that finds Korean places by the name you know and opens them in Naver Map or KakaoMap.",
+    lApp: "Local Link on the App Store", lPlaces: "Browse place pages", lAbout: "About Local Link",
+    pName: "e.g. 명동교자", pAddr: "e.g. 서울 중구 명동10길 29", pG: "Paste your shop's Google Maps link", pHint: "e.g. 3 min walk from Myeongdong Stn. Exit 8",
+    gFound: "Location found: ", gShort: "Short links (maps.app.goo.gl) can't be read here. Open the link once, then copy the full URL from the address bar and paste it.",
+    gNone: "No coordinates in this link. The card will open a map search instead.",
+    tooLong: "Too much text for a QR code. Shorten the Japanese/Chinese names or the hint.",
+    dense: "The link is long, so the QR is dense. Print it at least 3 cm wide."
+  };
+  var KO = {};
+  document.querySelectorAll("[data-t]").forEach(function (el) { KO[el.getAttribute("data-t")] = el.innerHTML; });
+  document.querySelectorAll("[data-tp]").forEach(function (el) { KO[el.getAttribute("data-tp")] = el.getAttribute("placeholder"); });
+  Object.assign(KO, {
+    copied: "복사됨",
+    gFound: "위치를 찾았어요: ",
+    gShort: "짧은 링크(maps.app.goo.gl)는 여기서 읽을 수 없어요. 링크를 한 번 열고 주소창의 전체 URL을 복사해 붙여 주세요.",
+    gNone: "이 링크에는 좌표가 없어요. 카드는 지도 검색으로 열려요.",
+    tooLong: "내용이 너무 길어 QR을 만들 수 없어요. 일본어·중국어 이름이나 힌트를 줄여 주세요.",
+    dense: "링크가 길어 QR이 촘촘해요. 인쇄할 때 3cm 이상 크기로 뽑아 주세요."
+  });
+  var ui = "ko";
+  function tr(k) { return (ui === "en" ? EN : KO)[k]; }
+  function setUi(l) {
+    ui = l;
+    document.documentElement.lang = l;
+    // dictionary values are static strings authored above (no user input)
+    document.querySelectorAll("[data-t]").forEach(function (el) { var v = tr(el.getAttribute("data-t")); if (v != null) el.innerHTML = v; });
+    document.querySelectorAll("[data-tp]").forEach(function (el) { var v = tr(el.getAttribute("data-tp")); if (v != null) el.setAttribute("placeholder", v); });
+    document.querySelectorAll("#uiLang button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-ui") === l ? "true" : "false"); });
+    update();
+  }
+  $("uiLang").addEventListener("click", function (e) { var b = e.target.closest("button[data-ui]"); if (b) setUi(b.getAttribute("data-ui")); });
+
+  function enc(s) {
+    return encodeURIComponent(s).replace(/[!'()*]/g, function (c) { return "%" + c.charCodeAt(0).toString(16).toUpperCase(); });
+  }
+  function val(id) { return $(id).value.replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, 200); }
+  function coord(v, lim) {
+    v = String(v).trim();
+    if (!/^-?\d{1,3}(\.\d+)?$/.test(v)) return null;
+    var x = parseFloat(v); return Math.abs(x) <= lim ? x : null;
+  }
+  function fmt(x) { return String(Math.round(x * 1e6) / 1e6); }
+
+  var BASE = /(^|\.)kkirukstudio\.com$/.test(location.hostname)
+    ? "https://www.kkirukstudio.com/locallink/card/view.html"
+    : new URL("view.html", location.href).href;
+
+  var current = { url: "", rel: "" };
+
+  function geo() {
+    var lat = coord($("lat").value, 90), lng = coord($("lng").value, 180);
+    if (lat !== null && lng !== null) return { lat: lat, lng: lng, src: "manual" };
+    var g = parseGoogleMapsCoords($("g").value);
+    var st = $("gStatus");
+    st.className = "status"; st.textContent = "";
+    if (g && g.short) { st.className = "status warn"; st.textContent = tr("gShort"); return null; }
+    if (g) { st.className = "status ok"; st.textContent = tr("gFound") + fmt(g.lat) + ", " + fmt(g.lng); return g; }
+    if ($("g").value.trim()) { st.className = "status warn"; st.textContent = tr("gNone"); }
+    return null;
+  }
+
+  function buildQuery() {
+    var parts = [];
+    ["n", "e", "j", "s", "t", "a"].forEach(function (k) { var v = val(k); if (v) parts.push(k + "=" + enc(v)); });
+    var c = geo();
+    if (c) { parts.push("lat=" + fmt(c.lat)); parts.push("lng=" + fmt(c.lng)); }
+    var h = val("h"); if (h) parts.push("h=" + enc(h));
+    var ig = val("ig").replace(/^@/, "");
+    if (/^[A-Za-z0-9._]{1,30}$/.test(ig)) parts.push("ig=" + enc(ig));
+    return parts.join("&");
+  }
+
+  function makeQr(text) {
+    var levels = ["M", "L"];
+    for (var i = 0; i < levels.length; i++) {
+      try { var qr = qrcode(0, levels[i]); qr.addData(text, "Byte"); qr.make(); return qr; } catch (e) {}
+    }
+    return null;
+  }
+
+  var pvTimer = null;
+  function update() {
+    var ok = val("n") && val("a");
+    $("outEmpty").hidden = !!ok;
+    $("outBody").hidden = !ok;
+    var qs = buildQuery();
+    if (!ok) return;
+    current.url = BASE + "?" + qs;
+    current.rel = "view.html?" + qs;
+    $("url").value = current.url;
+
+    var qr = typeof qrcode === "function" ? makeQr(current.url) : null;
+    var warn = $("qrWarn");
+    warn.hidden = true;
+    if (qr) {
+      // SVG markup is generated by the QR library from module data only (no user text is inserted)
+      var svg = qr.createSvgTag({ cellSize: 4, margin: 16, scalable: true });
+      $("qr").innerHTML = svg; $("pQr").innerHTML = svg;
+      current.qr = qr;
+      if (qr.getModuleCount() > 77) { warn.textContent = tr("dense"); warn.hidden = false; } // denser than version 15
+    } else {
+      $("qr").textContent = ""; $("pQr").textContent = ""; current.qr = null;
+      warn.textContent = tr("tooLong"); warn.hidden = false;
+    }
+    $("pName").textContent = val("n");
+    $("pEn").textContent = val("e");
+
+    clearTimeout(pvTimer);
+    pvTimer = setTimeout(function () { $("preview").src = current.rel + "&lang=" + $("pvLang").value; }, 350);
+  }
+
+  $("form").addEventListener("input", update);
+  $("pvLang").addEventListener("change", update);
+
+  $("copyUrl").addEventListener("click", function () {
+    var btn = this, text = current.url;
+    function done() { btn.textContent = tr("copied"); setTimeout(function () { btn.textContent = tr("copy"); }, 1600); }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fb); else fb();
+    function fb() { $("url").select(); try { document.execCommand("copy"); done(); } catch (e) {} }
+  });
+
+  $("dlSvg").addEventListener("click", function () {
+    if (!current.qr) return;
+    var svg = '<?xml version="1.0" encoding="UTF-8"?>\n' + current.qr.createSvgTag({ cellSize: 10, margin: 40 });
+    var blob = new Blob([svg], { type: "image/svg+xml" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "locallink-card-qr.svg";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+  });
+
+  $("printBtn").addEventListener("click", function () {
+    var biz = $("printSize").value === "biz";
+    document.body.classList.toggle("biz", biz);
+    $("pageSize").textContent = biz ? "@page { size: 90mm 50mm; margin: 0; }" : "@page { size: 105mm 148mm; margin: 0; }";
+    window.print();
+  });
+
+  update();
+})();
+</script>
+</body>
+</html>
