@@ -42,6 +42,8 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
             continue
         if 'http-equiv="refresh"' in head:
             continue
+        if re.search(r'<meta\s+name\s*=\s*["\']?robots["\']?\s+content\s*=\s*["\']?noindex["\']?', head, re.I):
+            continue
         m = re.search(r'rel="canonical"\s+href="([^"]+)"', head)
         if m and m.group(1).startswith("http"):
             url = m.group(1)

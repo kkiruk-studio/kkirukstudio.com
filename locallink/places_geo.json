@@ -1,0 +1,2386 @@
+{
+  "china/798-art-district" : {
+    "lat" : 39.984249,
+    "lng" : 116.494783,
+    "query" : "798 Art District Beijing",
+    "result" : "798艺术区",
+    "status" : "ok"
+  },
+  "china/anfu-road" : {
+    "reason" : "name-mismatch:오쿠라 골든 호텔 상하이 | name-mismatch:上海康莱德酒店 | name-mismatch:Alila Shanghai | name-mismatch:W 상하이 - 더 번드",
+    "status" : "rejected"
+  },
+  "china/beijing-road" : {
+    "reason" : "name-mismatch:Sofitel Guangzhou Sunrich | name-mismatch:Lan Wan Hotel | name-mismatch:广州体育学院 | name-mismatch:Hilton Garden Inn Guangzhou Tianhe",
+    "status" : "rejected"
+  },
+  "china/bell-tower" : {
+    "reason" : "name-mismatch:Xi'an Da Tang Yin Courtyard Hotel | name-mismatch:Center Hotel Xi'an Bell Tower | name-mismatch:Holiday Inn Express Xi'an Bell Tower by IHG | name-mismatch:西安钟楼",
+    "status" : "rejected"
+  },
+  "china/big-wild-goose-pagoda" : {
+    "lat" : 34.219769,
+    "lng" : 108.959477,
+    "query" : "Big Wild Goose Pagoda Xi'an",
+    "result" : "대안탑",
+    "status" : "ok"
+  },
+  "china/bingmayong-terracotta-army" : {
+    "lat" : 34.388243,
+    "lng" : 109.277698,
+    "query" : "Bingmayong · Terracotta Army Xi'an",
+    "result" : "병마용",
+    "status" : "ok"
+  },
+  "china/birds-nest" : {
+    "reason" : "name-mismatch:버즈 네스트 국립경기장 | name-mismatch:버즈 네스트 국립경기장",
+    "status" : "rejected"
+  },
+  "china/changcheng-great-wall" : {
+    "reason" : "name-mismatch:만리장성, 모전욕 | name-mismatch:Beijing Great Wall Shiguang B&B | name-mismatch:Beijing Huanghuacheng Water Great Wall Derunju Guesthouse | name-mismatch:The Great Wall Sheraton Hotel Beijing",
+    "status" : "rejected"
+  },
+  "china/chen-clan-ancestral-hall" : {
+    "reason" : "name-mismatch:성가 사원 | name-mismatch:성가 사원",
+    "status" : "rejected"
+  },
+  "china/chengdu-research-base-of-giant-panda-breeding" : {
+    "lat" : 30.736441,
+    "lng" : 104.141796,
+    "query" : "Chengdu Research Base of Giant Panda Breeding Chengdu",
+    "result" : "Chengdu Research Base of Giant Panda Breeding",
+    "status" : "ok"
+  },
+  "china/chunxi-road" : {
+    "reason" : "name-mismatch:Echeng Hotel Chengdu Chunxi Road Taikoo Li | name-mismatch:Lyhn International Hotel Chengdu Taikoo Li | name-mismatch:Echeng Hotel Chengdu Chunxi Road Taikoo Li | name-mismatch:voco Chengdu Chunxi Road by IHG",
+    "status" : "rejected"
+  },
+  "china/city-god-temple" : {
+    "reason" : "name-mismatch:baseLITE-XINTIANDI Serviced Apartment | name-mismatch:청황먀오 | name-mismatch:청황먀오",
+    "status" : "rejected"
+  },
+  "china/dafen-oil-painting-village" : {
+    "reason" : "name-mismatch:공중 화장실",
+    "status" : "rejected"
+  },
+  "china/datang-everbright-city" : {
+    "reason" : "name-mismatch:Xi'an Enji M Hotel Datang Everbright City Bell and Drum Tower",
+    "status" : "rejected"
+  },
+  "china/drum-tower" : {
+    "reason" : "name-mismatch:西安鼓楼 | name-mismatch:西安鼓楼 | too-far:鼓楼:907km",
+    "status" : "rejected"
+  },
+  "china/du-fu-thatched-cottage" : {
+    "lat" : 30.662781,
+    "lng" : 104.02632,
+    "query" : "Du Fu Thatched Cottage Chengdu",
+    "result" : "杜甫草堂",
+    "status" : "ok"
+  },
+  "china/guangdong-museum" : {
+    "lat" : 23.117184,
+    "lng" : 113.321485,
+    "query" : "Guangdong Museum Guangzhou",
+    "result" : "广东省博物馆",
+    "status" : "ok"
+  },
+  "china/guangzhou-tower-canton-tower" : {
+    "reason" : "name-mismatch:广州体育学院 | name-mismatch:Sofitel Guangzhou Sunrich | name-mismatch:Lan Wan Hotel | name-mismatch:Hilton Garden Inn Guangzhou Tianhe",
+    "status" : "rejected"
+  },
+  "china/gugong-forbidden-city" : {
+    "lat" : 39.914972,
+    "lng" : 116.39085,
+    "query" : "Gugong · Forbidden City Beijing",
+    "result" : "자금성",
+    "status" : "ok"
+  },
+  "china/hema-fresh" : {
+    "status" : "notfound"
+  },
+  "china/heytea" : {
+    "lat" : 31.142184,
+    "lng" : 121.658006,
+    "query" : "Heytea Shanghai",
+    "result" : "喜茶",
+    "status" : "ok"
+  },
+  "china/houhai" : {
+    "lat" : 39.940944,
+    "lng" : 116.376138,
+    "query" : "Houhai Beijing",
+    "result" : "后海",
+    "status" : "ok"
+  },
+  "china/huaqiangbei" : {
+    "reason" : "name-mismatch:Shenzhen Hui Hotel (Huaqiang NorthBusiness Zone) | name-mismatch:赛格电子市场 | name-mismatch:Hampton by Hilton Shenzhen Futian Huaqiangbei | name-mismatch:Echarm Hotel Shenzhen Convention and Exhibition Centre, Huaqiangbei Metro Station Branch",
+    "status" : "rejected"
+  },
+  "china/jingan-temple" : {
+    "reason" : "name-mismatch:Campanile Hotel - Shanghai Jing'an Temple | name-mismatch:Holiday Inn Express Shanghai Jing'an Temple by IHG | name-mismatch:JI Hotel Shanghai Jing'an Temple Huaihai Middle Road | name-mismatch:Atour Hotel Shanghai Jing'an Temple Xikang Road",
+    "status" : "rejected"
+  },
+  "china/jinli-ancient-street" : {
+    "lat" : 30.647881,
+    "lng" : 104.047158,
+    "query" : "Jinli Ancient Street Chengdu",
+    "result" : "锦里古街",
+    "status" : "ok"
+  },
+  "china/jiuyan-bridge" : {
+    "lat" : 30.642372,
+    "lng" : 104.086334,
+    "query" : "九眼桥 成都",
+    "result" : "九眼桥",
+    "status" : "ok"
+  },
+  "china/kuanzhai-alley" : {
+    "lat" : 30.666024,
+    "lng" : 104.051366,
+    "query" : "宽窄巷子",
+    "result" : "宽窄巷子",
+    "status" : "ok"
+  },
+  "china/luckin-coffee" : {
+    "reason" : "name-mismatch:初心莫舍酒店Chuxin Moshe Hotel Shanghai Shanghai International Tourism Resort BranchFree shuttle to Shanghai Airport Disneyland Heartshaped outdoor infinity pool Freshly ground coffee Laundry service Massage chairs Breakfast for foreign | too-far:瑞幸咖啡:1228km | too-far:瑞幸咖啡:1229km | too-far:瑞幸咖啡:1226km",
+    "status" : "rejected"
+  },
+  "china/lujiazui" : {
+    "reason" : "name-mismatch:正大广场 | name-mismatch:상하이 해양 수족관 | name-mismatch:Tesla Supercharger | name-mismatch:W·Management",
+    "status" : "rejected"
+  },
+  "china/manner-coffee" : {
+    "reason" : "name-mismatch:太平洋咖啡 | name-mismatch:Praline | name-mismatch:Farine Bread and Coffee | name-mismatch:Praline",
+    "status" : "rejected"
+  },
+  "china/miniso" : {
+    "reason" : "name-mismatch:มินิโซ",
+    "status" : "rejected"
+  },
+  "china/muslim-quarter" : {
+    "reason" : "name-mismatch:Manxin Hotel, Xi'an Bell Tower Muslim Quarter | name-mismatch:JI Hotel Xi'an Bell Tower Muslim Quarter | name-mismatch:Xi'an Beilin·big Wild Goose Pagoda· Locals Apartment 00128350",
+    "status" : "rejected"
+  },
+  "china/nanjing-road" : {
+    "reason" : "name-mismatch:Shanghai Fish Inn East Nanjing Road | name-mismatch:Central Hotel Shanghai - Nanjing Road | name-mismatch:Crowne Plaza Shanghai Nanjing Road by IHG | name-mismatch:Ji Hotel Shanghai Nanjing Road People's Square",
+    "status" : "rejected"
+  },
+  "china/nanluoguxiang" : {
+    "reason" : "name-mismatch:The Georg | name-mismatch:Mao Mai Chong | name-mismatch:Manxin Mansion Beijing Shichahai Park Nanluoguxiang | name-mismatch:Atour Hotel Beijing Nanluoguxiang Beixinqiao Subway Station",
+    "status" : "rejected"
+  },
+  "china/nantou-ancient-town" : {
+    "lat" : 22.546023,
+    "lng" : 113.916033,
+    "query" : "南头古城",
+    "result" : "南头古城￼",
+    "status" : "ok"
+  },
+  "china/oct-harbour" : {
+    "lat" : 22.526551,
+    "lng" : 113.982317,
+    "query" : "欢乐海岸",
+    "result" : "欢乐海岸",
+    "status" : "ok"
+  },
+  "china/oct-loft" : {
+    "lat" : 22.540409,
+    "lng" : 113.988454,
+    "query" : "OCT-LOFT Shenzhen",
+    "result" : "华侨城创意文化园",
+    "status" : "ok"
+  },
+  "china/oriental-pearl-tower" : {
+    "reason" : "name-mismatch:홀리데이 인 상하이 푸둥 | name-mismatch:Jinling Purple Mountain Hotel Shanghai | name-mismatch:Jinglai Boutique Hotel, Shanghai Lujiazui Oriental Pearl Tower | name-mismatch:Atour Origin Hotel Shanghai Lujiazui Century Avenue",
+    "status" : "rejected"
+  },
+  "china/peoples-park" : {
+    "lat" : 30.660101,
+    "lng" : 104.05514,
+    "query" : "People's Park Chengdu",
+    "result" : "인민공원",
+    "status" : "ok"
+  },
+  "china/pop-mart" : {
+    "lat" : 31.142649,
+    "lng" : 121.656596,
+    "query" : "Pop Mart Shanghai",
+    "result" : "泡泡玛特",
+    "status" : "ok"
+  },
+  "china/qianmen-street" : {
+    "reason" : "name-mismatch:베이징 하이드 코트야드 호텔 | name-mismatch:正阳门箭楼 | name-mismatch:머큐어 베이징 치안먼 | name-mismatch:머큐어 베이징 치안먼",
+    "status" : "rejected"
+  },
+  "china/sanlitun" : {
+    "reason" : "name-mismatch:Apple 三里屯 | name-mismatch:Beijing Yichao Serviced Apartment (Wynn International Sanlitun Store) | name-mismatch:太古里 | name-mismatch:Beijing AC Art Museum Hotel",
+    "status" : "rejected"
+  },
+  "china/sea-world" : {
+    "lat" : 22.486321,
+    "lng" : 113.911908,
+    "query" : "海上世界",
+    "result" : "海上世界",
+    "status" : "ok"
+  },
+  "china/shaanxi-history-museum" : {
+    "reason" : "name-mismatch:산시 역사박물관 | name-mismatch:산시 역사박물관",
+    "status" : "rejected"
+  },
+  "china/shamian-island" : {
+    "reason" : "name-mismatch:Dingshe Hotel Guangzhou Shamian Island Yongqingfang Branch | name-mismatch:화이트 스완 호텔",
+    "status" : "rejected"
+  },
+  "china/shanghai-disneyland" : {
+    "lat" : 31.14348,
+    "lng" : 121.657759,
+    "query" : "Shanghai Disneyland Shanghai",
+    "result" : "上海迪士尼度假区",
+    "status" : "ok"
+  },
+  "china/shanghai-tower" : {
+    "lat" : 31.235645,
+    "lng" : 121.50125,
+    "query" : "Shanghai Tower Shanghai",
+    "result" : "상하이 타워",
+    "status" : "ok"
+  },
+  "china/shangxiajiu-pedestrian-street" : {
+    "reason" : "name-mismatch:Yifang Hotel Guangzhou Shangxiajiu Pedestrian Street Yongqingfang Branch | name-mismatch:CityNote Hotel Shangxiajiu Pedestrian Guangzhou | name-mismatch:City Comfort Inn Guangzhou Shisanhang Shangxiajiu Pedestrian Street 1st Branch | name-mismatch:Crystal Hotel Guangzhou BeijingRoad PedestrianStreet",
+    "status" : "rejected"
+  },
+  "china/shenzhen-bay-park" : {
+    "lat" : 22.522551,
+    "lng" : 113.951955,
+    "query" : "Shenzhen Bay Park Shenzhen",
+    "result" : "深圳湾公园",
+    "status" : "ok"
+  },
+  "china/shichahai" : {
+    "reason" : "name-mismatch:Beijing Shichahai Shadow Art Performance Courtyard | name-mismatch:Manxin Mansion Beijing Shichahai Park Nanluoguxiang",
+    "status" : "rejected"
+  },
+  "china/taikoo-li-chengdu" : {
+    "lat" : 30.655551,
+    "lng" : 104.080986,
+    "query" : "太古里",
+    "result" : "太古里",
+    "status" : "ok"
+  },
+  "china/tiananmen-square" : {
+    "reason" : "name-mismatch:北京希尔顿逸林酒店 | name-mismatch:Ibis Beijing Tiananmen Square | name-mismatch:Beijing Tiananmen Square Manxin Hotel | name-mismatch:머큐어 베이징 치안먼",
+    "status" : "rejected"
+  },
+  "china/tiantan-temple-of-heaven" : {
+    "reason" : "name-mismatch:天坛公园 | name-mismatch:红桥市场 | name-mismatch:天坛公园 | name-mismatch:Beijing Manxin Temple of Heaven North Gate Hotel",
+    "status" : "rejected"
+  },
+  "china/tianzifang" : {
+    "lat" : 31.210027,
+    "lng" : 121.463771,
+    "query" : "Tianzifang Shanghai",
+    "result" : "田子坊",
+    "status" : "ok"
+  },
+  "china/waitan-the-bund" : {
+    "lat" : 31.236142,
+    "lng" : 121.487439,
+    "query" : "外滩",
+    "result" : "와이탄",
+    "status" : "ok"
+  },
+  "china/wangfujing" : {
+    "reason" : "name-mismatch:Apple 王府井 | name-mismatch:베이징 161 왕푸징 코트야드 호텔 | name-mismatch:르네상스 베이징 왕푸징 호텔 | name-mismatch:北京王府井希尔顿酒店",
+    "status" : "rejected"
+  },
+  "china/window-of-the-world" : {
+    "lat" : 22.537353,
+    "lng" : 113.967876,
+    "query" : "世界之窗",
+    "result" : "世界之窗",
+    "status" : "ok"
+  },
+  "china/wuhou-shrine" : {
+    "reason" : "name-mismatch:成都武侯祠博物馆 | name-mismatch:Park Inn by Radisson Chengdu Wuhou Shrine | name-mismatch:Hilton Garden Inn Chengdu Huaxi Wuhou Shrine | name-mismatch:成都武侯祠博物馆",
+    "status" : "rejected"
+  },
+  "china/wukang-road" : {
+    "reason" : "name-mismatch:UrCove by HYATT Shanghai Jing'An | name-mismatch:Shanghai Metropark Jichen Hotel | name-mismatch:LN上海幸福咖啡店 | name-mismatch:云和夜泊酒店",
+    "status" : "rejected"
+  },
+  "china/xian-city-wall" : {
+    "lat" : 34.277727,
+    "lng" : 108.942504,
+    "query" : "Xi'an City Wall Xi'an",
+    "result" : "西安城墙",
+    "status" : "ok"
+  },
+  "china/xintiandi" : {
+    "lat" : 31.222353,
+    "lng" : 121.470466,
+    "query" : "Xintiandi Shanghai",
+    "result" : "신천지",
+    "status" : "ok"
+  },
+  "china/yiheyuan-summer-palace" : {
+    "lat" : 39.997145,
+    "lng" : 116.26801,
+    "query" : "Yiheyuan · Summer Palace Beijing",
+    "result" : "이화원",
+    "status" : "ok"
+  },
+  "china/yonghe-temple-lama-temple" : {
+    "reason" : "name-mismatch:程府宴 | name-mismatch:용헤공 | name-mismatch:노스텔지아 호텔 베이징 융허 라마 템플 | name-mismatch:용헤공",
+    "status" : "rejected"
+  },
+  "china/yongqing-fang" : {
+    "lat" : 23.11772,
+    "lng" : 113.232336,
+    "query" : "Yongqing Fang Guangzhou",
+    "result" : "永庆坊",
+    "status" : "ok"
+  },
+  "china/yuyuan-yu-garden" : {
+    "reason" : "name-mismatch:南翔馒头店 | name-mismatch:Swissôtel Grand Shanghai | name-mismatch:코트야드 바이 메리어트 상하이 센트럴 | name-mismatch:위위안, 상하이",
+    "status" : "rejected"
+  },
+  "china/zhujiang-new-town" : {
+    "reason" : "name-mismatch:Hampton by Hilton Guangzhou Zhujiang New Town | name-mismatch:Atour Hotel Taikoo Hui Zhujiang New Town Pazhou Convention and Exhibition Center Guangzhou | name-mismatch:广州珠江新城五羊邨地铁站亚朵酒店-Atour Hotel Guangzhou Zhujiang New Town Wuyangcun | name-mismatch:Yizhi Hotel Guangzhou Zhujiang New Town Branch",
+    "status" : "rejected"
+  },
+  "hong-kong/avenue-of-stars" : {
+    "reason" : "name-mismatch:애비뉴 오브 스타 | name-mismatch:애비뉴 오브 스타 | name-mismatch:애비뉴 오브 스타",
+    "status" : "rejected"
+  },
+  "hong-kong/causeway-bay" : {
+    "lat" : 22.280226,
+    "lng" : 114.183659,
+    "query" : "銅鑼灣",
+    "result" : "銅鑼灣站",
+    "status" : "ok"
+  },
+  "hong-kong/central" : {
+    "reason" : "name-mismatch:中環站 | name-mismatch:中環街市 | name-mismatch:香港摩天輪 | name-mismatch:더 센터",
+    "status" : "rejected"
+  },
+  "hong-kong/central-mid-levels-escalator" : {
+    "lat" : 22.282147,
+    "lng" : 114.153823,
+    "query" : "中環至半山自動扶梯 香港",
+    "result" : "中環中環至半山自動扶梯",
+    "status" : "ok"
+  },
+  "hong-kong/don-don-donki" : {
+    "reason" : "ambiguous-branches:DON DON DONKI",
+    "status" : "rejected"
+  },
+  "hong-kong/dragons-back" : {
+    "lat" : 22.239477,
+    "lng" : 114.24187,
+    "query" : "Dragon's Back Hong Kong",
+    "result" : "龍脊",
+    "status" : "ok"
+  },
+  "hong-kong/harbour-city" : {
+    "lat" : 22.296352,
+    "lng" : 114.16863,
+    "query" : "海港城 香港",
+    "result" : "海港城",
+    "status" : "ok"
+  },
+  "hong-kong/hong-kong-disneyland" : {
+    "lat" : 22.312567,
+    "lng" : 114.04132,
+    "query" : "Hong Kong Disneyland Hong Kong",
+    "result" : "홍콩 디즈니랜드",
+    "status" : "ok"
+  },
+  "hong-kong/k11-musea" : {
+    "reason" : "name-mismatch:維港文化匯K11 MUSEA | name-mismatch:維港文化匯K11 MUSEA | name-mismatch:維港文化匯K11 MUSEA",
+    "status" : "rejected"
+  },
+  "hong-kong/ladies-market" : {
+    "reason" : "name-mismatch:레이디스 거리 | name-mismatch:婦女遊樂會 | name-mismatch:Market Hong Kong | name-mismatch:香港街市",
+    "status" : "rejected"
+  },
+  "hong-kong/lan-kwai-fong" : {
+    "lat" : 22.368953,
+    "lng" : 114.120254,
+    "query" : "Lan Kwai Fong Hong Kong",
+    "result" : "Lan Kwai Fong",
+    "status" : "ok"
+  },
+  "hong-kong/m-museum" : {
+    "reason" : "name-mismatch:인터콘티넨탈 그랜드 스탠퍼드 홍콩 | name-mismatch:홍콩아트박물관 | name-mismatch:홍콩우주박물관 | name-mismatch:홍콩 유물박물관",
+    "status" : "rejected"
+  },
+  "hong-kong/mannings" : {
+    "reason" : "ambiguous-branches:萬寧",
+    "status" : "rejected"
+  },
+  "hong-kong/mong-kok" : {
+    "reason" : "name-mismatch:코디스 홍콩 | name-mismatch:레이디스 거리 | name-mismatch:香港郵政 | name-mismatch:家樂坊",
+    "status" : "rejected"
+  },
+  "hong-kong/ngong-ping-360" : {
+    "lat" : 22.256324,
+    "lng" : 113.902877,
+    "query" : "Ngong Ping 360 Hong Kong",
+    "result" : "昂坪360",
+    "status" : "ok"
+  },
+  "hong-kong/ocean-park" : {
+    "lat" : 22.247485,
+    "lng" : 114.174589,
+    "query" : "海洋公園 香港",
+    "result" : "오션 파크",
+    "status" : "ok"
+  },
+  "hong-kong/pmq" : {
+    "lat" : 22.283386,
+    "lng" : 114.151856,
+    "query" : "元創方",
+    "result" : "元創方",
+    "status" : "ok"
+  },
+  "hong-kong/po-lin-monastery" : {
+    "lat" : 22.255856,
+    "lng" : 113.907702,
+    "query" : "寶蓮禪寺",
+    "result" : "Po Lin Monastery",
+    "status" : "ok"
+  },
+  "hong-kong/repulse-bay" : {
+    "lat" : 22.236135,
+    "lng" : 114.194464,
+    "query" : "Repulse Bay Hong Kong",
+    "result" : "리펄스 베이",
+    "status" : "ok"
+  },
+  "hong-kong/sasa" : {
+    "reason" : "ambiguous-branches:莎莎",
+    "status" : "rejected"
+  },
+  "hong-kong/stanley-market" : {
+    "lat" : 22.218119,
+    "lng" : 114.212633,
+    "query" : "Stanley Market Hong Kong",
+    "result" : "스탠리 마켓",
+    "status" : "ok"
+  },
+  "hong-kong/star-ferry" : {
+    "reason" : "name-mismatch:센트럴 7번항 (스타 페리) | name-mismatch:香港上環港澳碼頭 | name-mismatch:中環9號碼頭 | name-mismatch:中環六號碼頭",
+    "status" : "rejected"
+  },
+  "hong-kong/tai-kwun" : {
+    "lat" : 22.281404,
+    "lng" : 114.153983,
+    "query" : "大館 香港",
+    "result" : "大館",
+    "status" : "ok"
+  },
+  "hong-kong/tai-o" : {
+    "lat" : 22.258247,
+    "lng" : 113.85996,
+    "query" : "Tai O Hong Kong",
+    "result" : "Tai O",
+    "status" : "ok"
+  },
+  "hong-kong/temple-street-night-market" : {
+    "reason" : "name-mismatch:템플 스트리트 야시장 | name-mismatch:템플 스트리트 야시장 | name-mismatch:템플 스트리트 야시장",
+    "status" : "rejected"
+  },
+  "hong-kong/tian-tan-buddha-big-buddha" : {
+    "reason" : "name-mismatch:中國銀行(香港)自動櫃員機 | name-mismatch:천단대불 | name-mismatch:천단대불",
+    "status" : "rejected"
+  },
+  "hong-kong/tsim-sha-tsui" : {
+    "lat" : 22.297615,
+    "lng" : 114.172179,
+    "query" : "Tsim Sha Tsui Hong Kong",
+    "result" : "尖沙咀站",
+    "status" : "ok"
+  },
+  "hong-kong/victoria-peak" : {
+    "lat" : 22.270449,
+    "lng" : 114.150055,
+    "query" : "太平山頂 香港",
+    "result" : "빅토리아 피크",
+    "status" : "ok"
+  },
+  "hong-kong/watsons" : {
+    "reason" : "ambiguous-branches:屈臣氏",
+    "status" : "rejected"
+  },
+  "hong-kong/west-kowloon-cultural-district" : {
+    "lat" : 22.300526,
+    "lng" : 114.155581,
+    "query" : "West Kowloon Cultural District Hong Kong",
+    "result" : "西九文化區",
+    "status" : "ok"
+  },
+  "japan/abeno-harukas" : {
+    "lat" : 34.645844,
+    "lng" : 135.513648,
+    "query" : "あべのハルカス 大阪",
+    "result" : "아베노하루카스",
+    "status" : "ok"
+  },
+  "japan/akihabara" : {
+    "lat" : 35.698351,
+    "lng" : 139.772925,
+    "query" : "秋葉原 東京",
+    "result" : "秋葉原駅",
+    "status" : "ok"
+  },
+  "japan/american-village" : {
+    "reason" : "name-mismatch:미하마아메리칸빌리지 | name-mismatch:コナズ珈琲 アメリカンビレッジ | name-mismatch:부루 씰 아메리칸 빌리지 | name-mismatch:미하마아메리칸빌리지",
+    "status" : "rejected"
+  },
+  "japan/arashiyama-bamboo-grove" : {
+    "reason" : "name-mismatch:竹林の小径 | name-mismatch:竹林の小径 | name-mismatch:竹林の小径",
+    "status" : "rejected"
+  },
+  "japan/asakusa" : {
+    "reason" : "name-mismatch:浅草駅 | name-mismatch:아사쿠사하나야시키 | name-mismatch:浅草 (つくばエクスプレス)駅 | name-mismatch:上野駅",
+    "status" : "rejected"
+  },
+  "japan/atsuta-jingu" : {
+    "reason" : "name-mismatch:아쓰타진구 | name-mismatch:아쓰타진구 | name-mismatch:나고야 구이간장전문 사쿠타코 아쓰타구 진구 산초메점 | name-mismatch:아쓰타 진구 공원",
+    "status" : "rejected"
+  },
+  "japan/canal-city-hakata" : {
+    "reason" : "name-mismatch:커낼시티하카타 | name-mismatch:커낼시티하카타 | name-mismatch:그랜드 하얏트 후쿠오카 | name-mismatch:커낼시티하카타",
+    "status" : "rejected"
+  },
+  "japan/cape-manzamo" : {
+    "lat" : 26.505057,
+    "lng" : 127.850342,
+    "query" : "万座毛 沖縄",
+    "result" : "万座毛",
+    "status" : "ok"
+  },
+  "japan/churaumi-aquarium" : {
+    "reason" : "name-mismatch:오키나와주라우미수족관 | name-mismatch:오키나와주라우미수족관 | name-mismatch:오키나와주라우미수족관",
+    "status" : "rejected"
+  },
+  "japan/cosme-tokyo" : {
+    "lat" : 35.670149,
+    "lng" : 139.703173,
+    "query" : "@cosme TOKYO 東京",
+    "result" : "@cosme TOKYO",
+    "status" : "ok"
+  },
+  "japan/daikanyama" : {
+    "lat" : 35.648315,
+    "lng" : 139.703516,
+    "query" : "代官山 東京",
+    "result" : "代官山駅",
+    "status" : "ok"
+  },
+  "japan/dazaifu-tenmangu" : {
+    "reason" : "name-mismatch:다자이후덴만구 | name-mismatch:다자이후덴만구 | name-mismatch:다자이후덴만구",
+    "status" : "rejected"
+  },
+  "japan/don-quijote" : {
+    "reason" : "name-mismatch:돈키호테 간나나 호난초 점 | name-mismatch:피카소 사쿠라조스이 점 | name-mismatch:돈키호테 시모키타자와 점 | name-mismatch:돈키호테 간파치 세타가야 점",
+    "status" : "rejected"
+  },
+  "japan/dotonbori" : {
+    "lat" : 34.668699,
+    "lng" : 135.504092,
+    "query" : "道頓堀",
+    "result" : "도톤보리",
+    "status" : "ok"
+  },
+  "japan/fukuoka-tower" : {
+    "reason" : "name-mismatch:후쿠오카타워 | name-mismatch:후쿠오카타워 | name-mismatch:후쿠오카타워",
+    "status" : "rejected"
+  },
+  "japan/fushimi-inari-taisha" : {
+    "reason" : "name-mismatch:후시미 이나리 다이샤 | name-mismatch:후시미 이나리 다이샤 | name-mismatch:후시미 이나리 다이샤",
+    "status" : "rejected"
+  },
+  "japan/ginza" : {
+    "reason" : "name-mismatch:긴자 미쓰코시 | name-mismatch:Ginza Six | name-mismatch:銀座 篝 | name-mismatch:銀座 八五",
+    "status" : "rejected"
+  },
+  "japan/gion" : {
+    "reason" : "name-mismatch:祇園 白川 巽橋 | name-mismatch:기온 시라카와 | name-mismatch:祇園四条駅 | name-mismatch:아파호텔 교토 기온 EXCELLENT",
+    "status" : "rejected"
+  },
+  "japan/hakata-station" : {
+    "lat" : 33.590075,
+    "lng" : 130.420738,
+    "query" : "博多駅 福岡",
+    "result" : "博多駅",
+    "status" : "ok"
+  },
+  "japan/harajuku" : {
+    "reason" : "name-mismatch:原宿駅 | name-mismatch:竹下通り | name-mismatch:ラフォーレ原宿 | name-mismatch:明治神宮前 <原宿>駅",
+    "status" : "rejected"
+  },
+  "japan/hisaya-odori-park" : {
+    "lat" : 35.174795,
+    "lng" : 136.908107,
+    "query" : "久屋大通公園 名古屋",
+    "result" : "久屋大通公園",
+    "status" : "ok"
+  },
+  "japan/kinkaku-ji" : {
+    "lat" : 35.039513,
+    "lng" : 135.728442,
+    "query" : "金閣寺 京都",
+    "result" : "금각사",
+    "status" : "ok"
+  },
+  "japan/kiyomizu-dera" : {
+    "lat" : 34.994793,
+    "lng" : 135.785002,
+    "query" : "清水寺 京都",
+    "result" : "기요미즈데라",
+    "status" : "ok"
+  },
+  "japan/kokusai-dori" : {
+    "reason" : "name-mismatch:那覇国際通り商店街 | name-mismatch:国際通り屋台村 | name-mismatch:アニメイト那覇国際通り店 | name-mismatch:호텔 오션",
+    "status" : "rejected"
+  },
+  "japan/kouri-island" : {
+    "reason" : "name-mismatch:고리지마 | name-mismatch:아웨이 오키나와 고리지마 리조트 | name-mismatch:고리지마 | name-mismatch:GLORY ISLAND OKINAWA SOBE",
+    "status" : "rejected"
+  },
+  "japan/kuromon-market" : {
+    "lat" : 34.665339,
+    "lng" : 135.507051,
+    "query" : "黒門市場 大阪",
+    "result" : "구로몬 시장",
+    "status" : "ok"
+  },
+  "japan/kyoto-station" : {
+    "lat" : 34.985342,
+    "lng" : 135.758312,
+    "query" : "京都駅 京都",
+    "result" : "京都駅",
+    "status" : "ok"
+  },
+  "japan/lalaport-fukuoka" : {
+    "lat" : 33.564779,
+    "lng" : 130.440229,
+    "query" : "Lalaport Fukuoka Fukuoka",
+    "result" : "ららぽーと福岡",
+    "status" : "ok"
+  },
+  "japan/loft" : {
+    "reason" : "name-mismatch:시부야 로후토 | name-mismatch:긴자 로프트 | name-mismatch:이케부쿠로 로프트 | name-mismatch:기치조지로프트",
+    "status" : "rejected"
+  },
+  "japan/makishi-public-market" : {
+    "lat" : 26.214549,
+    "lng" : 127.688267,
+    "query" : "第一牧志公設市場 沖縄",
+    "result" : "第一牧志 公設市場",
+    "status" : "ok"
+  },
+  "japan/matsumoto-kiyoshi" : {
+    "reason" : "name-mismatch:마쓰모토 기요시 긴자휘후스 점 | name-mismatch:마쓰모토키요시 시부야 Part1 점 | name-mismatch:마쓰모토 기요시 긴자 미유키 Ave. 점 | name-mismatch:마쓰모토 기요시 시모키타자와 점",
+    "status" : "rejected"
+  },
+  "japan/muji-ginza" : {
+    "reason" : "ambiguous-branches:無印良品 銀座",
+    "status" : "rejected"
+  },
+  "japan/nagoya-castle" : {
+    "lat" : 35.181487,
+    "lng" : 136.905372,
+    "query" : "名古屋城 名古屋",
+    "result" : "名古屋城",
+    "status" : "ok"
+  },
+  "japan/nagoya-station" : {
+    "lat" : 35.170768,
+    "lng" : 136.881951,
+    "query" : "名古屋駅 名古屋",
+    "result" : "名古屋駅",
+    "status" : "ok"
+  },
+  "japan/nakameguro" : {
+    "lat" : 35.64435,
+    "lng" : 139.699057,
+    "query" : "中目黒 東京",
+    "result" : "中目黒駅",
+    "status" : "ok"
+  },
+  "japan/nakanoshima" : {
+    "lat" : 34.690583,
+    "lng" : 135.486513,
+    "query" : "中之島",
+    "result" : "中之島駅",
+    "status" : "ok"
+  },
+  "japan/nakasu" : {
+    "lat" : 33.592804,
+    "lng" : 130.406445,
+    "query" : "中洲",
+    "result" : "中洲",
+    "status" : "ok"
+  },
+  "japan/namba" : {
+    "lat" : 34.66306,
+    "lng" : 135.502271,
+    "query" : "難波",
+    "result" : "なんば駅",
+    "status" : "ok"
+  },
+  "japan/naminoue-shrine" : {
+    "reason" : "name-mismatch:나미노우에구 | name-mismatch:나미노우에구 | name-mismatch:나미노우에구",
+    "status" : "rejected"
+  },
+  "japan/nijo-castle" : {
+    "reason" : "name-mismatch:모토리큐니조조 | name-mismatch:二条城前駅 | name-mismatch:KAYA 교토 니조조 | name-mismatch:모토리큐니조조",
+    "status" : "rejected"
+  },
+  "japan/nijo-market" : {
+    "reason" : "name-mismatch:니조이치바 | name-mismatch:니조이치바 | name-mismatch:니조이치바",
+    "status" : "rejected"
+  },
+  "japan/ninenzaka" : {
+    "reason" : "name-mismatch:니넨자카 | name-mismatch:glanta | name-mismatch:스타밧쿠스코히 교토 니넨자카 야사카 자야 점 | name-mismatch:니넨자카",
+    "status" : "rejected"
+  },
+  "japan/nishiki-market" : {
+    "reason" : "name-mismatch:錦市場商店街 | name-mismatch:錦市場商店街 | name-mismatch:錦市場商店街",
+    "status" : "rejected"
+  },
+  "japan/odaiba" : {
+    "reason" : "name-mismatch:오다이바가이힌공원 | name-mismatch:덱스도쿄비치 | name-mismatch:お台場海浜公園駅 | name-mismatch:레스토랑 가레스",
+    "status" : "rejected"
+  },
+  "japan/odori-park" : {
+    "lat" : 43.059819,
+    "lng" : 141.347228,
+    "query" : "大通公園 札幌",
+    "result" : "오도리공원",
+    "status" : "ok"
+  },
+  "japan/ohori-park" : {
+    "lat" : 33.586381,
+    "lng" : 130.376301,
+    "query" : "大濠公園 福岡",
+    "result" : "오호리공원",
+    "status" : "ok"
+  },
+  "japan/omotesando" : {
+    "lat" : 35.665222,
+    "lng" : 139.712543,
+    "query" : "表参道 東京",
+    "result" : "表参道駅",
+    "status" : "ok"
+  },
+  "japan/osaka-castle" : {
+    "reason" : "name-mismatch:오사카조 | name-mismatch:오사카조홀 | name-mismatch:오사카조공원 | name-mismatch:오사카시립오사카조온가쿠도",
+    "status" : "rejected"
+  },
+  "japan/osu-kannon" : {
+    "lat" : 35.159723,
+    "lng" : 136.899422,
+    "query" : "大須観音 名古屋",
+    "result" : "오스 간논",
+    "status" : "ok"
+  },
+  "japan/osu-shopping-district" : {
+    "lat" : 35.159072,
+    "lng" : 136.902569,
+    "query" : "大須商店街 名古屋",
+    "result" : "大須商店街",
+    "status" : "ok"
+  },
+  "japan/pontocho" : {
+    "lat" : 35.006623,
+    "lng" : 135.771072,
+    "query" : "先斗町 京都",
+    "result" : "先斗町",
+    "status" : "ok"
+  },
+  "japan/roppongi-hills" : {
+    "lat" : 35.660101,
+    "lng" : 139.729605,
+    "query" : "六本木ヒルズ 東京",
+    "result" : "Roppongi Hills",
+    "status" : "ok"
+  },
+  "japan/sakae" : {
+    "reason" : "name-mismatch:名古屋駅 | name-mismatch:栄駅 | name-mismatch:자비나고야 | name-mismatch:나고야파루코니시칸",
+    "status" : "rejected"
+  },
+  "japan/sapporo-beer-museum" : {
+    "reason" : "name-mismatch:삿포로프린스호텔 | name-mismatch:삿포로류쓰종합회관(액세스삿포로) | name-mismatch:札幌市図書・情報館 | name-mismatch:北海道札幌工業高等学校",
+    "status" : "rejected"
+  },
+  "japan/sapporo-clock-tower" : {
+    "reason" : "name-mismatch:규삿포로노갓코엔부조 | name-mismatch:규삿포로노갓코엔부조 | name-mismatch:규삿포로노갓코엔부조",
+    "status" : "rejected"
+  },
+  "japan/sapporo-station" : {
+    "lat" : 43.068593,
+    "lng" : 141.350772,
+    "query" : "札幌駅 札幌",
+    "result" : "札幌駅",
+    "status" : "ok"
+  },
+  "japan/shibuya" : {
+    "reason" : "name-mismatch:渋谷駅 | name-mismatch:골드 짐 | name-mismatch:시부야 109 | name-mismatch:돈키호테",
+    "status" : "rejected"
+  },
+  "japan/shinjuku-station" : {
+    "lat" : 35.689932,
+    "lng" : 139.700527,
+    "query" : "新宿駅 東京",
+    "result" : "新宿駅",
+    "status" : "ok"
+  },
+  "japan/shinsaibashi" : {
+    "lat" : 34.674705,
+    "lng" : 135.501383,
+    "query" : "心斎橋 大阪",
+    "result" : "신사이바시",
+    "status" : "ok"
+  },
+  "japan/shinsekai" : {
+    "lat" : 34.652349,
+    "lng" : 135.506227,
+    "query" : "新世界 大阪",
+    "result" : "신세카이",
+    "status" : "ok"
+  },
+  "japan/shiroi-koibito-park" : {
+    "reason" : "name-mismatch:시로이코이비토파크 | name-mismatch:시로이코이비토파크 | name-mismatch:시로이코이비토파크",
+    "status" : "rejected"
+  },
+  "japan/shuri-castle" : {
+    "reason" : "name-mismatch:슈리성 정전 (슈리성 공원) | name-mismatch:국영오키나와기넨공원 슈리조공원 | name-mismatch:슈리성 정전 (슈리성 공원) | name-mismatch:슈리성 정전 (슈리성 공원)",
+    "status" : "rejected"
+  },
+  "japan/susukino" : {
+    "lat" : 43.055334,
+    "lng" : 141.353349,
+    "query" : "すすきの 札幌",
+    "result" : "すすきの駅",
+    "status" : "ok"
+  },
+  "japan/tanukikoji-shopping-street" : {
+    "lat" : 43.057255,
+    "lng" : 141.352769,
+    "query" : "狸小路商店街 札幌",
+    "result" : "狸小路商店街",
+    "status" : "ok"
+  },
+  "japan/teamlab-planets" : {
+    "reason" : "name-mismatch:チームラボプラネッツ TOKYO DMM | name-mismatch:チームラボプラネッツ TOKYO DMM | name-mismatch:チームラボプラネッツ TOKYO DMM",
+    "status" : "rejected"
+  },
+  "japan/tenjin" : {
+    "reason" : "name-mismatch:天神駅 | name-mismatch:福岡 (天神)駅 | name-mismatch:天神南駅 | name-mismatch:하카다다이마루후쿠오카텐진점",
+    "status" : "rejected"
+  },
+  "japan/tennoji" : {
+    "lat" : 34.64681,
+    "lng" : 135.515632,
+    "query" : "天王寺 大阪",
+    "result" : "天王寺駅",
+    "status" : "ok"
+  },
+  "japan/tokyo-disneyland" : {
+    "reason" : "name-mismatch:도쿄디즈니랜드 | name-mismatch:도쿄디즈니랜드 | name-mismatch:도쿄디즈니랜드",
+    "status" : "rejected"
+  },
+  "japan/tokyo-skytree" : {
+    "reason" : "name-mismatch:도쿄 스카이트리 | name-mismatch:도쿄 스카이트리 | name-mismatch:とうきょうスカイツリー駅 | name-mismatch:도쿄 스카이트리",
+    "status" : "rejected"
+  },
+  "japan/tokyo-tower" : {
+    "lat" : 35.658558,
+    "lng" : 139.745504,
+    "query" : "東京タワー 東京",
+    "result" : "도쿄타워",
+    "status" : "ok"
+  },
+  "japan/toyosu-market" : {
+    "lat" : 35.644027,
+    "lng" : 139.784245,
+    "query" : "豊洲市場 東京",
+    "result" : "豊洲市場",
+    "status" : "ok"
+  },
+  "japan/toyota-commemorative-museum" : {
+    "reason" : "name-mismatch:도요타산업기술기념관 | name-mismatch:도요타산업기술기념관 | name-mismatch:도요타산업기술기념관",
+    "status" : "rejected"
+  },
+  "japan/tsukiji-outer-market" : {
+    "reason" : "name-mismatch:쓰키지조가이시장 | name-mismatch:쓰키지조가이시장 | name-mismatch:쓰키지조가이시장",
+    "status" : "rejected"
+  },
+  "japan/ueno-park" : {
+    "reason" : "name-mismatch:우에노온시공원 | name-mismatch:우에노온시공원 | name-mismatch:도쿄도온시우에노동물원 | name-mismatch:우에노온시공원",
+    "status" : "rejected"
+  },
+  "japan/umeda-sky-building" : {
+    "reason" : "name-mismatch:우메다 스카이 빌딩 | name-mismatch:신우메다시티우메다스카이빌딩구추데이엔전망대 | name-mismatch:梅田スカイビル タワーイースト | name-mismatch:大阪駅前第2ビル",
+    "status" : "rejected"
+  },
+  "japan/uniqlo-ginza" : {
+    "reason" : "name-mismatch:유니클로 긴자 점 | name-mismatch:유니클로 TOKYO | name-mismatch:유니클로 긴자 점 | name-mismatch:유니클로 TOKYO",
+    "status" : "rejected"
+  },
+  "japan/universal-studios-japan" : {
+    "lat" : 34.666129,
+    "lng" : 135.43212,
+    "query" : "ユニバーサル・スタジオ・ジャパン 大阪",
+    "result" : "UNIVERSAL STUDIOS JAPAN",
+    "status" : "ok"
+  },
+  "korea/aewol" : {
+    "reason" : "name-mismatch:제주 애월카페거리2525 | name-mismatch:애월빵공장 | name-mismatch:노티드 | name-mismatch:애월 카프리 게스트하우스",
+    "status" : "rejected"
+  },
+  "korea/amore-seongsu" : {
+    "lat" : 37.544382,
+    "lng" : 127.059087,
+    "query" : "아모레성수",
+    "result" : "아모레성수",
+    "status" : "ok"
+  },
+  "korea/apgujeong" : {
+    "lat" : 37.467278,
+    "lng" : 126.658846,
+    "query" : "압구정",
+    "result" : "압구정",
+    "status" : "ok"
+  },
+  "korea/biff-square" : {
+    "lat" : 35.098728,
+    "lng" : 129.028993,
+    "query" : "BIFF광장",
+    "result" : "BIFF광장",
+    "status" : "ok"
+  },
+  "korea/bukchon-hanok-village" : {
+    "lat" : 37.579047,
+    "lng" : 126.986337,
+    "query" : "Bukchon Hanok Village Seoul",
+    "result" : "북촌한옥마을",
+    "status" : "ok"
+  },
+  "korea/bulguksa-temple" : {
+    "lat" : 35.790182,
+    "lng" : 129.332031,
+    "query" : "불국사 경주",
+    "result" : "불국사",
+    "status" : "ok"
+  },
+  "korea/camellia-hill" : {
+    "lat" : 33.289966,
+    "lng" : 126.369954,
+    "query" : "Camellia Hill Jeju",
+    "result" : "카멜리아힐",
+    "status" : "ok"
+  },
+  "korea/cheomseongdae" : {
+    "lat" : 35.834703,
+    "lng" : 129.219135,
+    "query" : "첨성대 경주",
+    "result" : "첨성대",
+    "status" : "ok"
+  },
+  "korea/cheonggyecheon-stream" : {
+    "lat" : 37.569129,
+    "lng" : 126.979261,
+    "query" : "청계천",
+    "result" : "청계천",
+    "status" : "ok"
+  },
+  "korea/coex" : {
+    "lat" : 37.512483,
+    "lng" : 127.058934,
+    "query" : "코엑스",
+    "result" : "코엑스",
+    "status" : "ok"
+  },
+  "korea/daecheongho-lake" : {
+    "lat" : 36.443567,
+    "lng" : 127.478727,
+    "query" : "대청호",
+    "result" : "대청호",
+    "status" : "ok"
+  },
+  "korea/daejeon-expo-science-park" : {
+    "lat" : 36.376768,
+    "lng" : 127.386597,
+    "query" : "엑스포과학공원",
+    "result" : "엑스포과학공원",
+    "status" : "ok"
+  },
+  "korea/daejeon-o-world" : {
+    "lat" : 36.292889,
+    "lng" : 127.397097,
+    "query" : "대전오월드 대전",
+    "result" : "대전오월드",
+    "status" : "ok"
+  },
+  "korea/daejeon-skyroad" : {
+    "reason" : "name-mismatch:CU 대전스카이로드점 | name-mismatch:세븐일레븐 | name-mismatch:대전역 | name-mismatch:대전복합터미널",
+    "status" : "rejected"
+  },
+  "korea/daereungwon" : {
+    "lat" : 35.835203,
+    "lng" : 129.215636,
+    "query" : "대릉원",
+    "result" : "대릉원",
+    "status" : "ok"
+  },
+  "korea/dongdaemun-design-plaza" : {
+    "lat" : 37.567423,
+    "lng" : 127.009978,
+    "query" : "Dongdaemun Design Plaza Seoul",
+    "result" : "동대문디자인플라자",
+    "status" : "ok"
+  },
+  "korea/dongdaemun-market" : {
+    "lat" : 37.261054,
+    "lng" : 127.010733,
+    "query" : "동대문시장",
+    "result" : "동대문시장",
+    "status" : "ok"
+  },
+  "korea/donggung-palace-and-wolji-pond" : {
+    "lat" : 35.834786,
+    "lng" : 129.226551,
+    "query" : "동궁과 월지 경주",
+    "result" : "동궁과 월지",
+    "status" : "ok"
+  },
+  "korea/dongmun-market" : {
+    "lat" : 33.512739,
+    "lng" : 126.528388,
+    "query" : "동문시장",
+    "result" : "동문시장",
+    "status" : "ok"
+  },
+  "korea/gaengnidan-gil" : {
+    "lat" : 35.817719,
+    "lng" : 127.143929,
+    "query" : "객리단길",
+    "result" : "객리단길",
+    "status" : "ok"
+  },
+  "korea/gamcheon-culture-village" : {
+    "lat" : 35.096975,
+    "lng" : 129.008852,
+    "query" : "Gamcheon Culture Village Busan",
+    "result" : "감천문화마을",
+    "status" : "ok"
+  },
+  "korea/gangnam" : {
+    "reason" : "name-mismatch:노보텔앰배서더 서울 강남 | name-mismatch:안다즈 서울 강남 | name-mismatch:AC 호텔 서울 강남 | name-mismatch:도미인 서울 강남",
+    "status" : "rejected"
+  },
+  "korea/garosu-gil" : {
+    "lat" : 37.669838,
+    "lng" : 126.777223,
+    "query" : "가로수길",
+    "result" : "가로수길",
+    "status" : "ok"
+  },
+  "korea/gentle-monster-haus-dosan" : {
+    "reason" : "name-mismatch:젠틀몬스터 | name-mismatch:젠틀몬스터 | name-mismatch:젠틀몬스터",
+    "status" : "rejected"
+  },
+  "korea/gwangalli" : {
+    "reason" : "name-mismatch:광안리해수욕장 | name-mismatch:광안리해수욕장",
+    "status" : "rejected"
+  },
+  "korea/gwangjang-market" : {
+    "lat" : 37.570046,
+    "lng" : 126.999287,
+    "query" : "Gwangjang Market Seoul",
+    "result" : "광장시장",
+    "status" : "ok"
+  },
+  "korea/gyeongbokgung-palace" : {
+    "lat" : 37.578073,
+    "lng" : 126.9769,
+    "query" : "Gyeongbokgung Palace Seoul",
+    "result" : "경복궁",
+    "status" : "ok"
+  },
+  "korea/gyeonggijeon-shrine" : {
+    "lat" : 35.815331,
+    "lng" : 127.149789,
+    "query" : "Gyeonggijeon Shrine Jeonju",
+    "result" : "경기전",
+    "status" : "ok"
+  },
+  "korea/gyeongju-national-museum" : {
+    "lat" : 35.829453,
+    "lng" : 129.227885,
+    "query" : "국립경주박물관 경주",
+    "result" : "국립경주박물관",
+    "status" : "ok"
+  },
+  "korea/haedong-yonggungsa-temple" : {
+    "lat" : 35.188426,
+    "lng" : 129.22308,
+    "query" : "해동용궁사",
+    "result" : "해동용궁사",
+    "status" : "ok"
+  },
+  "korea/haeundae" : {
+    "lat" : 35.062093,
+    "lng" : 129.009189,
+    "query" : "해운대",
+    "result" : "해운대",
+    "status" : "ok"
+  },
+  "korea/hallasan" : {
+    "lat" : 33.360108,
+    "lng" : 126.533858,
+    "query" : "한라산",
+    "result" : "한라산",
+    "status" : "ok"
+  },
+  "korea/hamdeok-beach" : {
+    "lat" : 33.543121,
+    "lng" : 126.669799,
+    "query" : "Hamdeok Beach Jeju",
+    "result" : "함덕해수욕장",
+    "status" : "ok"
+  },
+  "korea/hanbat-arboretum" : {
+    "lat" : 36.369047,
+    "lng" : 127.385264,
+    "query" : "한밭수목원",
+    "result" : "한밭수목원",
+    "status" : "ok"
+  },
+  "korea/hannam-dong" : {
+    "reason" : "name-mismatch:파르크 | name-mismatch:한남동 작은도서관 | name-mismatch:한남동감자탕 | name-mismatch:하나은행ATM",
+    "status" : "rejected"
+  },
+  "korea/hongdae" : {
+    "reason" : "name-mismatch:머큐어 앰배서더 서울 홍대 | name-mismatch:조던 홍대 | name-mismatch:홍대개미 | name-mismatch:머큐어 앰배서더 서울 홍대",
+    "status" : "rejected"
+  },
+  "korea/huinnyeoul-culture-village" : {
+    "lat" : 35.077925,
+    "lng" : 129.045186,
+    "query" : "흰여울문화마을",
+    "result" : "흰여울문화마을",
+    "status" : "ok"
+  },
+  "korea/hwangnidan-gil" : {
+    "lat" : 35.837119,
+    "lng" : 129.210192,
+    "query" : "황리단길",
+    "result" : "황리단길",
+    "status" : "ok"
+  },
+  "korea/hyeopjae-beach" : {
+    "lat" : 33.394152,
+    "lng" : 126.239663,
+    "query" : "협재해수욕장",
+    "result" : "협재해수욕장",
+    "status" : "ok"
+  },
+  "korea/ikseon-dong" : {
+    "lat" : 37.573601,
+    "lng" : 126.98801,
+    "query" : "익선동",
+    "result" : "익선동",
+    "status" : "ok"
+  },
+  "korea/insadong" : {
+    "lat" : 37.440506,
+    "lng" : 127.133498,
+    "query" : "인사동",
+    "result" : "인사동",
+    "status" : "ok"
+  },
+  "korea/itaewon" : {
+    "lat" : 37.391066,
+    "lng" : 126.95382,
+    "query" : "이태원",
+    "result" : "이태원",
+    "status" : "ok"
+  },
+  "korea/jagalchi-market" : {
+    "lat" : 35.096645,
+    "lng" : 129.030576,
+    "query" : "자갈치시장 부산",
+    "result" : "자갈치시장",
+    "status" : "ok"
+  },
+  "korea/jamsil" : {
+    "lat" : 37.569324,
+    "lng" : 127.013758,
+    "query" : "잠실",
+    "result" : "잠실",
+    "status" : "ok"
+  },
+  "korea/jangtaesan-recreational-forest" : {
+    "lat" : 36.218536,
+    "lng" : 127.340269,
+    "query" : "장태산자연휴양림",
+    "result" : "장태산자연휴양림",
+    "status" : "ok"
+  },
+  "korea/jeondong-cathedral" : {
+    "lat" : 35.813331,
+    "lng" : 127.149234,
+    "query" : "Jeondong Cathedral Jeonju",
+    "result" : "전동성당",
+    "status" : "ok"
+  },
+  "korea/jeonju-hanok-village" : {
+    "lat" : 35.818185,
+    "lng" : 127.153643,
+    "query" : "전주한옥마을 전주",
+    "result" : "전주한옥마을",
+    "status" : "ok"
+  },
+  "korea/jungmun-tourist-complex" : {
+    "lat" : 33.248669,
+    "lng" : 126.412371,
+    "query" : "중문관광단지",
+    "result" : "중문관광단지",
+    "status" : "ok"
+  },
+  "korea/lotte-world-tower" : {
+    "lat" : 37.512636,
+    "lng" : 127.102556,
+    "query" : "Lotte World Tower Seoul",
+    "result" : "롯데월드타워",
+    "status" : "ok"
+  },
+  "korea/mangridan-gil" : {
+    "lat" : 37.554908,
+    "lng" : 126.905184,
+    "query" : "망리단길",
+    "result" : "망리단길",
+    "status" : "ok"
+  },
+  "korea/mangwon-market" : {
+    "lat" : 37.556519,
+    "lng" : 126.906045,
+    "query" : "Mangwon Market Seoul",
+    "result" : "망원시장",
+    "status" : "ok"
+  },
+  "korea/musinsa-standard-seongsu" : {
+    "reason" : "name-mismatch:스탠드오일",
+    "status" : "rejected"
+  },
+  "korea/myeongdong" : {
+    "reason" : "name-mismatch:보코 서울 명동 | name-mismatch:목시 서울 명동 | name-mismatch:밀리오레호텔 서울 명동 | name-mismatch:이비스 앰배서더 서울 명동",
+    "status" : "rejected"
+  },
+  "korea/n-seoul-tower" : {
+    "lat" : 37.55117,
+    "lng" : 126.988145,
+    "query" : "남산서울타워 서울",
+    "result" : "남산서울타워",
+    "status" : "ok"
+  },
+  "korea/nambu-market" : {
+    "lat" : 35.812609,
+    "lng" : 127.14704,
+    "query" : "남부시장",
+    "result" : "남부시장",
+    "status" : "ok"
+  },
+  "korea/olive-young-myeongdong-town" : {
+    "reason" : "name-mismatch:올리브영 | name-mismatch:올리브영 | name-mismatch:올리브영 | name-mismatch:올리브영",
+    "status" : "rejected"
+  },
+  "korea/omokdae" : {
+    "lat" : 35.814359,
+    "lng" : 127.154567,
+    "query" : "오목대",
+    "result" : "오목대",
+    "status" : "ok"
+  },
+  "korea/osulloc-tea-museum" : {
+    "lat" : 33.316551,
+    "lng" : 126.679403,
+    "query" : "오설록",
+    "result" : "오설록",
+    "status" : "ok"
+  },
+  "korea/seokguram-grotto" : {
+    "lat" : 35.795238,
+    "lng" : 129.35056,
+    "query" : "석굴암",
+    "result" : "석굴암",
+    "status" : "ok"
+  },
+  "korea/seomyeon" : {
+    "lat" : 35.183997,
+    "lng" : 129.049185,
+    "query" : "서면",
+    "result" : "서면",
+    "status" : "ok"
+  },
+  "korea/seongsan-ilchulbong" : {
+    "lat" : 33.458204,
+    "lng" : 126.94188,
+    "query" : "Seongsan Ilchulbong Jeju",
+    "result" : "성산일출봉",
+    "status" : "ok"
+  },
+  "korea/seongsimdang" : {
+    "reason" : "ambiguous-branches:성심당",
+    "status" : "rejected"
+  },
+  "korea/seongsu" : {
+    "lat" : 37.51783,
+    "lng" : 127.017563,
+    "query" : "성수",
+    "result" : "성수",
+    "status" : "ok"
+  },
+  "korea/seoul-forest" : {
+    "lat" : 37.544855,
+    "lng" : 127.039283,
+    "query" : "서울숲 서울",
+    "result" : "서울숲",
+    "status" : "ok"
+  },
+  "korea/songjeong-beach" : {
+    "lat" : 35.178609,
+    "lng" : 129.199699,
+    "query" : "송정해수욕장",
+    "result" : "송정해수욕장",
+    "status" : "ok"
+  },
+  "korea/taejongdae" : {
+    "lat" : 35.062455,
+    "lng" : 129.082572,
+    "query" : "태종대",
+    "result" : "태종대",
+    "status" : "ok"
+  },
+  "korea/tamburins-seongsu" : {
+    "reason" : "name-mismatch:탬버린즈 | name-mismatch:탬버린즈",
+    "status" : "rejected"
+  },
+  "korea/the-hyundai-seoul" : {
+    "reason" : "name-mismatch:더현대 | name-mismatch:더현대 | name-mismatch:더현대",
+    "status" : "rejected"
+  },
+  "korea/udo-island" : {
+    "lat" : 33.50431,
+    "lng" : 126.95399,
+    "query" : "우도",
+    "result" : "우도",
+    "status" : "ok"
+  },
+  "korea/woljeonggyo-bridge" : {
+    "lat" : 35.829259,
+    "lng" : 129.218135,
+    "query" : "월정교",
+    "result" : "월정교",
+    "status" : "ok"
+  },
+  "korea/yeonnam-dong" : {
+    "reason" : "name-mismatch:국립고궁박물관 | name-mismatch:서울역 | name-mismatch:콘래드 서울 | name-mismatch:더현대",
+    "status" : "rejected"
+  },
+  "korea/yeouido-hangang-park" : {
+    "lat" : 37.527098,
+    "lng" : 126.933852,
+    "query" : "Yeouido Hangang Park Seoul",
+    "result" : "여의도한강공원",
+    "status" : "ok"
+  },
+  "korea/yuseong-hot-springs" : {
+    "lat" : 36.355215,
+    "lng" : 127.343712,
+    "query" : "유성온천",
+    "result" : "유성온천",
+    "status" : "ok"
+  },
+  "macau/a-ma-temple" : {
+    "lat" : 22.186048,
+    "lng" : 113.53124,
+    "query" : "A-Ma Temple Macau",
+    "result" : "媽閣廟",
+    "status" : "ok"
+  },
+  "macau/city-of-dreams" : {
+    "lat" : 22.149073,
+    "lng" : 113.566243,
+    "query" : "City of Dreams Macau",
+    "result" : "시티 오브 드림스",
+    "status" : "ok"
+  },
+  "macau/coloane-village" : {
+    "reason" : "name-mismatch:澳門培正中學 | name-mismatch:Lord Stow's Bakery | name-mismatch:文創村 | name-mismatch:路環市區/衛生站",
+    "status" : "rejected"
+  },
+  "macau/cotai-strip" : {
+    "reason" : "name-mismatch:파리지엔 마카오 | name-mismatch:콘라드 마카오, 코타이 센트럴 | name-mismatch:더 세인트 레지스 마카오, 코타이 센트럴 | name-mismatch:포시즌 호텔 마카오, 코타이 스트립",
+    "status" : "rejected"
+  },
+  "macau/fishermans-wharf" : {
+    "reason" : "name-mismatch:澳門漁人碼頭 | name-mismatch:澳門漁人碼頭",
+    "status" : "rejected"
+  },
+  "macau/galaxy-macau" : {
+    "reason" : "name-mismatch:갤럭시 호텔 | name-mismatch:Apple 澳門銀河 | name-mismatch:银河娱乐城",
+    "status" : "rejected"
+  },
+  "macau/grand-lisboa" : {
+    "lat" : 22.191221,
+    "lng" : 113.543065,
+    "query" : "新葡京 澳門",
+    "result" : "新葡京",
+    "status" : "ok"
+  },
+  "macau/guia-fortress" : {
+    "lat" : 22.196532,
+    "lng" : 113.549739,
+    "query" : "東望洋炮台 澳門",
+    "result" : "東望洋炮台",
+    "status" : "ok"
+  },
+  "macau/hac-sa-beach" : {
+    "lat" : 22.120401,
+    "lng" : 113.570631,
+    "query" : "Hac Sa Beach Macau",
+    "result" : "黑沙海灘",
+    "status" : "ok"
+  },
+  "macau/londoner-macao" : {
+    "reason" : "name-mismatch:Apple 路氹金光大道 | name-mismatch:新鴻咖啡 | name-mismatch:澳門王子冰室 (皇朝店) | name-mismatch:大力烤肉 (皇朝店)",
+    "status" : "rejected"
+  },
+  "macau/macao-giant-panda-pavilion" : {
+    "lat" : 22.126553,
+    "lng" : 113.559076,
+    "query" : "Macao Giant Panda Pavilion Macau",
+    "result" : "澳門大熊貓館",
+    "status" : "ok"
+  },
+  "macau/macau-tower" : {
+    "lat" : 22.180373,
+    "lng" : 113.537562,
+    "query" : "澳門旅遊塔 澳門",
+    "result" : "澳門旅遊塔",
+    "status" : "ok"
+  },
+  "macau/mandarins-house" : {
+    "lat" : 22.188539,
+    "lng" : 113.53466,
+    "query" : "Mandarin's House Macau",
+    "result" : "鄭家大屋",
+    "status" : "ok"
+  },
+  "macau/mgm-cotai" : {
+    "lat" : 22.185453,
+    "lng" : 113.548172,
+    "query" : "美高梅 澳門",
+    "result" : "美高梅",
+    "status" : "ok"
+  },
+  "macau/monte-fort" : {
+    "lat" : 22.197129,
+    "lng" : 113.542157,
+    "query" : "Monte Fort Macau",
+    "result" : "大炮台",
+    "status" : "ok"
+  },
+  "macau/new-yaohan" : {
+    "lat" : 22.190986,
+    "lng" : 113.540402,
+    "query" : "New Yaohan Macau",
+    "result" : "新八佰伴",
+    "status" : "ok"
+  },
+  "macau/rua-do-cunha" : {
+    "lat" : 22.153536,
+    "lng" : 113.556997,
+    "query" : "Rua do Cunha Macau",
+    "result" : "Rua do Cunha",
+    "status" : "ok"
+  },
+  "macau/ruins-of-st-pauls" : {
+    "lat" : 22.197458,
+    "lng" : 113.540863,
+    "query" : "大三巴牌坊 澳門",
+    "result" : "大三巴牌坊",
+    "status" : "ok"
+  },
+  "macau/sasa-macau" : {
+    "reason" : "ambiguous-branches:莎莎",
+    "status" : "rejected"
+  },
+  "macau/senado-square" : {
+    "lat" : 22.193549,
+    "lng" : 113.539776,
+    "query" : "Senado Square Macau",
+    "result" : "Senado Square",
+    "status" : "ok"
+  },
+  "macau/shoppes-at-londoner" : {
+    "lat" : 22.145615,
+    "lng" : 113.565996,
+    "query" : "Shoppes at Londoner Macau",
+    "result" : "倫敦人購物中心",
+    "status" : "ok"
+  },
+  "macau/st-dominics-church" : {
+    "lat" : 22.30251,
+    "lng" : 114.176457,
+    "query" : "玫瑰堂",
+    "result" : "玫瑰堂",
+    "status" : "ok"
+  },
+  "macau/studio-city-macau" : {
+    "reason" : "name-mismatch:스튜디오 시티 호텔 | name-mismatch:POP MART Studio City Macau | name-mismatch:스튜디오 시티 호텔",
+    "status" : "rejected"
+  },
+  "macau/taipa-village" : {
+    "reason" : "name-mismatch:베니션 마카오 | name-mismatch:갤럭시 호텔 | name-mismatch:Apple 澳門銀河 | name-mismatch:奧林匹克體育中心 - 運動場",
+    "status" : "rejected"
+  },
+  "macau/the-parisian-macao" : {
+    "reason" : "name-mismatch:澳門漁人碼頭 | name-mismatch:파리지엔 마카오 | name-mismatch:關閘總站 | name-mismatch:파리지엔 마카오",
+    "status" : "rejected"
+  },
+  "macau/venetian-macao" : {
+    "reason" : "name-mismatch:베니션 마카오 | name-mismatch:베니션 마카오",
+    "status" : "rejected"
+  },
+  "macau/watsons-macau" : {
+    "lat" : 22.193984,
+    "lng" : 113.539946,
+    "query" : "屈臣氏 澳門",
+    "result" : "屈臣氏",
+    "status" : "ok"
+  },
+  "macau/wynn-palace" : {
+    "lat" : 22.147543,
+    "lng" : 113.571285,
+    "query" : "Wynn Palace Macau",
+    "result" : "永利皇宮",
+    "status" : "ok"
+  },
+  "taiwan/50-lan" : {
+    "reason" : "ambiguous-branches:50嵐",
+    "status" : "rejected"
+  },
+  "taiwan/anping-old-street" : {
+    "lat" : 23.000679,
+    "lng" : 120.162127,
+    "query" : "安平老街 台南",
+    "result" : "安平老街",
+    "status" : "ok"
+  },
+  "taiwan/anping-tree-house" : {
+    "reason" : "name-mismatch:안평수옥 | name-mismatch:안평수옥",
+    "status" : "rejected"
+  },
+  "taiwan/beitou-hot-springs" : {
+    "reason" : "name-mismatch:陽明山 | name-mismatch:台北市北投區溫泉里辦公處 | name-mismatch:地熱谷景觀公園 | name-mismatch:북투온천박물관",
+    "status" : "rejected"
+  },
+  "taiwan/chiang-kai-shek-memorial-hall" : {
+    "lat" : 25.034616,
+    "lng" : 121.521607,
+    "query" : "Chiang Kai-shek Memorial Hall Taipei",
+    "result" : "中正紀念堂",
+    "status" : "ok"
+  },
+  "taiwan/chihkan-tower" : {
+    "reason" : "name-mismatch:치한 타워 | name-mismatch:康橋商旅 | name-mismatch:치한 타워 | name-mismatch:치한 타워",
+    "status" : "rejected"
+  },
+  "taiwan/chimei-museum" : {
+    "lat" : 22.934553,
+    "lng" : 120.2265,
+    "query" : "奇美博物館 台南",
+    "result" : "奇美博物館",
+    "status" : "ok"
+  },
+  "taiwan/chun-shui-tang" : {
+    "reason" : "ambiguous-branches:春水堂",
+    "status" : "rejected"
+  },
+  "taiwan/cijin-old-street" : {
+    "lat" : 22.613659,
+    "lng" : 120.268552,
+    "query" : "旗津老街",
+    "result" : "旗津老街",
+    "status" : "ok"
+  },
+  "taiwan/dadaocheng" : {
+    "lat" : 25.056634,
+    "lng" : 121.50746,
+    "query" : "大稻埕",
+    "result" : "大稻埕",
+    "status" : "ok"
+  },
+  "taiwan/din-tai-fung" : {
+    "reason" : "ambiguous-branches:鼎泰豐",
+    "status" : "rejected"
+  },
+  "taiwan/elephant-mountain" : {
+    "lat" : 25.027074,
+    "lng" : 121.57517,
+    "query" : "象山 台北",
+    "result" : "象山",
+    "status" : "ok"
+  },
+  "taiwan/eslite-spectrum-songyan" : {
+    "lat" : 25.044399,
+    "lng" : 121.561283,
+    "query" : "Eslite Spectrum Songyan Taipei",
+    "result" : "誠品生活松菸店",
+    "status" : "ok"
+  },
+  "taiwan/fengjia-night-market" : {
+    "lat" : 24.176193,
+    "lng" : 120.645655,
+    "query" : "逢甲夜市 台中",
+    "result" : "逢甲夜市",
+    "status" : "ok"
+  },
+  "taiwan/fo-guang-shan" : {
+    "lat" : 22.74757,
+    "lng" : 120.446191,
+    "query" : "佛光山 高雄",
+    "result" : "불광산사",
+    "status" : "ok"
+  },
+  "taiwan/gaomei-wetlands" : {
+    "lat" : 24.311891,
+    "lng" : 120.54995,
+    "query" : "高美濕地 台中",
+    "result" : "高美濕地",
+    "status" : "ok"
+  },
+  "taiwan/guohua-street" : {
+    "reason" : "name-mismatch:彬 國華街肉燥飯 | name-mismatch:國華友愛新商圈 | name-mismatch:彬 國華街肉燥飯",
+    "status" : "rejected"
+  },
+  "taiwan/huashan-1914-creative-park" : {
+    "lat" : 25.044324,
+    "lng" : 121.529319,
+    "query" : "Huashan 1914 Creative Park Taipei",
+    "result" : "華山1914文化創意產業園區",
+    "status" : "ok"
+  },
+  "taiwan/jiufen" : {
+    "lat" : 25.109385,
+    "lng" : 121.844041,
+    "query" : "九份",
+    "result" : "九份",
+    "status" : "ok"
+  },
+  "taiwan/liuhe-night-market" : {
+    "lat" : 22.632077,
+    "lng" : 120.299155,
+    "query" : "Liuhe Night Market Kaohsiung",
+    "result" : "Liuhe Night Market",
+    "status" : "ok"
+  },
+  "taiwan/longshan-temple" : {
+    "lat" : 25.037263,
+    "lng" : 121.499889,
+    "query" : "龍山寺 台北",
+    "result" : "용산사",
+    "status" : "ok"
+  },
+  "taiwan/lotus-pond" : {
+    "lat" : 22.679724,
+    "lng" : 120.292169,
+    "query" : "蓮池潭 高雄",
+    "result" : "蓮池潭",
+    "status" : "ok"
+  },
+  "taiwan/love-river" : {
+    "lat" : 22.624364,
+    "lng" : 120.28883,
+    "query" : "愛河 高雄",
+    "result" : "愛河",
+    "status" : "ok"
+  },
+  "taiwan/maokong-gondola" : {
+    "reason" : "name-mismatch:貓纜動物園站 | name-mismatch:貓纜動物園站 | name-mismatch:貓空站 | name-mismatch:動物園南站",
+    "status" : "rejected"
+  },
+  "taiwan/miyahara" : {
+    "lat" : 24.137851,
+    "lng" : 120.683573,
+    "query" : "宮原眼科 台中",
+    "result" : "宮原眼科",
+    "status" : "ok"
+  },
+  "taiwan/national-palace-museum" : {
+    "reason" : "name-mismatch:국립고궁박물관 | name-mismatch:국립고궁박물관",
+    "status" : "rejected"
+  },
+  "taiwan/national-taichung-theater" : {
+    "lat" : 24.163067,
+    "lng" : 120.640857,
+    "query" : "National Taichung Theater Taichung",
+    "result" : "臺中國家歌劇院",
+    "status" : "ok"
+  },
+  "taiwan/ningxia-night-market" : {
+    "lat" : 25.056574,
+    "lng" : 121.515342,
+    "query" : "寧夏夜市 台北",
+    "result" : "寧夏夜市",
+    "status" : "ok"
+  },
+  "taiwan/pier-2-art-center" : {
+    "lat" : 22.619977,
+    "lng" : 120.281609,
+    "query" : "Pier-2 Art Center Kaohsiung",
+    "result" : "駁二藝術特區",
+    "status" : "ok"
+  },
+  "taiwan/px-mart" : {
+    "reason" : "ambiguous-branches:全聯福利中心",
+    "status" : "rejected"
+  },
+  "taiwan/rainbow-village" : {
+    "lat" : 24.133561,
+    "lng" : 120.609804,
+    "query" : "彩虹眷村 台中",
+    "result" : "彩虹眷村",
+    "status" : "ok"
+  },
+  "taiwan/raohe-night-market" : {
+    "lat" : 25.050928,
+    "lng" : 121.577549,
+    "query" : "Raohe Night Market Taipei",
+    "result" : "Raohe Night Market",
+    "status" : "ok"
+  },
+  "taiwan/ruifeng-night-market" : {
+    "lat" : 22.666866,
+    "lng" : 120.299916,
+    "query" : "瑞豐夜市 高雄",
+    "result" : "瑞豐夜市",
+    "status" : "ok"
+  },
+  "taiwan/shenji-new-village" : {
+    "lat" : 24.144663,
+    "lng" : 120.662612,
+    "query" : "審計新村",
+    "result" : "審計新村",
+    "status" : "ok"
+  },
+  "taiwan/shennong-street" : {
+    "lat" : 22.997236,
+    "lng" : 120.197093,
+    "query" : "神農街 台南",
+    "result" : "神農街",
+    "status" : "ok"
+  },
+  "taiwan/shilin-night-market" : {
+    "reason" : "name-mismatch:시린 야시장 | name-mismatch:시린 야시장 | name-mismatch:시린 야시장 | name-mismatch:火焰骰子牛",
+    "status" : "rejected"
+  },
+  "taiwan/simple-kaffa" : {
+    "reason" : "ambiguous-branches:興波咖啡",
+    "status" : "rejected"
+  },
+  "taiwan/songshan-cultural-and-creative-park" : {
+    "lat" : 25.04396,
+    "lng" : 121.560593,
+    "query" : "Songshan Cultural and Creative Park Taipei",
+    "result" : "松山文創園區",
+    "status" : "ok"
+  },
+  "taiwan/sun-moon-lake" : {
+    "reason" : "name-mismatch:【星天樂旅遊】星天樂旅行社有限公司-嘉義西區包車旅遊 阿里山/日月潭/清境/嘉義/台中/台南/高雄 國內旅行/一日遊/二日遊/三日遊 專業價格推薦 PTT Dcard | name-mismatch:臺中車站 | name-mismatch:대중국제기장 | name-mismatch:高鐵台中站",
+    "status" : "rejected"
+  },
+  "taiwan/tainan-flower-night-market" : {
+    "lat" : 23.010602,
+    "lng" : 120.199474,
+    "query" : "花園夜市 台南",
+    "result" : "화원 야시장",
+    "status" : "ok"
+  },
+  "taiwan/taipei-101" : {
+    "lat" : 25.033649,
+    "lng" : 121.564824,
+    "query" : "台北101 台北",
+    "result" : "타이베이 101",
+    "status" : "ok"
+  },
+  "taiwan/taipei-main-station" : {
+    "lat" : 25.048577,
+    "lng" : 121.514899,
+    "query" : "台北車站 台北",
+    "result" : "台北車站",
+    "status" : "ok"
+  },
+  "taiwan/tamsui-old-street" : {
+    "lat" : 25.169658,
+    "lng" : 121.44152,
+    "query" : "淡水老街 台北",
+    "result" : "淡水老街",
+    "status" : "ok"
+  },
+  "taiwan/tp-tea" : {
+    "reason" : "ambiguous-branches:茶湯會",
+    "status" : "rejected"
+  },
+  "taiwan/ximending" : {
+    "lat" : 25.045042,
+    "lng" : 121.505485,
+    "query" : "西門町 台北",
+    "result" : "西門町",
+    "status" : "ok"
+  },
+  "taiwan/xing-fu-tang" : {
+    "lat" : 25.043348,
+    "lng" : 121.507373,
+    "query" : "Xing Fu Tang Taipei",
+    "result" : "幸福堂",
+    "status" : "ok"
+  },
+  "taiwan/yehliu-geopark" : {
+    "lat" : 25.210824,
+    "lng" : 121.695861,
+    "query" : "Yehliu Geopark Taipei",
+    "result" : "野柳地質公園",
+    "status" : "ok"
+  },
+  "taiwan/yizhong-street" : {
+    "reason" : "name-mismatch:一中商圈 | name-mismatch:一中商圈 | name-mismatch:一中商圈",
+    "status" : "rejected"
+  },
+  "taiwan/yongkang-street" : {
+    "reason" : "name-mismatch:永康公園 | name-mismatch:來好 | name-mismatch:思慕昔本館 | name-mismatch:白水豆花",
+    "status" : "rejected"
+  },
+  "thailand/after-you-dessert-cafe" : {
+    "lat" : 13.737676,
+    "lng" : 100.560345,
+    "query" : "After You กรุงเทพฯ",
+    "result" : "After You Dessert Cafe",
+    "status" : "ok"
+  },
+  "thailand/asiatique" : {
+    "lat" : 13.704935,
+    "lng" : 100.501717,
+    "query" : "Asiatique Bangkok",
+    "result" : "เอเชียทีค",
+    "status" : "ok"
+  },
+  "thailand/baan-kang-wat" : {
+    "lat" : 18.776278,
+    "lng" : 98.948572,
+    "query" : "บ้านข้างวัด เชียงใหม่",
+    "result" : "บ้านข้างวัด",
+    "status" : "ok"
+  },
+  "thailand/big-buddha-phuket" : {
+    "reason" : "name-mismatch:พระพุทธมิ่งมงคลเอกนาคคีรี",
+    "status" : "rejected"
+  },
+  "thailand/big-c-ratchadamri" : {
+    "reason" : "name-mismatch:บิ๊กซี | name-mismatch:บิ๊กซี | name-mismatch:บิ๊กซี",
+    "status" : "rejected"
+  },
+  "thailand/boots-thailand" : {
+    "reason" : "name-mismatch:สถานทูตสหรัฐฯ กรุงเทพฯ | name-mismatch:Bangkok Thailand Temple | name-mismatch:คิงเพาเวอร์ ดาวน์ทาวน์ คอมเพล็กซ์ | name-mismatch:บู๊ทส์",
+    "status" : "rejected"
+  },
+  "thailand/centralworld" : {
+    "lat" : 13.747272,
+    "lng" : 100.540493,
+    "query" : "เซ็นทรัลเวิลด์",
+    "result" : "เซ็นทรัลเวิลด์",
+    "status" : "ok"
+  },
+  "thailand/cha-tra-mue" : {
+    "reason" : "ambiguous-branches:ชาตรามือ",
+    "status" : "rejected"
+  },
+  "thailand/chatuchak-market" : {
+    "lat" : 13.799923,
+    "lng" : 100.550855,
+    "query" : "Chatuchak Market Bangkok",
+    "result" : "ตลาดนัดจตุจักร",
+    "status" : "ok"
+  },
+  "thailand/chiang-mai-night-bazaar" : {
+    "lat" : 18.785834,
+    "lng" : 99.000354,
+    "query" : "Chiang Mai Night Bazaar Chiang Mai",
+    "result" : "ไนท์บาซาร์ เชียงใหม่",
+    "status" : "ok"
+  },
+  "thailand/chillva-market" : {
+    "reason" : "name-mismatch:Chillva2market - ชิลล์วา 2 | name-mismatch:กุ้งแช่น้ำปลา ตลาดชิลล์วา | name-mismatch:ภูเก็ตกรี๊ดเครป-ตลาดชิลล์วา | name-mismatch:ตลาดนัดชิลล์วา",
+    "status" : "rejected"
+  },
+  "thailand/chinatown-yaowarat" : {
+    "lat" : 13.741418,
+    "lng" : 100.507989,
+    "query" : "Chinatown Yaowarat Bangkok",
+    "result" : "เยาวราช",
+    "status" : "ok"
+  },
+  "thailand/doi-suthep" : {
+    "lat" : 18.815403,
+    "lng" : 98.893374,
+    "query" : "ดอยสุเทพ เชียงใหม่",
+    "result" : "ดอยสุเทพ",
+    "status" : "ok"
+  },
+  "thailand/erawan-shrine" : {
+    "reason" : "name-mismatch:에라완 사원",
+    "status" : "rejected"
+  },
+  "thailand/grand-palace" : {
+    "reason" : "name-mismatch:대궁전 | name-mismatch:대궁전",
+    "status" : "rejected"
+  },
+  "thailand/health-land-spa" : {
+    "reason" : "name-mismatch:เฮลท์แลนด์สปาแอนด์มาสซาจ | name-mismatch:เฮลท์แลนด์ สปา สาทร | name-mismatch:เฮลท์แลนด์ พระราม 2 | name-mismatch:เฮลท์แลนด์ สปา แอนด์ มาสสาจ แจ้งวัฒนะ",
+    "status" : "rejected"
+  },
+  "thailand/iconsiam" : {
+    "lat" : 13.727551,
+    "lng" : 100.511904,
+    "query" : "ไอคอนสยาม กรุงเทพฯ",
+    "result" : "ไอคอนสยาม",
+    "status" : "ok"
+  },
+  "thailand/jodd-fairs" : {
+    "lat" : 13.768226,
+    "lng" : 100.571063,
+    "query" : "Jodd Fairs Bangkok",
+    "result" : "จ๊อดแฟร์",
+    "status" : "ok"
+  },
+  "thailand/jomtien-beach" : {
+    "lat" : 12.871058,
+    "lng" : 100.889274,
+    "query" : "หาดจอมเทียน",
+    "result" : "หาดจอมเทียน",
+    "status" : "ok"
+  },
+  "thailand/karon-beach" : {
+    "lat" : 7.844325,
+    "lng" : 98.293496,
+    "query" : "หาดกะรน ภูเก็ต",
+    "result" : "카론 비치",
+    "status" : "ok"
+  },
+  "thailand/kata-beach" : {
+    "lat" : 7.820835,
+    "lng" : 98.297494,
+    "query" : "หาดกะตะ ภูเก็ต",
+    "result" : "카타 비치",
+    "status" : "ok"
+  },
+  "thailand/khao-san-road" : {
+    "lat" : 13.758867,
+    "lng" : 100.497383,
+    "query" : "Khao San Road Bangkok",
+    "result" : "카오 산로드",
+    "status" : "ok"
+  },
+  "thailand/koh-larn" : {
+    "lat" : 12.91574,
+    "lng" : 100.778511,
+    "query" : "Koh Larn Pattaya",
+    "result" : "เกาะล้าน",
+    "status" : "ok"
+  },
+  "thailand/lets-relax-spa" : {
+    "reason" : "ambiguous-branches:Let's Relax",
+    "status" : "rejected"
+  },
+  "thailand/lumphini-park" : {
+    "lat" : 13.731312,
+    "lng" : 100.541644,
+    "query" : "Lumphini Park Bangkok",
+    "result" : "룸피니 공원",
+    "status" : "ok"
+  },
+  "thailand/mbk-center" : {
+    "reason" : "name-mismatch:เอ็มบีเคเซ็นเตอร์ | name-mismatch:ขาหมูตรอกซุง @ Food Center MBK | name-mismatch:เอ็มบีเคเซ็นเตอร์",
+    "status" : "rejected"
+  },
+  "thailand/nimman-road" : {
+    "reason" : "name-mismatch:นิมมานเหมินทร์ | name-mismatch:วันนิมมาน | name-mismatch:นิมมานเหมินท์ ซอย7 | name-mismatch:스테이 위드 님만 치앙마이 - SHA Extra Plus",
+    "status" : "rejected"
+  },
+  "thailand/nong-nooch-tropical-garden" : {
+    "reason" : "name-mismatch:농 누치 열대 식물원 | name-mismatch:농 누치 열대 식물원 | name-mismatch:농 누치 열대 식물원",
+    "status" : "rejected"
+  },
+  "thailand/one-nimman" : {
+    "lat" : 18.80022,
+    "lng" : 98.967916,
+    "query" : "วันนิมมาน เชียงใหม่",
+    "result" : "วันนิมมาน",
+    "status" : "ok"
+  },
+  "thailand/patong-beach" : {
+    "reason" : "name-mismatch:빠똥 해변 | name-mismatch:빠똥 해변 | name-mismatch:빠똥 해변",
+    "status" : "rejected"
+  },
+  "thailand/phi-phi-islands" : {
+    "lat" : 7.741653,
+    "lng" : 98.775638,
+    "query" : "Phi Phi Islands Phuket",
+    "result" : "피피섬",
+    "status" : "ok"
+  },
+  "thailand/phuket-old-town" : {
+    "lat" : 7.884806,
+    "lng" : 98.38758,
+    "query" : "Phuket Old Town Phuket",
+    "result" : "Phuket Old Town",
+    "status" : "ok"
+  },
+  "thailand/promthep-cape" : {
+    "lat" : 7.761038,
+    "lng" : 98.304573,
+    "query" : "แหลมพรหมเทพ ภูเก็ต",
+    "result" : "แหลมพรหมเทพ",
+    "status" : "ok"
+  },
+  "thailand/sanctuary-of-truth" : {
+    "reason" : "name-mismatch:진리의 성전 | name-mismatch:진리의 성전 | name-mismatch:진리의 성전 | name-mismatch:진리의 성전",
+    "status" : "rejected"
+  },
+  "thailand/siam-paragon" : {
+    "lat" : 13.746024,
+    "lng" : 100.534289,
+    "query" : "Siam Paragon Bangkok",
+    "result" : "시암 파라곤",
+    "status" : "ok"
+  },
+  "thailand/terminal-21" : {
+    "reason" : "name-mismatch:เทอร์มินอล21 อโศก | name-mismatch:เทอร์มินอล21 อโศก | name-mismatch:เทอร์มินอล21 อโศก",
+    "status" : "rejected"
+  },
+  "thailand/terminal-21-pattaya" : {
+    "lat" : 12.949858,
+    "lng" : 100.889694,
+    "query" : "เทอร์มินอล 21 พัทยา พัทยา",
+    "result" : "เทอร์มินอล 21 พัทยา",
+    "status" : "ok"
+  },
+  "thailand/tha-phae-gate" : {
+    "lat" : 18.78778,
+    "lng" : 98.99326,
+    "query" : "ประตูท่าแพ เชียงใหม่",
+    "result" : "ประตูท่าแพ",
+    "status" : "ok"
+  },
+  "thailand/walking-street-pattaya" : {
+    "reason" : "name-mismatch:워킹 스트리트 파타야 | name-mismatch:워킹 스트리트 파타야 | name-mismatch:워킹 스트리트 파타야",
+    "status" : "rejected"
+  },
+  "thailand/warorot-market" : {
+    "lat" : 18.790425,
+    "lng" : 99.000674,
+    "query" : "ตลาดวโรรส เชียงใหม่",
+    "result" : "ตลาดวโรรส",
+    "status" : "ok"
+  },
+  "thailand/wat-arun" : {
+    "lat" : 13.744912,
+    "lng" : 100.489048,
+    "query" : "วัดอรุณ กรุงเทพฯ",
+    "result" : "วัดอรุณ",
+    "status" : "ok"
+  },
+  "thailand/wat-chedi-luang" : {
+    "lat" : 18.786943,
+    "lng" : 98.987417,
+    "query" : "วัดเจดีย์หลวง เชียงใหม่",
+    "result" : "왓 체디 루앙",
+    "status" : "ok"
+  },
+  "thailand/wat-pho" : {
+    "lat" : 13.746571,
+    "lng" : 100.493327,
+    "query" : "Wat Pho Bangkok",
+    "result" : "왓포",
+    "status" : "ok"
+  },
+  "thailand/wat-saket" : {
+    "reason" : "name-mismatch:골든 마운트 | name-mismatch:วัดสระเกศราชวรมหาวิหาร | name-mismatch:골든 마운트",
+    "status" : "rejected"
+  },
+  "vietnam/an-bang-beach" : {
+    "lat" : 15.913826,
+    "lng" : 108.340649,
+    "query" : "Biển An Bàng Đà Nẵng",
+    "result" : "Bãi Biển An Bàng",
+    "status" : "ok"
+  },
+  "vietnam/ba-na-hills" : {
+    "reason" : "name-mismatch:Sun World Ba Na Hills | name-mismatch:Sun World Ba Na Hills | name-mismatch:Sun World Ba Na Hills | name-mismatch:Cầu Vàng",
+    "status" : "rejected"
+  },
+  "vietnam/ben-thanh-market" : {
+    "lat" : 10.772471,
+    "lng" : 106.698033,
+    "query" : "Chợ Bến Thành TP. Hồ Chí Minh",
+    "result" : "벤탄시장",
+    "status" : "ok"
+  },
+  "vietnam/bitexco-financial-tower" : {
+    "reason" : "name-mismatch:비텍스코 파이낸셜 타워 | name-mismatch:떤션녓 국제공항 | name-mismatch:노트르담 성당 | name-mismatch:Trung Tâm Thương Mại Saigon Centre",
+    "status" : "rejected"
+  },
+  "vietnam/bui-vien-walking-street" : {
+    "reason" : "name-mismatch:Phố đi bộ Bùi Viện | name-mismatch:사이공 중앙우체국 | name-mismatch:Bệnh Viện Đa Khoa Tâm Anh | name-mismatch:Bệnh Viện Nhi Đồng Thành Phố",
+    "status" : "rejected"
+  },
+  "vietnam/cafe-apartments" : {
+    "reason" : "name-mismatch:Chung cư Khang Gia | name-mismatch:Chung Cư Him Lam Chợ Lớn | name-mismatch:Chung Cư Lê Thành | name-mismatch:Chung Cư Bộ Công An",
+    "status" : "rejected"
+  },
+  "vietnam/cong-caphe" : {
+    "reason" : "ambiguous-branches:Cộng Cà Phê",
+    "status" : "rejected"
+  },
+  "vietnam/cu-chi-tunnels" : {
+    "reason" : "name-mismatch:Trường Đại Học Công Thương TP. Hồ Chí Minh | name-mismatch:사이공 중앙우체국 | name-mismatch:호 치 민 시립 극장 | name-mismatch:호치민박물관",
+    "status" : "rejected"
+  },
+  "vietnam/dam-market" : {
+    "lat" : 12.254945,
+    "lng" : 109.191806,
+    "query" : "Chợ Đầm Nha Trang",
+    "result" : "Chợ Đầm",
+    "status" : "ok"
+  },
+  "vietnam/dong-xuan-market" : {
+    "lat" : 21.038034,
+    "lng" : 105.849409,
+    "query" : "Chợ Đồng Xuân Hà Nội",
+    "result" : "Chợ Đồng Xuân",
+    "status" : "ok"
+  },
+  "vietnam/dragon-bridge" : {
+    "lat" : 16.061259,
+    "lng" : 108.2287,
+    "query" : "Cầu Rồng Đà Nẵng",
+    "result" : "Cầu Rồng",
+    "status" : "ok"
+  },
+  "vietnam/golden-bridge" : {
+    "lat" : 15.994564,
+    "lng" : 107.996408,
+    "query" : "Cầu Vàng Đà Nẵng",
+    "result" : "Cầu Vàng",
+    "status" : "ok"
+  },
+  "vietnam/ha-long-bay" : {
+    "reason" : "name-mismatch:Cầu Long Biên | name-mismatch:Trung tâm Chiếu phim Quốc gia | name-mismatch:Vinhomes Times City - Park Hill | name-mismatch:GO!",
+    "status" : "rejected"
+  },
+  "vietnam/han-market" : {
+    "lat" : 16.068316,
+    "lng" : 108.224285,
+    "query" : "Chợ Hàn Đà Nẵng",
+    "result" : "한시장",
+    "status" : "ok"
+  },
+  "vietnam/hanoi-old-quarter" : {
+    "lat" : 21.034059,
+    "lng" : 105.850637,
+    "query" : "Hanoi Old Quarter Hanoi",
+    "result" : "Hanoi Old Quarter",
+    "status" : "ok"
+  },
+  "vietnam/highlands-coffee" : {
+    "reason" : "ambiguous-branches:Highlands Coffee",
+    "status" : "rejected"
+  },
+  "vietnam/ho-chi-minh-mausoleum" : {
+    "reason" : "name-mismatch:호치민 마우솔레움 | name-mismatch:호치민 마우솔레움 | name-mismatch:호치민 마우솔레움",
+    "status" : "rejected"
+  },
+  "vietnam/hoan-kiem-lake" : {
+    "lat" : 21.028782,
+    "lng" : 105.852536,
+    "query" : "Hồ Hoàn Kiếm Hà Nội",
+    "result" : "Hồ Hoàn Kiếm",
+    "status" : "ok"
+  },
+  "vietnam/hoi-an-ancient-town" : {
+    "lat" : 15.876701,
+    "lng" : 108.326681,
+    "query" : "Phố cổ Hội An Đà Nẵng",
+    "result" : "Phố Cổ Hội An",
+    "status" : "ok"
+  },
+  "vietnam/hon-chong" : {
+    "lat" : 12.272067,
+    "lng" : 109.205926,
+    "query" : "Hòn Chồng Nha Trang",
+    "result" : "Hòn Chồng",
+    "status" : "ok"
+  },
+  "vietnam/hon-mun-island" : {
+    "lat" : 12.166755,
+    "lng" : 109.303692,
+    "query" : "Hòn Mun Nha Trang",
+    "result" : "Hòn Mun Island",
+    "status" : "ok"
+  },
+  "vietnam/katinat-saigon-kafe" : {
+    "lat" : 10.774798,
+    "lng" : 106.704396,
+    "query" : "Katinat Saigon Kafe Ho Chi Minh",
+    "result" : "Katinat Saigon Kafe",
+    "status" : "ok"
+  },
+  "vietnam/landmark-81" : {
+    "reason" : "name-mismatch:Vinhomes Central Park – Landmark 81 | name-mismatch:Landmark 81 Skyview | name-mismatch:Vincom Center Landmark 81 | name-mismatch:Haidilao Landmark 81",
+    "status" : "rejected"
+  },
+  "vietnam/long-son-pagoda" : {
+    "lat" : 12.25112,
+    "lng" : 109.18059,
+    "query" : "Chùa Long Sơn Nha Trang",
+    "result" : "Chùa Long Sơn",
+    "status" : "ok"
+  },
+  "vietnam/marble-mountains" : {
+    "lat" : 16.003509,
+    "lng" : 108.264202,
+    "query" : "Ngũ Hành Sơn Đà Nẵng",
+    "result" : "Ngũ Hành Sơn",
+    "status" : "ok"
+  },
+  "vietnam/my-khe-beach" : {
+    "lat" : 16.060825,
+    "lng" : 108.246961,
+    "query" : "Bãi biển Mỹ Khê Đà Nẵng",
+    "result" : "Biển Mỹ Khê",
+    "status" : "ok"
+  },
+  "vietnam/nguyen-hue-walking-street" : {
+    "lat" : 10.773657,
+    "lng" : 106.704068,
+    "query" : "Nguyen Hue Walking Street Ho Chi Minh",
+    "result" : "Phố Đi Bộ Nguyễn Huệ",
+    "status" : "ok"
+  },
+  "vietnam/nha-trang-beach" : {
+    "lat" : 12.236429,
+    "lng" : 109.197943,
+    "query" : "Biển Nha Trang Nha Trang",
+    "result" : "Bãi Biển Nha Trang",
+    "status" : "ok"
+  },
+  "vietnam/ninh-binh" : {
+    "reason" : "name-mismatch:성요셉 성당 | name-mismatch:Phố đi bộ Hồ Gươm | name-mismatch:Trung tâm Chiếu phim Quốc gia | name-mismatch:Chung cư An Bình City",
+    "status" : "rejected"
+  },
+  "vietnam/notre-dame-basilica" : {
+    "lat" : 10.779696,
+    "lng" : 106.699086,
+    "query" : "Nhà thờ Đức Bà TP. Hồ Chí Minh",
+    "result" : "노트르담 성당",
+    "status" : "ok"
+  },
+  "vietnam/phuc-long-coffee-tea" : {
+    "lat" : 10.784485,
+    "lng" : 106.699594,
+    "query" : "Phúc Long TP. Hồ Chí Minh",
+    "result" : "Phuc Long Coffee & Tea",
+    "status" : "ok"
+  },
+  "vietnam/po-nagar-cham-towers" : {
+    "lat" : 12.265272,
+    "lng" : 109.195374,
+    "query" : "Tháp Bà Ponagar Nha Trang",
+    "result" : "Tháp Bà Ponagar",
+    "status" : "ok"
+  },
+  "vietnam/saigon-central-post-office" : {
+    "lat" : 10.779891,
+    "lng" : 106.699938,
+    "query" : "Bưu điện Trung tâm Sài Gòn TP. Hồ Chí Minh",
+    "result" : "사이공 중앙우체국",
+    "status" : "ok"
+  },
+  "vietnam/saigon-opera-house" : {
+    "lat" : 10.776582,
+    "lng" : 106.703119,
+    "query" : "Saigon Opera House Ho Chi Minh",
+    "result" : "Nhà Hát Thành Phố",
+    "status" : "ok"
+  },
+  "vietnam/son-tra-peninsula" : {
+    "lat" : 16.109136,
+    "lng" : 108.254959,
+    "query" : "Bán đảo Sơn Trà Đà Nẵng",
+    "result" : "Ban Đao Sơn Tra",
+    "status" : "ok"
+  },
+  "vietnam/st-josephs-cathedral" : {
+    "lat" : 21.028681,
+    "lng" : 105.84885,
+    "query" : "Nhà thờ Lớn Hà Nội Hà Nội",
+    "result" : "성요셉 성당",
+    "status" : "ok"
+  },
+  "vietnam/tan-dinh-church" : {
+    "reason" : "name-mismatch:떵딘 교회 | name-mismatch:떤션녓 국제공항 | name-mismatch:호 치 민 시립 극장 | name-mismatch:노트르담 성당",
+    "status" : "rejected"
+  },
+  "vietnam/temple-of-literature" : {
+    "reason" : "name-mismatch:리터러쳐사원 | name-mismatch:리터러쳐사원 | name-mismatch:리터러쳐사원",
+    "status" : "rejected"
+  },
+  "vietnam/the-coffee-house" : {
+    "lat" : 10.845125,
+    "lng" : 106.62407,
+    "query" : "The Coffee House TP. Hồ Chí Minh",
+    "result" : "The Coffee House",
+    "status" : "ok"
+  },
+  "vietnam/train-street" : {
+    "reason" : "name-mismatch:Ga Hà Nội | name-mismatch:Hanoi Train Street | name-mismatch:Ga Hà Nội",
+    "status" : "rejected"
+  },
+  "vietnam/trung-nguyen-legend" : {
+    "reason" : "ambiguous-branches:Trung Nguyên Legend Café",
+    "status" : "rejected"
+  },
+  "vietnam/vinpearl-nha-trang" : {
+    "reason" : "name-mismatch:Vinpearl Beachfront Nha Trang | name-mismatch:Vinpearl Empire Nha Trang, Affiliated by Meliá | name-mismatch:Vinpearl Golf Nha Trang | name-mismatch:빈펄 럭셔리 나 트랑",
+    "status" : "rejected"
+  },
+  "vietnam/war-remnants-museum" : {
+    "reason" : "name-mismatch:전쟁 유적 박물관 | name-mismatch:전쟁 유적 박물관 | name-mismatch:전쟁 유적 박물관",
+    "status" : "rejected"
+  },
+  "vietnam/west-lake" : {
+    "lat" : 21.050291,
+    "lng" : 105.827047,
+    "query" : "Hồ Tây Hà Nội",
+    "result" : "Hồ Tây",
+    "status" : "ok"
+  }
+}
