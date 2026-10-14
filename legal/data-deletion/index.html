@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Deletion Request / 데이터 삭제 요청 — kkiruk studio</title>
+<meta name="description" content="How to request deletion of data sent to kkiruk studio servers from Pinclip, Local Link and Sidefeed.">
+<link rel="canonical" href="https://www.kkirukstudio.com/legal/data-deletion/">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a1a; padding: 2rem 1.25rem; }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #e5e5e5; flex-wrap: wrap; gap: 12px; }
+  .header h1 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+  .header p { font-size: 12px; color: #888; margin-top: 4px; }
+  .lang-btns { display: flex; gap: 8px; }
+  .lang-btns button, .app-tabs button { font-size: 12px; padding: 4px 14px; border-radius: 20px; border: 1px solid #ccc; background: transparent; color: #666; cursor: pointer; font-family: inherit; }
+  .lang-btns button.active, .app-tabs button.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .meta { font-size: 13px; color: #888; margin-bottom: 1.75rem; line-height: 1.7; }
+  .intro { font-size: 14px; color: #555; margin-bottom: 1.5rem; line-height: 1.7; }
+  .tab-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .app-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem; }
+  .section { border-left: 2px solid #e5e5e5; padding-left: 1rem; margin-bottom: 2rem; }
+  .section h2 { font-size: 15px; font-weight: 600; margin-bottom: 1rem; }
+  .section p { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 1rem; }
+  .section p:last-child { margin-bottom: 0; }
+  .section ul { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 1rem; padding-left: 1.2rem; }
+  .section li { margin-bottom: 4px; }
+  .app-block { margin-bottom: 1rem; }
+  .app-block:last-child { margin-bottom: 0; }
+  .sub-label { font-size: 13px; font-weight: 600; color: #888; margin-bottom: 6px; }
+  .warning-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; color: #92400e; line-height: 1.6; }
+
+  /* ── 앱별 구분 강화 (2026-09-18) ────────────────────────────────
+     앱 이름이 13px 회색 라벨이라, '전체' 보기에서 노란 경고 박스만 눈에 띄고
+     그게 어느 앱 얘기인지는 읽히지 않았다. 실제로 고양이 게임 이용자가
+     다른 앱(음성 녹음·지하철 기록)의 고지를 이 게임 것으로 오해하고
+     1점 리뷰를 남겼다. 문구는 그대로 두고 경계만 분명히 한다. */
+  .app-tabs { position: sticky; top: 0; z-index: 20; background: #fff; padding: 8px 0; }
+  .app-block { margin-bottom: 1rem; border: 1px solid #e8e8e8; border-radius: 10px; padding: 12px 14px; background: #fcfcfc; }
+  .app-block > .sub-label { font-size: 13px; font-weight: 700; color: #1a1a1a; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 1px solid #eee; letter-spacing: -0.1px; }
+  .app-block .sub-label::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #1a1a1a; margin-right: 7px; vertical-align: middle; }
+  .scope-banner { display: none; border: 1px solid #1a1a1a; border-radius: 10px; padding: 11px 14px; margin-bottom: 1.5rem; font-size: 13px; line-height: 1.6; color: #1a1a1a; background: #f6f6f6; }
+  .scope-banner.on { display: block; }
+  .scope-banner b { font-weight: 700; }
+  .scope-banner a { color: #1a1a1a; text-decoration: underline; margin-left: 6px; }
+  @media (prefers-color-scheme: dark) {
+    .app-tabs { background: #111; }
+    .app-block { border-color: #333; background: #161616; }
+    .app-block > .sub-label { color: #e5e5e5; border-bottom-color: #2a2a2a; }
+    .app-block .sub-label::before { background: #e5e5e5; }
+    .scope-banner { border-color: #e5e5e5; background: #1c1c1c; color: #e5e5e5; }
+    .scope-banner a { color: #e5e5e5; }
+  }
+  table { width: 100%; font-size: 13px; border-collapse: collapse; margin-bottom: 10px; }
+  td { padding: 8px 0; color: #555; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  td:first-child { width: 42%; font-weight: 500; color: #333; }
+  tr:last-child td { border-bottom: none; }
+  .note { font-size: 12px; color: #999; margin-top: 8px; line-height: 1.6; }
+  .note a { color: #0066cc; text-decoration: none; }
+  .email { color: #0066cc; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #111; color: #e5e5e5; }
+    .header { border-color: #333; }
+    .header h1 { color: #e5e5e5; }
+    .lang-btns button, .app-tabs button { border-color: #444; color: #aaa; background: transparent; }
+    .lang-btns button.active, .app-tabs button.active { background: #e5e5e5; color: #111; border-color: #e5e5e5; }
+    .section { border-color: #333; }
+    .section p, .section ul, .section li, td { color: #aaa; }
+    td:first-child { color: #ccc; }
+    td { border-color: #2a2a2a; }
+    .warning-box { background: #2a1f00; border-color: #7a5500; color: #f0b429; }
+    .note { color: #666; }
+    .sub-label { color: #666; }
+    .tab-label { color: #666; }
+    .email { color: #7eb3f5; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <p>kkiruk studio</p>
+      <h1>Data Deletion Request / 데이터 삭제 요청</h1>
+    </div>
+    <div class="lang-btns">
+      <button onclick="showLang('ko')">한국어</button>
+      <button class="active" onclick="showLang('en')">English</button>
+    </div>
+  </div>
+
+  <!-- 한국어 -->
+  <div id="lang-ko" style="display:none;">
+    <p class="meta">시행일: 2026년 10월 14일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
+
+    <div class="section">
+      <h2>데이터 삭제 요청 방법</h2>
+      <p>kkiruk studio 가 Google Play·App Store 에 배포하는 앱(Pinclip, Local Link, Sidefeed 등)에서 당사 서버로 전송된 데이터는 아래 절차로 삭제를 요청할 수 있습니다. 계정 기능이 없는 앱이므로 앱 안에서 탈퇴 절차는 없으며, 메일로 요청합니다.</p>
+      <ol style="font-size:16px; line-height:1.9; color:inherit; padding-left:1.4rem; margin-bottom:1rem;">
+        <li style="margin-bottom:8px;"><b>이메일 보내기</b>: <span class="email" id="email-ko-step"></span> 으로 제목 「[앱 이름] 데이터 삭제 요청」 메일을 보냅니다.</li>
+        <li style="margin-bottom:8px;"><b>식별 정보 적기</b>: 어떤 데이터인지 찾을 수 있도록 아래 표의 「요청 시 알려주실 것」을 본문에 적습니다.</li>
+        <li style="margin-bottom:8px;"><b>처리</b>: 접수 후 <b>30일 이내</b>에 삭제하고 완료 메일을 회신합니다. 삭제된 데이터는 복구할 수 없습니다.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>삭제되는 데이터와 보관 기간</h2>
+      <table>
+        <tr><td>Pinclip</td><td>폴더 공유 스냅샷: 폴더명, 닉네임(선택), 영상 URL·제목·썸네일 URL·플랫폼명.<br><b>요청 시 알려주실 것</b>: 공유 링크 주소(https://pinclip.link/f/…).<br><b>보관 기간</b>: 삭제 요청이 없으면 만료 없이 보관되며, 삭제 시 해당 공유 링크는 더 이상 열리지 않습니다.</td></tr>
+        <tr><td>Local Link</td><td>「장소 요청」 폼으로 보낸 내용(요청 텍스트와 함께 전송된 항목).<br><b>요청 시 알려주실 것</b>: 보낸 날짜와 요청 내용 일부.<br><b>보관 기간</b>: 요청 처리 후에도 보관되므로 삭제를 원하시면 요청해 주세요.</td></tr>
+        <tr><td>Sidefeed</td><td>온보딩 설문의 선택지 응답. 기기 식별자·계정 없이 저장되어 특정 이용자의 응답을 찾아낼 수 없고 개인을 식별하지 않습니다. 삭제 요청 대상이 되는 개인 데이터가 없습니다.</td></tr>
+      </table>
+      <p class="note">위 외의 앱(속보메이커, Honest Camera, 직장인 부적, CutTogether, DeskBreath, everykeep, CapBox 등)은 당사 서버로 데이터를 전송하지 않습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>삭제 후 보관되는 데이터</h2>
+      <p>당사는 삭제 요청을 처리한 뒤 해당 데이터를 별도로 보관하지 않습니다. 법령상 보관 의무가 있는 데이터는 없습니다. 결제·구독 기록은 Google Play 또는 Apple 이 자체 정책에 따라 보관하며 당사 서버에는 저장되지 않습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>기기 안의 데이터</h2>
+      <p>앱 안에 저장된 데이터(저장한 영상 링크, 메모, 태그, 설정 등)는 사용자의 기기에만 보관되며 앱을 삭제하면 함께 삭제됩니다. 구독 취소·환불은 Google Play 또는 App Store 의 계정 설정에서 처리합니다.</p>
+      <p class="note">관련 문서: <a href="/legal/privacy/">개인정보 처리방침</a> &middot; <a href="/legal/terms/">이용약관</a></p>
+    </div>
+  </div>
+
+  <!-- English -->
+  <div id="lang-en">
+    <p class="meta">Effective: October 14, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
+
+    <div class="section">
+      <h2>How to request data deletion</h2>
+      <p>Data sent to kkiruk studio servers from our apps on Google Play and the App Store (Pinclip, Local Link, Sidefeed) can be deleted on request. Our apps have no accounts, so there is no in-app account deletion; requests are made by email.</p>
+      <ol style="font-size:16px; line-height:1.9; color:inherit; padding-left:1.4rem; margin-bottom:1rem;">
+        <li style="margin-bottom:8px;"><b>Send an email</b> to <span class="email" id="email-en-step"></span> with the subject "[App name] data deletion request".</li>
+        <li style="margin-bottom:8px;"><b>Identify the data</b> using the "What to include" details below.</li>
+        <li style="margin-bottom:8px;"><b>Processing</b>: we delete the data <b>within 30 days</b> of receipt and reply to confirm. Deleted data cannot be recovered.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Data deleted and retention</h2>
+      <table>
+        <tr><td>Pinclip</td><td>Folder-share snapshot: folder name, nickname (optional), video URL, title, thumbnail URL and platform name.<br><b>What to include</b>: the share link address (https://pinclip.link/f/…).<br><b>Retention</b>: kept without expiry unless you request deletion; once deleted, the share link no longer opens.</td></tr>
+        <tr><td>Local Link</td><td>Content sent through the "Request a place" form (the request text and anything sent with it).<br><b>What to include</b>: the date you sent it and part of the request text.<br><b>Retention</b>: kept even after the request is handled, so please contact us if you want it deleted.</td></tr>
+        <tr><td>Sidefeed</td><td>Answers chosen in the onboarding survey. They are stored without any device identifier or account, so no individual's answer can be located; it is not personal data and there is nothing to delete.</td></tr>
+      </table>
+      <p class="note">Our other apps (Newsmaker, Honest Camera, SalaryCharm, CutTogether, DeskBreath, everykeep, CapBox) send no data to our servers.</p>
+    </div>
+
+    <div class="section">
+      <h2>Data retained after deletion</h2>
+      <p>We keep no copy after processing a request. We have no legal retention obligations for this data. Purchase and subscription records are held by Google Play or Apple under their own policies and are not stored on our servers.</p>
+    </div>
+
+    <div class="section">
+      <h2>Data on your device</h2>
+      <p>Data stored inside the apps (saved links, notes, tags, settings) stays on your device and is removed when you uninstall the app. Cancel subscriptions or request refunds in your Google Play or App Store account settings.</p>
+      <p class="note">Related: <a href="/legal/privacy/">Privacy Policy</a> &middot; <a href="/legal/terms/">Terms of Service</a></p>
+    </div>
+  </div>
+
+</div>
+<script>
+var u = 'kkirukstudio.help';
+var d = 'gmail.com';
+var e = u + '@' + d;
+var ids = ['email-ko','email-ko-step','email-en','email-en-step'];
+ids.forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = e;
+});
+
+function showLang(lang) {
+  document.getElementById('lang-ko').style.display = lang === 'ko' ? 'block' : 'none';
+  document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
+  document.querySelectorAll('.lang-btns button').forEach(function(btn, i) {
+    btn.classList.toggle('active', (lang === 'ko' && i === 0) || (lang === 'en' && i === 1));
+  });
+}
+</script>
+</body>
+</html>
