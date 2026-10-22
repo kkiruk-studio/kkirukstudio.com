@@ -5,6 +5,7 @@ Usage: python3 build.py
 Output: ./index.html (ja, root/default), ./ko/index.html, ./en/index.html
 """
 import pathlib
+from html import escape as html_escape
 
 ROOT = pathlib.Path(__file__).parent
 BASE_URL = "https://www.kkirukstudio.com/tetsulog/"
@@ -88,6 +89,70 @@ RAILMAP_SVG = """<svg viewBox="0 0 1280 2048" aria-hidden="true">
   <text class="eki-label" x="1150" y="450" text-anchor="start" font-size="46">上野</text>
   <text class="eki-label" x="681.9" y="1740" text-anchor="middle" font-size="46">品川</text>
 </svg>"""
+
+# よくある質問(アプリ内 FAQ と同文。訳は Localizable.xcstrings の値。8 問目はサイト用に新規)
+FAQ = {'ja': {'title': 'よくある質問',
+        'items': [['乗った区間をまとめて記録するには？', '路線タブで路線を開き、「区間入力」で出発駅と到着駅を選ぶと、間の駅もまとめて訪問済みになります。地図の駅をタップして駅カードの「ここから区間を記録」を押しても同じ画面が開き、その駅が出発駅として入ります。'],
+                  ['複数の路線が乗り入れる駅で、記録する路線を選ぶには？', '地図の駅カードで「ここから区間を記録」を押すと、その駅に乗り入れる路線の一覧が出るので、記録したい路線を選んでください。区間入力の画面に入ったあとは路線を変えられないため、別の路線にしたいときは一度閉じて選び直します。'],
+                  ['乗っていない区間まで塗られてしまう', '地図は記録した駅と駅の間を乗車済みと推測します。A→BとC→Dだけ乗ったときにB→Cを塗りたくない場合は、設定の「区間を推測しない」をオンにしてください。'],
+                  ['湘南新宿ラインや上野東京ラインが見つからない', '鉄ログは乗りつぶしの慣例に合わせて、正式な線路名称(東海道線・山手線など)を単位に記録します。運行系統の名前では収録していないので、走っている線路ごとに記録してください。例えば湘南新宿ラインの大崎〜西大井は「大崎支線」として記録します。'],
+                  ['記録は別の端末でも見られる？', 'iCloudにサインインしていれば自動で同期されます。状態は設定の「iCloud 同期」で確認できます。'],
+                  ['機種変更に備えるには？', '設定の「バックアップ」で記録をファイルに書き出し、新しい端末で「バックアップ復元」から読み込みます。「エクスポート」でCSVとしても取り出せます。'],
+                  ['無料版とProの違いは？', '記録・地図・区間入力・iCloud同期は無料で全て使えます。Proでは、お気に入り無制限、会社別の統計と活動カレンダー、47都道府県ヒートマップ、共有カードのウォーターマーク非表示、PDF御朱印帳、前面展望の逆方向・区間指定が使えます。'],
+                  ['山手線が品川〜田端までしかない', '鉄ログは乗りつぶしの慣例に合わせて、正式な線路名称を単位に記録します。山手線の正式な区間は品川〜新宿〜田端で、環状運転の東側(田端〜東京〜品川)は東北線・東海道線の一部です。環状線を一周した場合は、山手線・東北線(田端〜東京)・東海道線(東京〜品川)の3路線で記録してください。']]},
+ 'ko': {'title': '자주 묻는 질문',
+        'items': [['탄 구간을 한꺼번에 기록하려면?', '노선 탭에서 노선을 열고 ‘구간 입력’에서 출발역과 도착역을 고르면 사이의 역도 한꺼번에 ‘방문 완료’가 돼요. 지도에서 역을 탭하고 역 카드의 ‘여기서 구간 기록’을 눌러도 같은 화면이 열리며, 그 역이 출발역으로 들어가요.'],
+                  ['여러 노선이 들어오는 역에서 기록할 노선을 고르려면?', '지도의 역 카드에서 ‘여기서 구간 기록’을 누르면 그 역에 들어오는 노선 목록이 나와요. 기록할 노선을 고르세요. 구간 입력 화면에 들어간 뒤에는 노선을 바꿀 수 없으니, 다른 노선으로 바꾸려면 한 번 닫고 다시 선택하세요.'],
+                  ['타지 않은 구간까지 칠해져요', '지도는 기록한 역과 역 사이를 탄 것으로 추측해요. A→B와 C→D만 탔는데 B→C는 칠해지지 않게 하려면 설정에서 ‘구간을 추측하지 않음’을 켜세요.'],
+                  ['쇼난신주쿠 라인이나 우에노도쿄 라인을 찾을 수 없어요',
+                   '철로그는 완승(노선 전체 탑승) 관례에 맞춰 정식 선로 명칭(도카이도선·야마노테선 등)을 단위로 기록해요. 운행 계통 이름으로는 수록하지 않았으니, 실제로 달리는 선로별로 기록해 주세요. 예를 들어 쇼난신주쿠 라인의 오사키~니시오이는 ‘오사키 지선’으로 기록해요.'],
+                  ['기록을 다른 기기에서도 볼 수 있나요?', 'iCloud에 로그인되어 있으면 자동으로 동기화돼요. 상태는 설정의 ‘iCloud 동기화’에서 확인할 수 있어요.'],
+                  ['기기를 바꿀 때를 대비하려면?', '설정의 ‘백업’에서 기록을 파일로 내보내고, 새 기기에서 ‘백업 복원’으로 불러오세요. ‘내보내기’로 CSV로도 꺼낼 수 있어요.'],
+                  ['무료 버전과 Pro의 차이는?', '기록·지도·구간 입력·iCloud 동기화는 모두 무료로 쓸 수 있어요. Pro에서는 즐겨찾기 무제한, 회사별 통계와 활동 캘린더, 47도도부현 히트맵, 공유 카드 워터마크 제거, PDF 스탬프 수첩, 전면 전망의 역방향·구간 지정을 쓸 수 있어요.'],
+                  ['야마노테선이 시나가와~타바타까지밖에 없어요',
+                   '테츠로그는 노선 완주 기록의 관례에 맞춰 정식 선로 명칭을 단위로 기록합니다. 야마노테선의 정식 구간은 시나가와~신주쿠~타바타이고, 순환 운행의 동쪽 구간(타바타~도쿄~시나가와)은 도호쿠선·도카이도선의 일부입니다. 순환선을 한 바퀴 돌았다면 야마노테선·도호쿠선(타바타~도쿄)·도카이도선(도쿄~시나가와) 3개 노선으로 '
+                   '기록해 주세요.']]},
+ 'en': {'title': 'FAQ',
+        'items': [['How do I log a whole stretch I rode at once?',
+                   'Open a line in the Lines tab, then choose a departure and arrival station under “Segment Entry” and every station in between is marked as Visited at once. Tapping a station on '
+                   'the map and pressing “Log a segment from here” on its card opens the same screen, with that station filled in as the departure.'],
+                  ['How do I choose which line to log at a station served by several lines?',
+                   'Press “Log a segment from here” on the station card on the map and a list of the lines serving that station appears; pick the one you want to log. The line can’t be changed once '
+                   'you are on the Segment Entry screen, so to switch lines, close it and choose again.'],
+                  ['Stretches I didn’t ride get colored in',
+                   'The map assumes you rode between the stations you have logged. If you only rode A→B and C→D and don’t want B→C colored in, turn on “Don’t infer segments” in Settings.'],
+                  ['I can’t find the Shonan-Shinjuku Line or the Ueno-Tokyo Line',
+                   'Following the convention of “riding every line”, Tetsulog records by official track name (Tokaido Line, Yamanote Line, etc.). Service names are not included, so please log each '
+                   'track the train actually runs on. For example, the Osaki–Nishi-Oi section of the Shonan-Shinjuku Line is logged as the “Osaki Branch Line”.'],
+                  ['Can I see my records on another device?', 'If you’re signed in to iCloud, your records sync automatically. You can check the status under “iCloud Sync” in Settings.'],
+                  ['How do I prepare for switching to a new device?',
+                   'Export your records to a file with “Backup” in Settings, then load it on the new device with “Restore Backup”. You can also take them out as CSV with “Export”.'],
+                  ['What’s the difference between Free and Pro?',
+                   'Logging, the map, Segment Entry and iCloud sync are all free. Pro adds unlimited favorites, per-operator stats and the activity calendar, the 47-prefecture heatmap, share cards '
+                   'without the watermark, the PDF stamp book, and reverse direction and stretch selection in Cab View.'],
+                  ['The Yamanote Line only runs from Shinagawa to Tabata',
+                   'In keeping with the convention for riding every line, Tetsulog records by official track name. The Yamanote Line officially covers Shinagawa–Shinjuku–Tabata; the eastern side of '
+                   'the loop (Tabata–Tokyo–Shinagawa) belongs to the Tohoku Line and the Tokaido Line. If you rode the full loop, record it on three lines: the Yamanote Line, the Tohoku Line '
+                   '(Tabata–Tokyo) and the Tokaido Line (Tokyo–Shinagawa).']]},
+ 'zh': {'title': '常見問題',
+        'items': [['如何一次記錄搭乘過的整段區間？', '在「路線」分頁開啟路線，透過「區間輸入」選擇出發站與抵達站，中間的車站也會一併標為「已造訪」。在地圖上點按車站，再按車站卡片上的「從這裡記錄區間」也會開啟同一畫面，並自動填入該站作為出發站。'],
+                  ['在多條路線經過的車站，如何選擇要記錄的路線？', '在地圖的車站卡片上按「從這裡記錄區間」，會顯示經過該站的路線列表，請選擇要記錄的路線。進入區間輸入畫面後無法更換路線，想換路線時請先關閉再重新選擇。'],
+                  ['沒搭過的區間也被塗上了顏色', '地圖會推測您記錄的車站之間都已搭乘。如果只搭了 A→B 和 C→D，不想讓 B→C 被塗色，請在設定中開啟「不推測區間」。'],
+                  ['找不到湘南新宿線或上野東京線', '鉄ログ依照「搭乘全線」的慣例，以正式的路線名稱（東海道線、山手線等）為單位進行記錄。運行系統的名稱並未收錄，請依列車實際行駛的路線分別記錄。例如湘南新宿線的大崎～西大井區間，請記錄為「大崎支線」。'],
+                  ['紀錄可以在其他裝置上查看嗎？', '只要登入了 iCloud，就會自動同步。可在設定的「iCloud 同步」中查看狀態。'],
+                  ['換新裝置前該如何準備？', '在設定的「備份」中將紀錄匯出為檔案，然後在新裝置上透過「還原備份」讀取。也可以透過「匯出」取出為 CSV。'],
+                  ['免費版與 Pro 有什麼差別？', '記錄、地圖、區間輸入和 iCloud 同步全部免費使用。Pro 額外提供收藏無上限、各營運公司統計與活動日曆、47 都道府縣熱力圖、隱藏分享卡片浮水印、PDF 集章冊，以及前面展望的反向與區間指定。'],
+                  ['山手線只有品川～田端', '鐵ログ依照「乘遍全線」的慣例，以正式的線路名稱為單位記錄。山手線的正式區間是品川～新宿～田端，環狀運行的東側（田端～東京～品川）屬於東北線與東海道線的一部分。若乘坐了整圈環狀線，請以山手線、東北線（田端～東京）、東海道線（東京～品川）三條路線記錄。']]},
+ 'zh-hans': {'title': '常见问题',
+             'items': [['如何一次记录乘坐过的整段区间？', '在“路线”标签页打开路线，通过“区间输入”选择出发站和到达站，中间的车站也会一并标为“已造访”。在地图上点按车站，再按车站卡片上的“从这里记录区间”也会打开同一界面，并自动填入该站作为出发站。'],
+                       ['在多条线路经过的车站，如何选择要记录的线路？', '在地图的车站卡片上按“从这里记录区间”，会显示经过该站的线路列表，请选择要记录的线路。进入区间输入界面后无法更换线路，想换线路时请先关闭再重新选择。'],
+                       ['没乘过的区间也被涂上了颜色', '地图会推测您记录的车站之间都已乘坐。如果只乘了 A→B 和 C→D，不想让 B→C 被涂色，请在设置中打开“不推测区间”。'],
+                       ['找不到湘南新宿线或上野东京线', '鉄ログ依照“乘遍全线”的惯例，以正式的线路名称（东海道线、山手线等）为单位进行记录。运行系统的名称并未收录，请按列车实际行驶的线路分别记录。例如湘南新宿线的大崎～西大井区间，请记录为“大崎支线”。'],
+                       ['记录可以在其他设备上查看吗？', '只要登录了 iCloud，就会自动同步。可在设置的“iCloud 同步”中查看状态。'],
+                       ['换新设备前该如何准备？', '在设置的“备份”中将记录导出为文件，然后在新设备上通过“还原备份”读取。也可以通过“导出”取出为 CSV。'],
+                       ['免费版与 Pro 有什么区别？', '记录、地图、区间输入和 iCloud 同步全部免费使用。Pro 额外提供收藏无上限、各运营公司统计与活动日历、47 都道府县热力图、隐藏分享卡片水印、PDF 集章册，以及前面展望的反向与区间指定。'],
+                       ['山手线只有品川～田端', '鉄ログ依照“乘遍全线”的惯例，以正式的线路名称为单位记录。山手线的正式区间是品川～新宿～田端，环状运行的东侧（田端～东京～品川）属于东北线和东海道线的一部分。若乘坐了整圈环状线，请以山手线、东北线（田端～东京）、东海道线（东京～品川）三条线路记录。']]}}
+
 
 LOCALES = {
     "ja": {
@@ -366,6 +431,11 @@ def render(key):
         for h, p, pro in loc["feats"]
     )
 
+    faq_items = "".join(
+        f"<details><summary>{html_escape(q)}</summary><p>{html_escape(a)}</p></details>"
+        for q, a in FAQ[key]["items"]
+    )
+
     html = f"""<!doctype html>
 <html lang="{loc['lang']}">
 <head>
@@ -469,6 +539,13 @@ def render(key):
     <h2>{loc['final_h2']}</h2>
     <p class="lede">{loc['final_lede']}</p>
     <div class="cta">{badge(loc, 'storeLink2')}</div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>{FAQ[key]['title']}</h2>
+    <div class="faq-list">{faq_items}</div>
   </div>
 </section>
 
