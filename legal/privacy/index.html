@@ -124,7 +124,7 @@
     <div class="section" data-app="all">
       <h2>수집하는 정보</h2>
       <p class="sub-label">공통</p>
-      <p>당사는 개인 식별 정보를 수집하지 않습니다. 대부분의 앱은 광고·분석 SDK를 사용하지 않으며, 사용하는 앱·게임(어제보다, Song 2048, 테츠로그, 레일로그, NYC Subway Log, 鐵道誌, Offwork, 고양이는 정말 귀여워, 고양이는 정말 팡팡)은 아래 해당 항목에 그 내용을 명시합니다.</p>
+      <p>당사는 개인 식별 정보를 수집하지 않습니다. 대부분의 앱은 광고·분석 SDK를 사용하지 않으며, 사용하는 앱·게임(어제보다, Song 2048, Palette, Quote 2048, 테츠로그, 레일로그, NYC Subway Log, 鐵道誌, Offwork, 고양이는 정말 귀여워, 고양이는 정말 팡팡)은 아래 해당 항목에 그 내용을 명시합니다.</p>
       <div class="app-block" data-app="pinclip">
         <p class="sub-label">Pinclip</p>
         <p>사용자가 저장한 영상 URL, 제목, 썸네일, 메모, 태그, 폴더 정보를 기기 내에 저장합니다. Pinclip Pro 구독자의 경우 해당 데이터가 사용자의 Apple iCloud 계정 내 private CloudKit 데이터베이스에 동기화되며, 이는 Apple의 개인정보 보호방침을 따릅니다. URL 공유 시 가져오는 메타데이터(제목, 썸네일 URL)는 원본 플랫폼(YouTube, TikTok 등)의 공개 API로 직접 요청되며 당사의 서버를 경유하지 않습니다.</p>
@@ -184,9 +184,11 @@
       </div>
       <div class="app-block" data-app="palette2048">
         <p class="sub-label">Palette</p>
-        <p>당사는 Palette 이용자로부터 어떠한 개인 식별 정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 모두 부재합니다.</p>
+        <p>당사는 Palette 이용자로부터 어떠한 개인 식별 정보도 수집·전송·저장하지 않습니다. 광고 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 부재합니다. 앱 사용 통계는 아래 「사용 통계 (Firebase Analytics)」와 같이 익명으로만 수집됩니다.</p>
         <p>게임 진행 상황(현재 보드 상태, 베스트 점수, 푼 미스터리 목록, 연속 플레이 일수, 보드 크기 설정, 첫 플레이 일자, 온보딩/약관 동의 플래그)은 기기 내 UserDefaults 에 저장됩니다. 추가로 같은 데이터는 사용자의 Apple iCloud 계정 내 Key-Value Store 에 저장되어 같은 Apple ID 로 로그인된 다른 기기 또는 신규 기기 설정 시 자동 동기화·복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
         <p>인앱 구독(Palette Pro) 결제 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
+        <p class="sub-label">사용 통계 (Firebase Analytics)</p>
+        <p>앱 개선을 위해 비식별 앱 상호작용 이벤트(예: 게임 시작·종료, 결제 화면 노출, 알림 진입, 공유)와 Firebase 가 발급하는 기기 식별자(앱 인스턴스 ID)를 Google Firebase Analytics 로 수집할 수 있습니다. 게임 내용·이름·연락처 등 직접 식별 정보는 포함되지 않으며, 광고 식별자(IDFA·AAID)는 수집하지 않고 이용자를 추적하지 않으며, 데이터를 판매·제3자와 공유하거나 마케팅 목적으로 사용하지 않습니다(Google 은 처리자로서 데이터를 처리합니다). 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>을 참고하세요.</p>
         <p class="sub-label">권한</p>
         <p>알림 권한은 사용자가 설정에서 "매일 알림"을 켤 때만 요청됩니다. 알림은 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
       </div>
@@ -208,9 +210,11 @@
       </div>
       <div class="app-block" data-app="quote2048">
         <p class="sub-label">Quote 2048</p>
-        <p>당사는 Quote 2048 이용자로부터 어떠한 개인 식별 정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 모두 부재합니다.</p>
+        <p>당사는 Quote 2048 이용자로부터 어떠한 개인 식별 정보도 수집·전송·저장하지 않습니다. 광고 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 부재합니다. 앱 사용 통계는 아래 「사용 통계 (Firebase Analytics)」와 같이 익명으로만 수집됩니다.</p>
         <p>게임 진행 상황(현재 보드 상태, 테마 클리어·진행 상황, 베스트 점수, 연속 플레이 일수, 내 테마 팩(사용자가 입력한 문장 — 기기에만 저장), 설정, 온보딩/약관 동의 플래그)은 기기 내 UserDefaults 에 저장됩니다. 추가로 같은 데이터는 사용자의 Apple iCloud 계정 내 Key-Value Store 에 저장되어 같은 Apple ID 로 로그인된 다른 기기 또는 신규 기기 설정 시 자동 동기화·복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
         <p>인앱 결제(Quote Pro 일회성 구매) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
+        <p class="sub-label">사용 통계 (Firebase Analytics)</p>
+        <p>앱 개선을 위해 비식별 앱 상호작용 이벤트(예: 게임 시작·종료, 결제 화면 노출, 알림 진입, 공유)와 Firebase 가 발급하는 기기 식별자(앱 인스턴스 ID)를 Google Firebase Analytics 로 수집할 수 있습니다. 게임 내용·이름·연락처 등 직접 식별 정보는 포함되지 않으며, 광고 식별자(IDFA·AAID)는 수집하지 않고 이용자를 추적하지 않으며, 데이터를 판매·제3자와 공유하거나 마케팅 목적으로 사용하지 않습니다(Google 은 처리자로서 데이터를 처리합니다). 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>을 참고하세요.</p>
         <p class="sub-label">권한</p>
         <p>알림 권한은 사용자가 설정에서 알림을 켤 때만 요청됩니다. 알림은 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
       </div>
@@ -361,6 +365,7 @@
         <tr data-app="findlocal"><td>kkiruk studio server / cloud infrastructure</td><td>Local Link — 비식별 사용 지표·오류 진단 정보 처리(향후 기능 개선용)</td></tr>
         <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
         <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette — Pro 구독 결제·영수증 검증</td></tr>
+        <tr data-app="palette2048"><td>Google Firebase Analytics</td><td>Palette — 비식별 사용 통계 (IDFA 미사용)</td></tr>
         <tr data-app="salarycharm"><td>Apple StoreKit</td><td>직장인 부적 — 무제한 이용권(일회성) 결제·영수증 검증</td></tr>
         <tr data-app="deskbreath"><td>Apple StoreKit</td><td>DeskBreath — Pro 일회성 결제·영수증 검증</td></tr>
         <tr data-app="deskbreath"><td>Apple iCloud (Key-Value Store)</td><td>DeskBreath — Pro 설정·통계 기기 간 동기화 (사용자가 켤 때)</td></tr>
@@ -372,6 +377,7 @@
         <tr data-app="song2048"><td>Google Firebase Analytics</td><td>Song 2048 — 비식별 사용 통계</td></tr>
         <tr data-app="quote2048"><td>Apple iCloud (Key-Value Store)</td><td>Quote 2048 — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
         <tr data-app="quote2048"><td>Apple StoreKit</td><td>Quote 2048 — Pro 일회성 구매 결제·영수증 검증</td></tr>
+        <tr data-app="quote2048"><td>Google Firebase Analytics</td><td>Quote 2048 — 비식별 사용 통계 (IDFA 미사용)</td></tr>
         <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>테츠로그 — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
         <tr data-app="tetsulog"><td>Apple Core Location</td><td>테츠로그 — "내 위치"/"근처 역" 탭 시 현재 위치 일시 조회</td></tr>
         <tr data-app="tetsulog"><td>Apple StoreKit</td><td>테츠로그 — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
@@ -678,7 +684,7 @@
     <div class="section" data-app="all">
       <h2>Information we collect</h2>
       <p class="sub-label">All apps</p>
-      <p>We do not collect personally identifiable information. Most of our apps use no advertising or analytics SDKs; apps that do (ThanYesterday, Song 2048, Tetsulog, Raillog, NYC Subway Log, Taiwan Rail Log, Offwork; the games Cats are Cute and Cats are Cute: Pop Time!) disclose this in their app section below.</p>
+      <p>We do not collect personally identifiable information. Most of our apps use no advertising or analytics SDKs; apps that do (ThanYesterday, Song 2048, Palette, Quote 2048, Tetsulog, Raillog, NYC Subway Log, Taiwan Rail Log, Offwork; the games Cats are Cute and Cats are Cute: Pop Time!) disclose this in their app section below.</p>
       <div class="app-block" data-app="pinclip">
         <p class="sub-label">Pinclip</p>
         <p>Video URLs, titles, thumbnails, notes, tags, and folder information you save are stored on your device. For Pinclip Pro subscribers, this data is synced to your Apple iCloud account's private CloudKit database, subject to Apple's Privacy Policy. Metadata (titles, thumbnail URLs) fetched when sharing a URL is requested directly from the origin platform's public API (YouTube, TikTok, etc.) and never passes through our servers.</p>
@@ -738,9 +744,11 @@
       </div>
       <div class="app-block" data-app="palette2048">
         <p class="sub-label">Palette</p>
-        <p>We do not collect, transmit, or store any personally identifiable information from Palette users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, no account system, and does not request location permissions.</p>
+        <p>We do not collect, transmit, or store any personally identifiable information from Palette users. The app contains no advertising SDKs, no third-party integrations other than those disclosed below, no account system, and does not request location permissions. Anonymous usage statistics are collected only as described under “Usage analytics (Firebase Analytics)” below.</p>
         <p>Game progress (current board state, best scores, solved-mystery list, daily-play streak, board-size preference, first-play date, onboarding/terms-acceptance flags) is stored on your device in UserDefaults. The same data is also mirrored to your Apple iCloud account's Key-Value Store so it syncs across devices signed in to the same Apple ID and restores on new device setup. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
         <p>In-app subscription (Palette Pro) purchases and receipt validation are handled entirely by Apple StoreKit; we do not collect any payment information.</p>
+        <p class="sub-label">Usage analytics (Firebase Analytics)</p>
+        <p>To improve the app we may collect non-identifying app interaction events (e.g., game start and end, paywall views, notification opens, shares) and a device identifier issued by Firebase (the app instance ID) via Google Firebase Analytics. No directly identifying information such as content, name, or contact details is included, the advertising identifier (IDFA / AAID) is not collected, we do not track you, and the data is never sold, shared with third parties, or used for marketing (Google processes it as our processor). See the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a> for details.</p>
         <p class="sub-label">Permissions</p>
         <p>Notification permission is requested only when you enable "Daily Reminder" in Settings. Notifications are delivered on-device only and are not transmitted to any external server.</p>
       </div>
@@ -762,9 +770,11 @@
       </div>
       <div class="app-block" data-app="quote2048">
         <p class="sub-label">Quote 2048</p>
-        <p>We do not collect, transmit, or store any personally identifiable information from Quote 2048 users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, no account system, and does not request location permissions.</p>
+        <p>We do not collect, transmit, or store any personally identifiable information from Quote 2048 users. The app contains no advertising SDKs, no third-party integrations other than those disclosed below, no account system, and does not request location permissions. Anonymous usage statistics are collected only as described under “Usage analytics (Firebase Analytics)” below.</p>
         <p>Game progress (current board state, theme clear/progress status, best scores, daily-play streak, your custom theme packs (sentences you enter — stored on-device only), settings, onboarding/terms-acceptance flags) is stored on your device in UserDefaults. The same data is also mirrored to your Apple iCloud account's Key-Value Store so it syncs across devices signed in to the same Apple ID and restores on new device setup. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
         <p>In-app purchases (Quote Pro, one-time) and receipt validation are handled entirely by Apple StoreKit; we do not collect any payment information.</p>
+        <p class="sub-label">Usage analytics (Firebase Analytics)</p>
+        <p>To improve the app we may collect non-identifying app interaction events (e.g., game start and end, paywall views, notification opens, shares) and a device identifier issued by Firebase (the app instance ID) via Google Firebase Analytics. No directly identifying information such as content, name, or contact details is included, the advertising identifier (IDFA / AAID) is not collected, we do not track you, and the data is never sold, shared with third parties, or used for marketing (Google processes it as our processor). See the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a> for details.</p>
         <p class="sub-label">Permissions</p>
         <p>Notification permission is requested only when you enable notifications in Settings. Notifications are delivered on-device only and are not transmitted to any external server.</p>
       </div>
@@ -915,6 +925,7 @@
         <tr data-app="findlocal"><td>kkiruk studio server / cloud infrastructure</td><td>Local Link — non-identifying usage metrics and diagnostics for future app improvement</td></tr>
         <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette — game progress sync across devices on the same Apple ID</td></tr>
         <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette — Pro subscription payment &amp; receipt validation</td></tr>
+        <tr data-app="palette2048"><td>Google Firebase Analytics</td><td>Palette — non-identifying usage analytics (no IDFA)</td></tr>
         <tr data-app="salarycharm"><td>Apple StoreKit</td><td>Salary Charm — Unlimited Unlock (one-time) payment &amp; receipt validation</td></tr>
         <tr data-app="deskbreath"><td>Apple StoreKit</td><td>DeskBreath — Pro one-time payment &amp; receipt validation</td></tr>
         <tr data-app="deskbreath"><td>Apple iCloud (Key-Value Store)</td><td>DeskBreath — Pro settings &amp; stats sync across your devices (when enabled)</td></tr>
@@ -926,6 +937,7 @@
         <tr data-app="song2048"><td>Google Firebase Analytics</td><td>Song 2048 — non-identifying usage analytics</td></tr>
         <tr data-app="quote2048"><td>Apple iCloud (Key-Value Store)</td><td>Quote 2048 — game progress sync across devices on the same Apple ID</td></tr>
         <tr data-app="quote2048"><td>Apple StoreKit</td><td>Quote 2048 — Pro one-time purchase &amp; receipt validation</td></tr>
+        <tr data-app="quote2048"><td>Google Firebase Analytics</td><td>Quote 2048 — non-identifying usage analytics (no IDFA)</td></tr>
         <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>Tetsulog — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
         <tr data-app="tetsulog"><td>Apple Core Location</td><td>Tetsulog — transient location lookup when you tap "My location" / "Nearby stations"</td></tr>
         <tr data-app="tetsulog"><td>Apple StoreKit</td><td>Tetsulog — Pro subscription / lifetime purchase &amp; receipt validation</td></tr>
